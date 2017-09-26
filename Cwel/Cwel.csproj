@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\" />
+    <Folder Include="Src\Core\" />
+    <Folder Include="Src\Web\" />
   </ItemGroup>
 
 </Project>

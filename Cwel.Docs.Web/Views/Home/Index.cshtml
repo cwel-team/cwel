@@ -1,9 +1,11 @@
-﻿@using Cwel.Extensions
-@model dynamic
+﻿@model dynamic
 
 @{
     ViewBag.Title = "Home";
 }
-                         
 
-@Html.Card()
+@Html.Card(new CardViewModel
+{
+    Details = "Details",
+    Header = "Heading 1"
+})

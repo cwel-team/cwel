@@ -271,15 +271,11 @@ __pycache__/
 
 Cwomponents/dist/**
 
-Cwo.Docs.Web/Cwomponents/**
+Cwo.Docs.Web/Cwel/**
 Cwo.Docs.Web/Assets/css/site.css
 Cwo.Docs.Web/Assets/js/**
 Cwo.Docs.Web/Assets/vendor/**
 
-Cwo.Cms/Cwomponents/**
-Cwo.Cms/Assets/vendor/**
-Cwo.Cms/Assets/css/cms.css
-Cwo.Cms/Assets/js/**
 
 # Ignore swap files created by vim
 

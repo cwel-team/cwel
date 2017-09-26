@@ -1,0 +1,25 @@
+.badge {
+    position: relative;
+    padding: 90px 90px;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    background-color: transparent;
+    background-image: url(https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwallzoa.com%2Fwp-content%2Fuploads%2F2013%2F05%2Famerican-flag-eagle-wallpaper.jpg&f=1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.badge__counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    padding-top: 12px;
+    border-radius: 50%;
+    background-color: #14192d;
+    color: white;
+    font-weight: 800;
+}
