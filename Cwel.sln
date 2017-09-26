@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cwel", "Cwel\Cwel.csproj", "{4D22061C-C12A-433A-8B1D-DFB4C39B0168}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cwel.Docs.Web", "Cwel.Docs.Web\Cwel.Docs.Web.csproj", "{AFB8517B-504B-4640-9A97-D24E90971E13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D22061C-C12A-433A-8B1D-DFB4C39B0168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D22061C-C12A-433A-8B1D-DFB4C39B0168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D22061C-C12A-433A-8B1D-DFB4C39B0168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D22061C-C12A-433A-8B1D-DFB4C39B0168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB8517B-504B-4640-9A97-D24E90971E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB8517B-504B-4640-9A97-D24E90971E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB8517B-504B-4640-9A97-D24E90971E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB8517B-504B-4640-9A97-D24E90971E13}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CA85034-C85E-4A59-B18C-7AFA5B82D2EE}
+	EndGlobalSection
+EndGlobal
