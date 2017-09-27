@@ -1,0 +1,22 @@
+# Editorconfig for project
+# Please install an editorconfig plugin for your
+# preferred IDE or text editor to make
+# the most use of this file. :D
+
+root = true
+
+[*]
+indent_style = space
+
+[*.{es,js,scss,css,cs,cshtml,html,md}]
+charset = utf-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+indent_style = tab
+
+[*.json]
+indent_size = 2
