@@ -276,6 +276,7 @@ Cwo.Docs.Web/Assets/css/site.css
 Cwo.Docs.Web/Assets/js/**
 Cwo.Docs.Web/Assets/vendor/**
 
+Cwel/dist/**
 
 # Ignore swap files created by vim
 

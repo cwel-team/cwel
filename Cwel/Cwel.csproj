@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Src\Core\" />
-    <Folder Include="Src\Web\" />
+    <Content Include="dist\**\*.*">
+      <PackagePath>content\Cwel</PackagePath>
+    </Content>
   </ItemGroup>
-
 </Project>
