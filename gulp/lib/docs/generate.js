@@ -77,10 +77,10 @@ module.exports = function generateDocs() {
     return through.obj((file, encoding, cb) => {
         const cwomponentData = gatherCwomponentData(file);
 
-        let templatePath = path.resolve(`gulp-lib/docs/template/${cwomponentData.type}.tpl.html`);
+        let templatePath = path.resolve(`gulp/lib/docs/template/${cwomponentData.type}.tpl.html`);
 
         if (!fs.existsSync(templatePath)) {
-            templatePath = path.resolve('gulp-lib/docs/template/default.tpl.html');
+            templatePath = path.resolve('gulp/lib/docs/template/default.tpl.html');
         }
 
         fs.readFile(templatePath, 'utf-8', (e, template) => {

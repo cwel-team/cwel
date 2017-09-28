@@ -4,11 +4,11 @@ const csdoc = require('../../lib/docs/csharp/csdoc');
 
 
 /**
- * Generate cwomponent documentation
+ * @internal
  */
-gulp.task('docs', () => {
+gulp.task('docs-build', () => {
     return gulp.src([
-        'Cwomponents/{Pattern,Component,Service}/**/*.doc.md',
+        'Cwel/src/**/*.doc.md',
     ])
     .pipe(generateDocs())
     .pipe(gulp.dest('Cwel.Docs.Web/Cwel'));
@@ -16,10 +16,10 @@ gulp.task('docs', () => {
 
 
 /**
- * TODO(Daniel Stuessy) Get csdoc files sorted after docs task is done
+ * TODO(Daniel Stuessy) work-out where csdoc files reside and where they go
  * @internal
  */
-gulp.task('docs-csharp', () => {
+gulp.task('docs-build-csharp', () => {
     return gulp.src([
         'Cwo.Core/**/*.csdoc',
     ]).pipe(csdoc()).pipe(gulp.dest('Cwomponents/dist/csdoc'));

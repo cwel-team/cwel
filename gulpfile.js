@@ -6,8 +6,6 @@ const eslint = require('gulp-eslint');
 const gulpif = require('gulp-if');
 const yargs = require('yargs');
 const msbuild = require('gulp-msbuild');
-const generateDocs = require('./gulp/lib/docs/generate.js');
-const csdoc = require('./gulp/lib/docs/csharp/csdoc.js');
 const multiSync = require('./gulp/lib/util/browserSyncMulti');
 
 require('./gulp/tasks/dist/script.js');
@@ -34,6 +32,11 @@ gulp.task('default', ['help']);
  * Build and copy all relevant CWEL files into the distribution folder
  */
 gulp.task('dist', done => gulpSequence('dist')(done));
+
+/**
+ * Generate cwomponent documentation
+ */
+gulp.task('docs', done => gulpSequence('docs-build')(done));
 
 /**
  * Build Csharp for solution
@@ -86,21 +89,9 @@ gulp.task('test', (done) => {
  * Clean up all files resulting from the build -- including those copied
  * i.e. undo the `gulp build` task
  */
-gulp.task('clean', done => gulpSequence(['clean-cwomponents', 'clean-vendors', 'clean-js', 'clean-css'])(done));
+gulp.task('clean', () => {});
 
-/**
- * The general build process invoking sub commands: linting, cleaning, building,
- * and copying of the Cwomponents and each site's indigenous front-end code.
- * NOTE all command options applied here are inherited by all sub commands.
- */
-gulp.task('build-old', done => gulpSequence(
-    'lint', 'clean',
-    ['docs', 'build-docs-js', 'build-cms-js', 'build-cwomponents-es', 'build-cwomponents-services'],
-    ['copy', 'build-docs-scss', 'build-cms-scss'])(done));
-
-gulp.task('build', done => gulpSequence(
-  'lint',
-  ['build-es'])(done));
+gulp.task('build', () => {});
 
 /**
  * Auto-build FED code as you are working on it.
