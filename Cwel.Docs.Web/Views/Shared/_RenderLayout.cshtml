@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" >
+    <link href="@("https://unpkg.com/normalize.css@^4.1.1")" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="~/Assets/css/site.css"/>
+</head>
+<body ng-app="cwoApp">
+    @RenderBody()
+    <script src="~/Assets/vendor/js/angular/angular.js"></script>
+    <script src="~/Assets/vendor/js/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
+    <script src="~/Assets/vendor/js/jsoncomp/jsonc.js"></script>
+    <script src="~/Assets/vendor/js/hammerjs/hammer.js"></script>
+    <script src="~/Assets/vendor/js/howler/howler.js"></script>
+    <script src="~/Assets/js/docsapp.js"></script>
+    <script src="~/Assets/js/playground.js"></script>
+    <script src="~/Assets/js/bus.js"></script>
+
+    <script src="~/Cwomponents/services.js"></script>
+    @* TODO(Declan Cook) Can we use AssetHelper here? *@
+    <script src="~/Cwomponents/Pattern/CardSlider/CardSlider.js"></script>
+    <script src="~/Cwomponents/Component/Badge/Badge.js"></script>
+</body>
+</html>
