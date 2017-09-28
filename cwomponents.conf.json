@@ -1,0 +1,16 @@
+{
+  "component": {
+    "fedSrc": "Cwomponents/Component/{name}",
+    "bedSrc": "Cwo.Core/ComponentViewModels/{name}",
+    "templates": "gulp-lib/cwomponent/template/component"
+  },
+  "pattern": {
+    "fedSrc": "Cwomponents/Pattern/{name}",
+    "bedSrc": "Cwo.Core/PatternViewModels/{name}",
+    "templates": "gulp-lib/cwomponent/template/pattern"
+  },
+  "service": {
+    "fedSrc": "Cwomponents/Service/{name}",
+    "templates": "gulp-lib/cwomponent/template/service"
+  }
+}

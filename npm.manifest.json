@@ -1,0 +1,7 @@
+{
+  "angular": "node_modules/angular/angular.js",
+  "angular-drag-and-drop-lists": "node_modules/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js",
+  "jsoncomp": "node_modules/jsoncomp/versions/jsonc.js",
+  "howler": "node_modules/howler/dist/howler.js",
+  "hammerjs": "node_modules/hammerjs/hammer.js"
+}
