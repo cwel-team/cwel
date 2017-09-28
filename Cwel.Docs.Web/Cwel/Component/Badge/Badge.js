@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * @name Badge
  * @type component
@@ -6,15 +8,15 @@
  * @dependencies addOne, CwomponentFactory
 */
 /* global Howl */
-angular.module('cwoApp').directive('badge', (addOne, CwomponentFactory) => {
+angular.module('cwoApp').directive('badge', ['addOne', 'CwomponentFactory', function (addOne, CwomponentFactory) {
     return CwomponentFactory({
         restrict: 'A',
         scope: {
-            start: '@',
+            start: '@'
         },
-        link: (scope) => {
-            const howl = new Howl({
-                src: ['/Assets/media/riflesound.mp3'],
+        link: function link(scope) {
+            var howl = new Howl({
+                src: ['/Assets/media/riflesound.mp3']
             });
 
             /**
@@ -31,10 +33,11 @@ angular.module('cwoApp').directive('badge', (addOne, CwomponentFactory) => {
              * @name increment
              * @return {void}
              */
-            scope.increment = () => {
+            scope.increment = function () {
                 howl.play();
                 scope.counter = addOne.increment(scope.counter);
             };
-        },
+        }
     });
-});
+}]);
+//# sourceMappingURL=Badge.js.map

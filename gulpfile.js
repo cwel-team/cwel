@@ -13,12 +13,13 @@ const argv = yargs.argv; // parse process.argv with yargs
 require('./gulp/tasks/dist/script.js');
 require('./gulp/tasks/dist/style.js');
 require('./gulp/tasks/dist/web-config.js');
-require('./gulp/tasks/docs/build.js');
+require('./gulp/tasks/test/build.js');
+require('./gulp/tasks/docs/generate.js');
 require('./gulp/tasks/docs/copy.js');
 
-require('./gulp/tasks/copy.js');
-require('./gulp/tasks/create.js');
-require('./gulp/tasks/test.js');
+// require('./gulp/tasks/copy.js');
+// require('./gulp/tasks/create.js');
+// require('./gulp/tasks/test.js');
 
 /**
  * Display this help
@@ -40,9 +41,18 @@ gulp.task('cwel-dist', done => gulpSequence('cwel-dist-script', 'cwel-dist-style
 gulp.task('clean:cwel-dist', done => gulpSequence('clean:cwel-dist-script', 'clean:cwel-dist-style', 'clean:cwel-dist-config')(done));
 
 /**
- * Generate cwomponent documentation
+ * Run CWEL tests
  */
-gulp.task('docs', done => gulpSequence('docs-copy', 'docs-build')(done));
+gulp.task('cwel-test', done => gulpSequence('cwel-test-build')(done));
+
+/**
+ * Generate CWEL documentation pages
+ */
+gulp.task('docs', done => gulpSequence('docs-copy', 'docs-generate')(done));
+/**
+ * Clean the CWEL documentation files and code in the docs project
+ */
+gulp.task('clean:docs', done => gulpSequence('clean:docs-copy', 'clean:docs-generate')(done));
 
 /**
  * Build Csharp for solution
