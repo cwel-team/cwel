@@ -9,7 +9,7 @@ const generateDocs = require('./gulp-lib/docs/generate.js');
 const csdoc = require('./gulp-lib/docs/csharp/csdoc.js');
 const multiSync = require('./gulp-lib/browserSyncMulti');
 
-require('./gulp-lib/tasks/build.js');
+require('./gulp-lib/tasks/cwel/build.js');
 require('./gulp-lib/tasks/clean.js');
 require('./gulp-lib/tasks/copy.js');
 require('./gulp-lib/tasks/create.js');

@@ -1,0 +1,108 @@
+describe('Breakpoint Service', () => {
+    let Breakpoint;
+    const deviceSizes = [
+        {
+            name: 'xs',
+            breakpoint: 0,
+        },
+        {
+            name: 's',
+            breakpoint: 400,
+        },
+        {
+            name: 'm',
+            breakpoint: 600,
+        },
+        {
+            name: 'l',
+            breakpoint: 1004,
+        },
+        {
+            name: 'xl',
+            breakpoint: 1280,
+        },
+    ];
+
+    beforeEach(() => {
+        module('cwoApp');
+        inject((_Breakpoint_) => {
+            Breakpoint = _Breakpoint_;
+        });
+    });
+
+    afterEach(() => {
+        viewport.reset();
+    });
+
+    it('allows you to set a device-based breakpoint', () => {
+        const callback = () => {};
+        Breakpoint.on('m', callback);
+        expect(Breakpoint.events).toEqual([
+            {
+                name: 'm',
+                callback,
+            },
+        ]);
+    });
+
+    it('allows you to set a range of device-based breakpoints', () => {
+        const callback = () => {};
+        Breakpoint.on(['m', 'l'], callback);
+        expect(Breakpoint.events).toEqual([
+            {
+                name: 'm',
+                callback,
+            },
+            {
+                name: 'l',
+                callback,
+            },
+        ]);
+    });
+
+    it('invokes callbacks with an event object', (done) => {
+        Breakpoint.on('m', (e) => {
+            console.log('STUFF OF THE HEATHENS', e);
+            expect('monkey').toBe(true);
+            expect(e).toEqual({
+                previous: deviceSizes.filter(ds => ds.name === 's').shift(),
+                current: deviceSizes.filter(ds => ds.name === 'm').shift(),
+                next: deviceSizes.filter(ds => ds.name === 'l').shift(),
+            });
+            done();
+        });
+        viewport.set('m');
+    });
+
+    it('wont invoke callback on media queries smaller or larger than a given device size', (done) => {
+        let bool = false;
+
+        Breakpoint.on('l', () => {
+            bool = true;
+        });
+
+        viewport.set('s');
+
+        setTimeout(() => {
+            expect(bool).toBe(false);
+            viewport.set('xl');
+            setTimeout(() => {
+                expect(bool).toBe(false);
+                done();
+            }, 500);
+        }, 500);
+    });
+
+    it('throws error if wrong format is given for breakpoint listener', () => {
+        const test = () => {
+            Breakpoint.on('(min-width: 600px)', () => {});
+        };
+
+        expect(test).toThrowError(Error);
+    });
+
+    it('has a retrievable list of device breakpoints with their necessary properties', () => {
+        const ds = Breakpoint.deviceSizes;
+        expect(ds).toEqual(deviceSizes);
+    });
+});
