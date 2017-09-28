@@ -20,11 +20,11 @@ namespace Cwel.Docs.Web.Controllers
     /// </summary>
     public class PlaygroundController : Controller
     {
+
         /// <summary>
         /// Display the playground UI
         /// </summary>
         [HttpGet]
-        [Route("Playground/{id?}/{version?}")]
         public async Task<ActionResult> Index(string id, int? version)
         {
             PlayVersion play = null;
@@ -92,6 +92,7 @@ namespace Cwel.Docs.Web.Controllers
         /// </summary>
         /// <param name="type">Type of Cwomponent</param>
         /// <param name="name">Name of Cwomponent</param>
+        [Route("Playground/Model")]
         public string Model(string type, string name)
         {
             var model = System.IO.File.ReadAllText(Server.MapPath($"~/Cwomponents/{type}/{name}/default.json"));
@@ -102,6 +103,7 @@ namespace Cwel.Docs.Web.Controllers
         /// <summary>
         /// Returns a JSOn dictionary containing all the Components and Patterns on the filesystem
         /// </summary>
+        [Route("Playground/Names")]
         public JsonResult Names()
         {
             var model = new Dictionary<string, string[]>();
@@ -124,6 +126,7 @@ namespace Cwel.Docs.Web.Controllers
         /// <summary>
         /// Stage IFrame
         /// </summary>
+        [Route("Playground/Stage")]
         public ActionResult Stage()
         {
             return View();
@@ -137,6 +140,7 @@ namespace Cwel.Docs.Web.Controllers
         /// <param name="model">Json ViewModel of the Cwomponent</param>
         /// <param name="layout">Include the Layout when rendering</param>
         /// <exception cref="Exception">Throws if we cant compile the Razor file to determine its ViewModel type</exception>
+        [Route("Playground/Render")]
         public ActionResult Render(string type, string name, string model, bool layout = false)
         {
             var view = $"~/Cwel/{type}/{name}/{name}.cshtml";
@@ -165,6 +169,7 @@ namespace Cwel.Docs.Web.Controllers
         /// </summary>
         /// <param name="page">Page model to be rendered</param>
         [HttpPost]
+        [Route("Playground/RenderPage")]
         public ActionResult RenderPage(string model)
         {
             var page = JsonConvert.DeserializeObject<PlaygroundPage>(model);

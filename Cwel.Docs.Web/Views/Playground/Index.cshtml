@@ -1,8 +1,11 @@
 @model Cwel.Docs.Web.Models.PlayVersion
 
-<script type="x-play">
-    @Html.Raw(Model.Data)
-</script>
+@if (Model != null)
+{
+    <script type="x-play">
+        @Html.Raw(Model.Data)
+    </script>
+}
 
 <div class="docs-playground-wrapper" ng-controller="playgroundCtrl">
     <div class="docs-playground-toolbox">
