@@ -56,7 +56,7 @@ namespace Cwel.Docs.Web.Controllers
                 {
                     try
                     {
-                        var version = -1;
+                        var version = 0;
                         if (string.IsNullOrEmpty(id))
                         {
                             var sql =
