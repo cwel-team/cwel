@@ -47,8 +47,10 @@ namespace Cwel.Docs.Web.Controllers
         [Route("Playground/Save/{Id?}")]
         public async Task<ActionResult> Save(string id, string data)
         {
-            //TODO refactor this out of the controller
             int playId;
+            var version = 0;
+
+            //TODO refactor this out of the controller
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["PlaygroundDb"].ConnectionString))
             {
                 db.Open();
@@ -56,7 +58,6 @@ namespace Cwel.Docs.Web.Controllers
                 {
                     try
                     {
-                        var version = 0;
                         if (string.IsNullOrEmpty(id))
                         {
                             var sql =
@@ -83,7 +84,7 @@ namespace Cwel.Docs.Web.Controllers
                 }
             }
             //TODO Ajax or Post
-            return RedirectToAction("Index", new { Id = CodeGenerator.GenerateCode(playId) });
+            return RedirectToAction("Index", new { Id = CodeGenerator.GenerateCode(playId), version });
         }
 
         /// <summary>
