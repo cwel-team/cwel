@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="dist\**\*.*">
+    <Content Include="dist\Cwel\**\*.*">
       <PackagePath>content\Cwel</PackagePath>
     </Content>
   </ItemGroup>
