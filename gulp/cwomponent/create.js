@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const through = require('through2');
 
-const invokeOnCount = require('../util/invokeOnCount');
+const invokeOnCount = require('../lib/util/invokeOnCount');
 const config = require('../../cwomponents.conf.json');
 
 

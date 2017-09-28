@@ -1,19 +1,22 @@
 const gulp = require('gulp');
-const doc = require('gulp-task-doc').patchGulp();
+const doc = require('gulp-task-doc').patchGulp(); // @TODO(Daniel Stuessy) put this in 'help' task to improve gulp startup speed
 const gulpSequence = require('gulp-sequence');
 const gulpMultiProcess = require('gulp-multi-process');
 const eslint = require('gulp-eslint');
 const gulpif = require('gulp-if');
 const yargs = require('yargs');
-const generateDocs = require('./gulp-lib/docs/generate.js');
-const csdoc = require('./gulp-lib/docs/csharp/csdoc.js');
-const multiSync = require('./gulp-lib/browserSyncMulti');
+const msbuild = require('gulp-msbuild');
+const generateDocs = require('./gulp/lib/docs/generate.js');
+const csdoc = require('./gulp/lib/docs/csharp/csdoc.js');
+const multiSync = require('./gulp/lib/util/browserSyncMulti');
 
-require('./gulp-lib/tasks/cwel/build.js');
-require('./gulp-lib/tasks/clean.js');
-require('./gulp-lib/tasks/copy.js');
-require('./gulp-lib/tasks/create.js');
-require('./gulp-lib/tasks/test.js');
+require('./gulp/tasks/dist/script.js');
+require('./gulp/tasks/dist/style.js');
+require('./gulp/tasks/docs/build.js');
+
+require('./gulp/tasks/copy.js');
+require('./gulp/tasks/create.js');
+require('./gulp/tasks/test.js');
 
 const argv = yargs.argv; // parse process.argv with yargs
 
@@ -28,24 +31,17 @@ gulp.task('help', doc.help());
 gulp.task('default', ['help']);
 
 /**
- * @internal
+ * Build and copy all relevant CWEL files into the distribution folder
  */
-gulp.task('docs-csharp', () => {
-    return gulp.src([
-        'Cwo.Core/**/*.csdoc',
-    ]).pipe(csdoc()).pipe(gulp.dest('Cwomponents/dist/csdoc'));
-});
+gulp.task('dist', done => gulpSequence('dist')(done));
 
 /**
- * Generate cwomponent documentation
+ * Build Csharp for solution
  */
-gulp.task('docs', ['docs-csharp'], () => {
-    return gulp.src([
-        'Cwomponents/{Pattern,Component,Service}/**/*.doc.md',
-    ])
-    .pipe(generateDocs())
-    .pipe(gulp.dest('Cwomponents/dist'));
-});
+gulp.task('build-csharp', () => gulp.src('./Cwo.EpiServer.sln')
+.pipe(msbuild({
+    toolsVersion: 'auto',
+})));
 
 /**
  * Check the project's code style.
@@ -55,7 +51,7 @@ gulp.task('lint', () => {
         '**/*.es',
         '**/*.js',
         '!node_modules/**',
-        '!gulp-lib/cwomponent/template/**',
+        '!gulp/cwomponent/template/**',
         '!Cwo.Docs.Web/Cwomponents/**/*.js',
         '!Cwo.Docs.Web/Assets/**/*.js',
         '!Cwo.Cms/Cwomponents/**/*.js',

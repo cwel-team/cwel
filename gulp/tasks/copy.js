@@ -5,7 +5,6 @@ const sourcemaps = require('gulp-sourcemaps');
 const path = require('path');
 const through = require('through2');
 
-const gulpRoot = require('../gulpRoot'); // @TODO redundant as demonstrated by the build-cwomponents-es task
 const vendorManifest = require('../../npm.manifest.json');
 
 // @internal

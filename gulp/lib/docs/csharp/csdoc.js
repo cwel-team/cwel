@@ -1,6 +1,6 @@
-const xmldoc = require('xmldoc'); // eslint-disable-line
-const through = require('through2'); // eslint-disable-line
-const gutil = require('gulp-util'); //eslint-disable-line
+const xmldoc = require('xmldoc');
+const through = require('through2');
+const gutil = require('gulp-util');
 const path = require('path');
 
 function getChild(node, name) {

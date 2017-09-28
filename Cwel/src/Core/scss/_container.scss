@@ -1,0 +1,31 @@
+
+@import "core/device";
+@import "core/settings";
+
+@mixin container {
+    display: block;
+    max-width: 1000px;
+    margin: auto;
+    padding-left: $CONTAINER-MARGIN-XS;
+    padding-right: $CONTAINER-MARGIN-XS;
+
+    @each $device-size in map-keys($BREAKPOINTS) {
+        $breakpoint: map-get($BREAKPOINTS, $device-size);
+        $width: map-get($CONTAINER, 'width-#{$device-size}');
+        $margin: map-get($CONTAINER, 'margin-#{$device-size}');
+
+        @include breakpoint($device-size) {
+            @if ($width != null) {
+                max-width: $width;
+            }
+            @if ($margin != null) {
+                padding-left: $margin;
+                padding-right: $margin;
+            }
+        }
+    }
+}
+
+@mixin fluid-container {
+    display: block;
+}
