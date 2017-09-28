@@ -12,6 +12,56 @@ angular.module('cwoApp').factory('addOne', function () {
     };
 });
 
+angular.module('cwoApp').service('CwoMI', ['$window', function ($window) {
+    $window.dataLayer = $window.dataLayer || [];
+
+    return {
+        logEvent: function logEvent(event) {
+            if (event) {
+                $window.dataLayer.push(event);
+            }
+        }
+    };
+}]);
+
+angular.module('cwoApp').factory('CwomponentFactory', ['$compile', function ($compile) {
+    var cwomponentPrio = 50;
+
+    // Cwomponentify a directive definition object
+    return function (ddo) {
+        var prevLink = void 0;
+
+        if (ddo.priority || ddo.compile) {
+            console.warn('CwomponentFactory called for a directive that defines a compile function or a priority');
+            return ddo;
+        }
+
+        // Remove link function
+        if (ddo.link) {
+            prevLink = ddo.link;
+            delete ddo.link;
+        }
+
+        ddo.compile = function (templateElement) {
+            var compiled = $compile(templateElement, null, cwomponentPrio);
+            return function (scope) {
+                for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+                    args[_key - 1] = arguments[_key];
+                }
+
+                compiled(scope);
+
+                if (prevLink) {
+                    prevLink.apply(undefined, [scope].concat(args));
+                }
+            };
+        };
+
+        ddo.priority = cwomponentPrio;
+        return ddo;
+    };
+}]);
+
 angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
     return new (function () {
         function Breakpoint() {
@@ -87,8 +137,8 @@ angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
         }, {
             key: 'emit',
             value: function emit(name) {
-                for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-                    args[_key - 1] = arguments[_key];
+                for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+                    args[_key2 - 1] = arguments[_key2];
                 }
 
                 var events = this.events.filter(function (e) {
@@ -119,55 +169,5 @@ angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
 
         return Breakpoint;
     }())();
-}]);
-
-angular.module('cwoApp').service('CwoMI', ['$window', function ($window) {
-    $window.dataLayer = $window.dataLayer || [];
-
-    return {
-        logEvent: function logEvent(event) {
-            if (event) {
-                $window.dataLayer.push(event);
-            }
-        }
-    };
-}]);
-
-angular.module('cwoApp').factory('CwomponentFactory', ['$compile', function ($compile) {
-    var cwomponentPrio = 50;
-
-    // Cwomponentify a directive definition object
-    return function (ddo) {
-        var prevLink = void 0;
-
-        if (ddo.priority || ddo.compile) {
-            console.warn('CwomponentFactory called for a directive that defines a compile function or a priority');
-            return ddo;
-        }
-
-        // Remove link function
-        if (ddo.link) {
-            prevLink = ddo.link;
-            delete ddo.link;
-        }
-
-        ddo.compile = function (templateElement) {
-            var compiled = $compile(templateElement, null, cwomponentPrio);
-            return function (scope) {
-                for (var _len2 = arguments.length, args = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-                    args[_key2 - 1] = arguments[_key2];
-                }
-
-                compiled(scope);
-
-                if (prevLink) {
-                    prevLink.apply(undefined, [scope].concat(args));
-                }
-            };
-        };
-
-        ddo.priority = cwomponentPrio;
-        return ddo;
-    };
 }]);
 //# sourceMappingURL=services.js.map

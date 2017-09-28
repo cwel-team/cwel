@@ -12,6 +12,7 @@ const argv = yargs.argv; // parse process.argv with yargs
 
 require('./gulp/tasks/dist/script.js');
 require('./gulp/tasks/dist/style.js');
+require('./gulp/tasks/dist/razor.js');
 require('./gulp/tasks/dist/web-config.js');
 require('./gulp/tasks/test/build.js');
 require('./gulp/tasks/docs/generate.js');
@@ -34,11 +35,11 @@ gulp.task('default', ['help']);
 /**
  * Build and copy all relevant CWEL files into the distribution folder
  */
-gulp.task('cwel-dist', done => gulpSequence('cwel-dist-script', 'cwel-dist-style', 'cwel-dist-config')(done));
+gulp.task('cwel-dist', done => gulpSequence('cwel-dist-script', 'cwel-dist-style', 'cwel-dist-razor', 'cwel-dist-config')(done));
 /**
  * Clean the CWEL distribution folder
  */
-gulp.task('clean:cwel-dist', done => gulpSequence('clean:cwel-dist-script', 'clean:cwel-dist-style', 'clean:cwel-dist-config')(done));
+gulp.task('clean:cwel-dist', done => gulpSequence('clean:cwel-dist-script', 'clean:cwel-dist-style', 'clean:cwel-dist-razor', 'clean:cwel-dist-config')(done));
 
 /**
  * Run CWEL tests
