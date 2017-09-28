@@ -8,15 +8,17 @@ const yargs = require('yargs');
 const msbuild = require('gulp-msbuild');
 const multiSync = require('./gulp/lib/util/browserSyncMulti');
 
+const argv = yargs.argv; // parse process.argv with yargs
+
 require('./gulp/tasks/dist/script.js');
 require('./gulp/tasks/dist/style.js');
+require('./gulp/tasks/dist/web-config.js');
 require('./gulp/tasks/docs/build.js');
+require('./gulp/tasks/docs/copy.js');
 
 require('./gulp/tasks/copy.js');
 require('./gulp/tasks/create.js');
 require('./gulp/tasks/test.js');
-
-const argv = yargs.argv; // parse process.argv with yargs
 
 /**
  * Display this help
@@ -31,12 +33,16 @@ gulp.task('default', ['help']);
 /**
  * Build and copy all relevant CWEL files into the distribution folder
  */
-gulp.task('dist', done => gulpSequence('dist')(done));
+gulp.task('cwel-dist', done => gulpSequence('cwel-dist-script', 'cwel-dist-style', 'cwel-dist-config')(done));
+/**
+ * Clean the CWEL distribution folder
+ */
+gulp.task('clean:cwel-dist', done => gulpSequence('clean:cwel-dist-script', 'clean:cwel-dist-style', 'clean:cwel-dist-config')(done));
 
 /**
  * Generate cwomponent documentation
  */
-gulp.task('docs', done => gulpSequence('docs-build')(done));
+gulp.task('docs', done => gulpSequence('docs-copy', 'docs-build')(done));
 
 /**
  * Build Csharp for solution
@@ -84,14 +90,6 @@ gulp.task('test', (done) => {
         done();
     });
 });
-
-/**
- * Clean up all files resulting from the build -- including those copied
- * i.e. undo the `gulp build` task
- */
-gulp.task('clean', () => {});
-
-gulp.task('build', () => {});
 
 /**
  * Auto-build FED code as you are working on it.

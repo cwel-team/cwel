@@ -5,30 +5,30 @@ const gulpSequence = require('gulp-sequence');
 
 // @internal
 gulp.task('cwel-dist-style', done => gulpSequence([
-    'cwel-dist-component-style',
-    'cwel-dist-pattern-style',
-    'cwel-dist-core-style',
+    'cwel-dist-style-component',
+    'cwel-dist-style-pattern',
+    'cwel-dist-style-core',
 ])(done));
-gulp.task('cwel-clean-style', done => gulpSequence([
-    'cwel-clean-component-style',
-    'cwel-clean-pattern-style',
-    'cwel-clean-core-style',
+gulp.task('clean:cwel-dist-style', done => gulpSequence([
+    'clean:cwel-dist-style-component',
+    'clean:cwel-dist-style-pattern',
+    'clean:cwel-dist-style-core',
 ])(done));
 
 
 // @internal
-gulp.task('cwel-dist-component-style', () => gulp.src('Cwel/src/Component/**/*.scss')
+gulp.task('cwel-dist-style-component', () => gulp.src('Cwel/src/Component/**/*.scss')
 .pipe(gulp.dest('Cwel/dist/Cwel/Component/')));
-gulp.task('cwel-clean-component-style', () => del(['Cwel/dist/Cwel/Component/**/*.scss']));
+gulp.task('clean:cwel-dist-style-component', () => del(['Cwel/dist/Cwel/Component/**/*.scss']));
 
 
 // @internal
-gulp.task('cwel-dist-pattern-style', () => gulp.src('Cwel/src/Pattern/**/*.scss')
+gulp.task('cwel-dist-style-pattern', () => gulp.src('Cwel/src/Pattern/**/*.scss')
 .pipe(gulp.dest('Cwel/dist/Cwel/Pattern/')));
-gulp.task('cwel-clean-pattern-style', () => del(['Cwel/dist/Cwel/Pattern/**/*.scss']));
+gulp.task('clean:cwel-dist-style-pattern', () => del(['Cwel/dist/Cwel/Pattern/**/*.scss']));
 
 
 // @internal
-gulp.task('cwel-dist-core-style', () => gulp.src('Cwel/src/Core/**/*.scss')
+gulp.task('cwel-dist-style-core', () => gulp.src('Cwel/src/Core/**/*.scss')
 .pipe(gulp.dest('Cwel/dist/Cwel/Core/')));
-gulp.task('cwel-clean-core-style', () => del(['Cwel/dist/Cwel/Core/**/*.scss']));
+gulp.task('clean:cwel-dist-style-core', () => del(['Cwel/dist/Cwel/Core/**/*.scss']));

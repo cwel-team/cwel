@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const del = require('del');
 const generateDocs = require('../../lib/docs/generate');
 const csdoc = require('../../lib/docs/csharp/csdoc');
 
@@ -13,6 +14,7 @@ gulp.task('docs-build', () => {
     .pipe(generateDocs())
     .pipe(gulp.dest('Cwel.Docs.Web/Cwel'));
 });
+gulp.task('clean:docs-build', () => del(['Cwel/src/**/*.doc.md']));
 
 
 /**
