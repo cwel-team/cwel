@@ -78,7 +78,7 @@ namespace Cwel.Web
         }
 
         /// <summary>
-        /// Push HTTP2 Link preload headers to the CDN
+        /// Push HTTP2 Link preload headers
         /// </summary>
         /// <param name="helper">HtmlHelper</param>
         /// <param name="context">Optional HttpContext para used for mocking during testing</param>
