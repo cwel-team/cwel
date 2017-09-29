@@ -60,15 +60,15 @@ gulp.task('cwel-docs', ['cwel-dist'], done => gulpSequence('cwel-docs-copy', 'cw
 gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean:cwel-docs-generate')(done));
 
 /**
- * Build Csharp for solution
+ * Run MSBuild on this solution
  */
-gulp.task('build-csharp', () => gulp.src('./Cwo.EpiServer.sln')
+gulp.task('msbuild', () => gulp.src('./Cwo.EpiServer.sln')
 .pipe(msbuild({
     toolsVersion: 'auto',
 })));
 
 /**
- * Check the project's code style.
+ * Check the solution's code style.
  */
 gulp.task('lint', () => {
     return gulp.src([
@@ -92,6 +92,7 @@ gulp.task('lint', () => {
 
 /**
  * Run the front-end tests. e.g. unit and e2e
+ * @internal
  */
 gulp.task('test', (done) => {
     // Using gulp-multi-process module to run karma in a child process of its own.

@@ -20,6 +20,7 @@ gulp.task('cwel-docs-generate-md', () => {
     .pipe(generateDocs())
     .pipe(gulp.dest('Cwel.Docs.Web/Cwel'));
 });
+// @internal
 gulp.task('clean:cwel-docs-generate-md', () => del(['Cwel.Docs.Web/Cwel/**/index.cshtml']));
 
 
@@ -32,4 +33,5 @@ gulp.task('cwel-docs-generate-csharp', () => {
         'Cwel/**/*.csdoc',
     ]).pipe(csdoc()).pipe(gulp.dest('Cwel/dist/docs/csdoc'));
 });
+// @internal
 gulp.task('clean:cwel-docs-generate-csharp', () => del(['Cwel/dist/docs/csdoc']));
