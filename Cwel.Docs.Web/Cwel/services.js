@@ -4,26 +4,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-angular.module('cwoApp').factory('addOne', function () {
-    return {
-        increment: function increment(num) {
-            return num + 1;
-        }
-    };
-});
-
-angular.module('cwoApp').service('CwoMI', ['$window', function ($window) {
-    $window.dataLayer = $window.dataLayer || [];
-
-    return {
-        logEvent: function logEvent(event) {
-            if (event) {
-                $window.dataLayer.push(event);
-            }
-        }
-    };
-}]);
-
 angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
     return new (function () {
         function Breakpoint() {
@@ -131,6 +111,26 @@ angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
 
         return Breakpoint;
     }())();
+}]);
+
+angular.module('cwoApp').factory('addOne', function () {
+    return {
+        increment: function increment(num) {
+            return num + 1;
+        }
+    };
+});
+
+angular.module('cwoApp').service('CwoMI', ['$window', function ($window) {
+    $window.dataLayer = $window.dataLayer || [];
+
+    return {
+        logEvent: function logEvent(event) {
+            if (event) {
+                $window.dataLayer.push(event);
+            }
+        }
+    };
 }]);
 
 angular.module('cwoApp').factory('CwomponentFactory', ['$compile', function ($compile) {

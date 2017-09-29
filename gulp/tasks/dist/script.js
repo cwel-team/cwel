@@ -28,7 +28,7 @@ gulp.task('clean:cwel-dist-script', done => gulpSequence([
 // @internal
 gulp.task('cwel-dist-script-component', () => gulp.src([
     'Cwel/src/Component/**/*.es',
-    '!Cwel/src/Component/**/*.pageobject.es',
+    '!Cwel/src/Component/**/*.{spec,pageobject,e2e}.es',
 ])
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
@@ -41,7 +41,7 @@ gulp.task('clean:cwel-dist-script-component', () => del(['Cwel/dist/Cwel/Compone
 // @internal
 gulp.task('cwel-dist-script-pattern', () => gulp.src([
     'Cwel/src/Pattern/**/*.es',
-    '!Cwel/src/Pattern/**/*.pageobject.es',
+    '!Cwel/src/Pattern/**/*.{spec,pageobject,e2e}.es',
 ])
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
@@ -54,7 +54,7 @@ gulp.task('clean:cwel-dist-script-pattern', () => del(['Cwel/dist/Cwel/Pattern/*
 // @internal
 gulp.task('cwel-dist-script-service', () => gulp.src([
     'Cwel/src/Service/**/*.es',
-    '!Cwel/src/Service/**/*.spec.es',
+    '!Cwel/src/Service/**/*.{spec,pageobject,e2e}.es',
 ])
 .pipe(sourcemaps.init())
 .pipe(concat('services.js'))

@@ -8,12 +8,14 @@ gulp.task('cwel-docs-copy', done => gulpSequence(
     'cwel-docs-copy-script',
     'cwel-docs-copy-style',
     'cwel-docs-copy-razor',
+    'cwel-docs-copy-json',
     'cwel-docs-copy-config')(done));
 // @internal
 gulp.task('clean:cwel-docs-copy', done => gulpSequence(
     'clean:cwel-docs-copy-script',
     'clean:cwel-docs-copy-style',
     'clean:cwel-docs-copy-razor',
+    'clean:cwel-docs-copy-json',
     'clean:cwel-docs-copy-config')(done));
 
 // @internal
@@ -33,6 +35,12 @@ gulp.task('cwel-docs-copy-razor', () => gulp.src('Cwel/dist/Cwel/**/*.cshtml')
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
 gulp.task('clean:cwel-docs-copy-razor', () => del(['Cwel.Docs.Web/Cwel/**/*.cshtml']));
+
+// @internal
+gulp.task('cwel-docs-copy-json', () => gulp.src('Cwel/src/Cwel/**/*.json')
+.pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
+// @internal
+gulp.task('clean:cwel-docs-copy-json', () => del(['Cwel.Docs.Web/Cwel/**/*.json']));
 
 // @internal
 gulp.task('cwel-docs-copy-config', () => gulp.src('Cwel/dist/Cwel/web.config')
