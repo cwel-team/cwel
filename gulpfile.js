@@ -166,6 +166,9 @@ gulp.task('watch', ['build'], () => {
     gulp.watch('Cwel/src/**/*.json', () => gulpSequence(
         'cwel-docs-copy-json',
         'cwel-docs-generate')(() => browserSync.reload()));
+    gulp.watch('Cwel/src/**/*.svg', () => gulpSequence(
+        'cwel-dist-img',
+        'cwel-docs-copy-img')(() => browserSync.reload()));
     gulp.watch('Cwel/src/**/*.scss', () => gulpSequence(
         'cwel-dist-style',
         'cwel-docs-build-style',
@@ -173,4 +176,5 @@ gulp.task('watch', ['build'], () => {
     gulp.watch('Cwel.Docs.Web/Assets/scss/**/*.scss', () => gulpSequence(
         'cwel-docs-build-style',
         'cwel-docs-generate')(() => browserSync.reload()));
+    gulp.watch('Cwel.Docs.Web/Assets/img/**/*.{svg,png,jpg,jpeg}', () => browserSync.reload());
 });
