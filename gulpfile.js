@@ -81,11 +81,9 @@ gulp.task('lint', () => {
         '**/*.js',
         '!node_modules/**',
         '!gulp/cwomponent/template/**',
-        '!Cwo.Docs.Web/Cwomponents/**/*.js',
-        '!Cwo.Docs.Web/Assets/**/*.js',
-        '!Cwo.Cms/Cwomponents/**/*.js',
-        '!Cwo.Cms/Assets/**/*.js',
-        '!Cwomponents/dist/**/*.js',
+        '!Cwel.Docs.Web/Cwel/**/*.js',
+        '!Cwel.Docs.Web/Assets/**/*.js',
+        '!Cwel/dist/**/*.js',
     ])
     .pipe(eslint({
         fix: argv.fix,
