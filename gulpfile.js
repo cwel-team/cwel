@@ -17,6 +17,7 @@ require('./gulp/tasks/dist/web-config.js');
 require('./gulp/tasks/test/build.js');
 require('./gulp/tasks/docs/generate.js');
 require('./gulp/tasks/docs/copy.js');
+require('./gulp/tasks/docs/build.js');
 
 // require('./gulp/tasks/copy.js');
 // require('./gulp/tasks/create.js');
@@ -55,11 +56,11 @@ gulp.task('clean:cwel-test', done => gulpSequence('clean:cwel-test-build')(done)
 /**
  * Generate CWEL documentation pages
  */
-gulp.task('cwel-docs', ['cwel-dist'], done => gulpSequence('cwel-docs-copy', 'cwel-docs-generate')(done));
+gulp.task('cwel-docs', ['cwel-dist'], done => gulpSequence('cwel-docs-copy', 'cwel-docs-generate', 'cwel-docs-build')(done));
 /**
  * Clean the CWEL documentation files and code in the docs project
  */
-gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean:cwel-docs-generate')(done));
+gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean:cwel-docs-generate', 'clean:cwel-docs-build')(done));
 
 
 /**
