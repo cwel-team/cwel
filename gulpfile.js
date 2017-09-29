@@ -27,10 +27,10 @@ require('./gulp/tasks/docs/copy.js');
  */
 gulp.task('help', doc.help());
 
-/**
- * @internal
- */
+
+// @internal
 gulp.task('default', ['help']);
+
 
 /**
  * Build and copy all relevant CWEL files into the distribution folder
@@ -41,6 +41,7 @@ gulp.task('cwel-dist', done => gulpSequence('cwel-dist-script', 'cwel-dist-style
  */
 gulp.task('clean:cwel-dist', done => gulpSequence('clean:cwel-dist-script', 'clean:cwel-dist-style', 'clean:cwel-dist-razor', 'clean:cwel-dist-config')(done));
 
+
 /**
  * Run CWEL tests
  */
@@ -49,6 +50,7 @@ gulp.task('cwel-test', done => gulpSequence('cwel-test-build')(done));
  * Clean the CWEL test files created by the cwel-test task
  */
 gulp.task('clean:cwel-test', done => gulpSequence('clean:cwel-test-build')(done));
+
 
 /**
  * Generate CWEL documentation pages
@@ -59,6 +61,7 @@ gulp.task('cwel-docs', ['cwel-dist'], done => gulpSequence('cwel-docs-copy', 'cw
  */
 gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean:cwel-docs-generate')(done));
 
+
 /**
  * Run MSBuild on this solution
  */
@@ -66,6 +69,7 @@ gulp.task('msbuild', () => gulp.src('./Cwo.EpiServer.sln')
 .pipe(msbuild({
     toolsVersion: 'auto',
 })));
+
 
 /**
  * Check the solution's code style.
@@ -90,6 +94,7 @@ gulp.task('lint', () => {
     .pipe(gulpif(argv.fix, gulp.dest('.')));
 });
 
+
 /**
  * Run the front-end tests. e.g. unit and e2e
  * @internal
@@ -106,6 +111,7 @@ gulp.task('test', (done) => {
         done();
     });
 });
+
 
 /**
  * Auto-build FED code as you are working on it.
