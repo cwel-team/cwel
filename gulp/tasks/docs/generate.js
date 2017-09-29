@@ -10,9 +10,7 @@ gulp.task('cwel-docs-generate', gulpSequence('cwel-docs-generate-csharp', 'cwel-
 gulp.task('clean:cwel-docs-generate', () => gulpSequence('clean:cwel-docs-generate-csharp', 'clean:cwel-docs-generate-md'));
 
 
-/**
- * @internal
- */
+// @internal
 gulp.task('cwel-docs-generate-md', () => {
     return gulp.src([
         'Cwel/src/**/*.doc.md',
