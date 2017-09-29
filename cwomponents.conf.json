@@ -1,16 +1,16 @@
 {
   "component": {
-    "fedSrc": "Cwomponents/Component/{name}",
-    "bedSrc": "Cwo.Core/ComponentViewModels/{name}",
-    "templates": "gulp-lib/cwomponent/template/component"
+    "fedSrc": "Cwel/src/Component/{name}",
+    "bedSrc": "Cwel/src/Component/{name}",
+    "templates": "gulp/lib/create/template/component"
   },
   "pattern": {
-    "fedSrc": "Cwomponents/Pattern/{name}",
-    "bedSrc": "Cwo.Core/PatternViewModels/{name}",
-    "templates": "gulp-lib/cwomponent/template/pattern"
+    "fedSrc": "Cwel/src/Pattern/{name}",
+    "bedSrc": "Cwel/src/Pattern/{name}",
+    "templates": "gulp/lib/create/template/pattern"
   },
   "service": {
-    "fedSrc": "Cwomponents/Service/{name}",
-    "templates": "gulp-lib/cwomponent/template/service"
+    "fedSrc": "Cwel/src/Service/{name}",
+    "templates": "gulp/lib/create/template/service"
   }
 }

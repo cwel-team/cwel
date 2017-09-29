@@ -2,13 +2,12 @@ const gulp = require('gulp');
 const inquirer = require('inquirer');
 const yargs = require('yargs');
 
-const createCwomponent = require('../cwomponent/create.js');
+const createCwomponent = require('../lib/create/create.js');
 
 /**
- * Create cwomponent blueprint files where needed:
- * e.g. Script, Razor, C# ViewModels, Test, Style, and Docs files
+ * @internal
  */
-gulp.task('create', (taskDone) => {
+gulp.task('cwel-create-duplo', (taskDone) => {
     yargs.option('type', {
         default: '',
     });

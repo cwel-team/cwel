@@ -18,10 +18,7 @@ require('./gulp/tasks/test/build.js');
 require('./gulp/tasks/docs/generate.js');
 require('./gulp/tasks/docs/copy.js');
 require('./gulp/tasks/docs/build.js');
-
-// require('./gulp/tasks/copy.js');
-// require('./gulp/tasks/create.js');
-// require('./gulp/tasks/test.js');
+require('./gulp/tasks/create.js');
 
 /**
  * Display this help
@@ -61,6 +58,13 @@ gulp.task('cwel-docs', ['cwel-dist'], done => gulpSequence('cwel-docs-copy', 'cw
  * Clean the CWEL documentation files and code in the docs project
  */
 gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean:cwel-docs-generate', 'clean:cwel-docs-build')(done));
+
+
+/**
+ * Create cwomponent blueprint files where needed:
+ * e.g. Script, Razor, C# ViewModels, Test, Style, and Docs files
+ */
+gulp.task('cwel-create', done => gulpSequence('cwel-create-duplo')(done));
 
 
 /**

@@ -1,8 +1,8 @@
 const gulp = require('gulp');
 const through = require('through2');
 
-const invokeOnCount = require('../lib/util/invokeOnCount');
-const config = require('../../cwomponents.conf.json');
+const invokeOnCount = require('../../lib/util/invokeOnCount');
+const config = require('../../../cwomponents.conf.json');
 
 
 function safeEval(str, scope, methods) {
