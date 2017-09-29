@@ -26,6 +26,7 @@ gulp.task('clean:cwel-test-build', done => gulpSequence([
 
 // @internal
 gulp.task('cwel-test-build-component', () => gulp.src([
+    'Cwel/src/Component/**/*.e2e.es',
     'Cwel/src/Component/**/*.pageobject.es',
 ])
 .pipe(sourcemaps.init())
@@ -38,6 +39,7 @@ gulp.task('clean:cwel-test-build-component', () => del(['Cwel/dist/test/Cwel/Com
 
 // @internal
 gulp.task('cwel-test-build-pattern', () => gulp.src([
+    'Cwel/src/Pattern/**/*.e2e.es',
     'Cwel/src/Pattern/**/*.pageobject.es',
 ])
 .pipe(sourcemaps.init())
@@ -51,6 +53,7 @@ gulp.task('clean:cwel-test-build-pattern', () => del(['Cwel/dist/test/Cwel/Patte
 // @internal
 gulp.task('cwel-test-build-service', () => gulp.src([
     'Cwel/src/Service/**/*.spec.es',
+    'Cwel/src/Service/**/*.e2e.es',
 ])
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
