@@ -269,12 +269,10 @@ __pycache__/
 
 ## Cwomponents
 
-Cwomponents/dist/**
-
-Cwo.Docs.Web/Cwel/**
-Cwo.Docs.Web/Assets/css/site.css
-Cwo.Docs.Web/Assets/js/**
-Cwo.Docs.Web/Assets/vendor/**
+Cwel.Docs.Web/Cwel/**
+Cwel.Docs.Web/Assets/css/site.css
+Cwel.Docs.Web/Assets/js/**
+Cwel.Docs.Web/Assets/vendor/**
 
 Cwel/dist/**
 
