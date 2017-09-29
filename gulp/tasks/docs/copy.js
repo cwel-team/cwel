@@ -4,37 +4,38 @@ const del = require('del');
 
 
 // @internal
-gulp.task('docs-copy', done => gulpSequence(
-    'docs-copy-script',
-    'docs-copy-style',
-    'docs-copy-razor',
-    'docs-copy-config')(done));
+gulp.task('cwel-docs-copy', done => gulpSequence(
+    'cwel-docs-copy-script',
+    'cwel-docs-copy-style',
+    'cwel-docs-copy-razor',
+    'cwel-docs-copy-config')(done));
 // @internal
-gulp.task('clean:docs-copy', done => gulpSequence(
-    'clean:docs-copy-script',
-    'clean:docs-copy-style',
-    'clean:docs-copy-config')(done));
+gulp.task('clean:cwel-docs-copy', done => gulpSequence(
+    'clean:cwel-docs-copy-script',
+    'clean:cwel-docs-copy-style',
+    'clean:cwel-docs-copy-razor',
+    'clean:cwel-docs-copy-config')(done));
 
 // @internal
-gulp.task('docs-copy-script', () => gulp.src(['Cwel/dist/Cwel/**/*.{js,js.map}'])
+gulp.task('cwel-docs-copy-script', () => gulp.src(['Cwel/dist/Cwel/**/*.{js,js.map}'])
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
-gulp.task('clean:docs-copy-script', () => del(['Cwel.Docs.Web/Cwel/**/*.{js,js.map}']));
+gulp.task('clean:cwel-docs-copy-script', () => del(['Cwel.Docs.Web/Cwel/**/*.{js,js.map}']));
 
 // @internal
-gulp.task('docs-copy-style', () => gulp.src('Cwel/dist/Cwel/**/*.scss')
+gulp.task('cwel-docs-copy-style', () => gulp.src('Cwel/dist/Cwel/**/*.scss')
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
-gulp.task('clean:docs-copy-style', () => del(['Cwel.Docs.Web/Cwel/**/*.scss']));
+gulp.task('clean:cwel-docs-copy-style', () => del(['Cwel.Docs.Web/Cwel/**/*.scss']));
 
 // @internal
-gulp.task('docs-copy-razor', () => gulp.src('Cwel/dist/Cwel/**/*.cshtml')
+gulp.task('cwel-docs-copy-razor', () => gulp.src('Cwel/dist/Cwel/**/*.cshtml')
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
-gulp.task('clean:docs-copy-razor', () => del(['Cwel.Docs.Web/Cwel/**/*.cshtml']));
+gulp.task('clean:cwel-docs-copy-razor', () => del(['Cwel.Docs.Web/Cwel/**/*.cshtml']));
 
 // @internal
-gulp.task('docs-copy-config', () => gulp.src('Cwel/dist/Cwel/web.config')
+gulp.task('cwel-docs-copy-config', () => gulp.src('Cwel/dist/Cwel/web.config')
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
-gulp.task('clean:docs-copy-config', () => del(['Cwel.Docs.Web/Cwel/web.config']));
+gulp.task('clean:cwel-docs-copy-config', () => del(['Cwel.Docs.Web/Cwel/web.config']));

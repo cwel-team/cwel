@@ -45,15 +45,19 @@ gulp.task('clean:cwel-dist', done => gulpSequence('clean:cwel-dist-script', 'cle
  * Run CWEL tests
  */
 gulp.task('cwel-test', done => gulpSequence('cwel-test-build')(done));
+/**
+ * Clean the CWEL test files created by the cwel-test task
+ */
+gulp.task('clean:cwel-test', done => gulpSequence('clean:cwel-test-build')(done));
 
 /**
  * Generate CWEL documentation pages
  */
-gulp.task('docs', done => gulpSequence('docs-copy', 'docs-generate')(done));
+gulp.task('cwel-docs', ['cwel-dist'], done => gulpSequence('cwel-docs-copy', 'cwel-docs-generate')(done));
 /**
  * Clean the CWEL documentation files and code in the docs project
  */
-gulp.task('clean:docs', done => gulpSequence('clean:docs-copy', 'clean:docs-generate')(done));
+gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean:cwel-docs-generate')(done));
 
 /**
  * Build Csharp for solution
