@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cwel\Cwel.csproj">
-      <Project>{4d22061c-c12a-433a-8b1d-dfb4c39b0168}</Project>
+      <Project>{c6affdc2-c22d-4e9c-a455-47487fd0ad05}</Project>
       <Name>Cwel</Name>
     </ProjectReference>
   </ItemGroup>
