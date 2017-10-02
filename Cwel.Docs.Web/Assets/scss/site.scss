@@ -1,8 +1,11 @@
 // TODO(Daniel Stuessy) Put this in a main scss file for CWEL
-@import "Cwel/Core/scss/_settings.scss";
-@import "Cwel/Core/scss/_aspect-ratio.scss";
-@import "Cwel/Core/scss/_device.scss";
-@import "Cwel/Core/scss/_typography.scss";
-@import "Cwel/Core/scss/_base.scss";
-@import "Cwel/Core/scss/_container.scss";
-@import "Cwel/Core/scss/_grid.scss";
+@import "Cwel/Core/scss/settings";
+@import "Cwel/Core/scss/aspect-ratio";
+@import "Cwel/Core/scss/device";
+@import "Cwel/Core/scss/typography";
+@import "Cwel/Core/scss/base";
+@import "Cwel/Core/scss/container";
+@import "Cwel/Core/scss/grid";
+
+@import "Cwel/Component/Card/Card";
+@import "Cwel/Pattern/CardSlider/CardSlider";

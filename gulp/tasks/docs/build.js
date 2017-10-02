@@ -13,7 +13,7 @@ const babelConfig = {
 const sassConfig = {
     precision: 8,
     includePaths: [
-        'Cwel/dist/',
+        'Cwel.Docs.Web/',
     ],
 };
 
@@ -22,6 +22,9 @@ const sassConfig = {
 gulp.task('cwel-docs-build', done => gulpSequence(
     'cwel-docs-build-script',
     'cwel-docs-build-style')(done));
+gulp.task('clean:cwel-docs-build', done => gulpSequence(
+    'clean:cwel-docs-build-script',
+    'clean:cwel-docs-build-style')(done));
 
 
 // @internal
