@@ -1,4 +1,4 @@
-﻿using System.Web.Mvc;
+using System.Web.Mvc;
 
 namespace Cwel.Docs.Web.Controllers
 {
@@ -7,7 +7,7 @@ namespace Cwel.Docs.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction(nameof(PlaygroundController.Index), "Playground");
         }
     }
 }

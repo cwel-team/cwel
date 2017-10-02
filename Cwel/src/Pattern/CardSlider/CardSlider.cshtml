@@ -1,5 +1,4 @@
-@using Cwo.Core.Web.HtmlExtensions
-@model Cwo.Core.PatternViewModels.CardSlider.CardSliderPatternViewModel
+@model Cwel.Web.CardSliderViewModel
 
 @{
     Html.RequireScript(AssetType.Pattern, "CardSlider");
@@ -12,7 +11,7 @@
             var card = Model.Cards[i];
 
             <li class="cwel-card-slider__item">
-            @Html.Component("card", card)
+                @Html.Card(card)
             </li>
         }
     </ul>
