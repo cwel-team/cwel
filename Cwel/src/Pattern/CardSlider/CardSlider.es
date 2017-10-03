@@ -78,6 +78,8 @@ angular.module('cwoApp')
 
             scope.maxIndex = () => deviceTranslateIndex(scope.cardsPerSlide, scope.count - 1);
 
+            console.log('insanity'); // eslint-disable-line no-alert
+
             /**
             * Index of active slide
             * @scope

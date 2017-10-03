@@ -98,6 +98,7 @@ gulp.task('lint', () => {
         '!gulp/lib/create/template/**',
         '!Cwel.Docs.Web/Cwel/**/*.js',
         '!Cwel.Docs.Web/Assets/**/*.js',
+        '!Cwel/src/Vendor/**/*.js',
         '!Cwel/dist/**/*.js',
     ])
     .pipe(eslint({
@@ -155,6 +156,7 @@ gulp.task('watch', ['build'], () => {
     ], () => gulpSequence(
         'lint',
         'cwel-dist-script',
+        'cwel-docs-copy-script',
         'cwel-docs-build-script',
         'cwel-docs-generate')(() => browserSync.reload()));
     gulp.watch('Cwel/src/**/*.{pageobject,spec,e2e}.es', () => gulpSequence(
@@ -171,10 +173,17 @@ gulp.task('watch', ['build'], () => {
         'cwel-docs-copy-img')(() => browserSync.reload()));
     gulp.watch('Cwel/src/**/*.scss', () => gulpSequence(
         'cwel-dist-style',
+        'cwel-docs-copy-style',
         'cwel-docs-build-style',
         'cwel-docs-generate')(() => browserSync.reload()));
+
+    // Docs site
     gulp.watch('Cwel.Docs.Web/Assets/scss/**/*.scss', () => gulpSequence(
         'cwel-docs-build-style',
         'cwel-docs-generate')(() => browserSync.reload()));
     gulp.watch('Cwel.Docs.Web/Assets/img/**/*.{svg,png,jpg,jpeg}', () => browserSync.reload());
+    gulp.watch('Cwel.Docs.Web/Assets/es/**/*.es', () => gulpSequence(
+        'lint',
+        'cwel-docs-build-script',
+        'cwel-docs-generate')(() => browserSync.reload()));
 });
