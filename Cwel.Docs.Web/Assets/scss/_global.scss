@@ -26,31 +26,6 @@
     ));
 }
 
-// output grids
-.output-button-wrap {
-    @include grid-cell((
-        xs: 12,
-        l: 6
-    ));
-}
-.output-input-size-wrap {
-    @include grid-cell((
-        xs: 12,
-        l: 6
-    ));
-}
-.output-title {
-    @include grid-cell((
-        xs: 12
-    ));
-    padding-bottom: 0;
-}
-.output-content-area {
-     @include grid-cell((
-        xs: 12
-    ));
-}
-
 // Layout
 .body__wrap {
     height: 100%;

@@ -26,6 +26,11 @@
     @return ($n / 12) * 100%;
 }
 
+@mixin grid-cell-gutter($device) {
+    $gutter: map-get($GRID, 'gutter-#{$device}');
+    padding-left: $gutter;
+}
+
 @mixin grid-cell-width($width) {
     flex-basis: grid-cell-size($width);
     max-width: grid-cell-size($width);
@@ -42,18 +47,17 @@
 
     @include grid-cell-box-model;
     @include grid-cell-width($width-xs);
-    padding-left: $gutter-xs;
+    @include grid-cell-gutter('xs');
 
     @each $key in map-keys($BREAKPOINTS) {
         $breakpoint: map-get($BREAKPOINTS, $key);
         $width: map-get($sizing, $key);
-        $gutter: map-get($grid-settings, 'gutter-#{$key}');
 
         @media(min-width: $breakpoint) {
             @if ($width != null) {
                 @include grid-cell-width($width);
             }
-            padding-left: $gutter;
+            @include grid-cell-gutter($key);
         }
     }
 }
@@ -121,16 +125,50 @@
     .grid {
         @include grid();
     }
+    .grid--align-left {
+        @include grid-align('left');
+    }
+    .grid--align-right {
+        @include grid-align('right');
+    }
+    .grid--align-top {
+        @include grid-align('top');
+    }
+    .grid--align-bottom{
+        @include grid-align('bottom');
+    }
+    .grid--reverse {
+        @include grid-reverse;
+    }
+    .grid--flush {
+        @include grid-flush;
+
+        .grid__cell {
+            @include grid-cell-flush;
+        }
+    }
 
     .grid__cell {
         @include grid-cell-box-model;
+        @include grid-cell-gutter('xs');
+
+        @each $key in map-keys($BREAKPOINTS) {
+            $breakpoint: map-get($BREAKPOINTS, $key);
+
+            @media(min-width: $breakpoint) {
+                @include grid-cell-gutter($key);
+            }
+        }
     }
 
     @for $i from 1 through 12 {
         .grid__cell--size-#{$i} {
             @include grid-cell-width($i);
         }
+    }
 
+
+    @for $i from 1 through 12 {
         @each $key in map-keys($BREAKPOINTS) {
             $breakpoint: map-get($BREAKPOINTS, $key);
 
