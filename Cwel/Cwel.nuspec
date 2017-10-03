@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Cwel</id>
+        <version>1.0.0</version>
+        <authors>Countrywide PLC</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Countrywide UI Framework</description>
+        <dependencies>
+            <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
+        </dependencies>
+        <references />
+    </metadata>
+    <files>
+        <file src="dist\**\*.*" target="\" />
+        <file src="bin\Cwel.dll" target="lib\net462\Cwel.dll" />
+    </files>
+</package>
