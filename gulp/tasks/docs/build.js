@@ -4,6 +4,7 @@ const gulpSequence = require('gulp-sequence');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
+const autoprefixer = require('gulp-autoprefixer');
 
 const babelConfig = {
     presets: ['env'],
@@ -38,6 +39,9 @@ gulp.task('clean:cwel-docs-build-script', () => del(['Cwel.Docs.Web/Assets/js/**
 gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/Assets/scss/**/*.scss')
 .pipe(sourcemaps.init())
 .pipe(sass(sassConfig))
+.pipe(autoprefixer({
+    browsers: ['last 30 versions'],
+}))
 .pipe(sourcemaps.write('.'))
 .pipe(gulp.dest('Cwel.Docs.Web/Assets/css')));
 // @internal

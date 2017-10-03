@@ -1,0 +1,43 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+}
+body,
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-style: none;
+}
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    background-color: transparent;
+    overflow: hidden;
+}
+textarea {
+    overflow: auto;
+}
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+}

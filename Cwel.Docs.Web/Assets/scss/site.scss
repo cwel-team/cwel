@@ -6,3 +6,17 @@
 @import "Cwel/Core/scss/_base.scss";
 @import "Cwel/Core/scss/_container.scss";
 @import "Cwel/Core/scss/_grid.scss";
+
+@import "_colours";
+@import "_spritesheet";
+@import "_type";
+@import "_layout";
+
+@import "_global";
+@import "_buttons";
+@import "_forms";
+@import "_nav-header";
+@import "_nav-sidebar";
+@import "_footer";
+@import "_content-area";
+@import "_component-order";

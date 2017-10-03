@@ -1,0 +1,66 @@
+@mixin button-icon() {
+    display: inline-block;
+    height: 40px;
+    width: 16px;
+    margin-right: 8px;
+    content: '';
+}
+
+.button {
+    display: inline-block;
+    width: 100%;
+    min-width: 100px;
+    height: 40px;
+    margin-bottom: 20px;
+    color: $core1;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $core1;
+    cursor: pointer;
+}
+.button__text {
+    vertical-align: top;
+}
+.button--icon-import:before {
+    @include button-icon();
+    @include spritesheet(0, 4.89);
+}
+.button--icon-save:before {
+    @include button-icon();
+    @include spritesheet(0, 5.90);
+}
+.button--icon-arrow-up:before {
+    @include button-icon();
+    @include spritesheet(0, -0.15);
+    width: 14px;
+}
+.button--icon-arrow-down:before {
+    @include button-icon();
+    @include spritesheet(0, 7.85);
+    width: 14px;
+}
+.button--icon-clear:before {
+    @include button-icon();
+    @include spritesheet(0, 0.88);
+    margin-left: 3px;
+    width: 14px;
+}
+.button--icon-edit:before {
+    @include button-icon();
+    @include spritesheet(0, 1.92);
+    width: 22px;
+}
+.button--icon-menu:before {
+    @include button-icon();
+    @include spritesheet(0, 3.87);
+}
+.button--icon-only {
+    width: 50px;
+    min-width: auto;
+}
+.button--icon-only:before {
+    margin-right: 0;
+}

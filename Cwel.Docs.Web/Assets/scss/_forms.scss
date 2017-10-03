@@ -1,0 +1,63 @@
+@mixin standard-form() {
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $secondary2;
+    background: $core2;
+}
+@mixin form-icon() {
+    height: 40px;
+    width: 20px;
+    content: '';
+}
+
+.form-field__input {
+    @include standard-form();
+}
+.form-field__select {
+    @include standard-form();
+    cursor: pointer;
+    appearance: none;
+}
+.form-field__select-container {
+    position: relative;
+    overflow: hidden;
+}
+.form-field__textarea {
+    @include standard-form();
+    min-height: 200px;
+    overflow: auto;
+    resize: none;
+}
+.form-field {
+    margin-bottom: 20px;
+}
+.form-field__label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: $core1;
+}
+.form-field__select-container--icon-arrow:after {
+    @include form-icon();
+    @include spritesheet(0, 3);
+    position: absolute;
+    top: 16px;
+    right: 10px;
+}
+.form-field--icon-search:before {
+    @include form-icon();
+    @include spritesheet(0, 7);
+    position: absolute;
+    top: 12px;
+    left: 0px;
+}
+select::-ms-expand {
+    display: none;
+}

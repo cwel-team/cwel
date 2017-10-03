@@ -7,6 +7,8 @@ angular.module('cwoApp')
         children: [],
     };
 
+    $scope.date = new Date();
+
     $http.get('/playground/names').then((res) => {
         $scope.names = res.data;
     });

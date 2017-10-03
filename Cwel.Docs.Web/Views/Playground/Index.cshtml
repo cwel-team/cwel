@@ -7,77 +7,160 @@
     </script>
 }
 
-<div class="docs-playground-wrapper" ng-controller="playgroundCtrl">
-    <div class="docs-playground-toolbox">
-        <div class="docs-playground-toolbox-header">
-            <strong>ToolBox</strong>
+<div class="docs-playground" ng-controller="playgroundCtrl">
+
+    <!-- Nav header start -->
+    <div class="nav-header">
+        <h1 class="nav-header__title h1">CWEL</h1>
+        <button type="button" ng-click="navSidebar=!navSidebar" class="nav-header__button button button--icon-menu">
+            <span class="button__text">View</span>
+        </button>
+    </div>
+    <!-- Nav header end -->
+
+    <!-- Docs playground container start -->
+    <div class="docs-playground__container">
+
+        <div class="docs-playground__container-overlay" ng-class="{ 'docs-playground__container-overlay--active': navSidebar }"></div>
+
+        <!-- Nav sidebar start -->
+        <div class="nav-sidebar" ng-class="{ 'nav-sidebar--active': navSidebar }">
+            <div class="nav-sidebar__title">Playground</div>
+            <ul class="nav-sidebar__ul">
+                <li class="nav-sidebar__li">
+                    <a href="" class="nav-sidebar__li-link">Editors view</a>
+                </li>
+                <li class="nav-sidebar__li">
+                    <a href="" class="nav-sidebar__li-link">Design view</a>
+                </li>
+                <li class="nav-sidebar__li">
+                    <a href="" class="nav-sidebar__li-link">Presentation view</a>
+                </li>
+            </ul>
+            <div class="nav-sidebar__title">Docs</div>
+            <div class="nav-sidebar__search">
+                <div class="nav-sidebar__search-field form-field form-field--icon-search">
+                    <input class="nav-sidebar__search-input form-field__input" placeholder="Search" />
+                </div>
+            </div>
+            <ul class="nav-sidebar__ul">
+                <li class="nav-sidebar__li">
+                    <button type="button" ng-click="navSidebarPatterns=!navSidebarPatterns" class="nav-sidebar__li-link">Patterns</button>
+                    <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatterns }">
+                        <li class="nav-sidebar__collapsible-li">
+                            <a href="" class="nav-sidebar__collapsible-link">Badge</a>
+                        </li>
+                        <li class="nav-sidebar__collapsible-li">
+                            <a href="" class="nav-sidebar__collapsible-link">Card</a>
+                        </li>
+                    </ul>
+                </li>
+                 <li class="nav-sidebar__li">
+                    <button type="button" ng-click="navSidebarPatternsTwo=!navSidebarPatternsTwo" class="nav-sidebar__li-link">Components</button>
+                    <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatternsTwo }">
+                        <li class="nav-sidebar__collapsible-li">
+                            <a href="" class="nav-sidebar__collapsible-link">Badge</a>
+                        </li>
+                        <li class="nav-sidebar__collapsible-li">
+                            <a href="" class="nav-sidebar__collapsible-link">Card</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <div class="docs-devices">
-            <a class="docs-btn" ng-click="setDevice('mobile')"  ng-class="{ true: 'active'}[device == 'mobile']">
-                <i class="fa fa-mobile"></i>
-            </a>
-            <a class="docs-btn" ng-click="setDevice('tablet')"  ng-class="{ true: 'active'}[device == 'tablet']">
-                <i class="fa fa-tablet"></i>
-            </a>
-            <a class="docs-btn" ng-click="setDevice('desktop')" ng-class="{ true: 'active'}[device == 'desktop']">
-                <i class="fa fa-desktop"></i>
-            </a>
-        </div>
-        <hr/> 
-        <div class="docs-modelbuilder">
-            <div dnd-list="model.children">
-                <div class="docs-modelbuilder-item"
-                     ng-repeat="child in model.children"
-                     dnd-draggable="child"
-                     dnd-moved="model.children.splice($index, 1)"
-                     dnd-effects-allowed="move">
-                    <span class="docs-model-move" dnd-handle ng-show="!child.editing"><i class="fa fa-arrows"></i></span>
-                    <span class="docs-model-settings" ng-click="child.editing=true;"><i class="fa fa-cog"></i></span>
-                    <div class="docs-model-item">{{ child.name }}</div>
-                    <div class="docs-modelbuilder-editor" ng-show="child.editing">
-                        <div class="docs-input-group">
-                            <label>Type:</label>
-                            <select class="docs-select docs-fr"
-                                    ng-model="child.type"
-                                    ng-options="type for type in ['component', 'pattern']"></select>
+        <!-- Nav sidebar end -->
+
+        <div class="container">
+
+            <div class="row">
+                <div class="add-component-wrap">
+                    <!-- Add/edit start -->
+                    <div class="form-field">
+                        <label class="form-field__label">Type</label>
+                        <div class="form-field__select-container form-field__select-container--icon-arrow">
+                            <select class="form-field__select">
+                                <option></option>
+                                <option>Pattern</option>
+                                <option>Components</option>
+                            </select>
                         </div>
-                        <div class="docs-input-group">
-                            <label>Name:</label>
-                            <select class="docs-select docs-fr"
-                                    ng-model="child.name"
-                                    ng-options="name for name in names[child.type + 's']"></select>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-field__label">Name</label>
+                        <div class="form-field__select-container form-field__select-container--icon-arrow">
+                            <select class="form-field__select">
+                                <option></option>
+                                <option>Badge</option>
+                                <option>Card</option>
+                            </select>
                         </div>
-                        <div class="docs-input-group">
-                            <label>Model:</label> 
-                            <a class="docs-btn docs-fr" ng-click="fetchModel(child)" title="Download default model">
-                                <i class="fa fa-download"></i>
-                            </a>
-                            <div>
-                                <textarea rows="15" cols="35" 
-                                          ng-model="child.data" 
-                                          json-text 
-                                          ng-disabled="!child.name"></textarea>
-                            </div>
+                    </div>
+                    <button type="button" class="button button--icon-import">
+                        <span class="button__text">Import</span>
+                    </button>
+                    <div class="form-field">
+                        <label class="form-field__label">Model</label>
+                        <textarea class="form-field__textarea"></textarea>
+                    </div>
+                    <button type="button" class="button button--icon-save">
+                        <span class="button__text">Save</span>
+                    </button>
+                    <!-- Add/edit end -->
+                </div>
+                <div class="order-component-wrap">
+                    <!-- Order start -->
+                    <div class="content-area">
+                        <div class="content-area__title">Order</div>
+                        <div class="content-area__container component-order">
+                            <button type="button" class="component-order__item button button--icon-only button--icon-arrow-up"></button>
+                            <button type="button" class="component-order__item button button--icon-only button--icon-arrow-down"></button>
+                            <div class="component-order__item component-order__component-title">Card</div>
+                            <button type="button" class="component-order__item button button--icon-only button--icon-edit"></button>
+                            <button type="button" class="component-order__item button button--icon-only button--icon-clear"></button>
                         </div>
-                        <div class="docs-input-group">
-                            <a class="docs-btn" ng-click="model.children.splice($index, 1)">Delete</a>
-                            <a class="docs-btn" ng-click="child.editing=false; editing=false">Save</a>
+                    </div>
+                    <!-- Order end -->
+                </div>
+            </div>
+
+            <div class="row row--align-bottom">
+                <!-- Output start -->
+                <h3 class="output-title h3">Output</h3>
+                <div class="output-button-wrap">
+                    <a href="https://jsfiddle.net/" class="button">
+                        <span class="button__text">JSFiddle</span>
+                    </a>
+                </div>
+                <div class="output-input-size-wrap">
+                    <div class="form-field">
+                        <label class="form-field__label">Size</label>
+                        <div class="form-field__select-container form-field__select-container--icon-arrow">
+                            <select class="form-field__select">
+                                <option></option>
+                                <option>XS</option>
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                                <option>XL</option>
+                            </select>
                         </div>
                     </div>
                 </div>
+                <div class="content-area output-content-area">
+                    <div class="content-area__container"></div>
+                </div>
+                <!-- Output end -->
             </div>
-            <div class="docs-modelbuilder-add">
-                <a class="docs-btn" ng-click="addComponent()">
-                    <i class="fa fa-plus"></i>
-                </a>
-            </div>
+
         </div>
+
     </div>
-    <form action="/Playground/RenderPage" method="POST" target="_blank">
-        <input type="hidden" name="model" value="{{ getModel(model) }}">
-        <input type="submit" value="Open">
-    </form>
-    <div class="docs-playground-stage-wrapper" ng-class="device">
-        <iframe ng-style="stageStyles" src="/Playground/stage"></iframe>  
-    </div>  
+    <!-- Docs playground container end -->
+
+    <!-- Footer start -->
+    <div class="footer">
+        <div class="footer__title">&copy; Countrywide <span>{{ date | date: 'yyyy' }}</span></div>
+    </div>
+    <!-- Footer end -->
+
 </div>

@@ -1,0 +1,26 @@
+.component-order {
+    display: inline-flex;
+    min-height: 450px;
+    margin-bottom: 20px;
+}
+.component-order__component-title {
+    display: inline-block;
+    width: 100%;
+    min-width: 100px;
+    height: 40px;
+    padding-left: 20px;
+    color: $core1;
+    text-align: left;
+    line-height: 40px;
+    background: $white;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $core1;
+}
+.component-order__item {
+    margin-right: 10px;
+}
+.component-order__item:last-child {
+    margin-right: 0px;
+}

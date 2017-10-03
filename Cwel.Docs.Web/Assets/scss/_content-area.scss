@@ -1,0 +1,24 @@
+.content-area__container {
+    display: block;
+    width: 100%;
+    min-height: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $secondary2;
+    background: $core2;
+}
+.content-area__container .button--icon-only {
+    background: $white;
+}
+.content-area__title {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: $core1;
+}

@@ -1,0 +1,20 @@
+.nav-header {
+    display: flex;
+    align-items: center;
+    height: 68px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background: $core2;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: $core1;
+}
+.nav-header__title {
+    width: 100%;
+    font-size: 1.1rem;
+}
+.nav-header__button {
+    width: 100px;
+    margin-bottom: 0px;
+    font-weight: 600;
+}

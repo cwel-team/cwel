@@ -1,0 +1,79 @@
+// Grid
+.container {
+    @include container();
+    max-width: 1444px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.row {
+    @include grid();
+}
+.row--align-bottom {
+    @include grid-align('bottom');
+}
+
+// Add and Order grids
+.add-component-wrap {
+    @include grid-cell((
+        xs: 12,
+        l: 5
+    ));
+}
+.order-component-wrap {
+    @include grid-cell((
+        xs: 12,
+        l: 7
+    ));
+}
+
+// output grids
+.output-button-wrap {
+    @include grid-cell((
+        xs: 12,
+        l: 6
+    ));
+}
+.output-input-size-wrap {
+    @include grid-cell((
+        xs: 12,
+        l: 6
+    ));
+}
+.output-title {
+    @include grid-cell((
+        xs: 12
+    ));
+    padding-bottom: 0;
+}
+.output-content-area {
+     @include grid-cell((
+        xs: 12
+    ));
+}
+
+// Layout
+.body__wrap {
+    height: 100%;
+    position: relative;
+}
+.docs-playground__container {
+    position: relative;
+    height: 100%;
+    padding-bottom: 30px;
+    padding-top: 40px;
+}
+.docs-playground__container-overlay {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+.docs-playground__container-overlay--active {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: $secondary1;
+    opacity: 0.6;
+    transition: opacity 0.5s ease-in;
+}

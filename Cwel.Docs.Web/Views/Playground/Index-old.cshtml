@@ -1,0 +1,83 @@
+@model Cwel.Docs.Web.Models.PlayVersion
+
+@if (Model != null)
+{
+    <script type="x-play">
+        @Html.Raw(Model.Data)
+    </script>
+}
+
+<div class="docs-playground-wrapper" ng-controller="playgroundCtrl">
+    <div class="docs-playground-toolbox">
+        <div class="docs-playground-toolbox-header">
+            <strong>ToolBox</strong>
+        </div>
+        <div class="docs-devices">
+            <a class="docs-btn" ng-click="setDevice('mobile')"  ng-class="{ true: 'active'}[device == 'mobile']">
+                <i class="fa fa-mobile"></i>
+            </a>
+            <a class="docs-btn" ng-click="setDevice('tablet')"  ng-class="{ true: 'active'}[device == 'tablet']">
+                <i class="fa fa-tablet"></i>
+            </a>
+            <a class="docs-btn" ng-click="setDevice('desktop')" ng-class="{ true: 'active'}[device == 'desktop']">
+                <i class="fa fa-desktop"></i>
+            </a>
+        </div>
+        <hr/> 
+        <div class="docs-modelbuilder">
+            <div dnd-list="model.children">
+                <div class="docs-modelbuilder-item"
+                     ng-repeat="child in model.children"
+                     dnd-draggable="child"
+                     dnd-moved="model.children.splice($index, 1)"
+                     dnd-effects-allowed="move">
+                    <span class="docs-model-move" dnd-handle ng-show="!child.editing"><i class="fa fa-arrows"></i></span>
+                    <span class="docs-model-settings" ng-click="child.editing=true;"><i class="fa fa-cog"></i></span>
+                    <div class="docs-model-item">{{ child.name }}</div>
+                    <div class="docs-modelbuilder-editor" ng-show="child.editing">
+                        <div class="docs-input-group">
+                            <label>Type:</label>
+                            <select class="docs-select docs-fr"
+                                    ng-model="child.type"
+                                    ng-options="type for type in ['component', 'pattern']"></select>
+                        </div>
+                        <div class="docs-input-group">
+                            <label>Name:</label>
+                            <select class="docs-select docs-fr"
+                                    ng-model="child.name"
+                                    ng-options="name for name in names[child.type + 's']"></select>
+                        </div>
+                        <div class="docs-input-group">
+                            <label>Model:</label> 
+                            <a class="docs-btn docs-fr" ng-click="fetchModel(child)" title="Download default model">
+                                <i class="fa fa-download"></i>
+                            </a>
+                            <div>
+                                <textarea rows="15" cols="35" 
+                                          ng-model="child.data" 
+                                          json-text 
+                                          ng-disabled="!child.name"></textarea>
+                            </div>
+                        </div>
+                        <div class="docs-input-group">
+                            <a class="docs-btn" ng-click="model.children.splice($index, 1)">Delete</a>
+                            <a class="docs-btn" ng-click="child.editing=false; editing=false">Save</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-modelbuilder-add">
+                <a class="docs-btn" ng-click="addComponent()">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <form action="/Playground/RenderPage" method="POST" target="_blank">
+        <input type="hidden" name="model" value="{{ getModel(model) }}">
+        <input type="submit" value="Open">
+    </form>
+    <div class="docs-playground-stage-wrapper" ng-class="device">
+        <iframe ng-style="stageStyles" src="/Playground/stage"></iframe>  
+    </div>  
+</div>

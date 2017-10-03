@@ -1,0 +1,15 @@
+.footer {
+    display: flex;
+    align-items: center;
+    height: 68px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background: $core2;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: $core1;
+}
+.footer__title {
+    width: 100%;
+    font-size: 0.9rem;
+}
