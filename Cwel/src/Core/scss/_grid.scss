@@ -37,7 +37,6 @@
     flex-basis: grid-cell-size($width-xs);
     max-width: grid-cell-size($width-xs);
     padding-left: $gutter-xs;
-    padding-bottom: $gutter-xs;
 
     @each $key in map-keys($BREAKPOINTS) {
         $breakpoint: map-get($BREAKPOINTS, $key);
@@ -50,7 +49,6 @@
                 max-width: grid-cell-size($width);
             }
             padding-left: $gutter;
-            padding-bottom: $gutter;
         }
     }
 }

@@ -8,12 +8,14 @@ gulp.task('cwel-dist-style', done => gulpSequence([
     'cwel-dist-style-component',
     'cwel-dist-style-pattern',
     'cwel-dist-style-core',
+    'cwel-dist-style-vendor',
 ])(done));
 // @internal
 gulp.task('clean:cwel-dist-style', done => gulpSequence([
     'clean:cwel-dist-style-component',
     'clean:cwel-dist-style-pattern',
     'clean:cwel-dist-style-core',
+    'clean:cwel-dist-style-vendor',
 ])(done));
 
 
@@ -36,3 +38,10 @@ gulp.task('cwel-dist-style-core', () => gulp.src('Cwel/src/Core/**/*.scss')
 .pipe(gulp.dest('Cwel/dist/Cwel/Core/')));
 // @internal
 gulp.task('clean:cwel-dist-style-core', () => del(['Cwel/dist/Cwel/Core/**/*.scss']));
+
+
+// @internal
+gulp.task('cwel-dist-style-vendor', () => gulp.src('Cwel/src/Vendor/**/*.{css,scss}')
+.pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
+// @internal
+gulp.task('clean:cwel-dist-style-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.{css,scss}']));

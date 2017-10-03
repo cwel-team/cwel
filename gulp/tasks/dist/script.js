@@ -16,12 +16,14 @@ gulp.task('cwel-dist-script', done => gulpSequence([
     'cwel-dist-script-component',
     'cwel-dist-script-pattern',
     'cwel-dist-script-service',
+    'cwel-dist-script-vendor',
 ])(done));
 // @internal
 gulp.task('clean:cwel-dist-script', done => gulpSequence([
     'clean:cwel-dist-script-component',
     'clean:cwel-dist-script-pattern',
     'clean:cwel-dist-script-service',
+    'clean:cwel-dist-script-vendor',
 ])(done));
 
 
@@ -63,3 +65,11 @@ gulp.task('cwel-dist-script-service', () => gulp.src([
 .pipe(gulp.dest('Cwel/dist/Cwel')));
 // @internal
 gulp.task('clean:cwel-dist-script-service', () => del(['Cwel/dist/Cwel/services.{js,js.map}']));
+
+
+// @internal
+gulp.task('cwel-dist-script-vendor', () => gulp.src([
+    'Cwel/src/Vendor/**/*.js',
+]).pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
+// @internal
+gulp.task('clean:cwel-dist-script-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.js']));
