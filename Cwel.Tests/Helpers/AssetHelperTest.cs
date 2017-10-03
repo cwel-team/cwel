@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Web;
@@ -7,7 +7,7 @@ using Cwel.Web;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace Cwel.Tests
+namespace Cwel.Tests.Helpers
 {
     [TestClass]
     public class AssetHelperTest
