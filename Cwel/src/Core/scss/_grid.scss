@@ -95,6 +95,14 @@
     margin-left: 0;
 }
 
+@mixin grid-justify-space-between {
+    justify-content: space-between;
+}
+
+@mixin grid-justify-space-around {
+    justify-content: space-around;
+}
+
 /*************************************
  * Grid Cell Utilities
  ************************************/
@@ -138,7 +146,7 @@
     .grid--align-top {
         @include grid-align('top');
     }
-    .grid--align-bottom{
+    .grid--align-bottom {
         @include grid-align('bottom');
     }
     .grid--reverse {
@@ -150,6 +158,12 @@
         .grid__cell {
             @include grid-cell-flush;
         }
+    }
+    .grid--justify-space-around {
+        @include grid-justify-space-around;
+    }
+    .grid--justify-space-between {
+        @include grid-justify-space-between;
     }
 
     .grid__cell {
