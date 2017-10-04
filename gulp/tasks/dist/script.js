@@ -6,7 +6,7 @@ const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 
 const babelConfig = {
-    presets: ['env'],
+    presets: ['env', 'minify'],
     plugins: ['angularjs-annotate'],
 };
 

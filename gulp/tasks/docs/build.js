@@ -7,7 +7,7 @@ const babel = require('gulp-babel');
 const autoprefixer = require('gulp-autoprefixer');
 
 const babelConfig = {
-    presets: ['env'],
+    presets: ['env', 'minify'],
     plugins: ['angularjs-annotate'],
 };
 
