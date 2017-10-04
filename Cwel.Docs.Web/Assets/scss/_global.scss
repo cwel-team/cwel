@@ -52,19 +52,19 @@
 }
 
 // Layout
-.body__wrap {
-    height: 100%;
-    position: relative;
+body {
+    background: $core2;
 }
 .docs-playground__container {
     position: relative;
     height: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
     padding-top: 40px;
+    background: $white;
 }
 .docs-playground__container-overlay {
     opacity: 0;
-    transition: opacity 0.5s ease-in;
+    transition: all 0.5s;
 }
 .docs-playground__container-overlay--active {
     position: absolute;
@@ -75,5 +75,4 @@
     z-index: 1;
     background: $secondary1;
     opacity: 0.6;
-    transition: opacity 0.5s ease-in;
 }
