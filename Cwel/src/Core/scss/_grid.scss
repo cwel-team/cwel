@@ -10,7 +10,6 @@
     flex-shrink: 0;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: $gutter-xs * -1;
     margin-left: $gutter-xs * -1;
 
     @each $key in map-keys($BREAKPOINTS) {
@@ -19,7 +18,6 @@
 
         @media(min-width: $breakpoint) {
             margin-left: $gutter * -1;
-            margin-bottom: $gutter * -1;
         }
     }
 }
@@ -28,27 +26,38 @@
     @return ($n / 12) * 100%;
 }
 
+@mixin grid-cell-gutter($device) {
+    $gutter: map-get($GRID, 'gutter-#{$device}');
+    padding-left: $gutter;
+}
+
+@mixin grid-cell-width($width) {
+    flex-basis: grid-cell-size($width);
+    max-width: grid-cell-size($width);
+}
+
+@mixin grid-cell-box-model {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
 @mixin grid-cell($sizing, $grid-settings: $GRID) {
     $gutter-xs: map-get($grid-settings, 'gutter-xs');
     $width-xs: map-get($sizing, 'xs') or 12;
 
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: grid-cell-size($width-xs);
-    max-width: grid-cell-size($width-xs);
-    padding-left: $gutter-xs;
+    @include grid-cell-box-model;
+    @include grid-cell-width($width-xs);
+    @include grid-cell-gutter('xs');
 
     @each $key in map-keys($BREAKPOINTS) {
         $breakpoint: map-get($BREAKPOINTS, $key);
         $width: map-get($sizing, $key);
-        $gutter: map-get($grid-settings, 'gutter-#{$key}');
 
         @media(min-width: $breakpoint) {
             @if ($width != null) {
-                flex-basis: grid-cell-size($width);
-                max-width: grid-cell-size($width);
+                @include grid-cell-width($width);
             }
-            padding-left: $gutter;
+            @include grid-cell-gutter($key);
         }
     }
 }
@@ -109,4 +118,70 @@
 @mixin grid-cell-fit {
     flex-grow: 1;
     max-width: none;
+}
+
+/*************************************
+ * Grid Classes
+ ************************************/
+
+@mixin generate-grid-classes {
+
+    .grid {
+        @include grid();
+    }
+    .grid--align-left {
+        @include grid-align('left');
+    }
+    .grid--align-right {
+        @include grid-align('right');
+    }
+    .grid--align-top {
+        @include grid-align('top');
+    }
+    .grid--align-bottom{
+        @include grid-align('bottom');
+    }
+    .grid--reverse {
+        @include grid-reverse;
+    }
+    .grid--flush {
+        @include grid-flush;
+
+        .grid__cell {
+            @include grid-cell-flush;
+        }
+    }
+
+    .grid__cell {
+        @include grid-cell-box-model;
+        @include grid-cell-gutter('xs');
+        @include grid-cell-width(12);
+
+        @each $key in map-keys($BREAKPOINTS) {
+            $breakpoint: map-get($BREAKPOINTS, $key);
+
+            @media(min-width: $breakpoint) {
+                @include grid-cell-gutter($key);
+            }
+        }
+    }
+
+    @for $i from 1 through 12 {
+        .grid__cell--size-#{$i} {
+            @include grid-cell-width($i);
+        }
+    }
+
+
+    @for $i from 1 through 12 {
+        @each $key in map-keys($BREAKPOINTS) {
+            $breakpoint: map-get($BREAKPOINTS, $key);
+
+            .grid__cell--size-#{$i}-#{$key} {
+                @media(min-width: $breakpoint) {
+                    @include grid-cell-width($i);
+                }
+            }
+        }
+    }
 }

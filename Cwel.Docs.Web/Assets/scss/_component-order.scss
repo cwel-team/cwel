@@ -1,7 +1,10 @@
 .component-order {
     display: inline-flex;
-    min-height: 450px;
+    min-height: 200px;
     margin-bottom: 20px;
+    @include breakpoint('l') {
+        min-height: 450px;
+    }
 }
 .component-order__component-title {
     display: inline-block;
@@ -26,7 +29,10 @@
 }
 
 .component-order .button--icon-arrow-up,
-.component-order .button-icon-arrow-down,
-.component-order .button-icon-edit {
-
+.component-order .button--icon-arrow-down,
+.component-order .button--icon-edit {
+    display: none;
+    @include breakpoint('l') {
+        display: inline-block;
+    }
 }

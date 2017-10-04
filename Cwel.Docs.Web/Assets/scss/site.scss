@@ -23,3 +23,5 @@
 @import "_footer";
 @import "_content-area";
 @import "_component-order";
+
+@include generate-grid-classes;

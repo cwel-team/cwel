@@ -72,8 +72,8 @@
 
         <div class="container">
 
-            <div class="row">
-                <div class="add-component-wrap">
+            <div class="grid">
+                <div class="grid__cell grid__cell--size-5-l">
                     <!-- Add/edit start -->
                     <div class="form-field">
                         <label class="form-field__label">Type</label>
@@ -107,33 +107,32 @@
                     </button>
                     <!-- Add/edit end -->
                 </div>
-                <div class="order-component-wrap">
-                    <!-- Order start -->
-                    <div class="content-area">
-                        <div class="content-area__title">Order</div>
-                        <div class="content-area__container component-order">
-                            <button type="button" class="component-order__item button button--icon-only button--icon-arrow-up"></button>
-                            <button type="button" class="component-order__item button button--icon-only button--icon-arrow-down"></button>
-                            <div class="component-order__item component-order__component-title">Card</div>
-                            <button type="button" class="component-order__item button button--icon-only button--icon-edit"></button>
-                            <button type="button" class="component-order__item button button--icon-only button--icon-clear"></button>
-                        </div>
+                <!-- Order start -->
+                <div class="content-area grid__cell grid__cell--size-7-l">
+                    <div class="content-area__title">Order</div>
+                    <div class="content-area__container component-order">
+                        <button type="button" class="component-order__item button button--icon-only button--icon-arrow-up"></button>
+                        <button type="button" class="component-order__item button button--icon-only button--icon-arrow-down"></button>
+                        <div class="component-order__item component-order__component-title">Card</div>
+                        <button type="button" class="component-order__item button button--icon-only button--icon-edit"></button>
+                        <button type="button" class="component-order__item button button--icon-only button--icon-clear"></button>
                     </div>
-                    <!-- Order end -->
                 </div>
+                <!-- Order end -->
             </div>
 
-            <div class="row row--align-bottom">
+            <div class="grid grid--align-bottom">
                 <!-- Output start -->
-                <div class="output-title">
+
+                <div class="grid__cell">
                     <h3 class="h3">Output</h3>
                 </div>
-                <div class="output-button-wrap">
+                <div class="grid__cell grid__cell--size-2-l">
                     <a href="https://jsfiddle.net/" class="button">
                         <span class="button__text">JSFiddle</span>
                     </a>
                 </div>
-                <div class="output-input-size-wrap">
+                <div class="grid__cell grid__cell--size-4-l">
                     <div class="form-field">
                         <label class="form-field__label">Size</label>
                         <div class="form-field__select-container form-field__select-container--icon-arrow">
@@ -148,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="content-area output-content-area">
+                <div class="content-area grid__cell">
                     <div class="content-area__container"></div>
                 </div>
                 <!-- Output end -->
