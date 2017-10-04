@@ -37,6 +37,7 @@
     "gulp-multi-process": "git+https://github.com/countrywide/gulp-multi-process.git",
     "gulp-plumber": "^1.1.0",
     "gulp-protractor": "^4.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sequence": "^0.4.6",
     "gulp-sourcemaps": "^2.6.0",
