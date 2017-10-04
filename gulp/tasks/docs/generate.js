@@ -5,9 +5,9 @@ const generateDocs = require('../../lib/docs/generate');
 const csdoc = require('../../lib/docs/csharp/csdoc');
 
 // @internal
-gulp.task('cwel-docs-generate', () => gulpSequence('cwel-docs-generate-csharp', 'cwel-docs-generate-md'));
+gulp.task('cwel-docs-generate', done => gulpSequence('cwel-docs-generate-csharp', 'cwel-docs-generate-md')(done));
 // @internal
-gulp.task('clean:cwel-docs-generate', () => gulpSequence('clean:cwel-docs-generate-csharp', 'clean:cwel-docs-generate-md'));
+gulp.task('clean:cwel-docs-generate', done => gulpSequence('clean:cwel-docs-generate-csharp', 'clean:cwel-docs-generate-md')(done));
 
 
 // @internal

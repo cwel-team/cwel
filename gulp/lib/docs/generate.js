@@ -58,10 +58,10 @@ function gatherCwomponentData(file) {
     const dirPath = path.parse(file.path).dir;
     const name = path.parse(file.path).base.replace(/\..*$/, '');
     const type = path.parse(path.resolve(dirPath, '..')).name.toLowerCase();
-    const vmName = `${name}${type.replace(/(?:^|\s)\S/g, c => c.toUpperCase())}ViewModel`;
+    const vmName = `${name}ViewModel`;
     const scriptData = processScriptData(path.resolve(dirPath, `${name}.es`));
     const notes = processNotes(path.resolve(dirPath, `${name}.doc.md`));
-    const vm = processVmData(path.resolve(process.cwd(), `Cwomponents/dist/csdoc/${vmName}.json`));
+    const vm = processVmData(path.resolve(process.cwd(), `Cwel/dist/docs/csdoc/${vmName}.json`));
 
     return {
         name,
