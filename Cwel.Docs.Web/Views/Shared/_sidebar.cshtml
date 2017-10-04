@@ -1,0 +1,46 @@
+ <div class="docs-playground__container-overlay" ng-click="navSidebar=!navSidebar" ng-class="{ 'docs-playground__container-overlay--active': navSidebar }"></div>
+
+<div class="nav-sidebar" ng-class="{ 'nav-sidebar--active': navSidebar }">
+    <div class="nav-sidebar__title">Playground</div>
+    <ul class="nav-sidebar__ul">
+        <li class="nav-sidebar__li">
+            <a href="" class="nav-sidebar__li-link">Editors view</a>
+        </li>
+        <li class="nav-sidebar__li">
+            <a href="" class="nav-sidebar__li-link">Design view</a>
+        </li>
+        <li class="nav-sidebar__li">
+            <a href="" class="nav-sidebar__li-link">Presentation view</a>
+        </li>
+    </ul>
+    <div class="nav-sidebar__title">Docs</div>
+    <div class="nav-sidebar__search">
+        <div class="nav-sidebar__search-field form-field form-field--icon-search">
+            <input class="nav-sidebar__search-input form-field__input" placeholder="Search" />
+        </div>
+    </div>
+    <ul class="nav-sidebar__ul">
+        <li class="nav-sidebar__li">
+            <button type="button" ng-click="navSidebarPatterns=!navSidebarPatterns" class="nav-sidebar__li-link">Patterns</button>
+            <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatterns }">
+                <li class="nav-sidebar__collapsible-li">
+                    <a href="" class="nav-sidebar__collapsible-link">Badge</a>
+                </li>
+                <li class="nav-sidebar__collapsible-li">
+                    <a href="" class="nav-sidebar__collapsible-link">Card</a>
+                </li>
+            </ul>
+        </li>
+         <li class="nav-sidebar__li">
+            <button type="button" ng-click="navSidebarPatternsTwo=!navSidebarPatternsTwo" class="nav-sidebar__li-link">Components</button>
+            <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatternsTwo }">
+                <li class="nav-sidebar__collapsible-li">
+                    <a href="" class="nav-sidebar__collapsible-link">Badge</a>
+                </li>
+                <li class="nav-sidebar__collapsible-li">
+                    <a href="" class="nav-sidebar__collapsible-link">Card</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

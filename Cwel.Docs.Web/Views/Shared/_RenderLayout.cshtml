@@ -8,6 +8,11 @@
     <link href="@("https://unpkg.com/normalize.css@^4.1.1")" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet"/>
     <link rel="stylesheet" href="~/Assets/css/site.css"/>
+    <style>
+        body {
+            background: #FFFFFF;
+        }
+    </style>
 </head>
 <body ng-app="cwoApp">
     @RenderBody()
@@ -19,6 +24,5 @@
     <script src="~/Assets/js/bus.js"></script>
     <script src="~/Cwel/Vendor/hammer/hammer.js"></script>
     <script src="~/Cwel/services.js"></script>
-    @Html.RenderScripts()
 </body>
 </html>

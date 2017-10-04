@@ -22,19 +22,29 @@ angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
             this.events = [];
             this.deviceSizes = [{
                 name: 'xs',
-                breakpoint: 0
+                breakpoint: 0,
+                standardWidth: 320,
+                standardHeight: 568
             }, {
                 name: 's',
-                breakpoint: 400
+                breakpoint: 400,
+                standardWidth: 414,
+                standardHeight: 736
             }, {
                 name: 'm',
-                breakpoint: 600
+                breakpoint: 600,
+                standardWidth: 768,
+                standardHeight: 1024
             }, {
                 name: 'l',
-                breakpoint: 1004
+                breakpoint: 1004,
+                standardWidth: 1024,
+                standardHeight: 1366
             }, {
                 name: 'xl',
-                breakpoint: 1280
+                breakpoint: 1280,
+                standardWidth: 1366,
+                standardHeight: 1600
             }];
             this.currentDevice = this.deviceSizes.filter(function (ds) {
                 return _this.generateMediaQuery(ds.name).matches;

@@ -8,7 +8,23 @@
     <link rel="stylesheet" href="~/Assets/css/site.css">
 </head>
 <body ng-app="cwoApp">
-    @RenderBody()
+
+    <div class="nav-header">
+        <h1 class="nav-header__title h1">CWEL</h1>
+        <button type="button" ng-click="navSidebar=!navSidebar" class="nav-header__button button button--icon-menu">
+            <span class="button__text">View</span>
+        </button>
+    </div>
+
+    <div class="docs-playground__container">
+        @Html.Partial("_sidebar")
+        @RenderBody()
+    </div>
+
+    <div class="footer">
+        <div class="footer__title">&copy; Countrywide <span>{{ date | date: 'yyyy' }}</span></div>
+    </div>
+
     <script src="~/Assets/vendor/angularjs/angular.js"></script>
     <script src="~/Assets/vendor/angular-drag-and-drop-lists/angular-drag-and-drop-lists.js"></script>
     <script src="~/Assets/vendor/jsoncomp/jsonc.js"></script>
@@ -16,5 +32,6 @@
     <script src="~/Assets/js/playground.js"></script>
     <script src="~/Assets/js/bus.js"></script>
     <script src="~/Cwel/Vendor/hammer/hammer.js"></script>
+    <script src="/Cwel/services.js"></script>
 </body>
 </html>

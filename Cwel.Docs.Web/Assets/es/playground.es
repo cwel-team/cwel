@@ -1,11 +1,13 @@
-/* global JSONC */
-
 angular.module('cwoApp')
-.controller('playgroundCtrl', ($scope, bus, $http, $location) => {
+.controller('playgroundCtrl', ($scope, bus, $http, Breakpoint) => {
     $scope.device = 'mobile';
     $scope.model = {
         children: [],
     };
+    $scope.brick = {};
+    $scope.currentlyEditing = {};
+    $scope.sizes = Breakpoint.deviceSizes;
+    $scope.outputSize = $scope.sizes[$scope.sizes.length - 1];
 
     $scope.date = new Date();
 
@@ -28,54 +30,62 @@ angular.module('cwoApp')
         });
     };
 
-    $scope.resizeStage = () => {
-        if ($scope.device !== 'desktop') {
-            $scope.stageStyles = {};
-        } else {
-            $scope.stageStyles = {
-                height: `${window.innerHeight - 5}px`,
-            };
-        }
-    };
-
     $scope.addComponent = () => {
-        $scope.model.children.push({
-            type: 'component',
-            name: '',
-            data: {},
-            editing: true,
-        });
+        const newBrick = angular.copy($scope.brick);
+        delete newBrick.$$hashKey;
+        $scope.model.children.push(newBrick);
+        $scope.brick = {};
     };
 
-    $scope.setDevice = (name) => {
-        $scope.device = name;
-        $scope.$applyAsync(() => {
-            $scope.resizeStage();
-        });
+    $scope.editBrick = (child) => {
+        $scope.brick = angular.copy(child);
+        delete $scope.brick.$$hashKey;
+        $scope.currentlyEditing = child;
+        $scope.isEditing = true;
     };
 
-    const initState = $location.hash();
-    if (initState) {
-        try {
-            $scope.model = JSONC.unpack(initState);
-        } catch (ex) {
-            console.error('Failed to load initial state');
+    $scope.cancelEdit = () => {
+        $scope.brick = {};
+        $scope.isEditing = false;
+    };
+
+    $scope.saveEdit = () => {
+        angular.extend($scope.currentlyEditing, $scope.brick);
+        $scope.currentlyEditing = {};
+        $scope.brick = {};
+        $scope.isEditing = false;
+    };
+
+    $scope.removeBrick = (index) => {
+        $scope.model.children.splice(index, 1);
+    };
+
+    $scope.moveBrick = (index, direction) => {
+        const newPosition = index + direction;
+        if (newPosition >= 0 && newPosition < $scope.model.children.length) {
+            const temp = $scope.model.children[newPosition];
+            $scope.model.children[newPosition] = $scope.model.children[index];
+            $scope.model.children[index] = temp;
         }
-    }
+    };
+
+    $scope.resizeOutput = () => {
+        $scope.iframeStyle = {
+            width: `${$scope.outputSize.standardWidth}px`,
+            height: `${$scope.outputSize.standardHeight}px`,
+        };
+    };
 
     // Sync model to iframe
     $scope.$watch('model', () => {
-        // gzip + b64 might not be worth it here, could check model size before compressing
-        $location.hash(JSONC.pack($scope.model));
-
         // The fast solution for lazy people TODO filter out $$hash keys
         // in a more efficient manner
         bus.message('modelSync', JSON.parse(angular.toJson($scope.model)));
     }, true);
     // Set the stage :D
-    $scope.resizeStage();
+    $scope.resizeOutput();
 
-    $scope.getModel = function () {
+    $scope.getModel = () => {
         const m = angular.copy($scope.model);
         m.children = m.children.map((c) => {
             const cp = angular.copy(c);

@@ -45,7 +45,7 @@ gulp.task('cwel-docs-copy-razor', () => gulp.src('Cwel/dist/Cwel/**/*.cshtml')
 gulp.task('clean:cwel-docs-copy-razor', () => del(['Cwel.Docs.Web/Cwel/**/*.cshtml']));
 
 // @internal
-gulp.task('cwel-docs-copy-json', () => gulp.src('Cwel/src/Cwel/**/*.json')
+gulp.task('cwel-docs-copy-json', () => gulp.src('Cwel/src/**/*.json')
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
 gulp.task('clean:cwel-docs-copy-json', () => del(['Cwel.Docs.Web/Cwel/**/*.json']));

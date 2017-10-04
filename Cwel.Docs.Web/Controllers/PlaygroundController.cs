@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -95,7 +95,7 @@ namespace Cwel.Docs.Web.Controllers
         [Route("Playground/Model")]
         public string Model(string type, string name)
         {
-            var model = System.IO.File.ReadAllText(Server.MapPath($"~/Cwomponents/{type}/{name}/default.json"));
+            var model = System.IO.File.ReadAllText(Server.MapPath($"~/Cwel/{type}/{name}/default.json"));
             Response.ContentType = "application/json";
             return model;
         }

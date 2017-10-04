@@ -9,159 +9,101 @@
 
 <div class="docs-playground" ng-controller="playgroundCtrl">
 
-    <!-- Nav header start -->
-    <div class="nav-header">
-        <h1 class="nav-header__title h1">CWEL</h1>
-        <button type="button" ng-click="navSidebar=!navSidebar" class="nav-header__button button button--icon-menu">
-            <span class="button__text">View</span>
-        </button>
-    </div>
-    <!-- Nav header end -->
-
-    <!-- Docs playground container start -->
-    <div class="docs-playground__container">
-
-        <div class="docs-playground__container-overlay" ng-click="navSidebar=!navSidebar" ng-class="{ 'docs-playground__container-overlay--active': navSidebar }"></div>
-
-        <!-- Nav sidebar start -->
-        <div class="nav-sidebar" ng-class="{ 'nav-sidebar--active': navSidebar }">
-            <div class="nav-sidebar__title">Playground</div>
-            <ul class="nav-sidebar__ul">
-                <li class="nav-sidebar__li">
-                    <a href="" class="nav-sidebar__li-link">Editors view</a>
-                </li>
-                <li class="nav-sidebar__li">
-                    <a href="" class="nav-sidebar__li-link">Design view</a>
-                </li>
-                <li class="nav-sidebar__li">
-                    <a href="" class="nav-sidebar__li-link">Presentation view</a>
-                </li>
-            </ul>
-            <div class="nav-sidebar__title">Docs</div>
-            <div class="nav-sidebar__search">
-                <div class="nav-sidebar__search-field form-field form-field--icon-search">
-                    <input class="nav-sidebar__search-input form-field__input" placeholder="Search" />
+    <div class="container">
+        <div class="grid">
+            <div class="grid__cell grid__cell--size-5-l">
+                <!-- Add/edit start -->
+                <div class="form-field">
+                    <label class="form-field__label">Type</label>
+                    <div class="form-field__select-container form-field__select-container--icon-arrow">
+                        <select class="form-field__select"
+                                ng-model="brick.type"
+                                ng-options="type for type in ['component', 'pattern']">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label class="form-field__label">Name</label>
+                    <div class="form-field__select-container form-field__select-container--icon-arrow">
+                        <select class="form-field__select"
+                                ng-model="brick.name"
+                                ng-options="name for name in names[brick.type + 's']">
+                        </select>
+                    </div>
+                </div>
+                <button type="button" ng-click="fetchModel(brick)" class="button button--icon-import">
+                    <span class="button__text">Import</span>
+                </button>
+                <div class="form-field">
+                    <label class="form-field__label">Model</label>
+                    <textarea class="form-field__textarea"
+                            ng-model="brick.data"
+                            json-text
+                            ng-disabled="!brick.name"></textarea>
+                </div>
+                <button type="button" ng-hide="isEditing" ng-click="addComponent()" class="button button--icon-save">
+                    <span class="button__text">Add</span>
+                </button>
+                <div class="grid" ng-show="isEditing">
+                    <div class="grid__cell grid__cell--size-6-l">
+                        <button type="button" ng-click="saveEdit()" class="button button--icon-save">
+                            <span class="button__text">Save</span>
+                        </button>
+                    </div>
+                    <div class="grid__cell grid__cell--size-6-l">
+                        <button type="button" ng-click="cancelEdit()" class="button button--icon-save">
+                            <span class="button__text">Cancel</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Add/edit end -->
+            </div>
+            <!-- Order start -->
+            <div class="content-area grid__cell grid__cell--size-7-l">
+                <div class="content-area__title">Order</div>
+                <div class="content-area__container component-order">
+                    <div class="component-order__item" ng-repeat="child in model.children">
+                        <button type="button" class="component-order__item-action button button--icon-only button--icon-arrow-up" ng-click="moveBrick($index, -1)"></button>
+                        <button type="button" class="component-order__item-action button button--icon-only button--icon-arrow-down" ng-click="moveBrick($index, 1)"></button>
+                        <div class="component-order__item-title">{{child.name}}</div>
+                        <button type="button" class="component-order__item-action button button--icon-only button--icon-edit" ng-click="editBrick(child)"></button>
+                        <button type="button" ng-click="removeBrick($index)" class="component-order__item-action button button--icon-only button--icon-clear"></button>
+                    </div>
                 </div>
             </div>
-            <ul class="nav-sidebar__ul">
-                <li class="nav-sidebar__li">
-                    <button type="button" ng-click="navSidebarPatterns=!navSidebarPatterns" class="nav-sidebar__li-link">Patterns</button>
-                    <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatterns }">
-                        <li class="nav-sidebar__collapsible-li">
-                            <a href="" class="nav-sidebar__collapsible-link">Badge</a>
-                        </li>
-                        <li class="nav-sidebar__collapsible-li">
-                            <a href="" class="nav-sidebar__collapsible-link">Card</a>
-                        </li>
-                    </ul>
-                </li>
-                 <li class="nav-sidebar__li">
-                    <button type="button" ng-click="navSidebarPatternsTwo=!navSidebarPatternsTwo" class="nav-sidebar__li-link">Components</button>
-                    <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatternsTwo }">
-                        <li class="nav-sidebar__collapsible-li">
-                            <a href="" class="nav-sidebar__collapsible-link">Badge</a>
-                        </li>
-                        <li class="nav-sidebar__collapsible-li">
-                            <a href="" class="nav-sidebar__collapsible-link">Card</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <!-- Nav sidebar end -->
-
-        <div class="container">
-
-            <div class="grid">
-                <div class="grid__cell grid__cell--size-5-l">
-                    <!-- Add/edit start -->
-                    <div class="form-field">
-                        <label class="form-field__label">Type</label>
-                        <div class="form-field__select-container form-field__select-container--icon-arrow">
-                            <select class="form-field__select">
-                                <option></option>
-                                <option>Pattern</option>
-                                <option>Components</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-field">
-                        <label class="form-field__label">Name</label>
-                        <div class="form-field__select-container form-field__select-container--icon-arrow">
-                            <select class="form-field__select">
-                                <option></option>
-                                <option>Badge</option>
-                                <option>Card</option>
-                            </select>
-                        </div>
-                    </div>
-                    <button type="button" class="button button--icon-import">
-                        <span class="button__text">Import</span>
-                    </button>
-                    <div class="form-field">
-                        <label class="form-field__label">Model</label>
-                        <textarea class="form-field__textarea"></textarea>
-                    </div>
-                    <button type="button" class="button button--icon-save">
-                        <span class="button__text">Save</span>
-                    </button>
-                    <!-- Add/edit end -->
-                </div>
-                <!-- Order start -->
-                <div class="content-area grid__cell grid__cell--size-7-l">
-                    <div class="content-area__title">Order</div>
-                    <div class="content-area__container component-order">
-                        <button type="button" class="component-order__item button button--icon-only button--icon-arrow-up"></button>
-                        <button type="button" class="component-order__item button button--icon-only button--icon-arrow-down"></button>
-                        <div class="component-order__item component-order__component-title">Card</div>
-                        <button type="button" class="component-order__item button button--icon-only button--icon-edit"></button>
-                        <button type="button" class="component-order__item button button--icon-only button--icon-clear"></button>
-                    </div>
-                </div>
-                <!-- Order end -->
-            </div>
-
-            <div class="grid grid--align-bottom">
-                <!-- Output start -->
-
-                <div class="grid__cell">
-                    <h3 class="h3">Output</h3>
-                </div>
-                <div class="grid__cell grid__cell--size-2-l">
-                    <a href="https://jsfiddle.net/" class="button">
-                        <span class="button__text">JSFiddle</span>
-                    </a>
-                </div>
-                <div class="grid__cell grid__cell--size-4-l">
-                    <div class="form-field">
-                        <label class="form-field__label">Size</label>
-                        <div class="form-field__select-container form-field__select-container--icon-arrow">
-                            <select class="form-field__select">
-                                <option></option>
-                                <option>XS</option>
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="content-area grid__cell">
-                    <div class="content-area__container"></div>
-                </div>
-                <!-- Output end -->
-            </div>
-
+            <!-- Order end -->
         </div>
 
-    </div>
-    <!-- Docs playground container end -->
+        <div class="grid grid--justify-space-between grid--align-bottom">
+            <!-- Output start -->
 
-    <!-- Footer start -->
-    <div class="footer">
-        <div class="footer__title">&copy; Countrywide <span>{{ date | date: 'yyyy' }}</span></div>
+            <div class="grid__cell">
+                <h3 class="h3">Output</h3>
+            </div>
+            <div class="grid__cell grid__cell--size-2-l">
+                <a href="https://jsfiddle.net/" class="button">
+                    <span class="button__text">JSFiddle</span>
+                </a>
+            </div>
+            <div class="grid__cell grid__cell--size-4-l">
+                <div class="form-field">
+                    <label class="form-field__label">Size</label>
+                    <div class="form-field__select-container form-field__select-container--icon-arrow">
+                        <select class="form-field__select"
+                                ng-model="outputSize"
+                                ng-change="resizeOutput()"
+                                ng-options="size as size.name for size in sizes">
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="content-area grid__cell">
+                <div class="content-area__container">
+                    <iframe src="/Playground/stage" ng-style="iframeStyle"></iframe>
+                </div>
+            </div>
+            <!-- Output end -->
+        </div>
     </div>
-    <!-- Footer end -->
 
 </div>
