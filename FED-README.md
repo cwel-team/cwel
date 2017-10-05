@@ -2,9 +2,11 @@
 
 ## Dependencies
 
-- [Node v6.11.3](https://nodejs.org/en/download/)
+- [Node v8.6.0](https://nodejs.org/en/download/)
 - [Chocolatey](https://chocolatey.org)
 - [Nuget CLI](https://chocolatey.org/packages/NuGet.CommandLine)
+
+**Note:** If using Node Version Manager for Windows (NVM4W), ensure you have at least v1.1.6 to avoid "The filename or extension is too long" errors. See [https://github.com/coreybutler/nvm-windows/releases](https://github.com/coreybutler/nvm-windows/releases) for the latest release.
 
 ### Node
 
