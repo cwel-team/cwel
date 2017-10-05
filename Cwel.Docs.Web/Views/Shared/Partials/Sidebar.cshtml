@@ -1,10 +1,16 @@
- <div class="docs-playground__container-overlay" ng-click="navSidebar=!navSidebar" ng-class="{ 'docs-playground__container-overlay--active': navSidebar }"></div>
+ @model Dictionary <string, string[]>
+
+@{
+    Layout = null;
+}
+
+<div class="docs-playground__container-overlay" ng-click="navSidebar=!navSidebar" ng-class="{ 'docs-playground__container-overlay--active': navSidebar }"></div>
 
 <div class="nav-sidebar" ng-class="{ 'nav-sidebar--active': navSidebar }">
     <div class="nav-sidebar__title">Playground</div>
     <ul class="nav-sidebar__ul">
         <li class="nav-sidebar__li">
-            <a href="" class="nav-sidebar__li-link">Editors view</a>
+            <a href="/Playground" class="nav-sidebar__li-link">Editors view</a>
         </li>
         <li class="nav-sidebar__li">
             <a href="" class="nav-sidebar__li-link">Design view</a>
@@ -23,24 +29,30 @@
         <li class="nav-sidebar__li">
             <button type="button" ng-click="navSidebarPatterns=!navSidebarPatterns" class="nav-sidebar__li-link">Patterns</button>
             <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatterns }">
-                <li class="nav-sidebar__collapsible-li">
-                    <a href="" class="nav-sidebar__collapsible-link">Badge</a>
-                </li>
-                <li class="nav-sidebar__collapsible-li">
-                    <a href="" class="nav-sidebar__collapsible-link">Card</a>
-                </li>
+                @if (Model.ContainsKey("patterns"))
+                {
+                    foreach (var pattern in Model["patterns"])
+                    {
+                        <li class="nav-sidebar__collapsible-li">
+                            <a href="/pattern/@pattern" class="nav-sidebar__collapsible-link">@pattern</a>
+                        </li>
+                    }
+                }
             </ul>
         </li>
          <li class="nav-sidebar__li">
             <button type="button" ng-click="navSidebarPatternsTwo=!navSidebarPatternsTwo" class="nav-sidebar__li-link">Components</button>
-            <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatternsTwo }">
-                <li class="nav-sidebar__collapsible-li">
-                    <a href="" class="nav-sidebar__collapsible-link">Badge</a>
-                </li>
-                <li class="nav-sidebar__collapsible-li">
-                    <a href="" class="nav-sidebar__collapsible-link">Card</a>
-                </li>
-            </ul>
+             <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatternsTwo }">
+                @if (Model.ContainsKey("components"))
+                {
+                    foreach (var component in Model["components"])
+                    {
+                        <li class="nav-sidebar__collapsible-li">
+                            <a href="/component/@component" class="nav-sidebar__collapsible-link">@component</a>
+                        </li>
+                    }
+                }
+             </ul>
         </li>
     </ul>
 </div>
