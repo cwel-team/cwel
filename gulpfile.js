@@ -67,7 +67,7 @@ gulp.task('clean:cwel-test', done => gulpSequence('clean:cwel-test-build')(done)
 /**
  * Generate CWEL documentation pages
  */
-gulp.task('cwel-docs', ['cwel-dist'], done => gulpSequence('cwel-docs-copy', 'cwel-docs-generate', 'cwel-docs-build')(done));
+gulp.task('cwel-docs', done => gulpSequence('cwel-docs-copy', 'cwel-docs-generate', 'cwel-docs-build')(done));
 /**
  * Clean the CWEL documentation files and code in the docs project
  */
