@@ -17,6 +17,7 @@ require('./gulp/tasks/dist/img.js');
 require('./gulp/tasks/dist/web-config.js');
 
 require('./gulp/tasks/test/build.js');
+require('./gulp/tasks/test/run.js');
 
 require('./gulp/tasks/docs/generate.js');
 require('./gulp/tasks/docs/copy.js');

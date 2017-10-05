@@ -4,7 +4,7 @@ describe('CwomponentFactory', () => {
     let $window;
 
     beforeEach(() => {
-        module('cwoApp');
+        module('cwel');
         inject((_CwomponentFactory_, _$rootScope_, _$window_) => {
             CwomponentFactory = _CwomponentFactory_;
             $rootScope = _$rootScope_;

@@ -2,7 +2,7 @@ describe('AddOne Service', () => {
     let addOne;
 
     beforeEach(() => {
-        module('cwoApp');
+        module('cwel');
         inject((_addOne_) => {
             addOne = _addOne_;
         });

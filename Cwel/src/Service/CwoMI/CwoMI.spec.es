@@ -3,7 +3,7 @@ describe('CwoMI', () => {
     let $window;
 
     beforeEach(() => {
-        module('cwoApp');
+        module('cwel');
 
         inject((_$window_, _CwoMI_) => {
             CwoMI = _CwoMI_;
