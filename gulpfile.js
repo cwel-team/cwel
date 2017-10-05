@@ -15,10 +15,13 @@ require('./gulp/tasks/dist/style.js');
 require('./gulp/tasks/dist/razor.js');
 require('./gulp/tasks/dist/img.js');
 require('./gulp/tasks/dist/web-config.js');
+
 require('./gulp/tasks/test/build.js');
+
 require('./gulp/tasks/docs/generate.js');
 require('./gulp/tasks/docs/copy.js');
 require('./gulp/tasks/docs/build.js');
+
 require('./gulp/tasks/create.js');
 
 /**

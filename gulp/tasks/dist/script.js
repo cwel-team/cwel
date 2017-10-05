@@ -4,6 +4,7 @@ const gulpSequence = require('gulp-sequence');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 
 const babelConfig = {
     presets: ['env', 'minify'],
@@ -17,17 +18,16 @@ gulp.task('cwel-dist-script', done => gulpSequence([
     'cwel-dist-script-component',
     'cwel-dist-script-pattern',
     'cwel-dist-script-service',
-    'cwel-dist-script-concat',
     'cwel-dist-script-vendor',
-])(done));
+], 'cwel-dist-script-compile')(done));
 // @internal
 gulp.task('clean:cwel-dist-script', done => gulpSequence([
     'clean:cwel-dist-script-main',
     'clean:cwel-dist-script-component',
     'clean:cwel-dist-script-pattern',
     'clean:cwel-dist-script-service',
-    'clean:cwel-dist-script-concat',
     'clean:cwel-dist-script-vendor',
+    'clean:cwel-dist-script-compile',
 ])(done));
 
 
@@ -82,19 +82,20 @@ gulp.task('clean:cwel-dist-script-service', () => del(['Cwel/dist/Cwel/services.
 
 
 // @internal
-gulp.task('cwel-dist-script-concat', () => gulp.src([
-    'Cwel/dist/Cwel/**/*.js',
-    '!Cwel/dist/Cwel/cwel.js',
-])
-.pipe(concat('cwel.js'))
-.pipe(gulp.dest('Cwel/dist/Cwel')));
-// @internal
-gulp.task('clean:cwel-dist-script-concat', () => del(['Cwel/dist/Cwel/cwel.js']));
-
-
-// @internal
 gulp.task('cwel-dist-script-vendor', () => gulp.src([
     'Cwel/src/Vendor/**/*.js',
 ]).pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
 // @internal
 gulp.task('clean:cwel-dist-script-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.js']));
+
+
+// @internal
+gulp.task('cwel-dist-script-compile', () => gulp.src([
+    'Cwel/dist/Cwel/**/*.js',
+    '!Cwel/dist/Cwel/cwel.js',
+])
+.pipe(concat('cwel.js'))
+.pipe(uglify())
+.pipe(gulp.dest('Cwel/dist/Cwel')));
+// @internal
+gulp.task('clean:cwel-dist-script-compile', () => del(['Cwel/dist/Cwel/cwel.js']));
