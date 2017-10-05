@@ -55,16 +55,12 @@ angular.module('cwel')
 
             Breakpoint
             .on(['xs', 's'], () => {
-                scope.$apply(() => {
-                    scope.cardsPerSlide = 1;
-                    scope.responsiveAdjustIndex();
-                });
+                scope.cardsPerSlide = 1;
+                scope.responsiveAdjustIndex();
             })
             .on(['m', 'l', 'xl'], () => {
-                scope.$apply(() => {
-                    scope.cardsPerSlide = 3;
-                    scope.responsiveAdjustIndex();
-                });
+                scope.cardsPerSlide = 3;
+                scope.responsiveAdjustIndex();
             });
 
             scope.responsiveAdjustIndex = () => {
