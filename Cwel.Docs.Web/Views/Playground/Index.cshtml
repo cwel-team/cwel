@@ -1,9 +1,9 @@
-@model Cwel.Docs.Web.Models.PlayVersion
+﻿@model Cwel.Docs.Web.Models.PlaygroundViewModel
 
-@if (Model != null)
+@if (Model.Play != null)
 {
     <script type="x-play">
-        @Html.Raw(Model.Data)
+        @Html.Raw(Model.Play.Data)
     </script>
 }
 
@@ -41,7 +41,7 @@
                             json-text
                             ng-disabled="!brick.name"></textarea>
                 </div>
-                <button type="button" ng-hide="isEditing" ng-click="addComponent()" class="button button--icon-save">
+                <button type="button" ng-hide="isEditing" ng-click="addComponent()" class="button button--icon-add">
                     <span class="button__text">Add</span>
                 </button>
                 <div class="grid" ng-show="isEditing">
@@ -84,14 +84,25 @@
                 <h3 class="h3">Output</h3>
             </div>
             <div class="grid__cell grid__cell--size-2-l">
-                <a href="https://jsfiddle.net/" class="button">
+                <a href="https://jsfiddle.net/" class="button button--icon-output">
                     <span class="button__text">JSFiddle</span>
                 </a>
             </div>
             <div class="grid__cell grid__cell--size-2-l">
-                <a href="https://jsfiddle.net/" class="button">
-                    <span class="button__text">Save</span>
-                </a>
+                <form action="/Playground/save" method="POST" target="_blank">
+                    @if (!string.IsNullOrEmpty(Model.Id))
+                    {
+                        <input type="hidden" name="id" value="@Model.Id">
+                    }
+                    @if (Model.Version.HasValue)
+                    {
+                        <input type="hidden" name="version" value="@Model.Version">
+                    }
+                    <input type="hidden" name="data" value="{{ getSaveModel() }}">
+                    <button type="submit" class="button">
+                        <span class="button__text">Save</span>
+                    </button>
+                </form>
             </div>
             <div class="grid__cell grid__cell--size-4-l">
                 <div class="form-field">
@@ -105,7 +116,6 @@
                     </div>
                 </div>
             </div>
-
          </div>
     </div>
     <div class="content-area">

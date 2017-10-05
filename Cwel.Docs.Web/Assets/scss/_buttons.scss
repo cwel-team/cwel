@@ -35,17 +35,17 @@
 .button--icon-arrow-up:before {
     @include button-icon();
     @include spritesheet(0, -0.15);
-    width: 14px;
+    width: 12px;
 }
 .button--icon-arrow-down:before {
     @include button-icon();
     @include spritesheet(0, 7.85);
-    width: 14px;
+    width: 12px;
 }
 .button--icon-clear:before {
     @include button-icon();
     @include spritesheet(0, 0.88);
-    margin-left: 3px;
+    margin-left: 2px;
     width: 14px;
 }
 .button--icon-edit:before {
@@ -56,6 +56,16 @@
 .button--icon-menu:before {
     @include button-icon();
     @include spritesheet(0, 3.87);
+}
+.button--icon-output:before {
+    @include button-icon();
+    @include spritesheet(0, 8.89);
+    width: 23px;
+}
+.button--icon-add:before {
+    @include button-icon();
+    @include spritesheet(1, 0);
+    width: 14px;
 }
 .button--icon-only {
     width: 50px;

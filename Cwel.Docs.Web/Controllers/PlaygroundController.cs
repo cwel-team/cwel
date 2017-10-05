@@ -40,15 +40,20 @@ namespace Cwel.Docs.Web.Controllers
                 }
             }
 
-            return View(play);
+            return View(new PlaygroundViewModel
+            {
+                Id = id,
+                Play = play,
+                Version = version 
+            });
         }
 
         [HttpPost]
-        [Route("Playground/Save/{Id?}")]
-        public async Task<ActionResult> Save(string id, string data)
+        [Route("Playground/Save/{Id?}/{Version?}")]
+        public async Task<ActionResult> Save(string id, int? ver, string data)
         {
             int playId;
-            var version = 0;
+            var version = ver ?? 0;
 
             //TODO refactor this out of the controller
             using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["PlaygroundDb"].ConnectionString))
@@ -84,7 +89,7 @@ namespace Cwel.Docs.Web.Controllers
                 }
             }
             //TODO Ajax or Post
-            return RedirectToAction("Index", new { Id = CodeGenerator.GenerateCode(playId), version });
+            return RedirectToAction("Index", new { Id = CodeGenerator.GenerateCode(playId), Version = version + 1 });
         }
 
         /// <summary>

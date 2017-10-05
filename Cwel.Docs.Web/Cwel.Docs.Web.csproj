@@ -113,6 +113,7 @@
     <Compile Include="Helpers\Base62.cs" />
     <Compile Include="Helpers\CodeGenerator.cs" />
     <Compile Include="Models\DynamicModel.cs" />
+    <Compile Include="Models\PlaygroundViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

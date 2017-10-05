@@ -96,6 +96,8 @@ angular.module('cwoApp')
     // Set the stage :D
     $scope.resizeOutput();
 
+    $scope.getSaveModel = () => angular.toJson($scope.model);
+
     $scope.getModel = () => {
         const m = angular.copy($scope.model);
         m.children = m.children.map((c) => {
@@ -105,6 +107,10 @@ angular.module('cwoApp')
         });
         return JSON.stringify(m);
     };
+    const dataElm = document.querySelector('[type="x-play"]');
+    if (dataElm) {
+        $scope.model = JSON.parse(dataElm.text);
+    }
 })
 .controller('stageCtrl', ($scope, bus) => {
     $scope.model = {
