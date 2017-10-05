@@ -132,6 +132,18 @@ angular.module('cwoApp').service('Breakpoint', ['$window', '$rootScope', functio
     }())();
 }]);
 
+angular.module('cwoApp').service('CwoMI', ['$window', function ($window) {
+    $window.dataLayer = $window.dataLayer || [];
+
+    return {
+        logEvent: function logEvent(event) {
+            if (event) {
+                $window.dataLayer.push(event);
+            }
+        }
+    };
+}]);
+
 angular.module('cwoApp').factory('CwomponentFactory', ['$compile', function ($compile) {
     var cwomponentPrio = 50;
 
@@ -167,18 +179,6 @@ angular.module('cwoApp').factory('CwomponentFactory', ['$compile', function ($co
 
         ddo.priority = cwomponentPrio;
         return ddo;
-    };
-}]);
-
-angular.module('cwoApp').service('CwoMI', ['$window', function ($window) {
-    $window.dataLayer = $window.dataLayer || [];
-
-    return {
-        logEvent: function logEvent(event) {
-            if (event) {
-                $window.dataLayer.push(event);
-            }
-        }
     };
 }]);
 //# sourceMappingURL=services.js.map
