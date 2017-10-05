@@ -1,4 +1,4 @@
-﻿@model Cwel.Docs.Web.Models.PlaygroundViewModel
+@model Cwel.Docs.Web.Models.PlaygroundViewModel
 
 @if (Model.Play != null)
 {
@@ -89,7 +89,7 @@
                 </a>
             </div>
             <div class="grid__cell grid__cell--size-2-l">
-                <form action="/Playground/save" method="POST" target="_blank">
+                <form action="/Playground/save" method="POST">
                     @if (!string.IsNullOrEmpty(Model.Id))
                     {
                         <input type="hidden" name="id" value="@Model.Id">

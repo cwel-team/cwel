@@ -1,5 +1,5 @@
 angular.module('cwoApp')
-.controller('playgroundCtrl', ($scope, bus, $http, Breakpoint) => {
+.controller('playgroundCtrl', ($scope, bus, $http, Breakpoint, playgroundStore) => {
     $scope.device = 'mobile';
     $scope.model = {
         children: [],
@@ -89,9 +89,10 @@ angular.module('cwoApp')
 
     // Sync model to iframe
     $scope.$watch('model', () => {
-        // The fast solution for lazy people TODO filter out $$hash keys
-        // in a more efficient manner
-        bus.message('modelSync', JSON.parse(angular.toJson($scope.model)));
+        const model = angular.copy($scope.model);
+        delete model.$$hashKey;
+        bus.message('modelSync', model);
+        playgroundStore.store(angular.toJson(model));
     }, true);
     // Set the stage :D
     $scope.resizeOutput();
@@ -107,10 +108,7 @@ angular.module('cwoApp')
         });
         return JSON.stringify(m);
     };
-    const dataElm = document.querySelector('[type="x-play"]');
-    if (dataElm) {
-        $scope.model = JSON.parse(dataElm.text);
-    }
+    $scope.model = playgroundStore.load();
 })
 .controller('stageCtrl', ($scope, bus) => {
     $scope.model = {
