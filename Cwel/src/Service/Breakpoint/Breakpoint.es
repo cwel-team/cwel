@@ -1,4 +1,4 @@
-angular.module('cwoApp').service('Breakpoint', ($window) => {
+angular.module('cwoApp').service('Breakpoint', ($window, $rootScope) => {
     return new (class Breakpoint {
         constructor() {
             this.events = [];
@@ -12,25 +12,25 @@ angular.module('cwoApp').service('Breakpoint', ($window) => {
                 {
                     name: 's',
                     breakpoint: 400,
-                    standardWidth: 414,
+                    standardWidth: 400,
                     standardHeight: 736,
                 },
                 {
                     name: 'm',
                     breakpoint: 600,
-                    standardWidth: 768,
+                    standardWidth: 600,
                     standardHeight: 1024,
                 },
                 {
                     name: 'l',
                     breakpoint: 1004,
-                    standardWidth: 1024,
+                    standardWidth: 1004,
                     standardHeight: 1366,
                 },
                 {
                     name: 'xl',
                     breakpoint: 1280,
-                    standardWidth: 1366,
+                    standardWidth: 1280,
                     standardHeight: 1600,
                 },
             ];
@@ -62,12 +62,6 @@ angular.module('cwoApp').service('Breakpoint', ($window) => {
             }
 
             eventNames.forEach((name) => {
-                const names = this.deviceSizes.map(bp => bp.name);
-
-                if (names.indexOf(name) < 0) {
-                    throw Error('Breakpoint: unknown event name, dude');
-                }
-
                 this.events.push({
                     name,
                     callback,
@@ -78,9 +72,17 @@ angular.module('cwoApp').service('Breakpoint', ($window) => {
         }
 
         emit(name, ...args) {
-            const events = this.events.filter(e => e.name === name);
+            const events = this.events.filter(e => e.name === name || e.name === 'all');
+            $rootScope.$applyAsync(() => {
+                events.forEach(event => event.callback(...args));
+            });
+        }
 
-            events.forEach(event => event.callback(...args));
+        getDeviceSizesSmallerThanCurrent() {
+            return this.deviceSizes.filter((size) => {
+                const mq = `(max-width: ${size.breakpoint}px)`;
+                return !$window.matchMedia(mq).matches;
+            });
         }
 
         generateMediaQuery(sizeName) {

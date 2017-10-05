@@ -14,7 +14,7 @@
     background: $core2;
 }
 .content-area__container--output {
-    margin-bottom: 0;
+    margin-bottom: -40px; // collapses docs playground container padding
     border: none;
     border-top-width: 1px;
     border-top-style: solid;

@@ -7,12 +7,23 @@ angular.module('cwoApp')
     $scope.brick = {};
     $scope.currentlyEditing = {};
     $scope.sizes = Breakpoint.deviceSizes;
+    $scope.avaliableSizes = Breakpoint.getDeviceSizesSmallerThanCurrent();
     $scope.outputSize = $scope.sizes[0];
 
     $scope.date = new Date();
 
     $http.get('/playground/names').then((res) => {
         $scope.names = res.data;
+    });
+
+    Breakpoint.on('all', () => {
+        $scope.avaliableSizes = Breakpoint.getDeviceSizesSmallerThanCurrent();
+        const mustSelect = !$scope.avaliableSizes.find(size =>
+            size.name === $scope.outputSize.name);
+        if (mustSelect) {
+            $scope.outputSize = $scope.avaliableSizes[$scope.avaliableSizes.length - 1];
+            $scope.resizeOutput();
+        }
     });
 
     $scope.fetchModel = (item) => {
@@ -147,9 +158,10 @@ angular.module('cwoApp')
             function into(input) {
                 try {
                     return JSON.parse(input);
-                } catch(err) {
+                } catch (err) {
                     console.warn('Parsing CWEL Json: ', err);
                 }
+                return {};
             }
             function out(data) {
                 return JSON.stringify(data, null, ' ');

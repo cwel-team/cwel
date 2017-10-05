@@ -12,7 +12,7 @@ angular.module('cwoApp').factory('addOne', function () {
     };
 });
 
-angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
+angular.module('cwoApp').service('Breakpoint', ['$window', '$rootScope', function ($window, $rootScope) {
     return new (function () {
         function Breakpoint() {
             var _this = this;
@@ -28,22 +28,22 @@ angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
             }, {
                 name: 's',
                 breakpoint: 400,
-                standardWidth: 414,
+                standardWidth: 400,
                 standardHeight: 736
             }, {
                 name: 'm',
                 breakpoint: 600,
-                standardWidth: 768,
+                standardWidth: 600,
                 standardHeight: 1024
             }, {
                 name: 'l',
                 breakpoint: 1004,
-                standardWidth: 1024,
+                standardWidth: 1004,
                 standardHeight: 1366
             }, {
                 name: 'xl',
                 breakpoint: 1280,
-                standardWidth: 1366,
+                standardWidth: 1280,
                 standardHeight: 1600
             }];
             this.currentDevice = this.deviceSizes.filter(function (ds) {
@@ -78,14 +78,6 @@ angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
                 }
 
                 eventNames.forEach(function (name) {
-                    var names = _this2.deviceSizes.map(function (bp) {
-                        return bp.name;
-                    });
-
-                    if (names.indexOf(name) < 0) {
-                        throw Error('Breakpoint: unknown event name, dude');
-                    }
-
                     _this2.events.push({
                         name: name,
                         callback: callback
@@ -102,11 +94,20 @@ angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
                 }
 
                 var events = this.events.filter(function (e) {
-                    return e.name === name;
+                    return e.name === name || e.name === 'all';
                 });
-
-                events.forEach(function (event) {
-                    return event.callback.apply(event, args);
+                $rootScope.$applyAsync(function () {
+                    events.forEach(function (event) {
+                        return event.callback.apply(event, args);
+                    });
+                });
+            }
+        }, {
+            key: 'getDeviceSizesSmallerThanCurrent',
+            value: function getDeviceSizesSmallerThanCurrent() {
+                return this.deviceSizes.filter(function (size) {
+                    var mq = '(max-width: ' + size.breakpoint + 'px)';
+                    return !$window.matchMedia(mq).matches;
                 });
             }
         }, {
@@ -129,18 +130,6 @@ angular.module('cwoApp').service('Breakpoint', ['$window', function ($window) {
 
         return Breakpoint;
     }())();
-}]);
-
-angular.module('cwoApp').service('CwoMI', ['$window', function ($window) {
-    $window.dataLayer = $window.dataLayer || [];
-
-    return {
-        logEvent: function logEvent(event) {
-            if (event) {
-                $window.dataLayer.push(event);
-            }
-        }
-    };
 }]);
 
 angular.module('cwoApp').factory('CwomponentFactory', ['$compile', function ($compile) {
@@ -178,6 +167,18 @@ angular.module('cwoApp').factory('CwomponentFactory', ['$compile', function ($co
 
         ddo.priority = cwomponentPrio;
         return ddo;
+    };
+}]);
+
+angular.module('cwoApp').service('CwoMI', ['$window', function ($window) {
+    $window.dataLayer = $window.dataLayer || [];
+
+    return {
+        logEvent: function logEvent(event) {
+            if (event) {
+                $window.dataLayer.push(event);
+            }
+        }
     };
 }]);
 //# sourceMappingURL=services.js.map
