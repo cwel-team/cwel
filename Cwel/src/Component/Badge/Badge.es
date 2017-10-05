@@ -6,7 +6,7 @@
  * @dependencies addOne, CwomponentFactory
 */
 /* global Howl */
-angular.module('cwoApp').directive('badge', (addOne, CwomponentFactory) => {
+angular.module('cwel').directive('badge', (addOne, CwomponentFactory) => {
     return CwomponentFactory({
         restrict: 'A',
         scope: {

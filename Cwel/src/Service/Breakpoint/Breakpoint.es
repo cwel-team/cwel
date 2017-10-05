@@ -1,4 +1,4 @@
-angular.module('cwoApp').service('Breakpoint', ($window, $rootScope) => {
+angular.module('cwel').service('Breakpoint', ($window, $rootScope) => {
     return new (class Breakpoint {
         constructor() {
             this.events = [];

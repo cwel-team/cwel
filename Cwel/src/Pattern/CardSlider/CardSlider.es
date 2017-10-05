@@ -6,7 +6,7 @@
 * @dependencies CwoMI, CwomponentFactory
 */
 /* global Hammer */
-angular.module('cwoApp')
+angular.module('cwel')
 .directive('cwelCardSlider', (CwoMI, CwomponentFactory, Breakpoint) => {
     function deviceTranslateIndex(perSlide, index) {
         return (((index - (index % perSlide))

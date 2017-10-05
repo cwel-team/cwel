@@ -1,4 +1,4 @@
-angular.module('cwoApp')
+angular.module('cwel')
 .service('CwoMI', ($window) => {
     $window.dataLayer = $window.dataLayer || [];
 

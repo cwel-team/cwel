@@ -1,6 +1,18 @@
 const del = require('del');
 const gulp = require('gulp');
 const gulpSequence = require('gulp-sequence');
+const sass = require('gulp-sass');
+const rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+
+const sassConfig = {
+    precision: 8,
+    outputStyle: 'compressed',
+    includePaths: [
+        'Cwel/src',
+    ],
+};
 
 
 // @internal
@@ -9,13 +21,14 @@ gulp.task('cwel-dist-style', done => gulpSequence([
     'cwel-dist-style-pattern',
     'cwel-dist-style-core',
     'cwel-dist-style-vendor',
-])(done));
+], 'cwel-dist-style-compile')(done));
 // @internal
 gulp.task('clean:cwel-dist-style', done => gulpSequence([
     'clean:cwel-dist-style-component',
     'clean:cwel-dist-style-pattern',
     'clean:cwel-dist-style-core',
     'clean:cwel-dist-style-vendor',
+    'clean:cwel-dist-style-compile',
 ])(done));
 
 
@@ -45,3 +58,19 @@ gulp.task('cwel-dist-style-vendor', () => gulp.src('Cwel/src/Vendor/**/*.{css,sc
 .pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
 // @internal
 gulp.task('clean:cwel-dist-style-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.{css,scss}']));
+
+
+// @internal
+gulp.task('cwel-dist-style-compile', () => gulp.src('Cwel/src/Core/scss/main.scss')
+.pipe(sourcemaps.init())
+.pipe(sass(sassConfig))
+.pipe(autoprefixer({
+    browsers: ['last 30 versions'],
+}))
+.pipe(rename({
+    basename: 'cwel',
+}))
+.pipe(sourcemaps.write('.'))
+.pipe(gulp.dest('Cwel/dist/Cwel')));
+// @internal
+gulp.task('clean:cwel-dist-style-compile', () => del(['Cwel/dist/Cwel/cwel.css']));
