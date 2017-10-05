@@ -1,1 +1,1 @@
-angular.module('cwoApp', ['dndLists']);
+angular.module('cwoApp', ['cwel', 'dndLists']);

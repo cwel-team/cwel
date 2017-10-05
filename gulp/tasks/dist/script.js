@@ -4,6 +4,7 @@ const gulpSequence = require('gulp-sequence');
 const sourcemaps = require('gulp-sourcemaps');
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
+const order = require('gulp-order');
 const uglify = require('gulp-uglify');
 
 const babelConfig = {
@@ -84,7 +85,11 @@ gulp.task('clean:cwel-dist-script-service', () => del(['Cwel/dist/Cwel/services.
 // @internal
 gulp.task('cwel-dist-script-vendor', () => gulp.src([
     'Cwel/src/Vendor/**/*.js',
-]).pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
+])
+.pipe(sourcemaps.init())
+.pipe(uglify())
+.pipe(sourcemaps.write('.'))
+.pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
 // @internal
 gulp.task('clean:cwel-dist-script-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.js']));
 
@@ -94,8 +99,12 @@ gulp.task('cwel-dist-script-compile', () => gulp.src([
     'Cwel/dist/Cwel/**/*.js',
     '!Cwel/dist/Cwel/cwel.js',
 ])
+.pipe(order([
+    'Vendor/angularjs/angular.js',
+    'Vendor/**/*.js',
+    'Core/js/main.js',
+]))
 .pipe(concat('cwel.js'))
-.pipe(uglify())
 .pipe(gulp.dest('Cwel/dist/Cwel')));
 // @internal
 gulp.task('clean:cwel-dist-script-compile', () => del(['Cwel/dist/Cwel/cwel.js']));

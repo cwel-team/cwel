@@ -1,4 +1,4 @@
-angular.module('cwoApp')
+angular.module('cwel')
 .factory('CwomponentFactory', ($compile) => {
     const cwomponentPrio = 50;
 
