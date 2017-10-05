@@ -1,14 +1,15 @@
 .component-order {
+    height: auto;
     min-height: 200px;
     margin-bottom: 20px;
     @include breakpoint('l') {
-        min-height: 450px;
+        height: 450px;
+        overflow: auto;
     }
 }
 .component-order__item {
     display: inline-flex;
     width: 100%;
-    margin-bottom: 20px;
 }
 .component-order__item-title {
     display: inline-block;
@@ -28,6 +29,7 @@
 .component-order__item-action,
 .component-order__item-title {
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 .component-order__item-action:last-child {
     margin-right: 0px;

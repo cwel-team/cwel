@@ -13,6 +13,14 @@
     border-color: $secondary2;
     background: $core2;
 }
+.content-area__container--output {
+    margin-bottom: 0;
+    border: none;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: $secondary2;
+    border-radius: 0;
+}
 .content-area__container .button--icon-only {
     background: $white;
 }

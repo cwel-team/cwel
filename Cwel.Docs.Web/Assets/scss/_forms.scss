@@ -9,7 +9,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: $secondary2;
-    background: $core2;
+   // background: $core2;
 }
 @mixin form-icon() {
     height: 40px;
@@ -46,10 +46,11 @@
 }
 .form-field__select-container--icon-arrow:after {
     @include form-icon();
-    @include spritesheet(0, 3);
+    @include spritesheet(0, 2.96);
     position: absolute;
     top: 16px;
     right: 10px;
+    pointer-events: none;
 }
 .form-field--icon-search:before {
     @include form-icon();

@@ -7,7 +7,7 @@ angular.module('cwoApp')
     $scope.brick = {};
     $scope.currentlyEditing = {};
     $scope.sizes = Breakpoint.deviceSizes;
-    $scope.outputSize = $scope.sizes[$scope.sizes.length - 1];
+    $scope.outputSize = $scope.sizes[0];
 
     $scope.date = new Date();
 
@@ -145,7 +145,11 @@ angular.module('cwoApp')
         require: 'ngModel',
         link: (scope, element, attr, ngModel) => {
             function into(input) {
-                return JSON.parse(input);
+                try {
+                    return JSON.parse(input);
+                } catch(err) {
+                    console.warn('Parsing CWEL Json: ', err);
+                }
             }
             function out(data) {
                 return JSON.stringify(data, null, ' ');
