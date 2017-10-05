@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -10,6 +10,7 @@ using System.Web.Compilation;
 using System.Web.Mvc;
 using Cwel.Docs.Web.Helpers;
 using Cwel.Docs.Web.Models;
+using Cwel.Docs.Web.Services;
 using Dapper;
 using Newtonsoft.Json;
 
@@ -20,6 +21,12 @@ namespace Cwel.Docs.Web.Controllers
     /// </summary>
     public class PlaygroundController : Controller
     {
+        private readonly PlayService _playService;
+
+        public PlaygroundController(PlayService playService)
+        {
+            _playService = playService;
+        }
 
         /// <summary>
         /// Display the playground UI
@@ -27,69 +34,22 @@ namespace Cwel.Docs.Web.Controllers
         [HttpGet]
         public async Task<ActionResult> Index(string id, int? version)
         {
-            PlayVersion play = null;
-            if (!string.IsNullOrEmpty(id))
-            {
-                //TODO refactor this out of the controller
-                var playId = CodeGenerator.GetId(id);
-                using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["PlaygroundDb"].ConnectionString))
-                {
-                    play = await db.QuerySingleOrDefaultAsync<PlayVersion>(
-                        $"SELECT TOP(1) * FROM [Cwel.Playground].[dbo].[PlayVersion] WHERE PlayId = @playId {(version.HasValue ? "AND [Version] = @version" : "")} ORDER BY [Version] DESC",
-                        new { playId, version });
-                }
-            }
+            var playVersion = await _playService.GetPlayVersion(id, version);
 
             return View(new PlaygroundViewModel
             {
                 Id = id,
-                Play = play,
+                Play = playVersion,
                 Version = version 
             });
         }
 
         [HttpPost]
-        [Route("Playground/Save/{Id?}/{Version?}")]
-        public async Task<ActionResult> Save(string id, int? ver, string data)
+        [Route("Playground/Save/{Id?}")]
+        public async Task<ActionResult> Save(string id, string data)
         {
-            int playId;
-            var version = ver ?? 0;
-
-            //TODO refactor this out of the controller
-            using (IDbConnection db = new SqlConnection(ConfigurationManager.ConnectionStrings["PlaygroundDb"].ConnectionString))
-            {
-                db.Open();
-                using (var transaction = db.BeginTransaction())
-                {
-                    try
-                    {
-                        if (string.IsNullOrEmpty(id))
-                        {
-                            var sql =
-                                @"INSERT INTO [Play] ([Created]) VALUES (@now); SELECT CAST(SCOPE_IDENTITY() as int)";
-                            playId = await db.QuerySingleAsync<int>(sql, new {now = DateTime.UtcNow}, transaction);
-                        }
-                        else
-                        {
-                            playId = CodeGenerator.GetId(id);
-                            version = await db.QuerySingleAsync<int>(
-                                @"SELECT TOP(1) [Version] FROM [dbo].[PlayVersion] WHERE PlayId = @playId ORDER BY [Version] DESC", new { playId }, transaction);
-                        }
-
-                        var insertVersionSql =
-                            @"INSERT INTO [dbo].[PlayVersion] ([PlayId], [Version], [Data], [Created]) VALUES (@playId, @version, @data, @now)";
-                        await db.ExecuteAsync(insertVersionSql, new {playId, version = version + 1, data, now = DateTime.UtcNow}, transaction);
-                        transaction.Commit();
-                    }
-                    catch (Exception)
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
-                }
-            }
-            //TODO Ajax or Post
-            return RedirectToAction("Index", new { Id = CodeGenerator.GenerateCode(playId), Version = version + 1 });
+            var saved = await _playService.SavePlay(id, data);
+            return RedirectToAction("Index", new { Id = CodeGenerator.GenerateCode(saved.Item1), Version = saved.Item2 });
         }
 
         /// <summary>

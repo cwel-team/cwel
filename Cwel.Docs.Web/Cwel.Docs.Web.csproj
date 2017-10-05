@@ -52,8 +52,24 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.3.1.1.134\lib\net40\StructureMap.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.web.3.1.0.133\lib\net40\StructureMap.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -61,16 +77,17 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -96,14 +113,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\site.css" />
+    <Content Include="Assets\fonts\2a961063-ea56-4a4b-8cea-bdae32edb0e2.svg" />
+    <Content Include="Assets\fonts\8152bc4e-d700-4c78-b6be-326893e6f53f.svg" />
+    <Content Include="Assets\fonts\ab9cd062-380f-4b53-b1a7-c0bec7402235.svg" />
+    <Content Include="Assets\img\spritesheet.svg" />
+    <Content Include="Assets\js\bus.js" />
+    <Content Include="Assets\js\docsapp.js" />
+    <Content Include="Assets\js\playground.js" />
+    <Content Include="Assets\js\playgroundstore.js" />
+    <Content Include="Assets\vendor\angular-drag-and-drop-lists\angular-drag-and-drop-lists.js" />
+    <Content Include="Assets\vendor\angularjs\angular.js" />
+    <Content Include="Assets\vendor\jsoncomp\jsonc.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
+    <Compile Include="DependencyResolution\ControllerConvention.cs" />
+    <Compile Include="DependencyResolution\DefaultRegistry.cs" />
+    <Compile Include="DependencyResolution\IoC.cs" />
+    <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
+    <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
     <Compile Include="Models\Play.cs" />
     <Compile Include="Models\PlaygroundItem.cs" />
     <Compile Include="Models\PlaygroundPage.cs" />
@@ -115,9 +150,45 @@
     <Compile Include="Models\DynamicModel.cs" />
     <Compile Include="Models\PlaygroundViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\PlayService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="Assets\css\site.css.map" />
+    <Content Include="Assets\es\bus.es" />
+    <Content Include="Assets\es\docsapp.es" />
+    <Content Include="Assets\es\playground.es" />
+    <Content Include="Assets\es\playgroundstore.es" />
+    <Content Include="Assets\fonts\0d416408-95c6-4ad7-b08d-e60573d3b37d.woff2" />
+    <Content Include="Assets\fonts\2aff4f81-3e97-4a83-9e6c-45e33c024796.ttf" />
+    <Content Include="Assets\fonts\2fa30669-9bbd-4ced-912f-db94a367ed6c.woff" />
+    <Content Include="Assets\fonts\4d4a75f5-d32a-4a09-8665-133afd39cc37.ttf" />
+    <Content Include="Assets\fonts\64017d81-9430-4cba-8219-8f5cc28b923e.woff2" />
+    <Content Include="Assets\fonts\7e90123f-e4a7-4689-b41f-6bcfe331c00a.eot" />
+    <Content Include="Assets\fonts\93cc6d34-798e-42c8-87d2-fd6391801b63.eot" />
+    <Content Include="Assets\fonts\c12b3ebb-3771-483f-a84a-ac63d615c28e.ttf" />
+    <Content Include="Assets\fonts\d999c07b-a049-4eb5-b8a6-4f36ae25e67e.woff" />
+    <Content Include="Assets\fonts\d9fe41ee-4904-4a11-ba11-b61cd3be767f.woff2" />
+    <Content Include="Assets\fonts\e56ecb6d-da41-4bd9-982d-2d295bec9ab0.woff" />
+    <Content Include="Assets\fonts\fbc6b03a-b3a1-427c-a884-053deca3a53c.eot" />
+    <Content Include="Assets\js\bus.js.map" />
+    <Content Include="Assets\js\docsapp.js.map" />
+    <Content Include="Assets\js\playground.js.map" />
+    <Content Include="Assets\js\playgroundstore.js.map" />
+    <Content Include="Assets\scss\site.scss" />
+    <Content Include="Assets\scss\_buttons.scss" />
+    <Content Include="Assets\scss\_colours.scss" />
+    <Content Include="Assets\scss\_component-order.scss" />
+    <Content Include="Assets\scss\_content-area.scss" />
+    <Content Include="Assets\scss\_footer.scss" />
+    <Content Include="Assets\scss\_forms.scss" />
+    <Content Include="Assets\scss\_global.scss" />
+    <Content Include="Assets\scss\_layout.scss" />
+    <Content Include="Assets\scss\_nav-header.scss" />
+    <Content Include="Assets\scss\_nav-sidebar.scss" />
+    <Content Include="Assets\scss\_spritesheet.scss" />
+    <Content Include="Assets\scss\_type.scss" />
+    <Content Include="Assets\vendor\.eslintignore" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -156,7 +227,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62093</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
