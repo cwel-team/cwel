@@ -8,11 +8,13 @@
             if (dataElm) {
                 return JSON.parse(dataElm.text);
             }
-            const local = this.$window.localStorage.getItem('storedPlay');
+            const currentUrl = this.$window.location.pathname;
+            const local = this.$window.localStorage.getItem(`storedPlay ${currentUrl}`);
             return local ? JSON.parse(local) : { children: [] };
         }
         store(model) {
-            this.$window.localStorage.setItem('storedPlay', model);
+            const currentUrl = this.$window.location.pathname;
+            this.$window.localStorage.setItem(`storedPlay ${currentUrl}`, model);
         }
     }
 

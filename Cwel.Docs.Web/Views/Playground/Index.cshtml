@@ -7,7 +7,7 @@
     </script>
 }
 
-<div class="docs-playground" ng-controller="playgroundCtrl">
+<div ng-controller="playgroundCtrl">
 
     <div class="container">
         <div class="grid">
@@ -46,12 +46,12 @@
                 </button>
                 <div class="grid" ng-show="isEditing">
                     <div class="grid__cell grid__cell--size-6-l">
-                        <button type="button" ng-click="saveEdit()" class="button button--icon-save">
+                        <button type="button" ng-click="saveEdit()" class="button button--icon-update">
                             <span class="button__text">Update</span>
                         </button>
                     </div>
                     <div class="grid__cell grid__cell--size-6-l">
-                        <button type="button" ng-click="cancelEdit()" class="button button--icon-save">
+                        <button type="button" ng-click="cancelEdit()" class="button button--icon-clear">
                             <span class="button__text">Cancel</span>
                         </button>
                     </div>
@@ -99,7 +99,7 @@
                         <input type="hidden" name="version" value="@Model.Version">
                     }
                     <input type="hidden" name="data" value="{{ getSaveModel() }}">
-                    <button type="submit" class="button">
+                    <button type="submit" class="button button--icon-save">
                         <span class="button__text">Save</span>
                     </button>
                 </form>

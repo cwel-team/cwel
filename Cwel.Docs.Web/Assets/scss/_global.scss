@@ -3,21 +3,20 @@ body {
 }
 .container {
     @include container();
-    max-width: 1444px;
     margin-left: auto;
     margin-right: auto;
 }
-.docs-playground__container {
+.docs-playground {
     position: relative;
     padding-top: 40px;
     padding-bottom: 40px;
     background: $white;
 }
-.docs-playground__container-overlay {
+.docs-playground__overlay {
     opacity: 0;
     transition: all 0.5s;
 }
-.docs-playground__container-overlay--active {
+.docs-playground__overlay--active {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -27,7 +26,6 @@ body {
     background: $secondary1;
     opacity: 0.6;
 }
-
 iframe {
     display: block;
     width: 100%;
@@ -35,10 +33,4 @@ iframe {
     border-width: 1px;
     border-style: solid;
     border-color: $secondary2;
-}
-iframe html {
-    border-width: 1px;
-    border-style: solid;
-    border-color: $secondary2;
-    background: $core2;
 }

@@ -1,0 +1,15 @@
+.docs {
+    color: $core1;
+    @include breakpoint('s') {
+        min-height: 900px;
+    }
+}
+.docs__title {
+    padding-bottom: 16px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: $core1;
+}
+.docs__section {
+    margin-bottom: 20px;
+}

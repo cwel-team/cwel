@@ -3,44 +3,49 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>{{ name }}</h1>
+<div class="container docs">
 
-<h2>Notes</h2>
-{{ notes | safe }}
+    <h1 class="docs__title h1">{{ name }}</h1>
+    {{ notes | safe }}
 
-<h2>ViewModel</h2>
+    <div class="docs__section">
+        <h2>ViewModel</h2>
+        <div>Type: {{ vm.name }}</div>
+        <div>Summary: {{ vm.summary }}</div>
+    </div>
 
-Type: {{ vm.name }}
-Summary: {{ vm.summary }}
+    <div class="docs__section">
+        <h2>Properties</h2>
+        {% for prop in vm.props %}
+        <div>
+          {{ prop.name }} [{{ prop.returns }}] - {{ prop.summary }}
+        </div>
+        {% endfor %}
+    </div>
 
-<h3>Properties</h3>
+    <div class="docs__section">
+        <h2>Scope</h2>
+        {% for item in script.scope %}
+        <div>{{ item.name }}</div>
 
-{% for prop in vm.props %}
-<div>
-  {{ prop.name }} [{{ prop.returns }}] - {{ prop.summary }}
+        {% if item.type %}
+        <strong>Type:</strong> {{ item.type }}
+        {% endif %}
+
+        {% if item.params.length > 0 %}
+        <strong>Params:</strong>
+        <ul>
+          {% for param in item.params %}
+          <li>{{ param }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if item.return %}
+        <strong>Returns:</strong> {{ item.return }}
+        {% endif %}
+
+        {% endfor %}
+    </div>
+
 </div>
-{% endfor %}
-
-<h2>Scope</h2>
-
-{% for item in script.scope %}
-<h3>{{ item.name }}</h3>
-
-{% if item.type %}
-<strong>Type:</strong> {{ item.type }}
-{% endif %}
-
-{% if item.params.length > 0 %}
-<strong>Params:</strong>
-<ul>
-  {% for param in item.params %}
-  <li>{{ param }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
-
-{% if item.return %}
-<strong>Returns:</strong> {{ item.return }}
-{% endif %}
-
-{% endfor %}

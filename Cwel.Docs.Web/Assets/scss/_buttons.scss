@@ -10,8 +10,8 @@
     display: inline-block;
     width: 100%;
     min-width: 140px;
-    height: 40px;
-    margin-bottom: 20px;
+    height: 42px;
+    margin-bottom: 16px;
     color: $core1;
     text-align: center;
     line-height: 40px;
@@ -24,38 +24,43 @@
 .button__text {
     vertical-align: top;
 }
+.button:hover,
+.button:focus {
+    background: $core2;
+    transition: all 0.5s ease;
+}
 .button--icon-import:before {
     @include button-icon();
-    @include spritesheet(0, 4.89);
+    @include spritesheet(0, 4.88);
 }
 .button--icon-save:before {
     @include button-icon();
-    @include spritesheet(0, 5.90);
+    @include spritesheet(0, 5.89);
 }
 .button--icon-arrow-up:before {
     @include button-icon();
-    @include spritesheet(0, -0.15);
+    @include spritesheet(0, -0.17);
     width: 12px;
 }
 .button--icon-arrow-down:before {
     @include button-icon();
-    @include spritesheet(0, 7.85);
+    @include spritesheet(0, 7.83);
     width: 12px;
 }
 .button--icon-clear:before {
     @include button-icon();
-    @include spritesheet(0, 0.88);
-    margin-left: 2px;
+    @include spritesheet(0, 0.87);
+    margin-left: 1px;
     width: 14px;
 }
 .button--icon-edit:before {
     @include button-icon();
-    @include spritesheet(0, 1.92);
+    @include spritesheet(0, 1.91);
     width: 22px;
 }
 .button--icon-menu:before {
     @include button-icon();
-    @include spritesheet(0, 3.87);
+    @include spritesheet(0, 3.86);
 }
 .button--icon-output:before {
     @include button-icon();
@@ -64,8 +69,13 @@
 }
 .button--icon-add:before {
     @include button-icon();
-    @include spritesheet(1, 0);
+    @include spritesheet(1, -0.13);
     width: 14px;
+}
+.button--icon-update:before {
+    @include button-icon();
+    @include spritesheet(1, 0.91);
+    width: 16px;
 }
 .button--icon-only {
     width: 50px;

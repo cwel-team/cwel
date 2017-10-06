@@ -9,7 +9,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: $secondary2;
-   // background: $core2;
+    border-bottom-color: $core1;
 }
 @mixin form-icon() {
     height: 40px;
@@ -36,7 +36,7 @@
     resize: none;
 }
 .form-field {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 .form-field__label {
     display: block;
