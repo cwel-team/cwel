@@ -94,10 +94,6 @@
                     {
                         <input type="hidden" name="id" value="@Model.Id">
                     }
-                    @if (Model.Version.HasValue)
-                    {
-                        <input type="hidden" name="version" value="@Model.Version">
-                    }
                     <input type="hidden" name="data" value="{{ getSaveModel() }}">
                     <button type="submit" class="button button--icon-save">
                         <span class="button__text">Save</span>

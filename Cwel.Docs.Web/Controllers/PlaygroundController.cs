@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,7 +8,6 @@ using System.Web.Mvc;
 using Cwel.Docs.Web.Helpers;
 using Cwel.Docs.Web.Models;
 using Cwel.Docs.Web.Services;
-using Dapper;
 using Newtonsoft.Json;
 
 namespace Cwel.Docs.Web.Controllers
@@ -39,8 +35,7 @@ namespace Cwel.Docs.Web.Controllers
             return View(new PlaygroundViewModel
             {
                 Id = id,
-                Play = playVersion,
-                Version = version 
+                Play = playVersion
             });
         }
 

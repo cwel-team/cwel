@@ -60,7 +60,7 @@ namespace Cwel.Docs.Web.Services
                     {
                         playId = CodeGenerator.GetId(id);
                         version = await _dbConnection.QuerySingleAsync<int>(
-                            @"SELECT TOP(1) [Version] FROM [dbo].[PlayVersion] WHERE PlayId = @playId ORDER BY [Version] DESC", new { playId }, transaction);
+                                      @"SELECT TOP(1) [Version] FROM [dbo].[PlayVersion] WHERE PlayId = @playId ORDER BY [Version] DESC", new { playId }, transaction) + 1;
                     }
 
                     const string insertVersionSql = @"INSERT INTO [dbo].[PlayVersion] ([PlayId], [Version], [Data], [Created]) VALUES (@playId, @version, @data, @now)";
