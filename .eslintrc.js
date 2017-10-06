@@ -1,5 +1,8 @@
 module.exports = {
     'extends': 'airbnb-base',
+    'settings': {
+        'import/extensions': ['.js', '.es'],
+    },
     'rules': {
         'linebreak-style': 'off',
         'indent': [ 'error', 4 , { MemberExpression: 0 } ],

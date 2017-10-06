@@ -104,6 +104,7 @@ gulp.task('lint', () => {
         '!Cwel.Docs.Web/Assets/**/*.js',
         '!Cwel/src/Vendor/**/*.js',
         '!Cwel/dist/**/*.js',
+        '!Cwel/test/vendor/**/*.js',
     ])
     .pipe(eslint({
         fix: argv.fix,

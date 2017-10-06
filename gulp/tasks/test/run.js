@@ -6,14 +6,14 @@ const protractor = require('gulp-protractor').protractor;
 const { argv } = yargs;
 
 // @internal
-gulp.task('cwomponents-e2e', (done) => {
+gulp.task('cwel-test-run-e2e', (done) => {
     yargs.option('host', {
         describe: 'target host on which e2e tests are executed: protocol://host.name',
         default: 'http://docs.cwel.local',
     });
     const hostname = yargs.argv.host.replace(/\/$/, '');
 
-    gulp.src(['Cwomponents/**/*.e2e.js'])
+    gulp.src(['Cwel/dist/test/**/*.{e2e,pageobject}.js'])
     .pipe(protractor({
         configFile: 'protractor.conf.js',
         args: [

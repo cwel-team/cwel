@@ -1,4 +1,4 @@
-import CwomponentPageObject from '../../Testing/CwomponentPageObject';// eslint-disable-line
+import CwomponentPageObject from '../../../test/PageObject'; // eslint-disable-line
 
 export default class BadgePageObject extends CwomponentPageObject {
     constructor() {
