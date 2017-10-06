@@ -10,8 +10,6 @@ angular.module('cwoApp')
     $scope.avaliableSizes = Breakpoint.getDeviceSizesSmallerThanCurrent();
     $scope.outputSize = $scope.sizes[0];
 
-    $scope.date = new Date();
-
     $http.get('/playground/names').then((res) => {
         $scope.names = res.data;
     });

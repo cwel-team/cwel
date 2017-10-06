@@ -13,27 +13,24 @@
             <a href="/Playground" class="nav-sidebar__li-link">Editors view</a>
         </li>
         <li class="nav-sidebar__li">
-            <a href="" class="nav-sidebar__li-link">Design view</a>
-        </li>
-        <li class="nav-sidebar__li">
             <a href="" class="nav-sidebar__li-link">Presentation view</a>
         </li>
     </ul>
     <div class="nav-sidebar__title">Docs</div>
     <div class="nav-sidebar__search">
         <div class="nav-sidebar__search-field form-field form-field--icon-search">
-            <input class="nav-sidebar__search-input form-field__input" placeholder="Search" />
+            <input class="nav-sidebar__search-input form-field__input" ng-model="searchTerm" placeholder="Search" />
         </div>
     </div>
     <ul class="nav-sidebar__ul">
         <li class="nav-sidebar__li">
             <button type="button" ng-click="navSidebarPatterns=!navSidebarPatterns" class="nav-sidebar__li-link">Patterns</button>
-            <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatterns }">
+            <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatterns || searchTerm }">
                 @if (Model.ContainsKey("patterns"))
                 {
                     foreach (var pattern in Model["patterns"])
                     {
-                        <li class="nav-sidebar__collapsible-li">
+                        <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@pattern')">
                             <a href="/pattern/@pattern" class="nav-sidebar__collapsible-link">@pattern</a>
                         </li>
                     }
@@ -41,13 +38,13 @@
             </ul>
         </li>
          <li class="nav-sidebar__li">
-            <button type="button" ng-click="navSidebarPatternsTwo=!navSidebarPatternsTwo" class="nav-sidebar__li-link">Components</button>
-             <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatternsTwo }">
+            <button type="button" ng-click="navSidebarComponents=!navSidebarComponents" class="nav-sidebar__li-link">Components</button>
+             <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarComponents || searchTerm }">
                 @if (Model.ContainsKey("components"))
                 {
                     foreach (var component in Model["components"])
                     {
-                        <li class="nav-sidebar__collapsible-li">
+                        <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@component')">
                             <a href="/component/@component" class="nav-sidebar__collapsible-link">@component</a>
                         </li>
                     }

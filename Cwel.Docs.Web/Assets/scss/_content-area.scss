@@ -21,6 +21,15 @@
     border-top-color: $secondary2;
     border-radius: 0;
 }
+.content-area__container--docs-title {
+    margin-top: -40px; // collapses docs playground container padding
+    min-height: 0;
+    border: none;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: $secondary2;
+    border-radius: 0;
+}
 .content-area__container .button--icon-only {
     background: $white;
 }

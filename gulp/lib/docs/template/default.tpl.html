@@ -3,49 +3,57 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container docs">
-
-    <h1 class="docs__title h1">{{ name }}</h1>
-    {{ notes | safe }}
-
-    <div class="docs__section">
-        <h2>ViewModel</h2>
-        <div>Type: {{ vm.name }}</div>
-        <div>Summary: {{ vm.summary }}</div>
-    </div>
-
-    <div class="docs__section">
-        <h2>Properties</h2>
-        {% for prop in vm.props %}
-        <div>
-          {{ prop.name }} [{{ prop.returns }}] - {{ prop.summary }}
+<div class="docs">
+    <div class="content-area">
+        <div class="content-area__container content-area__container--docs-title">
+            <div class="container">
+                <h1 class="docs__title h1">{{ name }}</h1>
+            </div>
         </div>
-        {% endfor %}
     </div>
 
-    <div class="docs__section">
-        <h2>Scope</h2>
-        {% for item in script.scope %}
-        <div>{{ item.name }}</div>
+    <div class="container">
+        {{ notes | safe }}
 
-        {% if item.type %}
-        <strong>Type:</strong> {{ item.type }}
-        {% endif %}
+        <div class="docs__section">
+            <h2>ViewModel</h2>
+            <div>Type: {{ vm.name }}</div>
+            <div>Summary: {{ vm.summary }}</div>
+        </div>
 
-        {% if item.params.length > 0 %}
-        <strong>Params:</strong>
-        <ul>
-          {% for param in item.params %}
-          <li>{{ param }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
+        <div class="docs__section">
+            <h2>Properties</h2>
+            {% for prop in vm.props %}
+            <div>
+              {{ prop.name }} [{{ prop.returns }}] - {{ prop.summary }}
+            </div>
+            {% endfor %}
+        </div>
 
-        {% if item.return %}
-        <strong>Returns:</strong> {{ item.return }}
-        {% endif %}
+        <div class="docs__section">
+            <h2>Scope</h2>
+            {% for item in script.scope %}
+            <div>{{ item.name }}</div>
 
-        {% endfor %}
+            {% if item.type %}
+            <strong>Type:</strong> {{ item.type }}
+            {% endif %}
+
+            {% if item.params.length > 0 %}
+            <strong>Params:</strong>
+            <ul>
+              {% for param in item.params %}
+              <li>{{ param }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if item.return %}
+            <strong>Returns:</strong> {{ item.return }}
+            {% endif %}
+
+            {% endfor %}
+        </div>
     </div>
 
 </div>

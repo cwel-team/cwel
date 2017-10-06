@@ -7,10 +7,12 @@
 
     <link rel="stylesheet" href="~/Assets/css/site.css">
 </head>
-<body ng-app="cwoApp">
+<body ng-app="cwoApp" ng-controller="appCtrl">
 
     <div class="nav-header">
-        <h1 class="nav-header__title h1">CWEL</h1>
+        <h1 class="nav-header__title h1">
+            <a href="/" class="nav-header__link">CWEL</a>
+        </h1>
         <button type="button" ng-click="navSidebar=!navSidebar" class="nav-header__button button button--icon-menu">
             <span class="button__text">View</span>
         </button>

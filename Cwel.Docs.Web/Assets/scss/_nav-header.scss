@@ -11,7 +11,13 @@
 }
 .nav-header__title {
     width: 100%;
+    margin-bottom: 0;
     font-size: 1.1rem;
+}
+.nav-header__link,
+.nav-header__link:hover,
+.nav-header__link:focus {
+    color: $core1;
 }
 .nav-header__button {
     width: 100px;

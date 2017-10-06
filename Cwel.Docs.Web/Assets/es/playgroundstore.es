@@ -2,19 +2,19 @@
     class store {
         constructor($window) {
             this.$window = $window;
+            this.dataElm = this.$window.document.querySelector('[type="x-play"]');
         }
         load() {
-            const dataElm = this.$window.document.querySelector('[type="x-play"]');
-            if (dataElm) {
-                return JSON.parse(dataElm.text);
+            if (this.dataElm) {
+                return JSON.parse(this.dataElm.text);
             }
-            const currentUrl = this.$window.location.pathname;
-            const local = this.$window.localStorage.getItem(`storedPlay ${currentUrl}`);
+            const local = this.$window.localStorage.getItem('storedPlay');
             return local ? JSON.parse(local) : { children: [] };
         }
         store(model) {
-            const currentUrl = this.$window.location.pathname;
-            this.$window.localStorage.setItem(`storedPlay ${currentUrl}`, model);
+            if (!this.dataElm) {
+                this.$window.localStorage.setItem('storedPlay', model);
+            }
         }
     }
 

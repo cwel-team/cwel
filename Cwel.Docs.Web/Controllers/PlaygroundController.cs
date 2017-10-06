@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,7 +31,11 @@ namespace Cwel.Docs.Web.Controllers
         public async Task<ActionResult> Index(string id, int? version)
         {
             var playVersion = await _playService.GetPlayVersion(id, version);
-
+            if (playVersion == null && !string.IsNullOrEmpty(id))
+            {
+                RouteData.Values.Remove("id");
+                return RedirectToAction(nameof(Index));
+d            }
             return View(new PlaygroundViewModel
             {
                 Id = id,
