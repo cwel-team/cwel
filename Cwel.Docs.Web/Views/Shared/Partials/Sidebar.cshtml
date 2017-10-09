@@ -13,7 +13,10 @@
             <a href="/Playground" class="nav-sidebar__li-link">Editors view</a>
         </li>
         <li class="nav-sidebar__li">
-            <a href="" class="nav-sidebar__li-link">Presentation view</a>
+            <form action="/Playground/RenderPage" method="POST" target="_blank">
+                <input type="hidden" name="model" value="{{ getModel(model) }}">
+                <button type="submit" class="nav-sidebar__li-link" value="Open">Presentation view</button>
+            </form>
         </li>
     </ul>
     <div class="nav-sidebar__title">Docs</div>
