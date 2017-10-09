@@ -113,15 +113,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\css\site.css" />
     <Content Include="Assets\fonts\2a961063-ea56-4a4b-8cea-bdae32edb0e2.svg" />
     <Content Include="Assets\fonts\8152bc4e-d700-4c78-b6be-326893e6f53f.svg" />
     <Content Include="Assets\fonts\ab9cd062-380f-4b53-b1a7-c0bec7402235.svg" />
     <Content Include="Assets\img\spritesheet.svg" />
-    <Content Include="Assets\js\bus.js" />
-    <Content Include="Assets\js\docsapp.js" />
-    <Content Include="Assets\js\playground.js" />
-    <Content Include="Assets\js\playgroundstore.js" />
     <Content Include="Assets\vendor\angular-drag-and-drop-lists\angular-drag-and-drop-lists.js" />
     <Content Include="Assets\vendor\angularjs\angular.js" />
     <Content Include="Assets\vendor\jsoncomp\jsonc.js" />
@@ -154,7 +149,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="Assets\css\site.css.map" />
     <Content Include="Assets\es\bus.es" />
     <Content Include="Assets\es\docsapp.es" />
     <Content Include="Assets\es\playground.es" />
@@ -171,10 +165,6 @@
     <Content Include="Assets\fonts\d9fe41ee-4904-4a11-ba11-b61cd3be767f.woff2" />
     <Content Include="Assets\fonts\e56ecb6d-da41-4bd9-982d-2d295bec9ab0.woff" />
     <Content Include="Assets\fonts\fbc6b03a-b3a1-427c-a884-053deca3a53c.eot" />
-    <Content Include="Assets\js\bus.js.map" />
-    <Content Include="Assets\js\docsapp.js.map" />
-    <Content Include="Assets\js\playground.js.map" />
-    <Content Include="Assets\js\playgroundstore.js.map" />
     <Content Include="Assets\scss\site.scss" />
     <Content Include="Assets\scss\_buttons.scss" />
     <Content Include="Assets\scss\_colours.scss" />

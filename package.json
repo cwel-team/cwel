@@ -11,7 +11,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "async": "^2.5.0",
     "babel-plugin-angularjs-annotate": "^0.7.0",
     "babel-preset-airbnb": "^2.4.0",
     "babel-preset-env": "^1.6.0",
@@ -61,10 +60,5 @@
     "yargs": "^8.0.2"
   },
   "dependencies": {
-    "angular": "^1.6.5",
-    "angular-drag-and-drop-lists": "^2.1.0",
-    "hammerjs": "^2.0.8",
-    "howler": "^2.0.4",
-    "jsoncomp": "^1.6.1"
   }
 }
