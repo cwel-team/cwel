@@ -35,7 +35,7 @@ namespace Cwel.Docs.Web.Controllers
             {
                 RouteData.Values.Remove("id");
                 return RedirectToAction(nameof(Index));
-d            }
+            }
             return View(new PlaygroundViewModel
             {
                 Id = id,
