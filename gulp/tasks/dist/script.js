@@ -6,6 +6,14 @@ const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const order = require('gulp-order');
 const uglify = require('gulp-uglify');
+const gulpif = require('gulp-if');
+const yargs = require('yargs');
+const plumber = require('gulp-plumber');
+const path = require('path');
+const process = require('process');
+
+const argv = yargs.argv; // parse process.argv with yargs
+const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
 
 const babelConfig = {
     presets: ['env', 'minify'],
@@ -34,6 +42,7 @@ gulp.task('clean:cwel-dist-script', done => gulpSequence([
 
 // @internal
 gulp.task('cwel-dist-script-main', () => gulp.src('Cwel/src/Core/es/main.es')
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
@@ -47,6 +56,7 @@ gulp.task('cwel-dist-script-component', () => gulp.src([
     'Cwel/src/Component/**/*.es',
     '!Cwel/src/Component/**/*.{spec,pageobject,e2e}.es',
 ])
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
@@ -60,6 +70,7 @@ gulp.task('cwel-dist-script-pattern', () => gulp.src([
     'Cwel/src/Pattern/**/*.es',
     '!Cwel/src/Pattern/**/*.{spec,pageobject,e2e}.es',
 ])
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
@@ -73,6 +84,7 @@ gulp.task('cwel-dist-script-service', () => gulp.src([
     'Cwel/src/Service/**/*.es',
     '!Cwel/src/Service/**/*.{spec,pageobject,e2e}.es',
 ])
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(concat('services.js'))
 .pipe(babel(babelConfig))
@@ -86,6 +98,7 @@ gulp.task('clean:cwel-dist-script-service', () => del(['Cwel/dist/Cwel/services.
 gulp.task('cwel-dist-script-vendor', () => gulp.src([
     'Cwel/src/Vendor/**/*.js',
 ])
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(uglify())
 .pipe(sourcemaps.write('.'))

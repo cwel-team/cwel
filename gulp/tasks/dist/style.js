@@ -3,8 +3,16 @@ const gulp = require('gulp');
 const gulpSequence = require('gulp-sequence');
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
+const gulpif = require('gulp-if');
+const yargs = require('yargs');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
+const plumber = require('gulp-plumber');
+const path = require('path');
+const process = require('process');
+
+const argv = yargs.argv; // parse process.argv with yargs
+const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
 
 const sassConfig = {
     precision: 8,
@@ -62,6 +70,7 @@ gulp.task('clean:cwel-dist-style-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*
 
 // @internal
 gulp.task('cwel-dist-style-compile', () => gulp.src('Cwel/src/Core/scss/main.scss')
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(sass(sassConfig))
 .pipe(autoprefixer({

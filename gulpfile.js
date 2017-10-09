@@ -7,8 +7,15 @@ const gulpif = require('gulp-if');
 const yargs = require('yargs');
 const browserSync = require('browser-sync');
 const msbuild = require('gulp-msbuild');
+const plumber = require('gulp-plumber');
+const path = require('path');
+const process = require('process');
 
 const argv = yargs.argv; // parse process.argv with yargs
+/* eslint-disable */
+const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
+/* eslint-enable */
+
 
 require('./gulp/tasks/dist/script.js');
 require('./gulp/tasks/dist/style.js');
@@ -107,6 +114,7 @@ gulp.task('lint', () => {
         '!Cwel/src/Testing/vendor/**/*.js',
         '!Cwel/dist/**/*.js',
     ])
+    .pipe(gulpif(argv.chill, plumber(options.plumber)))
     .pipe(eslint({
         fix: argv.fix,
     }))
@@ -142,7 +150,7 @@ gulp.task('test', (done) => {
  * Auto-build FED code as you are working on it.
  */
 gulp.task('watch', ['build'], () => {
-    argv.chill = true;
+    argv.chill = false;
 
     browserSync.init({
         proxy: 'docs.cwel.local',

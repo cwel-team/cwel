@@ -4,7 +4,15 @@ const gulpSequence = require('gulp-sequence');
 const sourcemaps = require('gulp-sourcemaps');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
+const gulpif = require('gulp-if');
+const yargs = require('yargs');
 const autoprefixer = require('gulp-autoprefixer');
+const plumber = require('gulp-plumber');
+const path = require('path');
+const process = require('process');
+
+const argv = yargs.argv; // parse process.argv with yargs
+const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
 
 const babelConfig = {
     presets: ['env', 'minify'],
@@ -30,6 +38,7 @@ gulp.task('clean:cwel-docs-build', done => gulpSequence(
 
 // @internal
 gulp.task('cwel-docs-build-script', () => gulp.src('Cwel.Docs.Web/Assets/es/**/*.es')
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
@@ -40,6 +49,7 @@ gulp.task('clean:cwel-docs-build-script', () => del(['Cwel.Docs.Web/Assets/js/**
 
 // @internal
 gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/Assets/scss/**/*.scss')
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(sass(sassConfig))
 .pipe(autoprefixer({

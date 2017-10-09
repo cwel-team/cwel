@@ -12,7 +12,6 @@
     <div class="container">
         <div class="grid">
             <div class="grid__cell grid__cell--size-5-l">
-                <!-- Add/edit start -->
                 <div class="form-field">
                     <label class="form-field__label">Type</label>
                     <div class="form-field__select-container form-field__select-container--icon-arrow">
@@ -54,9 +53,7 @@
                         </button>
                     </div>
                 </div>
-                <!-- Add/edit end -->
             </div>
-            <!-- Order start -->
             <div class="content-area grid__cell grid__cell--size-7-l">
                 <div class="content-area__title">Order</div>
                 <div class="content-area__container component-order">
@@ -69,31 +66,33 @@
                     </div>
                 </div>
             </div>
-            <!-- Order end -->
         </div>
 
     </div>
 
     <div class="container">
         <div class="grid grid--justify-space-between grid--align-bottom">
-            <!-- Output start -->
-
-            <div class="grid__cell grid__cell--size-2-l">
-                <a href="https://jsfiddle.net/" class="button button--icon-output">
-                    <span class="button__text">JSFiddle</span>
-                </a>
-            </div>
-            <div class="grid__cell grid__cell--size-2-l">
-                <form action="/Playground/save" method="POST">
-                    @if (!string.IsNullOrEmpty(Model.Id))
-                    {
-                        <input type="hidden" name="id" value="@Model.Id">
-                    }
-                    <input type="hidden" name="data" value="{{ getSaveModel() }}">
-                    <button type="submit" class="button button--icon-save">
-                        <span class="button__text">Save</span>
-                    </button>
-                </form>
+            <div class="grid__cell grid__cell--size-5-l">
+                <!-- Nested grid -->
+                <div class="grid">
+                    <div class="grid__cell grid__cell--size-6-l">
+                        <a href="https://jsfiddle.net/" class="button button--icon-output">
+                            <span class="button__text">JSFiddle</span>
+                        </a>
+                    </div>
+                    <div class="grid__cell grid__cell--size-6-l">
+                        <form action="/Playground/save" method="POST">
+                            @if (!string.IsNullOrEmpty(Model.Id))
+                            {
+                                <input type="hidden" name="id" value="@Model.Id">
+                            }
+                            <input type="hidden" name="data" value="{{ getSaveModel() }}">
+                            <button type="submit" class="button button--icon-save">
+                                <span class="button__text">Save</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="grid__cell grid__cell--size-4-l">
                 <div class="form-field">
@@ -114,6 +113,5 @@
             <iframe src="/Playground/stage" ng-style="iframeStyle"></iframe>
         </div>
     </div>
-    <!-- Output end -->
 
 </div>
