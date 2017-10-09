@@ -17,6 +17,7 @@ require('./gulp/tasks/dist/img.js');
 require('./gulp/tasks/dist/web-config.js');
 
 require('./gulp/tasks/test/build.js');
+require('./gulp/tasks/test/copy.js');
 require('./gulp/tasks/test/run.js');
 
 require('./gulp/tasks/docs/generate.js');
@@ -58,7 +59,7 @@ gulp.task('clean:cwel-dist', done => gulpSequence(
 /**
  * Run CWEL tests
  */
-gulp.task('cwel-test', done => gulpSequence('cwel-test-build')(done));
+gulp.task('cwel-test', done => gulpSequence('cwel-test-build', 'cwel-test-copy', 'cwel-test-run')(done));
 /**
  * Clean the CWEL test files created by the cwel-test task
  */
@@ -103,8 +104,8 @@ gulp.task('lint', () => {
         '!Cwel.Docs.Web/Cwel/**/*.js',
         '!Cwel.Docs.Web/Assets/**/*.js',
         '!Cwel/src/Vendor/**/*.js',
+        '!Cwel/src/Testing/vendor/**/*.js',
         '!Cwel/dist/**/*.js',
-        '!Cwel/test/vendor/**/*.js',
     ])
     .pipe(eslint({
         fix: argv.fix,

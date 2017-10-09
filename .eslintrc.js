@@ -2,8 +2,12 @@ module.exports = {
     'extends': 'airbnb-base',
     'settings': {
         'import/extensions': ['.js', '.es'],
+        'import/resolver': {
+            './gulp/lib/lint/es-resolver.js': [],
+        }
     },
     'rules': {
+        'import/extensions': 'off',
         'linebreak-style': 'off',
         'indent': [ 'error', 4 , { MemberExpression: 0 } ],
         'arrow-body-style': [ 'off' ],

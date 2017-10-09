@@ -1,4 +1,4 @@
-const CardSliderPageObject = require('./CardSlider.pageobject').default; // eslint-disable-line import/no-unresolved
+const CardSliderPageObject = require('./CardSlider.pageobject').default;
 
 describe('CardSlider', () => {
     let cardSliderPo;

@@ -1,9 +1,13 @@
 const gulp = require('gulp');
+const gulpSequence = require('gulp-sequence');
 const yargs = require('yargs');
 const KarmaServer = require('karma').Server;
 const protractor = require('gulp-protractor').protractor;
 
 const { argv } = yargs;
+
+gulp.task('cwel-test-run', done => gulpSequence('cwel-test-run-e2e', 'cwel-test-run-unit')(done));
+
 
 // @internal
 gulp.task('cwel-test-run-e2e', (done) => {
@@ -37,7 +41,7 @@ gulp.task('cwel-test-run-unit', (done) => {
         frameworks: ['jasmine'],
         files: [
             'Cwel/dist/Cwel/cwel.js',
-            'Cwel/test/vendor/angular-mocks.js',
+            'Cwel/dist/test/Cwel/Testing/vendor/angular-mocks.js',
             'Cwel/dist/test/Cwel/**/*.spec.js',
         ],
     });
