@@ -24,7 +24,7 @@ describe('Breakpoint Service', () => {
     ];
 
     beforeEach(() => {
-        module('cwoApp');
+        module('cwel');
         inject((_Breakpoint_) => {
             Breakpoint = _Breakpoint_;
         });
