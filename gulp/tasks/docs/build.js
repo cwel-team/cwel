@@ -12,7 +12,9 @@ const path = require('path');
 const process = require('process');
 
 const argv = yargs.argv; // parse process.argv with yargs
+/* eslint-disable */
 const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
+/* eslint-enable */
 
 const babelConfig = {
     presets: ['env', 'minify'],
