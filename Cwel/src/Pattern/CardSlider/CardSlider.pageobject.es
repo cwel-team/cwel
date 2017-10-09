@@ -1,6 +1,6 @@
-import CwomponentPageObject from '../../Testing/CwomponentPageObject';// eslint-disable-line
+import PageObject from '../../Testing/PageObject';
 
-export default class CardSliderPageObject extends CwomponentPageObject {
+export default class CardSliderPageObject extends PageObject {
     constructor() {
         super('Pattern', 'CardSlider');
         this.sliderSelector = '.cwel-card-slider';

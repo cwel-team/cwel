@@ -1,4 +1,4 @@
-const BadgePageObject = require('../../dist/Component/Badge/Badge.pageobject').default; // eslint-disable-line import/no-unresolved
+const BadgePageObject = require('./Badge.pageobject').default;
 
 describe('Badge Component', () => {
     let badgePo;
