@@ -3,6 +3,7 @@ const doc = require('gulp-task-doc').patchGulp(); // @TODO(Daniel Stuessy) put t
 const gulpSequence = require('gulp-sequence');
 const gulpMultiProcess = require('gulp-multi-process');
 const eslint = require('gulp-eslint');
+const stylelint = require('gulp-stylelint');
 const gulpif = require('gulp-if');
 const yargs = require('yargs');
 const browserSync = require('browser-sync');
@@ -123,10 +124,27 @@ gulp.task('lint', () => {
     .pipe(gulpif(argv.fix, gulp.dest('.')));
 });
 
+
+// gulp.task('stylelint', () => {
+//     return gulp.src([
+//         '**/*.scss',
+//         '!node_modules/**',
+//     ])
+//     .pipe(gulpif(argv.chill, plumber(options.plumber)))
+//     .pipe(stylelint({
+//         failAfterError: true,
+//         debug: true,
+//         reporters: [{
+//             formatter: 'string',
+//             console: true,
+//         }],
+//     }));
+// });
+
 /**
  * Build the whole project: packaging CWEL and generating docs.
  */
-gulp.task('build', done => gulpSequence('lint', 'cwel-dist', 'cwel-docs')(done));
+gulp.task('build', done => gulpSequence('lint', /*'stylelint',*/ 'cwel-dist', 'cwel-docs')(done));
 
 /**
  * Run the front-end tests. e.g. unit and e2e
@@ -169,6 +187,7 @@ gulp.task('watch', ['build'], () => {
         '!Cwel/src/**/*.spec.es',
     ], () => gulpSequence(
         'lint',
+        /*'stylelint',*/
         'cwel-dist-script',
         'cwel-docs-copy-script',
         'cwel-docs-build-script',
@@ -193,6 +212,7 @@ gulp.task('watch', ['build'], () => {
 
     // Docs site
     gulp.watch('Cwel.Docs.Web/Assets/scss/**/*.scss', () => gulpSequence(
+        /*'styleint',*/
         'cwel-docs-build-style',
         'cwel-docs-generate')(() => browserSync.reload()));
     gulp.watch('Cwel.Docs.Web/Assets/img/**/*.{svg,png,jpg,jpeg}', () => browserSync.reload());

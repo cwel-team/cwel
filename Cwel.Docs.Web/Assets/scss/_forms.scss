@@ -57,7 +57,7 @@
     @include spritesheet(0, 7);
     position: absolute;
     top: 12px;
-    left: 0px;
+    left: 0;
 }
 select::-ms-expand {
     display: none;
