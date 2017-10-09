@@ -40,10 +40,12 @@ angular.module('cwoApp')
     };
 
     $scope.addComponent = () => {
-        const newBrick = angular.copy($scope.brick);
-        delete newBrick.$$hashKey;
-        $scope.model.children.push(newBrick);
-        $scope.brick = {};
+        if ($scope.brick.name) {
+            const newBrick = angular.copy($scope.brick);
+            delete newBrick.$$hashKey;
+            $scope.model.children.push(newBrick);
+            $scope.brick = {};
+        }
     };
 
     $scope.editBrick = (child) => {
@@ -55,14 +57,17 @@ angular.module('cwoApp')
 
     $scope.cancelEdit = () => {
         $scope.brick = {};
+        $scope.currentlyEditing = {};
         $scope.isEditing = false;
     };
 
     $scope.saveEdit = () => {
-        angular.extend($scope.currentlyEditing, $scope.brick);
-        $scope.currentlyEditing = {};
-        $scope.brick = {};
-        $scope.isEditing = false;
+        if ($scope.brick.name) {
+            angular.extend($scope.currentlyEditing, $scope.brick);
+            $scope.currentlyEditing = {};
+            $scope.brick = {};
+            $scope.isEditing = false;
+        }
     };
 
     $scope.removeBrick = (index) => {

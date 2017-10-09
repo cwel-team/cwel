@@ -3,7 +3,7 @@
     min-height: 200px;
     margin-bottom: 20px;
     @include breakpoint('l') {
-        height: 450px;
+        height: 440px;
         overflow: auto;
     }
 }
@@ -24,6 +24,9 @@
     border-width: 1px;
     border-style: solid;
     border-color: $core1;
+}
+.compoenent-order__item-title--active {
+    font-weight: 600;
 }
 .component-order__item-action,
 .component-order__item-title {
