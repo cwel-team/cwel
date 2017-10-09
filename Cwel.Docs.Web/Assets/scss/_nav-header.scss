@@ -12,6 +12,7 @@
 .nav-header__title {
     width: 100%;
     margin-bottom: 0;
+    padding-left: 16px;
     font-size: 1.1rem;
 }
 .nav-header__link,
@@ -20,7 +21,6 @@
     color: $core1;
 }
 .nav-header__button {
-    width: 100px;
     margin-bottom: 0;
     font-weight: 600;
 }
