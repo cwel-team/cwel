@@ -84,7 +84,7 @@ gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean
 
 
 /**
- * Create cwomponent blueprint files where needed:
+ * Create CWEL blueprint files for a component, pattern or service:
  * e.g. Script, Razor, C# ViewModels, Test, Style, and Docs files
  */
 gulp.task('cwel-create', done => gulpSequence('cwel-create-duplo')(done));
@@ -129,15 +129,14 @@ gulp.task('lint', () => {
 gulp.task('build', done => gulpSequence('lint', 'cwel-dist', 'cwel-docs')(done));
 
 /**
- * Run the front-end tests. e.g. unit and e2e
- * @internal
+ * Run the front-end tests.
  */
-gulp.task('test', (done) => {
+gulp.task('test', ['cwel-dist', 'cwel-test-build'], (done) => {
     // Using gulp-multi-process module to run karma in a child process of its own.
     // It turns out Karma seems to exit the main process it
     // runs on -- i.e. the gulp process -- making it
     // impossible to execute alongside other gulp tasks.
-    gulpMultiProcess(['cwomponents-e2e', 'cwomponents-unit'], (exitCode) => {
+    gulpMultiProcess(['cwel-test-run-e2e', 'cwel-test-run-unit'], (exitCode) => {
         if (exitCode !== 0) {
             throw Error('Tests processes returned non zero exit code');
         }
