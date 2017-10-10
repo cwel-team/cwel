@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -138,6 +138,19 @@ namespace Cwel.Docs.Web.Controllers
         {
             var page = JsonConvert.DeserializeObject<PlaygroundPage>(model);
             return View(page);
+        }
+
+
+        /// <summary>
+        /// Render a component by type and name with a given model
+        /// </summary>
+        /// <param name="model">Json ViewModel of the Cwomponent</param>
+        [HttpPost]
+        [Route("Playground/Fiddle")]
+        public ActionResult Fiddle(string model)
+        {
+            var page = JsonConvert.DeserializeObject<PlaygroundPage>(model);
+            return Json(page);
         }
     }
 }
