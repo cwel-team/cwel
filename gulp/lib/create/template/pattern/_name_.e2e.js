@@ -1,16 +1,16 @@
-const {{ name | pascalize }}PageObject = require('../../dist/Component/{{ name }}/{{ name }}.pageobject').default;
+const {{ name | pascalize }}PageObject = require('./{{ name | pascalize }}.pageobject').default;
 
-describe('{{ name }} Component', () => {
-	let {{ name | camelize }}Po;
+describe('{{ name | pascalize }} Pattern', () => {
+    let wizKhalifaPo;
 
-	beforeEach(() => {
-		{{ name | camelize }}Po = new {{ name | pascalize }}PageObject();
-	})
+    beforeEach(() => {
+        {{ name | camelize }}Po = new {{ name | pascalize }}PageObject();
+    });
 
     it('should do something', () => {
         const model = {};
 
-      	{{ name | camelize }}Po.navigate(model);  
+        {{ name | camelize }}Po.navigate(model);
         // Test, test, durr
     });
 });

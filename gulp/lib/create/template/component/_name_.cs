@@ -1,9 +1,11 @@
-﻿using System;
 ﻿using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
-namespace Cwo.Web
+namespace Cwel.Web
 {
+    /// <summary>
+    /// {{ name | pascalize }} Component View Model
+    /// </summary>
     public class {{ name }}ViewModel
     {
         public string PropertyDurr { get; set; }
@@ -11,9 +13,9 @@ namespace Cwo.Web
 
     public static partial class CwelExtensions
     {
-        public static MvcHtmlString Card(this HtmlHelper helper, {{ name }}ViewModel vm)
+        public static MvcHtmlString {{ name | pascalize }}(this HtmlHelper helper, {{ name | pascalize }}ViewModel vm)
         {
-            return helper.Partial(ComponentHelpers.ComponentViewPath("{{ name }}"), vm);
+            return helper.Partial(ComponentHelpers.ComponentViewPath("{{ name | pascalize }}"), vm);
         }
     }
 }

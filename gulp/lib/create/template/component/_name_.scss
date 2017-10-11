@@ -1,2 +1,16 @@
 
-/* sass, sass, durr */
+.{{ name | kebabize }} {
+    // Component BEM Block
+
+    &--modifier {
+        // Component BEM Block Modifier
+    }
+}
+
+.{{ name | kebabize }}__title {
+    // Component BEM Element
+
+    &--modifier {
+        // Component BEM Element Modifier
+    }
+}

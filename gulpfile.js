@@ -88,13 +88,13 @@ gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean
  * Create cwomponent blueprint files where needed:
  * e.g. Script, Razor, C# ViewModels, Test, Style, and Docs files
  */
-gulp.task('cwel-create', done => gulpSequence('cwel-create-duplo')(done));
+gulp.task('create', done => gulpSequence('cwel-create-duplo')(done));
 
 
 /**
  * Run MSBuild on this solution
  */
-gulp.task('msbuild', () => gulp.src('./Cwo.EpiServer.sln')
+gulp.task('msbuild', () => gulp.src('./Cwel.sln')
 .pipe(msbuild({
     toolsVersion: 'auto',
 })));
@@ -150,12 +150,12 @@ gulp.task('build', done => gulpSequence('lint', /* 'stylelint', */ 'cwel-dist', 
  * Run the front-end tests. e.g. unit and e2e
  * @internal
  */
-gulp.task('test', (done) => {
+gulp.task('test', ['cwel-dist', 'cwel-test-build'], (done) => {
     // Using gulp-multi-process module to run karma in a child process of its own.
     // It turns out Karma seems to exit the main process it
     // runs on -- i.e. the gulp process -- making it
     // impossible to execute alongside other gulp tasks.
-    gulpMultiProcess(['cwomponents-e2e', 'cwomponents-unit'], (exitCode) => {
+    gulpMultiProcess(['cwel-test-run-e2e', 'cwel-test-run-unit'], (exitCode) => {
         if (exitCode !== 0) {
             throw Error('Tests processes returned non zero exit code');
         }
@@ -178,6 +178,7 @@ gulp.task('watch', ['build'], () => {
         },
     });
 
+    // Cwel source
     gulp.watch('Cwel/src/**/*.doc.md', () => gulpSequence(
         'cwel-docs-generate')(() => browserSync.reload()));
     gulp.watch([
@@ -209,6 +210,13 @@ gulp.task('watch', ['build'], () => {
         'cwel-docs-copy-style',
         'cwel-docs-build-style',
         'cwel-docs-generate')(() => browserSync.reload()));
+
+    // Cwel tests
+    gulp.watch([
+        'Cwel/src/**/*.pageobject.es',
+        'Cwel/src/**/*.e2e.es',
+        'Cwel/src/**/*.spec.es',
+    ], () => gulpSequence('cwel-test-build'));
 
     // Docs site
     gulp.watch('Cwel.Docs.Web/Assets/scss/**/*.scss', () => gulpSequence(
