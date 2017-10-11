@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp-debug": "node debug node_modules\\gulp\\bin\\gulp.js",
-    "install": "node node_modules\\protractor\\node_modules\\webdriver-manager\\bin\\webdriver-manager update --versions.standalone=3.5.3"
+    "install": "node node_modules\\protractor\\node_modules\\webdriver-manager\\bin\\webdriver-manager update --versions.standalone=3.5.3",
+    "precommit": "gulp watch",
+    "prepush": ""
   },
   "author": "",
   "license": "ISC",
@@ -47,6 +49,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
+    "husky": "^0.14.3",
     "inquirer": "^3.2.0",
     "jasmine-core": "^2.6.4",
     "jasmine-spec-reporter": "^4.1.1",
@@ -57,6 +60,7 @@
     "karma-viewport": "^0.4.2",
     "marked": "^0.3.6",
     "nunjucks": "^3.0.1",
+    "pre-commit": "^1.2.2",
     "through2": "^2.0.3",
     "xmldoc": "^1.1.0",
     "yargs": "^8.0.2"
