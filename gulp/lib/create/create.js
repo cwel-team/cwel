@@ -18,6 +18,12 @@ function safeEval(str, scope, methods) {
     return value;
 }
 
+function kebabize(str) {
+    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
+        return index === 0 ? letter.toLowerCase() : `-${letter.toLowerCase()}`;
+    }).replace(/\s+/g, '');
+}
+
 function camelize(str) {
     return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
         return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
@@ -86,6 +92,7 @@ module.exports = function createCwomponent(type, options, callback) {
     const methods = {
         camelize,
         pascalize,
+        kebabize,
         toLowerCase: str => String.prototype.toLowerCase.call(str),
     };
     const cb = invokeOnCount(callback, 2);
