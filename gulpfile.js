@@ -188,4 +188,5 @@ gulp.task('watch', ['build'], () => {
         'lint-script',
         'cwel-docs-build-script',
         'cwel-docs-generate')(() => browserSync.reload()));
+    gulp.watch('Cwel.Docs.Web/**/*.cshtml', () => browserSync.reload());
 });

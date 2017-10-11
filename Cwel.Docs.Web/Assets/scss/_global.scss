@@ -26,7 +26,7 @@ body {
     background: $secondary1;
     opacity: 0.6;
 }
-iframe {
+.iframe {
     box-sizing: content-box;
     display: block;
     width: 100%;
@@ -34,4 +34,7 @@ iframe {
     border-width: 1px;
     border-style: solid;
     border-color: $secondary2;
+}
+.iframe--anim-width {
+    transition: width .7s;
 }
