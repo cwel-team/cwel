@@ -178,7 +178,6 @@ gulp.task('watch', ['build'], () => {
 
     // Docs site
     gulp.watch('Cwel.Docs.Web/Assets/scss/**/*.scss', () => gulpSequence(
-        /* 'styleint', */
         'cwel-docs-build-style',
         'cwel-docs-generate')(() => browserSync.reload()));
     gulp.watch('Cwel.Docs.Web/Assets/img/**/*.{svg,png,jpg,jpeg}', () => browserSync.reload());
