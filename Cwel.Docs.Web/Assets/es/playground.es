@@ -39,7 +39,7 @@ angular.module('cwoApp')
         });
     };
 
-    $scope.addComponent = () => {}
+    $scope.addComponent = () => {
         if ($scope.brick.name) {
             const newBrick = angular.copy($scope.brick);
             delete newBrick.$$hashKey;
@@ -48,7 +48,7 @@ angular.module('cwoApp')
         }
     };
 
-    $scope.editBrick = (child) => {
+    $scope.editBrick = (child) =>
         $scope.brick = angular.copy(child);
         delete $scope.brick.$$hashKey;
         $scope.currentlyEditing = child;
