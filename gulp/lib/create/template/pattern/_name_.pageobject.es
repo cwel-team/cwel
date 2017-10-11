@@ -1,7 +1,7 @@
-import CwomponentPageObject from '../../Testing/CwomponentPageObject';// eslint-disable-line
+import PageObject from '../../Testing/PageObject';
 
-export default class {{ name | pascalize }}PageObject extends CwomponentPageObject {
+export default class {{ name | pascalize }}PageObject extends PageObject {
     constructor() {
-        super('{{ type }}', '{{ name }}');        
+        super('{{ type }}', '{{ name }}');
     }
 }
