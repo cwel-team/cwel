@@ -34,6 +34,7 @@
     "gulp-main-npm-files": "^1.0.5",
     "gulp-msbuild": "^0.5.2",
     "gulp-multi-process": "git+https://github.com/countrywide/gulp-multi-process.git",
+    "gulp-notify": "^3.0.0",
     "gulp-order": "^1.1.1",
     "gulp-plumber": "^1.1.0",
     "gulp-protractor": "^4.1.0",

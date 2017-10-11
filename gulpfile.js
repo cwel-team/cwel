@@ -168,7 +168,7 @@ gulp.task('test', (done) => {
  * Auto-build FED code as you are working on it.
  */
 gulp.task('watch', ['build'], () => {
-    argv.chill = false;
+    argv.chill = true;
 
     browserSync.init({
         proxy: 'docs.cwel.local',

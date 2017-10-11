@@ -24,7 +24,7 @@ angular.module('cwoApp')
         }
     });
 
-    $scope.fetchModel = (item) => {
+    $scope.fetchModel = (item) =>
         $http({
             url: '/playground/model/',
             params: {
