@@ -5,9 +5,10 @@
   "main": "Gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp-watch": "gulp watch",
     "gulp-debug": "node debug node_modules\\gulp\\bin\\gulp.js",
     "install": "node node_modules\\protractor\\node_modules\\webdriver-manager\\bin\\webdriver-manager update --versions.standalone=3.5.3",
-    "precommit": "npm gulp watch",
+    "precommit": "gulp watch --color",
     "prepush": ""
   },
   "author": "",

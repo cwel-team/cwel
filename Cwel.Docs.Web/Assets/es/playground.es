@@ -55,7 +55,7 @@ angular.module('cwoApp')
         $scope.isEditing = true;
     };
 
-    $scope.cancelEdit = () =>
+    $scope.cancelEdit = () => {
         $scope.brick = {};
         $scope.currentlyEditing = {};
         $scope.isEditing = false;
