@@ -24,7 +24,7 @@ angular.module('cwoApp')
         }
     });
 
-    $scope.fetchModel = (item) =>
+    $scope.fetchModel = (item) => {
         $http({
             url: '/playground/model/',
             params: {
@@ -39,7 +39,7 @@ angular.module('cwoApp')
         });
     };
 
-    $scope.addComponent = () => {
+    $scope.addComponent = () => {}
         if ($scope.brick.name) {
             const newBrick = angular.copy($scope.brick);
             delete newBrick.$$hashKey;
