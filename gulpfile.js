@@ -88,7 +88,7 @@ gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean
  * Create cwomponent blueprint files where needed:
  * e.g. Script, Razor, C# ViewModels, Test, Style, and Docs files
  */
-gulp.task('cwel-create', done => gulpSequence('cwel-create-duplo')(done));
+gulp.task('create', done => gulpSequence('cwel-create-duplo')(done));
 
 
 /**
