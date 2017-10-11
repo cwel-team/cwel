@@ -48,14 +48,14 @@ angular.module('cwoApp')
         }
     };
 
-    $scope.editBrick = (child) =>
+    $scope.editBrick = (child) => {
         $scope.brick = angular.copy(child);
         delete $scope.brick.$$hashKey;
         $scope.currentlyEditing = child;
         $scope.isEditing = true;
     };
 
-    $scope.cancelEdit = () => {
+    $scope.cancelEdit = () =>
         $scope.brick = {};
         $scope.currentlyEditing = {};
         $scope.isEditing = false;
