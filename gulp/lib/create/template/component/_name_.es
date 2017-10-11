@@ -1,11 +1,11 @@
 /**
- * @name {{ name }}
+ * @name {{ name | pascalize }}
  * @type component
  * @angulartype directive
- * @module cwoApp
+ * @module cwel
  * @dependencies CwomponentFactory
 */
-angular.module('cwoApp').directive('{{ name | camelize }}', (CwomponentFactory) => {
+angular.module('cwel').directive('{{ name | camelize }}', (CwomponentFactory) => {
     return CwomponentFactory({
         restrict: 'A',
         scope: {

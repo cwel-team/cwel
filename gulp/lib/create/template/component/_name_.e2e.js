@@ -1,4 +1,4 @@
-const {{ name | pascalize }}PageObject = require('../../dist/Component/{{ name }}/{{ name }}.pageobject').default; // eslint-disable-line import/no-unresolved
+const {{ name | pascalize }}PageObject = require('./{{ name | pascalize }}.pageobject').default; // eslint-disable-line import/no-unresolved
 
 describe('{{ name }} Component', () => {
     let {{ name | camelize }}Po;
