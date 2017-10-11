@@ -9,7 +9,8 @@ angular.module('cwel').directive('{{ name | camelize }}', (CwomponentFactory) =>
     return CwomponentFactory({
         restrict: 'A',
         scope: {
-            // scope, scope, durr
+            // scope data is declared here
+            // e.g. 'currentIndex': '@'
         },
         link: (scope) => {
             // code, code, durr
