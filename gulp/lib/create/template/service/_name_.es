@@ -1,5 +1,5 @@
-﻿angular.module('cwoApp').service('{{ name | camelize }}', () => {
+﻿angular.module('cwel').service('{{ name | camelize }}', () => {
     return {
-        method: () => 'durr',
+        method: () => "I'm a string",
     };
 });
