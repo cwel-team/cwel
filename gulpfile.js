@@ -2,20 +2,11 @@ const gulp = require('gulp');
 const doc = require('gulp-task-doc').patchGulp(); // @TODO(Daniel Stuessy) put this in 'help' task to improve gulp startup speed
 const gulpSequence = require('gulp-sequence');
 const gulpMultiProcess = require('gulp-multi-process');
-const eslint = require('gulp-eslint');
-// const stylelint = require('gulp-stylelint');
-const gulpif = require('gulp-if');
 const yargs = require('yargs');
 const browserSync = require('browser-sync');
 const msbuild = require('gulp-msbuild');
-const plumber = require('gulp-plumber');
-const path = require('path');
-const process = require('process');
 
 const argv = yargs.argv; // parse process.argv with yargs
-/* eslint-disable */
-const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
-/* eslint-enable */
 
 
 require('./gulp/tasks/dist/script.js');
@@ -33,6 +24,9 @@ require('./gulp/tasks/docs/copy.js');
 require('./gulp/tasks/docs/build.js');
 
 require('./gulp/tasks/create.js');
+
+require('./gulp/tasks/lint.js');
+
 
 /**
  * Display this help
@@ -103,52 +97,17 @@ gulp.task('msbuild', () => gulp.src('./Cwel.sln')
 /**
  * Check the solution's code style.
  */
-gulp.task('lint', () => {
-    return gulp.src([
-        '**/*.es',
-        '**/*.js',
-        '!node_modules/**',
-        '!gulp/lib/create/template/**',
-        '!Cwel.Docs.Web/Cwel/**/*.js',
-        '!Cwel.Docs.Web/Assets/**/*.js',
-        '!Cwel/src/Vendor/**/*.js',
-        '!Cwel/src/Testing/vendor/**/*.js',
-        '!Cwel/dist/**/*.js',
-    ])
-    .pipe(gulpif(argv.chill, plumber(options.plumber)))
-    .pipe(eslint({
-        fix: argv.fix,
-    }))
-    .pipe(eslint.format())
-    .pipe(gulpif(!argv.chill, eslint.failAfterError()))
-    .pipe(gulpif(argv.fix, gulp.dest('.')));
-});
+gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
 
-
-// gulp.task('stylelint', () => {
-//     return gulp.src([
-//         '**/*.scss',
-//         '!node_modules/**',
-//     ])
-//     .pipe(gulpif(argv.chill, plumber(options.plumber)))
-//     .pipe(stylelint({
-//         failAfterError: true,
-//         debug: true,
-//         reporters: [{
-//             formatter: 'string',
-//             console: true,
-//         }],
-//     }));
-// });
 
 /**
  * Build the whole project: packaging CWEL and generating docs.
  */
-gulp.task('build', done => gulpSequence('lint', /* 'stylelint', */ 'cwel-dist', 'cwel-docs')(done));
+gulp.task('build', done => gulpSequence('lint', 'cwel-dist', 'cwel-docs')(done));
+
 
 /**
  * Run the front-end tests. e.g. unit and e2e
- * @internal
  */
 gulp.task('test', ['cwel-dist', 'cwel-test-build'], (done) => {
     // Using gulp-multi-process module to run karma in a child process of its own.
@@ -188,7 +147,6 @@ gulp.task('watch', ['build'], () => {
         '!Cwel/src/**/*.spec.es',
     ], () => gulpSequence(
         'lint',
-        /* 'stylelint', */
         'cwel-dist-script',
         'cwel-docs-copy-script',
         'cwel-docs-build-script',
