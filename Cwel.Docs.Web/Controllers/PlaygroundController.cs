@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -134,10 +134,10 @@ namespace Cwel.Docs.Web.Controllers
         /// <param name="page">Page model to be rendered</param>
         [HttpPost]
         [Route("Playground/RenderPage")]
-        public ActionResult RenderPage(string model)
+        public ActionResult RenderPage(string page)
         {
-            var page = JsonConvert.DeserializeObject<PlaygroundPage>(model);
-            return View(page);
+            var model = JsonConvert.DeserializeObject<PlaygroundPage>(page);
+            return View(model);
         }
     }
 }
