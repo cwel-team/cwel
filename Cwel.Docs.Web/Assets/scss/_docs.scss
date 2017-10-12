@@ -4,7 +4,21 @@
         min-height: 900px;
     }
 }
-.docs__title {
+.docs__header {
+    display: block;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-top: -40px; // collapses docs playground container padding
+    margin-bottom: 16px;
+    background: $core2;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: $secondary2;
+}
+.docs__header-title {
     margin: 0;
     padding-top: 20px;
     padding-bottom: 20px;

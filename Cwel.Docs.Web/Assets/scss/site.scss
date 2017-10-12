@@ -11,20 +11,21 @@
 @import 'Cwel/Component/Badge/Badge';
 @import 'Cwel/Pattern/CardSlider/CardSlider';
 
+@import '_reset';
 @import '_colours';
+@import '_base';
 @import '_spritesheet';
-@import '_type';
-@import '_layout';
 
-@import '_global';
-@import '_buttons';
-@import '_forms';
+@import '_container';
+@import '_button';
+@import '_form-field';
+@import '_docs-playground';
 @import '_nav-header';
 @import '_nav-sidebar';
 @import '_footer';
-@import '_content-area';
-@import '_component-order';
-@import '_component-example';
+@import '_editor-output';
+@import '_editor-order';
 @import '_docs';
+@import '_docs-example';
 
 @include generate-grid-classes;

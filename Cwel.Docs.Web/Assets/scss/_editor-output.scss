@@ -1,0 +1,25 @@
+.editor-output {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-bottom: -40px; // collapses docs playground container padding
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: $secondary2;
+    background: $core2;
+}
+.editor-output__iframe {
+    box-sizing: content-box;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $secondary2;
+}
+.editor-output__iframe--anim-width {
+    transition: width .7s;
+}

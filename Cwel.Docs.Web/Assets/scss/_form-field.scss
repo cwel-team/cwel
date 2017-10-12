@@ -1,4 +1,4 @@
-@mixin standard-form() {
+@mixin form-control() {
     display: block;
     width: 100%;
     padding-left: 10px;
@@ -17,10 +17,10 @@
 }
 
 .form-field__input {
-    @include standard-form();
+    @include form-control();
 }
 .form-field__select {
-    @include standard-form();
+    @include form-control();
     cursor: pointer;
     appearance: none;
 }
@@ -29,7 +29,7 @@
     overflow: hidden;
 }
 .form-field__textarea {
-    @include standard-form();
+    @include form-control();
     min-height: 200px;
     overflow: auto;
     resize: none;

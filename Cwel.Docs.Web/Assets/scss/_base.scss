@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'proxima-nova';
+    src: url('../fonts/proxima-nova-bold.eot?#iefix');
+    src: url('../fonts/proxima-nova-bold.eot?#iefix') format('eot'),
+        url('../fonts/proxima-nova-bold.woff2') format('woff2'),
+        url('../fonts/proxima-nova-bold.woff') format('woff'),
+        url('../fonts/proxima-nova-bold.ttf') format('truetype'),
+        url('../fonts/proxima-nova-bold.svg#proxima-nova-bold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'proxima-nova';
+    src: url('../fonts/proxima-nova-light.eot?#iefix');
+    src: url('../fonts/proxima-nova-light.eot?#iefix') format('eot'),
+        url('../fonts/proxima-nova-light.woff2') format('woff2'),
+        url('../fonts/proxima-nova-light.woff') format('woff'),
+        url('../fonts/proxima-nova-light.ttf') format('truetype'),
+        url('../fonts/proxima-nova-light.svg#proxima-nova-light') format('svg');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'proxima-nova';
+    src: url('../fonts/proxima-nova-regular.eot?#iefix');
+    src: url('../fonts/proxima-nova-regular.eot?#iefix') format('eot'),
+        url('../fonts/proxima-nova-regular.woff2') format('woff2'),
+        url('../fonts/proxima-nova-regular.woff') format('woff'),
+        url('../fonts/proxima-nova-regular.ttf') format('truetype'),
+        url('../fonts/proxima-nova-regular.svg#proxima-nova-regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'proxima-nova', sans-serif;
+    background: $core2;
+    color: $secondary1;
+    letter-spacing: 0.04em;
+}
+h1,
+.h1 {
+    margin-top: 0;
+    color: $core1;
+    font-size: 1.6rem;
+}
+h2,
+.h2 {
+    margin-top: 0;
+    color: $core1;
+    font-size: 1.3rem;
+}
+h3,
+.h3 {
+    margin-top: 0;
+    color: $core1;
+    font-size: 1.1rem;
+}
+h4,
+.h4 {
+    margin-top: 0;
+    color: $core1;
+    font-size: 1rem;
+}
+p,
+.p {
+    margin-top: 0;
+    font-size: 1rem;
+}
+

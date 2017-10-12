@@ -7,7 +7,7 @@
     </script>
 }
 
-<div ng-controller="playgroundCtrl">
+<div class="docs-playground__editor" ng-controller="playgroundCtrl">
 
     <div class="container">
         <div class="grid">
@@ -54,15 +54,15 @@
                     </div>
                 </div>
             </div>
-            <div class="content-area grid__cell grid__cell--size-7-l">
-                <div class="content-area__title">Order</div>
-                <div class="content-area__container component-order">
-                    <div class="component-order__item" ng-repeat="child in model.children">
-                        <button type="button" class="component-order__item-action button button--icon-only button--icon-arrow-up" ng-click="moveBrick($index, -1)"></button>
-                        <button type="button" class="component-order__item-action button button--icon-only button--icon-arrow-down" ng-click="moveBrick($index, 1)"></button>
-                        <div class="component-order__item-title" ng-class="{ 'compoenent-order__item-title--active' : child == currentlyEditing}">{{child.name}}</div>
-                        <button type="button" class="component-order__item-action button button--icon-only button--icon-edit" ng-click="editBrick(child)"></button>
-                        <button type="button" ng-click="removeBrick($index)" class="component-order__item-action button button--icon-only button--icon-clear"></button>
+            <div class="editor-order grid__cell grid__cell--size-7-l">
+                <div class="editor-order__title">Order</div>
+                <div class="editor-order__container">
+                    <div class="editor-order__item" ng-repeat="child in model.children">
+                        <button type="button" class="editor-order__item-action button button--icon-only button--icon-arrow-up" ng-click="moveBrick($index, -1)"></button>
+                        <button type="button" class="editor-order__item-action button button--icon-only button--icon-arrow-down" ng-click="moveBrick($index, 1)"></button>
+                        <div class="editor-order__item-title" ng-class="{ 'editor-order__item-title--active' : child == currentlyEditing}">{{child.name}}</div>
+                        <button type="button" class="editor-order__item-action button button--icon-only button--icon-edit" ng-click="editBrick(child)"></button>
+                        <button type="button" ng-click="removeBrick($index)" class="editor-order__item-action button button--icon-only button--icon-clear"></button>
                     </div>
                 </div>
             </div>
@@ -114,10 +114,8 @@
             </div>
          </div>
     </div>
-    <div class="content-area">
-        <div class="content-area__container content-area__container--output">
-            <iframe class="iframe iframe--anim-width" src="/Playground/stage" ng-style="iframeStyle"></iframe>
-        </div>
+    <div class="editor-output">
+        <iframe class="editor-output__iframe editor-output__iframe--anim-width" src="/Playground/stage" ng-style="iframeStyle"></iframe>
     </div>
 
 </div>

@@ -1,15 +1,15 @@
-.component-example__nav {
+.docs-example__nav {
     height: 100%;
     @include breakpoint('m') {
         display: flex;
     }
 }
-.component-example__nav-ul {
+.docs-example__nav-ul {
     display: flex;
     justify-content: flex-end;
     width: 100%;
 }
-.component-example__nav-li {
+.docs-example__nav-li {
     color: $core1;
     border-top-width: 1px;
     border-bottom-width: 0;
@@ -23,10 +23,10 @@
        flex: none;
     }
 }
-.component-example__nav-li:last-child {
+.docs-example__nav-li:last-child {
     border-right-width: 1px;
 }
-.component-example__nav-link {
+.docs-example__nav-link {
     display: flex;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -34,10 +34,10 @@
     padding-right: 20px;
     cursor: pointer;
 }
-.component-example__nav-link:hover {
+.docs-example__nav-link:hover {
     background: $core2;
 }
-.component-example__nav-title {
+.docs-example__nav-title {
     padding-top: 10px;
     padding-bottom: 10px;
     border-top-right-radius: 4px;
@@ -48,7 +48,7 @@
         font-size: 0.9rem;
     }
 }
-.component-example__content {
+.docs-example__content {
     height: 200px;
     background: $core2;
     border-width: 1px;
