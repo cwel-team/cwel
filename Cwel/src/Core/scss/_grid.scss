@@ -1,7 +1,4 @@
 
-@import "settings";
-
-
 @mixin grid($grid-settings: $GRID) {
     $gutter-xs: map-get($grid-settings, 'gutter-xs');
 
@@ -185,7 +182,6 @@
             @include grid-cell-width($i);
         }
     }
-
 
     @for $i from 1 through 12 {
         @each $key in map-keys($BREAKPOINTS) {

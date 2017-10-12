@@ -72,15 +72,15 @@
 
     <div class="container">
         <div class="grid grid--justify-space-between grid--align-bottom">
-            <div class="grid__cell grid__cell--size-5-l">
+            <div class="grid__cell grid__cell--size-6-l">
                 <!-- Nested grid -->
                 <div class="grid">
-                    <div class="grid__cell grid__cell--size-6-l">
+                    <div class="grid__cell grid__cell--size-4-l">
                         <a href="https://jsfiddle.net/" class="button button--icon-output">
                             <span class="button__text">JSFiddle</span>
                         </a>
                     </div>
-                    <div class="grid__cell grid__cell--size-6-l">
+                    <div class="grid__cell grid__cell--size-4-l">
                         <form action="/Playground/save" method="POST">
                             @if (!string.IsNullOrEmpty(Model.Id))
                             {
@@ -90,6 +90,12 @@
                             <button type="submit" class="button button--icon-save">
                                 <span class="button__text">Save</span>
                             </button>
+                        </form>
+                    </div>
+                    <div class="grid__cell grid__cell--size-4-l">
+                        <form action="/Playground/RenderPage" method="POST" target="_blank">
+                            <input type="hidden" name="page" value="{{ getModel(model) }}">
+                            <button type="submit" class="button" value="Open">Presentation</button>
                         </form>
                     </div>
                 </div>
@@ -110,7 +116,7 @@
     </div>
     <div class="content-area">
         <div class="content-area__container content-area__container--output">
-            <iframe src="/Playground/stage" ng-style="iframeStyle"></iframe>
+            <iframe class="iframe iframe--anim-width" src="/Playground/stage" ng-style="iframeStyle"></iframe>
         </div>
     </div>
 
