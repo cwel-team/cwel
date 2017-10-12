@@ -9,7 +9,6 @@
     border-width: 1px;
     border-style: solid;
     border-color: $secondary2;
-    border-bottom-color: $core1;
 }
 @mixin form-icon() {
     height: 40px;
@@ -41,8 +40,11 @@
 .form-field__label {
     display: block;
     margin-bottom: 10px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: $core1;
+    @include breakpoint('m') {
+        font-size: 0.9rem;
+    }
 }
 .form-field__select-container--icon-arrow:after {
     @include form-icon();
