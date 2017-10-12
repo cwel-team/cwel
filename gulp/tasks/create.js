@@ -4,9 +4,7 @@ const yargs = require('yargs');
 
 const createCwomponent = require('../lib/create/create.js');
 
-/**
- * @internal
- */
+// @internal
 gulp.task('cwel-create-duplo', (taskDone) => {
     yargs.option('type', {
         default: '',
