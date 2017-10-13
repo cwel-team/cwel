@@ -1,5 +1,5 @@
 .docs {
-    color: $core1;
+    color: $colour-core1;
     @include breakpoint('s') {
         min-height: 900px;
     }
@@ -13,10 +13,10 @@
     padding-bottom: 16px;
     margin-top: -40px; // collapses docs playground container padding
     margin-bottom: 16px;
-    background: $core2;
+    background: $colour-core2;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: $secondary2;
+    border-bottom-color: $colour-secondary2;
 }
 .docs__header-title {
     margin: 0;

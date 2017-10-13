@@ -11,21 +11,21 @@
     border-radius: 4px;
     border-width: 1px;
     border-style: solid;
-    border-color: $secondary2;
-    background: $core2;
+    border-color: $colour-secondary2;
+    background: $colour-core2;
     @include breakpoint('l') {
         height: 440px;
         overflow: auto;
     }
 }
 .editor-order .button--icon-only {
-    background: $white;
+    background: $colour-white;
 }
 .editor-order__title {
     display: block;
     margin-bottom: 10px;
     font-size: 1rem;
-    color: $core1;
+    color: $colour-core1;
     @include breakpoint('m') {
         font-size: 0.9rem;
     }
@@ -43,14 +43,14 @@
     width: 100%;
     height: 40px;
     padding-left: 20px;
-    color: $core1;
+    color: $colour-core1;
     text-align: left;
     line-height: 40px;
-    background: $white;
+    background: $colour-white;
     border-radius: 4px;
     border-width: 1px;
     border-style: solid;
-    border-color: $core1;
+    border-color: $colour-core1;
 }
 .editor-order__item-title--active {
     font-weight: 600;
@@ -68,7 +68,7 @@
 }
 .editor-order__item-action:hover,
 .editor-order__item-action:focus {
-    background: $core2;
+    background: $colour-core2;
     transition: all 0.5s ease;
 }
 .editor-order .button--icon-arrow-up,

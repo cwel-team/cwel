@@ -8,8 +8,8 @@
     margin-bottom: -40px; // collapses docs playground container padding
     border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: $secondary2;
-    background: $core2;
+    border-top-color: $colour-secondary2;
+    background: $colour-core2;
 }
 .editor-output__iframe {
     box-sizing: content-box;
@@ -18,7 +18,7 @@
     margin: 0 auto;
     border-width: 1px;
     border-style: solid;
-    border-color: $secondary2;
+    border-color: $colour-secondary2;
 }
 .editor-output__iframe--anim-width {
     transition: width .7s;

@@ -8,7 +8,7 @@
     border-radius: 4px;
     border-width: 1px;
     border-style: solid;
-    border-color: $secondary2;
+    border-color: $colour-secondary2;
 }
 @mixin form-icon() {
     height: 40px;
@@ -41,7 +41,7 @@
     display: block;
     margin-bottom: 10px;
     font-size: 1rem;
-    color: $core1;
+    color: $colour-core1;
     @include breakpoint('m') {
         font-size: 0.9rem;
     }

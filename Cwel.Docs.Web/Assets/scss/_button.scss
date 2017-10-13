@@ -12,13 +12,13 @@
     min-width: 140px;
     height: 42px;
     margin-bottom: 16px;
-    color: $core1;
+    color: $colour-core1;
     text-align: center;
     line-height: 40px;
     border-radius: 4px;
     border-width: 1px;
     border-style: solid;
-    border-color: $core1;
+    border-color: $colour-core1;
     cursor: pointer;
 }
 .button__text {
@@ -26,7 +26,7 @@
 }
 .button:hover,
 .button:focus {
-    background: $core2;
+    background: $colour-core2;
     transition: all 0.5s ease;
 }
 .button--icon-import:before {

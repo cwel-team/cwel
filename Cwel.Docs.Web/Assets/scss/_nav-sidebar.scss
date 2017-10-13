@@ -5,8 +5,8 @@
     z-index: 1;
     height: 100%;
     width: 260px;
-    background: $white;
-    box-shadow: 0 0 15px $secondary1;
+    background: $colour-white;
+    box-shadow: 0 0 15px $colour-secondary1;
     overflow: auto;
     transform: translateX(-300px);
     transition: all 0.5s;
@@ -16,13 +16,13 @@
     padding-bottom: 16px;
     padding-left: 16px;
     padding-right: 16px;
-    color: $white;
-    background: $core1;
+    color: $colour-white;
+    background: $colour-core1;
 }
 .nav-sidebar__li {
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: $secondary2;
+    border-bottom-color: $colour-secondary2;
 }
 .nav-sidebar__li:last-child {
     margin-bottom: 20px;
@@ -37,18 +37,18 @@
     padding-right: 16px;
     text-align: left;
     border: none;
-    color: $secondary1;
+    color: $colour-secondary1;
     cursor: pointer;
 }
 .nav-sidebar__li-link:hover {
-    background: $core2;
+    background: $colour-core2;
 }
 .nav-sidebar__collapsible-ul {
     max-height: 0;
     padding-left: 26px;
     border-top-width: 1px;
     border-top-style: solid;
-    border-top-color: $secondary2;
+    border-top-color: $colour-secondary2;
     opacity: 0;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -61,7 +61,7 @@
     top: 4px;
     left: 0;
     font-size: 25px;
-    color: $core1;
+    color: $colour-core1;
     content: '• ';
 }
 .nav-sidebar__collapsible-link {
@@ -73,7 +73,7 @@
     padding-left: 16px;
     padding-right: 16px;
     font-size: 0.9rem;
-    color: $secondary1;
+    color: $colour-secondary1;
 }
 .nav-sidebar__collapsible-link:hover {
     text-decoration: underline;
@@ -85,7 +85,7 @@
     padding-right: 20px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: $secondary2;
+    border-bottom-color: $colour-secondary2;
 }
 .nav-sidebar__search-field {
     position: relative;
@@ -93,16 +93,16 @@
 }
 .nav-sidebar__search-input {
     padding-left: 26px;
-    color: $core1;
-    background: $white;
+    color: $colour-core1;
+    background: $colour-white;
     border-radius: 0;
     border-width: 0;
     border-bottom-width: 2px;
     border-bottom-style: solid;
-    border-bottom-color: $core1;
+    border-bottom-color: $colour-core1;
 }
 .nav-sidebar__search-input::placeholder {
-    color: $core1;
+    color: $colour-core1;
 }
 .nav-sidebar--active {
     transform: translateX(0);
