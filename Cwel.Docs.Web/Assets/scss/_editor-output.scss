@@ -3,10 +3,10 @@
     width: 100%;
     padding-left: 0;
     padding-right: 0;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    margin-bottom: -40px; // collapses docs playground container padding
-    border-top-width: 1px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: -2.5rem; // collapses docs playground container padding
+    border-top-width: $border-width-standard;
     border-top-style: solid;
     border-top-color: $colour-secondary2;
     background: $colour-core2;
@@ -15,8 +15,9 @@
     box-sizing: content-box;
     display: block;
     width: 100%;
-    margin: 0 auto;
-    border-width: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: $border-width-standard;
     border-style: solid;
     border-color: $colour-secondary2;
 }

@@ -1,17 +1,17 @@
 .nav-header {
     display: flex;
     align-items: center;
-    height: 68px;
-    padding-left: 16px;
-    padding-right: 16px;
+    height: 4.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background: $colour-core2;
-    border-bottom-width: 2px;
+    border-bottom-width: .13rem;
     border-bottom-style: solid;
     border-bottom-color: $colour-core1;
 }
 .nav-header__title {
     margin-bottom: 0;
-    padding-left: 16px;
+    padding-left: 1rem;
     font-size: 1.1rem;
 }
 .nav-header__link,
@@ -24,5 +24,5 @@
     font-weight: 600;
 }
 .nav-header__logo {
-    width: 82px;
+    width: 5.13rem;
 }

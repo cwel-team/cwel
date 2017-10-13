@@ -32,12 +32,15 @@
     font-style: normal;
 }
 
-body {
+html{
     font-size: 16px;
+    font-size: 100%
+}
+body {
     font-family: 'proxima-nova', sans-serif;
     background: $colour-core2;
     color: $colour-secondary1;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.04rem;
 }
 h1,
 .h1 {

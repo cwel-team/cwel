@@ -1,28 +1,28 @@
 .docs {
     color: $colour-core1;
     @include breakpoint('s') {
-        min-height: 900px;
+        min-height: 56.25rem;
     }
 }
 .docs__header {
     display: block;
     width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    margin-top: -40px; // collapses docs playground container padding
-    margin-bottom: 16px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: -2.5rem; // collapses docs playground container padding
+    margin-bottom: 1rem;
     background: $colour-core2;
-    border-bottom-width: 1px;
+    border-bottom-width: $border-width-standard;
     border-bottom-style: solid;
     border-bottom-color: $colour-secondary2;
 }
 .docs__header-title {
     margin: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
 }
 .docs__section {
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
