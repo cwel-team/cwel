@@ -137,11 +137,17 @@
     .grid--align-left {
         @include grid-align('left');
     }
+    .grid--align-center {
+        @include grid-align('center');
+    }
     .grid--align-right {
         @include grid-align('right');
     }
     .grid--align-top {
         @include grid-align('top');
+    }
+    .grid--align-middle {
+        @include grid-align('middle');
     }
     .grid--align-bottom {
         @include grid-align('bottom');
@@ -175,6 +181,18 @@
                 @include grid-cell-gutter($key);
             }
         }
+    }
+
+    .grid__cell--align-top {
+        @include grid-cell-align('top');
+    }
+
+    .grid__cell--align-middle {
+        @include grid-cell-align('middle');
+    }
+
+    .grid__cell--align-bottom {
+        @include grid-cell-align('bottom');
     }
 
     @for $i from 1 through 12 {

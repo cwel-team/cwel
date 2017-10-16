@@ -12,11 +12,14 @@
 
     @RenderSection("styles", required: false)
 </head>
-<body ng-app="cwel">
+<body ng-app="sandbox">
     <main class="container">
         @RenderBody()
     </main>
     <script src="~/Cwel/cwel.js"></script>
+    <script>
+        angular.module('sandbox', ['cwel']);
+    </script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

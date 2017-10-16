@@ -1,3 +1,32 @@
-
 @import 'Cwel/Core/scss/main';
 @import '../block';
+@import '../divider';
+@import '../viewport';
+
+.viewport__group {
+    @include viewport-group;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.viewport__breakpoint {
+    @include viewport-breakpoint;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.overlay-open {
+    padding: 0.3em 1rem;
+    border: 2px solid;
+    border-radius: 0.2rem;
+    font-size: 1.3rem;
+    background-color: #fff;
+    outline: none;
+    cursor: pointer;
+}
+
+.section {
+    @include divider;
+    padding-bottom: 20px;
+}
