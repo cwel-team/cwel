@@ -189,6 +189,8 @@
     <Content Include="Views\Shared\_RenderLayout.cshtml" />
     <Content Include="Views\Shared\Partials\Sidebar.cshtml" />
     <Content Include="Views\Playground\Sandbox\Grid\index.cshtml" />
+    <Content Include="Views\Shared\_SandboxLayout.cshtml" />
+    <Content Include="Views\Playground\Sandbox\index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
