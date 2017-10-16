@@ -1,8 +1,19 @@
-﻿@using Cwo.Core.Web.HtmlExtensions
-@model Cwo.Core.PatternViewModels.{{ name }}.{{ name }}PatternViewModel
+@model Cwel.Web.{{ name | pascalize }}ViewModel
 
 @{
-    Html.RequireScript(AssetType.Pattern, "{{ name }}");
+    Html.RequireScript(AssetType.Pattern, "{{ name | pascalize }}");
 }
 
-<div></div>
+<div class="cwel-{{ name | kebabize }}">
+    <ul class="cwel-{{ name | kebabize }}__items">
+        <li class="cwel-{{ name | kebabize }}">@</li>
+        @for (var i = 0; i < Model.Components.Count; i++)
+        {
+            var component = Model.Components[i];
+
+            <li class="cwel-{{ name | kebabize }}__item">
+                @Html.Component(component)
+            </li>
+        }
+    </ul>
+</div>

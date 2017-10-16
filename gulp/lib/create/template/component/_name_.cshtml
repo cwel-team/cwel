@@ -1,10 +1,11 @@
-@using Cwo.Core.Web.HtmlExtensions
-@model Cwo.Core.ComponentViewModels.{{ name }}.{{ name }}ComponentViewModel
+﻿@using Cwel.Web
+@model {{ name | pascalize }}ViewModel
 
 @{
-    Html.RequireScript(AssetType.Component, "{{ name }}");
+    Html.RequireScript(AssetType.Component, "{{ name | pascalize }}");
 }
 
-@* Code, code, durr... *@
-
-<div></div>
+<div class="cwel-{{ name | kebabize }}">
+    <h1 class="cwel-{{ name | kebabize }}__title">Greeting</h1>
+    <p class="cwel-{{ name | kebabize }}__text">Hello World</p>
+</div>

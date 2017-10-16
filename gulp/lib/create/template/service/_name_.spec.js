@@ -9,6 +9,6 @@
     });
 
     it('should test some behaviour', () => {
-        // test, test, durr
+        // test your stuff right here
     });
 });

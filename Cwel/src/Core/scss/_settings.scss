@@ -19,7 +19,6 @@ $SPACES: (
     xl: $SPACE-XL
 );
 
-
 /**************************
  * BREAKPOINTS
  *************************/
@@ -35,7 +34,6 @@ $BREAKPOINTS: (
     l: $BREAKPOINT-L,
     xl: $BREAKPOINT-XL
 );
-
 
 /**************************
  * CONTAINER
@@ -53,14 +51,12 @@ $CONTAINER-MARGIN-XL: $SPACE-XS + $SPACE-XXS;
 $CONTAINER: (
     width-lg: $CONTAINER-WIDTH-L,
     width-xl: $CONTAINER-WIDTH-XL,
-
     margin-xs: $CONTAINER-MARGIN-XS,
     margin-sm: $CONTAINER-MARGIN-S,
     margin-md: $CONTAINER-MARGIN-M,
     margin-lg: $CONTAINER-MARGIN-L,
     margin-xl: $CONTAINER-MARGIN-XL
 );
-
 
 /**************************
  * GRID

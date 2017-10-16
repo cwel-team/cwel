@@ -5,7 +5,6 @@
  * @module cwoApp
  * @dependencies addOne, CwomponentFactory
 */
-/* global Howl */
 angular.module('cwel').directive('badge', (addOne, CwomponentFactory) => {
     return CwomponentFactory({
         restrict: 'A',
@@ -13,10 +12,6 @@ angular.module('cwel').directive('badge', (addOne, CwomponentFactory) => {
             start: '@',
         },
         link: (scope) => {
-            const howl = new Howl({
-                src: ['/Assets/media/riflesound.mp3'],
-            });
-
             /**
              * Keep count of button clicks
              * @scope
@@ -32,7 +27,6 @@ angular.module('cwel').directive('badge', (addOne, CwomponentFactory) => {
              * @return {void}
              */
             scope.increment = () => {
-                howl.play();
                 scope.counter = addOne.increment(scope.counter);
             };
         },

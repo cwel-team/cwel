@@ -1,0 +1,78 @@
+.editor-order__container {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 14.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-radius: $border-radius-standard;
+    border-width: $border-width-standard;
+    border-style: solid;
+    border-color: $colour-secondary2;
+    background: $colour-core2;
+    @include breakpoint('l') {
+        height: 27.5rem;
+        overflow: auto;
+    }
+}
+.editor-order .button--icon-only {
+    background: $colour-white;
+}
+.editor-order__title {
+    display: block;
+    margin-bottom: .63rem;
+    font-size: 1rem;
+    color: $colour-core1;
+}
+.editor-order__item {
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: .63rem;
+}
+.editor-order__item:last-child {
+    margin-bottom: 0;
+}
+.editor-order__item-title {
+    display: inline-block;
+    width: 100%;
+    height: 2.5rem;
+    padding-left: 1.25rem;
+    color: $colour-core1;
+    text-align: left;
+    line-height: 2.5rem;
+    background: $colour-white;
+    border-radius: $border-radius-standard;
+    border-width: $border-width-standard;
+    border-style: solid;
+    border-color: $colour-core1;
+}
+.editor-order__item-title--active {
+    font-weight: 600;
+}
+.editor-order__item-action,
+.editor-order__item-title {
+    margin-right: .63rem;
+    margin-bottom: 0;
+}
+.editor-order__item-action {
+    min-width: inherit;
+}
+.editor-order__item-action:last-child {
+    margin-right: 0;
+}
+.editor-order__item-action:hover,
+.editor-order__item-action:focus {
+    background: $colour-core2;
+    transition: all .5s ease;
+}
+.editor-order .button--icon-arrow-up,
+.editor-order .button--icon-arrow-down,
+.editor-order .button--icon-edit {
+    display: none;
+    @include breakpoint('l') {
+        display: inline-block;
+    }
+}

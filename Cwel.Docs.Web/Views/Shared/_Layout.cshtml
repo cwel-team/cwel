@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewBag.Title</title>
 
     <link rel="stylesheet" href="~/Assets/css/site.css">
@@ -10,12 +10,12 @@
 <body ng-app="cwoApp" ng-controller="appCtrl">
 
     <div class="nav-header">
+        <button type="button" ng-click="navSidebar=!navSidebar" class="nav-header__button button button--icon-only button--icon-menu"></button>
         <h1 class="nav-header__title h1">
-            <a href="/" class="nav-header__link">CWEL</a>
+            <a href="/" class="nav-header__link">
+                <img class="nav-header__logo" alt="cwel" src="/Assets/img/cwel_logo.svg" />
+            </a>
         </h1>
-        <button type="button" ng-click="navSidebar=!navSidebar" class="nav-header__button button button--icon-menu">
-            <span class="button__text">View</span>
-        </button>
     </div>
 
     <div class="docs-playground">

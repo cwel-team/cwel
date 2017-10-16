@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const through = require('through2');
 
 const invokeOnCount = require('../../lib/util/invokeOnCount');
-const config = require('../../../cwomponents.conf.json');
+const config = require('../../../create.conf.json');
 
 
 function safeEval(str, scope, methods) {
@@ -16,6 +16,12 @@ function safeEval(str, scope, methods) {
     }
 
     return value;
+}
+
+function kebabize(str) {
+    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
+        return index === 0 ? letter.toLowerCase() : `-${letter.toLowerCase()}`;
+    }).replace(/\s+/g, '');
 }
 
 function camelize(str) {
@@ -86,6 +92,7 @@ module.exports = function createCwomponent(type, options, callback) {
     const methods = {
         camelize,
         pascalize,
+        kebabize,
         toLowerCase: str => String.prototype.toLowerCase.call(str),
     };
     const cb = invokeOnCount(callback, 2);

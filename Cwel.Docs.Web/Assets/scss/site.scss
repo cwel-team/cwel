@@ -1,29 +1,31 @@
 // TODO(Daniel Stuessy) Put this in a main scss file for CWEL
-@import "Cwel/Core/scss/settings";
-@import "Cwel/Core/scss/aspect-ratio";
-@import "Cwel/Core/scss/device";
-@import "Cwel/Core/scss/typography";
-@import "Cwel/Core/scss/base";
-@import "Cwel/Core/scss/container";
-@import "Cwel/Core/scss/grid";
+@import 'Cwel/Core/scss/settings';
+@import 'Cwel/Core/scss/aspect-ratio';
+@import 'Cwel/Core/scss/device';
+@import 'Cwel/Core/scss/typography';
+@import 'Cwel/Core/scss/base';
+@import 'Cwel/Core/scss/container';
+@import 'Cwel/Core/scss/grid';
 
-@import "Cwel/Component/Card/Card";
-@import "Cwel/Component/Badge/Badge";
-@import "Cwel/Pattern/CardSlider/CardSlider";
+@import 'Cwel/Component/Card/Card';
+@import 'Cwel/Component/Badge/Badge';
+@import 'Cwel/Pattern/CardSlider/CardSlider';
 
-@import "_colours";
-@import "_spritesheet";
-@import "_type";
-@import "_layout";
+@import '_reset';
+@import '_variables';
+@import '_base';
+@import '_spritesheet';
 
-@import "_global";
-@import "_buttons";
-@import "_forms";
-@import "_nav-header";
-@import "_nav-sidebar";
-@import "_footer";
-@import "_content-area";
-@import "_component-order";
-@import "_docs";
+@import '_container';
+@import '_button';
+@import '_form-field';
+@import '_docs-playground';
+@import '_nav-header';
+@import '_nav-sidebar';
+@import '_footer';
+@import '_editor-output';
+@import '_editor-order';
+@import '_docs';
+@import '_docs-example';
 
 @include generate-grid-classes;

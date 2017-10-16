@@ -4,11 +4,9 @@
 }
 
 <div class="docs">
-    <div class="content-area">
-        <div class="content-area__container content-area__container--docs-title">
-            <div class="container">
-                <h1 class="docs__title h1">{{ name }}</h1>
-            </div>
+    <div class="docs__header">
+        <div class="container">
+            <h1 class="docs__header-title h1">{{ name }}</h1>
         </div>
     </div>
 
@@ -54,6 +52,30 @@
 
             {% endfor %}
         </div>
+
+        <div class="docs__section">
+            <div class="docs-example">
+                <div class="docs-example__nav">
+                    <div class="docs-example__nav-title">Example</div>
+                    <ul class="docs-example__nav-ul">
+                        <li class="docs-example__nav-li">
+                            <a class="docs-example__nav-link">Javascript</a>
+                        </li>
+                        <li class="docs-example__nav-li">
+                            <a class="docs-example__nav-link">HTML</a>
+                        </li>
+                        <li class="docs-example__nav-li">
+                            <a class="docs-example__nav-link">CSS</a>
+                        </li>
+                        <li class="docs-example__nav-li">
+                            <a class="docs-example__nav-link">Result</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="docs-example__content"></div>
+            </div>
+        </div>
+
     </div>
 
 </div>

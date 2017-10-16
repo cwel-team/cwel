@@ -1,6 +1,4 @@
 
-@import "settings";
-
 @mixin breakpoint($device-size) {
     $breakpoint: map-get($BREAKPOINTS, $device-size);
 

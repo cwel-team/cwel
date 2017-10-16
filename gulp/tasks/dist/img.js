@@ -3,7 +3,7 @@ const del = require('del');
 
 
 // @internal
-gulp.task('cwel-dist-img', () => gulp.src('Cwel/src/Core/img/**/*.svg')
-.pipe(gulp.dest('Cwel/dist/Cwel/Core/img')));
+gulp.task('cwel-dist-img', () => gulp.src('Cwel/src/**/*.svg')
+.pipe(gulp.dest('Cwel/dist/Cwel')));
 // @internal
-gulp.task('clean:cwel-dist-img', () => del(['Cwel/dist/Cwel/Core/img/**/*.svg']));
+gulp.task('clean:cwel-dist-img', () => del(['Cwel/dist/Cwel/**/*.svg']));

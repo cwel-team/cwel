@@ -7,7 +7,7 @@
     </script>
 }
 
-<div ng-controller="playgroundCtrl">
+<div class="docs-playground__editor" ng-controller="playgroundCtrl">
 
     <div class="container">
         <div class="grid">
@@ -54,15 +54,15 @@
                     </div>
                 </div>
             </div>
-            <div class="content-area grid__cell grid__cell--size-7-l">
-                <div class="content-area__title">Order</div>
-                <div class="content-area__container component-order">
-                    <div class="component-order__item" ng-repeat="child in model.children">
-                        <button type="button" class="component-order__item-action button button--icon-only button--icon-arrow-up" ng-click="moveBrick($index, -1)"></button>
-                        <button type="button" class="component-order__item-action button button--icon-only button--icon-arrow-down" ng-click="moveBrick($index, 1)"></button>
-                        <div class="component-order__item-title" ng-class="{ 'compoenent-order__item-title--active' : child == currentlyEditing}">{{child.name}}</div>
-                        <button type="button" class="component-order__item-action button button--icon-only button--icon-edit" ng-click="editBrick(child)"></button>
-                        <button type="button" ng-click="removeBrick($index)" class="component-order__item-action button button--icon-only button--icon-clear"></button>
+            <div class="editor-order grid__cell grid__cell--size-7-l">
+                <div class="editor-order__title">Order</div>
+                <div class="editor-order__container">
+                    <div class="editor-order__item" ng-repeat="child in model.children">
+                        <button type="button" class="editor-order__item-action button button--icon-only button--icon-arrow-up" ng-click="moveBrick($index, -1)"></button>
+                        <button type="button" class="editor-order__item-action button button--icon-only button--icon-arrow-down" ng-click="moveBrick($index, 1)"></button>
+                        <div class="editor-order__item-title" ng-class="{ 'editor-order__item-title--active' : child == currentlyEditing}">{{child.name}}</div>
+                        <button type="button" class="editor-order__item-action button button--icon-only button--icon-edit" ng-click="editBrick(child)"></button>
+                        <button type="button" ng-click="removeBrick($index)" class="editor-order__item-action button button--icon-only button--icon-clear"></button>
                     </div>
                 </div>
             </div>
@@ -72,28 +72,15 @@
 
     <div class="container">
         <div class="grid grid--justify-space-between grid--align-bottom">
-            <div class="grid__cell grid__cell--size-5-l">
+            <div class="grid__cell grid__cell--size-6-l">
                 <!-- Nested grid -->
-                <div class="grid grid--align-middle">
-                    <div class="grid__cell grid__cell--size-6-l">
-                        <form action="/Playground/Fiddle" method="post" target="_blank">
-                            <input type="hidden" name="model" value="{{ getFiddleData() }}">
-                            @*
-                            <input type="hidden" name="title" value="CWEL Playground">
-                            <input type="hidden" name="panel_html" value="0">
-                            <input type="hidden" name="panel_js" value="0">
-                            <input type="hidden" name="panel_css" value="1">
-                            <input type="hidden" name="wrap" value="b">
-                            <input type="hidden" name="html" value="{{ window.frames.documents.body.innerHTML }}">
-                            <input type="hidden" name="js" value="@File.ReadAllText(Server.MapPath("~/CWEL/cwel.js"))">
-                            <input type="hidden" name="css" value="">
-                            *@
-                            <button class="button button--fill button--icon-output" type="submit">
-                                <span class="button__text">JSFiddle</span>
-                            </button>
-                        </form>
+                <div class="grid">
+                    <div class="grid__cell grid__cell--size-4-l">
+                        <a href="https://jsfiddle.net/" class="button button--icon-output">
+                            <span class="button__text">JSFiddle</span>
+                        </a>
                     </div>
-                    <div class="grid__cell grid__cell--size-6-l">
+                    <div class="grid__cell grid__cell--size-4-l">
                         <form action="/Playground/save" method="POST">
                             @if (!string.IsNullOrEmpty(Model.Id))
                             {
@@ -105,6 +92,12 @@
                             </button>
                         </form>
                     </div>
+                    <div class="grid__cell grid__cell--size-4-l">
+                        <form action="/Playground/RenderPage" method="POST" target="_blank">
+                            <input type="hidden" name="page" value="{{ getModel(model) }}">
+                            <button type="submit" class="button" value="Open">Presentation</button>
+                        </form>
+                    </div>
                 </div>
             </div>
             <div class="grid__cell grid__cell--size-4-l">
@@ -112,19 +105,16 @@
                     <label class="form-field__label">Size</label>
                     <div class="form-field__select-container form-field__select-container--icon-arrow">
                         <select class="form-field__select"
-                        ng-model="outputSize"
-                        ng-change="resizeOutput()"
-                        ng-options="size as size.name for size in avaliableSizes">
-                    </select>
+                                ng-model="outputSize"
+                                ng-change="resizeOutput()"
+                                ng-options="size as size.name for size in avaliableSizes">
+                        </select>
+                    </div>
                 </div>
-            </div>
+             </div>
+        </div>
+        <div class="editor-output">
+            <iframe class="editor-output__iframe editor-output__iframe--anim-width" src="/Playground/stage" ng-style="iframeStyle"></iframe>
         </div>
     </div>
-</div>
-<div class="content-area">
-    <div class="content-area__container content-area__container--output">
-        <iframe src="/Playground/stage" ng-style="iframeStyle"></iframe>
-    </div>
-</div>
-
 </div>

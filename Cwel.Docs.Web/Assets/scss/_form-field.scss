@@ -1,27 +1,25 @@
-@mixin standard-form() {
+@mixin form-control() {
     display: block;
     width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 4px;
-    border-width: 1px;
+    height: 2.63rem;
+    padding-left: .63rem;
+    padding-right: .63rem;
+    border-radius: 0.25rem;
+    border-width: $border-width-standard;
     border-style: solid;
-    border-color: $secondary2;
-    border-bottom-color: $core1;
+    border-color: $colour-secondary2;
 }
 @mixin form-icon() {
-    height: 40px;
-    width: 20px;
+    height: 2.5rem;
+    width: 1.25rem;
     content: '';
 }
 
 .form-field__input {
-    @include standard-form();
+    @include form-control();
 }
 .form-field__select {
-    @include standard-form();
+    @include form-control();
     cursor: pointer;
     appearance: none;
 }
@@ -30,34 +28,34 @@
     overflow: hidden;
 }
 .form-field__textarea {
-    @include standard-form();
-    min-height: 200px;
+    @include form-control();
+    min-height: 12.5rem;
     overflow: auto;
     resize: none;
 }
 .form-field {
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 .form-field__label {
     display: block;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-    color: $core1;
+    margin-bottom: .63rem;
+    font-size: 1rem;
+    color: $colour-core1;
 }
 .form-field__select-container--icon-arrow:after {
     @include form-icon();
     @include spritesheet(0, 2.96);
     position: absolute;
-    top: 16px;
-    right: 10px;
+    top: 1rem;
+    right: .63rem;
     pointer-events: none;
 }
 .form-field--icon-search:before {
     @include form-icon();
     @include spritesheet(0, 7);
     position: absolute;
-    top: 12px;
-    left: 0px;
+    top: 0.75rem;
+    left: 0;
 }
 select::-ms-expand {
     display: none;

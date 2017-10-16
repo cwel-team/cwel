@@ -269,11 +269,15 @@ __pycache__/
 
 ## Cwomponents
 
+Cwel.Docs.Web/Cwel
 Cwel.Docs.Web/Cwel/**
 !Cwel.Docs.Web/Cwel/.gitkeep
+Cwel.docs.Web/Assets/css
 Cwel.Docs.Web/Assets/css/**
+Cwel.docs.Web/Assets/js
 Cwel.Docs.Web/Assets/js/**
 
+Cwel/dist
 Cwel/dist/**
 
 # Ignore swap files created by vim

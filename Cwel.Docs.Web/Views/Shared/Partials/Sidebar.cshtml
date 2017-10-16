@@ -10,10 +10,7 @@
     <div class="nav-sidebar__title">Playground</div>
     <ul class="nav-sidebar__ul">
         <li class="nav-sidebar__li">
-            <a href="/Playground" class="nav-sidebar__li-link">Editors view</a>
-        </li>
-        <li class="nav-sidebar__li">
-            <a href="" class="nav-sidebar__li-link">Presentation view</a>
+            <a href="/Playground" class="nav-sidebar__li-link">Editor</a>
         </li>
     </ul>
     <div class="nav-sidebar__title">Docs</div>
@@ -31,7 +28,7 @@
                     foreach (var pattern in Model["patterns"])
                     {
                         <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@pattern')">
-                            <a href="/pattern/@pattern" class="nav-sidebar__collapsible-link">@pattern</a>
+                            <a href="/pattern/@pattern" class="nav-sidebar__collapsible-link" target="_blank">@pattern</a>
                         </li>
                     }
                 }
@@ -45,7 +42,7 @@
                     foreach (var component in Model["components"])
                     {
                         <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@component')">
-                            <a href="/component/@component" class="nav-sidebar__collapsible-link">@component</a>
+                            <a href="/component/@component" class="nav-sidebar__collapsible-link" target="_blank">@component</a>
                         </li>
                     }
                 }
