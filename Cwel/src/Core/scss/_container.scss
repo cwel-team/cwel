@@ -7,7 +7,6 @@
     padding-left: $CONTAINER-MARGIN-XS;
 
     @each $device-size in map-keys($BREAKPOINTS) {
-        $breakpoint: map-get($BREAKPOINTS, $device-size);
         $width: map-get($CONTAINER, 'width-#{$device-size}');
         $margin: map-get($CONTAINER, 'margin-#{$device-size}');
 
@@ -25,4 +24,27 @@
 
 @mixin fluid-container {
     display: block;
+    margin: auto;
+    padding-left: $CONTAINER-MARGIN-XS;
+    padding-right: $CONTAINER-MARGIN-XS;
+
+    @each $device-size in map-keys($BREAKPOINTS) {
+        $margin: map-get($CONTAINER, 'margin-#{$device-size}');
+
+        @include breakpoint($device-size) {
+            @if ($margin != null) {
+                padding-left: $margin;
+                padding-right: $margin;
+            }
+        }
+    }
+}
+
+@mixin generate-container-classes {
+    .container {
+        @include container;
+    }
+    .container--fluid {
+        @include fluid-container;
+    }
 }

@@ -1,15 +1,26 @@
-/* stylelint-disable */
+$block-background: #671d5a;
+
 .block {
     min-height: 50px;
     padding: 10px;
     padding-right: 8px;
-    background-color: #671d5a;
+    margin-bottom: 8px;
+    background-color: $block-background;
     color: rgba(255, 255, 255, 0.8);
     overflow: hidden;
     text-overflow: ellipsis;
 
-    @include breakpoint('sm') {
+    @include breakpoint('s') {
         padding-right: 10px;
+    }
+
+    @each $key in map-keys($BREAKPOINTS) {
+        $breakpoint: map-get($BREAKPOINTS, $key);
+        $gutter: map-get($GRID, 'gutter-#{$key}');
+
+        @include breakpoint($key) {
+            margin-bottom: $gutter;
+        }
     }
 }
 
@@ -21,4 +32,24 @@
 .block--tall {
     position: relative;
     min-height: 150px;
+}
+
+.block--translucent {
+    background-color: transparentize($block-background, 0.5);
+}
+
+.block--lean {
+    @each $key in map-keys($BREAKPOINTS) {
+        @include breakpoint($key) {
+            padding: 0;
+        }
+    }
+}
+
+.block--cuddle {
+    @each $key in map-keys($BREAKPOINTS) {
+        @include breakpoint($key) {
+            margin: 0;
+        }
+    }
 }

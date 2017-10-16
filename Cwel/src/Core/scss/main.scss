@@ -6,6 +6,7 @@
 @import './container';
 @import './grid';
 
+@include generate-container-classes;
 @include generate-grid-classes;
 
 @import '../../Component/Card/Card';
