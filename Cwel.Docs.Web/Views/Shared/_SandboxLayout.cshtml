@@ -13,7 +13,9 @@
     @RenderSection("styles", required: false)
 </head>
 <body ng-app="cwel">
-    @RenderBody()
+    <main class="container">
+        @RenderBody()
+    </main>
     <script src="~/Cwel/cwel.js"></script>
     @RenderSection("scripts", required: false)
 </body>
