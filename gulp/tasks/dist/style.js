@@ -19,9 +19,6 @@ const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options
 const sassConfig = {
     precision: 8,
     outputStyle: 'compressed',
-    includePaths: [
-        'Cwel/src',
-    ],
 };
 
 
