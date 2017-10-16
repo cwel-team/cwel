@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@ViewBag.Title</title>
 
-    <link rel="stylesheet" href="~/Cwel/cwel.css"/>
     <style>
         body {
             background: #ffffff;
         }
     </style>
+
+    @RenderSection("styles", required: false)
 </head>
 <body ng-app="cwel">
     @RenderBody()
     <script src="~/Cwel/cwel.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
