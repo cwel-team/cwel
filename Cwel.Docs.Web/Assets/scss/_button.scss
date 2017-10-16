@@ -3,6 +3,7 @@
     height: 2.5rem;
     width: 1rem;
     margin-right: .5rem;
+    vertical-align: top;
     content: '';
 }
 
@@ -77,6 +78,12 @@
     @include spritesheet(1, 0.91);
     width: 1rem;
 }
+.button--icon-presentation:before {
+    @include button-icon();
+    @include spritesheet(1, 1.89);
+    width: 1.4rem;
+}
+
 .button--icon-only {
     width: 3.5rem;
     min-width: initial;

@@ -122,6 +122,30 @@ angular.module('cwoApp')
         $scope.model = model;
     });
 })
+.directive('iframeSize', (Breakpoint) => {
+    return {
+        restrict: 'A',
+        link: (scope, elm) => {
+            if (Breakpoint.generateMediaQuery('xs').matches || Breakpoint.generateMediaQuery('s').matches) {
+                // Get scrollbar width
+                const scrollDiv = document.createElement('div');
+                scrollDiv.className = 'scrollbar-measure';
+                document.body.appendChild(scrollDiv);
+                const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+                document.body.removeChild(scrollDiv);
+
+                elm.on('load', () => {
+                    const result = parseInt(scope.iframeStyle.width, 10) - scrollbarWidth;
+                    elm[0].contentWindow.document.body.style.width = `${result}px`;
+                });
+                scope.$watch('iframeStyle', () => {
+                    const result = parseInt(scope.iframeStyle.width, 10) - scrollbarWidth;
+                    elm[0].contentWindow.document.body.style.width = `${result}px`;
+                });
+            }
+        },
+    };
+})
 .directive('rendering', ($http, $compile) => {
     return {
         restrict: 'A',
