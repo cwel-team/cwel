@@ -146,10 +146,12 @@ namespace Cwel.Docs.Web.Controllers
         /// </summary>
         /// <param name="pageName">Name of page to be rendered</param>
         [HttpGet]
-        [Route("Playground/Sandbox/{pageName}")]
+        [Route("Playground/Sandbox/{pageName?}")]
         public ActionResult Sandbox(string pageName)
         {
-            return View($"sandbox/{pageName}/index");
+            return pageName == ""
+                ? View("sandbox/index")
+                : View($"sandbox/{pageName}/index");
         }
     }
 }
