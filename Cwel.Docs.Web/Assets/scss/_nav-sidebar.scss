@@ -6,10 +6,10 @@
     height: 100%;
     width: 16.25rem;
     background: $colour-white;
-    box-shadow: 0 0 .94rem $colour-secondary1;
+    box-shadow: 0 0 0.94rem $colour-secondary1;
     overflow: auto;
     transform: translateX(-18.75rem);
-    transition: all .5s;
+    transition: all 0.5s;
 }
 .nav-sidebar__title {
     padding-top: 1rem;
@@ -51,7 +51,7 @@
     border-top-color: $colour-secondary2;
     opacity: 0;
     overflow: hidden;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 .nav-sidebar__collapsible-li {
     position: relative;

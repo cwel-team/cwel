@@ -23,14 +23,14 @@
 }
 .editor-order__title {
     display: block;
-    margin-bottom: .63rem;
+    margin-bottom: 0.63rem;
     font-size: 1rem;
     color: $colour-core1;
 }
 .editor-order__item {
     display: inline-flex;
     width: 100%;
-    margin-bottom: .63rem;
+    margin-bottom: 0.63rem;
 }
 .editor-order__item:last-child {
     margin-bottom: 0;
@@ -54,7 +54,7 @@
 }
 .editor-order__item-action,
 .editor-order__item-title {
-    margin-right: .63rem;
+    margin-right: 0.63rem;
     margin-bottom: 0;
 }
 .editor-order__item-action {
@@ -66,7 +66,7 @@
 .editor-order__item-action:hover,
 .editor-order__item-action:focus {
     background: $colour-core2;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 }
 .editor-order .button--icon-arrow-up,
 .editor-order .button--icon-arrow-down,

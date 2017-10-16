@@ -2,8 +2,8 @@
     display: block;
     width: 100%;
     height: 2.63rem;
-    padding-left: .63rem;
-    padding-right: .63rem;
+    padding-left: 0.63rem;
+    padding-right: 0.63rem;
     border-radius: 0.25rem;
     border-width: $border-width-standard;
     border-style: solid;
@@ -38,7 +38,7 @@
 }
 .form-field__label {
     display: block;
-    margin-bottom: .63rem;
+    margin-bottom: 0.63rem;
     font-size: 1rem;
     color: $colour-core1;
 }
@@ -47,7 +47,7 @@
     @include spritesheet(0, 2.96);
     position: absolute;
     top: 1rem;
-    right: .63rem;
+    right: 0.63rem;
     pointer-events: none;
 }
 .form-field--icon-search:before {

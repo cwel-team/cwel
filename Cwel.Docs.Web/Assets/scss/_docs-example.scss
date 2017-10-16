@@ -20,7 +20,7 @@
     border-top-right-radius: $border-radius-standard;
     border-top-left-radius: $border-radius-standard;
     @include breakpoint('m') {
-       flex: none;
+        flex: none;
     }
 }
 .docs-example__nav-li:last-child {
@@ -46,7 +46,7 @@
     color: $colour-core1;
 }
 .docs-example__content {
-    height: 200px;
+    height: 12.5rem;
     background: $colour-core2;
     border-width: $border-width-standard;
     border-style: solid;
