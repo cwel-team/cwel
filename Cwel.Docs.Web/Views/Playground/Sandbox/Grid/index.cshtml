@@ -1,0 +1,243 @@
+
+@{
+    Layout = "~/Views/Shared/_SandboxLayout.cshtml";
+}
+
+@section styles
+{
+    <link href="~/Assets/css/sandbox/grid/style.css" rel="stylesheet" />
+}
+
+@section scripts
+{
+    <script src="~/Assets/js/sandbox/grid/script.js"></script>
+}
+
+<h1 class="main__title">Grid</h1>
+
+<div class="main__overview">
+    <p>This is a working demo of the CWEL Grid Guidelines. The demo shows how our flexible, precentage-based grid works and how you can use it to create a Countrywide website.</p>
+
+    <div class="viewport">
+        <p>Current viewport group: <span class="viewport__group"></span></p>
+        <p>Current viewport breakpoint: <span class="viewport__breakpoint"></span></p>
+    </div>
+
+    <button class="overlay-open" type="button" name="button">Show Overlay</button>
+</div>
+
+<section class="sizes">
+    <h2 class="sizes__title">Sizes</h2>
+
+    <div class="grid">
+        <div class="grid__cell"><div class="sizes__block">full</div></div>
+    </div>
+    <div class="grid">
+        <div class="grid__cell--size-6"><div class="sizes__block">half</div></div>
+        <div class="grid__cell--size-6"><div class="sizes__block">half</div></div>
+    </div>
+    <div class="sizes__items">
+        <div class="sizes__item-third"><div class="sizes__block">third</div></div>
+        <div class="sizes__item-third"><div class="sizes__block">third</div></div>
+        <div class="sizes__item-third"><div class="sizes__block">third</div></div>
+    </div>
+    <div class="sizes__items">
+        <div class="sizes__item-quarter"><div class="sizes__block">quarter</div></div>
+        <div class="sizes__item-quarter"><div class="sizes__block">quarter</div></div>
+        <div class="sizes__item-quarter"><div class="sizes__block">quarter</div></div>
+        <div class="sizes__item-quarter"><div class="sizes__block">quarter</div></div>
+    </div>
+    <div class="sizes__items">
+        <div class="sizes__item-sixth"><div class="sizes__block">sixth</div></div>
+        <div class="sizes__item-sixth"><div class="sizes__block">sixth</div></div>
+        <div class="sizes__item-sixth"><div class="sizes__block">sixth</div></div>
+        <div class="sizes__item-sixth"><div class="sizes__block">sixth</div></div>
+        <div class="sizes__item-sixth"><div class="sizes__block">sixth</div></div>
+        <div class="sizes__item-sixth"><div class="sizes__block">sixth</div></div>
+    </div>
+    <div class="sizes__items">
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+        <div class="sizes__item-twelfth"><div class="sizes__block">twelfth</div></div>
+    </div>
+</section>
+
+<section class="combinations">
+    <h2 class="combinations__title">Size combinations</h2>
+
+    <h3 class="combinations__sub-title">Quarter / Three Quarters</h3>
+    <div class="combinations__items">
+        <div class="combinations__item-quarter"><div class="combinations__block">quarter</div></div>
+        <div class="combinations__item-three-quarters"><div class="combinations__block">three quarters</div></div>
+    </div>
+
+    <h3 class="combinations__sub-title">Half / Quarter / Three Twelfths</h3>
+    <div class="combinations__items">
+        <div class="combinations__item-half"><div class="combinations__block">half</div></div>
+        <div class="combinations__item-quarter"><div class="combinations__block">quarter</div></div>
+        <div class="combinations__item-twelfth"><div class="combinations__block">twelfth</div></div>
+        <div class="combinations__item-twelfth"><div class="combinations__block">twelfth</div></div>
+        <div class="combinations__item-twelfth"><div class="combinations__block">twelfth</div></div>
+    </div>
+
+    <h3 class="combinations__sub-title">Two Thirds / Third</h3>
+    <div class="combinations__items">
+        <div class="combinations__item-two-thirds"><div class="combinations__block">two thirds</div></div>
+        <div class="combinations__item-third"><div class="combinations__block">third</div></div>
+    </div>
+
+    <h3 class="combinations__sub-title">Half / Three Sixths</h3>
+    <div class="combinations__items">
+        <div class="combinations__item-half"><div class="combinations__block">half</div></div>
+        <div class="combinations__item-sixth"><div class="combinations__block">sixth</div></div>
+        <div class="combinations__item-sixth"><div class="combinations__block">sixth</div></div>
+        <div class="combinations__item-sixth"><div class="combinations__block">sixth</div></div>
+    </div>
+</section>
+
+<section class="nesting">
+    <h2 class="nesting__title">Nested grids</h2>
+
+    <div class="nesting__items">
+        <div class="nesting__item-half"><div class="nesting__block">half</div></div>
+        <div class="nesting__item-half">
+            <div class="nesting__nested-items">
+                <div class="nesting__item-third"><div class="nesting__block">third</div></div>
+                <div class="nesting__item-two-thirds">
+                    <div class="nesting__nested-items">
+                        <div class="nesting__item-half"><div class="nesting__block">half</div></div>
+                        <div class="nesting__item-half"><div class="nesting__block">half</div></div>
+                        <div class="nesting__item-third"><div class="nesting__block">third</div></div>
+                        <div class="nesting__item-third"><div class="nesting__block">third</div></div>
+                        <div class="nesting__item-third"><div class="nesting__block">third</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="equal-height">
+    <h2 class="equal-height__title">Equal height</h2>
+
+    <div class="equal-height__items">
+        <div class="equal-height__item-half"><div class="equal-height__block--tall">tall</div></div>
+        <div class="equal-height__item-half"><div class="equal-height__block--fill">fill</div></div>
+    </div>
+</section>
+
+<section class="horizontal-align">
+    <h2 class="horizontal-align__title">Horizontal alignment</h2>
+
+    <div class="horizontal-align__items-left">
+        <div class="horizontal-align__item-half"><div class="horizontal-align__block">left</div></div>
+    </div>
+
+    <div class="horizontal-align__items-center">
+        <div class="horizontal-align__item-half"><div class="horizontal-align__block">center</div></div>
+    </div>
+
+    <div class="horizontal-align__items-right">
+        <div class="horizontal-align__item-half"><div class="horizontal-align__block">right</div></div>
+    </div>
+</section>
+
+<section class="top-align">
+    <h2 class="top-align__title">Top alignment</h2>
+
+    <div class="top-align__items">
+        <div class="top-align__item-third"><div class="top-align__block">top</div></div>
+        <div class="top-align__item-third"><div class="top-align__block--tall"></div></div>
+        <div class="top-align__item-third"><div class="top-align__block">top</div></div>
+    </div>
+</section>
+
+<section class="middle-align">
+    <h2 class="middle-align__title">Middle alignment</h2>
+
+    <div class="middle-align__items">
+        <div class="middle-align__item-third"><div class="middle-align__block">middle</div></div>
+        <div class="middle-align__item-third"><div class="middle-align__block--tall"></div></div>
+        <div class="middle-align__item-third"><div class="middle-align__block">middle</div></div>
+    </div>
+</section>
+
+<section class="bottom-align">
+    <h2 class="bottom-align__title">Bottom alignment</h2>
+
+    <div class="bottom-align__items">
+        <div class="bottom-align__item-third"><div class="bottom-align__block">bottom</div></div>
+        <div class="bottom-align__item-third"><div class="bottom-align__block--tall"></div></div>
+        <div class="bottom-align__item-third"><div class="bottom-align__block">bottom</div></div>
+    </div>
+</section>
+
+<section class="independent-align">
+    <h2 class="independent-align__title">Independent alignment</h2>
+
+    <div class="independent-align__items">
+        <div class="independent-align__item-top"><div class="independent-align__block">top</div></div>
+        <div class="independent-align__item"><div class="independent-align__block--tall"></div></div>
+        <div class="independent-align__item-middle"><div class="independent-align__block">middle</div></div>
+        <div class="independent-align__item-bottom"><div class="independent-align__block">bottom</div></div>
+    </div>
+</section>
+
+<section class="reversed">
+    <h2 class="reversed__title">Reversed</h2>
+
+    <div class="reversed__items">
+        <div class="reversed__item"><div class="reversed__block">1</div></div>
+        <div class="reversed__item"><div class="reversed__block">2</div></div>
+        <div class="reversed__item"><div class="reversed__block">3</div></div>
+        <div class="reversed__item"><div class="reversed__block">4</div></div>
+    </div>
+</section>
+
+<section class="flush">
+    <h2 class="flush__title">Flush</h2>
+
+    <div class="flush__items">
+        <div class="flush__item"><div class="flush__block">quarter</div></div>
+        <div class="flush__item"><div class="flush__block">quarter</div></div>
+        <div class="flush__item"><div class="flush__block">quarter</div></div>
+        <div class="flush__item"><div class="flush__block">quarter</div></div>
+    </div>
+</section>
+
+<section class="fit">
+    <h2 class="fit__title">Fit</h2>
+
+    <div class="fit__items">
+        <div class="fit__item"><div class="fit__block">quarter</div></div>
+        <div class="fit__item"><div class="fit__block">quarter</div></div>
+        <div class="fit__item"><div class="fit__block">quarter</div></div>
+        <div class="fit__item"><div class="fit__block">quarter</div></div>
+        <div class="fit__item"><div class="fit__block">quarter</div></div>
+        <div class="fit__item"><div class="fit__block">quarter</div></div>
+    </div>
+</section>
+
+<div class="grid-overlay">
+    <div class="grid-overlay__container">
+        <div class="grid-overlay__grid">
+            @for (var i = 0; i < 12; i++)
+            {
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <button class="grid-overlay__close" type="button">Close Overlay</button>
+</div>
