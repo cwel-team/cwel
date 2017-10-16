@@ -139,5 +139,17 @@ namespace Cwel.Docs.Web.Controllers
             var model = JsonConvert.DeserializeObject<PlaygroundPage>(page);
             return View(model);
         }
+
+
+        /// <summary>
+        /// Renders a sandbox page
+        /// </summary>
+        /// <param name="pageName">Name of page to be rendered</param>
+        [HttpGet]
+        [Route("Playground/Sandbox/{pageName}")]
+        public ActionResult Sandbox(string pageName)
+        {
+            return View($"sandbox/{pageName}/index");
+        }
     }
 }

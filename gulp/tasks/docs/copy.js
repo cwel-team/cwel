@@ -27,7 +27,10 @@ gulp.task('cwel-docs-copy-script', () => gulp.src(['Cwel/dist/Cwel/**/*.{js,js.m
 gulp.task('clean:cwel-docs-copy-script', () => del(['Cwel.Docs.Web/Cwel/**/*.{js,js.map}']));
 
 // @internal
-gulp.task('cwel-docs-copy-style', () => gulp.src('Cwel/dist/Cwel/**/*.scss')
+gulp.task('cwel-docs-copy-style', () => gulp.src([
+    'Cwel/dist/Cwel/**/*.scss',
+    'Cwel/dist/Cwel/cwel.{css,css.map}',
+])
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
 gulp.task('clean:cwel-docs-copy-style', () => del(['Cwel.Docs.Web/Cwel/**/*.scss']));
