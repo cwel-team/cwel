@@ -54,25 +54,28 @@
         </div>
 
         <div class="docs__section">
-            <div class="docs-example">
+            <div class="docs-example" ng-init="show='javascript'">
                 <div class="docs-example__nav">
                     <div class="docs-example__nav-title">Example</div>
                     <ul class="docs-example__nav-ul">
                         <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link">Javascript</a>
+                            <a class="docs-example__nav-link" ng-click="show='javascript'">Javascript</a>
                         </li>
                         <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link">HTML</a>
+                            <a class="docs-example__nav-link" ng-click="show='html'">HTML</a>
                         </li>
                         <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link">CSS</a>
+                            <a class="docs-example__nav-link" ng-click="show='css'">CSS</a>
                         </li>
                         <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link">Result</a>
+                            <a class="docs-example__nav-link" ng-click="show='result'">Result</a>
                         </li>
                     </ul>
                 </div>
-                <div class="docs-example__content"></div>
+                <div class="docs-example__content" ng-show="show=='javascript'">js</div>
+                <div class="docs-example__content" ng-show="show=='html'">html</div>
+                <div class="docs-example__content" ng-show="show=='css'">css</div>
+                <div class="docs-example__content" ng-show="show=='result'">result</div>
             </div>
         </div>
 
