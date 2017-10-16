@@ -1,0 +1,24 @@
+
+.block {
+    min-height: 50px;
+    padding: 10px;
+    padding-right: 8px;
+    background-color: #671d5a;
+    color: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include breakpoint('sm') {
+        padding-right: 10px;
+    }
+}
+
+.block--fill {
+    position: relative;
+    height: 100%;
+}
+
+.block--tall {
+    position: relative;
+    min-height: 150px;
+}
