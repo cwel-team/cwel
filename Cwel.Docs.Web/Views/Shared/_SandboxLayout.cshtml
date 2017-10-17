@@ -13,7 +13,8 @@
     @RenderSection("styles", required: false)
 </head>
 <body ng-app="sandbox">
-    <main class="container" ng-controller="grid">
+    @{ var controller = ViewBag.Controller != "" ? "ng-controller=" + ViewBag.Controller : ""; }
+    <main class="container" @controller>
         @RenderBody()
     </main>
     <script src="~/Cwel/cwel.js"></script>
