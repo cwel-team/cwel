@@ -23,7 +23,7 @@
         <p>Current viewport breakpoint: <span class="viewport__breakpoint"></span></p>
     </div>
 
-    <button class="overlay-open" overlayId="grid-overlay" type="button" name="button">Show Overlay</button>
+    <button class="overlay-open" ng-click="showOverlay = true" type="button">Show Overlay</button>
 </div>
 
 <section class="section">
@@ -200,7 +200,7 @@
     </div>
 </section>
 
-<div class="grid-overlay" id="grid-overlay">
+<div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
     <div class="grid-overlay__container">
         <div class="grid-overlay__grid">
             @for (var i = 0; i < 12; i++)
@@ -212,5 +212,5 @@
         </div>
     </div>
 
-    <button class="grid-overlay__close" type="button">Close Overlay</button>
+    <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
 </div>
