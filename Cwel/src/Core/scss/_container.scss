@@ -25,16 +25,16 @@
 @mixin fluid-container {
     display: block;
     margin: auto;
-    padding-left: $CONTAINER-MARGIN-XS;
     padding-right: $CONTAINER-MARGIN-XS;
+    padding-left: $CONTAINER-MARGIN-XS;
 
     @each $device-size in map-keys($BREAKPOINTS) {
         $margin: map-get($CONTAINER, 'margin-#{$device-size}');
 
         @include breakpoint($device-size) {
             @if ($margin != null) {
-                padding-left: $margin;
                 padding-right: $margin;
+                padding-left: $margin;
             }
         }
     }
