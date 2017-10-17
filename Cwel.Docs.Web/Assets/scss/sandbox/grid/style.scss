@@ -32,7 +32,8 @@
 
 .section {
     @include divider;
-    padding-bottom: $SPACE-S;
+    padding-top: $SPACE-M;
+    padding-bottom: $SPACE-M;
 }
 
 /**********************
