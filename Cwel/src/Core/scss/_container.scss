@@ -3,8 +3,8 @@
     display: block;
     max-width: 1000px;
     margin: auto;
-    padding-left: $CONTAINER-MARGIN-XS;
     padding-right: $CONTAINER-MARGIN-XS;
+    padding-left: $CONTAINER-MARGIN-XS;
 
     @each $device-size in map-keys($BREAKPOINTS) {
         $breakpoint: map-get($BREAKPOINTS, $device-size);
@@ -16,8 +16,8 @@
                 max-width: $width;
             }
             @if ($margin != null) {
-                padding-left: $margin;
                 padding-right: $margin;
+                padding-left: $margin;
             }
         }
     }

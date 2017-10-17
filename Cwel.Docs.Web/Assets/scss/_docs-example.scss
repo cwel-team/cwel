@@ -11,12 +11,12 @@
 }
 .docs-example__nav-li {
     color: $colour-core1;
-    border-top-width: $border-width-standard;
-    border-bottom-width: 0;
-    border-left-width: $border-width-standard;
-    border-right-width: 0;
     border-style: solid;
     border-color: $colour-secondary2;
+    border-top-width: $border-width-standard;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: $border-width-standard;
     border-top-right-radius: $border-radius-standard;
     border-top-left-radius: $border-radius-standard;
     @include breakpoint('m') {
@@ -29,9 +29,9 @@
 .docs-example__nav-link {
     display: flex;
     padding-top: 0.62rem;
+    padding-right: 1rem;
     padding-bottom: 0.62rem;
     padding-left: 1rem;
-    padding-right: 1rem;
     cursor: pointer;
 }
 .docs-example__nav-link:hover {
@@ -40,10 +40,10 @@
 .docs-example__nav-title {
     padding-top: 0.62rem;
     padding-bottom: 0.62rem;
+    color: $colour-core1;
+    font-size: 1rem;
     border-top-right-radius: $border-radius-standard;
     border-top-left-radius: $border-radius-standard;
-    font-size: 1rem;
-    color: $colour-core1;
 }
 .docs-example__content {
     height: 12.5rem;

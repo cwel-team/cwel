@@ -3,19 +3,19 @@
     top: 0;
     bottom: 0;
     z-index: 1;
-    height: 100%;
     width: 16.25rem;
+    height: 100%;
+    overflow: auto;
     background: $colour-white;
     box-shadow: 0 0 0.94rem $colour-secondary1;
-    overflow: auto;
-    transform: translateX(-18.75rem);
     transition: all 0.5s;
+    transform: translateX(-18.75rem);
 }
 .nav-sidebar__title {
     padding-top: 1rem;
+    padding-right: 1rem;
     padding-bottom: 1rem;
     padding-left: 1rem;
-    padding-right: 1rem;
     color: $colour-white;
     background: $colour-core1;
 }
@@ -29,15 +29,15 @@
 }
 .nav-sidebar__li-link {
     display: block;
-    height: 100%;
     width: 100%;
+    height: 100%;
     padding-top: 1rem;
+    padding-right: 1rem;
     padding-bottom: 1rem;
     padding-left: 1rem;
-    padding-right: 1rem;
+    color: $colour-secondary1;
     text-align: left;
     border: none;
-    color: $colour-secondary1;
     cursor: pointer;
 }
 .nav-sidebar__li-link:hover {
@@ -46,43 +46,43 @@
 .nav-sidebar__collapsible-ul {
     max-height: 0;
     padding-left: 1.63rem;
+    overflow: hidden;
     border-top-width: $border-width-standard;
     border-top-style: solid;
     border-top-color: $colour-secondary2;
-    opacity: 0;
-    overflow: hidden;
     transition: all 0.3s ease;
+    opacity: 0;
 }
 .nav-sidebar__collapsible-li {
     position: relative;
 }
 .nav-sidebar__collapsible-li:before {
+    content: '• ';
     position: absolute;
     top: 0.25rem;
     left: 0;
-    font-size: 1.56rem;
     color: $colour-core1;
-    content: '• ';
+    font-size: 1.56rem;
 }
 .nav-sidebar__collapsible-link {
     display: block;
-    height: 100%;
     width: 100%;
+    height: 100%;
     padding-top: 0.88rem;
+    padding-right: 1rem;
     padding-bottom: 0.88rem;
     padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 0.9rem;
     color: $colour-secondary1;
+    font-size: 0.9rem;
 }
 .nav-sidebar__collapsible-link:hover {
     text-decoration: underline;
 }
 .nav-sidebar__search {
     padding-top: 1.25rem;
+    padding-right: 1.25rem;
     padding-bottom: 1.25rem;
     padding-left: 1.25rem;
-    padding-right: 1.25rem;
     border-bottom-width: $border-width-standard;
     border-bottom-style: solid;
     border-bottom-color: $colour-secondary2;
@@ -95,11 +95,11 @@
     padding-left: 1.63rem;
     color: $colour-core1;
     background: $colour-white;
-    border-radius: 0;
     border-width: 0;
     border-bottom-width: 0.13rem;
     border-bottom-style: solid;
     border-bottom-color: $colour-core1;
+    border-radius: 0;
 }
 .nav-sidebar__search-input::placeholder {
     color: $colour-core1;

@@ -3,16 +3,16 @@
     width: 100%;
     height: auto;
     min-height: 14.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
     margin-bottom: 1rem;
-    border-radius: $border-radius-standard;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    background: $colour-core2;
     border-width: $border-width-standard;
     border-style: solid;
     border-color: $colour-secondary2;
-    background: $colour-core2;
+    border-radius: $border-radius-standard;
     @include breakpoint('l') {
         height: 27.5rem;
         overflow: auto;
@@ -24,8 +24,8 @@
 .editor-order__title {
     display: block;
     margin-bottom: 0.63rem;
-    font-size: 1rem;
     color: $colour-core1;
+    font-size: 1rem;
 }
 .editor-order__item {
     display: inline-flex;
@@ -41,13 +41,13 @@
     height: 2.5rem;
     padding-left: 1.25rem;
     color: $colour-core1;
-    text-align: left;
     line-height: 2.5rem;
+    text-align: left;
     background: $colour-white;
-    border-radius: $border-radius-standard;
     border-width: $border-width-standard;
     border-style: solid;
     border-color: $colour-core1;
+    border-radius: $border-radius-standard;
 }
 .editor-order__item-title--active {
     font-weight: 600;
