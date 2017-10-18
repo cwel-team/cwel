@@ -1,6 +1,7 @@
 
 @{
     Layout = "~/Views/Shared/_SandboxLayout.cshtml";
+    ViewBag.Controller = "grid";
 }
 
 @section styles
@@ -30,14 +31,14 @@
     <h2 class="section__title">Sizes</h2>
 
     <div class="grid">
-        <div class="grid__cell"><div class="block">12/12</div></div>
+        <div class="grid__cell"><div class="block block--claustrophobic">12/12</div></div>
     </div>
     @for (var i = 6; i > 0; i-=2)
     {
         <div class="grid">
             @for (var ii = 0; ii < 12/i; ii++)
             {
-                <div class="grid__cell grid__cell--size-@i"><div class="block">@i/12</div></div>
+                <div class="grid__cell grid__cell--size-@i"><div class="block block--claustrophobic">@i/12</div></div>
             }
         </div>
     }
@@ -54,23 +55,23 @@
 
     <h3 class="section__sub-title">Quarter / Three Quarters</h3>
     <div class="grid">
-        <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
-        <div class="grid__cell grid__cell--size-9"><div class="block">three quarters</div></div>
+        <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">quarter</div></div>
+        <div class="grid__cell grid__cell--size-9"><div class="block block--claustrophobic">three quarters</div></div>
     </div>
 
     <h3 class="section__sub-title">Half / Quarter / Three Twelfths</h3>
     <div class="grid">
-        <div class="grid__cell grid__cell--size-6"><div class="block">half</div></div>
-        <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
-        <div class="grid__cell grid__cell--size-1"><div class="block">twelfth</div></div>
-        <div class="grid__cell grid__cell--size-1"><div class="block">twelfth</div></div>
-        <div class="grid__cell grid__cell--size-1"><div class="block">twelfth</div></div>
+        <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">half</div></div>
+        <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">quarter</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block block--claustrophobic">twelfth</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block block--claustrophobic">twelfth</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block block--claustrophobic">twelfth</div></div>
     </div>
 
     <h3 class="section__sub-title">Two Thirds / Third</h3>
     <div class="grid">
-        <div class="grid__cell grid__cell--size-8"><div class="block">two thirds</div></div>
-        <div class="grid__cell grid__cell--size-4"><div class="block">third</div></div>
+        <div class="grid__cell grid__cell--size-8"><div class="block block--claustrophobic">two thirds</div></div>
+        <div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">third</div></div>
     </div>
 
     <h3 class="section__sub-title">Half / Three Sixths</h3>
@@ -90,17 +91,17 @@
         <div class="grid__cell grid__cell--size-6">
             <div class="grid">
                 <div class="grid__cell">
-                    <div class="block block--translucent block--cuddle block--lean">
+                    <div class="block block--translucent block block--lean">
                         <div class="grid">
-                            <div class="grid__cell grid__cell--size-4"><div class="block">third</div></div>
+                            <div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">third</div></div>
                             <div class="grid__cell grid__cell--size-8">
-                                <div class="block block--translucent block--cuddle block--lean">
+                                <div class="block block--translucent block block--lean">
                                     <div class="grid">
-                                        <div class="grid__cell grid__cell--size-6"><div class="block">half</div></div>
-                                        <div class="grid__cell grid__cell--size-6"><div class="block">half</div></div>
-                                        <div class="grid__cell grid__cell--size-4"><div class="block block--cuddle">third</div></div>
-                                        <div class="grid__cell grid__cell--size-4"><div class="block block--cuddle">third</div></div>
-                                        <div class="grid__cell grid__cell--size-4"><div class="block block--cuddle">third</div></div>
+                                        <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">half</div></div>
+                                        <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">half</div></div>
+                                        <div class="grid__cell grid__cell--size-4"><div class="block block">third</div></div>
+                                        <div class="grid__cell grid__cell--size-4"><div class="block block">third</div></div>
+                                        <div class="grid__cell grid__cell--size-4"><div class="block block">third</div></div>
                                     </div>
                                 </div>
                             </div>
@@ -116,8 +117,8 @@
     <h2 class="section__title">Equal height</h2>
 
     <div class="grid">
-        <div class="grid__cell grid__cell--size-6"><div class="block block--tall block--cuddle">tall</div></div>
-        <div class="grid__cell grid__cell--size-6"><div class="block block--fill block--cuddle">fill</div></div>
+        <div class="grid__cell grid__cell--size-6"><div class="block block--tall block">tall</div></div>
+        <div class="grid__cell grid__cell--size-6"><div class="block block--fill block">fill</div></div>
     </div>
 </section>
 
@@ -125,15 +126,15 @@
     <h2 class="section__title">Horizontal alignment</h2>
 
     <div class="grid grid--align-left">
-        <div class="grid__cell grid__cell--size-6"><div class="block">left</div></div>
+        <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">left</div></div>
     </div>
 
     <div class="grid grid--align-center">
-        <div class="grid__cell grid__cell--size-6"><div class="block">center</div></div>
+        <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">center</div></div>
     </div>
 
     <div class="grid grid--align-right">
-        <div class="grid__cell grid__cell--size-6"><div class="block">right</div></div>
+        <div class="grid__cell grid__cell--size-6"><div class="block block">right</div></div>
     </div>
 </section>
 

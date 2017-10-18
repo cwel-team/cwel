@@ -2,16 +2,15 @@ $block-background: #671d5a;
 
 .block {
     min-height: 50px;
-    padding: 10px;
-    padding-right: 8px;
-    margin-bottom: 8px;
-    background-color: $block-background;
-    color: rgba(255, 255, 255, 0.8);
+    padding: $SPACE-S;
+    padding-right: $SPACE-XS;
     overflow: hidden;
+    color: rgba(255, 255, 255, 0.8);
     text-overflow: ellipsis;
+    background-color: $block-background;
 
     @include breakpoint('s') {
-        padding-right: 10px;
+        padding-right: $SPACE-S;
     }
 
     @each $key in map-keys($BREAKPOINTS) {
@@ -46,10 +45,15 @@ $block-background: #671d5a;
     }
 }
 
-.block--cuddle {
+.block--claustrophobic {
+    margin-bottom: $GRID-GUTTER-XS;
+
     @each $key in map-keys($BREAKPOINTS) {
+        $breakpoint: map-get($BREAKPOINTS, $key);
+        $gutter: map-get($GRID, 'gutter-#{$key}');
+
         @include breakpoint($key) {
-            margin: 0;
+            margin-bottom: $gutter;
         }
     }
 }

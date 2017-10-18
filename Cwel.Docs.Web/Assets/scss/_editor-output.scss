@@ -1,26 +1,26 @@
 .editor-output {
     display: block;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
     margin-bottom: -2.5rem; // collapses docs playground container padding
+    padding-top: 1rem;
+    padding-right: 0;
+    padding-bottom: 1rem;
+    padding-left: 0;
+    background: $colour-core2;
     border-top-width: $border-width-standard;
     border-top-style: solid;
     border-top-color: $colour-secondary2;
-    background: $colour-core2;
 }
 .editor-output__iframe {
-    box-sizing: content-box;
     display: block;
+    box-sizing: content-box;
     width: 100%;
-    margin-left: auto;
     margin-right: auto;
+    margin-left: auto;
     border-width: $border-width-standard;
     border-style: solid;
     border-color: $colour-secondary2;
 }
 .editor-output__iframe--anim-width {
-    transition: width .7s;
+    transition: width 0.7s;
 }
