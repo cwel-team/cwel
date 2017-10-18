@@ -12,15 +12,6 @@ $block-background: #671d5a;
     @include breakpoint('s') {
         padding-right: $SPACE-S;
     }
-
-    @each $key in map-keys($BREAKPOINTS) {
-        $breakpoint: map-get($BREAKPOINTS, $key);
-        $gutter: map-get($GRID, 'gutter-#{$key}');
-
-        @include breakpoint($key) {
-            margin-bottom: $gutter;
-        }
-    }
 }
 
 .block--fill {
