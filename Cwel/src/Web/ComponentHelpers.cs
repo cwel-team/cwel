@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
@@ -38,11 +40,26 @@ namespace Cwel.Web
         /// </summary>
         /// <param name="helper">HtmlHelper</param>
         /// <param name="path">Relative path of the icon</param>
+        /// <param name="attrs"></param>
         /// <returns>MvcHtmlString containing the rendered pattern</returns>
-        public static MvcHtmlString Icon(this HtmlHelper helper, string path)
+        public static MvcHtmlString Icon(this HtmlHelper helper, string path, Dictionary<string, string> attrs = null)
         {
+            if (attrs == null) attrs = new Dictionary<string, string>();
+
+            if (attrs.ContainsKey("class"))
+            {
+                attrs["class"] = "cwel-icon " + attrs["class"];
+            } else
+            {
+                attrs.Add("class", "cwel-icon");
+            }
+
             var svgContents = System.IO.File.ReadAllText(HttpContext.Current.Server.MapPath(IconPath(path)));
-            return new MvcHtmlString(svgContents);
+            var attributes = string.Join(" ", attrs.Select(attr => $"{attr.Key}=\"{attr.Value}\""));
+
+            return new MvcHtmlString($"<div {attributes}>" +
+                $"{svgContents}" +
+                $"</div>");
         }
 
         /// <summary>
