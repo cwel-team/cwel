@@ -44,6 +44,7 @@
     "gulp-sequence": "^0.4.6",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-stylelint": "^5.0.0",
+    "gulp-svgmin": "^1.2.4",
     "gulp-task-doc": "^1.0.11",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
@@ -59,6 +60,7 @@
     "karma-viewport": "^0.4.2",
     "marked": "^0.3.6",
     "nunjucks": "^3.0.1",
+    "stylelint-order": "^0.7.0",
     "through2": "^2.0.3",
     "xmldoc": "^1.1.0",
     "yargs": "^8.0.2"

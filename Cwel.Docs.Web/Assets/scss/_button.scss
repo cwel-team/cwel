@@ -1,24 +1,25 @@
 @mixin button-icon() {
-    display: inline-block;
-    height: 2.5rem;
-    width: 1rem;
-    margin-right: .5rem;
     content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+    vertical-align: top;
 }
 
 .button {
     display: inline-block;
     width: 100%;
-    min-width: 8.75rem;
     height: 2.63rem;
+    min-width: 8.75rem;
     margin-bottom: 1rem;
     color: $colour-core1;
-    text-align: center;
     line-height: 2.5rem;
-    border-radius: $border-radius-standard;
+    text-align: center;
     border-width: $border-width-standard;
     border-style: solid;
     border-color: $colour-core1;
+    border-radius: $border-radius-standard;
     cursor: pointer;
 }
 .button__text {
@@ -27,7 +28,7 @@
 .button:hover,
 .button:focus {
     background: $colour-core2;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 }
 .button--icon-import:before {
     @include button-icon();
@@ -39,19 +40,19 @@
 }
 .button--icon-arrow-up:before {
     @include button-icon();
-    @include spritesheet(0, -.17);
-    width: .75rem;
+    @include spritesheet(0, -0.17);
+    width: 0.75rem;
 }
 .button--icon-arrow-down:before {
     @include button-icon();
     @include spritesheet(0, 7.83);
-    width: .75rem;
+    width: 0.75rem;
 }
 .button--icon-clear:before {
     @include button-icon();
     @include spritesheet(0, 0.87);
-    margin-left: .06rem;
-    width: .88rem;
+    width: 0.88rem;
+    margin-left: 0.06rem;
 }
 .button--icon-edit:before {
     @include button-icon();
@@ -77,6 +78,12 @@
     @include spritesheet(1, 0.91);
     width: 1rem;
 }
+.button--icon-presentation:before {
+    @include button-icon();
+    @include spritesheet(1, 1.89);
+    width: 1.4rem;
+}
+
 .button--icon-only {
     width: 3.5rem;
     min-width: initial;

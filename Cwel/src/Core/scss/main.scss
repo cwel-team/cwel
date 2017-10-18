@@ -1,12 +1,13 @@
-@import 'Core/scss/settings';
-@import 'Core/scss/aspect-ratio';
-@import 'Core/scss/device';
-@import 'Core/scss/typography';
-@import 'Core/scss/base';
-@import 'Core/scss/container';
-@import 'Core/scss/grid';
+@import './settings';
+@import './aspect-ratio';
+@import './device';
+@import './typography';
+@import './base';
+@import './container';
+@import './grid';
 
+@include generate-container-classes;
 @include generate-grid-classes;
 
-@import 'Component/Card/Card';
-@import 'Pattern/CardSlider/CardSlider';
+@import '../../Component/Card/Card';
+@import '../../Pattern/CardSlider/CardSlider';

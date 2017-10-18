@@ -1,0 +1,4 @@
+
+@mixin divider($orientation: 'bottom') {
+    border-#{$orientation}: 0.1rem solid rgba(0, 0, 0, 0.12);
+}

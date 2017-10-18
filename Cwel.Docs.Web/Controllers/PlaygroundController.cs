@@ -142,6 +142,19 @@ namespace Cwel.Docs.Web.Controllers
 
 
         /// <summary>
+        /// Renders a sandbox page
+        /// </summary>
+        /// <param name="pageName">Name of page to be rendered</param>
+        [HttpGet]
+        [Route("Playground/Sandbox/{pageName?}")]
+        public ActionResult Sandbox(string pageName)
+        {
+            return pageName == ""
+                ? View("sandbox/index")
+                : View($"sandbox/{pageName}/index");
+        }
+
+        /// <summary>
         /// Render a component by type and name with a given model
         /// </summary>
         /// <param name="model">Json ViewModel of the Cwomponent</param>

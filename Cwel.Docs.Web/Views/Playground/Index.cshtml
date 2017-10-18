@@ -95,7 +95,9 @@
                     <div class="grid__cell grid__cell--size-4-l">
                         <form action="/Playground/RenderPage" method="POST" target="_blank">
                             <input type="hidden" name="page" value="{{ getModel(model) }}">
-                            <button type="submit" class="button" value="Open">Presentation</button>
+                            <button type="submit" class="button button--icon-presentation" value="Open">
+                                <span class="button__text">Presentation</span>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -111,10 +113,10 @@
                         </select>
                     </div>
                 </div>
-             </div>
-        </div>
-        <div class="editor-output">
-            <iframe class="editor-output__iframe editor-output__iframe--anim-width" src="/Playground/stage" ng-style="iframeStyle"></iframe>
-        </div>
+            </div>
+         </div>
+    </div>
+    <div class="editor-output">
+        <iframe iframe-size class="editor-output__iframe editor-output__iframe--anim-width" src="/Playground/stage" ng-style="iframeStyle"></iframe>
     </div>
 </div>
