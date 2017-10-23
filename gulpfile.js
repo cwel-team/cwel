@@ -104,6 +104,10 @@ gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
  * Build the whole project: packaging CWEL and generating docs.
  */
 gulp.task('build', done => gulpSequence('lint', 'cwel-dist', 'cwel-docs')(done));
+/**
+ * Delete files created by build task
+ */
+gulp.task('clean:build', done => gulpSequence('clean:cwel-dist', 'clean:cwel-docs')(done));
 
 
 /**
