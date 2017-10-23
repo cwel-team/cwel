@@ -24,21 +24,32 @@ const babelConfig = {
 
 
 // @internal
-gulp.task('cwel-dist-script', done => gulpSequence([
+gulp.task('cwel-dist-script', done => gulpSequence(
+    'cwel-dist-script-compile',
+    'cwel-dist-script-bundle',
+    'cwel-dist-script-includevendors')(done));
+// @internal
+gulp.task('clean:cwel-dist-script', done => gulpSequence(
+    'clean:cwel-dist-script-compile',
+    'clean:cwel-dist-script-bundle',
+    'clean:cwel-dist-script-includevendors')(done));
+
+
+// @internal
+gulp.task('cwel-dist-script-compile', done => gulpSequence([
     'cwel-dist-script-main',
     'cwel-dist-script-component',
     'cwel-dist-script-pattern',
     'cwel-dist-script-service',
     'cwel-dist-script-vendor',
-], 'cwel-dist-script-compile')(done));
+])(done));
 // @internal
-gulp.task('clean:cwel-dist-script', done => gulpSequence([
+gulp.task('clean:cwel-dist-script-compile', done => gulpSequence([
     'clean:cwel-dist-script-main',
     'clean:cwel-dist-script-component',
     'clean:cwel-dist-script-pattern',
     'clean:cwel-dist-script-service',
     'clean:cwel-dist-script-vendor',
-    'clean:cwel-dist-script-compile',
 ])(done));
 
 
@@ -110,16 +121,26 @@ gulp.task('clean:cwel-dist-script-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/
 
 
 // @internal
-gulp.task('cwel-dist-script-compile', () => gulp.src([
+gulp.task('cwel-dist-script-bundle', () => gulp.src([
     'Cwel/dist/Cwel/**/*.js',
+    '!Cwel/dist/Cwel/Vendor/**/*.js',
     '!Cwel/dist/Cwel/cwel.js',
 ])
 .pipe(order([
-    'Vendor/angularjs/angular.js',
-    'Vendor/**/*.js',
     'Core/js/main.js',
 ]))
 .pipe(concat('cwel.js'))
 .pipe(gulp.dest('Cwel/dist/Cwel')));
 // @internal
-gulp.task('clean:cwel-dist-script-compile', () => del(['Cwel/dist/Cwel/cwel.js']));
+gulp.task('clean:cwel-dist-script-bundle', () => del(['Cwel/dist/Cwel/cwel.js']));
+
+
+// @internal
+gulp.task('cwel-dist-script-includevendors', () => gulp.src([
+    'Cwel/dist/Cwel/Vendor/**/*.js',
+    'Cwel/dist/Cwel/cwel.js',
+])
+.pipe(concat('cwel-full.js'))
+.pipe(gulp.dest('Cwel/dist/Cwel')));
+// @internal
+gulp.task('clean:cwel-dist-script-includevendors', () => del(['Cwel/dist/Cwel/cwel-full.js']));
