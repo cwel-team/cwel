@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace Cwel.Web
 {
     /// <summary>
-    /// 
+    /// Render Inline SVG helpers
     /// </summary>
     public static class IconHelper
     {
@@ -26,8 +26,8 @@ namespace Cwel.Web
         /// <summary>
         /// Helper method to render an svg icon inline with the HTML 
         /// </summary>
-        /// <param name="helper"></param>
-        /// <param name="path"></param>
+        /// <param name="helper">Htmlhelper</param>
+        /// <param name="path">Path to SVG file</param>
         /// <returns></returns>
         public static MvcHtmlString Icon(this HtmlHelper helper, string path)
         {
@@ -35,11 +35,11 @@ namespace Cwel.Web
         }
 
         /// <summary>
-        /// 
+        /// Helper method to render an svg icon inline with the HTML 
         /// </summary>
-        /// <param name="helper"></param>
-        /// <param name="path"></param>
-        /// <param name="attrs"></param>
+        /// <param name="helper">Htmlhelper</param>
+        /// <param name="path">Path to SVG file</param>
+        /// <param name="attrs">Html Attributes</param>
         /// <returns></returns>
         public static MvcHtmlString Icon(this HtmlHelper helper, string path, object attrs)
         {
@@ -47,11 +47,11 @@ namespace Cwel.Web
         }
 
         /// <summary>
-        /// 
+        /// Helper method to render an svg icon inline with the HTML
         /// </summary>
-        /// <param name="helper"></param>
-        /// <param name="path"></param>
-        /// <param name="attrs"></param>
+        /// <param name="helper">Htmlhelper</param>
+        /// <param name="path">Path to SVG file</param>
+        /// <param name="attrs">Html Attributes</param>
         /// <returns></returns>
         public static MvcHtmlString Icon(this HtmlHelper helper, string path, IDictionary<string, object> attrs)
         {
