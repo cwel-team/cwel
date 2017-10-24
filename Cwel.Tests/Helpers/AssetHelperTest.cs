@@ -13,7 +13,7 @@ namespace Cwel.Tests.Helpers
     public class AssetHelperTest
     {
         [TestInitialize]
-        public void AssetHelperTestsSetup()
+        public void Setup()
         {
             HttpContext.Current = new HttpContext(
                 new HttpRequest(string.Empty, "http://mocktest.cwo/", string.Empty),
@@ -21,28 +21,28 @@ namespace Cwel.Tests.Helpers
         }
 
         [TestMethod]
-        public void AssetHelperCanGetComponentScriptPath()
+        public void AssetHelper_Should_Get_Component_Script_Path()
         {
             var path = AssetHelper.GetScriptAssetPath(AssetType.Component, "Card");
             Assert.AreEqual(path, "/cwel/component/card/card.js");
         }
 
         [TestMethod]
-        public void AssetHelperCanGetPatternScriptPath()
+        public void AssetHelper_Should_Get_Pattern_Script_Path()
         {
             var path = AssetHelper.GetScriptAssetPath(AssetType.Pattern, "CardSlider");
             Assert.AreEqual(path, "/cwel/pattern/cardslider/cardslider.js");
         }
 
         [TestMethod]
-        public void AssetHelperCanGetVendorPatternScriptPath()
+        public void AssetHelper_Should_Get_Vendor_Pattern_Script_Path()
         {
             var path = AssetHelper.GetScriptAssetPath(AssetType.Vendor, "Howler");
             Assert.AreEqual(path, "/assets/js/vendor/howler.js");
         }
 
         [TestMethod]
-        public void AssetHelperRequireScriptStoresScriptPathInHttpContext()
+        public void AssetHelper_Should_Require_Script_Stores_Script_Path_In_Http_Context()
         {
             // Call Helper
             ((HtmlHelper)null).RequireScript(AssetType.Component, "Card");
@@ -54,7 +54,7 @@ namespace Cwel.Tests.Helpers
         }
 
         [TestMethod]
-        public void AssetHelperShouldRenderScripts()
+        public void AssetHelper_Should_Render_Scripts()
         {
             // Call Helper
             ((HtmlHelper)null).RequireScript(AssetType.Component, "Card");
@@ -67,7 +67,7 @@ namespace Cwel.Tests.Helpers
         }
 
         [TestMethod]
-        public void AssetHelperShouldRenderMultipleScripts()
+        public void AssetHelper_Should_Render_Multiple_Scripts()
         {
             // Call Helper
             ((HtmlHelper)null).RequireScript(AssetType.Component, "Card");
@@ -81,7 +81,7 @@ namespace Cwel.Tests.Helpers
         }
 
         [TestMethod]
-        public void AssetHelperShouldHandleNoScripts()
+        public void AssetHelper_Should_Handle_No_Scripts()
         {
             var htmlString = ((HtmlHelper)null).RenderScripts();
 
@@ -90,7 +90,7 @@ namespace Cwel.Tests.Helpers
         }
 
         [TestMethod]
-        public void AssetHelperShouldPushHttp2Headers()
+        public void AssetHelper_Should_Push_Http2Headers()
         {
             var responseMock = new Mock<HttpResponseBase>();
             var context = new Mock<HttpContextBase>();

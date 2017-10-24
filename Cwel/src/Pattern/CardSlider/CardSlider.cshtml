@@ -1,4 +1,4 @@
-@model Cwel.Web.CardSliderViewModel
+@model CardSliderViewModel
 
 @{
     Html.RequireScript(AssetType.Pattern, "CardSlider");
@@ -6,10 +6,8 @@
 
 <div class="cwel-card-slider" data-cwel-card-slider data-start-index="@Model.StartIndex" data-count="@Model.Cards.Count">
     <ul class="cwel-card-slider__items" style="transform: translateX(-{{ currentIndex * 100 }}%);">
-        @for (var i = 0; i < Model.Cards.Count; i++)
+        @foreach (var card in Model.Cards)
         {
-            var card = Model.Cards[i];
-
             <li class="cwel-card-slider__item">
                 @Html.Card(card)
             </li>
@@ -17,24 +15,12 @@
     </ul>
     <div class="cwel-card-slider__controls">
         <button class="cwel-card-slider__control cwel-card-slider__control--previous" ng-click="previous()" ng-disabled="currentIndex <= 0">
-            @Html.Icon("card-slider--small-arrow", new Dictionary<string, string>
-            {
-                { "class", "cwel-card-slider__small-arrow" }
-            })
-            @Html.Icon("card-slider--large-arrow", new Dictionary<string, string>
-            {
-                { "class", "cwel-card-slider__large-arrow" }
-            })
+            @Html.Icon("card-slider--small-arrow", new { @class = "cwel-card-slider__small-arrow" })
+            @Html.Icon("card-slider--large-arrow", new { @class = "cwel-card-slider__large-arrow" })
         </button>
         <button class="cwel-card-slider__control cwel-card-slider__control--next" ng-click="next()" ng-disabled="currentIndex >= maxIndex()">
-            @Html.Icon("card-slider--small-arrow", new Dictionary<string, string>
-            {
-                { "class", "cwel-card-slider__small-arrow" }
-            })
-            @Html.Icon("card-slider--large-arrow", new Dictionary<string, string>
-            {
-                { "class", "cwel-card-slider__large-arrow" }
-            })
+            @Html.Icon("card-slider--small-arrow", new { @class = "cwel-card-slider__small-arrow" })
+            @Html.Icon("card-slider--large-arrow", new { @class = "cwel-card-slider__large-arrow" })
         </button>
     </div>
 </div>
