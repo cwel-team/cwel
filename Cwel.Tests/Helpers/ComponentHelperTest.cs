@@ -14,7 +14,7 @@ namespace Cwel.Tests.Helpers
     public class ComponentHelperTest
     {
         [TestInitialize]
-        public void AssetHelperTestsSetup()
+        public void Setup()
         {
             HttpContext.Current = new HttpContext(
                 new HttpRequest(string.Empty, "http://mocktest.cwo/", string.Empty),
@@ -22,21 +22,21 @@ namespace Cwel.Tests.Helpers
         }
 
         [TestMethod]
-        public void ComponentHelperCanGetComponentViewPath()
+        public void ComponentHelper_Should_Get_Component_View_Path()
         {
             var path = ComponentHelper.ComponentViewPath("Card");
             Assert.AreEqual(path, "~/Cwel/component/Card/Card.cshtml");
         }
 
         [TestMethod]
-        public void ComponentHelperCanGetPatternViewPath()
+        public void ComponentHelper_Should_Get_Pattern_View_Path()
         {
             var path = ComponentHelper.ComponentViewPath("CardSlider");
             Assert.AreEqual(path, "~/Cwel/component/CardSlider/CardSlider.cshtml");
         }
 
         [TestMethod]
-        public void ComponentHelperCanGetIconPath()
+        public void ComponentHelper_Should_Get_Icon_Path()
         {
             var path = ComponentHelper.IconPath("arrow");
             Assert.AreEqual(path, "~/Cwel/Assets/icon/arrow.svg");
