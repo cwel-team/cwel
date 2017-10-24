@@ -1,4 +1,4 @@
-﻿using System.Web.Mvc;
+using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
 namespace Cwel.Web
@@ -17,9 +17,15 @@ namespace Cwel.Web
 
     public static partial class CwelExtensions
     {
+        /// <summary>
+        /// Render a Badge Component
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <param name="vm"></param>
+        /// <returns></returns>
         public static MvcHtmlString Badge(this HtmlHelper helper, BadgeViewModel vm)
         {
-            return helper.Partial(ComponentHelpers.ComponentViewPath("Badge"), vm);
+            return helper.Partial(ComponentHelper.ComponentViewPath("Badge"), vm);
         }
     }
 }

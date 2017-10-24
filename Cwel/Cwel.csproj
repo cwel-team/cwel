@@ -94,7 +94,8 @@
     <Compile Include="src\Pattern\CardSlider\CardSlider.cs" />
     <Compile Include="src\Web\AssetHelper.cs" />
     <Compile Include="src\Web\AssetType.cs" />
-    <Compile Include="src\Web\ComponentHelpers.cs" />
+    <Compile Include="src\Web\ComponentHelper.cs" />
+    <Compile Include="src\Web\IconHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

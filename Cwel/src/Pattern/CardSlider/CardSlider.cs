@@ -24,7 +24,7 @@ namespace Cwel.Web
     {
         public static MvcHtmlString CardSlider(this HtmlHelper helper, CardSliderViewModel vm)
         {
-            return helper.Partial(ComponentHelpers.PatternViewPath("CardSlider"), vm);
+            return helper.Partial(ComponentHelper.PatternViewPath("CardSlider"), vm);
         }
     }
 }
