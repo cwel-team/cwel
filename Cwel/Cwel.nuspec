@@ -12,7 +12,7 @@
         <references />
     </metadata>
     <files>
-        <file src="dist\**\*.*" target="\" />
+        <file src="dist\Cwel\**\*.*" target="\Cwel" />
         <file src="bin\Cwel.dll" target="lib\net462\Cwel.dll" />
     </files>
 </package>
