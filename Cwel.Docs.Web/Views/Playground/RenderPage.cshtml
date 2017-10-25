@@ -1,6 +1,6 @@
 @model Cwel.Docs.Web.Models.PlaygroundPage
 @{
-    Layout = "~/Views/Shared/_RenderLayout.cshtml";
+    Layout = Model.Layout;
 }
 
 @foreach (var item in Model.Children)

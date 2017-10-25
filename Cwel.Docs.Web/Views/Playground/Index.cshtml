@@ -76,9 +76,26 @@
                 <!-- Nested grid -->
                 <div class="grid">
                     <div class="grid__cell grid__cell--size-4-l">
-                        <a href="https://jsfiddle.net/" class="button button--icon-output">
-                            <span class="button__text">JSFiddle</span>
-                        </a>
+                        <form jsfiddle action="http://jsfiddle.net/api/post/library/pure/" method="post" target="check"
+                            ng-submit="submit($event)"
+                            data-model="{{ getModel(model) }}"
+                            data-frame=".editor-output__iframe">
+                            <input type="hidden" name="js" ng-value="script">
+                            <input type="hidden" name="css" ng-value="style">
+                            <input type="hidden" name="html" ng-value="markup">
+                            <input type="hidden" name="resources" ng-value="resources">
+                            <input type="hidden" name="panel_html" value="0">
+                            <input type="hidden" name="panel_js" value="0">
+                            <input type="hidden" name="panel_css" value="1">
+                            <input type="hidden" name="title" value="CWEL Fiddle">
+                            <input type="hidden" name="description" value="A jsFiddle for CWEL components.">
+                            <input type="hidden" name="normalize_css" value="no">
+                            <input type="hidden" name="dtd" value="html 5">
+                            <input type="hidden" name="wrap" value="b">
+                            <button class="button button--icon-output" type="submit">
+                                <span class="button__text">JSFiddle</span>
+                            </button>
+                        </form>
                     </div>
                     <div class="grid__cell grid__cell--size-4-l">
                         <form action="/Playground/save" method="POST">
@@ -119,5 +136,4 @@
     <div class="editor-output">
         <iframe iframe-size class="editor-output__iframe editor-output__iframe--anim-width" src="/Playground/stage" ng-style="iframeStyle"></iframe>
     </div>
-
 </div>
