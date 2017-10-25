@@ -79,7 +79,7 @@ gulp.task('clean:cwel-docs', done => gulpSequence('clean:cwel-docs-copy', 'clean
 
 
 /**
- * Create cwomponent blueprint files where needed:
+ * Create CWEL blueprint files for a component, pattern or service:
  * e.g. Script, Razor, C# ViewModels, Test, Style, and Docs files
  */
 gulp.task('create', done => gulpSequence('cwel-create-duplo')(done));
@@ -104,10 +104,14 @@ gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
  * Build the whole project: packaging CWEL and generating docs.
  */
 gulp.task('build', done => gulpSequence('lint', 'cwel-dist', 'cwel-docs')(done));
+/**
+ * Delete files created by build task
+ */
+gulp.task('clean:build', done => gulpSequence('clean:cwel-dist', 'clean:cwel-docs')(done));
 
 
 /**
- * Run the front-end tests. e.g. unit and e2e
+ * Run the front-end tests.
  */
 gulp.task('test', ['cwel-dist', 'cwel-test-build'], (done) => {
     // Using gulp-multi-process module to run karma in a child process of its own.

@@ -102,6 +102,10 @@ angular.module('cwoApp')
 
     $scope.getSaveModel = () => angular.toJson($scope.model);
 
+    $scope.getFiddleData = () => {
+        return angular.toJson($scope.model);
+    };
+
     $scope.getModel = () => {
         const m = angular.copy($scope.model);
         m.children = m.children.map((c) => {
