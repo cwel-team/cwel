@@ -36,7 +36,7 @@ namespace Cwel.Web
         /// Returns the path for an svg icon
         /// </summary>
         /// <param name="path">Path of svg icon relative to assets directory</param>
-        /// <returns>The tilde prefixed path to an svg icon
+        /// <returns>The tilde prefixed path to an svg icon</returns>
         public static string IconPath(string path)
         {
             return $"~/Cwel/Assets/icon/{path}.svg";

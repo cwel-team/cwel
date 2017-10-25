@@ -95,6 +95,7 @@
     <Compile Include="src\Web\AssetHelper.cs" />
     <Compile Include="src\Web\AssetType.cs" />
     <Compile Include="src\Web\ComponentHelper.cs" />
+    <Compile Include="src\Web\CwelExtensions.cs" />
     <Compile Include="src\Web\IconHelper.cs" />
   </ItemGroup>
   <ItemGroup>
