@@ -9,10 +9,12 @@
         <dependencies>
             <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
         </dependencies>
-        <references />
+        <references>
+            <reference file="Cwel.dll"></reference>
+        </references>
     </metadata>
     <files>
         <file src="dist\Cwel\**\*.*" target="\Content\Cwel" />
-        <file src="bin\Cwel.dll" target="lib\net462\Cwel.dll" />
+        <file src="bin\Cwel.dll" target="lib\net47\Cwel.dll" />
     </files>
 </package>
