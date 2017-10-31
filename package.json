@@ -1,6 +1,6 @@
 {
   "name": "cwel",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Countrywide Experience Language",
   "main": "Gulpfile.js",
   "scripts": {
