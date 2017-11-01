@@ -1,8 +1,11 @@
 {
   "name": "cwel",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Countrywide Experience Language",
   "main": "Gulpfile.js",
+  "engines": {
+    "node": "^8.9.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp-debug": "node debug node_modules\\gulp\\bin\\gulp.js",
@@ -34,13 +37,13 @@
     "gulp-if": "^2.0.2",
     "gulp-main-npm-files": "^1.0.5",
     "gulp-msbuild": "^0.5.2",
-    "gulp-multi-process": "git+https://github.com/countrywide/gulp-multi-process.git",
+    "gulp-multi-process": "countrywide/gulp-multi-process",
     "gulp-notify": "^3.0.0",
     "gulp-order": "^1.1.1",
     "gulp-plumber": "^1.1.0",
     "gulp-protractor": "^4.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "countrywide/gulp-sass",
     "gulp-sequence": "^0.4.6",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-stylelint": "^5.0.0",
