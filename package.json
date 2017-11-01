@@ -37,7 +37,7 @@
     "gulp-if": "^2.0.2",
     "gulp-main-npm-files": "^1.0.5",
     "gulp-msbuild": "^0.5.2",
-    "gulp-multi-process": "git+https://github.com/countrywide/gulp-multi-process.git",
+    "gulp-multi-process": "countrywide/gulp-multi-process",
     "gulp-notify": "^3.0.0",
     "gulp-order": "^1.1.1",
     "gulp-plumber": "^1.1.0",
