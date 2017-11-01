@@ -1,5 +1,6 @@
 $AssemblyInfoPath = "Cwel\Properties\AssemblyInfo.cs";
 $NuspecPath = "Cwel\Cwel.nuspec";
+$PackageJson = "package.json";
 
 Import-Module Cwo.Build
 
@@ -22,4 +23,4 @@ if ($args -ne $null) {
     exit 1;
 }
 
-Create-Release $Version $BranchName $AssemblyInfoPath $NuspecPath
+Create-Release $Version $BranchName $AssemblyInfoPath $NuspecPath $PackageJson
