@@ -113,7 +113,7 @@ gulp.task('clean:build', done => gulpSequence('clean:cwel-dist', 'clean:cwel-doc
 /**
  * Run the front-end tests.
  */
-gulp.task('test', ['cwel-dist', 'cwel-test-build'], (done) => {
+gulp.task('test', ['cwel-dist', 'cwel-test-build', 'cwel-test-copy'], (done) => {
     // Using gulp-multi-process module to run karma in a child process of its own.
     // It turns out Karma seems to exit the main process it
     // runs on -- i.e. the gulp process -- making it
