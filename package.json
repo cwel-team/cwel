@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "Countrywide Experience Language",
   "main": "Gulpfile.js",
+  "engines": {
+    "node": "^8.9.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp-debug": "node debug node_modules\\gulp\\bin\\gulp.js",
@@ -40,7 +43,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-protractor": "^4.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "countrywide/gulp-sass",
     "gulp-sequence": "^0.4.6",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-stylelint": "^5.0.0",
