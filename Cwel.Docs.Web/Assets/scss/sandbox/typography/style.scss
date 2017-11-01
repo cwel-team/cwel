@@ -1,0 +1,52 @@
+@import 'Cwel/Core/scss/main';
+@import '../block';
+@import '../divider';
+@import '../viewport';
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans|Open+Sans|Roboto|Poppins');
+
+@font-face {
+    font-family: 'Inter UI';
+    src: url('../../../fonts/Inter-UI-Regular.woff2') format('woff2'),
+        url('../../../fonts/Inter-UI-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter UI';
+    src: url('../../../fonts/Inter-UI-Medium.woff2') format('woff2'),
+        url('../../../fonts/Inter-UI-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter UI';
+    src: url('../../../fonts/Inter-UI-Bold.woff2') format('woff2'),
+        url('../../../fonts/Inter-UI-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+// .section--typography * {
+//     font-family: 'Source Sans';
+// }
+
+// .section--typography * {
+//     font-family: 'Open sans';
+// }
+
+// .section--typography * {
+//     font-family: 'Roboto';
+// }
+
+// .section--typography * {
+//     font-family: 'Poppins';
+// }
+
+// .section--typography * {
+//     font-family: 'Poppins';
+// }
+
+.section--typography * {
+    font-family: 'Inter UI';
+}
