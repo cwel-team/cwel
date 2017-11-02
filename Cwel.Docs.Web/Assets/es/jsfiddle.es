@@ -3,7 +3,6 @@ angular.module('cwoApp').directive('jsfiddle', ($http, CwomponentFactory) => {
         const playgroundEl = frame.contentWindow.document.body.querySelector('.docs-playground-stage > *');
 
         if (playgroundEl) {
-            console.log(playgroundEl.innerHTML);
             $http.post('/Playground/Fiddle', {
                 model: scope.model,
                 html: playgroundEl.innerHTML,
