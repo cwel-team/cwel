@@ -16,5 +16,6 @@
     <files>
         <file src="dist\Cwel\**\*.*" target="\Content\Cwel" />
         <file src="bin\Cwel.dll" target="lib\net47\Cwel.dll" />
+        <file src="nuget\build\*.*" target="build\" />
     </files>
 </package>
