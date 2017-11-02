@@ -1,10 +1,10 @@
-const gulp = require('gulp');
-const doc = require('gulp-task-doc').patchGulp(); // @TODO(Daniel Stuessy) put this in 'help' task to improve gulp startup speed
-const gulpSequence = require('gulp-sequence');
+const browserSync      = require('browser-sync');
+const doc              = require('gulp-task-doc').patchGulp();
+const gulp             = require('gulp');
 const gulpMultiProcess = require('gulp-multi-process');
-const yargs = require('yargs');
-const browserSync = require('browser-sync');
-const msbuild = require('gulp-msbuild');
+const gulpSequence     = require('gulp-sequence');
+const msbuild          = require('gulp-msbuild');
+const yargs            = require('yargs');
 
 const argv = yargs.argv; // parse process.argv with yargs
 
