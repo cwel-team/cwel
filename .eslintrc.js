@@ -11,10 +11,12 @@ module.exports = {
         'linebreak-style': 'off',
         'indent': [ 'error', 4 , { MemberExpression: 0 } ],
         'arrow-body-style': [ 'off' ],
+        'no-multi-spaces': 'off',
         'no-param-reassign': [ 'off' ],
         'unicode-bom':  'off',
         'no-console':  'off',
-        'import/no-extraneous-dependencies': 'off' // turned off as all our require statements are used for dev tasks
+        'import/no-extraneous-dependencies': 'off', // turned off as all our require statements are used for dev tasks
+        'template-curly-spacing': 'off'
     },
     'globals': {
         'angular': false,

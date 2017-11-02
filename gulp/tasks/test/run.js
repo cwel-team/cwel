@@ -41,7 +41,7 @@ gulp.task('cwel-test-run-unit', (done) => {
         reporters: ['spec'],
         frameworks: ['jasmine'],
         files: [
-            'Cwel/dist/Cwel/cwel.js',
+            'Cwel/dist/Cwel/cwel-full.js',
             'Cwel/dist/test/Cwel/Testing/vendor/angular-mocks.js',
             'Cwel/dist/test/Cwel/**/*.spec.js',
         ],
