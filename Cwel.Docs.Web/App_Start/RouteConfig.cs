@@ -14,14 +14,12 @@ namespace Cwel.Docs.Web
             routes.MapRoute(
                 name: "Playground",
                 url: "Playground/{id}/{version}",
-                defaults: new { controller = "Playground", action = "Index", id = UrlParameter.Optional, version = UrlParameter.Optional }
-            );
+                defaults: new { controller = "Playground", action = "Index", id = UrlParameter.Optional, version = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
           }
     }
 }

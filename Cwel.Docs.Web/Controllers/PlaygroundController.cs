@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 
 namespace Cwel.Docs.Web.Controllers
 {
+    /// <inheritdoc />
     /// <summary>
     /// Playground controller used during e2e tests and for the playground
     /// </summary>
@@ -25,8 +26,10 @@ namespace Cwel.Docs.Web.Controllers
         }
 
         /// <summary>
-        /// Display the playground UI
+        /// Playground Index Page
         /// </summary>
+        /// <param name="id">Optional Id to load from the database</param>
+        /// <param name="version">Optional Version of the data to load</param>
         [HttpGet]
         public async Task<ActionResult> Index(string id, int? version)
         {
@@ -36,6 +39,7 @@ namespace Cwel.Docs.Web.Controllers
                 RouteData.Values.Remove("id");
                 return RedirectToAction(nameof(Index));
             }
+
             return View(new PlaygroundViewModel
             {
                 Id = id,
@@ -127,7 +131,6 @@ namespace Cwel.Docs.Web.Controllers
             });
         }
 
-
         /// <summary>
         /// Renders a full playground page
         /// </summary>
@@ -140,7 +143,6 @@ namespace Cwel.Docs.Web.Controllers
             return View(model);
         }
 
-
         /// <summary>
         /// Renders a sandbox page
         /// </summary>
@@ -149,17 +151,15 @@ namespace Cwel.Docs.Web.Controllers
         [Route("Playground/Sandbox/{pageName?}")]
         public ActionResult Sandbox(string pageName)
         {
-            return pageName == ""
+            return pageName == string.Empty
                 ? View("sandbox/index")
                 : View($"sandbox/{pageName}/index");
         }
-
 
         /// <summary>
         /// Render a component by type and name with a given model
         /// </summary>
         /// <param name="model">Json ViewModel of the component</param>
-        /// <param name="html">Markup for the components rendered in the playground</param>
         [HttpPost]
         [Route("Playground/Fiddle")]
         public ActionResult Fiddle(string model)
@@ -200,26 +200,25 @@ namespace Cwel.Docs.Web.Controllers
         /// <param name="context">Controller context by which to render the view</param>
         /// <param name="viewPath">Path of a view to render</param>
         /// <param name="model">Model to give the razor script</param>
-        static string RenderViewToString(ControllerContext context, string viewPath, object model = null)
+        private static string RenderViewToString(ControllerContext context, string viewPath, object model = null)
         {
             // first find the ViewEngine for this view
-            ViewEngineResult viewEngineResult = ViewEngines.Engines.FindView(context, viewPath, null);
+            var viewEngineResult = ViewEngines.Engines.FindView(context, viewPath, null);
 
             if (viewEngineResult == null)
+            {
                 throw new FileNotFoundException("View cannot be found.");
+            }
 
             // get the view and attach the model to view data
             var view = viewEngineResult.View;
             context.Controller.ViewData.Model = model;
 
-            string result = null;
+            string result;
 
             using (var sw = new StringWriter())
             {
-                var ctx = new ViewContext(context, view,
-                                            context.Controller.ViewData,
-                                            context.Controller.TempData,
-                                            sw);
+                var ctx = new ViewContext(context, view, context.Controller.ViewData, context.Controller.TempData, sw);
                 view.Render(ctx, sw);
                 result = sw.ToString();
             }
