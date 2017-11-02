@@ -203,7 +203,7 @@ module.exports = {
         'string-no-newline': true,
         'length-zero-no-unit': true,
         'indentation': 4|'tab',
-        'unit-whitelist': ['rem', '%', 'deg', 'px', 'ms', 's', 'vw', 'vh'],
+        'unit-whitelist': ['rem', 'em', '%', 'deg', 'px', 'ms', 's', 'vw', 'vh'],
         'unit-case': 'lower',
         'unit-no-unknown': true,
         'value-keyword-case': 'lower',

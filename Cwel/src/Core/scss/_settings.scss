@@ -3,12 +3,12 @@
  * SPACES
  *************************/
 
-$SPACE-XXS: 4px;
-$SPACE-XS: 8px;
-$SPACE-S: 16px;
-$SPACE-M: 32px;
-$SPACE-L: 64px;
-$SPACE-XL: 128px;
+$SPACE-XXS: 0.4rem;
+$SPACE-XS: $SPACE-XXS * 2;
+$SPACE-S: $SPACE-XS * 2;
+$SPACE-M: $SPACE-S * 2;
+$SPACE-L: $SPACE-M * 2;
+$SPACE-XL: $SPACE-L * 2;
 
 $SPACES: (
     xxs: $SPACE-XXS,
@@ -23,10 +23,10 @@ $SPACES: (
  * BREAKPOINTS
  *************************/
 
-$BREAKPOINT-S: 400px;
-$BREAKPOINT-M: 600px;
-$BREAKPOINT-L: 1004px;
-$BREAKPOINT-XL: 1280px;
+$BREAKPOINT-S: 25em; // 400px;
+$BREAKPOINT-M: 37.5em; // 600px;
+$BREAKPOINT-L: 62.75em; // 1004px;
+$BREAKPOINT-XL: 80em; // 1280px;
 
 $BREAKPOINTS: (
     s: $BREAKPOINT-S,

@@ -1,0 +1,105 @@
+@import 'Cwel/Core/scss/main';
+@import '../block';
+@import '../divider';
+
+/*
+Things to test:
+- changing root fonts across devices
+    - do spacers change, too
+    - do the device breakpoints apply to different
+- different browser font-sizes
+    - do spacers change, too
+*/
+
+.section {
+    padding-top: $SPACE-M;
+    padding-bottom: $SPACE-M;
+}
+
+.spacer {
+    position: relative;
+    margin-bottom: 2rem;
+    background-color: #04a9a1;
+
+    &--xxs {
+        width: $SPACE-XXS;
+        height: $SPACE-XXS;
+
+        &::after {
+            content: 'xxs 0.4rem';
+            position: relative;
+            margin-left: $SPACE-XXS + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--xs {
+        width: $SPACE-XS;
+        height: $SPACE-XS;
+
+        &::after {
+            content: 'xs 0.8rem';
+            position: relative;
+            margin-left: $SPACE-XS + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--s {
+        width: $SPACE-S;
+        height: $SPACE-S;
+
+        &::after {
+            content: 's 1.6rem';
+            position: relative;
+            margin-left: $SPACE-S + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--m {
+        width: $SPACE-M;
+        height: $SPACE-M;
+
+        &::after {
+            content: 'm 3.2rem';
+            position: relative;
+            margin-left: $SPACE-M + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--l {
+        width: $SPACE-L;
+        height: $SPACE-L;
+
+        &::after {
+            content: 'l 6.4rem';
+            position: relative;
+            margin-left: $SPACE-L + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--xl {
+        width: $SPACE-XL;
+        height: $SPACE-XL;
+
+        &::after {
+            content: 'xl 12.8rem';
+            position: relative;
+            margin-left: $SPACE-XL + 1rem;
+            white-space: nowrap;
+        }
+    }
+}
+
+.text-sample {
+    padding: $SPACE-M;
+    border: 0.1rem solid #efefef;
+}
+
+.text-sample__text {
+    margin-top: 0;
+    margin-bottom: 0;
+}
