@@ -49,8 +49,11 @@ components or patterns. Services are Angular services.
 
 **Note:** This is for pre 0.1.0 versions only whilst the magical auto-builder thingy gets made.
 1. Open `Cwel/Cwel.nuspec` and bump the version number (`<version>0.0.X</version>`)
-2. Create package (run `nuget pack cwel.nuspec` from root)
-3. Push package to local NuGet server (run `nuget push Cwel.0.0.2.nupkg -source http://omc-tfs-301/packages/nuget -apikey key` from root)
+2. Create package (run `nuget pack cwel.nuspec` from `Cwel/`)
+3. Push package to local NuGet server (run `nuget push Cwel.0.0.X.nupkg -source http://omc-tfs-301/packages/nuget -apikey key` from `Cwel/`) ensuring that the version number is bumped inline with Step 1
+4. Open up project in Visual Studio, right-click the solution (e.g. `Cwo.Corporate.Web`) and select `Manage NuGet Packages...`
+5. Click `Updates` and update the package
+6. Rebuild solution
 
 All front-end cwomponent files are found in `Cwomponents/{type}/{name}`
 directory. JavaScript is in a `.es` file, and CSS is in a `.scss` file.
