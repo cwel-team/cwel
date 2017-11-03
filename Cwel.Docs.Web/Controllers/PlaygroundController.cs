@@ -156,6 +156,21 @@ namespace Cwel.Docs.Web.Controllers
 
 
         /// <summary>
+        /// Renders a sandbox sub-page
+        /// </summary>
+        /// <param name="pageName">Name of page to be rendered</param>
+        /// <param name="subPageName">Name of page to be rendered</param>
+        [HttpGet]
+        [Route("Playground/Sandbox/{pageName}/{subPageName}")]
+        public ActionResult Sandbox(string pageName, string subPageName)
+        {
+            return subPageName == ""
+                ? View($"sandbox/{pageName}/index")
+                : View($"sandbox/{pageName}/{subPageName}/index");
+        }
+
+
+        /// <summary>
         /// Render a component by type and name with a given model
         /// </summary>
         /// <param name="model">Json ViewModel of the component</param>
