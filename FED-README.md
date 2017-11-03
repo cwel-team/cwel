@@ -54,6 +54,7 @@ components or patterns. Services are Angular services.
 4. Open up project in Visual Studio, right-click the solution (e.g. `Cwo.Corporate.Web`) and select `Manage NuGet Packages...`
 5. Click `Updates` and update the package
 6. Rebuild solution
+7. Commit and push changes to reflect version bump
 
 All front-end cwomponent files are found in `Cwomponents/{type}/{name}`
 directory. JavaScript is in a `.es` file, and CSS is in a `.scss` file.
