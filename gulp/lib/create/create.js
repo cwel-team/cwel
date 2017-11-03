@@ -1,8 +1,9 @@
-const gulp = require('gulp');
-const through = require('through2');
+const gulp             = require('gulp');                          // Task automator
+const through          = require('through2');                      // Functions in streams
 
-const invokeOnCount = require('../../lib/util/invokeOnCount');
-const config = require('../../../create.conf.json');
+
+const config           = require('../../../create.conf.json');
+const invokeOnCount    = require('../../lib/util/invokeOnCount');
 
 
 function safeEval(str, scope, methods) {

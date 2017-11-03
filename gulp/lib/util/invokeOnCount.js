@@ -1,4 +1,3 @@
-
 module.exports = function invokeOnCount(cb, n) {
     let count = 0;
 

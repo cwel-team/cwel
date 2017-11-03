@@ -1,7 +1,8 @@
-const xmldoc = require('xmldoc');
-const through = require('through2');
-const gutil = require('gulp-util');
-const path = require('path');
+const gutil            = require('gulp-util');                     // Gulp utilities
+const path             = require('path');                          // Core NodeJS lib
+const through          = require('through2');                      // Functions in streams
+const xmldoc           = require('xmldoc');                        // Parse XML documents
+
 
 function getChild(node, name) {
     const cnodes = node.childrenNamed(name);

@@ -1,16 +1,17 @@
-const del = require('del');
-const gulp = require('gulp');
-const gulpSequence = require('gulp-sequence');
-const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
-const order = require('gulp-order');
-const uglify = require('gulp-uglify');
-const gulpif = require('gulp-if');
-const yargs = require('yargs');
-const plumber = require('gulp-plumber');
-const path = require('path');
-const process = require('process');
+const babel             = require('gulp-babel');                    // ES6 -> ES5
+const concat            = require('gulp-concat');                   // Concat files
+const del               = require('del');                           // Delete files and folders
+const gulp              = require('gulp');                          // Task automator
+const gulpif            = require('gulp-if');                       // Conditionally run a task
+const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
+const order             = require('gulp-order');                    // Reorder a stream of files
+const path              = require('path');                          // Core NodeJS lib
+const plumber           = require('gulp-plumber');                  // Prevent errors from killing processes
+const process           = require('process');                       // Core NodeJS lib
+const sourcemaps        = require('gulp-sourcemaps');               // Generate sourcemaps
+const uglify            = require('gulp-uglify');                   // Minification
+const yargs             = require('yargs');                         // Args
+
 
 const argv = yargs.argv; // parse process.argv with yargs
 /* eslint-disable */

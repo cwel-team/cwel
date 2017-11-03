@@ -1,8 +1,10 @@
-const gulp = require('gulp');
-const gulpSequence = require('gulp-sequence');
-const del = require('del');
-const generateDocs = require('../../lib/docs/generate');
-const csdoc = require('../../lib/docs/csharp/csdoc');
+const del               = require('del');                           // Delete files and folders
+const gulp              = require('gulp');                          // Task automator
+const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
+
+const csdoc             = require('../../lib/docs/csharp/csdoc');
+const generateDocs      = require('../../lib/docs/generate');
+
 
 // @internal
 gulp.task('cwel-docs-generate', done => gulpSequence('cwel-docs-generate-csharp', 'cwel-docs-generate-md')(done));

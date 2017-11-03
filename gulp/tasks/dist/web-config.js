@@ -1,5 +1,5 @@
-const del = require('del');
-const gulp = require('gulp');
+const del               = require('del');                           // Delete files and folders
+const gulp              = require('gulp');                          // Task automator
 
 
 // @internal

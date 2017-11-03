@@ -39,7 +39,7 @@ namespace Cwel.Web
         /// <returns>The tilde prefixed path to an svg icon</returns>
         public static string IconPath(string path)
         {
-            return $"~/Cwel/Assets/icon/{path}.svg";
+            return $"~/Cwel/Asset/icon/{path}.svg";
         }
     }
 }

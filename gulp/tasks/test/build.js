@@ -1,8 +1,8 @@
-const del = require('del');
-const gulp = require('gulp');
-const gulpSequence = require('gulp-sequence');
-const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
+const babel             = require('gulp-babel');                    // ES6 -> ES5
+const del               = require('del');                           // Delete files and folders
+const gulp              = require('gulp');                          // Task automator
+const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
+const sourcemaps        = require('gulp-sourcemaps');               // Generate sourcemaps
 
 const babelConfig = {
     presets: ['env'],

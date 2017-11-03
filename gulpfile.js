@@ -139,6 +139,23 @@ gulp.task('watch', ['build'], () => {
         ui: {
             port: 3001,
         },
+        notify: {
+            styles: [
+                'display: none',
+                'z-index: 9999',
+                'position: fixed',
+                'top: 0',
+                'left: 0',
+                'width: 100%',
+                'margin: 0',
+                'padding: 10px',
+                'font-family: sans-serif',
+                'font-size: 12px',
+                'text-align: center',
+                'color: #fff',
+                'background-color: #2a2a2a',
+            ],
+        },
     });
 
     // Cwel source

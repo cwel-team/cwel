@@ -1,6 +1,6 @@
-const gulp = require('gulp');
-const gulpSequence = require('gulp-sequence');
-const del = require('del');
+const del               = require('del');                           // Delete files and folders
+const gulp              = require('gulp');                          // Task automator
+const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
 
 
 // @internal

@@ -83,8 +83,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\Assets\icon\card-slider--large-arrow.svg" />
-    <Content Include="src\Assets\icon\card-slider--small-arrow.svg" />
+    <Content Include="src\Asset\icon\card-slider--large-arrow.svg" />
+    <Content Include="src\Asset\icon\card-slider--small-arrow.svg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -136,7 +136,7 @@
     <Content Include="src\Service\CwomponentFactory\CwomponentsFactory.spec.es" />
     <Content Include="src\web.config" />
     <Content Include="src\Core\es\main.es" />
-    <Content Include="src\Assets\icon\.gitkeep" />
+    <Content Include="src\Asset\icon\.gitkeep" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -169,7 +169,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

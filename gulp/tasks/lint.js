@@ -1,15 +1,18 @@
-const gulp = require('gulp');
-const eslint = require('gulp-eslint');
-const stylelint = require('gulp-stylelint');
-const gulpif = require('gulp-if');
-const plumber = require('gulp-plumber');
-const yargs = require('yargs');
-const path = require('path');
-const process = require('process');
+const eslint            = require('gulp-eslint');                   // JS linting
+const gulp              = require('gulp');                          // Task automator
+const gulpif            = require('gulp-if');                       // Conditionally run a task
+const path              = require('path');                          // Core NodeJS lib
+const plumber           = require('gulp-plumber');                  // Prevent errors from killing processes
+const process           = require('process');                       // Core NodeJS lib
+const stylelint         = require('gulp-stylelint');                // CSS linting
+const yargs             = require('yargs');                         // Args
 
 const { argv } = yargs;
-const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options')); // eslint-disable-line import/no-dynamic-require
 
+
+/* eslint-disable */
+const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
+/* eslint-enable */
 
 // @internal
 gulp.task('lint-script', () => {
