@@ -1,7 +1,7 @@
 
 @mixin container {
     display: block;
-    max-width: 1000px;
+    width: 100%;
     margin: auto;
     padding-right: $CONTAINER-MARGIN-XS;
     padding-left: $CONTAINER-MARGIN-XS;
@@ -24,6 +24,7 @@
 
 @mixin fluid-container {
     display: block;
+    max-width: none;
     margin: auto;
     padding-right: $CONTAINER-MARGIN-XS;
     padding-left: $CONTAINER-MARGIN-XS;

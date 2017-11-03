@@ -16,8 +16,20 @@ html {
     -ms-overflow-style: scrollbar;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
+    @include breakpoint('s') {
+        font-size: 65%;
+    }
+
     @include breakpoint('m') {
         font-size: 70%;
+    }
+
+    @include breakpoint('l') {
+        font-size: 75%;
+    }
+
+    @include breakpoint('xl') {
+        font-size: 80%;
     }
 }
 
