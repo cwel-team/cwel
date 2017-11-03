@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-- [Node v8.6.0](https://nodejs.org/en/download/)
+- [Node v8.9.0](https://nodejs.org/en/download/)
 - [Chocolatey](https://chocolatey.org)
 - [Nuget CLI](https://chocolatey.org/packages/NuGet.CommandLine)
 
@@ -44,6 +44,13 @@ components or patterns. Services are Angular services.
 - gulp create
   - _follow instructions on screen_
 - gulp watch
+
+## Update NuGet Package
+
+**Note:** This is for pre 0.1.0 versions only whilst the magical auto-builder thingy gets made.
+1. Open `Cwel/Cwel.nuspec` and bump the version number (`<version>0.0.X</version>`)
+2. Create package (run `nuget pack cwel.nuspec` from root)
+3. Push package to local NuGet server (run `nuget push Cwel.0.0.2.nupkg -source http://omc-tfs-301/packages/nuget -apikey key` from root)
 
 All front-end cwomponent files are found in `Cwomponents/{type}/{name}`
 directory. JavaScript is in a `.es` file, and CSS is in a `.scss` file.
