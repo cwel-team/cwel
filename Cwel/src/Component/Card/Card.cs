@@ -1,5 +1,6 @@
-﻿using System.Web.Mvc;
+using System.Web.Mvc;
 using System.Web.Mvc.Html;
+#pragma warning disable SA1649, SA1204, SA1402
 
 namespace Cwel.Web
 {
@@ -23,9 +24,15 @@ namespace Cwel.Web
 
     public static partial class CwelExtensions
     {
+        /// <summary>
+        /// Render a Card Component
+        /// </summary>
+        /// <param name="helper">Html helper</param>
+        /// <param name="vm"><see cref="CardViewModel"/></param>
         public static MvcHtmlString Card(this HtmlHelper helper, CardViewModel vm)
         {
             return helper.Partial(ComponentHelper.ComponentViewPath("Card"), vm);
         }
     }
 }
+#pragma warning restore SA1649, SA1204, SA1402

@@ -1,5 +1,6 @@
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+#pragma warning disable SA1649, SA1204, SA1402
 
 namespace Cwel.Web
 {
@@ -20,12 +21,12 @@ namespace Cwel.Web
         /// <summary>
         /// Render a Badge Component
         /// </summary>
-        /// <param name="helper"></param>
-        /// <param name="vm"></param>
-        /// <returns></returns>
+        /// <param name="helper">Helper Helper</param>
+        /// <param name="vm"><see cref="BadgeViewModel"/></param>
         public static MvcHtmlString Badge(this HtmlHelper helper, BadgeViewModel vm)
         {
             return helper.Partial(ComponentHelper.ComponentViewPath("Badge"), vm);
         }
     }
 }
+#pragma warning restore SA1649, SA1204, SA1402

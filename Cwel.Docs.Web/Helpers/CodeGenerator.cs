@@ -4,12 +4,12 @@ namespace Cwel.Docs.Web.Helpers
     {
         public static string GenerateCode(int id)
         {
-            return Base62.ToBase62(PermuteId((uint) id));
+            return Base62.ToBase62(PermuteId((uint)id));
         }
 
         public static int GetId(string code)
         {
-            return (int) PermuteId(Base62.FromBase62(code));
+            return (int)PermuteId(Base62.FromBase62(code));
         }
 
         private static double RoundFunction(uint input)
@@ -17,10 +17,10 @@ namespace Cwel.Docs.Web.Helpers
             // Must be a function in the mathematical sense (x=y implies f(x)=f(y))
             // but it doesn't have to be reversible.
             // Must return a value between 0 and 1
-            return (1369 * input + 150889) % 714025 / 714025.0;
+            return (((1369 * input) + 150889) % 714025) / 714025.0;
         }
 
-        // Feistel cipher 
+        // Feistel cipher
         private static uint PermuteId(uint id)
         {
             var l1 = (id >> 16) & 65535;
@@ -32,6 +32,7 @@ namespace Cwel.Docs.Web.Helpers
                 l1 = l2;
                 r1 = r2;
             }
+
             return (r1 << 16) + l1;
         }
     }

@@ -6,40 +6,37 @@
 // You may obtain a copy of the License at
 //
 // http://www.apache.org/licenses/LICENSE-2.0
-
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-// </copyright>
-// --------------------------------------------------------------------------------------------------------------------
-
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
+using StructureMap.Configuration.DSL;
+using StructureMap.Graph;
 using StructureMap.Web;
 
-namespace Cwel.Docs.Web.DependencyResolution {
-    using StructureMap.Configuration.DSL;
-    using StructureMap.Graph;
-    using System.Data.SqlClient;
-
-    public class DefaultRegistry : Registry {
-        #region Constructors and Destructors
-
-        public DefaultRegistry() {
+namespace Cwel.Docs.Web.DependencyResolution
+{
+    // Unless required by applicable law or agreed to in writing, software
+    // distributed under the License is distributed on an "AS IS" BASIS,
+    // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    // See the License for the specific language governing permissions and
+    // limitations under the License.
+    // </copyright>
+    // --------------------------------------------------------------------------------------------------------------------
+    public class DefaultRegistry : Registry
+    {
+        public DefaultRegistry()
+        {
             Scan(
-                scan => {
+                scan =>
+                {
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
-					scan.With(new ControllerConvention());
+                    scan.With(new ControllerConvention());
                 });
 
             For<IDbConnection>()
                 .HybridHttpOrThreadLocalScoped()
                 .Use(new SqlConnection(ConfigurationManager.ConnectionStrings["PlaygroundDb"].ConnectionString));
         }
-
-        #endregion
     }
 }

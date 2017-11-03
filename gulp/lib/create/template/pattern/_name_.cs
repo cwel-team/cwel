@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+#pragma warning disable SA1649, SA1204, SA1402
 
 namespace Cwel.Web
 {
@@ -23,3 +24,4 @@ namespace Cwel.Web
         }
     }
 }
+#pragma warning restore SA1649, SA1204, SA1402
