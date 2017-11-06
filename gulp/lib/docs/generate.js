@@ -1,9 +1,10 @@
-const commentsParser = require('comments-parser');
-const through = require('through2');
-const nunjucks = require('nunjucks');
-const marked = require('marked');
-const path = require('path');
-const fs = require('fs');
+const commentsParser    = require('comments-parser');               // Generic JSDoc-like comment parser
+const fs                = require('fs');                            // NodeJS core file system library
+const marked            = require('marked');                        // Full-featured markdown parser and compiler
+const nunjucks          = require('nunjucks');                      // Templating engine
+const path              = require('path');                          // NodeJS core path library
+const through           = require('through2');                      // Functions in streams
+
 
 function filterTags(tags, name) {
     return tags.filter(tag => tag.name === name) || [];

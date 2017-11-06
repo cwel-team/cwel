@@ -1,8 +1,8 @@
-const gulp = require('gulp');
-const gulpSequence = require('gulp-sequence');
-const yargs = require('yargs');
-const KarmaServer = require('karma').Server;
-const protractor = require('gulp-protractor').protractor;
+const gulp              = require('gulp');                          // Task automator
+const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
+const KarmaServer       = require('karma').Server;                  // Execute JavaScript code in multiple real browsers
+const protractor        = require('gulp-protractor').protractor;    // End-to-end test framework for AngularJS
+const yargs             = require('yargs');                         // Args
 
 const { argv } = yargs;
 

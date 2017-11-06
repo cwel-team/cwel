@@ -7,13 +7,6 @@ using Dapper;
 
 namespace Cwel.Docs.Web.Services
 {
-    public interface IPlayService
-    {
-        Task<PlayVersion> GetPlayVersion(string id, int? version);
-
-        Task<(int, int)> SavePlay(string id, string data);
-    }
-
     public class PlayService : IPlayService
     {
         private readonly IDbConnection _dbConnection;
@@ -29,9 +22,10 @@ namespace Cwel.Docs.Web.Services
             {
                 var playId = CodeGenerator.GetId(id);
                 return await _dbConnection.QuerySingleOrDefaultAsync<PlayVersion>(
-                    $"SELECT TOP(1) * FROM [Cwel.Playground].[dbo].[PlayVersion] WHERE PlayId = @playId {(version.HasValue ? "AND [Version] = @version" : "")} ORDER BY [Version] DESC",
+                    $"SELECT TOP(1) * FROM [Cwel.Playground].[dbo].[PlayVersion] WHERE PlayId = @playId {(version.HasValue ? "AND [Version] = @version" : string.Empty)} ORDER BY [Version] DESC",
                     new { playId, version });
             }
+
             return null;
         }
 
@@ -52,8 +46,7 @@ namespace Cwel.Docs.Web.Services
                 {
                     if (string.IsNullOrEmpty(id))
                     {
-                        var sql =
-                            @"INSERT INTO [Play] ([Created]) VALUES (@now); SELECT CAST(SCOPE_IDENTITY() as int)";
+                        const string sql = @"INSERT INTO [Play] ([Created]) VALUES (@now); SELECT CAST(SCOPE_IDENTITY() as int)";
                         playId = await _dbConnection.QuerySingleAsync<int>(sql, new { now = DateTime.UtcNow }, transaction);
                     }
                     else

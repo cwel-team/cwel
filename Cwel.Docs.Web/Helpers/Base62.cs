@@ -11,25 +11,29 @@ namespace Cwel.Docs.Web.Helpers
             {
                 return (char)('a' + d);
             }
+
             if (d < 52)
             {
                 return (char)('A' + d - 26);
             }
+
             if (d < 62)
             {
                 return (char)('0' + d - 52);
             }
+
             throw new ArgumentException("d");
         }
 
         public static string ToBase62(uint n)
         {
-            var res = "";
+            var res = string.Empty;
             while (n != 0)
             {
-                res = Base62Digit((int) (n % 62)) + res;
+                res = Base62Digit((int)(n % 62)) + res;
                 n /= 62;
             }
+
             return res;
         }
 
@@ -39,20 +43,23 @@ namespace Cwel.Docs.Web.Helpers
             {
                 return 52 + c - '0';
             }
+
             if (c >= 'A' && c <= 'Z')
             {
                 return 26 + c - 'A';
             }
+
             if (c >= 'a' && c <= 'z')
             {
                 return c - 'a';
             }
+
             throw new ArgumentException("c");
         }
 
         public static uint FromBase62(string s)
         {
-            return (uint) s.Aggregate(0, (current, c) => current * 62 + Base62Decode(c));
+            return (uint)s.Aggregate(0, (current, c) => (current * 62) + Base62Decode(c));
         }
     }
 }

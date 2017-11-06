@@ -1,8 +1,9 @@
-const gulp = require('gulp');
-const inquirer = require('inquirer');
-const yargs = require('yargs');
+const gulp              = require('gulp');                          // Task automator
+const inquirer          = require('inquirer');                      // Collection of common interactive command line user interfaces
+const yargs             = require('yargs');                         // Args
 
 const createCwomponent = require('../lib/create/create.js');
+
 
 // @internal
 gulp.task('cwel-create-duplo', (taskDone) => {

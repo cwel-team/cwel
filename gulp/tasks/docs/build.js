@@ -1,17 +1,18 @@
-const del = require('del');
-const gulp = require('gulp');
-const gulpSequence = require('gulp-sequence');
-const sourcemaps = require('gulp-sourcemaps');
-const sass = require('gulp-sass');
-const babel = require('gulp-babel');
-const gulpif = require('gulp-if');
-const yargs = require('yargs');
-const autoprefixer = require('gulp-autoprefixer');
-const plumber = require('gulp-plumber');
-const path = require('path');
-const process = require('process');
+const autoprefixer      = require('gulp-autoprefixer');             // Automatically add vendor prefixes using caniuse.com data
+const babel             = require('gulp-babel');                    // ES6 -> ES5
+const del               = require('del');                           // Delete files and folders
+const gulp              = require('gulp');                          // Task automator
+const gulpif            = require('gulp-if');                       // Conditionally run a task
+const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
+const path              = require('path');                          // Core NodeJS lib
+const plumber           = require('gulp-plumber');                  // Prevent errors from killing processes
+const process           = require('process');                       // Core NodeJS lib
+const sass              = require('gulp-sass');                     // Compile SCSS into CSS
+const sourcemaps        = require('gulp-sourcemaps');               // Generate sourcemaps
+const yargs             = require('yargs');                         // Args
 
 const argv = yargs.argv; // parse process.argv with yargs
+
 /* eslint-disable */
 const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
 /* eslint-enable */
@@ -60,5 +61,7 @@ gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/Assets/scss/**/
 }))
 .pipe(sourcemaps.write('.'))
 .pipe(gulp.dest('Cwel.Docs.Web/Assets/css')));
+
+
 // @internal
 gulp.task('clean:cwel-docs-build-style', () => del(['Cwel.Docs.Web/Assets/css/**/*.{css,css.map}']));

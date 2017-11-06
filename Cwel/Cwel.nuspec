@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Cwel</id>
-        <version>0.0.0</version>
+        <version>0.0.3</version>
         <authors>Countrywide PLC</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Countrywide UI Framework</description>
@@ -16,5 +16,6 @@
     <files>
         <file src="dist\Cwel\**\*.*" target="\Content\Cwel" />
         <file src="bin\Cwel.dll" target="lib\net47\Cwel.dll" />
+        <file src="nuget\build\*.*" target="build\" />
     </files>
 </package>

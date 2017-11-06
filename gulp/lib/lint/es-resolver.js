@@ -1,5 +1,6 @@
-const resolve = require('resolve');
-const path = require('path');
+const path              = require('path');                          // NodeJS core path library
+const resolve           = require('resolve');                       // `require.resolve()` on behalf of a file asynchronously and synchronously
+
 
 module.exports = {
     interfaceVersion: 2,

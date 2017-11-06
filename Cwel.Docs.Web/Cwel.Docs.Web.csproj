@@ -34,6 +34,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\Cwo.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -141,7 +143,9 @@
     <Compile Include="Helpers\CodeGenerator.cs" />
     <Compile Include="Models\DynamicModel.cs" />
     <Compile Include="Models\PlaygroundViewModel.cs" />
+    <Compile Include="Models\PlayVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IPlayService.cs" />
     <Compile Include="Services\PlayService.cs" />
   </ItemGroup>
   <ItemGroup>

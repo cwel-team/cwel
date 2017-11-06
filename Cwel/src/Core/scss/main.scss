@@ -1,13 +1,4 @@
-@import './settings';
-@import './aspect-ratio';
-@import './device';
-@import './typography';
-@import './base';
-@import './container';
-@import './grid';
-
-@include generate-container-classes;
-@include generate-grid-classes;
+@import 'core';
 
 @import '../../Component/Card/Card';
 @import '../../Pattern/CardSlider/CardSlider';
