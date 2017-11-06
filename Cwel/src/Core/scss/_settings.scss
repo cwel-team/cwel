@@ -1,5 +1,23 @@
 
 /**************************
+ * FONTS
+ *************************/
+
+$FONT-SIZE-XS: 62.5%;
+$FONT-SIZE-S: 65%;
+$FONT-SIZE-M: 70%;
+$FONT-SIZE-L: 75%;
+$FONT-SIZE-XL: 80%;
+
+$FONT-SIZES: (
+    xs: $FONT-SIZE-XS,
+    s: $FONT-SIZE-S,
+    m: $FONT-SIZE-M,
+    l: $FONT-SIZE-L,
+    xl: $FONT-SIZE-XL
+);
+
+/**************************
  * SPACES
  *************************/
 
@@ -39,8 +57,8 @@ $BREAKPOINTS: (
  * CONTAINER
  *************************/
 
-$CONTAINER-WIDTH-L: 82.3rem;
-$CONTAINER-WIDTH-XL: 100rem;
+$CONTAINER-WIDTH-L: (strip-unit($BREAKPOINT-L) / strip-unit($FONT-SIZE-L)) * 100rem;
+$CONTAINER-WIDTH-XL: (strip-unit($BREAKPOINT-XL) / strip-unit($FONT-SIZE-XL)) * 100rem;
 
 $CONTAINER-MARGIN-XS: $SPACE-XS;
 $CONTAINER-MARGIN-S: $SPACE-S;
