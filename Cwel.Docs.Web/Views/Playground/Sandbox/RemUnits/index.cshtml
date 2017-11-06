@@ -16,7 +16,7 @@
 }
 
 <div class="container">
-    <h1 class="main__title">Spacers</h1>
+    <h1 class="main__title">Rem Units</h1>
 
     <div class="main__overview">
         <p>This is a work in progress of the CWEL spacers.</p>
@@ -63,15 +63,15 @@
         </div>*@
     </section>
 
-    @*@Html.CardSlider(new CardSliderViewModel {
-            Cards = new List<CardViewModel> {
-                new CardViewModel { Header = "Header 1", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-                new CardViewModel { Header = "Header 2", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-                new CardViewModel { Header = "Header 3", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-                new CardViewModel { Header = "Header 4", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-                new CardViewModel { Header = "Header 5", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }
-            }
-        })*@
+    @Html.CardSlider(new CardSliderViewModel {
+        Cards = new List<CardViewModel> {
+            new CardViewModel { Header = "Header 1", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+            new CardViewModel { Header = "Header 2", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+            new CardViewModel { Header = "Header 3", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+            new CardViewModel { Header = "Header 4", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
+            new CardViewModel { Header = "Header 5", Details = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }
+        }
+    })
 
     @*
         <section class="section">
