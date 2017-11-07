@@ -16,7 +16,16 @@ namespace Cwel.Docs.Web.Controllers
         [Route("Page/{type}/{name}")]
         public ActionResult Component(string type, string name)
         {
-            return View($"~/Cwel/{CultureInfo.CurrentCulture.TextInfo.ToTitleCase(type)}/{name}/index.cshtml");
+            type = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(type);
+
+            switch (type)
+            {
+                case "Pattern":
+                case "Component":
+                    return View($"~/Cwel/{type}/{name}/index.cshtml");
+                default:
+                    return View($"~/Cwel/Page/{type}/{name}/index.cshtml");
+            }
         }
     }
 }
