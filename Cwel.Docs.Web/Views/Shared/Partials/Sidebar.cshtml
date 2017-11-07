@@ -31,7 +31,7 @@
                     foreach (var pattern in Model["patterns"])
                     {
                         <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@pattern')">
-                            <a href="/pattern/@pattern" class="nav-sidebar__collapsible-link" target="_blank">@pattern</a>
+                            <a href="/page/pattern/@pattern" class="nav-sidebar__collapsible-link" target="_blank">@pattern</a>
                         </li>
                     }
                 }
@@ -45,7 +45,7 @@
                     foreach (var component in Model["components"])
                     {
                         <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@component')">
-                            <a href="/component/@component" class="nav-sidebar__collapsible-link" target="_blank">@component</a>
+                            <a href="/page/component/@component" class="nav-sidebar__collapsible-link" target="_blank">@component</a>
                         </li>
                     }
                 }
