@@ -31,9 +31,9 @@ namespace Cwel.Docs.Web.Controllers
 
                 foreach (var dir in Directory.GetDirectories(Server.MapPath("~/Cwel/Docs")))
                 {
-                    var group = Path.GetDirectoryName(dir);
+                    var group = new DirectoryInfo(dir).Name;
                     var dirs = Directory.GetDirectories(dir);
-                    var groupItems = dirs.Select(x => x.Replace(Server.MapPath(dir) + @"\", string.Empty)).ToArray();
+                    var groupItems = dirs.Select(x => x.Replace(dir + @"\", string.Empty)).ToArray();
 
                     model[group.ToLower()] = groupItems;
                 }

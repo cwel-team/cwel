@@ -23,7 +23,7 @@
         </div>
     </div>
     <ul class="nav-sidebar__ul">
-        @foreach (KeyValuePair<string, string[]> pair in Model)
+        @foreach (var pair in Model)
         {
             <li class="nav-sidebar__li">
                 <button type="button" ng-click="openNavList = '@pair.Key'" class="nav-sidebar__li-link">@pair.Key</button>
@@ -31,7 +31,7 @@
                     @foreach (var navItem in pair.Value)
                     {
                         <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@navItem')">
-                            <a href="/page/@pair.Key/@navItem" class="nav-sidebar__collapsible-link" target="_blank">@navItem</a>
+                            <a href="/page/@pair.Key/@navItem" class="nav-sidebar__collapsible-link">@navItem</a>
                         </li>
                     }
                 </ul>
