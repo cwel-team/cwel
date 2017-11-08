@@ -31,13 +31,11 @@ namespace Cwel.Docs.Web.Controllers
 
                 foreach (var dir in Directory.GetDirectories(Server.MapPath("~/Cwel/Docs")))
                 {
-                    var pathTokens = dir.Split('\\');
-                    var type = pathTokens.Last();
-                    var typeDirPath = $"~/Cwel/Docs/{type}";
-                    var dirs = Directory.GetDirectories(Server.MapPath(typeDirPath));
-                    var something = dirs.Select(x => x.Replace(Server.MapPath(typeDirPath) + @"\", string.Empty)).ToArray();
+                    var group = Path.GetDirectoryName(dir);
+                    var dirs = Directory.GetDirectories(dir);
+                    var groupItems = dirs.Select(x => x.Replace(Server.MapPath(dir) + @"\", string.Empty)).ToArray();
 
-                    model[type.ToLower()] = something;
+                    model[group.ToLower()] = groupItems;
                 }
             }
             catch
