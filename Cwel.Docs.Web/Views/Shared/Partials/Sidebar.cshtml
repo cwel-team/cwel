@@ -24,7 +24,7 @@
     </div>
     <ul class="nav-sidebar__ul">
         <li class="nav-sidebar__li">
-            <button type="button" ng-click="navSidebarPatterns=!navSidebarPatterns" class="nav-sidebar__li-link">Patterns</button>
+            <button type="button" ng-click="navSidebarPatterns = !navSidebarPatterns" class="nav-sidebar__li-link">Patterns</button>
             <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatterns || searchTerm }">
                 @if (Model.ContainsKey("patterns"))
                 {
@@ -38,7 +38,7 @@
             </ul>
         </li>
          <li class="nav-sidebar__li">
-            <button type="button" ng-click="navSidebarComponents=!navSidebarComponents" class="nav-sidebar__li-link">Components</button>
+            <button type="button" ng-click="navSidebarComponents =! navSidebarComponents" class="nav-sidebar__li-link">Components</button>
              <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarComponents || searchTerm }">
                 @if (Model.ContainsKey("components"))
                 {

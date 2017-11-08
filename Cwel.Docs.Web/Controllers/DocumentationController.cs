@@ -24,7 +24,7 @@ namespace Cwel.Docs.Web.Controllers
                 case "Component":
                     return View($"~/Cwel/{type}/{name}/index.cshtml");
                 default:
-                    return View($"~/Cwel/Page/{type}/{name}/index.cshtml");
+                    return View($"~/Cwel/Docs/{type}/{name}/index.cshtml");
             }
         }
     }

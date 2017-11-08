@@ -1,27 +1,48 @@
-const del               = require('del');                           // Delete files and folders
-const gulp              = require('gulp');                          // Task automator
-const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
+const del                   = require('del');                           // Delete files and folders
+const gulp                  = require('gulp');                          // Task automator
+const gulpSequence          = require('gulp-sequence');                 // Specify order of tasks
 
-const csdoc             = require('../../lib/docs/csharp/csdoc');
-const generateDocs      = require('../../lib/docs/generate');
-
-
-// @internal
-gulp.task('cwel-docs-generate', done => gulpSequence('cwel-docs-generate-csharp', 'cwel-docs-generate-md')(done));
-// @internal
-gulp.task('clean:cwel-docs-generate', done => gulpSequence('clean:cwel-docs-generate-csharp', 'clean:cwel-docs-generate-md')(done));
+const csdoc                 = require('../../lib/docs/csharp/csdoc');
+const generateDocs          = require('../../lib/docs/generateDocs');
 
 
 // @internal
-gulp.task('cwel-docs-generate-md', () => {
+gulp.task('cwel-docs-generate', done => gulpSequence(
+    'cwel-docs-generate-csharp',
+    'cwel-docs-generate-md-component',
+    'cwel-docs-generate-md-page')(done));
+// @internal
+gulp.task('clean:cwel-docs-generate', done => gulpSequence(
+    'clean:cwel-docs-generate-csharp',
+    'clean:cwel-docs-generate-md-component',
+    'clean:cwel-docs-generate-md-page')(done));
+
+
+// @internal
+gulp.task('cwel-docs-generate-md-component', () => {
     return gulp.src([
         'Cwel/src/**/*.doc.md',
     ])
-    .pipe(generateDocs())
+    .pipe(generateDocs('component'))
     .pipe(gulp.dest('Cwel.Docs.Web/Cwel'));
 });
 // @internal
-gulp.task('clean:cwel-docs-generate-md', () => del(['Cwel.Docs.Web/Cwel/**/index.cshtml']));
+gulp.task('clean:cwel-docs-generate-md-component', () => del([
+    'Cwel.Docs.Web/Cwel/**/index.cshtml',
+    '!Cwel.Docs.Web/Cwel/Page/**/index.cshtml',
+]));
+
+
+// @internal
+gulp.task('cwel-docs-generate-md-page', () => {
+    return gulp.src([
+        'Cwel/Docs/**/*.doc.md',
+    ])
+    .pipe(generateDocs('page'))
+    .pipe(gulp.dest('Cwel.Docs.Web/Cwel/Docs'));
+});
+// @internal
+gulp.task('clean:cwel-docs-generate-md-page', () => del(['Cweo.Docs.Web/Cwel/Docs/**/index.cshtml']));
 
 
 /**

@@ -63,6 +63,7 @@
     "karma-viewport": "^0.4.2",
     "marked": "^0.3.6",
     "nunjucks": "^3.0.1",
+    "nunjucks-markdown": "^2.0.1",
     "stylelint-order": "^0.7.0",
     "through2": "^2.0.3",
     "xmldoc": "^1.1.0",
