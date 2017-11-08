@@ -9,6 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp-debug": "node debug node_modules\\gulp\\bin\\gulp.js",
+    "gulp-inspect": "node --inspect --inspect-brk node_modules\\gulp\\bin\\gulp.js",
     "install": "node node_modules\\protractor\\node_modules\\webdriver-manager\\bin\\webdriver-manager update --versions.standalone=3.5.3",
     "precommit": "gulp lint --color"
   },

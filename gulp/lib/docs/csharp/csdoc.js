@@ -3,6 +3,21 @@ const path             = require('path');                          // Core NodeJ
 const through          = require('through2');                      // Functions in streams
 const xmldoc           = require('xmldoc');                        // Parse XML documents
 
+function getParameters(node) {
+    const cnodes = node.childrenNamed('param');
+    if (cnodes.length === 0) return [];
+
+    const paramsMatch = node.attr.name.match(/\((.*)\)/);
+    if (paramsMatch === null || paramsMatch[1] === undefined) return [];
+
+    const paramsTypes = paramsMatch[1].split(',');
+    return cnodes.map((n, i) => {
+        return {
+            name: n.attr.name,
+            comment: n.val.trim(),
+            type: paramsTypes[i] };
+    });
+}
 
 function getChild(node, name) {
     const cnodes = node.childrenNamed(name);
@@ -20,7 +35,13 @@ module.exports = function generateJson() {
 
         members.forEach((c) => {
             let type;
-            const ns = c.attr.name.substring(2, c.attr.name.length).split('.');
+            let memberName = c.attr.name.substring(2, c.attr.name.length);
+            const paramsIndex = memberName.indexOf('(');
+            if (paramsIndex !== -1) {
+                memberName = memberName.substring(0, paramsIndex);
+            }
+            const ns = memberName.split('.');
+
             if (c.attr.name.startsWith('T')) {
                 type = ns[ns.length - 1];
                 types[type] = {
@@ -28,17 +49,23 @@ module.exports = function generateJson() {
                     summary: getChild(c, 'summary'),
                     returns: getChild(c, 'returns'),
                     props: [],
+                    members: [],
                 };
             } else if (c.attr.name.startsWith('P')) {
                 type = ns[ns.length - 2];
                 const propName = ns[ns.length - 1];
-                if (!types[type]) {
-                    types[type] = { props: [] };
-                }
                 types[type].props.push({
                     name: propName,
                     summary: getChild(c, 'summary'),
                     returns: getChild(c, 'returns'),
+                });
+            } else if (c.attr.name.startsWith('M')) {
+                type = ns[ns.length - 2];
+                const methodName = ns[ns.length - 1];
+                types[type].members.push({
+                    name: methodName,
+                    params: getParameters(c),
+                    summary: getChild(c, 'summary'),
                 });
             }
         });
