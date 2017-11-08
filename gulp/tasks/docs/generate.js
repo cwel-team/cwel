@@ -42,7 +42,7 @@ gulp.task('cwel-docs-generate-md-page', () => {
     .pipe(gulp.dest('Cwel.Docs.Web/Cwel/Docs'));
 });
 // @internal
-gulp.task('clean:cwel-docs-generate-md-page', () => del(['Cweo.Docs.Web/Cwel/Docs/**/index.cshtml']));
+gulp.task('clean:cwel-docs-generate-md-page', () => del(['Cwel.Docs.Web/Cwel/Docs/**/*.cshtml']));
 
 
 /**
