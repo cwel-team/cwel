@@ -47,7 +47,6 @@ module.exports = function generateJson() {
                 types[type] = {
                     name: ns[ns.length - 1],
                     summary: getChild(c, 'summary'),
-                    returns: getChild(c, 'returns'),
                     props: [],
                     members: [],
                 };
