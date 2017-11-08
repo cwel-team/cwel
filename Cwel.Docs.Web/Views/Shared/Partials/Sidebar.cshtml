@@ -23,33 +23,19 @@
         </div>
     </div>
     <ul class="nav-sidebar__ul">
-        <li class="nav-sidebar__li">
-            <button type="button" ng-click="navSidebarPatterns=!navSidebarPatterns" class="nav-sidebar__li-link">Patterns</button>
-            <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarPatterns || searchTerm }">
-                @if (Model.ContainsKey("patterns"))
-                {
-                    foreach (var pattern in Model["patterns"])
+        @foreach (var pair in Model)
+        {
+            <li class="nav-sidebar__li">
+                <button type="button" ng-click="openNavList = '@pair.Key'" class="nav-sidebar__li-link">@pair.Key</button>
+                <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': openNavList === '@pair.Key' || searchTerm }">
+                    @foreach (var navItem in pair.Value)
                     {
-                        <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@pattern')">
-                            <a href="/pattern/@pattern" class="nav-sidebar__collapsible-link" target="_blank">@pattern</a>
+                        <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@navItem')">
+                            <a href="/page/@pair.Key/@navItem" class="nav-sidebar__collapsible-link">@navItem</a>
                         </li>
                     }
-                }
-            </ul>
-        </li>
-         <li class="nav-sidebar__li">
-            <button type="button" ng-click="navSidebarComponents=!navSidebarComponents" class="nav-sidebar__li-link">Components</button>
-             <ul class="nav-sidebar__collapsible-ul" ng-class="{ 'nav-sidebar__collapsible--active': navSidebarComponents || searchTerm }">
-                @if (Model.ContainsKey("components"))
-                {
-                    foreach (var component in Model["components"])
-                    {
-                        <li class="nav-sidebar__collapsible-li" ng-show="showNavItem('@component')">
-                            <a href="/component/@component" class="nav-sidebar__collapsible-link" target="_blank">@component</a>
-                        </li>
-                    }
-                }
-             </ul>
-        </li>
+                </ul>
+            </li>
+        }
     </ul>
 </div>

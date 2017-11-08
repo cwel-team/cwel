@@ -19,3 +19,10 @@ To read up on how the SCSS is files are organized for CWEL, read the
 To experiment with new ideas in the CWEL code-base, outside the
 constraints of our wonderful playground editor, sandbox pages can be made. To
 do so, follow the steps outlined in the [sandbox readme]('./readme/Sandbox.md').
+
+## Documenation Pages
+
+To document new components, patterns, or any piece of CWEL, documentation pages
+can be generated. Gulp tasks are used to generate them, of which the inner
+workings are explained in the
+[readme for documentation pages]('./readme/Docs-pages.md').
