@@ -29,7 +29,7 @@ gulp.task('cwel-docs-generate-md-component', () => {
 // @internal
 gulp.task('clean:cwel-docs-generate-md-component', () => del([
     'Cwel.Docs.Web/Cwel/**/index.cshtml',
-    '!Cwel.Docs.Web/Cwel/Page/**/index.cshtml',
+    '!Cwel.Docs.Web/Cwel/Docs/**/index.cshtml',
 ]));
 
 
