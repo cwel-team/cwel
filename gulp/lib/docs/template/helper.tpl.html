@@ -4,11 +4,9 @@
 }
 
 {% macro renderCsData(data) %}
-<div>
-	{{ data.summary }}
-</div>
+<p>{{ data.summary }}</p>
 
-<h2>Properties</h2>
+<h2>Properties and Fields</h2>
 {% for prop in data.props %}
 <h3>{{ prop.name }}</h3>
 <p>{{ prop.summary }}</p>
