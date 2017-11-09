@@ -4,8 +4,34 @@
 }
 
 {% macro renderCsData(data) %}
-<h1>{{ data.name }}</h1>
+<p>{{ data.summary }}</p>
+
+<h2>Properties and Fields</h2>
+{% for prop in data.props %}
+<h3>{{ prop.name }}</h3>
+<p>{{ prop.summary }}</p>
+{% else %}
+<p>No Public Properties</p>
+{% endfor %}
+
+<h2>Members</h2>
+{% for member in data.members %}
+<h3>{{ member.name }}</h3>
+<p>{{ member.summary }}</p>
+<div>
+<h3>Parameters</h3>
+{% for param in member.params %}
+<div>Name: {{ param.name }}</div>
+<div>Type: {{ param.type }}</div>
+<div>Comment {{ param.comment }}</div>
+</br>
+{% endfor %}
+</div>
+{% else %}
+<p>No Members</p>
+{% endfor %}
 {% endmacro %}
+
 
 <div class="docs">
     <div class="docs__header">

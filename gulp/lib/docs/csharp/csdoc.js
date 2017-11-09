@@ -50,7 +50,7 @@ module.exports = function generateJson() {
                     props: [],
                     members: [],
                 };
-            } else if (c.attr.name.startsWith('P')) {
+            } else if (c.attr.name.startsWith('P') || c.attr.name.startsWith('F')) {
                 type = ns[ns.length - 2];
                 const propName = ns[ns.length - 1];
                 types[type].props.push({

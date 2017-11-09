@@ -107,7 +107,10 @@ gulp.task('watch', ['build'], () => {
     });
 
     // Cwel source
-    gulp.watch('Cwel/src/**/*.doc.md', () => gulpSequence(
+    gulp.watch([
+        'Cwel/**/*.doc.md',
+        'gulp/lib/docs/template/*.tpl.html',
+    ], () => gulpSequence(
         'clean:cwel-docs-generate',
         'cwel-docs-generate')(() => browserSync.reload()));
     gulp.watch([
