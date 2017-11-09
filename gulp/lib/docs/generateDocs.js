@@ -8,7 +8,7 @@ const markdown            = require('nunjucks-markdown');
 const gatherComponentData = require('./gatherComponentData');
 const gatherPageData = require('./gatherPageData');
 
-const env = nunjucks.configure();
+const env = nunjucks.configure({ noCache: true });
 
 markdown.register(env, marked);
 
