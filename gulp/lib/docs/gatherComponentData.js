@@ -1,7 +1,7 @@
 const path              = require('path');                          // NodeJS core path library
 
 const processScriptData = require('./processScriptData');
-const processVmData     = require('./processVmData');
+const processJsonData   = require('./processJsonData');
 
 
 module.exports = function gatherComponentData(file) {
@@ -12,7 +12,8 @@ module.exports = function gatherComponentData(file) {
     const vmName = `${name}ViewModel`;
     const scriptData = processScriptData(path.resolve(srcDir, `${name}.es`));
     const mdFile = path.resolve(srcDir, `${name}.doc.md`);
-    const vm = processVmData(path.resolve(process.cwd(), `Cwel/dist/docs/csdoc/${vmName}.json`));
+    const vm = processJsonData(path.resolve(process.cwd(), `Cwel/dist/docs/csdoc/${vmName}.json`));
+    const modelData = processJsonData(path.resolve(process.cwd(), `${srcDir}/default.json`));
 
     return {
         name,
@@ -20,6 +21,7 @@ module.exports = function gatherComponentData(file) {
         dirPath: destDir,
         script: scriptData,
         mdFile,
+        modelData,
         vm,
     };
 };
