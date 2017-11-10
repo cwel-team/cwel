@@ -26,6 +26,10 @@ Things to consider:
     - spacers -- no cause they don't have to match breakpoints
 */
 
+body {
+    transition: font-size 1s;
+}
+
 @mixin button {
     padding: 0.3rem 1rem;
     font-size: 1.3rem;
