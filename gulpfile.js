@@ -104,6 +104,7 @@ gulp.task('watch', ['build'], () => {
                 'background-color: #2a2a2a',
             ],
         },
+        reloadDelay: 1000,
     });
 
     // Cwel source
