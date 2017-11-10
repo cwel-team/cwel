@@ -23,11 +23,20 @@ namespace Cwel.Docs.Web.Controllers
             var model = new Dictionary<string, string[]>();
             try
             {
-                model["components"] = Directory.GetDirectories(Server.MapPath("~/Cwel/Component"))
+                model["component"] = Directory.GetDirectories(Server.MapPath("~/Cwel/Component"))
                     .Select(x => x.Replace(Server.MapPath("~/Cwel/Component") + @"\", string.Empty)).ToArray();
 
-                model["patterns"] = Directory.GetDirectories(Server.MapPath("~/Cwel/Pattern"))
+                model["pattern"] = Directory.GetDirectories(Server.MapPath("~/Cwel/Pattern"))
                     .Select(x => x.Replace(Server.MapPath("~/Cwel/Pattern") + @"\", string.Empty)).ToArray();
+
+                foreach (var dir in Directory.GetDirectories(Server.MapPath("~/Cwel/Docs")))
+                {
+                    var group = new DirectoryInfo(dir).Name;
+                    var dirs = Directory.GetDirectories(dir);
+                    var groupItems = dirs.Select(x => x.Replace(dir + @"\", string.Empty)).ToArray();
+
+                    model[group.ToLower()] = groupItems;
+                }
             }
             catch
             {

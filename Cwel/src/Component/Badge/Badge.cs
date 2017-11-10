@@ -12,7 +12,6 @@ namespace Cwel.Web
         /// <summary>
         /// Gets or sets the starting count for the badge count
         /// </summary>
-        /// <returns>int</returns>
         public int Start { get; set; }
     }
 

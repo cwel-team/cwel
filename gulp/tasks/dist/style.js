@@ -65,7 +65,7 @@ gulp.task('clean:cwel-dist-style-core', () => del(['Cwel/dist/Cwel/Core/**/*.scs
 gulp.task('cwel-dist-style-vendor', () => gulp.src('Cwel/src/Vendor/**/*.{css,scss}')
 .pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
 // @internal
-gulp.task('clean:cwel-dist-style-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.{css,scss}']));
+gulp.task('clean:cwel-dist-style-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.{css,scss,css.map}']));
 
 
 // @internal
@@ -84,4 +84,4 @@ gulp.task('cwel-dist-style-compile', () => gulp.src('Cwel/src/Core/scss/main.scs
 
 
 // @internal
-gulp.task('clean:cwel-dist-style-compile', () => del(['Cwel/dist/Cwel/cwel.css']));
+gulp.task('clean:cwel-dist-style-compile', () => del(['Cwel/dist/Cwel/cwel.{css,css.map}']));

@@ -62,7 +62,7 @@ gulp.task('cwel-dist-script-main', () => gulp.src('Cwel/src/Core/es/main.es')
 .pipe(sourcemaps.write('.'))
 .pipe(gulp.dest('Cwel/dist/Cwel/Core/js')));
 // @internal
-gulp.task('clean:cwel-dist-script-main', () => del(['Cwel/dist/Cwel/Core/js/main.js']));
+gulp.task('clean:cwel-dist-script-main', () => del(['Cwel/dist/Cwel/Core/js/main.{js,js.map}']));
 
 
 // @internal
@@ -118,7 +118,7 @@ gulp.task('cwel-dist-script-vendor', () => gulp.src([
 .pipe(sourcemaps.write('.'))
 .pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
 // @internal
-gulp.task('clean:cwel-dist-script-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.js']));
+gulp.task('clean:cwel-dist-script-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.{js,js.map}']));
 
 
 // @internal
@@ -133,7 +133,7 @@ gulp.task('cwel-dist-script-bundle', () => gulp.src([
 .pipe(concat('cwel.js'))
 .pipe(gulp.dest('Cwel/dist/Cwel')));
 // @internal
-gulp.task('clean:cwel-dist-script-bundle', () => del(['Cwel/dist/Cwel/cwel.js']));
+gulp.task('clean:cwel-dist-script-bundle', () => del(['Cwel/dist/Cwel/cwel.{js,js.map}']));
 
 
 // @internal
@@ -144,4 +144,4 @@ gulp.task('cwel-dist-script-includevendors', () => gulp.src([
 .pipe(concat('cwel-full.js'))
 .pipe(gulp.dest('Cwel/dist/Cwel')));
 // @internal
-gulp.task('clean:cwel-dist-script-includevendors', () => del(['Cwel/dist/Cwel/cwel-full.js']));
+gulp.task('clean:cwel-dist-script-includevendors', () => del(['Cwel/dist/Cwel/cwel-full.{js,js.map}']));
