@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="src\Asset\icon\card-slider--large-arrow.svg" />
     <Content Include="src\Asset\icon\card-slider--small-arrow.svg" />
+    <Content Include="src\Testing\vendor\angular-mocks.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +123,6 @@
     <Content Include="src\Component\Card\Card.doc.md" />
     <Content Include="src\Component\Card\Card.scss" />
     <Content Include="src\Component\Card\default.json" />
-    <Content Include="src\Core\img\.gitkeep" />
     <Content Include="src\Core\scss\_aspect-ratio.scss" />
     <Content Include="src\Core\scss\_base.scss" />
     <Content Include="src\Core\scss\_container.scss" />
@@ -148,6 +148,10 @@
     <Content Include="src\web.config" />
     <Content Include="src\Core\es\main.es" />
     <Content Include="src\Asset\icon\.gitkeep" />
+    <Content Include="src\Core\scss\core.scss" />
+    <Content Include="src\Core\scss\main.scss" />
+    <Content Include="src\Core\scss\_reset.scss" />
+    <Content Include="src\Testing\PageObject.es" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -157,6 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="build\" />
+    <Folder Include="src\Core\img\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
