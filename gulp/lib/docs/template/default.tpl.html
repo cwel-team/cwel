@@ -11,9 +11,13 @@
     </div>
 
     <div class="container">
-        {% markdown mdFile %}
+        <div class="docs__section">
+            {% markdown mdFile %}
+        </div>
 
-        <iframe class="docs-preview" width="100%" height="400px" src="/Playground/Render?layout=true&amp;name={{ name }}&amp;type={{ type }}&amp;model={{ modelData | dump | urlencode }}" width="" height=""></iframe>
+        <div class="docs__section docs__section--center-content">
+            <iframe height-auto class="docs__preview" width="100%" src="/Playground/Render?layout=true&amp;name={{ name }}&amp;type={{ type }}&amp;model={{ modelData | dump | urlencode }}"></iframe>
+        </div>
 
         <div class="docs__section">
             <h2>ViewModel</h2>
@@ -56,13 +60,10 @@
         </div>
 
         <div class="docs__section">
-            <div class="docs-example" ng-init="show='javascript'">
+            <div class="docs-example" ng-init="show='html'">
                 <div class="docs-example__nav">
                     <div class="docs-example__nav-title">Example</div>
                     <ul class="docs-example__nav-ul">
-                        <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link" ng-click="show='javascript'">Javascript</a>
-                        </li>
                         <li class="docs-example__nav-li">
                             <a class="docs-example__nav-link" ng-click="show='html'">HTML</a>
                         </li>
@@ -70,17 +71,14 @@
                             <a class="docs-example__nav-link" ng-click="show='css'">CSS</a>
                         </li>
                         <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link" ng-click="show='result'">Result</a>
+                            <a class="docs-example__nav-link" ng-click="show='javascript'">Javascript</a>
                         </li>
                     </ul>
                 </div>
-                <div class="docs-example__content" ng-show="show=='javascript'">js</div>
                 <div class="docs-example__content" ng-show="show=='html'">html</div>
                 <div class="docs-example__content" ng-show="show=='css'">css</div>
-                <div class="docs-example__content" ng-show="show=='result'">result</div>
+                <div class="docs-example__content" ng-show="show=='javascript'">js</div>
             </div>
         </div>
-
     </div>
-
 </div>
