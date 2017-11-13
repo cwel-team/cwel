@@ -140,7 +140,6 @@
     <Content Include="src\Service\AddOne\AddOne.es" />
     <Content Include="src\Service\AddOne\AddOne.spec.es" />
     <Content Include="src\Service\Breakpoint\Breakpoint.es" />
-    <Content Include="src\Service\Breakpoint\Breakpoint.spec.es" />
     <Content Include="src\Service\CwoMI\CwoMi.es" />
     <Content Include="src\Service\CwoMI\CwoMI.spec.es" />
     <Content Include="src\Service\CwomponentFactory\CwomponentFactory.es" />
@@ -152,6 +151,7 @@
     <Content Include="src\Core\scss\main.scss" />
     <Content Include="src\Core\scss\_reset.scss" />
     <Content Include="src\Testing\PageObject.es" />
+    <Content Include="src\Service\Breakpoint\Breakpoint.spec.broken" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
