@@ -1,0 +1,67 @@
+
+/**************************
+ * DOCUMENT
+ *************************/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden; // Never scroll the document horizontally.
+    overflow-y: scroll; // Always include vertical scrollbar to avoid jumps when dynamic content causes page to grow beyond viewport height.
+    line-height: 1.15;  // Correct the line height in all browsers.
+    -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes on iOS.
+    -ms-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in IE on Windows Phone.
+}
+
+body,
+html {
+    min-height: 100%; // Prevent a white band at the bottom of really short pages.
+}
+
+body {
+    margin: 0;
+}
+
+/**************************
+ * ELEMENTS
+ *************************/
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+    display: block; // Add the correct display in LTE IE 9.
+}
+
+button,
+select {
+    text-transform: none; // Remove the inheritance of text transform in Firefox.
+}
+
+button,
+html [type='button'], // Prevent a WebKit bug where the following rule destroys native `audio` and `video` controls in Android 4.
+[type='reset'],
+[type='submit'] {
+    -webkit-appearance: none; // Correct the inability to style clickable types in iOS and Safari.
+}
+
+template {
+    display: none; // Add the correct display in IE.
+}
+
+/**************************
+ * STATES
+ *************************/
+
+[hidden] {
+    display: none; // Add the correct display in LTE IE 10.
+}

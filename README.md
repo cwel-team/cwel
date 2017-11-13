@@ -32,115 +32,87 @@ workings are explained in the
 Reset styles to implement for miscellaneous components in the future
 
 ```
-* Embedded content
-   ========================================================================== */
+/**************************
+ * AUDIO
+ *************************/
 
-/**
- * Add the correct display in IE 9-.
- */
-
-audio,
-video {
-  display: inline-block;
+audio {
+	display: inline-block; // Add the correct display in IE LTE 9.
 }
-
-/**
- * Add the correct display in iOS 4-7.
- */
-
 audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-```
-
-```
-/**
- * 1. Change the font styles in all browsers (opinionated).
- * 2. Remove the margin in Firefox and Safari.
- */
-
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: sans-serif; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
-}
-```
-
-```
-/**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
- */
-
-button,
-input { /* 1 */
-  overflow: visible;
+	display: none; // Add the correct display in iOS 4-7.
+	height: 0; // Add the correct display in iOS 4-7.
 }
 
-/**
- * Remove the inner border and padding in Firefox.
- */
+/**************************
+ * VIDEO
+ *************************/
 
+video {
+	display: inline-block; // Add the correct display in IE LTE 9.
+}
+
+
+/**************************
+ * BUTTONS
+ *************************/
+
+button {
+	overflow: visible; // Show the overflow in Edge and IE.
+	font-family: sans-serif; // Change the font styles in all browsers (opinionated).
+	font-size: 100%; // Change the font styles in all browsers (opinionated).
+	line-height: 1.15; // Change the font styles in all browsers (opinionated).
+	margin: 0; // Remove the margin in Firefox and Safari.
+}
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
+	padding: 0; // Remove the inner border and padding in Firefox.
+	border-style: none; // Remove the inner border and padding in Firefox.
 }
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-
 button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
+	outline: 1px dotted ButtonText; // Restore the focus styles unset by the previous rule.
 }
 
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
+/**************************
+ * FORMS
+ *************************/
+
+input,
+optgroup,
+select,
+textarea {
+	font-family: sans-serif; // Change the font styles in all browsers (opinionated).
+	font-size: 100%; // Change the font styles in all browsers (opinionated).
+	line-height: 1.15; // Change the font styles in all browsers (opinionated).
+	margin: 0; // Remove the margin in Firefox and Safari.
+}
+
+input {
+	overflow: visible; // Show the overflow in Edge and IE.
+}
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
-  height: auto;
+	height: auto; // Correct the cursor style of increment and decrement buttons in Chrome.
 }
-
-/**
- * 1. Correct the odd appearance in Chrome and Safari.
- * 2. Correct the outline style in Safari.
- */
 
 [type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+	-webkit-appearance: textfield; // Correct the odd appearance in Chrome and Safari.
+	outline-offset: -2px; // Correct the outline style in Safari.
 }
-
-/**
- * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
- */
 
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+	-webkit-appearance: none; // Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
 }
 
-/**
- * 1. Correct the inability to style clickable types in iOS and Safari.
- * 2. Change font properties to `inherit` in Safari.
- */
-
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+	-webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+	font: inherit; // Change font properties to `inherit` in Safari.
 }
 ```
