@@ -19,16 +19,16 @@
             <div class="docs-example" ng-init="show='result'">
                 <div class="docs-example__nav">
                     <ul class="docs-example__nav-ul">
-                        <li class="docs-example__nav-li">
+                        <li class="docs-example__nav-li" ng-class="{ 'docs-example__nav-li--active': show=='result' }">
                             <a class="docs-example__nav-link" ng-click="show='result'">Result</a>
                         </li>
-                        <li class="docs-example__nav-li">
+                        <li class="docs-example__nav-li" ng-class="{ 'docs-example__nav-li--active': show=='html' }">
                             <a class="docs-example__nav-link" ng-click="show='html'">HTML</a>
                         </li>
-                        <li class="docs-example__nav-li">
+                        <li class="docs-example__nav-li" ng-class="{ 'docs-example__nav-li--active': show=='css' }">
                             <a class="docs-example__nav-link" ng-click="show='css'">CSS</a>
                         </li>
-                        <li class="docs-example__nav-li">
+                        <li class="docs-example__nav-li" ng-class="{ 'docs-example__nav-li--active': show=='javascript' }">
                             <a class="docs-example__nav-link" ng-click="show='javascript'">JavaScript</a>
                         </li>
                     </ul>
