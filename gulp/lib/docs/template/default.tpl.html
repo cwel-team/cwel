@@ -69,7 +69,7 @@
                         {% else %}
                         <td class="docs-table__column"><code>{{ item.returns }}</code>
                         {% endif %}
-                        <td class="docs-table__column"><code>{{ item.summary }}</code></td>
+                        <td class="docs-table__column">{{ item.summary }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -100,7 +100,7 @@
                         {% else %}
                         <td class="docs-table__column"><code>{{ item.type }}</code>
                         {% endif %}
-                        <td class="docs-table__column"><code>{{ item.description }}</code></td>
+                        <td class="docs-table__column">{{ item.description }}</td>
                     </tr>
                     {% endif %}
                     {% endfor %}
