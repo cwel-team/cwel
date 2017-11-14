@@ -25,20 +25,12 @@
                         <li class="docs-example__nav-li" ng-class="{ 'docs-example__nav-li--active': show=='html' }">
                             <a class="docs-example__nav-link" ng-click="show='html'">HTML</a>
                         </li>
-                        <li class="docs-example__nav-li" ng-class="{ 'docs-example__nav-li--active': show=='css' }">
-                            <a class="docs-example__nav-link" ng-click="show='css'">CSS</a>
-                        </li>
-                        <li class="docs-example__nav-li" ng-class="{ 'docs-example__nav-li--active': show=='javascript' }">
-                            <a class="docs-example__nav-link" ng-click="show='javascript'">JavaScript</a>
-                        </li>
                     </ul>
                 </div>
-                <div class="docs-example__content" ng-show="show=='html'">html</div>
-                <div class="docs-example__content" ng-show="show=='css'">css</div>
-                <div class="docs-example__content" ng-show="show=='javascript'">js</div>
                 <div class="docs-example__content docs-example__content--center" ng-show="show=='result'">
                     <iframe height-auto class="docs-example__preview" width="100%" src="/Playground/Render?layout=true&amp;name={{ name }}&amp;type={{ type }}&amp;model={{ modelData | dump | urlencode }}"></iframe>
                 </div>
+                <div class="docs-example__content" ng-show="show=='html'">html</div>
             </div>
         </div>
 
@@ -61,6 +53,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% if vm.props %}
                     {% for item in vm.props %}
                     <tr>
                         <td class="docs-table__column"><code>{{ item.name }}</code></td>
@@ -72,16 +65,25 @@
                         <td class="docs-table__column">{{ item.summary }}</td>
                     </tr>
                     {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td class="docs-table__column" colspan="3">No attributes to document...</td>
+                    </tr>
+                    {% endif %}
                 </tbody>
             </table>
         </div>
 
-        {% if script.scope %}
         <div class="docs__section">
-            <h2>Angular Scope</h2>
+            <h2>Angular Directive</h2>
 
-            <p>Variables and functions available in the angular scope of {{ name }}.</p>
+            <p>Outline of the angular directive for {{ script.name }}. Use the name as an attribute of an element to instantiate the component. For example markup on how to use this component, see the 'HTML' tab in the example above.</p>
 
+            <h3>Name</h3>
+            <p><code>{{ script.name | kebab }}</code></p>
+
+            <h3>Attributes</h3>
+            <p>Data attributes used to initialize the directive.</p>
             <table class="docs-table">
                 <thead>
                     <tr>
@@ -91,6 +93,41 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% if script.attributes %}
+                    {% for item in script.attributes %}
+                    {% if item.name %}
+                    <tr>
+                        <td class="docs-table__column"><code>{{ item.name }}</code></td>
+                        {% if item.type === 'function' %}
+                        <td class="docs-table__column"><code>function({% for param in item.params %}{{ param.type }}{% endfor %})</code></td>
+                        {% else %}
+                        <td class="docs-table__column"><code>{{ item.type }}</code>
+                        {% endif %}
+                        <td class="docs-table__column">{{ item.description }}</td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td class="docs-table__column" colspan="3">No attributes to document...</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+
+            {% if script.scope %}
+            <h3>Scope</h3>
+            <p>Variables and functions available in the angular scope of {{ name }}.</p>
+            <table class="docs-table">
+                <thead>
+                    <tr>
+                        <th class="docs-table__column">Name</th>
+                        <th class="docs-table__column">Type Signature</th>
+                        <th class="docs-table__column">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if script.scope %}
                     {% for item in script.scope %}
                     {% if item.name %}
                     <tr>
@@ -104,10 +141,15 @@
                     </tr>
                     {% endif %}
                     {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td class="docs-table__column" colspan="3">No scope properties to document...</td>
+                    </tr>
+                    {% endif %}
                 </tbody>
             </table>
+            {% endif %}
         </div>
-        {% endif %}
     </div>
 
 </div>

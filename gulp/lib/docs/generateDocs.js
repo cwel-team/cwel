@@ -12,6 +12,12 @@ const env = nunjucks.configure({ noCache: true });
 
 markdown.register(env, marked);
 
+env.addFilter('kebab', (str) => {
+    return (str || '').replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
+        return index === 0 ? letter.toLowerCase() : `-${letter.toLowerCase()}`;
+    }).replace(/\s+/g, '');
+});
+
 module.exports = function generateDocs(format) {
     return through.obj((file, encoding, cb) => {
         const data = format === 'component' ? gatherComponentData(file) : gatherPageData(file);
