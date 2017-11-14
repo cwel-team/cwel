@@ -10,6 +10,18 @@ function findTag(tags, name) {
     return tags.find(tag => tag.name === name) || {};
 }
 
+function parseParamTag(tagValue) {
+    const name = (tagValue.match(/\s([^\s]+)/) || [])[1] || '';
+    const type = (tagValue.match(/{([^}]+)}/) || [])[1] || '';
+    const description = (tagValue.match(RegExp(`${name}\\s(.+)$`)) || [])[1] || '';
+
+    return {
+        type,
+        name,
+        description,
+    };
+}
+
 module.exports = function processScriptData(filePath) {
     if (!fs.existsSync(filePath)) {
         return {};
@@ -27,12 +39,22 @@ module.exports = function processScriptData(filePath) {
         angulartype: findTag(header.tags, 'angulartype').value,
     };
 
-    data.scope = scopeComments.map(comment => ({
-        name: findTag(comment.tags, 'name').value,
-        type: findTag(comment.tags, 'type').value,
-        params: filterTags(comment.tags, 'param').map(tag => tag.value),
-        return: findTag(comment.tags, 'return').value,
-    }));
+    data.scope = scopeComments.map((comment) => {
+        const name = findTag(comment.tags, 'name').value;
+        const params = filterTags(comment.tags, 'param').map(tag => parseParamTag(tag.value));
+        const returnVal = findTag(comment.tags, 'return').value;
+        const type = !returnVal
+            ? findTag(comment.tags, 'type').value
+            : 'function';
+
+        return {
+            name,
+            description: comment.lines.join(' '),
+            type,
+            params,
+            return: returnVal,
+        };
+    });
 
     return data;
 };

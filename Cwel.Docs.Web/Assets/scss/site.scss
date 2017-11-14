@@ -27,5 +27,6 @@
 @import '_editor-order';
 @import '_docs';
 @import '_docs-example';
+@import '_docs-table';
 
 @include generate-grid-classes;

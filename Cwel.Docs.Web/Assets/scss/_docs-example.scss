@@ -1,3 +1,6 @@
+.docs-example {
+    padding-bottom: 1rem;
+}
 .docs-example__nav {
     height: 100%;
     @include breakpoint('m') {

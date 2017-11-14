@@ -12,58 +12,16 @@
 
     <div class="container">
         <div class="docs__section">
+            <h2>Summary</h2>
             {% markdown mdFile %}
-        </div>
 
-        <div class="docs__section docs__section--center-content">
-            <iframe height-auto class="docs__preview" width="100%" src="/Playground/Render?layout=true&amp;name={{ name }}&amp;type={{ type }}&amp;model={{ modelData | dump | urlencode }}"></iframe>
-        </div>
-
-        <div class="docs__section">
-            <h2>ViewModel</h2>
-            <div>Type: {{ vm.name }}</div>
-            <div>Summary: {{ vm.summary }}</div>
-        </div>
-
-        <div class="docs__section">
-            <h2>Properties</h2>
-            {% for prop in vm.props %}
-            <div>
-              {{ prop.name }} [{{ prop.returns }}] - {{ prop.summary }}
-            </div>
-            {% endfor %}
-        </div>
-
-        <div class="docs__section">
-            <h2>Scope</h2>
-            {% for item in script.scope %}
-            <div>{{ item.name }}</div>
-
-            {% if item.type %}
-            <strong>Type:</strong> {{ item.type }}
-            {% endif %}
-
-            {% if item.params.length > 0 %}
-            <strong>Params:</strong>
-            <ul>
-              {% for param in item.params %}
-              <li>{{ param }}</li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-
-            {% if item.return %}
-            <strong>Returns:</strong> {{ item.return }}
-            {% endif %}
-
-            {% endfor %}
-        </div>
-
-        <div class="docs__section">
-            <div class="docs-example" ng-init="show='html'">
+            <h2>Example</h2>
+            <div class="docs-example" ng-init="show='result'">
                 <div class="docs-example__nav">
-                    <div class="docs-example__nav-title">Example</div>
                     <ul class="docs-example__nav-ul">
+                        <li class="docs-example__nav-li">
+                            <a class="docs-example__nav-link" ng-click="show='result'">Result</a>
+                        </li>
                         <li class="docs-example__nav-li">
                             <a class="docs-example__nav-link" ng-click="show='html'">HTML</a>
                         </li>
@@ -71,14 +29,85 @@
                             <a class="docs-example__nav-link" ng-click="show='css'">CSS</a>
                         </li>
                         <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link" ng-click="show='javascript'">Javascript</a>
+                            <a class="docs-example__nav-link" ng-click="show='javascript'">JavaScript</a>
                         </li>
                     </ul>
                 </div>
                 <div class="docs-example__content" ng-show="show=='html'">html</div>
                 <div class="docs-example__content" ng-show="show=='css'">css</div>
                 <div class="docs-example__content" ng-show="show=='javascript'">js</div>
+                <div class="docs-example__content docs-example__content--center" ng-show="show=='result'">
+                    <iframe height-auto class="docs-example__preview" width="100%" src="/Playground/Render?layout=true&amp;name={{ name }}&amp;type={{ type }}&amp;model={{ modelData | dump | urlencode }}"></iframe>
+                </div>
             </div>
         </div>
+
+        <div class="docs__section">
+            <h2>View Model</h2>
+
+            <h3>Type</h3>
+            <p><code>{{ vm.name }}</code></p>
+
+            <h3>Summary</h3>
+            <p>{{ vm.summary }}</p>
+
+            <h3>Properties</h3>
+            <table class="docs-table">
+                <thead>
+                    <tr>
+                        <th class="docs-table__column">Name</th>
+                        <th class="docs-table__column">Type Signature</th>
+                        <th class="docs-table__column">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in vm.props %}
+                    <tr>
+                        <td class="docs-table__column"><code>{{ item.name }}</code></td>
+                        {% if item.type === 'function' %}
+                        <td class="docs-table__column"><code>function({% for param in item.params %}{{ param.type }}{% endfor %})</code></td>
+                        {% else %}
+                        <td class="docs-table__column"><code>{{ item.returns }}</code>
+                        {% endif %}
+                        <td class="docs-table__column"><code>{{ item.summary }}</code></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% if script.scope %}
+        <div class="docs__section">
+            <h2>Angular Scope</h2>
+
+            <p>Variables and functions available in the angular scope of {{ name }}.</p>
+
+            <table class="docs-table">
+                <thead>
+                    <tr>
+                        <th class="docs-table__column">Name</th>
+                        <th class="docs-table__column">Type Signature</th>
+                        <th class="docs-table__column">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in script.scope %}
+                    {% if item.name %}
+                    <tr>
+                        <td class="docs-table__column"><code>{{ item.name }}</code></td>
+                        {% if item.type === 'function' %}
+                        <td class="docs-table__column"><code>function({% for param in item.params %}{{ param.type }}{% endfor %})</code></td>
+                        {% else %}
+                        <td class="docs-table__column"><code>{{ item.type }}</code>
+                        {% endif %}
+                        <td class="docs-table__column"><code>{{ item.description }}</code></td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
     </div>
+
 </div>
