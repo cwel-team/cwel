@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "galen": "galen",
     "gulp-debug": "node debug node_modules\\gulp\\bin\\gulp.js",
     "gulp-inspect": "node --inspect --inspect-brk node_modules\\gulp\\bin\\gulp.js",
     "install": "node node_modules\\protractor\\node_modules\\webdriver-manager\\bin\\webdriver-manager update --versions.standalone=3.5.3",
@@ -27,6 +28,7 @@
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.2.0",
+    "galenframework-cli": "^2.3.5",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.2",

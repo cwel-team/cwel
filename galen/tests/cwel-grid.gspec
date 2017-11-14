@@ -1,0 +1,9 @@
+@objects
+    main_div        div
+        title       h1
+
+= Main section =
+    main_div:
+        width ~ 978px
+
+
