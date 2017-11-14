@@ -13,11 +13,13 @@ namespace Cwel.Web
         /// <summary>
         /// Gets or sets the collection of cards inside the card slider
         /// </summary>
+        /// <returns>List&lt;CardViewModel&gt;</returns>
         public List<CardViewModel> Cards { get; set; }
 
         /// <summary>
         /// Gets or sets the starting index for the Cardslider
         /// </summary>
+        /// <returns>int</returns>
         public int StartIndex { get; set; }
     }
 
