@@ -1,4 +1,6 @@
 @using Cwel.Web
+@model Cwel.Docs.Web.Models.ComponentDocumentationViewModel
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -30,7 +32,7 @@
                 <div class="docs-example__content docs-example__content--center" ng-show="show=='result'">
                     <iframe height-auto class="docs-example__preview" width="100%" src="/Playground/Render?layout=true&amp;name={{ name }}&amp;type={{ type }}&amp;model={{ modelData | dump | urlencode }}"></iframe>
                 </div>
-                <div class="docs-example__content" ng-show="show=='html'">html</div>
+                <div class="docs-example__content" ng-show="show=='html'"><pre ng-non-bindable>@Model.Html</pre></div>
             </div>
         </div>
 
