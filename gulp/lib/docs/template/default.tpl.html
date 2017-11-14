@@ -5,6 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section styles {
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+}
+
+@section scripts {
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+}
+
 <div class="docs">
     <div class="docs__header">
         <div class="container">
@@ -32,7 +41,7 @@
                 <div class="docs-example__content docs-example__content--center" ng-show="show=='result'">
                     <iframe height-auto class="docs-example__preview" width="100%" src="/Playground/Render?layout=true&amp;name={{ name }}&amp;type={{ type }}&amp;model={{ modelData | dump | urlencode }}"></iframe>
                 </div>
-                <div class="docs-example__content" ng-show="show=='html'"><pre ng-non-bindable>@Model.Html</pre></div>
+                <div class="docs-example__content" ng-show="show=='html'"><pre ng-non-bindable><code class="html">@Model.Html</code></pre></div>
             </div>
         </div>
 

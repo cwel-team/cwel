@@ -5,6 +5,7 @@
     <title>@ViewBag.Title</title>
 
     <link rel="stylesheet" href="~/Assets/css/site.css">
+    @RenderSection("styles", false)
 </head>
 <body ng-app="cwoApp" ng-controller="appCtrl">
 
@@ -32,5 +33,6 @@
     <script src="~/Assets/js/jsfiddle.js"></script>
     <script src="~/Assets/js/playgroundStore.js"></script>
     <script src="~/Assets/js/bus.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>
