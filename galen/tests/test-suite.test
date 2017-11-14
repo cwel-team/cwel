@@ -1,0 +1,21 @@
+@@ table breakpoints
+    | breakpointName  | tags      | size     |
+    | Breakpoint: XS  | xs        | 350x800  |
+    | Breakpoint: S   | s         | 450x800  |
+    | Breakpoint: M   | m         | 650x800  |
+    | Breakpoint: L   | l         | 1150x800 |
+    | Breakpoint: XL  | xl        | 1450x800 |
+
+@@ set
+    domain          localhost:3000
+    base_url        http://${domain}/playground/sandbox/
+
+@@ parameterized using breakpoints
+Grid at ${breakpointName}
+    ${base_url}grid ${size}
+        check galen/tests/cwel-grid.gspec --include "${tags}"
+
+@@ parameterized using breakpoints
+REM Units at ${breakpointName}
+    ${base_url}remunits ${size}
+        check galen/tests/cwel-remunits.gspec --include "${tags}"
