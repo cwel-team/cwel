@@ -46,46 +46,6 @@
         </div>
 
         <div class="docs__section">
-            <h2>View Model</h2>
-
-            <h3>Type</h3>
-            <p><code>{{ vm.name }}</code></p>
-
-            <h3>Summary</h3>
-            <p>{{ vm.summary }}</p>
-
-            <h3>Properties</h3>
-            <table class="docs-table">
-                <thead>
-                    <tr>
-                        <th class="docs-table__column">Name</th>
-                        <th class="docs-table__column">Type Signature</th>
-                        <th class="docs-table__column">Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% if vm.props %}
-                    {% for item in vm.props %}
-                    <tr>
-                        <td class="docs-table__column"><code>{{ item.name }}</code></td>
-                        {% if item.type === 'function' %}
-                        <td class="docs-table__column"><code>function({% for param in item.params %}{{ param.type }}{% endfor %})</code></td>
-                        {% else %}
-                        <td class="docs-table__column"><code>{{ item.returns }}</code>
-                        {% endif %}
-                        <td class="docs-table__column">{{ item.summary }}</td>
-                    </tr>
-                    {% endfor %}
-                    {% else %}
-                    <tr>
-                        <td class="docs-table__column" colspan="3">No attributes to document...</td>
-                    </tr>
-                    {% endif %}
-                </tbody>
-            </table>
-        </div>
-
-        <div class="docs__section">
             <h2>Angular Directive</h2>
 
             <p>Outline of the angular directive for {{ script.name }}. Use the name as an attribute of an element to instantiate the component. For example markup on how to use this component, see the 'HTML' tab in the example above.</p>
@@ -104,7 +64,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% if script.attributes %}
                     {% for item in script.attributes %}
                     {% if item.name %}
                     <tr>
@@ -117,12 +76,11 @@
                         <td class="docs-table__column">{{ item.description }}</td>
                     </tr>
                     {% endif %}
-                    {% endfor %}
                     {% else %}
                     <tr>
                         <td class="docs-table__column" colspan="3">No attributes to document...</td>
                     </tr>
-                    {% endif %}
+                    {% endfor %}
                 </tbody>
             </table>
 
@@ -161,6 +119,45 @@
             </table>
             {% endif %}
         </div>
-    </div>
 
+        <div class="docs__section">
+            <h2>View Model</h2>
+
+            <h3>Type</h3>
+            <p><code>{{ vm.name }}</code></p>
+
+            <h3>Summary</h3>
+            <p>{{ vm.summary }}</p>
+
+            <h3>Properties</h3>
+            <table class="docs-table">
+                <thead>
+                    <tr>
+                        <th class="docs-table__column">Name</th>
+                        <th class="docs-table__column">Type Signature</th>
+                        <th class="docs-table__column">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if vm.props %}
+                    {% for item in vm.props %}
+                    <tr>
+                        <td class="docs-table__column"><code>{{ item.name }}</code></td>
+                        {% if item.type === 'function' %}
+                        <td class="docs-table__column"><code>function({% for param in item.params %}{{ param.type }}{% endfor %})</code></td>
+                        {% else %}
+                        <td class="docs-table__column"><code>{{ item.returns }}</code>
+                        {% endif %}
+                        <td class="docs-table__column">{{ item.summary }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td class="docs-table__column" colspan="3">No attributes to document...</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

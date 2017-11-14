@@ -53,8 +53,7 @@ angular.module('cwel')
                 }
             });
 
-            Breakpoint
-            .on(['xs', 's'], () => {
+            Breakpoint.on(['xs', 's'], () => {
                 scope.cardsPerSlide = 1;
                 scope.responsiveAdjustIndex();
             })
