@@ -19,10 +19,10 @@
 
 Open command prompt in Cwel root
 
-`npm run galen -- check galen/tests/cwel-grid.gspec --url http://localhost:3000/playground/sandbox/grid --size 1280x800 --htmlreport galen/reports`
+`npm run galen -- check Cwel/Tests/visual/specs/cwel-grid.gspec --url http://docs.cwel.local/playground/sandbox/grid --size 1280x800 --htmlreport Cwel/Tests/visual/reports/html`
 
 ### Run the complete suite
 
 Open command prompt in Cwel root
 
-`galen test galen/tests/test-suite.test --htmlreport galen/reports`
+`galen test Cwel/Tests/visual/test-suite.test --htmlreport Cwel/Tests/visual/reports/html --junitreport galen-unit-test-output.xml`

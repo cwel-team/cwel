@@ -74,7 +74,7 @@
 
     @on l
         spacers.spacer_xxs:
-            width 4.15pxpx
+            width 4.15px
 
         spacers.spacer_xs:
             width 8.3125px

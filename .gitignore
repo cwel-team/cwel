@@ -287,3 +287,4 @@ Cwel/dist/**
 
 # Ignore galen reports
 galen/reports/
+galen-unit-test-output.xml

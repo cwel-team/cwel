@@ -9,15 +9,16 @@
     | XL              | xl        | 1450x800 |
 
 @@ set
-    domain          localhost:3000
+    domain          docs.cwel.local
     base_url        http://${domain}/playground/sandbox/
+    spec_url        Cwel/Tests/visual/specs/
 
 @@ parameterized using breakpoints
 Grid at breakpoint: ${breakpointName}
     ${base_url}grid ${size}
-        check galen/tests/specs/cwel-grid.gspec --include '${tags}'
+        check ${spec_url}cwel-grid.gspec --include '${tags}'
 
 @@ parameterized using breakpoints
 REM Units at breakpoint: ${breakpointName}
     ${base_url}remunits ${size}
-        check galen/tests/specs/cwel-remunits.gspec --include '${tags}'
+        check ${spec_url}cwel-remunits.gspec --include '${tags}'
