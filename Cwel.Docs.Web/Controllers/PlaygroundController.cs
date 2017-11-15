@@ -170,7 +170,7 @@ namespace Cwel.Docs.Web.Controllers
             var scss = System.IO.File.ReadAllText(cssPath);
             var jsPath = Server.MapPath("~/Cwel/cwel.js");
             var js = System.IO.File.ReadAllText(jsPath);
-            var html = $@"<div ng-app=""cwel"">{RenderViewToString(ControllerContext, "RenderPage", pageModel)}</div>";
+            var html = $@"<div ng-app=""cwel"">{ViewRenderer.RenderViewToString(ControllerContext, "RenderPage", pageModel)}</div>";
 
             scss += @"
 /*********************
@@ -192,38 +192,6 @@ namespace Cwel.Docs.Web.Controllers
                 style = scss,
                 markup = html
             });
-        }
-
-        /// <summary>
-        /// Render view of a given model to a string.
-        /// </summary>
-        /// <param name="context">Controller context by which to render the view</param>
-        /// <param name="viewPath">Path of a view to render</param>
-        /// <param name="model">Model to give the razor script</param>
-        private static string RenderViewToString(ControllerContext context, string viewPath, object model = null)
-        {
-            // first find the ViewEngine for this view
-            var viewEngineResult = ViewEngines.Engines.FindView(context, viewPath, null);
-
-            if (viewEngineResult == null)
-            {
-                throw new FileNotFoundException("View cannot be found.");
-            }
-
-            // get the view and attach the model to view data
-            var view = viewEngineResult.View;
-            context.Controller.ViewData.Model = model;
-
-            string result;
-
-            using (var sw = new StringWriter())
-            {
-                var ctx = new ViewContext(context, view, context.Controller.ViewData, context.Controller.TempData, sw);
-                view.Render(ctx, sw);
-                result = sw.ToString();
-            }
-
-            return result;
         }
     }
 }

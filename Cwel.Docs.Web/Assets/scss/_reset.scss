@@ -13,7 +13,10 @@ html {
     padding: 0;
 }
 ul {
-    margin: 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    margin-left: 0;
     padding: 0;
     list-style: none;
 }
@@ -41,4 +44,23 @@ a,
 a:hover,
 a:focus {
     text-decoration: none;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+pre {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+code {
+    color: #480344;
+    font-size: 1em; // stylelint-disable-line declaration-property-unit-blacklist, unit-whitelist
+
+    &:not(.highlight) {
+        // account for highlight.js weirdness
+        font-size: 1.2em; // stylelint-disable-line declaration-property-unit-blacklist, unit-whitelist
+    }
 }

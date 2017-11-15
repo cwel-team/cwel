@@ -1,3 +1,6 @@
+.docs-example {
+    padding-bottom: 2rem;
+}
 .docs-example__nav {
     height: 100%;
     @include breakpoint('m') {
@@ -6,10 +9,12 @@
 }
 .docs-example__nav-ul {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     width: 100%;
+    margin: 0;
 }
 .docs-example__nav-li {
+    overflow: hidden;
     color: $colour-core1;
     border-style: solid;
     border-color: $colour-secondary2;
@@ -21,6 +26,11 @@
     border-top-left-radius: $border-radius-standard;
     @include breakpoint('m') {
         flex: none;
+    }
+
+    &--active {
+        background: $colour-core2;
+        box-shadow: 0 $border-width-standard 0 0 $colour-core2;
     }
 }
 .docs-example__nav-li:last-child {
@@ -42,15 +52,31 @@
     padding-bottom: 0.62rem;
     color: $colour-core1;
     font-size: 1rem;
+    font-weight: 600;
     border-top-right-radius: $border-radius-standard;
     border-top-left-radius: $border-radius-standard;
 }
 .docs-example__content {
-    height: 12.5rem;
+    height: auto;
+    min-height: 12.5rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 0.4rem;
+    padding-left: 0.5rem;
     background: $colour-core2;
     border-width: $border-width-standard;
     border-style: solid;
     border-color: $colour-secondary2;
     border-bottom-right-radius: $border-radius-standard;
     border-bottom-left-radius: $border-radius-standard;
+
+    &--center {
+        text-align: center;
+    }
+}
+
+.docs-example__preview {
+    max-width: 100%;
+    border: none;
+    resize: both;
 }

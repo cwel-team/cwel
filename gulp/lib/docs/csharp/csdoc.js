@@ -14,7 +14,7 @@ function getParameters(node) {
     return cnodes.map((n, i) => {
         return {
             name: n.attr.name,
-            comment: n.val.trim(),
+            summary: n.val.trim(),
             type: paramsTypes[i] };
     });
 }

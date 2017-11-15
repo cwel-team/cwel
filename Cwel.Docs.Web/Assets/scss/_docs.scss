@@ -1,5 +1,6 @@
 .docs {
     color: $colour-core1;
+
     @include breakpoint('s') {
         min-height: 56.25rem;
     }
@@ -8,7 +9,7 @@
     display: block;
     width: 100%;
     margin-top: -2.5rem; // collapses docs playground container padding
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     padding-top: 1rem;
     padding-right: 1rem;
     padding-bottom: 1rem;
@@ -23,6 +24,12 @@
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
 }
+
 .docs__section {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+
+    &:not(:last-child) {
+        border-bottom: 0.08rem solid #bfbfbf;
+    }
 }
