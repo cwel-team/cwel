@@ -15,9 +15,13 @@ angular.module('cwel')
 
     return CwomponentFactory({
         restrict: 'A',
+        /**
+         * @data
+         * @attribute {int} startIndex Starting index for the card slider
+         * @attribute {int} count Number of cards in the card slider
+         */
         scope: {
             startIndex: '@',
-            transitionDuration: '@',
             count: '@',
         },
         link(scope, el) {

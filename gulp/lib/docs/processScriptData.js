@@ -22,6 +22,10 @@ function parseParamTag(tagValue) {
     };
 }
 
+function commentHasTag(tagName, comment) {
+    return comment.tags.filter(tag => tag.name === tagName).length > 0;
+}
+
 module.exports = function processScriptData(filePath) {
     if (!fs.existsSync(filePath)) {
         return {};
@@ -32,12 +36,20 @@ module.exports = function processScriptData(filePath) {
         return {};
     }
     const header = comments[0] || {};
-    const scopeComments = comments.slice(1);
+    const commentsTail = comments.slice(1)
+    .filter(comment => comment.tags && comment.tags.length > 0);
+    const scopeComments = commentsTail.filter(comment => commentHasTag('scope', comment));
+    const dataAttrComments = commentsTail.filter(comment => commentHasTag('data', comment));
     const data = {
         name: findTag(header.tags, 'name').value,
         type: findTag(header.tags, 'type').value,
         angulartype: findTag(header.tags, 'angulartype').value,
     };
+
+    data.attributes = dataAttrComments.map((comment) => {
+        return filterTags(comment.tags, 'attribute').map(tag => parseParamTag(tag.value));
+    })
+    .reduce((flatAttrs, attrs) => attrs.concat(comments), []);
 
     data.scope = scopeComments.map((comment) => {
         const name = findTag(comment.tags, 'name').value;
