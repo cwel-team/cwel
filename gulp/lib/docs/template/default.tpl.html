@@ -35,11 +35,11 @@
 {% for item in properties %}
 {% if item.name %}
 <tr>
-<td class="docs-table__column"><code>{{ item.name }}</code></td>
+<td class="docs-table__column"><code class="nohighlight">{{ item.name }}</code></td>
 {% if item.type === 'function' %}
-<td class="docs-table__column"><code>function({% for param in item.params %}{{ param.type | default(param.returns, true) | default('', true) }}{% endfor %})</code></td>
+<td class="docs-table__column"><code class="nohighlight">function({% for param in item.params %}{{ param.type | default(param.returns, true) | default('', true) }}{% endfor %})</code></td>
 {% else %}
-<td class="docs-table__column"><code>{{ item.type | default(item.returns, true) | default('', true) }}</code>
+<td class="docs-table__column"><code class="nohighlight">{{ item.type | default(item.returns, true) | default('', true) }}</code>
 {% endif %}
 <td class="docs-table__column">{{ item.description | default(item.summary, true) | default('', true) }}</td>
 </tr>
@@ -90,7 +90,7 @@
             <p>Outline of the angular directive for {{ script.name }}. Use the name as an attribute of an element to instantiate the component. For example markup on how to use this component, see the 'HTML' tab in the example above.</p>
 
             <h3>Name</h3>
-            <p><code>{{ script.name | kebab }}</code></p>
+            <p><code class="nohighlight">{{ script.name | kebab }}</code></p>
 
             <h3>Attributes</h3>
             <p>Data attributes used to initialize the directive.</p>
