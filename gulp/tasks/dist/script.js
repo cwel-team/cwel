@@ -139,6 +139,7 @@ gulp.task('clean:cwel-dist-script-vendor-concat', () => del(['Cwel/dist/Cwel/cwe
 // @internal
 gulp.task('cwel-dist-script-bundle', () => gulp.src([
     'Cwel/dist/Cwel/**/*.js',
+    '!Cwel/dist/Cwel/cwel-vendor.js',
     '!Cwel/dist/Cwel/Vendor/**/*.js',
     '!Cwel/dist/Cwel/cwel.js',
 ])
