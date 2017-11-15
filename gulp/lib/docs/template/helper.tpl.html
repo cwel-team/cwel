@@ -1,11 +1,17 @@
+{% from macros['property-table'] import propertytable %}
+
 @using Cwel.Web
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 {% macro renderCsData(data) %}
-<p>{{ data.summary }}</p>
+<div class="docs__section">
+	<h2>Summary</h2>
+	<p>{{ data.summary }}</p>
+</div>
 
+<div class="docs__section">
 <h2>Properties and Fields</h2>
 {% for prop in data.props %}
 <h3>{{ prop.name }}</h3>
@@ -13,23 +19,20 @@
 {% else %}
 <p>No Public Properties</p>
 {% endfor %}
-
+</div>
+<div class="docs__section">
 <h2>Members</h2>
 {% for member in data.members %}
 <h3>{{ member.name }}</h3>
 <p>{{ member.summary }}</p>
 <div>
-<h3>Parameters</h3>
-{% for param in member.params %}
-<div>Name: {{ param.name }}</div>
-<div>Type: {{ param.type }}</div>
-<div>Comment {{ param.summary }}</div>
-</br>
-{% endfor %}
+	<h3>Parameters</h3>
+	{{ propertytable(member.params, 'No Parameters...') }}
 </div>
 {% else %}
 <p>No Members</p>
 {% endfor %}
+</div>
 {% endmacro %}
 
 

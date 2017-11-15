@@ -10,7 +10,12 @@ function getParameters(node) {
     const paramsMatch = node.attr.name.match(/\((.*)\)/);
     if (paramsMatch === null || paramsMatch[1] === undefined) return [];
 
-    const paramsTypes = paramsMatch[1].split(',');
+    // Get paramters handling issues with generics
+    const paramsTypes = paramsMatch[1]
+    .replace(/{[^}]+}+/g, match => match.replace(/,/g, '+'))
+    .split(',')
+    .map(type => type.replace(/\+/g, ', '));
+
     return cnodes.map((n, i) => {
         return {
             name: n.attr.name,
