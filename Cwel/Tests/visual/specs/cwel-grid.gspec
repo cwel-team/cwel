@@ -110,13 +110,13 @@
     @on *
         sizes.grid_1.grid_cell:
             centered horizontally inside sizes.grid_1
-            width 100 % of sizes.grid_1/width
+            width ~ 100 % of sizes.grid_1/width
 
     = Grid 2 =
     @on *
         sizes.grid_2.grid_cell-*:
             aligned horizontally top sizes.grid_2
-            width 50 % of sizes.grid_2/width
+            width ~ 50 % of sizes.grid_2/width
 
     = Grid 3 =
     @on *
@@ -128,7 +128,7 @@
     @on *
         sizes.grid_4.grid_cell-*:
             aligned horizontally top sizes.grid_4
-            width 25 % of sizes.grid_4/width
+            width ~ 25 % of sizes.grid_4/width
 
     = Grid 5 =
     @on *
@@ -148,21 +148,21 @@
     @on *
         size_combinations.grid-1.grid_cell_quarter:
             aligned horizontally top size_combinations.grid-1
-            width 25 % of size_combinations.grid-1/width
+            width ~ 25 % of size_combinations.grid-1/width
 
         size_combinations.grid-1.grid_cell_three_quarters:
             aligned horizontally top size_combinations.grid-1
-            width 75 % of size_combinations.grid-1/width
+            width ~ 75 % of size_combinations.grid-1/width
 
     = Grid 2 =
     @on *
         size_combinations.grid-2.grid_cell_half:
             aligned horizontally top size_combinations.grid-2
-            width 50 % of size_combinations.grid-2/width
+            width ~ 50 % of size_combinations.grid-2/width
 
         size_combinations.grid-2.grid_cell_quarter:
             aligned horizontally top size_combinations.grid-2
-            width 25 % of size_combinations.grid-2/width
+            width ~ 25 % of size_combinations.grid-2/width
 
         size_combinations.grid-2.grid_cell_twelfth-*:
             aligned horizontally top size_combinations.grid-2
@@ -182,7 +182,7 @@
     @on *
         size_combinations.grid-4.grid_cell_half:
             aligned horizontally top size_combinations.grid-4
-            width 50 % of size_combinations.grid-4/width
+            width ~ 50 % of size_combinations.grid-4/width
 
         size_combinations.grid-4.grid_cell_sixth-*:
             aligned horizontally top size_combinations.grid-4
@@ -194,17 +194,17 @@
     @on *
         nested_grids.grid-1.grid_cell_half-1:
             aligned horizontally top nested_grids.grid-1
-            width 50 % of nested_grids.grid-1/width
+            width ~ 50 % of nested_grids.grid-1/width
 
         nested_grids.grid-1.grid_cell_half-2:
             aligned horizontally top nested_grids.grid-1
-            width 50 % of nested_grids.grid-1/width
+            width ~ 50 % of nested_grids.grid-1/width
 
     = Grid 1-1 =
     @on *
         nested_grids.grid-1.grid_cell_half-2.grid-1-1:
             aligned horizontally top nested_grids.grid-1
-            width 100 % of nested_grids.grid-1.grid_cell_half-2/width
+            width ~ 100 % of nested_grids.grid-1.grid_cell_half-2/width
 
         nested_grids.grid-1.grid_cell_half-2.grid-1-1.grid_cell_third:
             aligned horizontally top nested_grids.grid-1
@@ -218,10 +218,10 @@
     @on *
         nested_grids.grid-1.grid_cell_half-2.grid-1-1.grid_cell_two_thirds.grid-1-2:
             aligned horizontally top nested_grids.grid-1
-            width 100 % of nested_grids.grid-1.grid_cell_half-2.grid-1-1.grid_cell_two_thirds/width
+            width ~ 100 % of nested_grids.grid-1.grid_cell_half-2.grid-1-1.grid_cell_two_thirds/width
 
         nested_grids.grid-1.grid_cell_half-2.grid-1-1.grid_cell_two_thirds.grid-1-2.grid_cell_half-*:
-            width 50 % of nested_grids.grid-1.grid_cell_half-2.grid-1-1.grid_cell_two_thirds.grid-1-2/width
+            width ~ 50 % of nested_grids.grid-1.grid_cell_half-2.grid-1-1.grid_cell_two_thirds.grid-1-2/width
 
         nested_grids.grid-1.grid_cell_half-2.grid-1-1.grid_cell_two_thirds.grid-1-2.grid_cell_third-*:
             width ~ 33 % of nested_grids.grid-1.grid_cell_half-2.grid-1-1.grid_cell_two_thirds.grid-1-2/width
@@ -332,4 +332,4 @@
         @for [1 - 4] as index
             flush.grid-1.grid_cell-${index}.block:
                 aligned horizontally top flush.grid-1
-                width 25 % of flush.grid-1/width
+                width ~ 25 % of flush.grid-1/width
