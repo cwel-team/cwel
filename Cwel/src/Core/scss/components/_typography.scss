@@ -1,0 +1,70 @@
+
+a {
+    background-color: transparent; // Remove the grey background on active links in IE 10.
+    -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS GTE 8 and Safari GTE 8.
+}
+
+sub,
+sup {
+    position: relative;
+    vertical-align: baseline;
+    font-size: 75%;
+    line-height: 0; // Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+}
+
+sub {
+    bottom: -0.25em; // stylelint-disable-line unit-whitelist
+}
+
+sup {
+    top: -0.5em; // stylelint-disable-line unit-whitelist
+}
+
+abbr[title] {
+    text-decoration: underline; // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+    text-decoration: underline double; // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+    border-bottom: none; // Remove the bottom border in Chrome LTE 57 and Firefox LTE 39.
+}
+
+pre {
+    font-family: monospace;
+    // Correct the odd `em` font sizing in all browsers.
+    font-size: 1em; // stylelint-disable-line declaration-property-unit-blacklist, unit-whitelist
+}
+
+dfn {
+    font-style: italic; // Add the correct font style in Android LTE 4.3.
+}
+
+mark {
+    color: #000; // Add the correct color in LTE IE 9.
+    background-color: #ff0; // Add the correct background color in IE LTE 9.
+}
+
+/**************************
+ * STATES
+ *************************/
+
+b,
+strong {
+    // Add the correct font weight in Chrome, Edge, and Safari.
+    font-weight: bolder; // stylelint-disable-line font-weight-notation
+}
+
+small {
+    font-size: 80%; // Add the correct font size in all browsers.
+}
+
+/**************************
+ * NON-TEXTUAL ELEMENTS
+ *************************/
+
+hr {
+    box-sizing: content-box; // Add the correct box sizing in Firefox.
+    height: 0; // Add the correct box sizing in Firefox.
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    overflow: visible; // Show the overflow in Edge and IE.
+    border: none;
+    border-top: 1px solid #999; // stylelint-disable-line declaration-property-unit-blacklist
+}
