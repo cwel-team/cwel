@@ -11,7 +11,15 @@
 
 @section scripts {
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        var codeBlocks = document.querySelectorAll('pre code.highlight');
+        for (var i in codeBlocks) {
+            if (codeBlocks.hasOwnProperty(i)) {
+                var block = codeBlocks[i];
+                hljs.highlightBlock(block);
+            }
+        }
+    </script>
 }
 
 {% macro propertytable(properties, errorMessage='') %}
@@ -72,7 +80,7 @@
                 <div class="docs-example__content docs-example__content--center" ng-show="show=='result'">
                     <iframe height-auto class="docs-example__preview" width="100%" src="/Playground/Render?layout=true&amp;name={{ name }}&amp;type={{ type }}&amp;model={{ modelData | dump | urlencode }}"></iframe>
                 </div>
-                <div class="docs-example__content" ng-show="show=='html'"><pre ng-non-bindable><code class="html">@Model.Html</code></pre></div>
+                <div class="docs-example__content" ng-show="show=='html'"><pre ng-non-bindable><code class="highlight html">@Model.Html</code></pre></div>
             </div>
         </div>
 

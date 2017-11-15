@@ -50,7 +50,17 @@ p {
     margin-bottom: 1.5rem;
 }
 
+pre {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
 code {
     color: #480344;
-    font-size: 1.2rem;
+    font-size: 1em; // stylelint-disable-line declaration-property-unit-blacklist, unit-whitelist
+
+    &:not(.highlight) {
+        // account for highlight.js weirdness
+        font-size: 1.2em; // stylelint-disable-line declaration-property-unit-blacklist, unit-whitelist
+    }
 }
