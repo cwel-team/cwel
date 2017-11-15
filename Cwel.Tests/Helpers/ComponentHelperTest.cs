@@ -39,7 +39,7 @@ namespace Cwel.Tests.Helpers
         public void ComponentHelper_Should_Get_Icon_Path()
         {
             var path = ComponentHelper.IconPath("arrow");
-            Assert.AreEqual(path, "~/Cwel/Assets/icon/arrow.svg");
+            Assert.AreEqual(path, "~/Cwel/Asset/icon/arrow.svg");
         }
     }
 }

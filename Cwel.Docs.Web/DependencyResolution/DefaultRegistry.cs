@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
 using StructureMap.Web;
+using StructureMap;
 
 namespace Cwel.Docs.Web.DependencyResolution
 {

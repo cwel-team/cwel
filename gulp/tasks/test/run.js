@@ -5,6 +5,7 @@ const protractor        = require('gulp-protractor').protractor;    // End-to-en
 const yargs             = require('yargs');                         // Args
 
 const { argv } = yargs;
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 // @internal
 gulp.task('cwel-test-run', done => gulpSequence('cwel-test-run-e2e', 'cwel-test-run-unit')(done));
@@ -34,11 +35,17 @@ gulp.task('cwel-test-run-e2e', (done) => {
 
 // @internal
 gulp.task('cwel-test-run-unit', (done) => {
+    const reporters = ['spec'];
+
+    if (argv.junitDump) {
+        reporters.push('junit');
+    }
+
     const server = new KarmaServer({
         singleRun: !argv['dont-stop'],
-        browsers: ['Chrome'],
-        plugins: ['karma-spec-reporter', 'karma-jasmine', 'karma-chrome-launcher'],
-        reporters: ['spec'],
+        browsers: ['ChromeHeadless'],
+        plugins: ['karma-spec-reporter', 'karma-jasmine', 'karma-chrome-launcher', 'karma-junit-reporter'],
+        reporters,
         frameworks: ['jasmine'],
         files: [
             'Cwel/dist/Cwel/cwel-full.js',
