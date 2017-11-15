@@ -1,9 +1,0 @@
-
-svg:not(:root) {
-    overflow: hidden; // hide the overflow in IE.
-}
-
-img,
-.cwel-image {
-    border-style: none; // Remove the border on images inside links in IE 10-.
-}

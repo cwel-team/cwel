@@ -33,12 +33,26 @@ Reset styles to implement for miscellaneous components in the future
 
 ```
 /**************************
+ * IMAGE
+ *************************/
+
+svg:not(:root) {
+    overflow: hidden; // hide the overflow in IE.
+}
+
+img,
+.cwel-image {
+    border-style: none; // Remove the border on images inside links in IE 10-.
+}
+
+/**************************
  * AUDIO
  *************************/
 
 audio {
 	display: inline-block; // Add the correct display in IE LTE 9.
 }
+
 audio:not([controls]) {
 	display: none; // Add the correct display in iOS 4-7.
 	height: 0; // Add the correct display in iOS 4-7.
@@ -64,6 +78,7 @@ button {
 	line-height: 1.15; // Change the font styles in all browsers (opinionated).
 	margin: 0; // Remove the margin in Firefox and Safari.
 }
+
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
@@ -71,6 +86,7 @@ button::-moz-focus-inner,
 	padding: 0; // Remove the inner border and padding in Firefox.
 	border-style: none; // Remove the inner border and padding in Firefox.
 }
+
 button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
