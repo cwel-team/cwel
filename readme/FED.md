@@ -38,8 +38,7 @@ C:/> choco install nuget.commandline
 
 ## Create Cwomponent
 
-Cwomponents are Components, Patterns, or Services that are used to build CWEL
-components or patterns. Services are Angular services.
+Cwomponents are Components, Patterns, or Services that are used to build CWEL components or patterns. Services are Angular services.
 
 - gulp create
   - _follow instructions on screen_
@@ -56,9 +55,6 @@ components or patterns. Services are Angular services.
 6. Rebuild solution
 7. Commit and push changes to reflect version bump
 
-All front-end cwomponent files are found in `Cwomponents/{type}/{name}`
-directory. JavaScript is in a `.es` file, and CSS is in a `.scss` file.
+All front-end cwomponent files are found in `Cwomponents/{type}/{name}` directory. JavaScript is in a `.es` file, and CSS is in a `.scss` file.
 
-**Note:** All view models for components or patterns are found in the
-`Cwo.Core/ComponentViewModels` or `Cwo.Core/PatternViewModels` directories,
-respectively. To build these you can run `gulp build-csharp`.
+**Note:** All view models for components or patterns are found in the `Cwo.Core/ComponentViewModels` or `Cwo.Core/PatternViewModels` directories, respectively. To build these you can run `gulp build-csharp`.

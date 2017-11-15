@@ -18,8 +18,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Microsoft.Practices.ServiceLocation;
 using StructureMap;
+using CommonServiceLocator;
 
 namespace Cwel.Docs.Web.DependencyResolution
 {

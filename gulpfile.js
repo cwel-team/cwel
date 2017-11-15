@@ -6,7 +6,7 @@ const gulpSequence     = require('gulp-sequence');
 const msbuild          = require('gulp-msbuild');
 const yargs            = require('yargs');
 
-const argv = yargs.argv; // parse process.argv with yargs
+const argv = yargs.argv; // Parse process.argv with yargs
 
 
 require('./gulp/tasks/dist/dist');
@@ -35,7 +35,7 @@ gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
 /**
  * Build the whole project: packaging CWEL and generating docs.
  */
-gulp.task('build', done => gulpSequence('lint', 'cwel-dist', 'cwel-docs')(done));
+gulp.task('build', done => gulpSequence('lint', 'cwel-test-build', 'cwel-test-copy', 'cwel-dist', 'cwel-docs')(done));
 /**
  * Delete files created by build task
  */
@@ -46,10 +46,11 @@ gulp.task('clean:build', done => gulpSequence('clean:cwel-dist', 'clean:cwel-doc
  * Run the front-end tests.
  */
 gulp.task('test', ['cwel-dist', 'cwel-test-build', 'cwel-test-copy'], (done) => {
-    // Using gulp-multi-process module to run karma in a child process of its own.
-    // It turns out Karma seems to exit the main process it
-    // runs on -- i.e. the gulp process -- making it
-    // impossible to execute alongside other gulp tasks.
+    /*
+        Using `gulp-multi-process` module to run karma in a child process of its own.
+        It turns out Karma seems to exit the main process it runs on -- i.e. the gulp process --
+        making it impossible to execute alongside other gulp tasks.
+    */
     gulpMultiProcess(['cwel-test-run-e2e', 'cwel-test-run-unit'], (exitCode) => {
         if (exitCode !== 0) {
             throw Error('Tests processes returned non zero exit code');

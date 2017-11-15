@@ -1,11 +1,16 @@
-@import './settings';
-@import './aspect-ratio';
-@import './device';
-@import './typography';
-@import './base';
-@import './reset';
-@import './container';
-@import './grid';
+
+@import './variables/vbl-settings';
+
+@import './mixins/mxn-aspect-ratio';
+@import './mixins/mxn-device';
+@import './mixins/mxn-typography';
+@import './mixins/mxn-container';
+@import './mixins/mxn-grid';
+
+@import './components/reset';
+@import './components/typography';
 
 @include generate-container-classes;
 @include generate-grid-classes;
+
+// Individual Cwel components (other than the ones in `~/Cwel/src/Core/scss`) shouldn't be included in this file but be added to `main.scss` instead.
