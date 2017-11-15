@@ -19,6 +19,9 @@
     color: $colour-white;
     background: $colour-core1;
 }
+.nav-sidebar__ul {
+    margin-bottom: 0;
+}
 .nav-sidebar__li {
     border-bottom-width: $border-width-standard;
     border-bottom-style: solid;
@@ -46,6 +49,7 @@
 }
 .nav-sidebar__collapsible-ul {
     max-height: 0;
+    margin-bottom: 0;
     padding-left: 1.63rem;
     overflow: hidden;
     border-top-width: $border-width-standard;
