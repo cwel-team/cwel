@@ -79,7 +79,7 @@ gulp.task('msbuild', () => gulp.src('./Cwel.sln')
 /**
  * Auto-build FED code as you are working on it.
  */
-gulp.task('watch', ['build'], () => {
+gulp.task('watch', done => gulpSequence('clean:build', 'build')(() => {
     argv.chill = true;
 
     browserSync.init({
@@ -187,4 +187,6 @@ gulp.task('watch', ['build'], () => {
         'cwel-docs-build-script',
         'cwel-docs-generate')(() => browserSync.reload()));
     gulp.watch('Cwel.Docs.Web/**/*.cshtml', () => browserSync.reload());
-});
+
+    done();
+}));
