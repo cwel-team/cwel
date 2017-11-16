@@ -17,95 +17,95 @@
 
     @on xs
         spacers.spacer_xxs:
-            width 3.5125px
+            css width is "3.5125px"
 
         spacers.spacer_xs:
-            width 7.0375px
+            css width is "7.0375px"
 
         spacers.spacer_s:
-            width 14.075px
+            css width is "14.075px"
 
         spacers.spacer_m:
-            width 28.15px
+            css width is "28.15px"
 
         spacers.spacer_l:
-            width 56.3125px
+            css width is "56.3125px"
 
         spacers.spacer_xl:
-            width 112.637px
+            css width is "112.637px"
 
     @on s
         spacers.spacer_xxs:
-            width 3.8375px
+            css width is "3.8375px"
 
         spacers.spacer_xs:
-            width 7.675px
+            css width is "7.675px"
 
         spacers.spacer_s:
-            width 15.35px
+            css width is "15.35px"
 
         spacers.spacer_m:
-            width 30.7125px
+            css width is "30.7125px"
 
         spacers.spacer_l:
-            width 61.4375px
+            css width is "61.4375px"
 
         spacers.spacer_xl:
-            width 122.875px
+            css width is "122.875px"
 
     @on m
         spacers.spacer_xxs:
-            width 4px
+            css width is "4px"
 
         spacers.spacer_xs:
-            width 8px
+            css width is "8px"
 
         spacers.spacer_s:
-            width 16px
+            css width is "16px"
 
         spacers.spacer_m:
-            width 32px
+            css width is "32px"
 
         spacers.spacer_l:
-            width 64px
+            css width is "64px"
 
         spacers.spacer_xl:
-            width 128px
+            css width is "128px"
 
     @on l
         spacers.spacer_xxs:
-            width 4.15px
+            css width is "4.15px"
 
         spacers.spacer_xs:
-            width 8.3125px
+            css width is "8.3125px"
 
         spacers.spacer_s:
-            width 16.6375px
+            css width is "16.6375px"
 
         spacers.spacer_m:
-            width 33.275px
+            css width is "33.275px"
 
         spacers.spacer_l:
-            width 66.55px
+            css width is "66.55px"
 
         spacers.spacer_xl:
-            width 133.113px
+            css width is "133.113px"
 
     @on xl
         spacers.spacer_xxs:
-            width 4.3125px
+            css width is "4.3125px"
 
         spacers.spacer_xs:
-            width 8.6375px
+            css width is "8.6375px"
 
         spacers.spacer_s:
-            width 17.275px
+            css width is "17.275px"
 
         spacers.spacer_m:
-            width 34.55px
+            css width is "34.55px"
 
         spacers.spacer_l:
-            width 69.1125px
+            css width is "69.1125px"
 
         spacers.spacer_xl:
-            width 138.238px
+            css width is "138.238px"
