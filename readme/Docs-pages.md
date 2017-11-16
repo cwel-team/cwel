@@ -41,3 +41,8 @@ Example on how to use macros in a template is shown below.
 ``` html
 {% from macros['property-table'] import propertytable %}
 ```
+
+### HTML
+
+The markdown renderer used for the docs support HTML syntax within the Markdown
+syntax, including `<script></script>` tags.
