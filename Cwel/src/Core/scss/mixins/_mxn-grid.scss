@@ -1,3 +1,9 @@
+////
+/// @group Mixins
+/// @since 0.0.1
+////
+
+///
 
 @mixin grid($grid-settings: $GRID) {
     $gutter-xs: map-get($grid-settings, 'gutter-xs');
@@ -19,24 +25,35 @@
     }
 }
 
+///
+/// @group Functions
+
 @function grid-cell-size($n) {
     @return ($n / 12) * 100%;
 }
+
+///
 
 @mixin grid-cell-gutter($device) {
     $gutter: map-get($GRID, 'gutter-#{$device}');
     padding-left: $gutter;
 }
 
+///
+
 @mixin grid-cell-width($width) {
     flex-basis: grid-cell-size($width);
     max-width: grid-cell-size($width);
 }
 
+///
+
 @mixin grid-cell-box-model {
     flex-grow: 0;
     flex-shrink: 0;
 }
+
+///
 
 @mixin grid-cell($sizing, $grid-settings: $GRID) {
     $gutter-xs: map-get($grid-settings, 'gutter-xs');
@@ -63,6 +80,8 @@
  * Grid Utilities
  ************************************/
 
+///
+
 @mixin grid-align($alignment: 'left') {
     $horizontal: (
         left: flex-start,
@@ -84,17 +103,25 @@
     }
 }
 
+///
+
 @mixin grid-reverse {
     flex-direction: row-reverse;
 }
+
+///
 
 @mixin grid-flush {
     margin-left: 0;
 }
 
+///
+
 @mixin grid-justify-space-between {
     justify-content: space-between;
 }
+
+///
 
 @mixin grid-justify-space-around {
     justify-content: space-around;
@@ -103,6 +130,8 @@
 /*************************************
  * Grid Cell Utilities
  ************************************/
+
+///
 
 @mixin grid-cell-align($alignment: 'top') {
     $vertical: (
@@ -116,9 +145,13 @@
     }
 }
 
+///
+
 @mixin grid-cell-flush {
     padding-left: 0;
 }
+
+///
 
 @mixin grid-cell-fit {
     flex-grow: 1;
@@ -128,6 +161,8 @@
 /*************************************
  * Grid Classes
  ************************************/
+
+///
 
 @mixin generate-grid-classes {
 

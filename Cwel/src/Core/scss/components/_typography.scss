@@ -1,15 +1,28 @@
+////
+/// @group _typography.scss
+/// @since 0.0.1
+////
+
+///
+/// 1. Remove the grey background on active links in IE 10
+/// 2. Remove gaps in links underline in iOS GTE 8 and Safari GTE 8
+///
 
 a {
-    background-color: transparent; // Remove the grey background on active links in IE 10.
-    -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS GTE 8 and Safari GTE 8.
+    background-color: transparent; // 1
+    -webkit-text-decoration-skip: objects; // 2
 }
+
+///
+/// 1. Prevent `sub` and `sup` elements from affecting the line height in all browsers
+///
 
 sub,
 sup {
     position: relative;
     vertical-align: baseline;
     font-size: 75%;
-    line-height: 0; // Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+    line-height: 0; // 1
 }
 
 sub {
@@ -20,51 +33,83 @@ sup {
     top: -0.5em; // stylelint-disable-line unit-whitelist
 }
 
+///
+/// 1. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari
+/// 2. Remove the bottom border in Chrome LTE 57 and Firefox LTE 39
+///
+
 abbr[title] {
-    text-decoration: underline; // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
-    text-decoration: underline double; // Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
-    border-bottom: none; // Remove the bottom border in Chrome LTE 57 and Firefox LTE 39.
+    text-decoration: underline; // 1
+    text-decoration: underline double; // 1
+    border-bottom: none; // 2
 }
+
+///
+/// Correct the odd `em` font sizing in all browsers
+///
 
 pre {
     font-family: monospace;
-    // Correct the odd `em` font sizing in all browsers.
     font-size: 1em; // stylelint-disable-line declaration-property-unit-blacklist, unit-whitelist
 }
 
+///
+/// - Add the correct font style in Android LTE 4.3
+///
+
+
 dfn {
-    font-style: italic; // Add the correct font style in Android LTE 4.3.
+    font-style: italic;
 }
 
+///
+/// 1. Add the correct color in LTE IE 9
+/// 2. Add the background color in LTE IE 9
+///
+
 mark {
-    color: #000; // Add the correct color in LTE IE 9.
-    background-color: #ff0; // Add the correct background color in IE LTE 9.
+    color: #000; // 1
+    background-color: #ff0; // 2
 }
 
 /**************************
  * STATES
  *************************/
 
+///
+/// Add the correct font weight in Chrome, Edge, and Safari
+///
+
 b,
 strong {
-    // Add the correct font weight in Chrome, Edge, and Safari.
     font-weight: bolder; // stylelint-disable-line font-weight-notation
 }
 
+///
+/// 1. Add the correct font size in all browsers
+///
+
+
 small {
-    font-size: 80%; // Add the correct font size in all browsers.
+    font-size: 80%; // 1
 }
 
 /**************************
  * NON-TEXTUAL ELEMENTS
  *************************/
 
+///
+/// 1. Add the correct box sizing in Firefox
+/// 2. Show the overflow in Edge and IE
+///
+
+
 hr {
-    box-sizing: content-box; // Add the correct box sizing in Firefox.
-    height: 0; // Add the correct box sizing in Firefox.
+    box-sizing: content-box; // 1
+    height: 0; // 1
     margin-top: 2rem;
     margin-bottom: 2rem;
-    overflow: visible; // Show the overflow in Edge and IE.
+    overflow: visible; // 2
     border: none;
     border-top: 1px solid #999; // stylelint-disable-line declaration-property-unit-blacklist
 }

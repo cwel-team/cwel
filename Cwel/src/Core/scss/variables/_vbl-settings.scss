@@ -1,15 +1,50 @@
+////
+/// @group Variables
+/// @since 0.0.1
+////
 
 /**************************
  * SPACES
  *************************/
 
+/// - Canonical `XXS` space measurement
+/// - Used verbatim for `M` viewport width breakpoint
+/// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
+/// @type String
 $SPACE-XXS: 4px;
+
+/// - Canonical `XS` space measurement
+/// - Used verbatim for `M` viewport width breakpoint
+/// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
+/// @type String
 $SPACE-XS: 8px;
+
+/// - Canonical `S` space measurement
+/// - Used verbatim for `M` viewport width breakpoint
+/// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
+/// @type String
 $SPACE-S: 16px;
+
+/// - Canonical `M` space measurement
+/// - Used verbatim for `M` viewport width breakpoint
+/// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
+/// @type String
 $SPACE-M: 32px;
+
+/// - Canonical `L` space measurement
+/// - Used verbatim for `M` viewport width breakpoint
+/// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
+/// @type String
 $SPACE-L: 64px;
+
+/// - Canonical `XL` space measurement
+/// - Used verbatim for `M` viewport width breakpoint
+/// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
+/// @type String
 $SPACE-XL: 128px;
 
+/// Map used to provide space sizes for the various viewport breakpoints
+/// @type Map
 $SPACES: (
     xxs: $SPACE-XXS,
     xs: $SPACE-XS,
@@ -23,11 +58,24 @@ $SPACES: (
  * BREAKPOINTS
  *************************/
 
+/// `S` Breakpoint size measurement
+/// @type String
 $BREAKPOINT-S: 400px;
+
+/// `M` Breakpoint size measurement
+/// @type String
 $BREAKPOINT-M: 600px;
+
+/// `L` Breakpoint size measurement
+/// @type String
 $BREAKPOINT-L: 1004px;
+
+/// `XL` Breakpoint size measurement
+/// @type String
 $BREAKPOINT-XL: 1280px;
 
+/// Map used to provide breakpoints
+/// @type Map
 $BREAKPOINTS: (
     s: $BREAKPOINT-S,
     m: $BREAKPOINT-M,
@@ -39,15 +87,36 @@ $BREAKPOINTS: (
  * CONTAINER
  *************************/
 
+/// `L` container width
+/// @type String
 $CONTAINER-WIDTH-L: $BREAKPOINT-L;
+
+/// `XL` container width
+/// @type String
 $CONTAINER-WIDTH-XL: $BREAKPOINT-XL;
 
+/// `XS` container margin width
+/// @type String
 $CONTAINER-MARGIN-XS: $SPACE-XS;
+
+/// `S` container margin width
+/// @type String
 $CONTAINER-MARGIN-S: $SPACE-S;
+
+/// `M` container margin width
+/// @type String
 $CONTAINER-MARGIN-M: $SPACE-XS + $SPACE-XXS;
+
+/// `L` container margin width
+/// @type String
 $CONTAINER-MARGIN-L: $SPACE-XS + $SPACE-XXS;
+
+/// `XL` container margin width
+/// @type String
 $CONTAINER-MARGIN-XL: $SPACE-XS + $SPACE-XXS;
 
+/// Map used to provide container widths and margins
+/// @type Map
 $CONTAINER: (
     width-lg: $CONTAINER-WIDTH-L,
     width-xl: $CONTAINER-WIDTH-XL,
@@ -62,12 +131,28 @@ $CONTAINER: (
  * GRID
  *************************/
 
+/// `XS` grid gutter width
+/// @type String
 $GRID-GUTTER-XS: $SPACE-XS;
+
+/// `S` grid gutter width
+/// @type String
 $GRID-GUTTER-S: $SPACE-XS;
+
+/// `M` grid gutter width
+/// @type String
 $GRID-GUTTER-M: $SPACE-S;
+
+/// `L` grid gutter width
+/// @type String
 $GRID-GUTTER-L: $SPACE-S;
+
+/// `XL` grid gutter width
+/// @type String
 $GRID-GUTTER-XL: $SPACE-S;
 
+/// Map used to provide grid sizes
+/// @type Map
 $GRID: (
     gutter-xs: $GRID-GUTTER-XS,
     gutter-s: $GRID-GUTTER-S,

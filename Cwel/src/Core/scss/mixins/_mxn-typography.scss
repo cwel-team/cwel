@@ -1,3 +1,9 @@
+////
+/// @group Mixins
+/// @since 0.0.1
+////
+
+///
 
 @mixin line-height($options: ()) {
     $font-size: map-get($options, 'font-size');
@@ -5,6 +11,8 @@
 
     line-height: ($leading / $font-size);
 }
+
+/// Removes top and bottom padding from a block of text added by `line-height`
 
 @mixin normalized-line-height($options: ()) {
     $font-size: map-get($options, 'font-size');

@@ -1,34 +1,53 @@
+////
+/// @group _reset.scss
+/// @since 0.0.1
+////
 
-/**************************
- * DOCUMENT
- *************************/
+///
+/// 1. Declare global box-sizing
+///
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+    box-sizing: border-box; // 1
 }
 
+///
+/// Declare global document styles
+/// 1. Never scroll the document horizontally
+/// 2. Always include vertical scrollbar to avoid jumps when dynamic content causes page to grow beyond viewport height
+/// 3. Correct the line height in all browsers
+/// 4. Prevent adjustments of font size after orientation changes on iOS
+/// 5. Prevent adjustments of font size after orientation changes in IE on Windows Phone
+///
+
 html {
-    overflow-x: hidden; // Never scroll the document horizontally.
-    overflow-y: scroll; // Always include vertical scrollbar to avoid jumps when dynamic content causes page to grow beyond viewport height.
-    line-height: 1.15;  // Correct the line height in all browsers.
-    -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes on iOS.
-    -ms-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in IE on Windows Phone.
+    overflow-x: hidden; // 1
+    overflow-y: scroll; // 2
+    line-height: 1.15;  // 3
+    -webkit-text-size-adjust: 100%; // 4
+    -ms-text-size-adjust: 100%; // 5
 }
+
+///
+/// 1. Prevent a white band at the bottom of really short pages
+///
 
 body,
 html {
-    min-height: 100%; // Prevent a white band at the bottom of really short pages.
+    min-height: 100%; // 1
 }
+
+///
 
 body {
     margin: 0;
 }
 
-/**************************
- * ELEMENTS
- *************************/
+///
+/// 1. Add the correct display in LTE IE 9
+///
 
 article,
 aside,
@@ -39,29 +58,42 @@ header,
 main,
 nav,
 section {
-    display: block; // Add the correct display in LTE IE 9.
+    display: block; // 1
 }
+
+///
+/// 1. Remove the inheritance of text transform in Firefox
+///
 
 button,
 select {
-    text-transform: none; // Remove the inheritance of text transform in Firefox.
+    text-transform: none;// 1
 }
+
+///
+/// 1. Prevent a WebKit bug where the following rule destroys native `audio` and `video` controls in Android 4
+/// 2. Correct the inability to style clickable types in iOS and Safari
+///
 
 button,
-html [type='button'], // Prevent a WebKit bug where the following rule destroys native `audio` and `video` controls in Android 4.
+html [type='button'], // 1
 [type='reset'],
 [type='submit'] {
-    -webkit-appearance: none; // Correct the inability to style clickable types in iOS and Safari.
+    -webkit-appearance: none; // 2
 }
+
+///
+/// 1. Add the correct display in IE
+///
 
 template {
-    display: none; // Add the correct display in IE.
+    display: none; // 1
 }
 
-/**************************
- * STATES
- *************************/
+///
+/// 1. Add the correct display in LTE IE 10
+///
 
 [hidden] {
-    display: none; // Add the correct display in LTE IE 10.
+    display: none; // 1
 }

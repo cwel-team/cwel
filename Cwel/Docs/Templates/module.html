@@ -1,0 +1,26 @@
+<div class="pageSection">
+  <h2 class="sectionHeader sectionHeader-bordered">{{ name }}</h2>
+
+  <p>{{ description }}</p>
+
+  <div>
+    <h3>States</h3>
+
+    <ul>
+      {% for s in state %}
+        <li><code>{{ s.name }}</code> - {{ s.description }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div>
+    <h3>Example</h3>
+
+    <div class="example">
+      {{ markup.example | safe }}
+    </div>
+    <pre>
+{{ markup.escaped }}
+    </pre>
+  </div>
+</div>
