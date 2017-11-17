@@ -24,9 +24,9 @@ on the docs site.
 To illustrate this in a series of steps:
 
 1. Nunjucks parses the given documentation page template.
-1. Markdown macro includes a markdown file and parses it as a nunjucks template,
+2. Markdown macro includes a markdown file and parses it as a nunjucks template,
 as well.
-1. On page view, the resulting razor view is rendered.
+3. On page view, the resulting razor view is rendered.
 
 ### Macros
 
