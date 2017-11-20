@@ -10,7 +10,7 @@ Due to the advent of [CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS
 
 Grids don't explicitly require a container to display correctly, but for the sake of consistency and structure, a matter of best practice, the CWEL grid comes with one. There are two types of container: one with a width based on the current viewport width, as outlined below, another that always remains full-width, always matching the viewport width.
 
-### Usage
+### Example
 
 To use the container, give an element a class of `container`.
 
