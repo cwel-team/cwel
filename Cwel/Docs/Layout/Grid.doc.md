@@ -1,14 +1,53 @@
 
-## How it works
-
-Grids are common place in the world of web design and front-end development. A few examples are: [Twitter's Bootstrap](http://getbootstrap.com/css/#grid); [BBC's GEL](http://www.bbc.co.uk/gel/guidelines/grid); [Lonely Planet's Rizzo](http://rizzo.lonelyplanet.com/styleguide/css-utilities/proportional-grid). Each of these come with terms defining the space between columns and rows of the grid, spaces along the sides of the grid, etc. To talk about these concepts, some terms are outlined below. For a full-page demo of the grid, without code, checkout the [sandbox grid page](/playground/sandbox/grid).
+Grids are common place in the world of web design and front-end development. A few examples are: [Twitter's Bootstrap](http://getbootstrap.com/css/#grid); [BBC's GEL](http://www.bbc.co.uk/gel/guidelines/grid); [Lonely Planet's Rizzo](http://rizzo.lonelyplanet.com/styleguide/css-utilities/proportional-grid). Each of these come with terms defining the space between columns and rows of the grid, spaces along the sides of the grid, etc. To talk about these concepts, some terms are outlined below.
 
 Due to the advent of [CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout), the naming convention for CWEL's grid differs from [Bootstrap](http://getbootstrap.com/css/#grid) and [Lonely Planet's Rizzo](http://rizzo.lonelyplanet.com/styleguide/css-utilities/proportional-grid). Please read the [Terminology](#terminology) for a list of terms and their definition.
 
+### Demo
+
+For a full-page demo of the grid, without code, checkout the [sandbox grid page](/playground/sandbox/grid).
+
+---
+
+## Contents
+
+- [Getting Started](#getting-started)
+- [Recipes and Modifiers](#recipes-and-modifiers)
+- [Container](#container)
+- [Cells](#cells)
+- [Margins and Gutters](#margins-and-gutters)
+- [Terminology](#terminology)
+
+---
+
+## Getting Started
+
+Copy the code in this example to get started with a grid
+
+``` html
+<div class="container">
+	<div class="grid">
+		<!-- default width of 12 -->
+		<div class="grid__cell">
+			<!-- content goes here -->
+		</div>
+		<!-- half width -->
+		<div class="grid__cell grid__cell--size-6">
+			<!-- content goes here -->
+		</div>
+		<!-- half width -->
+		<div class="grid__cell grid__cell--size-6">
+			<!-- content goes here -->
+		</div>
+	</div>
+</div>
+```
+
+---
 
 ## Container
 
-Grids don't explicitly require a container to display correctly, but for the sake of consistency and structure, a matter of best practice, the CWEL grid comes with one. There are two types of container: one with a width based on the current viewport width, as outlined below, another that always remains full-width, always matching the viewport width.
+Grids don't explicitly require a container to display correctly, but for the sake of consistency and structure, a matter of best practice, the CWEL grid comes with one. There are two types of container: one with a width [based on the current viewport width](#widths), another that always remains full-width, always matching the viewport width.
 
 ### Example
 
@@ -20,7 +59,7 @@ To use the container, give an element a class of `container`.
 </div>
 ```
 
-### Breakpoints
+### Widths
 
 Containers are of fluid width from XS to M devices, changing to fixed width from L to XL.
 
@@ -30,6 +69,7 @@ Containers are of fluid width from XS to M devices, changing to fixed width from
 | L      | 960px  |
 | XL     | 1140px |
 
+---
 
 ## Cells
 
@@ -37,6 +77,22 @@ The grid is divided into 12 cells. Each with a width of the following fractions 
 
 For convenience, any of these can be referred to as their numerator; e.g. width `7/12` as width `7`, width `5/12` as width `5`, width `10/12` as width `10`, etc.
 
+### Example
+
+``` html
+	<div class="grid">
+		<!-- half width -->
+		<div class="grid__cell grid__cell--size-6">
+			<!-- content goes here -->
+		</div>
+		<!-- half width -->
+		<div class="grid__cell grid__cell--size-6">
+			<!-- content goes here -->
+		</div>
+	</div>
+```
+
+---
 
 ## Margins and Gutters
 
@@ -47,6 +103,13 @@ Grids come with two types of spacing, margins and gutters. Margins are the verti
 | XS - S      | 8px          | 8px          |
 | M - L       | 12px         | 16px         |
 
+---
+
+## Recipes and Modifiers
+
+For a list of grid modifiers and what the grid can do, including sample code, visit the [demo page](/playground/sandbox/grid).
+
+---
 
 ## Terminology
 
