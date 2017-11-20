@@ -3,7 +3,7 @@ const gulp              = require('gulp');                          // Task auto
 
 
 // @internal
-gulp.task('cwel-dist-config', () => gulp.src('Cwel/src/web.config')
-.pipe(gulp.dest('Cwel/dist/Cwel')));
+gulp.task('cwel-dist-config', () => gulp.src('Cwel/Src/web.config')
+.pipe(gulp.dest('Cwel/Dist')));
 // @internal
-gulp.task('clean:cwel-dist-config', () => del(['Cwel/dist/Cwel/web.config']));
+gulp.task('clean:cwel-dist-config', () => del(['Cwel/Dist/web.config']));

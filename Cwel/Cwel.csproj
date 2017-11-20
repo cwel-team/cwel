@@ -138,7 +138,7 @@
     <Content Include="src\Service\CwomponentFactory\CwomponentFactory.es" />
     <Content Include="src\Service\CwomponentFactory\CwomponentsFactory.spec.es" />
     <Content Include="src\web.config" />
-    <Content Include="src\Core\es\main.es" />
+    <Content Include="src\Script\main.es" />
     <Content Include="src\Asset\icon\.gitkeep" />
     <Content Include="src\Core\scss\core.scss" />
     <Content Include="src\Core\scss\main.scss" />

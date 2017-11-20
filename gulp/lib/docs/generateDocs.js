@@ -9,7 +9,7 @@ const gatherComponentData = require('./gatherComponentData');
 const gatherPageData = require('./gatherPageData');
 
 // Make sure nunjucks is aware of all templates in the repo
-// e.g. Cwel/src/Component/Badge/Badge.doc.md
+// e.g. Cwel/Src/Component/Badge/Badge.doc.md
 const env = nunjucks.configure('.', { noCache: true });
 
 markdown.register(env, marked);

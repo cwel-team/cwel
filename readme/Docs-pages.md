@@ -35,7 +35,7 @@ object called `macro`, accessible in any of the docs templates. Using an
 object to store macro template paths is used to avoid the need of long
 file paths relative to the repo's root folder. Reason these file paths are
 based off of the root folder is to ensure inclusion of all Component and Pattern
-`doc.md` files e.g. `Cwel/src/Component/Badge/Badge.doc.md`.
+`doc.md` files e.g. `Cwel/Src/Component/Badge/Badge.doc.md`.
 Example on how to use macros in a template is shown below.
 
 ``` html
