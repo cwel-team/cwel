@@ -1,6 +1,7 @@
 const autoprefixer      = require('gulp-autoprefixer');             // Automatically add vendor prefixes using caniuse.com data
 const babel             = require('gulp-babel');                    // ES6 -> ES5
 const del               = require('del');                           // Delete files and folders
+const fs                = require('fs');                            // Core NodeJS lib
 const gulp              = require('gulp');                          // Task automator
 const gulpif            = require('gulp-if');                       // Conditionally run a task
 const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
@@ -57,11 +58,6 @@ gulp.task('clean:cwel-docs-build-script', () => del(['Cwel.Docs.Web/Assets/js/**
 gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/Assets/scss/**/*.scss')
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
-.pipe(sassdoc({
-    verbose: true,
-    theme: 'pheek',
-    dest: 'Cwel/Docs/SassDoc/',
-}))
 .pipe(sass(sassConfig))
 .pipe(autoprefixer({
     browsers: ['last 30 versions'],
@@ -71,12 +67,27 @@ gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/Assets/scss/**/
 
 
 // @internal
-gulp.task('cwel-docs-build-dynamic-scss-docs', () => gulp.src('Cwel/src/Core/scss/**/*.scss')
-.pipe(sassdoc({
-    verbose: true,
-    theme: 'pheek',
-    dest: 'Cwel/Docs/SassDoc/',
-})));
+// gulp.task('cwel-docs-build-dynamic-scss-docs', () => gulp.src('Cwel/src/Core/scss/**/*.scss')
+// .pipe(sassdoc.parse({
+//     verbose: false,
+//     theme: 'pheek',
+//     dest: 'Cwel/Docs/SCSS/',
+// }))).then((data) => {
+//     console.log(data)
+// })
+
+gulp.task('cwel-docs-build-dynamic-scss-docs', () =>
+
+    sassdoc.parse('Cwel/src/Core/scss/**/*.scss', {
+        verbose: false,
+        dest: 'Cwel/Docs/SCSS/',
+    }).then((dataRaw) => {
+        const data = JSON.stringify(dataRaw);
+        fs.writeFile('Cwel/Docs/SCSS/scss.json', data, (err) => {
+            if (err) console.log(err);
+            console.log('File saved');
+        });
+    }));
 
 
 // @internal

@@ -3,9 +3,7 @@
 /// @since 0.0.1
 ////
 
-///
 /// 1. Declare global box-sizing
-///
 
 *,
 *::before,
@@ -13,14 +11,11 @@
     box-sizing: border-box; // 1
 }
 
-///
-/// Declare global document styles
 /// 1. Never scroll the document horizontally
-/// 2. Always include vertical scrollbar to avoid jumps when dynamic content causes page to grow beyond viewport height
+/// 2. Always include a vertical scrollbar to avoid jumps when dynamic content causes the page to grow beyond the viewport height
 /// 3. Correct the line height in all browsers
-/// 4. Prevent adjustments of font size after orientation changes on iOS
-/// 5. Prevent adjustments of font size after orientation changes in IE on Windows Phone
-///
+/// 4. Prevent adjustments to font size after orientation changes on iOS
+/// 5. Prevent adjustments to font size after orientation changes in IE on Windows Phone
 
 html {
     overflow-x: hidden; // 1
@@ -30,9 +25,7 @@ html {
     -ms-text-size-adjust: 100%; // 5
 }
 
-///
-/// 1. Prevent a white band at the bottom of really short pages
-///
+/// 1. Prevent a white band at the bottom of pages when content is less than the viewport height
 
 body,
 html {
@@ -45,9 +38,7 @@ body {
     margin: 0;
 }
 
-///
-/// 1. Add the correct display in LTE IE 9
-///
+/// 1. Add the correct display type in LTE IE 9
 
 article,
 aside,
@@ -61,19 +52,15 @@ section {
     display: block; // 1
 }
 
-///
 /// 1. Remove the inheritance of text transform in Firefox
-///
 
 button,
 select {
-    text-transform: none;// 1
+    text-transform: none; // 1
 }
 
-///
 /// 1. Prevent a WebKit bug where the following rule destroys native `audio` and `video` controls in Android 4
 /// 2. Correct the inability to style clickable types in iOS and Safari
-///
 
 button,
 html [type='button'], // 1
@@ -82,17 +69,13 @@ html [type='button'], // 1
     -webkit-appearance: none; // 2
 }
 
-///
 /// 1. Add the correct display in IE
-///
 
 template {
     display: none; // 1
 }
 
-///
 /// 1. Add the correct display in LTE IE 10
-///
 
 [hidden] {
     display: none; // 1

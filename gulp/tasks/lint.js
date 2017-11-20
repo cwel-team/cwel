@@ -26,6 +26,7 @@ gulp.task('lint-script', () => {
         '!Cwel/src/Vendor/**/*.js',
         '!Cwel/src/Testing/vendor/**/*.js',
         '!Cwel/dist/**/*.js',
+        '!Cwel/Docs/SCSS/**/*.js',
     ])
     .pipe(gulpif(argv.chill, plumber(options.plumber)))
     .pipe(eslint({

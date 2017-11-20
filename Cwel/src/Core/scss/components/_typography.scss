@@ -3,19 +3,15 @@
 /// @since 0.0.1
 ////
 
-///
 /// 1. Remove the grey background on active links in IE 10
 /// 2. Remove gaps in links underline in iOS GTE 8 and Safari GTE 8
-///
 
 a {
     background-color: transparent; // 1
     -webkit-text-decoration-skip: objects; // 2
 }
 
-///
 /// 1. Prevent `sub` and `sup` elements from affecting the line height in all browsers
-///
 
 sub,
 sup {
@@ -33,10 +29,8 @@ sup {
     top: -0.5em; // stylelint-disable-line unit-whitelist
 }
 
-///
 /// 1. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari
 /// 2. Remove the bottom border in Chrome LTE 57 and Firefox LTE 39
-///
 
 abbr[title] {
     text-decoration: underline; // 1
@@ -44,28 +38,21 @@ abbr[title] {
     border-bottom: none; // 2
 }
 
-///
 /// Correct the odd `em` font sizing in all browsers
-///
 
 pre {
     font-family: monospace;
     font-size: 1em; // stylelint-disable-line declaration-property-unit-blacklist, unit-whitelist
 }
 
-///
-/// - Add the correct font style in Android LTE 4.3
-///
-
+/// 1. Add the correct font style in Android LTE 4.3
 
 dfn {
-    font-style: italic;
+    font-style: italic; // 1
 }
 
-///
 /// 1. Add the correct color in LTE IE 9
 /// 2. Add the background color in LTE IE 9
-///
 
 mark {
     color: #000; // 1
@@ -76,19 +63,14 @@ mark {
  * STATES
  *************************/
 
-///
 /// Add the correct font weight in Chrome, Edge, and Safari
-///
 
 b,
 strong {
     font-weight: bolder; // stylelint-disable-line font-weight-notation
 }
 
-///
 /// 1. Add the correct font size in all browsers
-///
-
 
 small {
     font-size: 80%; // 1
@@ -98,11 +80,8 @@ small {
  * NON-TEXTUAL ELEMENTS
  *************************/
 
-///
 /// 1. Add the correct box sizing in Firefox
 /// 2. Show the overflow in Edge and IE
-///
-
 
 hr {
     box-sizing: content-box; // 1
