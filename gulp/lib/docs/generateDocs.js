@@ -28,6 +28,21 @@ renderer.code = (text, language) => {
     return `<pre ng-non-bindable><code class="highlight ${language}">${escaped}</code></pre>`;
 };
 
+/**
+ * Make sure the table is rendered with a docs-table class.
+ *
+ * @param {string} header Table header markup.
+ * @param {string} body Table body markup.
+ * @return {string} HTML of the table, including new docs-table class.
+ */
+renderer.table = (header, body) => {
+    return `
+    <table class="docs-table">
+        <thead>${header}</thead>
+        <tbody>${body}</tbody>
+    </table>`;
+};
+
 marked.setOptions({
     renderer,
 });
