@@ -5,6 +5,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section styles {
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+}
+
+@section scripts {
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        var codeBlocks = document.querySelectorAll('pre code.highlight');
+        for (var i in codeBlocks) {
+            if (codeBlocks.hasOwnProperty(i)) {
+                var block = codeBlocks[i];
+                hljs.highlightBlock(block);
+            }
+        }
+    </script>
+}
+
 {% macro renderCsData(data) %}
 <div class="docs__section">
 	<h2>Summary</h2>

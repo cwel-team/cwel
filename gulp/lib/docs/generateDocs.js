@@ -8,8 +8,34 @@ const markdown            = require('nunjucks-markdown');
 const gatherComponentData = require('./gatherComponentData');
 const gatherPageData = require('./gatherPageData');
 
+const renderer = new marked.Renderer();
+
+/**
+ * Make sure highlightjs can highlight syntax of
+ * codeblocks in markdown.
+ *
+ * @param {string} text The code block contents to render in HTML.
+ * @param {string} language The syntax in which the code block is written.
+ * @return {string} HTML of the pre and code tags containing the given text.
+ */
+renderer.code = (text, language) => {
+    const escaped = text.replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+    return `<pre ng-non-bindable><code class="highlight ${language}">${escaped}</code></pre>`;
+};
+
+marked.setOptions({
+    renderer,
+});
+
 // Make sure nunjucks is aware of all templates in the repo
 // e.g. Cwel/src/Component/Badge/Badge.doc.md
+//      as well as
+//      gulp/lib/docs/template/default.tpl.html
 const env = nunjucks.configure('.', { noCache: true });
 
 markdown.register(env, marked);
