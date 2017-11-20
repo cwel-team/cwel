@@ -160,7 +160,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="build\" />
     <Folder Include="src\Core\img\" />
   </ItemGroup>
   <PropertyGroup>
