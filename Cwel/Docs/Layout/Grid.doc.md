@@ -20,6 +20,16 @@ To use the container, give an element a class of `container`.
 </div>
 ```
 
+### Breakpoints
+
+Containers are of fluid width from XS to M devices, changing to fixed width from L to XL.
+
+| Device | Width  |
+|--------|--------|
+| XS - M | 100%   |
+| L      | 960px  |
+| XL     | 1140px |
+
 
 ## Cells
 
@@ -32,27 +42,10 @@ For convenience, any of these can be referred to as their numerator; e.g. width 
 
 Grids come with two types of spacing, margins and gutters. Margins are the vertical spacing on the outer edges of the grid. Gutters are the vertical spacing in-between the grid cells of the grid. Their size varies across different device sizes.
 
-<table class="docs-table">
-<thead>
-	<tr>
-		<th class="docs-table__column">Device Size</th>
-		<th class="docs-table__column">Grid Margins</th>
-		<th class="docs-table__column">Grid Gutters</th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td class="docs-table__column">XS - S</td>
-		<td class="docs-table__column">8px</td>
-		<td class="docs-table__column">8px</td>
-	</tr>
-	<tr>
-		<td class="docs-table__column">M - L</td>
-		<td class="docs-table__column">12px</td>
-		<td class="docs-table__column">16px</td>
-	</tr>
-</tbody>
-</table>
+| Device Size | Grid Margins | Grid Gutters |
+|-------------|--------------|--------------|
+| XS - S      | 8px          | 8px          |
+| M - L       | 12px         | 16px         |
 
 
 ## Terminology
