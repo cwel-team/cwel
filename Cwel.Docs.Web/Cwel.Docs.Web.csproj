@@ -190,6 +190,8 @@
     <Content Include="FrontEnd\Style\_reset.scss" />
     <Content Include="FrontEnd\Style\_spritesheet.scss" />
     <Content Include="FrontEnd\Style\_variables.scss" />
+    <Content Include="FrontEnd\Script\sandbox\spacers\script.es" />
+    <Content Include="FrontEnd\Style\sandbox\spacers\style.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
