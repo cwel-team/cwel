@@ -289,7 +289,7 @@
             css align-items is "flex-end"
 
         bottom_alignment.grid-1.grid_cell-*:
-            aligned horizontally bottom bottom_alignment.grid-1
+            aligned horizontally bottom bottom_alignment.grid-1 ~0px
 
 = Independent Alignment =
 
@@ -317,13 +317,13 @@
         reversed.grid-1:
             css flex-direction is "row-reverse"
         reversed.grid-1.grid_cell-1:
-            aligned vertically right reversed.grid-1
+            aligned vertically right reversed.grid-1 1px
         reversed.grid-1.grid_cell-2:
-            left-of reversed.grid-1.grid_cell-1
+            left-of reversed.grid-1.grid_cell-1 ~0px
         reversed.grid-1.grid_cell-3:
-            left-of reversed.grid-1.grid_cell-2
+            left-of reversed.grid-1.grid_cell-2 ~0px
         reversed.grid-1.grid_cell-4:
-            left-of reversed.grid-1.grid_cell-3 -1px
+            left-of reversed.grid-1.grid_cell-3 ~0px
 
 = Flush =
 
