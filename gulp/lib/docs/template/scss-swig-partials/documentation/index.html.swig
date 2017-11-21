@@ -1,13 +1,4 @@
-@using Cwel.Web
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-
-
-
-
-{% extends 'scss-swig-partials/layouts/base.html.swig' %}
+{% extends '../layouts/base.html.swig' %}
 
 {% block content %}
 
@@ -43,7 +34,7 @@
 
               {# Loop over the items #}
               {% for item in items %}
-                {% include "scss-swig-partials/includes/partials/item.html.swig" with context %}
+                {% include "../includes/partials/item.html.swig" with context %}
               {% endfor %}
             </section>
           {% endif %}
@@ -58,6 +49,5 @@
 
 {# Include sidebar #}
 {% block sidebar %}
-  {% include "scss-swig-partials/includes/partials/sidebar.html.swig" %}
+  {% include "../includes/partials/sidebar.html.swig" %}
 {% endblock %}
-
