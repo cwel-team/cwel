@@ -160,7 +160,6 @@ gulp.task('watch', done => gulpSequence('clean:build', 'build')(() => {
         'cwel-dist-style',
         'cwel-docs-copy-style',
         'cwel-docs-build-style',
-        'cwel-docs-build-dynamic-scss-docs',
         'cwel-docs-generate')(() => (browserSync.reload())));
 
     // Cwel tests
