@@ -1,4 +1,5 @@
-# Galen Framework ReadMe
+# Galen Framework
+
 
 ## Useful Links
 
@@ -6,23 +7,40 @@
 - http://galenframework.com/docs/reference-working-in-command-line/
 - http://galenframework.com/docs/reference-galen-spec-language-guide/
 
+
 ## Installation Instructions (Windows)
 
-1. Ensure Java 1.8 or greater is installed
-2. Run `npm install galenframework-cli chromedriver geckodriver -g` from an elevated command prompt (admin rights)
-3. Add `C:\Program Files\nodejs\node_modules\galenframework-cli\bin\` to your PATH Environment variable (`System Properties -> Advanced -> Environment Variables -> Path -> Edit -> New` in Windows 10)
-4. Test path has been added successfully by running `galen --version` from a command prompt
+- Ensure [Java 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or greater is installed
+
 
 ## Example Commands
+
+### Run the complete suite
+
+Open command prompt in Cwel project root, then run one of the following commands.
+
+``` cmd
+gulp cwel-test-run-visual
+```
+
+#### Optional Parameters
+
+- `--open-report`: Opens the generated html report in the browser automatically after the tests have finished.
 
 ### Run an individual test
 
 Open command prompt in Cwel root
 
-`npm run galen -- check Cwel/Tests/visual/specs/cwel-grid.gspec --url http://docs.cwel.local/playground/sandbox/grid --size 1280x800 --htmlreport Cwel/Tests/visual/reports/html`
+``` cmd
+npm run galen -- check Cwel/Src/Test/visual/specs/cwel-grid.gspec --url http://docs.cwel.local/playground/sandbox/grid --size 1280x800 --htmlreport Cwel/.tmp/Test/visual/reports/html
+```
 
-### Run the complete suite
+#### Parameters
 
-Open command prompt in Cwel root
+- `--url`: URL against which to run tests.
+- `--size`: Viewport size in which to run tests.
+- `--htmlreport`: Location in which to dump the html report.
 
-`galen test Cwel/Tests/visual/test-suite.test --htmlreport Cwel/Tests/visual/reports/html --junitreport galen-unit-test-output.xml`
+#### Optional Parameters
+
+- `--testngreport`: Location in which to dump the ngtest report.
