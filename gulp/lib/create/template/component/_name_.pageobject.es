@@ -1,4 +1,4 @@
-import PageObject from '../../Testing/PageObject';
+import PageObject from '../../Test/PageObject';
 
 export default class {{ name | pascalize }}PageObject extends PageObject {
     constructor() {

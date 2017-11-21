@@ -4,8 +4,8 @@ const svgmin            = require('gulp-svgmin');                   // SVG clean
 
 
 // @internal
-gulp.task('cwel-dist-img', () => gulp.src('Cwel/src/**/*.svg')
+gulp.task('cwel-dist-img', () => gulp.src('Cwel/Src/**/*.svg')
 .pipe(svgmin())
-.pipe(gulp.dest('Cwel/dist/Cwel')));
+.pipe(gulp.dest('Cwel/Dist')));
 // @internal
-gulp.task('clean:cwel-dist-img', () => del(['Cwel/dist/Cwel/**/*.svg']));
+gulp.task('clean:cwel-dist-img', () => del(['Cwel/Dist/**/*.svg']));
