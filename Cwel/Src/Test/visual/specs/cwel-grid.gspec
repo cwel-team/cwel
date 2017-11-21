@@ -289,7 +289,7 @@
             css align-items is "flex-end"
 
         bottom_alignment.grid-1.grid_cell-*:
-            aligned horizontally bottom bottom_alignment.grid-1 ~0px
+            aligned horizontally bottom bottom_alignment.grid-1 1px
 
 = Independent Alignment =
 
@@ -297,15 +297,15 @@
     @on *
         independent_alignment.grid-1.grid_cell-1:
             css align-self is "flex-start"
-            aligned horizontally top independent_alignment.grid-1
+            aligned horizontally top independent_alignment.grid-1 1px
 
         independent_alignment.grid-1.grid_cell-3:
             css align-self is "center"
-            aligned horizontally centered independent_alignment.grid-1
+            aligned horizontally centered independent_alignment.grid-1 1px
 
         independent_alignment.grid-1.grid_cell-4:
             css align-self is "flex-end"
-            aligned horizontally bottom independent_alignment.grid-1
+            aligned horizontally bottom independent_alignment.grid-1 1px
 
 = Reveresed =
 
