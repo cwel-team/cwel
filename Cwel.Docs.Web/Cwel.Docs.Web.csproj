@@ -109,40 +109,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\es\bus.es" />
-    <Content Include="Assets\es\docsapp.es" />
-    <Content Include="Assets\es\playground.es" />
-    <Content Include="Assets\es\playgroundstore.es" />
-    <Content Include="Assets\fonts\proxima-nova-bold.svg" />
-    <Content Include="Assets\fonts\proxima-nova-light.svg" />
-    <Content Include="Assets\fonts\proxima-nova-regular.svg" />
+    <Content Include="Assets\CSS\sandbox\grid\style.css" />
+    <Content Include="Assets\CSS\sandbox\typography\style.css" />
+    <Content Include="Assets\CSS\site.css" />
     <Content Include="Assets\img\cwel_logo.svg" />
     <Content Include="Assets\img\spritesheet.svg" />
-    <Content Include="Assets\scss\sandbox\grid\style.scss" />
-    <Content Include="Assets\scss\sandbox\typography\style.scss" />
-    <Content Include="Assets\scss\sandbox\_block.scss" />
-    <Content Include="Assets\scss\sandbox\_divider.scss" />
-    <Content Include="Assets\scss\sandbox\_viewport.scss" />
-    <Content Include="Assets\scss\site.scss" />
-    <Content Include="Assets\scss\_base.scss" />
-    <Content Include="Assets\scss\_button.scss" />
-    <Content Include="Assets\scss\_container.scss" />
-    <Content Include="Assets\scss\_docs-example.scss" />
-    <Content Include="Assets\scss\_docs-playground.scss" />
-    <Content Include="Assets\scss\_docs.scss" />
-    <Content Include="Assets\scss\_editor-order.scss" />
-    <Content Include="Assets\scss\_editor-output.scss" />
-    <Content Include="Assets\scss\_footer.scss" />
-    <Content Include="Assets\scss\_form-field.scss" />
-    <Content Include="Assets\scss\_nav-header.scss" />
-    <Content Include="Assets\scss\_nav-sidebar.scss" />
-    <Content Include="Assets\scss\_reset.scss" />
-    <Content Include="Assets\scss\_spritesheet.scss" />
-    <Content Include="Assets\scss\_variables.scss" />
-    <Content Include="Assets\vendor\.eslintignore" />
-    <Content Include="Assets\vendor\angular-drag-and-drop-lists\angular-drag-and-drop-lists.js" />
-    <Content Include="Assets\vendor\angularjs\angular.js" />
-    <Content Include="Assets\vendor\jsoncomp\jsonc.js" />
+    <Content Include="Assets\JS\bus.js" />
+    <Content Include="Assets\JS\docsapp.js" />
+    <Content Include="Assets\JS\jsfiddle.js" />
+    <Content Include="Assets\JS\playground.js" />
+    <Content Include="Assets\JS\playgroundstore.js" />
+    <Content Include="Assets\JS\sandbox\grid\script.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -176,20 +153,43 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="Assets\es\jsfiddle.es" />
-    <Content Include="Assets\es\sandbox\grid\script.es" />
-    <Content Include="Assets\fonts\proxima-nova-bold.eot" />
-    <Content Include="Assets\fonts\proxima-nova-bold.ttf" />
-    <Content Include="Assets\fonts\proxima-nova-bold.woff" />
-    <Content Include="Assets\fonts\proxima-nova-bold.woff2" />
-    <Content Include="Assets\fonts\proxima-nova-light.eot" />
-    <Content Include="Assets\fonts\proxima-nova-light.ttf" />
-    <Content Include="Assets\fonts\proxima-nova-light.woff" />
-    <Content Include="Assets\fonts\proxima-nova-light.woff2" />
-    <Content Include="Assets\fonts\proxima-nova-regular.eot" />
-    <Content Include="Assets\fonts\proxima-nova-regular.ttf" />
-    <Content Include="Assets\fonts\proxima-nova-regular.woff" />
-    <Content Include="Assets\fonts\proxima-nova-regular.woff2" />
+    <Content Include="Assets\CSS\sandbox\grid\style.css.map" />
+    <Content Include="Assets\CSS\sandbox\typography\style.css.map" />
+    <Content Include="Assets\CSS\site.css.map" />
+    <Content Include="Assets\JS\bus.js.map" />
+    <Content Include="Assets\JS\docsapp.js.map" />
+    <Content Include="Assets\JS\jsfiddle.js.map" />
+    <Content Include="Assets\JS\playground.js.map" />
+    <Content Include="Assets\JS\playgroundstore.js.map" />
+    <Content Include="Assets\JS\sandbox\grid\script.js.map" />
+    <Content Include="FrontEnd\Script\bus.es" />
+    <Content Include="FrontEnd\Script\docsapp.es" />
+    <Content Include="FrontEnd\Script\jsfiddle.es" />
+    <Content Include="FrontEnd\Script\playground.es" />
+    <Content Include="FrontEnd\Script\playgroundstore.es" />
+    <Content Include="FrontEnd\Script\sandbox\grid\script.es" />
+    <Content Include="FrontEnd\Style\sandbox\grid\style.scss" />
+    <Content Include="FrontEnd\Style\sandbox\typography\style.scss" />
+    <Content Include="FrontEnd\Style\sandbox\_block.scss" />
+    <Content Include="FrontEnd\Style\sandbox\_divider.scss" />
+    <Content Include="FrontEnd\Style\sandbox\_viewport.scss" />
+    <Content Include="FrontEnd\Style\site.scss" />
+    <Content Include="FrontEnd\Style\_base.scss" />
+    <Content Include="FrontEnd\Style\_button.scss" />
+    <Content Include="FrontEnd\Style\_container.scss" />
+    <Content Include="FrontEnd\Style\_docs-example.scss" />
+    <Content Include="FrontEnd\Style\_docs-playground.scss" />
+    <Content Include="FrontEnd\Style\_docs-table.scss" />
+    <Content Include="FrontEnd\Style\_docs.scss" />
+    <Content Include="FrontEnd\Style\_editor-order.scss" />
+    <Content Include="FrontEnd\Style\_editor-output.scss" />
+    <Content Include="FrontEnd\Style\_footer.scss" />
+    <Content Include="FrontEnd\Style\_form-field.scss" />
+    <Content Include="FrontEnd\Style\_nav-header.scss" />
+    <Content Include="FrontEnd\Style\_nav-sidebar.scss" />
+    <Content Include="FrontEnd\Style\_reset.scss" />
+    <Content Include="FrontEnd\Style\_spritesheet.scss" />
+    <Content Include="FrontEnd\Style\_variables.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -215,6 +215,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\CSS\sandbox\spacers\" />
+    <Folder Include="Assets\JS\sandbox\spacers\" />
     <Folder Include="Views\Documentation\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>

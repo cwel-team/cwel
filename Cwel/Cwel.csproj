@@ -96,7 +96,10 @@
   <ItemGroup>
     <Content Include="src\Asset\icon\card-slider--large-arrow.svg" />
     <Content Include="src\Asset\icon\card-slider--small-arrow.svg" />
-    <Content Include="src\Testing\vendor\angular-mocks.js" />
+    <Content Include="src\Test\e2e\vendor\angular-mocks.js" />
+    <Content Include="src\Test\visual\reports\.gitignore" />
+    <Content Include="src\Vendor\angularjs\angular.js" />
+    <Content Include="src\Vendor\hammer\hammer.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +114,12 @@
     <Compile Include="src\Web\IconHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Docs\Helper\AssetHelper.doc.md" />
+    <Content Include="Docs\Helper\ComponentHelper.doc.md" />
+    <Content Include="Docs\Helper\IconHelper.doc.md" />
+    <Content Include="Docs\Structure\Grid.doc.md" />
+    <Content Include="Docs\Structure\SCSS Reset.doc.md" />
+    <Content Include="Docs\Structure\SCSS.doc.md" />
     <None Include="packages.config" />
     <Content Include="src\Component\Badge\Badge.cshtml" />
     <Content Include="src\Component\Badge\Badge.doc.md" />
@@ -140,18 +149,19 @@
     <Content Include="src\web.config" />
     <Content Include="src\Script\main.es" />
     <Content Include="src\Asset\icon\.gitkeep" />
-    <Content Include="src\Core\scss\core.scss" />
-    <Content Include="src\Core\scss\main.scss" />
-    <Content Include="src\Testing\PageObject.es" />
     <Content Include="src\Service\Breakpoint\Breakpoint.spec.broken" />
-    <Content Include="src\Core\scss\components\_reset.scss" />
-    <Content Include="src\Core\scss\components\_typography.scss" />
-    <Content Include="src\Core\scss\mixins\_mxn-aspect-ratio.scss" />
-    <Content Include="src\Core\scss\mixins\_mxn-container.scss" />
-    <Content Include="src\Core\scss\mixins\_mxn-device.scss" />
-    <Content Include="src\Core\scss\mixins\_mxn-grid.scss" />
-    <Content Include="src\Core\scss\mixins\_mxn-typography.scss" />
-    <Content Include="src\Core\scss\variables\_vbl-settings.scss" />
+    <Content Include="src\Style\Component\_reset.scss" />
+    <Content Include="src\Style\Component\_typography.scss" />
+    <Content Include="src\Style\core.scss" />
+    <Content Include="src\Style\main.scss" />
+    <Content Include="src\Style\Mixin\_mxn-aspect-ratio.scss" />
+    <Content Include="src\Style\Mixin\_mxn-container.scss" />
+    <Content Include="src\Style\Mixin\_mxn-device.scss" />
+    <Content Include="src\Style\Mixin\_mxn-grid.scss" />
+    <Content Include="src\Style\Mixin\_mxn-typography.scss" />
+    <Content Include="src\Style\Variable\_vbl-settings.scss" />
+    <Content Include="src\Test\e2e\PageObject.es" />
+    <Content Include="src\Vendor\.eslintignore" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -160,7 +170,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="src\Core\img\" />
+    <Folder Include="src\Test\visual\reports\html\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
