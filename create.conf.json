@@ -1,16 +1,16 @@
 {
   "component": {
-    "fedSrc": "Cwel/src/Component/{name}",
-    "bedSrc": "Cwel/src/Component/{name}",
+    "fedSrc": "Cwel/Src/Component/{name}",
+    "bedSrc": "Cwel/Src/Component/{name}",
     "templates": "gulp/lib/create/template/component"
   },
   "pattern": {
-    "fedSrc": "Cwel/src/Pattern/{name}",
-    "bedSrc": "Cwel/src/Pattern/{name}",
+    "fedSrc": "Cwel/Src/Pattern/{name}",
+    "bedSrc": "Cwel/Src/Pattern/{name}",
     "templates": "gulp/lib/create/template/pattern"
   },
   "service": {
-    "fedSrc": "Cwel/src/Service/{name}",
+    "fedSrc": "Cwel/Src/Service/{name}",
     "templates": "gulp/lib/create/template/service"
   }
 }

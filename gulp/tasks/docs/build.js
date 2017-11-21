@@ -44,18 +44,18 @@ gulp.task('clean:cwel-docs-build', done => gulpSequence(
 
 
 // @internal
-gulp.task('cwel-docs-build-script', () => gulp.src('Cwel.Docs.Web/Assets/es/**/*.es')
+gulp.task('cwel-docs-build-script', () => gulp.src('Cwel.Docs.Web/FrontEnd/Script/**/*.es')
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel.Docs.Web/Assets/js')));
+.pipe(gulp.dest('Cwel.Docs.Web/Assets/JS')));
 // @internal
-gulp.task('clean:cwel-docs-build-script', () => del(['Cwel.Docs.Web/Assets/js/**/*.{js,js.map}']));
+gulp.task('clean:cwel-docs-build-script', () => del(['Cwel.Docs.Web/Assets/JS/**/*.{js,js.map}']));
 
 
 // @internal
-gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/Assets/scss/**/*.scss')
+gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/FrontEnd/Style/**/*.scss')
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(sass(sassConfig))
@@ -63,10 +63,11 @@ gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/Assets/scss/**/
     browsers: ['last 30 versions'],
 }))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel.Docs.Web/Assets/css')));
+.pipe(gulp.dest('Cwel.Docs.Web/Assets/CSS')));
 
 
 // @internal
+
 // gulp.task('cwel-docs-build-dynamic-scss-docs', () => gulp.src('Cwel/src/Core/scss/**/*.scss')
 // .pipe(sassdoc.parse({
 //     verbose: false,

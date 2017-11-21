@@ -3,7 +3,7 @@ const gulp              = require('gulp');                          // Task auto
 
 
 // @internal
-gulp.task('cwel-dist-razor', () => gulp.src('Cwel/src/**/*.cshtml')
-.pipe(gulp.dest('Cwel/dist/Cwel')));
+gulp.task('cwel-dist-razor', () => gulp.src('Cwel/Src/**/*.cshtml')
+.pipe(gulp.dest('Cwel/Dist')));
 // @internal
-gulp.task('clean:cwel-dist-razor', () => del(['Cwel/dist/Cwel/**/*.cshtml']));
+gulp.task('clean:cwel-dist-razor', () => del(['Cwel/Dist/**/*.cshtml']));
