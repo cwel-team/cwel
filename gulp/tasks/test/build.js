@@ -34,9 +34,9 @@ gulp.task('cwel-test-build-component', () => gulp.src([
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/tmp/test/Component')));
+.pipe(gulp.dest('Cwel/.tmp/test/Component')));
 // @internal
-gulp.task('clean:cwel-test-build-component', () => del(['Cwel/tmp/test/Component/**/*.{js,js.map}']));
+gulp.task('clean:cwel-test-build-component', () => del(['Cwel/.tmp/test/Component/**/*.{js,js.map}']));
 
 
 // @internal
@@ -47,9 +47,9 @@ gulp.task('cwel-test-build-pattern', () => gulp.src([
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/tmp/test/Pattern')));
+.pipe(gulp.dest('Cwel/.tmp/test/Pattern')));
 // @internal
-gulp.task('clean:cwel-test-build-pattern', () => del(['Cwel/tmp/test/Pattern/**/*.{js,js.map}']));
+gulp.task('clean:cwel-test-build-pattern', () => del(['Cwel/.tmp/test/Pattern/**/*.{js,js.map}']));
 
 
 // @internal
@@ -60,9 +60,9 @@ gulp.task('cwel-test-build-service', () => gulp.src([
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/tmp/test/Service')));
+.pipe(gulp.dest('Cwel/.tmp/test/Service')));
 // @internal
-gulp.task('clean:cwel-test-build-service', () => del(['Cwel/tmp/test/Service/**/*.{js,js.map}']));
+gulp.task('clean:cwel-test-build-service', () => del(['Cwel/.tmp/test/Service/**/*.{js,js.map}']));
 
 
 // @internal
@@ -73,9 +73,9 @@ gulp.task('cwel-test-build-utils', () => gulp.src([
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/tmp/test/Test/e2e')));
+.pipe(gulp.dest('Cwel/.tmp/test/Test/e2e')));
 // @internal
 gulp.task('clean:cwel-test-build-utils', () => del([
-    'Cwel/tmp/test/Test/e2e/**/*.{js,js.map}',
-    '!Cwel/tmp/test/Test/e2e/vendor/**/*.{js,js.map}',
+    'Cwel/.tmp/test/Test/e2e/**/*.{js,js.map}',
+    '!Cwel/.tmp/test/Test/e2e/vendor/**/*.{js,js.map}',
 ]));

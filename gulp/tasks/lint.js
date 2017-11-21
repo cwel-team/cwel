@@ -23,7 +23,7 @@ gulp.task('lint-script', () => {
         '!Cwel/Src/Vendor/**/*.js',
         '!Cwel/Src/Test/e2e/vendor/**/*.js',
         '!Cwel/Dist/**/*.js',
-        '!Cwel/tmp/**/*.js',
+        '!Cwel/.tmp/**/*.js',
         '!gulp/lib/create/template/**',
         '!Cwel.Docs.Web/Cwel/**/*.js',
         '!Cwel.Docs.Web/Assets/**/*.js',

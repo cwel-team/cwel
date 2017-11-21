@@ -9,7 +9,7 @@ module.exports = function gatherPageData(file) {
     const destDir = path.join(path.parse(file.path).dir, name);
     const type = path.parse(path.resolve(destDir, '..')).name.toLowerCase();
     const mdFile = path.resolve(srcDir, `${name}.doc.md`);
-    const csData = processCsData(path.join(process.cwd(), 'Cwel/tmp/docs/csdoc'));
+    const csData = processCsData(path.join(process.cwd(), 'Cwel/.tmp/docs/csdoc'));
 
     return {
         name,

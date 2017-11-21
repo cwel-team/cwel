@@ -173,13 +173,13 @@ gulp.task('watch', done => gulpSequence('clean:build', 'build')(() => {
         'cwel-test-build'));
 
     // Docs site
-    gulp.watch('Cwel.Docs.Web/SCSS/**/*.scss', () => gulpSequence(
+    gulp.watch('Cwel.Docs.Web/FrontEnd/Style/**/*.scss', () => gulpSequence(
         'lint-style',
         'clean:cwel-docs-build-style',
         'clean:cwel-docs-generate',
         'cwel-docs-build-style',
         'cwel-docs-generate')(() => (browserSync.reload())));
-    gulp.watch('Cwel.Docs.Web/ES/**/*.es', () => gulpSequence(
+    gulp.watch('Cwel.Docs.Web/FrontEnd/Script/**/*.es', () => gulpSequence(
         'lint-script',
         'clean:cwel-docs-build-script',
         'clean:cwel-docs-generate',

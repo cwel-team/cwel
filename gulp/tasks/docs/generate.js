@@ -52,7 +52,7 @@ gulp.task('clean:cwel-docs-generate-md-page', () => del(['Cwel.Docs.Web/Cwel/Doc
 gulp.task('cwel-docs-generate-csharp', () => {
     return gulp.src([
         'Cwel/**/*.csdoc',
-    ]).pipe(csdoc()).pipe(gulp.dest('Cwel/tmp/docs/csdoc'));
+    ]).pipe(csdoc()).pipe(gulp.dest('Cwel/.tmp/docs/csdoc'));
 });
 // @internal
-gulp.task('clean:cwel-docs-generate-csharp', () => del(['Cwel/tmp/docs/csdoc']));
+gulp.task('clean:cwel-docs-generate-csharp', () => del(['Cwel/.tmp/docs/csdoc']));

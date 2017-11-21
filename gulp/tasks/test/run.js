@@ -19,7 +19,7 @@ gulp.task('cwel-test-run-e2e', (done) => {
     });
     const hostname = yargs.argv.host.replace(/\/$/, '');
 
-    gulp.src(['Cwel/tmp/test/**/*.{e2e,pageobject}.js'])
+    gulp.src(['Cwel/.tmp/test/**/*.{e2e,pageobject}.js'])
     .pipe(protractor({
         configFile: 'protractor.conf.js',
         args: [
@@ -49,8 +49,8 @@ gulp.task('cwel-test-run-unit', (done) => {
         frameworks: ['jasmine'],
         files: [
             'Cwel/Dist/cwel-full.js',
-            'Cwel/tmp/test/Test/e2e/vendor/angular-mocks.js',
-            'Cwel/tmp/test/**/*.spec.js',
+            'Cwel/.tmp/test/Test/e2e/vendor/angular-mocks.js',
+            'Cwel/.tmp/test/**/*.spec.js',
         ],
     });
 

@@ -41,7 +41,7 @@ gulp.task('clean:cwel-docs-build', done => gulpSequence(
 
 
 // @internal
-gulp.task('cwel-docs-build-script', () => gulp.src('Cwel.Docs.Web/FrontEnd/Scripts/**/*.es')
+gulp.task('cwel-docs-build-script', () => gulp.src('Cwel.Docs.Web/FrontEnd/Script/**/*.es')
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
@@ -52,7 +52,7 @@ gulp.task('clean:cwel-docs-build-script', () => del(['Cwel.Docs.Web/Assets/JS/**
 
 
 // @internal
-gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/FrontEnd/Styles/**/*.scss')
+gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/FrontEnd/Style/**/*.scss')
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(sass(sassConfig))

@@ -13,6 +13,6 @@ gulp.task('clean:cwel-test-copy', done => gulpSequence([
 
 // @internal
 gulp.task('cwel-test-copy-vendor', () => gulp.src('Cwel/Src/Test/e2e/vendor/**/*.js')
-.pipe(gulp.dest('Cwel/tmp/test/Test/e2e/vendor')));
+.pipe(gulp.dest('Cwel/.tmp/test/Test/e2e/vendor')));
 // @internal
-gulp.task('clean:cwel-test-copy-vendor', () => del(['Cwel/tmp/test/Test/e2e/vendor/**/*.js']));
+gulp.task('clean:cwel-test-copy-vendor', () => del(['Cwel/.tmp/test/Test/e2e/vendor/**/*.js']));
