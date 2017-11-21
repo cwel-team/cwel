@@ -1,8 +1,6 @@
 const autoprefixer      = require('gulp-autoprefixer');             // Automatically add vendor prefixes using caniuse.com data
 const babel             = require('gulp-babel');                    // ES6 -> ES5
-const data              = require('gulp-data');                     // Data injection
 const del               = require('del');                           // Delete files and folders
-// const fs                = require('fs');                            // Core NodeJS lib
 const gulp              = require('gulp');                          // Task automator
 const gulpif            = require('gulp-if');                       // Conditionally run a task
 const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
@@ -12,10 +10,9 @@ const process           = require('process');                       // Core Node
 const sass              = require('gulp-sass');                     // Compile SCSS into CSS
 const sassdoc           = require('sassdoc');                       // Build dynamic CSS documentation based on comments
 const sourcemaps        = require('gulp-sourcemaps');               // Generate sourcemaps
-const swig              = require('gulp-swig');                     // HTML templating
 const yargs             = require('yargs');                         // Args
 
-const argv = yargs.argv; // parse process.argv with yargs
+const argv = yargs.argv; // Parse process.argv with yargs
 
 /* eslint-disable */
 const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
@@ -68,39 +65,15 @@ gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/FrontEnd/Style/
 .pipe(gulp.dest('Cwel.Docs.Web/Assets/CSS')));
 
 
-// // @internal
-// gulp.task('cwel-docs-build-dynamic-scss-docs', () => gulp.src('Cwel/src/Core/scss/**/*.scss')
-// .pipe(sassdoc.parse({
-//     verbose: false,
-//     theme: 'pheek',
-//     dest: 'Cwel/Docs/SCSS/',
-// }))).then((data) => {
-//     console.log(data)
-// })
-
-
 // @internal
 gulp.task('cwel-docs-build-dynamic-scss-docs', () =>
-
-    sassdoc.parse('Cwel/Src/Style/**/*.scss', {
+    sassdoc('Cwel/Src/Style/**/*.scss', {
         verbose: false,
-        dest: 'Cwel/Docs/SCSS/',
-    }).then((dataRaw) => {
-        const datas = JSON.stringify(dataRaw);
-        console.log(datas);
-        gulp.src('./gulp/lib/docs/template/scss.tpl.html')
-        .pipe(data(datas))
-        .pipe(swig())
-        .pipe(gulp.dest('Cwel/Docs/SCSS'));
-
-        // const data = JSON.stringify(dataRaw);
-        // fs.writeFile('Cwel/Docs/SCSS/scss.json', data, (err) => {
-        //     if (err) console.log(err);
-        //     console.log('File saved');
-
-        // });
+        theme: 'pheek',
+        dest: 'Cwel/.tmp/docs/scss/',
+    }).then(() => {}, (err) => {
+        console.error(`SCSS docs generation error: ${err}`);
     }));
 
-
 // @internal
-gulp.task('clean:cwel-docs-build-style', () => del(['Cwel.Docs.Web/Assets/css/**/*.{css,css.map}']));
+gulp.task('clean:cwel-docs-build-style', () => del(['Cwel/.tmp/docs/scss/**/*']));
