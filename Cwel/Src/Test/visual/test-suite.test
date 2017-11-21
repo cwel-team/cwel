@@ -11,7 +11,7 @@
 @@ set
     domain          docs.cwel.local
     base_url        http://${domain}/playground/sandbox/
-    spec_url        Cwel/Tests/visual/specs/
+    spec_url        Cwel/Src/Test/visual/specs/
 
 @@ parameterized using breakpoints
 Grid at breakpoint: ${breakpointName}
