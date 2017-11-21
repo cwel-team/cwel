@@ -20,13 +20,13 @@ gulp.task('lint-script', () => {
         '**/*.es',
         '**/*.js',
         '!node_modules/**',
+        '!Cwel/Src/Vendor/**/*.js',
+        '!Cwel/Src/Test/e2e/vendor/**/*.js',
+        '!Cwel/Dist/**/*.js',
+        '!Cwel/.tmp/**/*.js',
         '!gulp/lib/create/template/**',
         '!Cwel.Docs.Web/Cwel/**/*.js',
         '!Cwel.Docs.Web/Assets/**/*.js',
-        '!Cwel/src/Vendor/**/*.js',
-        '!Cwel/src/Testing/vendor/**/*.js',
-        '!Cwel/dist/**/*.js',
-        '!Cwel/Tests/visual/**/*.js', // Galen test framework
     ])
     .pipe(gulpif(argv.chill, plumber(options.plumber)))
     .pipe(eslint({
@@ -42,8 +42,8 @@ gulp.task('lint-script', () => {
 gulp.task('lint-style', () => {
     return gulp.src([
         '**/*.scss',
-        '!Cwel/dist/**',
-        '!Cwel/src/Vendor/**',
+        '!Cwel/Dist/**',
+        '!Cwel/Src/Vendor/**',
         '!Cwel.Docs.Web/Assets/css/**',
         '!Cwel.Docs.Web/Assets/vendor/**',
         '!Cwel.Docs.Web/Cwel/**',

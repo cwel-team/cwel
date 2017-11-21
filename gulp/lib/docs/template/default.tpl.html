@@ -1,6 +1,27 @@
+{% from macros['property-table'] import propertytable %}
+
 @using Cwel.Web
+@model Cwel.Docs.Web.Models.ComponentDocumentationViewModel
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+}
+
+@section scripts {
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        var codeBlocks = document.querySelectorAll('pre code.highlight');
+        for (var i in codeBlocks) {
+            if (codeBlocks.hasOwnProperty(i)) {
+                var block = codeBlocks[i];
+                hljs.highlightBlock(block);
+            }
+        }
+    </script>
 }
 
 <div class="docs">
@@ -11,74 +32,59 @@
     </div>
 
     <div class="container">
-        {{ notes | safe }}
-
         <div class="docs__section">
-            <h2>ViewModel</h2>
-            <div>Type: {{ vm.name }}</div>
-            <div>Summary: {{ vm.summary }}</div>
-        </div>
+            <h2>Summary</h2>
+            {% markdown mdFile %}
 
-        <div class="docs__section">
-            <h2>Properties</h2>
-            {% for prop in vm.props %}
-            <div>
-              {{ prop.name }} [{{ prop.returns }}] - {{ prop.summary }}
-            </div>
-            {% endfor %}
-        </div>
-
-        <div class="docs__section">
-            <h2>Scope</h2>
-            {% for item in script.scope %}
-            <div>{{ item.name }}</div>
-
-            {% if item.type %}
-            <strong>Type:</strong> {{ item.type }}
-            {% endif %}
-
-            {% if item.params.length > 0 %}
-            <strong>Params:</strong>
-            <ul>
-              {% for param in item.params %}
-              <li>{{ param }}</li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-
-            {% if item.return %}
-            <strong>Returns:</strong> {{ item.return }}
-            {% endif %}
-
-            {% endfor %}
-        </div>
-
-        <div class="docs__section">
-            <div class="docs-example" ng-init="show='javascript'">
+            <h2>Example</h2>
+            <div class="docs-example" ng-init="show='result'">
                 <div class="docs-example__nav">
-                    <div class="docs-example__nav-title">Example</div>
                     <ul class="docs-example__nav-ul">
-                        <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link" ng-click="show='javascript'">Javascript</a>
-                        </li>
-                        <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link" ng-click="show='html'">HTML</a>
-                        </li>
-                        <li class="docs-example__nav-li">
-                            <a class="docs-example__nav-link" ng-click="show='css'">CSS</a>
-                        </li>
-                        <li class="docs-example__nav-li">
+                        <li class="docs-example__nav-li" ng-class="{ 'docs-example__nav-li--active': show=='result' }">
                             <a class="docs-example__nav-link" ng-click="show='result'">Result</a>
+                        </li>
+                        <li class="docs-example__nav-li" ng-class="{ 'docs-example__nav-li--active': show=='html' }">
+                            <a class="docs-example__nav-link" ng-click="show='html'">HTML</a>
                         </li>
                     </ul>
                 </div>
-                <div class="docs-example__content" ng-show="show=='javascript'">js</div>
-                <div class="docs-example__content" ng-show="show=='html'">html</div>
-                <div class="docs-example__content" ng-show="show=='css'">css</div>
-                <div class="docs-example__content" ng-show="show=='result'">result</div>
+                <div class="docs-example__content docs-example__content--center" ng-show="show=='result'">
+                    <iframe height-auto class="docs-example__preview" width="100%" src="/Playground/Render?layout=true&amp;name={{ name }}&amp;type={{ type }}&amp;model={{ modelData | dump | urlencode }}"></iframe>
+                </div>
+                <div class="docs-example__content" ng-show="show=='html'"><pre ng-non-bindable><code class="highlight html">@Model.Html</code></pre></div>
             </div>
         </div>
 
-    </div>
+        <div class="docs__section">
+            <h2>Angular Directive</h2>
 
+            <p>Outline of the angular directive for {{ script.name }}. Use the name as an attribute of an element to instantiate the component. For example markup on how to use this component, see the 'HTML' tab in the example above.</p>
+
+            <h3>Name</h3>
+            <p><code class="nohighlight">{{ script.name | kebab }}</code></p>
+
+            <h3>Attributes</h3>
+            <p>Data attributes used to initialize the directive.</p>
+            {{ propertytable(script.attributes, 'No attributes to document...') }}
+
+            {% if script.scope %}
+            <h3>Scope</h3>
+            <p>Variables and functions available in the angular scope of {{ name }}.</p>
+            {{ propertytable(script.scope, 'No scope properties to document...') }}
+            {% endif %}
+        </div>
+
+        <div class="docs__section">
+            <h2>View Model</h2>
+
+            <h3>Type</h3>
+            <p><code>{{ vm.name }}</code></p>
+
+            <h3>Summary</h3>
+            <p>{{ vm.summary }}</p>
+
+            <h3>Properties</h3>
+            {{ propertytable(vm.props, 'No view model properties to document...') }}
+        </div>
+    </div>
 </div>

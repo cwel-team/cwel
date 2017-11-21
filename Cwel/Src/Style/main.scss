@@ -1,0 +1,7 @@
+
+@import 'core';
+
+// Every Cwel component needs to be included below as this file generates the bundle with everything in.
+
+@import '../Component/Card/Card';
+@import '../Pattern/CardSlider/CardSlider';

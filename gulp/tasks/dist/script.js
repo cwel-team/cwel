@@ -57,110 +57,111 @@ gulp.task('clean:cwel-dist-script-compile', done => gulpSequence([
 
 
 // @internal
-gulp.task('cwel-dist-script-main', () => gulp.src('Cwel/src/Core/es/main.es')
+gulp.task('cwel-dist-script-main', () => gulp.src('Cwel/Src/Script/main.es')
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/dist/Cwel/Core/js')));
+.pipe(gulp.dest('Cwel/Dist/Script')));
 // @internal
-gulp.task('clean:cwel-dist-script-main', () => del(['Cwel/dist/Cwel/Core/js/main.{js,js.map}']));
+gulp.task('clean:cwel-dist-script-main', () => del(['Cwel/Dist/Script/main.{js,js.map}']));
 
 
 // @internal
 gulp.task('cwel-dist-script-component', () => gulp.src([
-    'Cwel/src/Component/**/*.es',
-    '!Cwel/src/Component/**/*.{spec,pageobject,e2e}.es',
+    'Cwel/Src/Component/**/*.es',
+    '!Cwel/Src/Component/**/*.{spec,pageobject,e2e}.es',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/dist/Cwel/Component')));
+.pipe(gulp.dest('Cwel/Dist/Component')));
 // @internal
-gulp.task('clean:cwel-dist-script-component', () => del(['Cwel/dist/Cwel/Component/**/*.{js,js.map}']));
+gulp.task('clean:cwel-dist-script-component', () => del(['Cwel/Dist/Component/**/*.{js,js.map}']));
 
 
 // @internal
 gulp.task('cwel-dist-script-pattern', () => gulp.src([
-    'Cwel/src/Pattern/**/*.es',
-    '!Cwel/src/Pattern/**/*.{spec,pageobject,e2e}.es',
+    'Cwel/Src/Pattern/**/*.es',
+    '!Cwel/Src/Pattern/**/*.{spec,pageobject,e2e}.es',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/dist/Cwel/Pattern')));
+.pipe(gulp.dest('Cwel/Dist/Pattern')));
 // @internal
-gulp.task('clean:cwel-dist-script-pattern', () => del(['Cwel/dist/Cwel/Pattern/**/*.{js,js.map}']));
+gulp.task('clean:cwel-dist-script-pattern', () => del(['Cwel/Dist/Pattern/**/*.{js,js.map}']));
 
 
 // @internal
 gulp.task('cwel-dist-script-service', () => gulp.src([
-    'Cwel/src/Service/**/*.es',
-    '!Cwel/src/Service/**/*.{spec,pageobject,e2e}.es',
+    'Cwel/Src/Service/**/*.es',
+    '!Cwel/Src/Service/**/*.{spec,pageobject,e2e}.es',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(concat('services.js'))
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/dist/Cwel')));
+.pipe(gulp.dest('Cwel/Dist')));
 // @internal
-gulp.task('clean:cwel-dist-script-service', () => del(['Cwel/dist/Cwel/services.{js,js.map}']));
+gulp.task('clean:cwel-dist-script-service', () => del(['Cwel/Dist/services.{js,js.map}']));
 
 
 // @internal
 gulp.task('cwel-dist-script-vendor', () => gulp.src([
-    'Cwel/src/Vendor/**/*.js',
+    'Cwel/Src/Vendor/**/*.js',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(uglify())
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
+.pipe(gulp.dest('Cwel/Dist/Vendor')));
 // @internal
-gulp.task('clean:cwel-dist-script-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.{js,js.map}']));
+gulp.task('clean:cwel-dist-script-vendor', () => del(['Cwel/Dist/Vendor/**/*.{js,js.map}']));
 
 
 // @internal
 gulp.task('cwel-dist-script-vendor-concat', () => gulp.src([
-    'Cwel/src/Vendor/**/*.js',
+    'Cwel/Src/Vendor/**/*.js',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(concat('cwel-vendor.js'))
 .pipe(uglify())
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/dist/Cwel/')));
+.pipe(gulp.dest('Cwel/Dist/')));
 // @internal
-gulp.task('clean:cwel-dist-script-vendor-concat', () => del(['Cwel/dist/Cwel/cwel-vendor.{js,js.map}']));
+gulp.task('clean:cwel-dist-script-vendor-concat', () => del(['Cwel/Dist/cwel-vendor.{js,js.map}']));
 
 // @internal
 gulp.task('cwel-dist-script-bundle', () => gulp.src([
-    'Cwel/dist/Cwel/**/*.js',
-    '!Cwel/dist/Cwel/Vendor/**/*.js',
-    '!Cwel/dist/Cwel/cwel.js',
+    'Cwel/Dist/**/*.js',
+    '!Cwel/Dist/cwel-vendor.js',
+    '!Cwel/Dist/Vendor/**/*.js',
+    '!Cwel/Dist/cwel.js',
 ])
 .pipe(order([
-    'Core/js/main.js',
+    'Script/main.js',
 ]))
 .pipe(sourcemaps.init())
 .pipe(concat('cwel.js'))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/dist/Cwel')));
+.pipe(gulp.dest('Cwel/Dist')));
 // @internal
-gulp.task('clean:cwel-dist-script-bundle', () => del(['Cwel/dist/Cwel/cwel.{js,js.map}']));
+gulp.task('clean:cwel-dist-script-bundle', () => del(['Cwel/Dist/cwel.{js,js.map}']));
 
 
 // @internal
 gulp.task('cwel-dist-script-includevendors', () => gulp.src([
-    'Cwel/dist/Cwel/Vendor/**/*.js',
-    'Cwel/dist/Cwel/cwel.js',
+    'Cwel/Dist/Vendor/**/*.js',
+    'Cwel/Dist/cwel.js',
 ])
 .pipe(sourcemaps.init())
 .pipe(concat('cwel-full.js'))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/dist/Cwel')));
+.pipe(gulp.dest('Cwel/Dist')));
 // @internal
-gulp.task('clean:cwel-dist-script-includevendors', () => del(['Cwel/dist/Cwel/cwel-full.{js,js.map}']));
+gulp.task('clean:cwel-dist-script-includevendors', () => del(['Cwel/Dist/cwel-full.{js,js.map}']));

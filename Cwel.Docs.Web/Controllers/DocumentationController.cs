@@ -1,3 +1,5 @@
+using Cwel.Docs.Web.Helpers;
+using Cwel.Docs.Web.Models;
 using System.Globalization;
 using System.Web.Mvc;
 
@@ -22,7 +24,10 @@ namespace Cwel.Docs.Web.Controllers
             {
                 case "Pattern":
                 case "Component":
-                    return View($"~/Cwel/{type}/{name}/index.cshtml");
+                    var json = System.IO.File.ReadAllText(Server.MapPath($"~/Cwel/{type}/{name}/default.json"));
+                    return View($"~/Cwel/{type}/{name}/index.cshtml", new ComponentDocumentationViewModel {
+                        Html = ViewRenderer.RenderViewToString(ControllerContext, $"~/Cwel/{type}/{name}/{name}.cshtml", ViewRenderer.DeserializeViewModel(type, name, json))
+                    });
                 default:
                     return View($"~/Cwel/Docs/{type}/{name}/index.cshtml");
             }

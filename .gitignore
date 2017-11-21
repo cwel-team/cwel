@@ -277,8 +277,10 @@ Cwel.Docs.Web/Assets/css/**
 Cwel.docs.Web/Assets/js
 Cwel.Docs.Web/Assets/js/**
 
-Cwel/dist
-Cwel/dist/**
+Cwel/tmp
+Cwel/tmp/**
+Cwel/Dist
+Cwel/Dist/**
 
 # Ignore swap files created by vim
 
