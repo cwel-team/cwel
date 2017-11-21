@@ -24,7 +24,7 @@ gulp.task('clean:cwel-docs-copy', done => gulpSequence(
 
 
 // @internal
-gulp.task('cwel-docs-copy-script', () => gulp.src(['Cwel/dist/Cwel/**/*.{js,js.map}'])
+gulp.task('cwel-docs-copy-script', () => gulp.src(['Cwel/Dist/**/*.{js,js.map}'])
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
 gulp.task('clean:cwel-docs-copy-script', () => del(['Cwel.Docs.Web/Cwel/**/*.{js,js.map}']));
@@ -32,8 +32,8 @@ gulp.task('clean:cwel-docs-copy-script', () => del(['Cwel.Docs.Web/Cwel/**/*.{js
 
 // @internal
 gulp.task('cwel-docs-copy-style', () => gulp.src([
-    'Cwel/dist/Cwel/**/*.scss',
-    'Cwel/dist/Cwel/cwel.{css,css.map}',
+    'Cwel/Dist/**/*.scss',
+    'Cwel/Dist/cwel.{css,css.map}',
 ])
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
@@ -41,28 +41,28 @@ gulp.task('clean:cwel-docs-copy-style', () => del(['Cwel.Docs.Web/Cwel/**/*.scss
 
 
 // @internal
-gulp.task('cwel-docs-copy-img', () => gulp.src('Cwel/dist/Cwel/**/*.svg')
+gulp.task('cwel-docs-copy-img', () => gulp.src('Cwel/Dist/**/*.svg')
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
 gulp.task('clean:cwel-docs-copy-img', () => del(['Cwel.Docs.Web/Cwel/**/*.svg']));
 
 
 // @internal
-gulp.task('cwel-docs-copy-razor', () => gulp.src('Cwel/dist/Cwel/**/*.cshtml')
+gulp.task('cwel-docs-copy-razor', () => gulp.src('Cwel/Dist/**/*.cshtml')
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
 gulp.task('clean:cwel-docs-copy-razor', () => del(['Cwel.Docs.Web/Cwel/**/*.cshtml']));
 
 
 // @internal
-gulp.task('cwel-docs-copy-json', () => gulp.src('Cwel/src/**/*.json')
+gulp.task('cwel-docs-copy-json', () => gulp.src('Cwel/Src/**/*.json')
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
 gulp.task('clean:cwel-docs-copy-json', () => del(['Cwel.Docs.Web/Cwel/**/*.json']));
 
 
 // @internal
-gulp.task('cwel-docs-copy-config', () => gulp.src('Cwel/dist/Cwel/web.config')
+gulp.task('cwel-docs-copy-config', () => gulp.src('Cwel/Dist/web.config')
 .pipe(gulp.dest('Cwel.Docs.Web/Cwel')));
 // @internal
 gulp.task('clean:cwel-docs-copy-config', () => del(['Cwel.Docs.Web/Cwel/web.config']));

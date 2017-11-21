@@ -1,4 +1,4 @@
-import PageObject from '../../Testing/PageObject';
+import PageObject from '../../Test/e2e/PageObject';
 
 export default class CardSliderPageObject extends PageObject {
     constructor() {
