@@ -67,15 +67,15 @@ gulp.task('clean:cwel-test-build-service', () => del(['Cwel/tmp/test/Service/**/
 
 // @internal
 gulp.task('cwel-test-build-utils', () => gulp.src([
-    'Cwel/Test/e2e/**/*.es',
-    '!Cwel/Test/e2e/vendor/**',
+    'Cwel/Src/Test/e2e/**/*.es',
+    '!Cwel/Src/Test/e2e/vendor/**',
 ])
 .pipe(sourcemaps.init())
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/tmp/test/Testing')));
+.pipe(gulp.dest('Cwel/tmp/test/Test/e2e')));
 // @internal
 gulp.task('clean:cwel-test-build-utils', () => del([
-    'Cwel/tmp/test/Testing/**/*.{js,js.map}',
-    '!Cwel/tmp/test/Testing/vendor/**/*.{js,js.map}',
+    'Cwel/tmp/test/Test/e2e/**/*.{js,js.map}',
+    '!Cwel/tmp/test/Test/e2e/vendor/**/*.{js,js.map}',
 ]));

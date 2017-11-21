@@ -21,7 +21,7 @@ gulp.task('lint-script', () => {
         '**/*.js',
         '!node_modules/**',
         '!Cwel/Src/Vendor/**/*.js',
-        '!Cwel/Test/e2e/vendor/**/*.js',
+        '!Cwel/Src/Test/e2e/vendor/**/*.js',
         '!Cwel/Dist/**/*.js',
         '!Cwel/tmp/**/*.js',
         '!gulp/lib/create/template/**',

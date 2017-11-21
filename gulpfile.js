@@ -173,20 +173,20 @@ gulp.task('watch', done => gulpSequence('clean:build', 'build')(() => {
         'cwel-test-build'));
 
     // Docs site
-    gulp.watch('Cwel.Docs.Web/Assets/scss/**/*.scss', () => gulpSequence(
+    gulp.watch('Cwel.Docs.Web/SCSS/**/*.scss', () => gulpSequence(
         'lint-style',
         'clean:cwel-docs-build-style',
         'clean:cwel-docs-generate',
         'cwel-docs-build-style',
         'cwel-docs-generate')(() => (browserSync.reload())));
-    gulp.watch('Cwel.Docs.Web/Assets/img/**/*.{svg,png,jpg,jpeg}', () => browserSync.reload());
-    gulp.watch('Cwel.Docs.Web/Assets/es/**/*.es', () => gulpSequence(
+    gulp.watch('Cwel.Docs.Web/ES/**/*.es', () => gulpSequence(
         'lint-script',
         'clean:cwel-docs-build-script',
         'clean:cwel-docs-generate',
         'cwel-docs-build-script',
         'cwel-docs-generate')(() => browserSync.reload()));
     gulp.watch('Cwel.Docs.Web/**/*.cshtml', () => browserSync.reload());
+    gulp.watch('Cwel.Docs.Web/Assets/img/**/*.{svg,png,jpg,jpeg}', () => browserSync.reload());
 
     done();
 }));

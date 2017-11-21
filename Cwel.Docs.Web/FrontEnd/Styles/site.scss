@@ -1,4 +1,4 @@
-// TODO(Daniel Stuessy) Put this in a main scss file for CWEL
+
 @import 'Cwel/Style/main';
 
 @import '_reset';
@@ -18,5 +18,3 @@
 @import '_docs';
 @import '_docs-example';
 @import '_docs-table';
-
-@include generate-grid-classes;
