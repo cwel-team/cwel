@@ -129,6 +129,7 @@
     <Compile Include="Controllers\DocumentationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlaygroundController.cs" />
+    <Compile Include="Controllers\VisualTestController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -206,6 +207,7 @@
     <Content Include="Views\Playground\Sandbox\index.cshtml" />
     <Content Include="Views\Playground\Sandbox\Typography\index.cshtml" />
     <Content Include="Views\Playground\Sandbox\RemUnits\index.cshtml" />
+    <Content Include="Views\VisualTest\Grid\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
