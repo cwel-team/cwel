@@ -41,10 +41,14 @@ $SPACES: (
  * BREAKPOINTS
  *************************/
 
-$BREAKPOINT-S: 25em; // 400px;
-$BREAKPOINT-M: 37.5em; // 600px;
-$BREAKPOINT-L: 62.75em; // 1004px - 28px = 972px;
-$BREAKPOINT-XL: 80em; // 1280px - 28px = 1248px;
+// 400px;
+$BREAKPOINT-S: 25em;
+// 600px;
+$BREAKPOINT-M: 37.5em;
+// 1004px - 28px = 972px;
+$BREAKPOINT-L: 62.75em;
+// 1280px - 28px = 1248px;
+$BREAKPOINT-XL: 80em;
 
 $BREAKPOINTS: (
     s: $BREAKPOINT-S,
