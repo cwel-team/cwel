@@ -204,10 +204,8 @@
     <Content Include="Views\Playground\Sandbox\Grid\index.cshtml" />
     <Content Include="Views\Shared\_SandboxLayout.cshtml" />
     <Content Include="Views\Playground\Sandbox\index.cshtml" />
-    <Content Include="Views\Playground\Sandbox\Spacers\index.cshtml" />
-    <Content Include="Views\Playground\Sandbox\Spacers\smaller\index.cshtml" />
-    <Content Include="Views\Playground\Sandbox\Spacers\larger\index.cshtml" />
     <Content Include="Views\Playground\Sandbox\Typography\index.cshtml" />
+    <Content Include="Views\Playground\Sandbox\RemUnits\index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
