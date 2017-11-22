@@ -57,8 +57,11 @@ $BREAKPOINTS: (
  * CONTAINER
  *************************/
 
-$CONTAINER-WIDTH-L: rootem($BREAKPOINT-L, 'l');
-$CONTAINER-WIDTH-XL: rootem($BREAKPOINT-XL, 'xl');
+// 2em subtracted from Breakpoint width to avoid bug
+// where chrome doesn't include scroll bars in
+// media query claculations
+$CONTAINER-WIDTH-L: rootem($BREAKPOINT-L - 2em, 'l');
+$CONTAINER-WIDTH-XL: rootem($BREAKPOINT-XL - 2em, 'xl');
 
 $CONTAINER-MARGIN-XS: rebase($SPACE-XS, 'xs');
 $CONTAINER-MARGIN-S: rebase($SPACE-XS, 's');
