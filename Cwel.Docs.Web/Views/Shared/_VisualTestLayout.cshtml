@@ -2,14 +2,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Visual Test - @ViewBag.Title</title>
+    <title>Visual Test - @ViewBag.Name</title>
 
-    <style>
-        body {
-            background: #ffffff;
-        }
-    </style>
-
+    <link href="~/Assets/css/visualtest/@ViewBag.Name/style.css" rel="stylesheet" />
     @RenderSection("styles", required: false)
 </head>
 <body ng-app="cwel">
@@ -17,6 +12,7 @@
     @RenderBody()
 
     <script src="~/Cwel/cwel-full.js"></script>
+    <script src="~/Assets/js/visualtest/@ViewBag.Name/script.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

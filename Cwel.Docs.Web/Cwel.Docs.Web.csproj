@@ -191,8 +191,12 @@
     <Content Include="FrontEnd\Style\_reset.scss" />
     <Content Include="FrontEnd\Style\_spritesheet.scss" />
     <Content Include="FrontEnd\Style\_variables.scss" />
-    <Content Include="FrontEnd\Script\sandbox\spacers\script.es" />
-    <Content Include="FrontEnd\Style\sandbox\spacers\style.scss" />
+    <Content Include="FrontEnd\Style\sandbox\remunits\style.scss" />
+    <Content Include="FrontEnd\Script\sandbox\remunits\script.es" />
+    <Content Include="FrontEnd\Style\visualtest\grid\style.scss" />
+    <Content Include="FrontEnd\Style\visualtest\_block.scss" />
+    <Content Include="FrontEnd\Style\visualtest\_divider.scss" />
+    <Content Include="FrontEnd\Style\visualtest\_viewport.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -208,6 +212,7 @@
     <Content Include="Views\Playground\Sandbox\Typography\index.cshtml" />
     <Content Include="Views\Playground\Sandbox\RemUnits\index.cshtml" />
     <Content Include="Views\VisualTest\Grid\Index.cshtml" />
+    <Content Include="Views\Shared\_VisualTestLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -219,6 +224,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Assets\CSS\sandbox\spacers\" />
     <Folder Include="Assets\JS\sandbox\spacers\" />
+    <Folder Include="FrontEnd\Script\visualtest\" />
     <Folder Include="Views\Documentation\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
