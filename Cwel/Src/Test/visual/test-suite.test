@@ -10,7 +10,7 @@
 
 @@ set
     domain          docs.cwel.local
-    base_url        http://${domain}/playground/sandbox/
+    base_url        http://${domain}/visualtest/
     spec_url        Cwel/Src/Test/visual/specs/
 
 @@ parameterized using breakpoints
