@@ -43,6 +43,7 @@
 
     @include breakpoint('m') {
         flex-basis: (1 / 3) * 100%;
+        max-width: (1 / 3) * 100%;
     }
 
     @include breakpoint('xl') {
@@ -82,6 +83,7 @@
     height: $height;
     padding: $SPACE-XS;
     line-height: 1;
+    background-color: transparent;
     outline: none;
     border: none;
     border-left: 0.06rem solid rgba(0, 0, 0, 0.1);

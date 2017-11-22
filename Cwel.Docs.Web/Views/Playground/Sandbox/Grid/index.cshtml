@@ -27,21 +27,35 @@
     <button class="overlay-open" ng-click="showOverlay = true" type="button">Show Overlay</button>
 </div>
 
-<section class="section">
+<section class="section section--sizes">
     <h2 class="section__title">Sizes</h2>
 
     <div class="grid">
         <div class="grid__cell"><div class="block block--claustrophobic">12/12</div></div>
     </div>
-    @for (var i = 6; i > 0; i-=2)
-    {
-        <div class="grid">
-            @for (var ii = 0; ii < 12/i; ii++)
-            {
-                <div class="grid__cell grid__cell--size-@i"><div class="block block--claustrophobic">@i/12</div></div>
-            }
-        </div>
-    }
+    <div class="grid">
+        <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">6/12</div></div>
+        <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">6/12</div></div>
+    </div>
+    <div class="grid">
+        <div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">4/12</div></div>
+        <div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">4/12</div></div>
+        <div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">4/12</div></div>
+    </div>
+    <div class="grid">
+        <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">3/12</div></div>
+        <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">3/12</div></div>
+        <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">3/12</div></div>
+        <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">3/12</div></div>
+    </div>
+    <div class="grid">
+        <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">2/12</div></div>
+        <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">2/12</div></div>
+        <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">2/12</div></div>
+        <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">2/12</div></div>
+        <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">2/12</div></div>
+        <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">2/12</div></div>
+    </div>
     <div class="grid">
         @for (var i = 0; i < 12; i++)
         {
@@ -50,7 +64,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--size-combinations">
     <h2 class="section__title">Size combinations</h2>
 
     <h3 class="section__sub-title">Quarter / Three Quarters</h3>
@@ -83,7 +97,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--nested-grids">
     <h2 class="section__title">Nested grids</h2>
 
     <div class="grid">
@@ -113,7 +127,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--equal-height">
     <h2 class="section__title">Equal height</h2>
 
     <div class="grid">
@@ -122,7 +136,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--horizontal-alignment">
     <h2 class="section__title">Horizontal alignment</h2>
 
     <div class="grid grid--align-left">
@@ -138,7 +152,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--top-alignment">
     <h2 class="section__title">Top alignment</h2>
 
     <div class="grid grid--align-top">
@@ -148,7 +162,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--middle-alignment">
     <h2 class="section__title">Middle alignment</h2>
 
     <div class="grid grid--align-middle">
@@ -158,7 +172,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--bottom-alignment">
     <h2 class="section__title">Bottom alignment</h2>
 
     <div class="grid grid--align-bottom">
@@ -168,7 +182,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--independent-alignment">
     <h2 class="section__title">Independent alignment</h2>
 
     <div class="grid">
@@ -179,7 +193,7 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--reversed">
     <h2 class="section__title">Reversed</h2>
 
     <div class="grid grid--reverse">
@@ -190,14 +204,14 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section section--flush">
     <h2 class="section__title">Flush</h2>
 
     <div class="grid grid--flush">
-        <div class="grid__item grid__cell--size-3"><div class="block">quarter</div></div>
-        <div class="grid__item grid__cell--size-3"><div class="block">quarter</div></div>
-        <div class="grid__item grid__cell--size-3"><div class="block">quarter</div></div>
-        <div class="grid__item grid__cell--size-3"><div class="block">quarter</div></div>
+        <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+        <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+        <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+        <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
     </div>
 </section>
 

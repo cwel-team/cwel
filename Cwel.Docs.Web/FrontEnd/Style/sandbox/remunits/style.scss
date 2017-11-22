@@ -1,0 +1,192 @@
+@import 'Cwel/Style/main';
+@import '../block';
+@import '../divider';
+@import '../viewport';
+
+/*
+Things to test:
+- changing root fonts on different breakpoints
+    - do spacers change, too -- yes
+    - do breakpoints change, too -- no
+    - do container widths change, too -- yes
+- different browser font-sizes
+    - do spacers change, too -- yes
+    - do breakpoints change, too -- yes
+    - do container widths change, too -- yes
+- crossbrowser differences
+    - rem units -- no differences found
+    - breakpoints with ems -- no differences found
+
+Things to consider:
+- how would you design with spacers
+  based on rem units
+  - would changing root font sizes require changing rem units
+    for containers and spacers?
+    - containers -- yes cause they have to match breakpoints, which don't change based on root font size
+    - spacers -- no cause they don't have to match breakpoints
+*/
+
+body {
+    transition: font-size 1s;
+}
+
+@mixin button {
+    padding: 0.3rem 1rem;
+    font-size: 1.3rem;
+    background-color: #fff;
+    outline: none;
+    border: 0.1rem solid;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.main {
+    padding: 0;
+}
+
+.viewport__group {
+    @include viewport-group;
+    display: inline-block;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.viewport__breakpoint {
+    @include viewport-breakpoint;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.section {
+    padding-top: $SPACE-M;
+    padding-bottom: $SPACE-M;
+}
+
+.spacer {
+    position: relative;
+    margin-bottom: 2rem;
+    background-color: #04a9a1;
+
+    &--xxs {
+        width: $SPACE-XXS;
+        height: $SPACE-XXS;
+
+        &::after {
+            content: 'xxs 0.4rem';
+            position: relative;
+            margin-left: $SPACE-XXS + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--xs {
+        width: $SPACE-XS;
+        height: $SPACE-XS;
+
+        &::after {
+            content: 'xs 0.8rem';
+            position: relative;
+            margin-left: $SPACE-XS + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--s {
+        width: $SPACE-S;
+        height: $SPACE-S;
+
+        &::after {
+            content: 's 1.6rem';
+            position: relative;
+            margin-left: $SPACE-S + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--m {
+        width: $SPACE-M;
+        height: $SPACE-M;
+
+        &::after {
+            content: 'm 3.2rem';
+            position: relative;
+            margin-left: $SPACE-M + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--l {
+        width: $SPACE-L;
+        height: $SPACE-L;
+
+        &::after {
+            content: 'l 6.4rem';
+            position: relative;
+            margin-left: $SPACE-L + 1rem;
+            white-space: nowrap;
+        }
+    }
+
+    &--xl {
+        width: $SPACE-XL;
+        height: $SPACE-XL;
+
+        &::after {
+            content: 'xl 12.8rem';
+            position: relative;
+            margin-left: $SPACE-XL + 1rem;
+            white-space: nowrap;
+        }
+    }
+}
+
+.text-sample {
+    margin-bottom: $SPACE-M;
+    padding: $SPACE-M;
+    border: 0.1rem solid #efefef;
+}
+
+.text-sample__text {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.hero {
+    max-width: 100%;
+    margin-bottom: $SPACE-M;
+    padding: $SPACE-L;
+    border: 0.1rem solid #efefef;
+
+    &--fixed {
+        width: 45rem;
+    }
+}
+
+.hero__title {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.container-test {
+    position: relative;
+    margin-bottom: $SPACE-M;
+}
+
+.container-test .block::after {
+    content: 'container 100%';
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include breakpoint('l') {
+        content: 'container #{$CONTAINER-WIDTH-L}';
+    }
+
+    @include breakpoint('xl') {
+        content: 'container #{$CONTAINER-WIDTH-XL}';
+    }
+}
+
+.preview {
+    width: 100%;
+}

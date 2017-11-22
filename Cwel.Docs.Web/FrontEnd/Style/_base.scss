@@ -1,7 +1,7 @@
 
 html{
     font-size: 16px; /* stylelint-disable-line declaration-property-unit-blacklist */
-    font-size: 100%;
+    font-size: 100%; // stylelint-disable-line declaration-property-unit-blacklist
 }
 body {
     color: $colour-secondary1;
@@ -37,4 +37,3 @@ p,
     margin-top: 0;
     font-size: 1rem;
 }
-

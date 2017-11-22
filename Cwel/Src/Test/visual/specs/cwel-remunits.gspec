@@ -1,0 +1,111 @@
+# http://galenframework.com/docs/reference-galen-spec-language-guide/#Objectdefinition
+
+@objects
+
+    spacers                                     .spacers
+        spacer_xxs                              .spacer--xxs
+        spacer_xs                               .spacer--xs
+        spacer_s                                .spacer--s
+        spacer_m                                .spacer--m
+        spacer_l                                .spacer--l
+        spacer_xl                               .spacer--xl
+
+
+# http://galenframework.com/docs/reference-galen-spec-language-guide/#SpecsReference
+
+= Spacers =
+
+    @on xs
+        spacers.spacer_xxs:
+            css width is "3.51563px"
+
+        spacers.spacer_xs:
+            css width is "7.03125px"
+
+        spacers.spacer_s:
+            css width is "14.0781px"
+
+        spacers.spacer_m:
+            css width is "28.1563px"
+
+        spacers.spacer_l:
+            css width is "56.3125px"
+
+        spacers.spacer_xl:
+            css width is "112.625px"
+
+    @on s
+        spacers.spacer_xxs:
+            css width is "3.82813px"
+
+        spacers.spacer_xs:
+            css width is "7.67188px"
+
+        spacers.spacer_s:
+            css width is "15.3594px"
+
+        spacers.spacer_m:
+            css width is "30.7188px"
+
+        spacers.spacer_l:
+            css width is "61.4375px"
+
+        spacers.spacer_xl:
+            css width is "122.875px"
+
+    @on m
+        spacers.spacer_xxs:
+            css width is "4px"
+
+        spacers.spacer_xs:
+            css width is "8px"
+
+        spacers.spacer_s:
+            css width is "16px"
+
+        spacers.spacer_m:
+            css width is "32px"
+
+        spacers.spacer_l:
+            css width is "64px"
+
+        spacers.spacer_xl:
+            css width is "128px"
+
+    @on l
+        spacers.spacer_xxs:
+            css width is "4.15625px"
+
+        spacers.spacer_xs:
+            css width is "8.3125px"
+
+        spacers.spacer_s:
+            css width is "16.625px"
+
+        spacers.spacer_m:
+            css width is "33.2656px"
+
+        spacers.spacer_l:
+            css width is "66.5469px"
+
+        spacers.spacer_xl:
+            css width is "133.109px"
+
+    @on xl
+        spacers.spacer_xxs:
+            css width is "4.3125px"
+
+        spacers.spacer_xs:
+            css width is "8.625px"
+
+        spacers.spacer_s:
+            css width is "17.2656px"
+
+        spacers.spacer_m:
+            css width is "34.5469px"
+
+        spacers.spacer_l:
+            css width is "69.1094px"
+
+        spacers.spacer_xl:
+            css width is "138.234px"

@@ -1,4 +1,8 @@
 
+body {
+    font-size: 1.6rem;
+}
+
 a {
     background-color: transparent; // Remove the grey background on active links in IE 10.
     -webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS GTE 8 and Safari GTE 8.
@@ -8,16 +12,16 @@ sub,
 sup {
     position: relative;
     vertical-align: baseline;
-    font-size: 75%;
+    font-size: 0.75em; // stylelint-disable-line declaration-property-unit-blacklist
     line-height: 0; // Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 }
 
 sub {
-    bottom: -0.25em; // stylelint-disable-line unit-whitelist
+    bottom: -0.25em;
 }
 
 sup {
-    top: -0.5em; // stylelint-disable-line unit-whitelist
+    top: -0.5em;
 }
 
 abbr[title] {
@@ -52,7 +56,8 @@ strong {
 }
 
 small {
-    font-size: 80%; // Add the correct font size in all browsers.
+    // Add the correct font size in all browsers.
+    font-size: 80%; // stylelint-disable-line declaration-property-unit-blacklist
 }
 
 /**************************

@@ -286,3 +286,7 @@ Cwel/Dist/**
 
 *.swp
 *.swo
+
+# Ignore galen reports
+galen/reports/
+galen-unit-test-output.xml

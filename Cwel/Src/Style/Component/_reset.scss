@@ -25,9 +25,26 @@
 html {
     overflow-x: hidden; // Never scroll the document horizontally.
     overflow-y: scroll; // Always include vertical scrollbar to avoid jumps when dynamic content causes page to grow beyond viewport height.
+    font-size: $FONT-SIZE-XS;
     line-height: 1.15;  // Correct the line height in all browsers.
     -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes on iOS.
     -ms-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in IE on Windows Phone.
+
+    @include breakpoint('s') {
+        font-size: $FONT-SIZE-S;
+    }
+
+    @include breakpoint('m') {
+        font-size: $FONT-SIZE-M;
+    }
+
+    @include breakpoint('l') {
+        font-size: $FONT-SIZE-L;
+    }
+
+    @include breakpoint('xl') {
+        font-size: $FONT-SIZE-XL;
+    }
 }
 
 body,

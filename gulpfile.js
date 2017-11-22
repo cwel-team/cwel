@@ -51,7 +51,7 @@ gulp.task('test', ['cwel-dist', 'cwel-test-build', 'cwel-test-copy'], (done) => 
         It turns out Karma seems to exit the main process it runs on -- i.e. the gulp process --
         making it impossible to execute alongside other gulp tasks.
     */
-    gulpMultiProcess(['cwel-test-run-e2e', 'cwel-test-run-unit'], (exitCode) => {
+    gulpMultiProcess(['cwel-test-run-e2e', 'cwel-test-run-unit', 'cwel-test-run-visual'], (exitCode) => {
         if (exitCode !== 0) {
             throw Error('Tests processes returned non zero exit code');
         }
