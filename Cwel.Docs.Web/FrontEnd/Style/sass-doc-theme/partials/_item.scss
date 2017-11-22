@@ -1,22 +1,19 @@
 // stylelint-disable
 
+// Function name
 
-/**
-* Function name
-*/
 .item__heading {
     display: flex;
     align-items: baseline;
+    margin-bottom: 0.5rem;
     color: $sd-black;
     font-family: $code-font-stack;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
 }
 
-/**
-* Code blocks
-*/
+// Code blocks
+
 .item__example {
     margin-bottom: $vertical-rhythm;
 }
@@ -26,9 +23,8 @@
     word-wrap: break-word;
 }
 
-/**
-* Display a hint to expand/collapse code
-*/
+// Display a hint to expand/collapse code
+
 .item__code--togglable {
 
     &::after {
@@ -55,15 +51,14 @@
 
 }
 
-/**
-* Example description
-*/
+// Example description
+
 .example__description {
-    padding: 1em;
+    padding: 0.5rem;
     color: slategray;
-    font-family: 'Inconsolata',Consolas, Monaco, 'Andale Mono', monospace;
+    font-family: 'Inconsolata', Consolas, Monaco, 'Andale Mono', monospace;
     background: #21252b;
-    border-bottom: 3px solid #3b424f;
+    border-bottom: 0.3rem solid #3b424f;
     p {
         margin: 0;
     }

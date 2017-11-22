@@ -1,4 +1,6 @@
 
+/// @group Functions
+
 @function rebase($val, $device-size) {
     $base-size: strip-unit($FONT-SIZE-M);
     $font-size: strip-unit(map-get($FONT-SIZES, $device-size));

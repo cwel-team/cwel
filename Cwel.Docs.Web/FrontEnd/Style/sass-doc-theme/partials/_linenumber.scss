@@ -1,8 +1,7 @@
-// stylelint-disable
 
 pre.line-numbers {
     position: relative;
-    padding-left: 2em;
+    padding-left: 3rem;
     counter-reset: linenumber;
 }
 
@@ -12,32 +11,24 @@ pre.line-numbers > code {
 
 .line-numbers .line-numbers-rows {
     position: absolute;
-    pointer-events: none;
     top: 0;
-    font-size: 100%;
-    left: -2.9em;
-    width: 3em; /* works for line-numbers below 1000 lines */
-    letter-spacing: -1px;
-    /*border-right: 1px solid #999;*/
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+    left: -3rem;
+    width: 3rem; // Works for line numbers below 1000 lines then you're buggered
+    font-size: 1rem;
+    pointer-events: none;
     user-select: none;
-
 }
 
 .line-numbers-rows > span {
-    pointer-events: none;
     display: block;
+    pointer-events: none;
     counter-increment: linenumber;
 }
 
 .line-numbers-rows > span:before {
-    /*content: '1';*/
     content: counter(linenumber);
-    color: rgba(255,255,255,.3);
     display: block;
-    padding-right: 0.8em;
+    padding-right: 1rem;
+    color: rgba(255, 255, 255, 0.3);
     text-align: right;
 }

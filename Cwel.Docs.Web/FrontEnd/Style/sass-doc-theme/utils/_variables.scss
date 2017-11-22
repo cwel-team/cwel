@@ -15,8 +15,8 @@ $sd-medium-grey: #ddd;
 /// @see {mixin} respond-to
 /// @type Map
 $breakpoints: (
-    'small':  (max-width: 800px),
-    'medium': (min-width: 801px)
+    'small':  (max-width: 1023px),
+    'medium': (min-width: 1024px)
 ) !global;
 
 /// Z-indexes layers.

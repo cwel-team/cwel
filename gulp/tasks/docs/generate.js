@@ -64,10 +64,13 @@ gulp.task('clean:cwel-docs-generate-csharp', () => del(['Cwel/.tmp/docs/csdoc'])
 
 // @internal
 gulp.task('cwel-docs-generate-dynamic-scss-docs', () =>
-    sassdoc('Cwel/Src/Style/**/*.scss', {
+    sassdoc('Cwel/Src/Style/**/*.scss', { // http://sassdoc.com/configuration/
         verbose: false,
-        theme: 'pheek',
+        theme: 'pheek', // We only use Pheek's dom structure - not its styling
         dest: 'Cwel/.tmp/docs/scss/',
+        display: {
+            watermark: false,
+        },
     }).then(() => {
         let file = fs.readFileSync('Cwel/.tmp/docs/scss/index.html', 'utf-8'); // Once the file has rendered read it back in...
         file = file.replace(/@/g, '@@'); // Swap all (SCSS) `@` symbols for `@@` so that C# doesn't get confused when it renders the page...

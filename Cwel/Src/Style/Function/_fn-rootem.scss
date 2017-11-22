@@ -1,4 +1,6 @@
 
+/// @group Functions
+
 @function rootem($val, $size) {
     $font-size: map-get($FONT-SIZES, $size);
 

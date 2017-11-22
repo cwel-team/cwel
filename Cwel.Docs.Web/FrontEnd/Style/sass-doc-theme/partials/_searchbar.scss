@@ -2,6 +2,10 @@
 
 .searchbar {
     margin: 2rem;
+
+    @include respond-to('medium') {
+        margin: 1rem;
+    }
 }
 
 .searchbar__form {
@@ -19,36 +23,27 @@
 * Searchbar dropdown
 */
 .searchbar__suggestions {
+    z-index: 1;
     @include absolute($top: 100%, $right: 0, $left: 0);
-    background: white;
-    padding: 0;
-    margin: 0;
     list-style: none;
-    z-index: z('default') + 1;
+    background-color: #fff;
+    border: 1px solid $sd-light-grey;
 
-    /**
-    * Hidden when empty
-    */
     &:empty {
-        display: none;
+        display: none; // Hidden when empty
     }
 
     .selected {
-        background: $sd-medium-grey;
+        background-color: $sd-medium-grey;
     }
 
-    li {
+    li:not(:last-of-type) {
         border-bottom: 1px solid $sd-light-grey;
-
-        &:last-of-type {
-            border: none;
-        }
     }
 
     a {
         display: block;
-        padding: 0.5em;
-        font-size: 0.9em;
+        padding: 0.5rem;
 
         @include on-event {
             background: $sd-light-grey;
@@ -56,6 +51,6 @@
     }
 
     code {
-        margin-right: .5em;
+        margin-right: 0.5em;
     }
 }

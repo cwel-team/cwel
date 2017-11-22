@@ -1,16 +1,23 @@
-.sass-docs {
+
+.sass-docs { // `.sass-docs` is the wrapper around the entire documnetation to make selecting certain elements (such as `.header` and `.footer`) easier
     display: flex;
     flex-flow: row wrap;
+    margin-bottom: -2.5rem; // Ensure sidebar is flush with CWEL playground footer
 
-    .container {
+    .container { // Overwrite default CWEL playground `.container` styles
         max-width: 100%;
         padding-right: 2rem;
         padding-left: 2rem;
     }
     .main {
-        flex-grow: 1; // Make as wide as possible regardless of content
+        width: 100%;
+
+        @include respond-to('medium') {
+            width: calc(100% - #{$sidebar-width});
+        }
     }
 }
+
 .main__item {
     margin-right: 2rem;
     margin-bottom: 2rem;
@@ -18,19 +25,13 @@
     border: 1px solid $sd-light-grey; // stylelint-disable-line declaration-property-unit-blacklist
 }
 
-/**
-* Primary headings
-*/
 .main__heading {
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-size: 3rem;
-    font-weight: 300;
+    font-weight: 700;
 }
 
-/**
-* Secondary headings
-*/
 .main__heading--secondary {
     position: relative;
     margin-bottom: 1rem;
