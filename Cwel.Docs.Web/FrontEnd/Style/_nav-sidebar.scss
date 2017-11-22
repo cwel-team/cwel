@@ -20,7 +20,9 @@
     background: $colour-core1;
 }
 .nav-sidebar__ul {
-    margin-bottom: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 .nav-sidebar__li {
     border-bottom-width: $border-width-standard;
