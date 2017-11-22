@@ -1,0 +1,102 @@
+
+/**************************
+ * FONTS
+ *************************/
+
+$FONT-SIZE-XS: 55%;
+$FONT-SIZE-S: 60%;
+$FONT-SIZE-M: 62.5%;
+$FONT-SIZE-L: 65%;
+$FONT-SIZE-XL: 67.5%;
+
+$FONT-SIZES: (
+    xs: $FONT-SIZE-XS,
+    s: $FONT-SIZE-S,
+    m: $FONT-SIZE-M,
+    l: $FONT-SIZE-L,
+    xl: $FONT-SIZE-XL
+);
+
+/**************************
+ * SPACES
+ *************************/
+
+$SPACE-XXS: 0.4rem;
+$SPACE-XS: $SPACE-XXS * 2;
+$SPACE-S: $SPACE-XS * 2;
+$SPACE-M: $SPACE-S * 2;
+$SPACE-L: $SPACE-M * 2;
+$SPACE-XL: $SPACE-L * 2;
+
+$SPACES: (
+    xxs: $SPACE-XXS,
+    xs: $SPACE-XS,
+    s: $SPACE-S,
+    m: $SPACE-M,
+    l: $SPACE-L,
+    xl: $SPACE-XL
+);
+
+/**************************
+ * BREAKPOINTS
+ *************************/
+
+// 400px;
+$BREAKPOINT-S: 25em;
+// 600px;
+$BREAKPOINT-M: 37.5em;
+// 1004px - 28px = 972px;
+$BREAKPOINT-L: 62.75em;
+// 1280px - 28px = 1248px;
+$BREAKPOINT-XL: 80em;
+
+$BREAKPOINTS: (
+    s: $BREAKPOINT-S,
+    m: $BREAKPOINT-M,
+    l: $BREAKPOINT-L,
+    xl: $BREAKPOINT-XL
+);
+
+/**************************
+ * CONTAINER
+ *************************/
+
+// 2em subtracted from Breakpoint width to avoid bug
+// where chrome doesn't include scroll bars in
+// media query claculations
+$CONTAINER-WIDTH-L: rootem($BREAKPOINT-L - 2em, 'l');
+$CONTAINER-WIDTH-XL: rootem($BREAKPOINT-XL - 2em, 'xl');
+
+$CONTAINER-MARGIN-XS: rebase($SPACE-XS, 'xs');
+$CONTAINER-MARGIN-S: rebase($SPACE-XS, 's');
+$CONTAINER-MARGIN-M: rebase($SPACE-XS + $SPACE-XXS, 'm');
+$CONTAINER-MARGIN-L: rebase($SPACE-XS + $SPACE-XXS, 'l');
+$CONTAINER-MARGIN-XL: rebase($SPACE-XS + $SPACE-XXS, 'xl');
+
+$CONTAINER: (
+    width-l: $CONTAINER-WIDTH-L,
+    width-xl: $CONTAINER-WIDTH-XL,
+    margin-xs: $CONTAINER-MARGIN-XS,
+    margin-s: $CONTAINER-MARGIN-S,
+    margin-m: $CONTAINER-MARGIN-M,
+    margin-l: $CONTAINER-MARGIN-L,
+    margin-xl: $CONTAINER-MARGIN-XL
+);
+
+/**************************
+ * GRID
+ *************************/
+
+$GRID-GUTTER-XS: rebase($SPACE-XS, 'xs');
+$GRID-GUTTER-S: rebase($SPACE-XS, 's');
+$GRID-GUTTER-M: rebase($SPACE-S, 'm');
+$GRID-GUTTER-L: rebase($SPACE-S, 'l');
+$GRID-GUTTER-XL: rebase($SPACE-S, 'xl');
+
+$GRID: (
+    gutter-xs: $GRID-GUTTER-XS,
+    gutter-s: $GRID-GUTTER-S,
+    gutter-m: $GRID-GUTTER-M,
+    gutter-l: $GRID-GUTTER-L,
+    gutter-xl: $GRID-GUTTER-XL
+);

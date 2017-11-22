@@ -1,3 +1,6 @@
+const opn               = require('opn');                           // A better node-open. Opens stuff like websites, files, execs, etc.
+const path              = require('path');                          // Native node path module
+const childProcess      = require('child_process');                 // Node native child process module
 const gulp              = require('gulp');                          // Task automator
 const gulpSequence      = require('gulp-sequence');                 // Specify order of tasks
 const KarmaServer       = require('karma').Server;                  // Execute JavaScript code in multiple real browsers
@@ -8,7 +11,7 @@ const { argv } = yargs;
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 // @internal
-gulp.task('cwel-test-run', done => gulpSequence('cwel-test-run-e2e', 'cwel-test-run-unit')(done));
+gulp.task('cwel-test-run', done => gulpSequence('cwel-test-run-e2e', 'cwel-test-run-unit', 'cwel-test-run-visual')(done));
 
 
 // @internal
@@ -19,7 +22,7 @@ gulp.task('cwel-test-run-e2e', (done) => {
     });
     const hostname = yargs.argv.host.replace(/\/$/, '');
 
-    gulp.src(['Cwel/dist/test/**/*.{e2e,pageobject}.js'])
+    gulp.src(['Cwel/.tmp/test/**/*.{e2e,pageobject}.js'])
     .pipe(protractor({
         configFile: 'protractor.conf.js',
         args: [
@@ -48,9 +51,9 @@ gulp.task('cwel-test-run-unit', (done) => {
         reporters,
         frameworks: ['jasmine'],
         files: [
-            'Cwel/dist/Cwel/cwel-full.js',
-            'Cwel/dist/test/Cwel/Testing/vendor/angular-mocks.js',
-            'Cwel/dist/test/Cwel/**/*.spec.js',
+            'Cwel/Dist/cwel-full.js',
+            'Cwel/.tmp/test/Test/e2e/vendor/angular-mocks.js',
+            'Cwel/.tmp/test/**/*.spec.js',
         ],
     });
 
@@ -59,4 +62,30 @@ gulp.task('cwel-test-run-unit', (done) => {
     });
 
     server.start();
+});
+
+
+// @internal
+gulp.task('cwel-test-run-visual', (done) => {
+    const htmlDest = 'Cwel/.tmp/test/Test/visual/reports/html';
+    const galenProc = childProcess.exec(['npm run galen',
+        '--',
+        'test', 'Cwel/Src/Test/visual/test-suite.test',
+        '--htmlreport', htmlDest,
+        '--testngreport', 'Cwel/.tmp/test/Test/visual/reports/ngTest.xml',
+    ].join(' '), {
+        cwd: process.cwd(),
+        env: process.env,
+    });
+
+    galenProc.stdout.pipe(process.stdout);
+    galenProc.stderr.pipe(process.stderr);
+
+    galenProc.on('close', () => {
+        if (argv.openReport) {
+            opn(`${path.resolve(htmlDest)}/report.html`);
+        }
+
+        done();
+    });
 });

@@ -1,0 +1,39 @@
+
+html{
+    font-size: 16px; /* stylelint-disable-line declaration-property-unit-blacklist */
+    font-size: 100%; // stylelint-disable-line declaration-property-unit-blacklist
+}
+body {
+    color: $colour-secondary1;
+    letter-spacing: 0.04rem;
+    background: $colour-core2;
+}
+h1,
+.h1 {
+    margin-top: 0;
+    color: $colour-core1;
+    font-size: 1.6rem;
+}
+h2,
+.h2 {
+    margin-top: 0;
+    color: $colour-core1;
+    font-size: 1.3rem;
+}
+h3,
+.h3 {
+    margin-top: 0;
+    color: $colour-core1;
+    font-size: 1.1rem;
+}
+h4,
+.h4 {
+    margin-top: 0;
+    color: $colour-core1;
+    font-size: 1rem;
+}
+p,
+.p {
+    margin-top: 0;
+    font-size: 1rem;
+}

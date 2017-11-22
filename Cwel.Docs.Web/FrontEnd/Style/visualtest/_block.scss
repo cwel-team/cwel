@@ -1,0 +1,58 @@
+$block-background: #671d5a;
+
+.block {
+    min-height: 50px;
+    padding: $SPACE-XS;
+    padding-right: $SPACE-XS;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.8);
+    text-overflow: ellipsis;
+    background-color: $block-background;
+
+    @include breakpoint('s') {
+        padding: $SPACE-XS;
+        padding-right: $SPACE-XS;
+    }
+
+    @include breakpoint('m') {
+        padding: $SPACE-S;
+        padding-right: $SPACE-S;
+    }
+}
+
+.block--fill {
+    position: relative;
+    height: 100%;
+}
+
+.block--tall {
+    position: relative;
+    min-height: 150px;
+}
+
+.block--translucent {
+    background-color: transparentize($block-background, 0.5);
+}
+
+.block--lean {
+    padding: 0;
+
+    @each $key in map-keys($BREAKPOINTS) {
+        @include breakpoint($key) {
+            padding: 0;
+        }
+    }
+}
+
+.block--claustrophobic {
+    margin-bottom: $GRID-GUTTER-XS;
+
+    @each $key in map-keys($BREAKPOINTS) {
+        $breakpoint: map-get($BREAKPOINTS, $key);
+        $gutter: map-get($GRID, 'gutter-#{$key}');
+
+        @include breakpoint($key) {
+            margin-bottom: $gutter;
+        }
+    }
+}

@@ -41,35 +41,35 @@ gulp.task('clean:cwel-dist-style', done => gulpSequence([
 
 
 // @internal
-gulp.task('cwel-dist-style-component', () => gulp.src('Cwel/src/Component/**/*.scss')
-.pipe(gulp.dest('Cwel/dist/Cwel/Component/')));
+gulp.task('cwel-dist-style-component', () => gulp.src('Cwel/Src/Component/**/*.scss')
+.pipe(gulp.dest('Cwel/Dist/Component/')));
 // @internal
-gulp.task('clean:cwel-dist-style-component', () => del(['Cwel/dist/Cwel/Component/**/*.scss']));
+gulp.task('clean:cwel-dist-style-component', () => del(['Cwel/Dist/Component/**/*.scss']));
 
 
 // @internal
-gulp.task('cwel-dist-style-pattern', () => gulp.src('Cwel/src/Pattern/**/*.scss')
-.pipe(gulp.dest('Cwel/dist/Cwel/Pattern/')));
+gulp.task('cwel-dist-style-pattern', () => gulp.src('Cwel/Src/Pattern/**/*.scss')
+.pipe(gulp.dest('Cwel/Dist/Pattern/')));
 // @internal
-gulp.task('clean:cwel-dist-style-pattern', () => del(['Cwel/dist/Cwel/Pattern/**/*.scss']));
+gulp.task('clean:cwel-dist-style-pattern', () => del(['Cwel/Dist/Pattern/**/*.scss']));
 
 
 // @internal
-gulp.task('cwel-dist-style-core', () => gulp.src('Cwel/src/Core/**/*.scss')
-.pipe(gulp.dest('Cwel/dist/Cwel/Core/')));
+gulp.task('cwel-dist-style-core', () => gulp.src('Cwel/Src/Style/**/*.scss')
+.pipe(gulp.dest('Cwel/Dist/Style/')));
 // @internal
-gulp.task('clean:cwel-dist-style-core', () => del(['Cwel/dist/Cwel/Core/**/*.scss']));
+gulp.task('clean:cwel-dist-style-core', () => del(['Cwel/Dist/Style/**/*.scss']));
 
 
 // @internal
-gulp.task('cwel-dist-style-vendor', () => gulp.src('Cwel/src/Vendor/**/*.{css,scss}')
-.pipe(gulp.dest('Cwel/dist/Cwel/Vendor')));
+gulp.task('cwel-dist-style-vendor', () => gulp.src('Cwel/Src/Vendor/**/*.{css,scss}')
+.pipe(gulp.dest('Cwel/Dist/Vendor')));
 // @internal
-gulp.task('clean:cwel-dist-style-vendor', () => del(['Cwel/dist/Cwel/Vendor/**/*.{css,scss,css.map}']));
+gulp.task('clean:cwel-dist-style-vendor', () => del(['Cwel/Dist/Vendor/**/*.{css,scss,css.map}']));
 
 
 // @internal
-gulp.task('cwel-dist-style-compile', () => gulp.src('Cwel/src/Core/scss/main.scss')
+gulp.task('cwel-dist-style-compile', () => gulp.src('Cwel/Src/Style/scss/main.scss')
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(sass(sassConfig))
@@ -80,8 +80,8 @@ gulp.task('cwel-dist-style-compile', () => gulp.src('Cwel/src/Core/scss/main.scs
     basename: 'cwel',
 }))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('Cwel/dist/Cwel')));
+.pipe(gulp.dest('Cwel/Dist')));
 
 
 // @internal
-gulp.task('clean:cwel-dist-style-compile', () => del(['Cwel/dist/Cwel/cwel.{css,css.map}']));
+gulp.task('clean:cwel-dist-style-compile', () => del(['Cwel/Dist/cwel.{css,css.map}']));

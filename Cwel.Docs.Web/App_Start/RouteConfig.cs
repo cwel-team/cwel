@@ -17,6 +17,12 @@ namespace Cwel.Docs.Web
                 defaults: new { controller = "Playground", action = "Index", id = UrlParameter.Optional, version = UrlParameter.Optional });
 
             routes.MapRoute(
+                name: "Sandbox",
+                url: "Playground/Sandbox/{page}/{sub}",
+                defaults: new { controller = "Playground", action = "Sandbox", page = UrlParameter.Optional, sub = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
