@@ -1,0 +1,37 @@
+// stylelint-disable
+
+$sd-purple: #5c4863;
+$sd-yellow: #ffc93c;
+$sd-black: #333;
+$sd-primary-color: #1f497d;
+$sd-secondary-color: $sd-yellow;
+$sd-tertiary-color: $sd-purple;
+$sd-light-grey: #e0e0e0;
+$sd-medium-grey: #ddd;
+
+/// Map of breakpoints for responsive design.
+/// @prop {Map} small [(max-width: 800px)] - small screens
+/// @prop {Map} medium [(min-width: 801px)] - regular screens
+/// @see {mixin} respond-to
+/// @type Map
+$breakpoints: (
+    'small':  (max-width: 800px),
+    'medium': (min-width: 801px)
+) !global;
+
+/// Z-indexes layers.
+/// @prop {Number} key   - aliases for specific z-indexes
+/// @see {function} z
+/// @type Map
+$z-indexes: (
+    'goku':       9001,
+    'modal':      5000,
+    'dropdown':   4000,
+    'social':     3000,
+    'default':       1,
+    'below':        -1
+) !global;
+
+$sidebar-width: 280px;
+$vertical-rhythm: 1.5rem;
+$code-font-stack: 'Inconsolata', Consolas, Monaco, 'Andale Mono', monospace;

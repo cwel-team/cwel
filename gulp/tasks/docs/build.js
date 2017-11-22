@@ -62,4 +62,4 @@ gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/FrontEnd/Style/
 .pipe(sourcemaps.write('.'))
 .pipe(gulp.dest('Cwel.Docs.Web/Assets/CSS')));
 // @internal
-gulp.task('clean:cwel-docs-build-style', () => del(['Cwel.Docs.Web/FrontEnd/Style/**/*.scss']));
+gulp.task('clean:cwel-docs-build-style', () => del(['Cwel.Docs.Web/Assets/CSS/**/*.{css,css.map']));

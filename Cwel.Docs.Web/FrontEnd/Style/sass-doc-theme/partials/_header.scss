@@ -1,0 +1,78 @@
+// stylelint-disable
+.project--header {
+    width: 100%;
+}
+/**
+* Header
+*/
+.header {
+    width: 100%;
+    @include clearfix;
+    color: $sd-light-grey;
+    background-color: #fff;
+    border-bottom: 1px solid $sd-light-grey;
+
+    @include respond-to('small') {
+        left: 0;
+    }
+    @include respond-to('medium') {
+        transition: .2s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+}
+
+/**
+* Main title
+*/
+.header__title {
+    text-align: center;
+    margin: 0 0 0.5em 0;
+
+    a {
+        color: $sd-light-grey;
+    }
+
+    @include respond-to('medium') {
+        float: left;
+        font-size: 1em;
+        margin-top: .25em;
+        margin-bottom: 0;
+    }
+}
+
+.sidebar__logo img {
+    display: none;
+}
+
+.brand__heading {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar__title {
+
+    padding: 0;
+    font-family: "Arial";
+    font-weight: 100;
+    font-size: 1.55rem;
+    margin-left: .55rem;
+    margin-top: 20px;
+    display: block;
+}
+
+.versionno {
+    color: rgba(0,0,0,.25);
+    font-size: 1rem;
+}
+
+.versionno::before,
+.versionno::after {
+    font-family: "FontAwesome";
+}
+
+.versionno::before {
+    content: '\f100\00a0';
+}
+
+.versionno::after {
+    content: '\00a0\f101';
+}

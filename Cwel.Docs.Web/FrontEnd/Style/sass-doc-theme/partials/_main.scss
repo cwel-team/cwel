@@ -1,0 +1,47 @@
+.sass-docs {
+    display: flex;
+    flex-flow: row wrap;
+
+    .container {
+        max-width: 100%;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    .main {
+        flex-grow: 1; // Make as wide as possible regardless of content
+    }
+}
+.main__item {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    border: 1px solid $sd-light-grey; // stylelint-disable-line declaration-property-unit-blacklist
+}
+
+/**
+* Primary headings
+*/
+.main__heading {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+/**
+* Secondary headings
+*/
+.main__heading--secondary {
+    position: relative;
+    margin-bottom: 1rem;
+    padding-top: 0;
+    font-size: 2rem;
+    font-weight: 700;
+
+    .container {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+}

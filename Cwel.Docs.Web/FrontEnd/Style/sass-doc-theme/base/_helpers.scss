@@ -1,0 +1,33 @@
+// stylelint-disable
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+    line-height: 1.5;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.list-inline li {
+    @include inline-block;
+}
+
+
+// .container {
+//     @include clearfix;
+//     max-width: 100%;
+//     margin: 0 auto;
+//     padding: 0 2rem;
+// }
+
+.visually-hidden {
+    @include visually-hidden;
+}
+
+.relative {
+    position: relative;
+}
+
+.clear {
+    clear: both;
+}
