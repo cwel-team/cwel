@@ -4,6 +4,24 @@
 ////
 
 /**************************
+ * FONTS
+ *************************/
+
+$FONT-SIZE-XS: 55%;
+$FONT-SIZE-S: 60%;
+$FONT-SIZE-M: 62.5%;
+$FONT-SIZE-L: 65%;
+$FONT-SIZE-XL: 67.5%;
+
+$FONT-SIZES: (
+    xs: $FONT-SIZE-XS,
+    s: $FONT-SIZE-S,
+    m: $FONT-SIZE-M,
+    l: $FONT-SIZE-L,
+    xl: $FONT-SIZE-XL
+);
+
+/**************************
  * SPACES
  *************************/
 
@@ -11,37 +29,37 @@
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-XXS: 4px;
+$SPACE-XXS: 0.4rem;
 
 /// - Canonical `XS` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-XS: 8px;
+$SPACE-XS: $SPACE-XXS * 2;
 
 /// - Canonical `S` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-S: 16px;
+$SPACE-S: $SPACE-XS * 2;
 
 /// - Canonical `M` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-M: 32px;
+$SPACE-M: $SPACE-S * 2;
 
 /// - Canonical `L` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-L: 64px;
+$SPACE-L: $SPACE-M * 2;
 
 /// - Canonical `XL` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-XL: 128px;
+$SPACE-XL: $SPACE-L * 2;
 
 /// Map used to provide space sizes for the various viewport breakpoints
 /// @type Map
@@ -60,19 +78,19 @@ $SPACES: (
 
 /// `S` Breakpoint size measurement
 /// @type String
-$BREAKPOINT-S: 400px;
+$BREAKPOINT-S: 25em; // 400px
 
 /// `M` Breakpoint size measurement
 /// @type String
-$BREAKPOINT-M: 600px;
+$BREAKPOINT-M: 37.5em; // 600px
 
 /// `L` Breakpoint size measurement
 /// @type String
-$BREAKPOINT-L: 1004px;
+$BREAKPOINT-L: 62.75em; // 1004px - 28px = 972px
 
 /// `XL` Breakpoint size measurement
 /// @type String
-$BREAKPOINT-XL: 1280px;
+$BREAKPOINT-XL: 80em; // 1280px - 28px = 1248px
 
 /// Map used to provide breakpoints
 /// @type Map
@@ -88,42 +106,44 @@ $BREAKPOINTS: (
  *************************/
 
 /// `L` container width
+/// 2em subtracted from Breakpoint width to avoid bug where chrome doesn't include scroll bars in media query calculations
 /// @type String
-$CONTAINER-WIDTH-L: $BREAKPOINT-L;
+$CONTAINER-WIDTH-L: rootem($BREAKPOINT-L - 2em, 'l');
 
 /// `XL` container width
+/// 2em subtracted from Breakpoint width to avoid bug where chrome doesn't include scroll bars in media query calculations
 /// @type String
-$CONTAINER-WIDTH-XL: $BREAKPOINT-XL;
+$CONTAINER-WIDTH-XL: rootem($BREAKPOINT-XL - 2em, 'xl');
 
 /// `XS` container margin width
 /// @type String
-$CONTAINER-MARGIN-XS: $SPACE-XS;
+$CONTAINER-MARGIN-XS: rebase($SPACE-XS, 'xs');
 
 /// `S` container margin width
 /// @type String
-$CONTAINER-MARGIN-S: $SPACE-S;
+$CONTAINER-MARGIN-S: rebase($SPACE-XS, 's');
 
 /// `M` container margin width
 /// @type String
-$CONTAINER-MARGIN-M: $SPACE-XS + $SPACE-XXS;
+$CONTAINER-MARGIN-M: rebase($SPACE-XS + $SPACE-XXS, 'm');
 
 /// `L` container margin width
 /// @type String
-$CONTAINER-MARGIN-L: $SPACE-XS + $SPACE-XXS;
+$CONTAINER-MARGIN-L: rebase($SPACE-XS + $SPACE-XXS, 'l');
 
 /// `XL` container margin width
 /// @type String
-$CONTAINER-MARGIN-XL: $SPACE-XS + $SPACE-XXS;
+$CONTAINER-MARGIN-XL: rebase($SPACE-XS + $SPACE-XXS, 'xl');
 
 /// Map used to provide container widths and margins
 /// @type Map
 $CONTAINER: (
-    width-lg: $CONTAINER-WIDTH-L,
+    width-l: $CONTAINER-WIDTH-L,
     width-xl: $CONTAINER-WIDTH-XL,
     margin-xs: $CONTAINER-MARGIN-XS,
-    margin-sm: $CONTAINER-MARGIN-S,
-    margin-md: $CONTAINER-MARGIN-M,
-    margin-lg: $CONTAINER-MARGIN-L,
+    margin-s: $CONTAINER-MARGIN-S,
+    margin-m: $CONTAINER-MARGIN-M,
+    margin-l: $CONTAINER-MARGIN-L,
     margin-xl: $CONTAINER-MARGIN-XL
 );
 
@@ -133,23 +153,23 @@ $CONTAINER: (
 
 /// `XS` grid gutter width
 /// @type String
-$GRID-GUTTER-XS: $SPACE-XS;
+$GRID-GUTTER-XS: rebase($SPACE-XS, 'xs');
 
 /// `S` grid gutter width
 /// @type String
-$GRID-GUTTER-S: $SPACE-XS;
+$GRID-GUTTER-S: rebase($SPACE-XS, 's');
 
 /// `M` grid gutter width
 /// @type String
-$GRID-GUTTER-M: $SPACE-S;
+$GRID-GUTTER-M: rebase($SPACE-S, 'm');
 
 /// `L` grid gutter width
 /// @type String
-$GRID-GUTTER-L: $SPACE-S;
+$GRID-GUTTER-L: rebase($SPACE-S, 'l');
 
 /// `XL` grid gutter width
 /// @type String
-$GRID-GUTTER-XL: $SPACE-S;
+$GRID-GUTTER-XL: rebase($SPACE-S, 'xl');
 
 /// Map used to provide grid sizes
 /// @type Map

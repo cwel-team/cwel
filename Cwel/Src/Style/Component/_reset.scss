@@ -38,9 +38,25 @@
 html {
     overflow-x: hidden; // 1
     overflow-y: scroll; // 2
+    font-size: $FONT-SIZE-XS;
     line-height: 1.15;  // 3
     -webkit-text-size-adjust: 100%; // 4
     -ms-text-size-adjust: 100%; // 5
+    @include breakpoint('s') {
+        font-size: $FONT-SIZE-S;
+    }
+
+    @include breakpoint('m') {
+        font-size: $FONT-SIZE-M;
+    }
+
+    @include breakpoint('l') {
+        font-size: $FONT-SIZE-L;
+    }
+
+    @include breakpoint('xl') {
+        font-size: $FONT-SIZE-XL;
+    }
 }
 
 /// 1. Prevent a white band at the bottom of pages when content is less than the viewport height

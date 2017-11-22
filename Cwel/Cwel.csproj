@@ -97,7 +97,6 @@
     <Content Include="src\Asset\icon\card-slider--large-arrow.svg" />
     <Content Include="src\Asset\icon\card-slider--small-arrow.svg" />
     <Content Include="src\Test\e2e\vendor\angular-mocks.js" />
-    <Content Include="src\Test\visual\reports\.gitignore" />
     <Content Include="src\Vendor\angularjs\angular.js" />
     <Content Include="src\Vendor\hammer\hammer.js" />
     <Content Include="Web.config" />
@@ -162,6 +161,12 @@
     <Content Include="src\Style\Variable\_vbl-settings.scss" />
     <Content Include="src\Test\e2e\PageObject.es" />
     <Content Include="src\Vendor\.eslintignore" />
+    <Content Include="src\Test\visual\specs\cwel-grid.gspec" />
+    <Content Include="src\Test\visual\specs\cwel-remunits.gspec" />
+    <Content Include="src\Test\visual\test-suite.test" />
+    <Content Include="src\Style\Function\_fn-rebase.scss" />
+    <Content Include="src\Style\Function\_fn-rootem.scss" />
+    <Content Include="src\Style\Function\_fn-strip-unit.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -169,9 +174,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\Test\visual\reports\html\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
