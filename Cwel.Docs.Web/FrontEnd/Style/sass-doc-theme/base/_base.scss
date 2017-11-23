@@ -1,20 +1,10 @@
-/**
-* Vertical rhythm
-*/
+
+// Tables
+
 table p {
     margin: 0 0 ($vertical-rhythm / 3);
 }
 
-/**
-* Code
-*/
-:not(pre) > code {
-    // white-space: nowrap;
-}
-
-/**
-* Tables
-*/
 @include respond-to('small') {
     table,
     tbody,

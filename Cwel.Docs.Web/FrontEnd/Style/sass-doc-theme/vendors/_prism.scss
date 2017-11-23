@@ -50,7 +50,8 @@ code[class*='language-'] ::selection {
     }
 }
 
-/* Code blocks */
+// Code blocks
+
 pre[class*='language-'] {
     margin: 0;
     padding: 1rem;
@@ -59,11 +60,12 @@ pre[class*='language-'] {
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-    background: #2e333e;
+    background: $sd-slate-grey;
     border-left: 0.3rem solid #3b424f;
 }
 
-/* Inline code */
+// Inline code
+
 :not(pre) > code[class*='language-'] {
     padding: 0.1rem;
     border-radius: 0.3rem;

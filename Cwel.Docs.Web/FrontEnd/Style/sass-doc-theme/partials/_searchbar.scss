@@ -1,4 +1,3 @@
-// stylelint-disable
 
 .searchbar {
     margin: 2rem;
@@ -16,7 +15,7 @@
     width: 100%;
     padding: 1rem;
     background-color: #fff;
-    border: 1px solid $sd-medium-grey;
+    border: 1px solid $sd-medium-grey; // stylelint-disable-line declaration-property-unit-blacklist
 }
 
 /**
@@ -27,7 +26,7 @@
     @include absolute($top: 100%, $right: 0, $left: 0);
     list-style: none;
     background-color: #fff;
-    border: 1px solid $sd-light-grey;
+    border: 1px solid $sd-light-grey; // stylelint-disable-line declaration-property-unit-blacklist
 
     &:empty {
         display: none; // Hidden when empty
@@ -38,7 +37,7 @@
     }
 
     li:not(:last-of-type) {
-        border-bottom: 1px solid $sd-light-grey;
+        border-bottom: 1px solid $sd-light-grey; // stylelint-disable-line declaration-property-unit-blacklist
     }
 
     a {
@@ -50,7 +49,4 @@
         }
     }
 
-    code {
-        margin-right: 0.5em;
-    }
 }

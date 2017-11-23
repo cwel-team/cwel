@@ -9,16 +9,21 @@
         padding-right: 2rem;
         padding-left: 2rem;
     }
+
     .main {
         width: 100%;
 
         @include respond-to('medium') {
             width: calc(100% - #{$sidebar-width});
         }
+
     }
+
 }
 
 .main__item {
+    display: flex;
+    flex-flow: row wrap;
     margin-right: 2rem;
     margin-bottom: 2rem;
     margin-left: 2rem;
