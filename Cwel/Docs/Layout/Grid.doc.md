@@ -409,3 +409,29 @@ Grid cells can be vertically aligned to the top, middle, or bottom independently
     <div class="grid__cell grid__cell--size-3 grid__cell--align-middle"><div class="block">middle</div></div>
     <div class="grid__cell grid__cell--size-3 grid__cell--align-bottom"><div class="block">bottom</div></div>
 </div>
+
+---
+
+## Reversed
+
+Grid cells can be ordered in reverse by using a modifier on their parent grid element.
+
+### Code
+
+``` html
+<div class="grid grid--reverse">
+    <div class="grid__cell grid__cell--size-3"></div>
+    <div class="grid__cell grid__cell--size-3"></div>
+    <div class="grid__cell grid__cell--size-3"></div>
+    <div class="grid__cell grid__cell--size-3"></div>
+</div>
+```
+
+### Result
+
+<div class="grid grid--reverse">
+    <div class="grid__cell grid__cell--size-3"><div class="block">1</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block">2</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block">3</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block">4</div></div>
+</div>
