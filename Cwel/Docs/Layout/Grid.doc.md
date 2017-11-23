@@ -82,15 +82,15 @@ For convenience, any of these can be referred to as their numerator; e.g. width 
 Cells can be set to take up different column widths, using size modifiers. See the [demo](/playground/sandbox/grid) for a visual example of sizes. The modifier syntax consists of a number out of 12, and an optional device size.
 
 ``` plain
-grid__cell--size-{device}-{width}
+grid__cell--size-{width}-{device}
 ```
 
-Where the `{size}` is lowercase t-shirt notation for a [device size](/page/layout/devicesize), and `{width}` is a number out of 12 for the column width.
+Where the `{device}` is lowercase t-shirt notation for a [device size](/page/layout/devicesize), and `{width}` is a number out of 12 for the column width.
 
 e.g.
 
 ``` plain
-grid__cell--size-m-4
+grid__cell--size-4-m
 ```
 
 sets a cell to be a third of the container width on medium devices.
@@ -108,15 +108,34 @@ sets a cell to be a third of the container width on medium devices.
 		<!-- content goes here -->
 	</div>
 	<!-- full width on xs, half width on large -->
-	<div class="grid__cell grid__cell--size-xs-12 grid__cell--size-l-6">
+	<div class="grid__cell grid__cell--size-12-xs grid__cell--size-6-l">
 		<!-- content goes here -->
 	</div>
 	<!-- full width on xs, half width on large -->
-	<div class="grid__cell grid__cell--size-xs-12 grid__cell--size-l-6">
+	<div class="grid__cell grid__cell--size-12-xs grid__cell--size-6-l">
 		<!-- content goes here -->
 	</div>
 </div>
 ```
+
+<div class="grid">
+	<!-- half width -->
+	<div class="grid__cell grid__cell--size-6">
+		<div class="block block--claustrophobic">always half</div>
+	</div>
+	<!-- half width -->
+	<div class="grid__cell grid__cell--size-6">
+		<div class="block block--claustrophobic">always half</div>
+	</div>
+	<!-- full width on xs, half width on large -->
+	<div class="grid__cell grid__cell--size-12-xs grid__cell--size-6-l">
+		<div class="block block--claustrophobic">extra small full, large half</div>
+	</div>
+	<!-- full width on xs, half width on large -->
+	<div class="grid__cell grid__cell--size-12-xs grid__cell--size-6-l">
+		<div class="block block--claustrophobic">extra small full, large half</div>
+	</div>
+</div>
 
 ---
 
