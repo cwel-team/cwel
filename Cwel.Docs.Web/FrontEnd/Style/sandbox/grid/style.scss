@@ -4,12 +4,15 @@
 @import '../viewport';
 
 @mixin button {
-    padding: 0.3rem 1rem;
-    font-size: 1.3rem;
+    padding-top: 0.8rem;
+    padding-right: 1.2rem;
+    padding-bottom: 0.8rem;
+    padding-left: 1.2rem;
+    font-size: 1.8rem;
     background-color: #fff;
     outline: none;
-    border: 0.1rem solid;
-    border-radius: 0.2rem;
+    border: 0.2rem solid;
+    border-radius: 0.4rem;
     cursor: pointer;
 }
 
