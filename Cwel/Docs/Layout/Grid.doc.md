@@ -77,7 +77,7 @@ The grid is divided into 12 cells. Each with a width of the following fractions 
 
 For convenience, any of these can be referred to as their numerator; e.g. width `7/12` as width `7`, width `5/12` as width `5`, width `10/12` as width `10`, etc.
 
-### Cell Widths
+### Column Widths
 
 Cells can be set to take up different column widths, using size modifiers. See the [demo](/playground/sandbox/grid) for a visual example of sizes. The modifier syntax consists of a number out of 12, and an optional device size.
 
