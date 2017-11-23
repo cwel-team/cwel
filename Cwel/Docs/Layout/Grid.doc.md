@@ -225,6 +225,28 @@ Grids can be nested within another. Simply place markup for a grid within a cell
 
 ---
 
+## Equal Height
+
+Grid cells all maintain equal height across the row they're in. There is no special code needed, just simple `.grid__cell` elements within a `.grid`.
+
+### Code
+
+``` html
+<div class="grid">
+    <div class="grid__cell grid__cell--size-6"></div>
+    <div class="grid__cell grid__cell--size-6"></div>
+</div>
+```
+
+### Result
+
+<div class="grid">
+    <div class="grid__cell grid__cell--size-6"><div class="block block--tall block">tall</div></div>
+    <div class="grid__cell grid__cell--size-6"><div class="block block--fill block">fill</div></div>
+</div>
+
+---
+
 ## Terminology
 
 Terminology used in this documentation page.
