@@ -435,3 +435,29 @@ Grid cells can be ordered in reverse by using a modifier on their parent grid el
     <div class="grid__cell grid__cell--size-3"><div class="block">3</div></div>
     <div class="grid__cell grid__cell--size-3"><div class="block">4</div></div>
 </div>
+
+---
+
+## Flush
+
+Grid gutters can be nullified with a modifier on a grid element.
+
+### Code
+
+``` html
+<div class="grid grid--flush">
+    <div class="grid__cell grid__cell--size-3"></div>
+    <div class="grid__cell grid__cell--size-3"></div>
+    <div class="grid__cell grid__cell--size-3"></div>
+    <div class="grid__cell grid__cell--size-3"></div>
+</div>
+```
+
+### Result
+
+<div class="grid grid--flush">
+    <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+</div>
