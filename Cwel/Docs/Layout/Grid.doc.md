@@ -12,11 +12,16 @@ For a full-page demo of the grid, without code, checkout the [sandbox grid page]
 ## Contents
 
 - [Getting Started](#getting-started)
-- [Recipes and Modifiers](#recipes-and-modifiers)
+- [Terminology](#terminology)
 - [Container](#container)
 - [Cells](#cells)
 - [Margins and Gutters](#margins-and-gutters)
-- [Terminology](#terminology)
+- [Nesting](#nesting)
+- [Equal Height](#equal-height)
+- [Horizontal alignment](#horizontal-alignment)
+- [Top alignment](#top-alignment)
+- [Middle alignment](#middle-alignment)
+- [Bottom alignment](#bottom-alignment)
 
 ---
 
@@ -42,6 +47,32 @@ Copy the code in this example to get started with a grid
 	</div>
 </div>
 ```
+
+---
+
+## Terminology
+
+Terminology used in this documentation page.
+
+### Cells
+
+Each grid is divided into smaller rectangular shapes, each containing some content for the user to behold, interact with, or simply ogle at -- there is no specified notion of what the content should be.
+
+### Margins
+
+On either side of the grid (outside), left and right, it might be nice to have some spacing applied. This is referred to as a grid's channel.
+
+### Gutters
+
+Between each cell, it might be preferable to have some spacing. This is called the grid's gutter. Bare in mind it is different to the channel, as gutters appear on the inside of the grid, not the outside.
+
+### Rows
+
+A horizontal line of cells. These are not part of implementation, but conceptually useful for reference.
+
+### Columns
+
+A vertical line of cells. Like rows, these are not part of implementation, but conceptually useful for reference.
 
 ---
 
@@ -307,26 +338,48 @@ Grid cells can be vertically aligned to the top using a modifier. Applying this 
 
 ---
 
-## Terminology
+##  Middle alignment
 
-Terminology used in this documentation page.
+Grid cells can be vertically aligned to the middle using a modifier. Applying this modifier on a grid element will align all its grid cells.
 
-### Cells
+### Code
 
-Each grid is divided into smaller rectangular shapes, each containing some content for the user to behold, interact with, or simply ogle at -- there is no specified notion of what the content should be.
+``` html
+<div class="grid grid--align-middle">
+    <div class="grid__cell grid__cell--size-4"></div>
+    <div class="grid__cell grid__cell--size-4"></div>
+    <div class="grid__cell grid__cell--size-4"></div>
+</div>
+```
 
-### Margins
+### Result
 
-On either side of the grid (outside), left and right, it might be nice to have some spacing applied. This is referred to as a grid's channel.
+<div class="grid grid--align-middle">
+    <div class="grid__cell grid__cell--size-4"><div class="block">middle</div></div>
+    <div class="grid__cell grid__cell--size-4"><div class="block block--tall"></div></div>
+    <div class="grid__cell grid__cell--size-4"><div class="block">middle</div></div>
+</div>
 
-### Gutters
+---
 
-Between each cell, it might be preferable to have some spacing. This is called the grid's gutter. Bare in mind it is different to the channel, as gutters appear on the inside of the grid, not the outside.
+## Bottom alignment
 
-### Rows
+Grid cells can be vertically aligned to the bottom using a modifier. Applying this modifier on a grid element will align all its grid cells.
 
-A horizontal line of cells. These are not part of implementation, but conceptually useful for reference.
+### Code
 
-### Columns
+``` html
+<div class="grid grid--align-bottom">
+	<div class="grid__cell grid__cell--size-4"></div>
+	<div class="grid__cell grid__cell--size-4"></div>
+	<div class="grid__cell grid__cell--size-4"></div>
+</div>
+```
 
-A vertical line of cells. Like rows, these are not part of implementation, but conceptually useful for reference.
+### Result
+
+<div class="grid grid--align-bottom">
+    <div class="grid__cell grid__cell--size-4"><div class="block">bottom</div></div>
+    <div class="grid__cell grid__cell--size-4"><div class="block block--tall"></div></div>
+    <div class="grid__cell grid__cell--size-4"><div class="block">bottom</div></div>
+</div>
