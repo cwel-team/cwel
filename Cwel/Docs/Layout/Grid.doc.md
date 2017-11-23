@@ -7,6 +7,12 @@ Due to the advent of [CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS
 
 For a full-page demo of the grid, without code, checkout the [sandbox grid page](/playground/sandbox/grid).
 
+### Overlay
+
+To help with visualizing the grid, see the grid overlay.
+
+<button class="button" ng-click="showOverlay = true">Grid Overlay</button>
+
 ---
 
 ## Contents
@@ -122,15 +128,23 @@ Cells can be set to take up different column widths, using size modifiers. See t
 grid__cell--size-{width}-{device}
 ```
 
-Where the `{device}` is lowercase t-shirt notation for a [device size](/page/layout/devicesize), and `{width}` is a number out of 12 for the column width.
+Where the `{device}` is lowercase t-shirt notation for a [device size](/page/layout/devicesize), and `{width}` is a number out of 12 for the column width. `-{device}` is optional at the end.
 
-e.g.
+#### Example 1
 
 ``` plain
 grid__cell--size-4-m
 ```
 
-sets a cell to be a third of the container width on medium devices.
+Sets a cell to be a third of its parent grid's width on medium devices or larger.
+
+#### Example 2
+
+``` plain
+grid__cell--size-4
+```
+
+Sets a cell to be a third of its parent grid's width on extra small devices or larger.
 
 ### Code
 
@@ -175,6 +189,50 @@ sets a cell to be a third of the container width on medium devices.
 		<div class="block block--claustrophobic">extra small full, large half</div>
 	</div>
 </div>
+
+### All sizes
+
+<div class="grid">
+    <div class="grid__cell"><div class="block block--claustrophobic">`grid__cell--size-12`</div></div>
+</div>
+<div class="grid">
+    <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">`grid__cell--size-6`</div></div>
+    <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">`grid__cell--size-6`</div></div>
+</div>
+<div class="grid">
+    <div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">`grid__cell--size-4`</div></div>
+    <div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">`grid__cell--size-4`</div></div>
+    <div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">`grid__cell--size-4`</div></div>
+</div>
+<div class="grid">
+    <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">`3`</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">`3`</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">`3`</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic">`3`</div></div>
+</div>
+<div class="grid">
+    <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">`6`</div></div>
+    <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">`6`</div></div>
+    <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">`6`</div></div>
+    <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">`6`</div></div>
+    <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">`6`</div></div>
+    <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">`6`</div></div>
+</div>
+<div class="grid">
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+        <div class="grid__cell grid__cell--size-1"><div class="block">`1`</div></div>
+</div>
+
 
 ---
 

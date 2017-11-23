@@ -47,4 +47,8 @@ code {
         // account for highlight.js weirdness
         font-size: 1.2em; // stylelint-disable-line declaration-property-unit-blacklist, unit-whitelist
     }
+
+    .block & {
+        color: #ffffff;
+    }
 }
