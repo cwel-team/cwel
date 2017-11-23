@@ -383,3 +383,29 @@ Grid cells can be vertically aligned to the bottom using a modifier. Applying th
     <div class="grid__cell grid__cell--size-4"><div class="block block--tall"></div></div>
     <div class="grid__cell grid__cell--size-4"><div class="block">bottom</div></div>
 </div>
+
+---
+
+## Independent alignment
+
+Grid cells can be vertically aligned to the top, middle, or bottom independently, using a modifier. Applying this modifier on a grid cell element will align it relative to its parent grid.
+
+### Code
+
+``` html
+<div class="grid">
+    <div class="grid__cell grid__cell--size-3 grid__cell--align-top"></div>
+    <div class="grid__cell grid__cell--size-3"></div>
+    <div class="grid__cell grid__cell--size-3 grid__cell--align-middle"></div>
+    <div class="grid__cell grid__cell--size-3 grid__cell--align-bottom"></div>
+</div>
+```
+
+### Result
+
+<div class="grid">
+    <div class="grid__cell grid__cell--size-3 grid__cell--align-top"><div class="block">top</div></div>
+    <div class="grid__cell grid__cell--size-3"><div class="block block--tall"></div></div>
+    <div class="grid__cell grid__cell--size-3 grid__cell--align-middle"><div class="block">middle</div></div>
+    <div class="grid__cell grid__cell--size-3 grid__cell--align-bottom"><div class="block">bottom</div></div>
+</div>
