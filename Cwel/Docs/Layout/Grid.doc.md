@@ -420,10 +420,10 @@ Grid cells can be ordered in reverse by using a modifier on their parent grid el
 
 ``` html
 <div class="grid grid--reverse">
-    <div class="grid__cell grid__cell--size-3"></div>
-    <div class="grid__cell grid__cell--size-3"></div>
-    <div class="grid__cell grid__cell--size-3"></div>
-    <div class="grid__cell grid__cell--size-3"></div>
+    <div class="grid__cell grid__cell--size-3"><!-- 1. --></div>
+    <div class="grid__cell grid__cell--size-3"><!-- 2. --></div>
+    <div class="grid__cell grid__cell--size-3"><!-- 3. --></div>
+    <div class="grid__cell grid__cell--size-3"><!-- 4. --></div>
 </div>
 ```
 
