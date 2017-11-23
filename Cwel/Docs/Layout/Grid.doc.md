@@ -47,7 +47,7 @@ Copy the code in this example to get started with a grid
 
 ## Container
 
-Grids don't explicitly require a container to display correctly, but for the sake of consistency and structure, a matter of best practice, the CWEL grid comes with one. There are two types of container: one with a width [based on the current viewport width](#widths), another that always remains full-width, always matching the viewport width.
+Grids don't explicitly require a container to display correctly, but for the sake of consistency and structure, a matter of best practice, the CWEL grid comes with one. There are two types of container: one with a width [based on the current viewport width](#container-widths), another that always remains full-width, always matching the viewport width.
 
 ### Example
 
@@ -59,7 +59,7 @@ To use the container, give an element a class of `container`.
 </div>
 ```
 
-### Widths
+### Container Widths
 
 Containers are of fluid width from XS to M devices, changing to fixed width from L to XL.
 
@@ -77,19 +77,45 @@ The grid is divided into 12 cells. Each with a width of the following fractions 
 
 For convenience, any of these can be referred to as their numerator; e.g. width `7/12` as width `7`, width `5/12` as width `5`, width `10/12` as width `10`, etc.
 
+### Cell Widths
+
+Cells can be set to take up different column widths, using size modifiers. See the [demo](/playground/sandbox/grid) for a visual example of sizes. The modifier syntax consists of a number out of 12, and an optional device size.
+
+``` plain
+grid__cell--size-{device}-{width}
+```
+
+Where the `{size}` is lowercase t-shirt notation for a [device size](/page/layout/devicesize), and `{width}` is a number out of 12 for the column width.
+
+e.g.
+
+``` plain
+grid__cell--size-m-4
+```
+
+sets a cell to be a third of the container width on medium devices.
+
 ### Example
 
 ``` html
-	<div class="grid">
-		<!-- half width -->
-		<div class="grid__cell grid__cell--size-6">
-			<!-- content goes here -->
-		</div>
-		<!-- half width -->
-		<div class="grid__cell grid__cell--size-6">
-			<!-- content goes here -->
-		</div>
+<div class="grid">
+	<!-- half width -->
+	<div class="grid__cell grid__cell--size-6">
+		<!-- content goes here -->
 	</div>
+	<!-- half width -->
+	<div class="grid__cell grid__cell--size-6">
+		<!-- content goes here -->
+	</div>
+	<!-- full width on xs, half width on large -->
+	<div class="grid__cell grid__cell--size-xs-12 grid__cell--size-l-6">
+		<!-- content goes here -->
+	</div>
+	<!-- full width on xs, half width on large -->
+	<div class="grid__cell grid__cell--size-xs-12 grid__cell--size-l-6">
+		<!-- content goes here -->
+	</div>
+</div>
 ```
 
 ---
