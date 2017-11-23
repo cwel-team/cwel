@@ -247,6 +247,66 @@ Grid cells all maintain equal height across the row they're in. There is no spec
 
 ---
 
+## Horizontal alignment
+
+Grid cells can be horizontally aligned using a modifier. All grid cells will be aligned within a grid with an alignment modifier.
+
+### Code
+
+``` html
+<div class="grid grid--align-left">
+    <div class="grid__cell grid__cell--size-6"></div>
+</div>
+
+<div class="grid grid--align-center">
+    <div class="grid__cell grid__cell--size-6"></div>
+</div>
+
+<div class="grid grid--align-right">
+    <div class="grid__cell grid__cell--size-6"></div>
+</div>
+```
+
+### Result
+
+<div class="grid grid--align-left">
+    <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">left</div></div>
+</div>
+
+<div class="grid grid--align-center">
+    <div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">center</div></div>
+</div>
+
+<div class="grid grid--align-right">
+    <div class="grid__cell grid__cell--size-6"><div class="block block">right</div></div>
+</div>
+
+---
+
+## Top alignment
+
+Grid cells can be vertically aligned to the top using a modifier. Applying this modifier on a grid element will align all its grid cells.
+
+### Code
+
+``` html
+<div class="grid grid--align-top">
+    <div class="grid__cell grid__cell--size-4"></div>
+    <div class="grid__cell grid__cell--size-4"></div>
+    <div class="grid__cell grid__cell--size-4"></div>
+</div>
+```
+
+### Result
+
+<div class="grid grid--align-top">
+    <div class="grid__cell grid__cell--size-4"><div class="block">top</div></div>
+    <div class="grid__cell grid__cell--size-4"><div class="block block--tall"></div></div>
+    <div class="grid__cell grid__cell--size-4"><div class="block">top</div></div>
+</div>
+
+---
+
 ## Terminology
 
 Terminology used in this documentation page.
