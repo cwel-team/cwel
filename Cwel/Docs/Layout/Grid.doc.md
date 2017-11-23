@@ -49,16 +49,6 @@ Copy the code in this example to get started with a grid
 
 Grids don't explicitly require a container to display correctly, but for the sake of consistency and structure, a matter of best practice, the CWEL grid comes with one. There are two types of container: one with a width [based on the current viewport width](#container-widths), another that always remains full-width, always matching the viewport width.
 
-### Example
-
-To use the container, give an element a class of `container`.
-
-``` html
-<div class="container">
-	<!-- grid elements go here -->
-</div>
-```
-
 ### Container Widths
 
 Containers are of fluid width from XS to M devices, changing to fixed width from L to XL.
@@ -68,6 +58,22 @@ Containers are of fluid width from XS to M devices, changing to fixed width from
 | XS - M | 100%   |
 | L      | 1004px |
 | XL     | 1280px |
+
+### Code
+
+To use the container, give an element a class of `container`.
+
+``` html
+<div class="container">
+	<!-- grid elements go here -->
+</div>
+```
+
+### Result
+
+Checkout the grid overlay to see a representation of containerized content. Blue columns are the container's content, green strips are margins. Container widths include both the blue and green elements of the overlay.
+
+<button class="button" ng-click="showOverlay = true">Grid Overlay</button>
 
 ---
 
@@ -95,7 +101,7 @@ grid__cell--size-4-m
 
 sets a cell to be a third of the container width on medium devices.
 
-### Example
+### Code
 
 ``` html
 <div class="grid">
@@ -117,6 +123,8 @@ sets a cell to be a third of the container width on medium devices.
 	</div>
 </div>
 ```
+
+### Result
 
 <div class="grid">
 	<!-- half width -->
@@ -154,9 +162,66 @@ CWEL's grid system comes with two types of spacing, margins and gutters. Margins
 
 ---
 
-## Recipes and Modifiers
+## Nesting
 
-For a list of grid modifiers and what the grid can do, including sample code, visit the [demo page](/playground/sandbox/grid).
+Grids can be nested within another. Simply place markup for a grid within a cell of another. There is no technical limit to the degree of nesting.
+
+### Code
+
+``` html
+<div class="grid">
+	<div class="grid__cell grid__cell--size-6"></div>
+	<div class="grid__cell grid__cell--size-6">
+		<!-- nested grid -->
+		<div class="grid">
+			<div class="grid__cell">
+				<!-- nested grid -->
+				<div class="grid">
+					<div class="grid__cell grid__cell--size-4"></div>
+					<div class="grid__cell grid__cell--size-8">
+						<!-- nested grid -->
+						<div class="grid">
+							<div class="grid__cell grid__cell--size-6"></div>
+							<div class="grid__cell grid__cell--size-6"></div>
+							<div class="grid__cell grid__cell--size-4"></div>
+							<div class="grid__cell grid__cell--size-4"></div>
+							<div class="grid__cell grid__cell--size-4"></div>
+						</div>
+					</div>
+				</div><!-- .grid -->
+			</div>
+		</div><!-- .grid -->
+	</div>
+</div><!-- .grid -->
+```
+
+### Result
+
+<div class="grid">
+	<div class="grid__cell grid__cell--size-6"><div class="block">half</div></div>
+	<div class="grid__cell grid__cell--size-6">
+		<div class="grid">
+			<div class="grid__cell">
+				<div class="block block--translucent block block--lean">
+					<div class="grid">
+						<div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">third</div></div>
+						<div class="grid__cell grid__cell--size-8">
+							<div class="block block--translucent block block--lean">
+								<div class="grid">
+									<div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">half</div></div>
+									<div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">half</div></div>
+									<div class="grid__cell grid__cell--size-4"><div class="block">third</div></div>
+									<div class="grid__cell grid__cell--size-4"><div class="block">third</div></div>
+									<div class="grid__cell grid__cell--size-4"><div class="block">third</div></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 ---
 
