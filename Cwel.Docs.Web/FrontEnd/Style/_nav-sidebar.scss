@@ -54,6 +54,7 @@
     margin-bottom: 0;
     padding-left: 1.63rem;
     overflow: hidden;
+    list-style: none;
     border-top-width: $border-width-standard;
     border-top-style: solid;
     border-top-color: $colour-secondary2;
@@ -66,7 +67,7 @@
 .nav-sidebar__collapsible-li:before {
     content: '• ';
     position: absolute;
-    top: 0.25rem;
+    top: 0.5rem;
     left: 0;
     color: $colour-core1;
     font-size: 1.56rem;

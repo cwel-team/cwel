@@ -109,17 +109,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\CSS\sandbox\grid\style.css" />
-    <Content Include="Assets\CSS\sandbox\typography\style.css" />
-    <Content Include="Assets\CSS\site.css" />
     <Content Include="Assets\img\cwel_logo.svg" />
     <Content Include="Assets\img\spritesheet.svg" />
-    <Content Include="Assets\JS\bus.js" />
-    <Content Include="Assets\JS\docsapp.js" />
-    <Content Include="Assets\JS\jsfiddle.js" />
-    <Content Include="Assets\JS\playground.js" />
-    <Content Include="Assets\JS\playgroundstore.js" />
-    <Content Include="Assets\JS\sandbox\grid\script.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -154,15 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="Assets\CSS\sandbox\grid\style.css.map" />
-    <Content Include="Assets\CSS\sandbox\typography\style.css.map" />
-    <Content Include="Assets\CSS\site.css.map" />
-    <Content Include="Assets\JS\bus.js.map" />
-    <Content Include="Assets\JS\docsapp.js.map" />
-    <Content Include="Assets\JS\jsfiddle.js.map" />
-    <Content Include="Assets\JS\playground.js.map" />
-    <Content Include="Assets\JS\playgroundstore.js.map" />
-    <Content Include="Assets\JS\sandbox\grid\script.js.map" />
     <Content Include="FrontEnd\Script\bus.es" />
     <Content Include="FrontEnd\Script\docsapp.es" />
     <Content Include="FrontEnd\Script\jsfiddle.es" />
@@ -197,6 +179,8 @@
     <Content Include="FrontEnd\Style\visualtest\_block.scss" />
     <Content Include="FrontEnd\Style\visualtest\_divider.scss" />
     <Content Include="FrontEnd\Style\visualtest\_viewport.scss" />
+    <Content Include="FrontEnd\Script\visualtest\grid\script.es" />
+    <Content Include="FrontEnd\Script\visualtest\remunits\script.es" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -213,6 +197,7 @@
     <Content Include="Views\Playground\Sandbox\RemUnits\index.cshtml" />
     <Content Include="Views\VisualTest\Grid\Index.cshtml" />
     <Content Include="Views\Shared\_VisualTestLayout.cshtml" />
+    <Content Include="Views\VisualTest\Remunits\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -222,9 +207,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\CSS\sandbox\spacers\" />
-    <Folder Include="Assets\JS\sandbox\spacers\" />
-    <Folder Include="FrontEnd\Script\visualtest\" />
+    <Folder Include="Assets\CSS\" />
+    <Folder Include="Assets\JS\" />
     <Folder Include="Views\Documentation\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>

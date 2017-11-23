@@ -12,10 +12,12 @@
     justify-content: flex-start;
     width: 100%;
     margin: 0;
+    padding: 0;
 }
 .docs-example__nav-li {
     overflow: hidden;
     color: $colour-core1;
+    line-height: 0;
     border-style: solid;
     border-color: $colour-secondary2;
     border-top-width: $border-width-standard;
@@ -42,6 +44,7 @@
     padding-right: 1rem;
     padding-bottom: 0.62rem;
     padding-left: 1rem;
+    line-height: 1.2;
     cursor: pointer;
 }
 .docs-example__nav-link:hover {
