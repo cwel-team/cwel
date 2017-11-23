@@ -9,7 +9,7 @@ For a full-page demo of the grid, without code, checkout the [sandbox grid page]
 
 ### Overlay
 
-To help with visualizing the grid, see the grid overlay.
+To help with visualizing the grid on this page, see the grid overlay.
 
 <button class="button" ng-click="showOverlay = true">Grid Overlay</button>
 
@@ -28,6 +28,8 @@ To help with visualizing the grid, see the grid overlay.
 - [Top alignment](#top-alignment)
 - [Middle alignment](#middle-alignment)
 - [Bottom alignment](#bottom-alignment)
+- [Reversed](#reversed)
+- [Flush](#flush)
 
 ---
 
