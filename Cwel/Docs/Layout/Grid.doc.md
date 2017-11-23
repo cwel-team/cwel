@@ -113,6 +113,8 @@ For a list of grid modifiers and what the grid can do, including sample code, vi
 
 ## Terminology
 
+Terminology used in this documentation page.
+
 ### Cells
 
 Each grid is divided into smaller rectangular shapes, each containing some content for the user to behold, interact with, or simply ogle at -- there is no specified notion of what the content should be.
