@@ -66,8 +66,8 @@ Containers are of fluid width from XS to M devices, changing to fixed width from
 | Device | Width  |
 |--------|--------|
 | XS - M | 100%   |
-| L      | 960px  |
-| XL     | 1140px |
+| L      | 1004px |
+| XL     | 1280px |
 
 ---
 
