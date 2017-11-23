@@ -31,3 +31,18 @@
         {% markdown mdFile %}
     </div>
 </div>
+
+<div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
+    <div class="grid-overlay__container">
+        <div class="grid-overlay__grid">
+            @for (var i = 0; i < 12; i++)
+            {
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
+</div>

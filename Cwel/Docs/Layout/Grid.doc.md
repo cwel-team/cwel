@@ -141,7 +141,11 @@ sets a cell to be a third of the container width on medium devices.
 
 ## Margins and Gutters
 
-Grids come with two types of spacing, margins and gutters. Margins are the vertical spacing on the outer edges of the grid. Gutters are the vertical spacing in-between the grid cells of the grid. Their size varies across different device sizes.
+CWEL's grid system comes with two types of spacing, margins and gutters. Margins are the vertical spacing on the outer edges of the container. Gutters are the vertical spacing in-between grid cells. Their size varies across different device sizes. These can be visualized with the grid overlay.
+
+<button class="button" ng-click="showOverlay = true">Grid Overlay</button>
+
+### Measurements
 
 | Device Size | Grid Margins | Grid Gutters |
 |-------------|--------------|--------------|

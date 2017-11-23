@@ -38,17 +38,17 @@
                             json-text
                             ng-disabled="!brick.name"></textarea>
                 </div>
-                <button type="button" ng-hide="isEditing" ng-click="addComponent()" class="button button--icon-add">
+                <button type="button" ng-hide="isEditing" ng-click="addComponent()" class="button button--full button--icon-add">
                     <span class="button__text">Add</span>
                 </button>
                 <div class="grid" ng-show="isEditing">
                     <div class="grid__cell grid__cell--size-6-l">
-                        <button type="button" ng-click="saveEdit()" class="button button--icon-update">
+                        <button type="button" ng-click="saveEdit()" class="button button--full button--icon-update">
                             <span class="button__text">Update</span>
                         </button>
                     </div>
                     <div class="grid__cell grid__cell--size-6-l">
-                        <button type="button" ng-click="cancelEdit()" class="button button--icon-clear">
+                        <button type="button" ng-click="cancelEdit()" class="button button--full button--icon-clear">
                             <span class="button__text">Cancel</span>
                         </button>
                     </div>
@@ -58,11 +58,11 @@
                 <div class="editor-order__title">Order</div>
                 <div class="editor-order__container">
                     <div class="editor-order__item" ng-repeat="child in model.children">
-                        <button type="button" class="editor-order__item-action button button--icon-only button--icon-arrow-up" ng-click="moveBrick($index, -1)"></button>
-                        <button type="button" class="editor-order__item-action button button--icon-only button--icon-arrow-down" ng-click="moveBrick($index, 1)"></button>
+                        <button type="button" class="editor-order__item-action button button--full button--icon-only button--icon-arrow-up" ng-click="moveBrick($index, -1)"></button>
+                        <button type="button" class="editor-order__item-action button button--full button--icon-only button--icon-arrow-down" ng-click="moveBrick($index, 1)"></button>
                         <div class="editor-order__item-title" ng-class="{ 'editor-order__item-title--active' : child == currentlyEditing}">{{child.name}}</div>
-                        <button type="button" class="editor-order__item-action button button--icon-only button--icon-edit" ng-click="editBrick(child)"></button>
-                        <button type="button" ng-click="removeBrick($index)" class="editor-order__item-action button button--icon-only button--icon-clear"></button>
+                        <button type="button" class="editor-order__item-action button button--full button--icon-only button--icon-edit" ng-click="editBrick(child)"></button>
+                        <button type="button" ng-click="removeBrick($index)" class="editor-order__item-action button button--full button--icon-only button--icon-clear"></button>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                             <input type="hidden" name="normalize_css" value="no">
                             <input type="hidden" name="dtd" value="html 5">
                             <input type="hidden" name="wrap" value="b">
-                            <button class="button button--icon-output" type="submit">
+                            <button class="button button--full button--icon-output" type="submit">
                                 <span class="button__text">JSFiddle</span>
                             </button>
                         </form>
@@ -104,7 +104,7 @@
                                 <input type="hidden" name="id" value="@Model.Id">
                             }
                             <input type="hidden" name="data" value="{{ getSaveModel() }}">
-                            <button type="submit" class="button button--icon-save">
+                            <button type="submit" class="button button--full button--icon-save">
                                 <span class="button__text">Save</span>
                             </button>
                         </form>
@@ -112,7 +112,7 @@
                     <div class="grid__cell grid__cell--size-4-l">
                         <form action="/Playground/RenderPage" method="POST" target="_blank">
                             <input type="hidden" name="page" value="{{ getModel(model) }}">
-                            <button type="submit" class="button button--icon-presentation" value="Open">
+                            <button type="submit" class="button button--full button--icon-presentation" value="Open">
                                 <span class="button__text">Presentation</span>
                             </button>
                         </form>

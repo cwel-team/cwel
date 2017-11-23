@@ -1,20 +1,9 @@
 @import 'Cwel/Style/main';
+@import './button';
+@import '../../grid-overlay';
 @import '../../block';
 @import '../divider';
 @import '../viewport';
-
-@mixin button {
-    padding-top: 0.8rem;
-    padding-right: 1.2rem;
-    padding-bottom: 0.8rem;
-    padding-left: 1.2rem;
-    font-size: 1.8rem;
-    background-color: #fff;
-    outline: none;
-    border: 0.2rem solid;
-    border-radius: 0.4rem;
-    cursor: pointer;
-}
 
 .viewport__group {
     @include viewport-group;
@@ -37,103 +26,4 @@
     @include divider;
     padding-top: $SPACE-M;
     padding-bottom: $SPACE-M;
-}
-
-/**********************
- * Grid Overlay
- *********************/
-
-.grid-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    width: 100%;
-    height: 100%;
-}
-
-.grid-overlay--open {
-    display: block;
-}
-
-.grid-overlay__container {
-    @include container();
-    $margin-width: map-get($CONTAINER, 'margin-xs');
-    $bg-color: rgba(84, 200, 255, 0.3);
-    position: relative;
-    height: 100%;
-    background: linear-gradient(to right, $bg-color, $bg-color);
-    background-position: $margin-width, 0;
-    background-size: calc(100% - (#{$margin-width} * 2)) 100%;
-    background-repeat: no-repeat;
-
-    @each $device-size in map-keys($BREAKPOINTS) {
-        @include breakpoint($device-size) {
-            $margin-key: 'margin-#{$device-size}';
-            $margin-width: map-get($CONTAINER, $margin-key);
-            background-position: $margin-width, 0;
-            background-size: calc(100% - (#{$margin-width} * 2)) 100%;
-        }
-    }
-
-    &::before,
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        width: map-get($CONTAINER, 'margin-xs');
-        height: 100%;
-        background-color: rgba(82, 208, 50, 0.3);
-
-        @each $device-size in map-keys($BREAKPOINTS) {
-            @include breakpoint($device-size) {
-                $margin-key: 'margin-#{$device-size}';
-                width: map-get($CONTAINER, $margin-key);
-            }
-        }
-    }
-
-    &::before {
-        left: 0;
-    }
-
-    &::after {
-        right: 0;
-    }
-}
-
-.grid-overlay__grid {
-    @include grid();
-    height: 100%;
-}
-
-.grid-overlay__grid-cell {
-    @include grid-cell((
-        xs: 1
-    ));
-    $bg-color: rgba(84, 200, 255, 0.3);
-    $gutter-width: map-get($GRID, 'gutter-xs');
-    height: 100%;
-    background: linear-gradient(to bottom, $bg-color, $bg-color);
-    background-position: $gutter-width 100%;
-    background-size: calc(100% - #{$gutter-width}) 100%;
-    background-repeat: no-repeat;
-
-    @each $device-size in map-keys($BREAKPOINTS) {
-        @include breakpoint($device-size) {
-            $gutter-key: 'gutter-#{$device-size}';
-            $gutter-width: map-get($GRID, $gutter-key);
-            background-position: $gutter-width, 0;
-            background-size: calc(100% - #{$gutter-width}) 100%;
-        }
-    }
-}
-
-.grid-overlay__close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: $SPACE-S;
-    margin-right: $SPACE-S;
-    @include button;
 }
