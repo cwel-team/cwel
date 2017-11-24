@@ -1,0 +1,63 @@
+
+@mixin form-control() {
+    display: block;
+    width: 100%;
+    height: 2.63rem;
+    padding-right: 0.63rem;
+    padding-left: 0.63rem;
+    border-width: $border-width-standard;
+    border-style: solid;
+    border-color: $colour-secondary2;
+    border-radius: 0.25rem;
+}
+@mixin form-icon() {
+    content: '';
+    width: 1.25rem;
+    height: 2.5rem;
+}
+
+.form-field__input {
+    @include form-control();
+}
+.form-field__select {
+    @include form-control();
+    cursor: pointer;
+    appearance: none;
+}
+.form-field__select-container {
+    position: relative;
+    overflow: hidden;
+}
+.form-field__textarea {
+    @include form-control();
+    min-height: 12.5rem;
+    overflow: auto;
+    resize: none;
+}
+.form-field {
+    margin-bottom: 1rem;
+}
+.form-field__label {
+    display: block;
+    margin-bottom: 0.63rem;
+    color: $colour-core1;
+    font-size: 1rem;
+}
+.form-field__select-container--icon-arrow:after {
+    @include form-icon();
+    @include spritesheet(0, 2.96);
+    position: absolute;
+    top: 1rem;
+    right: 0.63rem;
+    pointer-events: none;
+}
+.form-field--icon-search:before {
+    @include form-icon();
+    @include spritesheet(0, 7);
+    position: absolute;
+    top: 0.75rem;
+    left: 0;
+}
+select::-ms-expand {
+    display: none;
+}

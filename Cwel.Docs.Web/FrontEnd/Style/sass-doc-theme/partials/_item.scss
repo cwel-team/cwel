@@ -82,18 +82,7 @@
         margin-top: 0;
         padding-left: 0; // Ensure all description items align horizontally
     }
-    ol {
-        list-style: none;
-        counter-reset: item;
 
-        li::before { // Better alignment of <ol> numbers
-            content: counter(item) '. ';
-            display: inline-block;
-            width: 1.5rem;
-            counter-increment: item;
-        }
-
-    }
 }
 
 .item__sub-heading {

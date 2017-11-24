@@ -15,6 +15,21 @@ a {
     -webkit-text-decoration-skip: objects; // 2
 }
 
+/// Better ordered list number alignment (left-aligned numbers look better with Poppins)
+
+ol {
+    list-style: none;
+    counter-reset: item;
+
+    li::before {
+        content: counter(item) '. ';
+        display: inline-block;
+        width: 1.5rem;
+        counter-increment: item;
+    }
+
+}
+
 /// 1. Prevent `sub` and `sup` elements from affecting the line height in all browsers
 
 sub,

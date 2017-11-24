@@ -1,0 +1,29 @@
+
+.nav-header {
+    display: flex;
+    align-items: center;
+    height: 4.25rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background: $colour-core2;
+    border-bottom-width: 0.13rem;
+    border-bottom-style: solid;
+    border-bottom-color: $colour-core1;
+}
+.nav-header__title {
+    margin-bottom: 0;
+    padding-left: 1rem;
+    font-size: 1.1rem;
+}
+.nav-header__link,
+.nav-header__link:hover,
+.nav-header__link:focus {
+    color: $colour-core1;
+}
+.nav-header__button {
+    margin-bottom: 0;
+    font-weight: 600;
+}
+.nav-header__logo {
+    width: 5.13rem;
+}

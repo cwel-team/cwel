@@ -35,13 +35,6 @@
 /// 3. Correct the line height in all browsers
 /// 4. Prevent adjustments to font size after orientation changes on iOS
 /// 5. Prevent adjustments to font size after orientation changes in IE on Windows Phone
-/// @example
-///   4 + 2 = 6
-///   4 / 2 = 2
-///
-/// @example scss - Clamp function
-///   clamp(42, $min: 13, $max: 37)
-///   // 37
 
 html {
     overflow-x: hidden; // 1
