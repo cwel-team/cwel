@@ -3,12 +3,14 @@
 /// @since 0.0.1
 ////
 
-/// 1. Remove the grey background on active links in IE 10
-/// 2. Remove gaps in links underline in iOS GTE 8 and Safari GTE 8
+///
 
 body {
     font-size: 1.6rem;
 }
+
+/// 1. Remove the grey background on active links in IE 10
+/// 2. Remove gaps in links underline in iOS GTE 8 and Safari GTE 8
 
 a {
     background-color: transparent; // 1
