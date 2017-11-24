@@ -29,6 +29,7 @@
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.8.0",
+    "extend": "^3.0.1",
     "galenframework-cli": "^2.3.5",
     "geckodriver": "^1.10.0",
     "gulp": "^3.9.1",
@@ -68,17 +69,15 @@
     "karma-spec-reporter": "0.0.31",
     "karma-viewport": "^0.4.2",
     "marked": "^0.3.6",
+    "nunjucks": "^3.0.1",
     "nunjucks-markdown": "^2.0.1",
     "opn": "^5.1.0",
     "puppeteer": "^0.13.0",
     "sassdoc": "^2.5.0",
-    "sassdoc-theme-pheek": {
-      "version": "^0.5.0",
-      "dependencies": {
-        "node-sass": "^4.6.1"
-      }
-    },
+    "sassdoc-extras": "^2.4.1",
+    "sassdoc-theme-pheek": "^0.5.0",
     "stylelint-order": "^0.7.0",
+    "themeleon": "^3.0.2",
     "through2": "^2.0.3",
     "xmldoc": "^1.1.0",
     "yargs": "^8.0.2"
