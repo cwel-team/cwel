@@ -1,3 +1,12 @@
+////
+/// @group Mixins
+/// @since 0.0.1
+////
+
+/// Aspect ratio
+/// @example
+/// aspect-ratio(50);
+/// @param {int} $ratio - Percentage of element's width that should be applied to element's height (0 - 100)
 
 @mixin aspect-ratio($ratio) {
     width: 100%;

@@ -1,0 +1,52 @@
+
+.searchbar {
+    margin: 2rem;
+
+    @include respond-to('medium') {
+        margin: 1rem;
+    }
+}
+
+.searchbar__form {
+    position: relative; // Required for absolute positioning of suggestions
+}
+
+.searchbar__field {
+    width: 100%;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid $sd-medium-grey; // stylelint-disable-line declaration-property-unit-blacklist
+}
+
+/**
+* Searchbar dropdown
+*/
+.searchbar__suggestions {
+    z-index: 1;
+    @include absolute($top: 100%, $right: 0, $left: 0);
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid $sd-light-grey; // stylelint-disable-line declaration-property-unit-blacklist
+
+    &:empty {
+        display: none; // Hidden when empty
+    }
+
+    .selected {
+        background-color: $sd-medium-grey;
+    }
+
+    li:not(:last-of-type) {
+        border-bottom: 1px solid $sd-light-grey; // stylelint-disable-line declaration-property-unit-blacklist
+    }
+
+    a {
+        display: block;
+        padding: 0.5rem;
+
+        @include on-event {
+            background: $sd-light-grey;
+        }
+    }
+
+}

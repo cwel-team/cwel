@@ -1,6 +1,8 @@
 const del                   = require('del');                           // Delete files and folders
+const fs                    = require('fs');                            // Core NodeJS lib
 const gulp                  = require('gulp');                          // Task automator
 const gulpSequence          = require('gulp-sequence');                 // Specify order of tasks
+const sassdoc               = require('sassdoc');                       // Build dynamic CSS documentation based on comments
 
 const csdoc                 = require('../../lib/docs/csharp/csdoc');
 const generateDocs          = require('../../lib/docs/generateDocs');
@@ -9,11 +11,13 @@ const generateDocs          = require('../../lib/docs/generateDocs');
 // @internal
 gulp.task('cwel-docs-generate', done => gulpSequence(
     'cwel-docs-generate-csharp',
+    'cwel-docs-generate-dynamic-scss-docs',
     'cwel-docs-generate-md-component',
     'cwel-docs-generate-md-page')(done));
 // @internal
 gulp.task('clean:cwel-docs-generate', done => gulpSequence(
     'clean:cwel-docs-generate-csharp',
+    'clean:cwel-docs-generate-dynamic-scss-docs',
     'clean:cwel-docs-generate-md-component',
     'clean:cwel-docs-generate-md-page')(done));
 
@@ -47,8 +51,8 @@ gulp.task('clean:cwel-docs-generate-md-page', () => del(['Cwel.Docs.Web/Cwel/Doc
 
 /**
  * TODO(Daniel Stuessy) work-out where csdoc files reside and where they go
- * @internal
  */
+// @internal
 gulp.task('cwel-docs-generate-csharp', () => {
     return gulp.src([
         'Cwel/**/*.csdoc',
@@ -56,3 +60,28 @@ gulp.task('cwel-docs-generate-csharp', () => {
 });
 // @internal
 gulp.task('clean:cwel-docs-generate-csharp', () => del(['Cwel/.tmp/docs/csdoc']));
+
+
+// @internal
+gulp.task('cwel-docs-generate-dynamic-scss-docs', () =>
+    sassdoc('Cwel/Src/Style/**/*.scss', { // http://sassdoc.com/configuration/
+        verbose: false,
+        theme: 'pheek', // We only use Pheek's dom structure - not its styling
+        dest: 'Cwel/.tmp/docs/scss/',
+        display: {
+            watermark: false,
+        },
+    }).then(() => {
+        let file = fs.readFileSync('Cwel/.tmp/docs/scss/index.html', 'utf-8'); // Once the file has rendered read it back in...
+        file = file.replace(/@/g, '@@'); // Swap all (SCSS) `@` symbols for `@@` so that C# doesn't get confused when it renders the page...
+        file = file.replace(/="assets/g, '="/Assets/ScssDocsAssets'); // Swap out all `src` references to new location...
+        file = file.replace(/ScssDocsAssets\/css\/main\.css/g, 'CSS/sass-doc-theme.css'); // Swap out default 'Fleek' theme for one we have more control over...
+        file = file.replace(/csss/g, 'css'); // Remove bug where SassDoc pluralizes 'css'...
+        fs.writeFileSync('Cwel/.tmp/docs/scss/index.html', file, 'utf-8'); // Then rewrite the file
+        gulp.src('Cwel/.tmp/docs/scss/assets/**/*')
+        .pipe(gulp.dest('Cwel.Docs.Web/Assets/ScssDocsAssets')); // Copy SassDoc src files to correct location
+    }, (err) => {
+        console.error(`SCSS docs generation error: ${err}`);
+    }));
+// @internal
+gulp.task('clean:cwel-docs-generate-dynamic-scss-docs', () => del(['Cwel/.tmp/docs/scss']));
