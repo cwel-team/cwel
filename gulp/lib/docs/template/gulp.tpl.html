@@ -1,0 +1,22 @@
+@using Cwel.Web
+@model Cwel.Docs.Web.Models.ComponentDocumentationViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+
+}
+
+<div class="docs">
+    <div class="docs__header">
+        <div class="container">
+            <h1 class="docs__header-title h1">SCSS Reference</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        {% markdown mdFile %}
+    </div>
+</div>

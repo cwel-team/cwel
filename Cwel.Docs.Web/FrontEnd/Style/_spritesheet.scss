@@ -1,3 +1,4 @@
+
 @mixin spritesheet($horizontal, $vertical) {
     background: url('../img/spritesheet.svg') left top no-repeat;
     background-position: (-($horizontal * 6.25rem)) (-($vertical * 6.25rem));

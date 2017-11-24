@@ -6,7 +6,7 @@
 
 ## Intro
 
-CWEL's CSS can viewed as Countrywide's equivalent of Bootstrap, in that when used with the correct HTML markup and JS it will provide instantly gratifying results. CWEL uses SCSS as a preprocessing language to create CSS.
+CWEL's CSS can seen as Countrywide's equivalent of Bootstrap, inasmuch as when used with the correct HTML markup and JS it will provide instantly gratifying results. CWEL uses SCSS as a preprocessing language for the framework's CSS.
 
 CWEL's SCSS can be broken down into 2 key areas:
 

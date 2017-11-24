@@ -1,3 +1,9 @@
+////
+/// @group Mixins
+/// @since 0.0.1
+////
+
+///
 
 @mixin container {
     display: block;
@@ -22,6 +28,8 @@
     }
 }
 
+///
+
 @mixin fluid-container {
     display: block;
     max-width: none;
@@ -40,6 +48,8 @@
         }
     }
 }
+
+///
 
 @mixin generate-container-classes {
     .container {

@@ -68,10 +68,16 @@
     "karma-spec-reporter": "0.0.31",
     "karma-viewport": "^0.4.2",
     "marked": "^0.3.6",
-    "nunjucks": "^3.0.1",
     "nunjucks-markdown": "^2.0.1",
     "opn": "^5.1.0",
     "puppeteer": "^0.13.0",
+    "sassdoc": "^2.5.0",
+    "sassdoc-theme-pheek": {
+      "version": "^0.5.0",
+      "dependencies": {
+        "node-sass": "^4.6.1"
+      }
+    },
     "stylelint-order": "^0.7.0",
     "through2": "^2.0.3",
     "xmldoc": "^1.1.0",

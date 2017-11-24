@@ -11,7 +11,7 @@ const sass              = require('gulp-sass');                     // Compile S
 const sourcemaps        = require('gulp-sourcemaps');               // Generate sourcemaps
 const yargs             = require('yargs');                         // Args
 
-const argv = yargs.argv; // parse process.argv with yargs
+const argv = yargs.argv; // Parse process.argv with yargs
 
 /* eslint-disable */
 const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
@@ -61,7 +61,5 @@ gulp.task('cwel-docs-build-style', () => gulp.src('Cwel.Docs.Web/FrontEnd/Style/
 }))
 .pipe(sourcemaps.write('.'))
 .pipe(gulp.dest('Cwel.Docs.Web/Assets/CSS')));
-
-
 // @internal
-gulp.task('clean:cwel-docs-build-style', () => del(['Cwel.Docs.Web/Assets/CSS/**/*.{css,css.map}']));
+gulp.task('clean:cwel-docs-build-style', () => del(['Cwel.Docs.Web/Assets/CSS/**/*.{css,css.map']));
