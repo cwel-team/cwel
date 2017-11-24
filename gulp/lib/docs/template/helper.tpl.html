@@ -25,10 +25,8 @@
 {% for member in data.members %}
 <h3>{{ member.name }}</h3>
 <p>{{ member.summary }}</p>
-<div>
-	<h3>Parameters</h3>
-	{{ propertytable(member.params, 'No Parameters...') }}
-</div>
+<h3>Parameters</h3>
+{{ propertytable(member.params, 'No Parameters...') }}
 {% else %}
 <p>No Members</p>
 {% endfor %}
