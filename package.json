@@ -12,7 +12,7 @@
     "gulp-debug": "node debug node_modules\\gulp\\bin\\gulp.js",
     "gulp-inspect": "node --inspect --inspect-brk node_modules\\gulp\\bin\\gulp.js",
     "install": "node node_modules\\protractor\\node_modules\\webdriver-manager\\bin\\webdriver-manager update --versions.standalone=3.5.3",
-    "precommit": "gulp lint --color"
+    "precommit": "gulp lint --color && node node_modules\\csproj-enforcer\\index.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +24,7 @@
     "browser-sync": "^2.18.13",
     "chromedriver": "^2.33.2",
     "comments-parser": "^1.0.0",
+    "csproj-enforcer": "github:countrywide/Csproj-Enforcer",
     "del": "^3.0.0",
     "dgeni-packages": "^0.20.0-rc.6",
     "eslint": "^3.19.0",
@@ -73,10 +74,10 @@
     "puppeteer": "^0.13.0",
     "sassdoc": "^2.5.0",
     "sassdoc-theme-pheek": {
-      "version": "^0.5.0",
       "dependencies": {
         "node-sass": "^4.6.1"
-      }
+      },
+      "version": "^0.5.0"
     },
     "stylelint-order": "^0.7.0",
     "through2": "^2.0.3",
