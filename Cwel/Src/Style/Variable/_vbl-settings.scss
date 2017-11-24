@@ -105,15 +105,8 @@ $BREAKPOINTS: (
  * CONTAINER
  *************************/
 
-/// `L` container width
-/// 2em subtracted from Breakpoint width to avoid bug where chrome doesn't include scroll bars in media query calculations
-/// @type String
-$CONTAINER-WIDTH-L: rootem($BREAKPOINT-L - 2em, 'l');
-
-/// `XL` container width
-/// 2em subtracted from Breakpoint width to avoid bug where chrome doesn't include scroll bars in media query calculations
-/// @type String
-$CONTAINER-WIDTH-XL: rootem($BREAKPOINT-XL - 2em, 'xl');
+$CONTAINER-WIDTH-L: rootem($BREAKPOINT-L, 'l');
+$CONTAINER-WIDTH-XL: rootem($BREAKPOINT-XL, 'xl');
 
 /// `XS` container margin width
 /// @type String

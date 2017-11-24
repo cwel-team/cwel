@@ -1,5 +1,3 @@
-{% from macros['property-table'] import propertytable %}
-
 @using Cwel.Web
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,35 +20,6 @@
     </script>
 }
 
-{% macro renderCsData(data) %}
-<div class="docs__section">
-	<h2>Summary</h2>
-	<p>{{ data.summary }}</p>
-</div>
-
-<div class="docs__section">
-<h2>Properties and Fields</h2>
-{% for prop in data.props %}
-<h3>{{ prop.name }}</h3>
-<p>{{ prop.summary }}</p>
-{% else %}
-<p>No Public Properties</p>
-{% endfor %}
-</div>
-<div class="docs__section">
-<h2>Members</h2>
-{% for member in data.members %}
-<h3>{{ member.name }}</h3>
-<p>{{ member.summary }}</p>
-<h3>Parameters</h3>
-{{ propertytable(member.params, 'No Parameters...') }}
-{% else %}
-<p>No Members</p>
-{% endfor %}
-</div>
-{% endmacro %}
-
-
 <div class="docs">
     <div class="docs__header">
         <div class="container">
@@ -61,4 +30,19 @@
     <div class="container">
         {% markdown mdFile %}
     </div>
+</div>
+
+<div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
+    <div class="grid-overlay__container">
+        <div class="grid-overlay__grid">
+            @for (var i = 0; i < 12; i++)
+            {
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
 </div>
