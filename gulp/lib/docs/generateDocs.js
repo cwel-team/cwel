@@ -12,7 +12,8 @@ const renderer = new marked.Renderer();
 
 /**
  * Make sure highlightjs can highlight syntax of
- * codeblocks in markdown.
+ * codeblocks in markdown and that angular doesn't compile
+ * preformatted code as template.
  *
  * @param {string} text The code block contents to render in HTML.
  * @param {string} language The syntax in which the code block is written.
@@ -43,6 +44,32 @@ renderer.table = (header, body) => {
     </table>`;
 };
 
+/**
+ *  Allow for namespaced heading ids.
+ */
+renderer.heading = (function rendererScope() {
+    const namespace = [];
+
+    return (text, level) => {
+        const kebabText = text.replace(/\s+/g, '-').toLowerCase();
+        const levelIndex = level - 1;
+
+        // trim the namespace to match the level of this heading
+        while (namespace.length > 0 && levelIndex < namespace.length) {
+            namespace.pop();
+        }
+
+        namespace.push(kebabText);
+
+        const id = namespace.join('.');
+
+        return `
+        <h${level} class="docs__anchored" id="${id}">
+            <a href="#${id}">${text}</a>
+        </h${level}>`;
+    };
+}());
+
 marked.setOptions({
     renderer,
 });
@@ -51,7 +78,7 @@ marked.setOptions({
 // e.g. Cwel/src/Component/Badge/Badge.doc.md
 //      as well as
 //      gulp/lib/docs/template/default.tpl.html
-const env = nunjucks.configure('.', { noCache: true });
+const env = nunjucks.configure('.', { autoescape: false, noCache: true });
 
 markdown.register(env, marked);
 
