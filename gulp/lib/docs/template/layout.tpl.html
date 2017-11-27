@@ -21,14 +21,13 @@
 }
 
 <div class="docs">
-    <div class="docs__header">
-        <div class="container">
-            <h1 class="docs__header-title h1">{{ name }}</h1>
-        </div>
-    </div>
-
     <div class="container">
-        {% markdown mdFile %}
+    {% markdown %}
+    # {{ name }}
+    {% filter indent(4, true) %}
+    {% include mdFile %}
+    {% endfilter %}
+    {% endmarkdown %}
     </div>
 </div>
 
