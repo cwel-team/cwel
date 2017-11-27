@@ -23,11 +23,16 @@ textarea {
 textarea {
     overflow: auto;
 }
+
 a,
 a:hover,
 a:focus {
     color: #480344;
     text-decoration: underline;
+
+    .docs__anchored & {
+        text-decoration: none;
+    }
 }
 
 p {
