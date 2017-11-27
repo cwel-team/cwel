@@ -45,7 +45,16 @@ renderer.table = (header, body) => {
 };
 
 /**
- *  Allow for namespaced heading ids.
+ * Allow for namespaced heading ids.
+ *
+ * Algorithm:
+ * At the heart of this algorithm a stack is used to keep
+ * track of the current namespace. Each rendering of a heading
+ * trims the stored namespace to match its level - 1
+ * i.e. headings at level 1 trim the namespace to 0, headings
+ * of level 3 trim the namespace to 2. The heading's id
+ * is then the stored namespace separated by '.', including
+ * its own id.
  */
 renderer.heading = (function rendererScope() {
     const namespace = [];
