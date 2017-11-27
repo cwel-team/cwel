@@ -153,7 +153,6 @@
     <Content Include="FrontEnd\Script\sandbox\grid\script.es" />
     <Content Include="FrontEnd\Style\sandbox\grid\style.scss" />
     <Content Include="FrontEnd\Style\sandbox\typography\style.scss" />
-    <Content Include="FrontEnd\Style\sandbox\_block.scss" />
     <Content Include="FrontEnd\Style\sandbox\_divider.scss" />
     <Content Include="FrontEnd\Style\sandbox\_viewport.scss" />
     <Content Include="FrontEnd\Style\site.scss" />
@@ -177,8 +176,6 @@
     <Content Include="FrontEnd\Script\sandbox\remunits\script.es" />
     <Content Include="FrontEnd\Style\visualtest\grid\style.scss" />
     <Content Include="FrontEnd\Style\visualtest\_block.scss" />
-    <Content Include="FrontEnd\Style\visualtest\_divider.scss" />
-    <Content Include="FrontEnd\Style\visualtest\_viewport.scss" />
     <Content Include="FrontEnd\Script\visualtest\grid\script.es" />
     <Content Include="FrontEnd\Script\visualtest\remunits\script.es" />
     <None Include="packages.config" />

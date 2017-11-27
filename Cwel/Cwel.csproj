@@ -116,9 +116,6 @@
     <Content Include="Docs\Helper\AssetHelper.doc.md" />
     <Content Include="Docs\Helper\ComponentHelper.doc.md" />
     <Content Include="Docs\Helper\IconHelper.doc.md" />
-    <Content Include="Docs\Structure\Grid.doc.md" />
-    <Content Include="Docs\Structure\SCSS Reset.doc.md" />
-    <Content Include="Docs\Structure\SCSS.doc.md" />
     <None Include="packages.config" />
     <Content Include="src\Component\Badge\Badge.cshtml" />
     <Content Include="src\Component\Badge\Badge.doc.md" />
@@ -174,7 +171,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Docs\Structure\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
