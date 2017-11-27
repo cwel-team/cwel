@@ -100,12 +100,9 @@
     <Content Include="Src\Theme\sassdoc\assets\css\main.css" />
     <Content Include="Src\Theme\sassdoc\assets\js\main.js" />
     <Content Include="Src\Theme\sassdoc\index.js" />
-    <Content Include="Src\Theme\sassdoc\views\includes\annotations\author.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\content.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\deprecated.html" />
-    <Content Include="Src\Theme\sassdoc\views\includes\annotations\description.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\example.html" />
-    <Content Include="Src\Theme\sassdoc\views\includes\annotations\link.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\name.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\output.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\parameter.html" />
@@ -114,7 +111,6 @@
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\require.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\return.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\see.html" />
-    <Content Include="Src\Theme\sassdoc\views\includes\annotations\since.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\throw.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\todo.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\type.html" />
@@ -200,14 +196,6 @@
     <Content Include="Src\Style\Function\_fn-strip-unit.scss" />
     <Content Include="Src\Theme\sassdoc\assets\img\IMG" />
     <Content Include="Src\Theme\sassdoc\assets\svg\SVG" />
-    <Content Include="Src\Theme\sassdoc\scss\base\_base.scss" />
-    <Content Include="Src\Theme\sassdoc\scss\main.scss" />
-    <Content Include="Src\Theme\sassdoc\scss\partials\_main.scss" />
-    <Content Include="Src\Theme\sassdoc\scss\utils\_functions.scss" />
-    <Content Include="Src\Theme\sassdoc\scss\utils\_helpers.scss" />
-    <Content Include="Src\Theme\sassdoc\scss\utils\_mixins.scss" />
-    <Content Include="Src\Theme\sassdoc\scss\utils\_variables.scss" />
-    <Content Include="Src\Theme\sassdoc\scss\vendors\_vendors.scss" />
     <Content Include="Src\Theme\sassdoc\views\index.nunjucks" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -216,9 +204,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Docs\Structure\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
