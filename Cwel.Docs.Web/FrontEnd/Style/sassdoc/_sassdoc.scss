@@ -56,3 +56,17 @@ $code-font-stack: 'Inconsolata', 'Consolas', 'Monaco', 'Andale Mono', monospace;
 .sd-item__since {
     color: $color-secondary-2;
 }
+
+.sd-sidebar__list {
+    padding-left: 0;
+    list-style: none;
+}
+.sd-sidebar__link {
+    display: block;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: $color-secondary-1;
+    font-family: $code-font-stack;
+    font-size: 0.75rem;
+    text-decoration: none;
+}
