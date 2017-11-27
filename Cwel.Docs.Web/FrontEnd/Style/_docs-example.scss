@@ -1,6 +1,6 @@
 
 .docs-example {
-    padding-bottom: 2rem;
+    padding-bottom: 3.35rem;
 }
 .docs-example__nav {
     height: 100%;
@@ -41,10 +41,10 @@
 }
 .docs-example__nav-link {
     display: flex;
-    padding-top: 0.62rem;
-    padding-right: 1rem;
-    padding-bottom: 0.62rem;
-    padding-left: 1rem;
+    padding-top: 1.04rem;
+    padding-right: 1.68rem;
+    padding-bottom: 1.04rem;
+    padding-left: 1.68rem;
     line-height: 1.2;
     cursor: pointer;
 }
@@ -52,21 +52,21 @@
     background: $colour-core2;
 }
 .docs-example__nav-title {
-    padding-top: 0.62rem;
-    padding-bottom: 0.62rem;
+    padding-top: 1.04rem;
+    padding-bottom: 1.04rem;
     color: $colour-core1;
-    font-size: 1rem;
+    font-size: 1.68rem;
     font-weight: 600;
     border-top-right-radius: $border-radius-standard;
     border-top-left-radius: $border-radius-standard;
 }
 .docs-example__content {
     height: auto;
-    min-height: 12.5rem;
-    padding-top: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.4rem;
-    padding-left: 0.5rem;
+    min-height: 20.94rem;
+    padding-top: 0.84rem;
+    padding-right: 0.84rem;
+    padding-bottom: 0.67rem;
+    padding-left: 0.84rem;
     background: $colour-core2;
     border-width: $border-width-standard;
     border-style: solid;

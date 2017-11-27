@@ -12,7 +12,7 @@ code {
 
 code[class*='language-'],
 pre[class*='language-'] {
-    font-size: 0.75rem;
+    font-size: 1.26rem;
     direction: ltr;
     text-align: left;
     white-space: pre-wrap;
@@ -54,21 +54,21 @@ code[class*='language-'] ::selection {
 
 pre[class*='language-'] {
     margin: 0;
-    padding: 1rem;
+    padding: 1.68rem;
     overflow: hidden
 }
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
     background: $sd-slate-grey;
-    border-left: 0.3rem solid #3b424f;
+    border-left: 0.5rem solid #3b424f;
 }
 
 // Inline code
 
 :not(pre) > code[class*='language-'] {
-    padding: 0.1rem;
-    border-radius: 0.3rem;
+    padding: 0.17rem;
+    border-radius: 0.5rem;
 }
 
 .token.comment,

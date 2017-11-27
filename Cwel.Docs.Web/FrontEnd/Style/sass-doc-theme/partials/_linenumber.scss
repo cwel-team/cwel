@@ -1,5 +1,5 @@
 
-$line-number-constant: 3rem;
+$line-number-constant: 5.03rem;
 
 pre.line-numbers {
     position: relative;
@@ -13,7 +13,7 @@ pre.line-numbers > code {
 
 .line-numbers .line-numbers-rows {
     position: absolute;
-    top: 0.15rem; // Just enough to vertically align line numbers with corresponding cod eline
+    top: 0.25rem; // Just enough to vertically align line numbers with corresponding cod eline
     left: -$line-number-constant;
     width: $line-number-constant; // Works for line numbers below 1000 lines then you're buggered
     pointer-events: none;
@@ -29,7 +29,7 @@ pre.line-numbers > code {
 .line-numbers-rows > span:before {
     content: counter(linenumber);
     display: block;
-    padding-right: 1rem;
+    padding-right: 1.68rem;
     color: rgba(255, 255, 255, 0.3);
     text-align: right;
 }
