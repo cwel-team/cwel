@@ -17,19 +17,27 @@ To help with visualizing the grid on this page, see the grid overlay.
 
 ## Contents
 
-- [Getting Started](#getting-started)
-- [Terminology](#terminology)
-- [Container](#container)
-- [Cells](#cells)
-- [Margins and Gutters](#margins-and-gutters)
-- [Nesting](#nesting)
-- [Equal Height](#equal-height)
-- [Horizontal alignment](#horizontal-alignment)
-- [Top alignment](#top-alignment)
-- [Middle alignment](#middle-alignment)
-- [Bottom alignment](#bottom-alignment)
-- [Reversed](#reversed)
-- [Flush](#flush)
+- [Getting Started](#grid.getting-started)
+- [Terminology](#grid.terminology)
+	- [Cells](#grid.terminology.cells)
+	- [Margins](#grid.terminology.margins)
+	- [Gutters](#grid.terminology.gutters)
+	- [Rows](#grid.terminology.rows)
+	- [Columns](#grid.terminology.columns)
+- [Container](#grid.container)
+	- [Widths](#grid.container.widths)
+- [Cells](#grid.cells)
+	- [Widths](#grid.cells.widths)
+- [Margins and Gutters](#grid.margins-and-gutters)
+	- [Measurements](#grid.margins-and-gutters.measurements)
+- [Nesting](#grid.nesting)
+- [Equal Height](#grid.equal-height)
+- [Horizontal alignment](#grid.horizontal-alignment)
+- [Top alignment](#grid.top-alignment)
+- [Middle alignment](#grid.middle-alignment)
+- [Bottom alignment](#grid.bottom-alignment)
+- [Reversed](#grid.reversed)
+- [Flush](#grid.flush)
 
 ---
 
@@ -88,7 +96,7 @@ A vertical line of cells. Like rows, these are not part of implementation, but c
 
 Grids don't explicitly require a container to display correctly, but for the sake of consistency and structure, a matter of best practice, the CWEL grid comes with one. There are two types of container: one with a width [based on the current viewport width](#container-widths), another that always remains full-width, always matching the viewport width.
 
-### Container Widths
+### Widths
 
 Containers are of fluid width from XS to M devices, changing to fixed width from L to XL.
 
@@ -122,7 +130,7 @@ The grid is divided into 12 cells. Each with a width of the following fractions 
 
 For convenience, any of these can be referred to as their numerator; e.g. width `7/12` as width `7`, width `5/12` as width `5`, width `10/12` as width `10`, etc.
 
-### Column Widths
+### Widths
 
 Cells can be set to take up different column widths, using size modifiers. See the [demo](/playground/sandbox/grid) for a visual example of sizes. The modifier syntax consists of a number out of 12, and an optional device size.
 
