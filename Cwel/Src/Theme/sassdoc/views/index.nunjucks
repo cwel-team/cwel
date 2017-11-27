@@ -64,10 +64,8 @@
             {# 3. Loop over the items in the current type #}
             {% for item in items %}
 
-            {# At this point it is up to you to display whatever you want from your items. #}
-            <h3>{{ item.context.name }}</h3>
-
-            {% include "Cwel/Src/Theme/sassdoc/views/includes/partials/item.html" %}
+                {# At this point it is up to you to display whatever you want from your items. #}
+                {% include "Cwel/Src/Theme/sassdoc/views/includes/partials/item.html" %}
 
             {% endfor %}
         </div>

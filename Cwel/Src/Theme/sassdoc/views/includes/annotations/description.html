@@ -1,4 +1,6 @@
 {% if item.description %}
-  <h3 class="item__sub-heading">Description</h3>
-  <div class="item__description">{{ item.description|safe }}</div>
+    <div class="sd-description">
+        <h3 class="sd-description__heading">Description</h3>
+        <div class="sd-description__description">{{ item.description|safe }}</div>
+    </div>
 {% endif %}

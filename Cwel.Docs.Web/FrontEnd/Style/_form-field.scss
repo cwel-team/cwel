@@ -7,7 +7,7 @@
     padding-left: 0.63rem;
     border-width: $border-width-standard;
     border-style: solid;
-    border-color: $colour-secondary2;
+    border-color: $color-secondary-2;
     border-radius: 0.25rem;
 }
 @mixin form-icon() {
@@ -40,7 +40,7 @@
 .form-field__label {
     display: block;
     margin-bottom: 0.63rem;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 1rem;
 }
 .form-field__select-container--icon-arrow:after {

@@ -4,32 +4,32 @@ html{
     font-size: 100%; // stylelint-disable-line declaration-property-unit-blacklist
 }
 body {
-    color: $colour-secondary1;
+    color: $color-secondary-1;
     letter-spacing: 0.04rem;
-    background: $colour-core2;
+    background: $color-core-2;
 }
 h1,
 .h1 {
     margin-top: 0;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 2rem;
 }
 h2,
 .h2 {
     margin-top: 0;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 1.6rem;
 }
 h3,
 .h3 {
     margin-top: 0;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 1.3rem;
 }
 h4,
 .h4 {
     margin-top: 0;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 1rem;
 }
 p,

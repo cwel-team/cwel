@@ -7,10 +7,10 @@
     padding-right: 0;
     padding-bottom: 1rem;
     padding-left: 0;
-    background: $colour-core2;
+    background: $color-core-2;
     border-top-width: $border-width-standard;
     border-top-style: solid;
-    border-top-color: $colour-secondary2;
+    border-top-color: $color-secondary-2;
 }
 .editor-output__iframe {
     display: block;
@@ -20,7 +20,7 @@
     margin-left: auto;
     border-width: $border-width-standard;
     border-style: solid;
-    border-color: $colour-secondary2;
+    border-color: $color-secondary-2;
 }
 .editor-output__iframe--anim-width {
     transition: width 0.7s;

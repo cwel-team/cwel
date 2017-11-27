@@ -1,6 +1,6 @@
 
 .docs {
-    color: $colour-core1;
+    color: $color-core-1;
 
     @include breakpoint('s') {
         min-height: 56.25rem;
@@ -13,10 +13,10 @@
     margin-bottom: 2rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background: $colour-core2;
+    background: $color-core-2;
     border-bottom-width: $border-width-standard;
     border-bottom-style: solid;
-    border-bottom-color: $colour-secondary2;
+    border-bottom-color: $color-secondary-2;
 }
 .docs__header-title {
     margin: 0;

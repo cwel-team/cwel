@@ -5,10 +5,10 @@
     height: 4.25rem;
     padding-right: 1rem;
     padding-left: 1rem;
-    background: $colour-core2;
+    background: $color-core-2;
     border-bottom-width: 0.13rem;
     border-bottom-style: solid;
-    border-bottom-color: $colour-core1;
+    border-bottom-color: $color-core-1;
 }
 .nav-header__title {
     margin-bottom: 0;
@@ -18,7 +18,7 @@
 .nav-header__link,
 .nav-header__link:hover,
 .nav-header__link:focus {
-    color: $colour-core1;
+    color: $color-core-1;
 }
 .nav-header__button {
     margin-bottom: 0;

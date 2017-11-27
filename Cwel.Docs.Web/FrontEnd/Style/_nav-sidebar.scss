@@ -7,8 +7,8 @@
     width: 16.25rem;
     height: 100%;
     overflow: auto;
-    background: $colour-white;
-    box-shadow: 0 0 0.94rem $colour-secondary1;
+    background: $color-white;
+    box-shadow: 0 0 0.94rem $color-secondary-1;
     transition: all 0.5s;
     transform: translateX(-18.75rem);
 }
@@ -17,8 +17,8 @@
     padding-right: 1rem;
     padding-bottom: 1rem;
     padding-left: 1rem;
-    color: $colour-white;
-    background: $colour-core1;
+    color: $color-white;
+    background: $color-core-1;
 }
 .nav-sidebar__ul {
     margin: 0;
@@ -28,7 +28,7 @@
 .nav-sidebar__li {
     border-bottom-width: $border-width-standard;
     border-bottom-style: solid;
-    border-bottom-color: $colour-secondary2;
+    border-bottom-color: $color-secondary-2;
 }
 .nav-sidebar__li:last-child {
     margin-bottom: 1.25rem;
@@ -41,14 +41,14 @@
     padding-right: 1rem;
     padding-bottom: 1rem;
     padding-left: 1rem;
-    color: $colour-secondary1;
+    color: $color-secondary-1;
     text-align: left;
     text-transform: capitalize;
     border: none;
     cursor: pointer;
 }
 .nav-sidebar__li-link:hover {
-    background: $colour-core2;
+    background: $color-core-2;
 }
 .nav-sidebar__collapsible-ul {
     max-height: 0;
@@ -58,7 +58,7 @@
     list-style: none;
     border-top-width: $border-width-standard;
     border-top-style: solid;
-    border-top-color: $colour-secondary2;
+    border-top-color: $color-secondary-2;
     transition: all 0.3s ease;
     opacity: 0;
 }
@@ -70,7 +70,7 @@
     position: absolute;
     top: 0.5rem;
     left: 0;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 1.56rem;
 }
 .nav-sidebar__collapsible-link {
@@ -81,7 +81,7 @@
     padding-right: 1rem;
     padding-bottom: 0.88rem;
     padding-left: 1rem;
-    color: $colour-secondary1;
+    color: $color-secondary-1;
     font-size: 0.9rem;
 }
 .nav-sidebar__collapsible-link:hover {
@@ -94,7 +94,7 @@
     padding-left: 1.25rem;
     border-bottom-width: $border-width-standard;
     border-bottom-style: solid;
-    border-bottom-color: $colour-secondary2;
+    border-bottom-color: $color-secondary-2;
 }
 .nav-sidebar__search-field {
     position: relative;
@@ -102,16 +102,16 @@
 }
 .nav-sidebar__search-input {
     padding-left: 1.63rem;
-    color: $colour-core1;
-    background: $colour-white;
+    color: $color-core-1;
+    background: $color-white;
     border-width: 0;
     border-bottom-width: 0.13rem;
     border-bottom-style: solid;
-    border-bottom-color: $colour-core1;
+    border-bottom-color: $color-core-1;
     border-radius: 0;
 }
 .nav-sidebar__search-input::placeholder {
-    color: $colour-core1;
+    color: $color-core-1;
 }
 .nav-sidebar--active {
     transform: translateX(0);

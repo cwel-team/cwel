@@ -75,6 +75,7 @@ gulp.task('cwel-docs-generate-dynamic-scss-docs', (done) => {
     }).then(() => {
         let file = fs.readFileSync('Cwel/.tmp/docs/sassdoc/index.html', 'utf-8'); // Once the file has rendered read it back in
         file = file.replace(/@/g, '@@'); // Swap all (SCSS) `@` symbols for `@@` so that C# doesn't get confused when it builds the page
+        file = file.replace(/csss/g, 'CSS'); // Fix SassDoc bug where 'css' gets pluralized
         fs.writeFileSync('Cwel/.tmp/docs/sassdoc/index.html', file, 'utf-8'); // Then rewrite the file
         done();
     });

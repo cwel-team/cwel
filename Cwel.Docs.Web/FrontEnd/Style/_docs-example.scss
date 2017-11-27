@@ -17,10 +17,10 @@
 }
 .docs-example__nav-li {
     overflow: hidden;
-    color: $colour-core1;
+    color: $color-core-1;
     line-height: 0;
     border-style: solid;
-    border-color: $colour-secondary2;
+    border-color: $color-secondary-2;
     border-top-width: $border-width-standard;
     border-right-width: 0;
     border-bottom-width: 0;
@@ -32,8 +32,8 @@
     }
 
     &--active {
-        background: $colour-core2;
-        box-shadow: 0 $border-width-standard 0 0 $colour-core2;
+        background: $color-core-2;
+        box-shadow: 0 $border-width-standard 0 0 $color-core-2;
     }
 }
 .docs-example__nav-li:last-child {
@@ -49,12 +49,12 @@
     cursor: pointer;
 }
 .docs-example__nav-link:hover {
-    background: $colour-core2;
+    background: $color-core-2;
 }
 .docs-example__nav-title {
     padding-top: 0.62rem;
     padding-bottom: 0.62rem;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 1rem;
     font-weight: 600;
     border-top-right-radius: $border-radius-standard;
@@ -67,10 +67,10 @@
     padding-right: 0.5rem;
     padding-bottom: 0.4rem;
     padding-left: 0.5rem;
-    background: $colour-core2;
+    background: $color-core-2;
     border-width: $border-width-standard;
     border-style: solid;
-    border-color: $colour-secondary2;
+    border-color: $color-secondary-2;
     border-bottom-right-radius: $border-radius-standard;
     border-bottom-left-radius: $border-radius-standard;
 
