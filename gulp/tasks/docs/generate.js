@@ -64,6 +64,10 @@ gulp.task('clean:cwel-docs-generate-csharp', () => del(['Cwel/.tmp/docs/csdoc'])
 
 // @internal
 gulp.task('cwel-docs-generate-dynamic-scss-docs', (done) => {
+    sassdoc.parse('Cwel/Src/Style/**/*.scss', { verbose: true })
+    .then((data) => {
+        fs.writeFileSync('Cwel/.tmp/sassdocdata.json', JSON.stringify(data, null, '\t'), 'utf-8');
+    });
     sassdoc('Cwel/Src/Style/**/*.scss', { // http://sassdoc.com/configuration/
         verbose: true,
         cache: false, // Disable cache to enable live-reloading

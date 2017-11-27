@@ -186,8 +186,8 @@ gulp.task('watch', done => gulpSequence('clean:build', 'build')(() => {
         'cwel-docs-build-script',
         'cwel-docs-generate')(() => browserSync.reload()));
     gulp.watch('Cwel/Src/Theme/**/*.{html,nunjucks}', () => gulpSequence(
-        'clean:cwel-docs-generate-dynamic-scss-docs',
-        'cwel-docs-generate-dynamic-scss-docs')(() => (browserSync.reload())));
+        'clean:cwel-docs-generate',
+        'cwel-docs-generate')(() => (browserSync.reload())));
     gulp.watch('Cwel.Docs.Web/**/*.cshtml', () => browserSync.reload());
     gulp.watch('Cwel.Docs.Web/Assets/img/**/*.{svg,png,jpg,jpeg}', () => browserSync.reload());
 

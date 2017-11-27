@@ -1,5 +1,6 @@
-{% if 'item.deprecated' %}
-    <div class="sd-deprecated">
-        <strong>Deprecated!</strong> {{ item.deprecated|safe }}
+{% if item.deprecated %}
+    <div class="sd-message sd-message--deprecated">
+        <strong class="sd-message__heading">Deprecated!</strong>
+        {{ item.deprecated|safe }}
     </div>
 {% endif %}

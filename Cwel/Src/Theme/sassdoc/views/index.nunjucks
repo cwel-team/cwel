@@ -42,7 +42,13 @@
  # 2. Loop over types mapped to each group
  # 3. Loop over items mapped to each type
  #}
-
+<header class="sd-header">
+    <div class="container">
+        {% if package.version %}
+            {{ package.version }}
+        {% endif %}
+    </div>
+</header>
 <aside class="sd-sidebar" role="nav">
     {% include "Cwel/Src/Theme/sassdoc/views/includes/partials/sidebar.html" %}
 </aside>
@@ -63,7 +69,7 @@
 
             {# 3. Loop over the items in the current type #}
             {% for item in items %}
-
+                <a class="sd-item__link sd-visually-hidden" id="{{ group_name }}-{{ item.context.type }}-{{ item.context.name }}">{{ item.context.name }}</a>
                 {# At this point it is up to you to display whatever you want from your items. #}
                 {% include "Cwel/Src/Theme/sassdoc/views/includes/partials/item.html" %}
 
@@ -76,11 +82,3 @@
     </section>
     {% endfor %}
 </main>
-
-{##
- # If your theme needs some JavaScript, feel free to create a JS file in `assets/js/` folder
- # and include it as follow:
- #
-    <script src="assets/js/main.js"></script>
- #
- #}

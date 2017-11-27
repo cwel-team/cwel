@@ -8,7 +8,9 @@
         {% if example.description %}
         <div class="sd-example__description">{{ example.description|safe }}</div>
         {% endif %}
-        <pre class="sd-example__code  language-{{ example.type }}"><code>{{ example.code|escape|safe }}</code></pre>
+        <pre class="sd-example__code language-{{ example.type }}">
+            <code class="highlight">{{ example.code|escape|safe }}</code>
+        </pre>
     </div>
     {% endfor %}
 

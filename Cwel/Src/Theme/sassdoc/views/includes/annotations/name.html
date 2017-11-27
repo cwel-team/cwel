@@ -1,5 +1,3 @@
-<a class="sd-item__link sd-visually-hidden" href="#{{ item.context.type }}-{{ item.context.name }}">{{ item.context.name }}</a>
-
 <h3 class="sd-item__heading">
     {% if item.access != "public" %}
     <span class="sd-item__access">[{{ item.access }}]</span>
@@ -10,7 +8,7 @@
     {% if display.alias and item.aliased.length > 0 %}
     <span class="sd-item__aliased">(aliased as
         {% for alias in item.aliased %}
-        <a href="#{{ item.context.type }}-{{ alias }}"><code>{{ alias }}</code></a>
+            <a href="#{{ item.context.type }}-{{ alias }}"><code>{{ alias }}</code></a>
         {% endfor %}
     )</span>
     {% endif %}
@@ -21,5 +19,5 @@
 </h3>
 
 {% if item.since.length == 1 %}
-    <span class="sd-item__since">Since version {{ item.since[0].version }}{% if item.since[0].description %} &mdash; {{ item.since[0].description }}{% endif %}</span>
+    <span class="sd-item__since">Since {{ item.since[0].version }}{% if item.since[0].description %} &mdash; {{ item.since[0].description }}{% endif %}</span>
 {% endif %}
