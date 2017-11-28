@@ -12,7 +12,7 @@
     cursor: pointer;
 
     @include breakpoint('l') {
-        padding-left: 2.5rem;
+        padding-left: 2.5rem; // Make more room for arrow
     }
 
     &::before { // Arrow

@@ -10,3 +10,14 @@
     }
 
 }
+
+// Highlight container when navigated to via internal link with flash of color
+
+:target {
+    animation: target-fade 1.5s ease;
+}
+
+@keyframes target-fade {
+    0% { background-color: rgba(#fff9c4, 0.5) }
+    100% { background-color: transparent; }
+}

@@ -69,10 +69,8 @@
 
             {# 3. Loop over the items in the current type #}
             {% for item in items %}
-                <a class="sd-item__link sd-visually-hidden" id="{{ group_name }}-{{ item.context.type }}-{{ item.context.name }}">{{ item.context.name }}</a>
                 {# At this point it is up to you to display whatever you want from your items. #}
                 {% include "Cwel/Src/Theme/sassdoc/views/includes/partials/item.html" %}
-
             {% endfor %}
         </div>
         {% endif %}

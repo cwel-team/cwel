@@ -20,10 +20,6 @@ data-collapsed="%{{ item.context.name }} { ... }">
     <pre class="sd-item__code">
 <code class="language-scss">${{ item.context.name }}: {{ item.context.value }}{% if item.context.scope !== "private" %} !{{ item.context.scope }}{% endif %};</code>
     </pre>
-    {% if (item.type|lower).indexOf('color') > -1 and item.resolvedValue|is_color == true %}
-        <span class="sd-color-preview" style="background: {{ item.resolvedValue }};"></span>
-    {% endif %}
-
     {% if basePath %}
         <a href="{{ basePath }}/{{ item.file.path }}#L{{ item.context.line.start }}-L{{ item.context.line.end }}" class="sd-item__source-link" target="_blank">View source</a>
     {% endif %}

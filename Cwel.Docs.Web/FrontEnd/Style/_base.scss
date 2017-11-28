@@ -38,3 +38,10 @@ p,
     margin-top: 0;
     font-size: 1.68rem;
 }
+
+code {
+    padding: 0.125rem 0.5rem;
+    background-color: #fcfcfc;
+    border: 1px solid $color-secondary-2; // stylelint-disable-line declaration-property-unit-blacklist
+    border-radius: 3px; // stylelint-disable-line declaration-property-unit-blacklist
+}

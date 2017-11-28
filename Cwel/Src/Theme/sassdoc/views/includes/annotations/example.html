@@ -1,7 +1,7 @@
 {% if item.example.length > 0 %}
 <div class="sd-example">
 
-    <h3 class="sd-example__heading">Example</h3>
+    <h4 class="sd-example__heading">Example</h4>
 
     {% for example in item.example %}
     <div class="sd-example__example">
@@ -9,7 +9,7 @@
         <div class="sd-example__description">{{ example.description|safe }}</div>
         {% endif %}
         <pre class="sd-example__code language-{{ example.type }}">
-            <code class="language-scss">{{ example.code|escape|safe }}</code>
+<code class="language-scss">{{ example.code|escape|safe }}</code>
         </pre>
     </div>
     {% endfor %}

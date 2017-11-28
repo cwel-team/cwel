@@ -100,15 +100,12 @@
     <Content Include="Src\Theme\sassdoc\assets\css\main.css" />
     <Content Include="Src\Theme\sassdoc\assets\js\main.js" />
     <Content Include="Src\Theme\sassdoc\index.js" />
-    <Content Include="Src\Theme\sassdoc\views\includes\annotations\content.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\deprecated.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\example.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\name.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\output.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\parameter.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\preview.html" />
-    <Content Include="Src\Theme\sassdoc\views\includes\annotations\property.html" />
-    <Content Include="Src\Theme\sassdoc\views\includes\annotations\require.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\return.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\see.html" />
     <Content Include="Src\Theme\sassdoc\views\includes\annotations\throw.html" />

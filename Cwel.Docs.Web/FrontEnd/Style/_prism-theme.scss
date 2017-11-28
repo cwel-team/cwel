@@ -17,12 +17,16 @@ code {
 
 code[class*='language-'],
 pre[class*='language-'] {
+    padding: 0;
     font-size: 1.26rem;
+    text-shadow: none;
     white-space: pre-wrap;
     word-spacing: normal;
     word-break: normal;
     tab-size: 4;
     hyphens: none;
+    background-color: transparent;
+    border: none;
 }
 
 code[class*='language-scss'],
@@ -33,30 +37,18 @@ pre[class*='language-scss'] {
 pre[class*='language-']::-moz-selection,
 pre[class*='language-'] ::-moz-selection,
 code[class*='language-']::-moz-selection,
-code[class*='language-'] ::-moz-selection {
-    text-shadow: none;
-    background: #282c34;
-}
-
+code[class*='language-'] ::-moz-selection,
 pre[class*='language-']::selection,
 pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
-    text-shadow: none;
-    background: #282c34;
-}
-
-@media print {
-    code[class*='language-'],
-    pre[class*='language-'] {
-        text-shadow: none;
-    }
+    background-color: #282c34;
 }
 
 pre[class*='language-'] {
     margin: 0 0 1rem 0;
     padding: 1.68rem;
-    overflow: hidden
+    overflow: hidden;
 }
 
 :not(pre) > code[class*='language-'],

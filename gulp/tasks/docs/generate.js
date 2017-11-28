@@ -64,10 +64,6 @@ gulp.task('clean:cwel-docs-generate-csharp', () => del(['Cwel/.tmp/docs/csdoc'])
 
 // @internal
 gulp.task('cwel-docs-generate-dynamic-scss-docs', (done) => {
-    sassdoc.parse('Cwel/Src/Style/**/*.scss', { verbose: true })
-    .then((data) => {
-        fs.writeFileSync('Cwel/.tmp/sassdocdata.json', JSON.stringify(data, null, '\t'), 'utf-8');
-    });
     sassdoc('Cwel/Src/Style/**/*.scss', { // http://sassdoc.com/configuration/
         verbose: true,
         cache: false, // Disable cache to enable live-reloading
@@ -82,6 +78,11 @@ gulp.task('cwel-docs-generate-dynamic-scss-docs', (done) => {
         file = file.replace(/csss/g, 'CSS'); // Fix SassDoc bug where 'css' gets pluralized
         fs.writeFileSync('Cwel/.tmp/docs/sassdoc/index.html', file, 'utf-8'); // Then rewrite the file
         done();
+    });
+    // The following task is not required for SassDocs to generate but is useful for debugging
+    sassdoc.parse('Cwel/Src/Style/**/*.scss', { verbose: true })
+    .then((data) => {
+        fs.writeFileSync('Cwel/.tmp/docs/sassdoc-raw.json', JSON.stringify(data, null, '\t'), 'utf-8');
     });
 });
 // @internal

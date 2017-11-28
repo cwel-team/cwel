@@ -1,6 +1,10 @@
 {% if item.output %}
-    <div class="sd-output">
-        <h3 class="sd-output__heading">Output</h3>
-        <div class="sd-output__output">{{ item.output|safe }}</div>
-    </div>
+<tr>
+    <th>
+        <h4 class="sd-meta__heading">Output</h4>
+    </th>
+    <td>
+        {{ item.output|safe }}
+    </td>
+</tr>
 {% endif %}

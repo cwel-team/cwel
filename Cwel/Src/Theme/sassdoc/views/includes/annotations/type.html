@@ -1,11 +1,19 @@
 {% if item.type %}
-  <h3 class="item__sub-heading">Type</h3>
-
-  <p>
-  {% if item.type == "*" %}
-    Any
-  {% else %}
-    <code>{{ item.type | display_as_type }}</code>
-  {% endif %}
-  </p>
+<tr>
+    <th>
+        <h4 class="sd-meta__heading">Type</h4>
+    </th>
+    <td>
+        <p>
+        {% if item.type == "*" %}
+            Any
+        {% else %}
+<code>{{ item.type }}</code>
+        {% endif %}
+        {% if (item.type|lower).indexOf('color') > -1 %}
+            <span class="sd-color-preview" style="background-color: {{ item.context.value }};"></span>
+        {% endif %}
+        </p>
+    </td>
+</tr>
 {% endif %}
