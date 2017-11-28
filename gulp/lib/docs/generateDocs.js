@@ -26,7 +26,7 @@ renderer.code = (text, language) => {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 
-    return `<pre ng-non-bindable><code class="highlight ${language}">${escaped}</code></pre>`;
+    return `<pre ng-non-bindable><code class="language-${language}">${escaped}</code></pre>`;
 };
 
 /**

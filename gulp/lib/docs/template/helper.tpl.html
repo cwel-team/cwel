@@ -6,20 +6,11 @@
 }
 
 @section styles {
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow-night.min.css">
+
 }
 
 @section scripts {
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script>
-        var codeBlocks = document.querySelectorAll('pre code.highlight');
-        for (var i in codeBlocks) {
-            if (codeBlocks.hasOwnProperty(i)) {
-                var block = codeBlocks[i];
-                hljs.highlightBlock(block);
-            }
-        }
-    </script>
+    <script src="/Assets/JS/prism.js"></script>
 }
 
 {% macro renderCsData(data) %}

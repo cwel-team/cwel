@@ -9,7 +9,7 @@
         <div class="sd-example__description">{{ example.description|safe }}</div>
         {% endif %}
         <pre class="sd-example__code language-{{ example.type }}">
-            <code class="highlight">{{ example.code|escape|safe }}</code>
+            <code class="language-scss">{{ example.code|escape|safe }}</code>
         </pre>
     </div>
     {% endfor %}

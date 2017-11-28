@@ -193,6 +193,8 @@
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd-sidebar-type.scss" />
     <Content Include="FrontEnd\Style\sassdoc\Utility\_sd-utilities.scss" />
     <Content Include="FrontEnd\Style\sassdoc\Variable\_sd-variables.scss" />
+    <Content Include="FrontEnd\Style\_prism-theme.scss" />
+    <Content Include="FrontEnd\Script\prism.es" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />

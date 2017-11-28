@@ -3,12 +3,11 @@
 
 <div class="sd-item__code-wrapper">
     <pre class="sd-item__code  sd-item__code--togglable"
-        data-current-state="collapsed"
-        data-expanded="%{{ item.context.name }} { {{ item.context.code }} }"
-        data-collapsed="%{{ item.context.name }} { ... }">
-        <code class="highlight scss">%{{ item.context.name }} { ... }</code>
+data-current-state="collapsed"
+data-expanded="%{{ item.context.name }} { {{ item.context.code }} }"
+data-collapsed="%{{ item.context.name }} { ... }">
+<code class="language-scss">%{{ item.context.name }} { ... }</code>
     </pre>
-
     {% if basePath %}
         <a href="{{ basePath }}/{{ item.file.path }}#L{{ item.context.line.start }}-L{{ item.context.line.end }}" class="sd-item__source-link" target="_blank">View source</a>
     {% endif %}
@@ -19,9 +18,8 @@
 
 <div class="sd-item__code-wrapper">
     <pre class="sd-item__code">
-        <code class="highlight scss">${{ item.context.name }}: {{ item.context.value }}{% if item.context.scope !== "private" %} !{{ item.context.scope }}{% endif %};</code>
+<code class="language-scss">${{ item.context.name }}: {{ item.context.value }}{% if item.context.scope !== "private" %} !{{ item.context.scope }}{% endif %};</code>
     </pre>
-
     {% if (item.type|lower).indexOf('color') > -1 and item.resolvedValue|is_color == true %}
         <span class="sd-color-preview" style="background: {{ item.resolvedValue }};"></span>
     {% endif %}
@@ -35,15 +33,14 @@
 {% elseif item.context.type == "css" %}
 <div class="sd-item__code-wrapper">
     <pre class="sd-item__code  sd-item__code--togglable"
-    data-current-state="collapsed"
-    data-expanded="{{ item.context.name }} {
-        {{ item.context.value }}
-    }"
-    data-collapsed="{{ item.context.name }} { ... }">
-        <code class="highlight scss">{{ item.context.name }} { ... }</code>
+data-current-state="collapsed"
+data-expanded="{{ item.context.name }} {
+    {{ item.context.value }}
+}"
+data-collapsed="{{ item.context.name }} { ... }">
+<code class="language-scss">{{ item.context.name }} { ... }</code>
     </pre>
 </div>
-
 {# Functions and mixins #}
 {% else %}
 
@@ -68,14 +65,11 @@
 
 <div class="sd-item__code-wrapper">
     <pre class="sd-item__code  sd-item__code--togglable"
-        data-current-state="collapsed"
-        data-expanded="@{{ item.context.type }} {{ item.context.name }}({{ parameters_string }}) { {{ item.context.code }} }"
-        data-collapsed="@{{ item.context.type }} {{ item.context.name }}({{ parameters_string }}) { ... }">
-        <code class="highlight scss">
-            @{{ item.context.type }} {{ item.context.name }}({{ parameters_string }}) { ... }
-        </code>
+data-current-state="collapsed"
+data-expanded="@{{ item.context.type }} {{ item.context.name }}({{ parameters_string }}) { {{ item.context.code }} }"
+data-collapsed="@{{ item.context.type }} {{ item.context.name }}({{ parameters_string }}) { ... }">
+<code class="language-scss">@{{ item.context.type }} {{ item.context.name }}({{ parameters_string }}) { ... }</code>
     </pre>
-
     {% if basePath %}
         <a href="{{ basePath }}/{{ item.file.path }}#L{{ item.context.line.start }}-L{{ item.context.line.end }}" class="sd-item__source-link" target="_blank">View source</a>
     {% endif %}

@@ -19,6 +19,8 @@
 }
 
 .sd-item__since {
+    display: block;
+    margin-bottom: 1rem;
     color: $color-secondary-2;
     font-size: 0.75rem;
     text-transform: uppercase;
