@@ -1,8 +1,8 @@
+// No syntax type decalred
+
 .language-plain {
     color: #999;
 }
-
-// stylelint-disable
 
 /* http://prismjs.com/download.html?themes=prism&languages=css+scss */
 /**
@@ -12,13 +12,12 @@
 */
 
 code {
-    font-family: 'Inconsolata',Consolas, Monaco, 'Andale Mono', monospace;
+    font-family: 'Inconsolata', Consolas, Monaco, 'Andale Mono', monospace;
 }
 
 code[class*='language-'],
 pre[class*='language-'] {
-    direction: ltr;
-    text-align: left;
+    font-size: 1.26rem;
     white-space: pre-wrap;
     word-spacing: normal;
     word-break: normal;
@@ -31,14 +30,18 @@ pre[class*='language-scss'] {
     color: #abb2bf;
 }
 
-pre[class*='language-']::-moz-selection, pre[class*='language-'] ::-moz-selection,
-code[class*='language-']::-moz-selection, code[class*='language-'] ::-moz-selection {
+pre[class*='language-']::-moz-selection,
+pre[class*='language-'] ::-moz-selection,
+code[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection {
     text-shadow: none;
     background: #282c34;
 }
 
-pre[class*='language-']::selection, pre[class*='language-'] ::selection,
-code[class*='language-']::selection, code[class*='language-'] ::selection {
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
     text-shadow: none;
     background: #282c34;
 }
@@ -51,20 +54,20 @@ code[class*='language-']::selection, code[class*='language-'] ::selection {
 }
 
 pre[class*='language-'] {
-    padding: 1em;
-    margin: 0 0 1em 0;
+    margin: 0 0 1rem 0;
+    padding: 1.68rem;
     overflow: hidden
 }
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-    background: #2e333e;
-    border-left: 3px solid #3b424f;
+    background-color: #2e333e;
+    border-left: 0.5rem solid #3b424f;
 }
 
 :not(pre) > code[class*='language-'] {
-    padding: .1em;
-    border-radius: .3em;
+    padding: 0.17rem;
+    border-radius: 0.5rem;
 }
 
 .token.comment,
@@ -83,7 +86,7 @@ pre[class*='language-'] {
 }
 
 .namespace {
-    opacity: .7;
+    opacity: 0.7;
 }
 
 .token.tag,
@@ -101,7 +104,7 @@ pre[class*='language-'] {
 }
 
 .token.property {
-    color:#abb2bf;
+    color: #abb2bf;
 }
 
 .token.selector,
@@ -133,7 +136,7 @@ pre[class*='language-'] {
 }
 
 .token.function {
-    color:#61afef;
+    color: #61afef;
 }
 
 .token.regex,
@@ -142,7 +145,7 @@ pre[class*='language-'] {
 }
 
 .token.important {
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .token.entity {
@@ -150,14 +153,14 @@ pre[class*='language-'] {
 }
 
 .token.hexcode {
-    color: #4aa9b9;
     display: inline-flex;
     overflow: hidden;
+    color: #4aa9b9;
 }
 
 .hexcode::before {
-    position: relative;
     content: '#';
-    color: #d19a66;
+    position: relative;
     left: 9.3px;
+    color: #d19a66;
 }

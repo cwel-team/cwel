@@ -1,13 +1,15 @@
 
 .docs-example {
-    padding-bottom: 2rem;
+    padding-bottom: 3.35rem;
 }
+
 .docs-example__nav {
     height: 100%;
     @include breakpoint('m') {
         display: flex;
     }
 }
+
 .docs-example__nav-ul {
     display: flex;
     justify-content: flex-start;
@@ -15,6 +17,7 @@
     margin: 0;
     padding: 0;
 }
+
 .docs-example__nav-li {
     overflow: hidden;
     color: $color-core-1;
@@ -36,38 +39,43 @@
         box-shadow: 0 $border-width-standard 0 0 $color-core-2;
     }
 }
+
 .docs-example__nav-li:last-child {
     border-right-width: $border-width-standard;
 }
+
 .docs-example__nav-link {
     display: flex;
-    padding-top: 0.62rem;
-    padding-right: 1rem;
-    padding-bottom: 0.62rem;
-    padding-left: 1rem;
+    padding-top: 1.04rem;
+    padding-right: 1.68rem;
+    padding-bottom: 1.04rem;
+    padding-left: 1.68rem;
     line-height: 1.2;
     cursor: pointer;
 }
+
 .docs-example__nav-link:hover {
     background: $color-core-2;
 }
+
 .docs-example__nav-title {
-    padding-top: 0.62rem;
-    padding-bottom: 0.62rem;
+    padding-top: 1.04rem;
+    padding-bottom: 1.04rem;
     color: $color-core-1;
-    font-size: 1rem;
+    font-size: 1.68rem;
     font-weight: 600;
     border-top-right-radius: $border-radius-standard;
     border-top-left-radius: $border-radius-standard;
 }
+
 .docs-example__content {
     height: auto;
-    min-height: 12.5rem;
-    padding-top: 0.5rem;
-    padding-right: 0.5rem;
-    padding-bottom: 0.4rem;
-    padding-left: 0.5rem;
-    background: $color-core-2;
+    min-height: 20.94rem;
+    padding-top: 0.84rem;
+    padding-right: 0.84rem;
+    padding-bottom: 0.67rem;
+    padding-left: 0.84rem;
+    background-color: $color-core-2;
     border-width: $border-width-standard;
     border-style: solid;
     border-color: $color-secondary-2;

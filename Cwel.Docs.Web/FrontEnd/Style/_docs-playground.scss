@@ -1,14 +1,16 @@
 
 .docs-playground {
     position: relative;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 4.19rem;
+    padding-bottom: 4.19rem;
     background: $color-white;
 }
+
 .docs-playground__overlay {
     transition: all 0.5s;
     opacity: 0;
 }
+
 .docs-playground__overlay--active {
     position: absolute;
     top: 0;

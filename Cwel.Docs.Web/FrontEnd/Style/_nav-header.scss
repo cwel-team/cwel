@@ -3,17 +3,17 @@
     display: flex;
     align-items: center;
     height: 4.25rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 1.68rem;
+    padding-left: 1.68rem;
     background: $color-core-2;
-    border-bottom-width: 0.13rem;
+    border-bottom-width: 0.22rem;
     border-bottom-style: solid;
     border-bottom-color: $color-core-1;
 }
 .nav-header__title {
     margin-bottom: 0;
-    padding-left: 1rem;
-    font-size: 1.1rem;
+    padding-left: 1.68rem;
+    font-size: 1.84rem;
 }
 .nav-header__link,
 .nav-header__link:hover,
@@ -25,5 +25,5 @@
     font-weight: 600;
 }
 .nav-header__logo {
-    width: 5.13rem;
+    width: 8.59rem;
 }

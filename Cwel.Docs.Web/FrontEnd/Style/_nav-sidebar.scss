@@ -4,56 +4,63 @@
     top: 0;
     bottom: 0;
     z-index: 1;
-    width: 16.25rem;
+    width: 27.22rem;
     height: 100%;
     overflow: auto;
     background: $color-white;
-    box-shadow: 0 0 0.94rem $color-secondary-1;
+    box-shadow: 0 0 1.57rem $color-secondary-1;
     transition: all 0.5s;
-    transform: translateX(-18.75rem);
+    transform: translateX(-31.41rem);
 }
+
 .nav-sidebar__title {
-    padding-top: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
+    padding-top: 1.68rem;
+    padding-right: 1.68rem;
+    padding-bottom: 1.68rem;
+    padding-left: 1.68rem;
     color: $color-white;
     background: $color-core-1;
 }
+
 .nav-sidebar__ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
 .nav-sidebar__li {
     border-bottom-width: $border-width-standard;
     border-bottom-style: solid;
     border-bottom-color: $color-secondary-2;
 }
+
 .nav-sidebar__li:last-child {
-    margin-bottom: 1.25rem;
+    margin-bottom: 2.09rem;
 }
+
 .nav-sidebar__li-link {
     display: block;
     width: 100%;
     height: 100%;
-    padding-top: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
+    padding-top: 1.68rem;
+    padding-right: 1.68rem;
+    padding-bottom: 1.68rem;
+    padding-left: 1.68rem;
     color: $color-secondary-1;
     text-align: left;
     text-transform: capitalize;
     border: none;
     cursor: pointer;
 }
+
 .nav-sidebar__li-link:hover {
     background: $color-core-2;
 }
+
 .nav-sidebar__collapsible-ul {
     max-height: 0;
     margin-bottom: 0;
-    padding-left: 1.63rem;
+    padding-left: 2.73rem;
     overflow: hidden;
     list-style: none;
     border-top-width: $border-width-standard;
@@ -62,61 +69,71 @@
     transition: all 0.3s ease;
     opacity: 0;
 }
+
 .nav-sidebar__collapsible-li {
     position: relative;
 }
+
 .nav-sidebar__collapsible-li:before {
     content: '• ';
     position: absolute;
-    top: 0.5rem;
+    top: 0.84rem;
     left: 0;
     color: $color-core-1;
-    font-size: 1.56rem;
+    font-size: 2.61rem;
 }
+
 .nav-sidebar__collapsible-link {
     display: block;
     width: 100%;
     height: 100%;
-    padding-top: 0.88rem;
-    padding-right: 1rem;
-    padding-bottom: 0.88rem;
-    padding-left: 1rem;
+    padding-top: 1.47rem;
+    padding-right: 1.68rem;
+    padding-bottom: 1.47rem;
+    padding-left: 1.68rem;
     color: $color-secondary-1;
-    font-size: 0.9rem;
+    font-size: 1.51rem;
 }
+
 .nav-sidebar__collapsible-link:hover {
     text-decoration: underline;
 }
+
 .nav-sidebar__search {
-    padding-top: 1.25rem;
-    padding-right: 1.25rem;
-    padding-bottom: 1.25rem;
-    padding-left: 1.25rem;
+    padding-top: 2.09rem;
+    padding-right: 2.09rem;
+    padding-bottom: 2.09rem;
+    padding-left: 2.09rem;
     border-bottom-width: $border-width-standard;
     border-bottom-style: solid;
     border-bottom-color: $color-secondary-2;
 }
+
 .nav-sidebar__search-field {
     position: relative;
     margin-bottom: 0;
 }
+
 .nav-sidebar__search-input {
-    padding-left: 1.63rem;
+    padding-left: 2.73rem;
     color: $color-core-1;
     background: $color-white;
     border-width: 0;
-    border-bottom-width: 0.13rem;
+    border-bottom-width: 0.22rem;
     border-bottom-style: solid;
     border-bottom-color: $color-core-1;
     border-radius: 0;
 }
+
 .nav-sidebar__search-input::placeholder {
     color: $color-core-1;
 }
+
 .nav-sidebar--active {
     transform: translateX(0);
 }
+
 .nav-sidebar__collapsible--active {
-    max-height: 625rem; // Larger than the box should ever get
+    max-height: 1046.88rem; // Larger than the box should ever get
     opacity: 1;
 }
