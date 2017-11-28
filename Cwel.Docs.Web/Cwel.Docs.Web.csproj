@@ -183,7 +183,16 @@
     <Content Include="FrontEnd\Style\sandbox\grid\_button.scss" />
     <Content Include="FrontEnd\Style\visualtest\remunits\style.scss" />
     <Content Include="FrontEnd\Style\sassdoc\_sassdoc.scss" />
-    <Content Include="FrontEnd\Style\Component\_sassdoc.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Component\_sd-header.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Component\_sd-item.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Component\_sd-main.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Component\_sd-message.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Component\_sd-meta.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Component\_sd-sidebar.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Component\_sd-sidebar-group.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Component\_sd-sidebar-type.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Utility\_sd-utilities.scss" />
+    <Content Include="FrontEnd\Style\sassdoc\Variable\_sd-variables.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />

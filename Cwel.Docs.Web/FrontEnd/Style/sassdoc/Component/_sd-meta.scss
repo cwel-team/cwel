@@ -1,0 +1,23 @@
+
+.sd-meta {
+
+    td,
+    th {
+        padding: 1rem 1rem 1rem 0;
+        vertical-align: top;
+        text-align: left;
+    }
+    ol,
+    ul {
+        margin-top: 0.25rem; // aligns better with `.sd-meta__heading`
+        margin-bottom: 0;
+    }
+    ul {
+        list-style: none;
+    }
+
+}
+
+.sd-meta__heading {
+    margin-bottom: 0;
+}

@@ -1,0 +1,25 @@
+
+.sd-item {
+    position: relative; // Required for absolute positioning of `.sd-item__link` which is visually hidden
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid $color-core-2; // stylelint-disable-line declaration-property-unit-blacklist
+
+    @include breakpoint('l') {
+        padding: 2rem;
+    }
+
+}
+
+.sd-item__heading {
+    margin-bottom: 0.25rem;
+    color: $color-secondary-1;
+    font-family: $code-font-stack;
+}
+
+.sd-item__since {
+    color: $color-secondary-2;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}

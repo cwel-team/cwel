@@ -1,0 +1,25 @@
+
+.sd-sb-group__heading {
+    display: block;
+    margin-bottom: 0;
+    padding: 1rem 0;
+    color: $color-secondary-1;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border-bottom: 1px dashed $color-secondary-2; // stylelint-disable-line declaration-property-unit-blacklist
+    cursor: pointer;
+
+    @include breakpoint('l') {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+}
+
+.sd-sb-group__heading[data-current-state='expanded'] + .sd-sb-type {
+    display: block;
+}
+
+.sd-sb-group__heading[data-current-state='collapsed'] + .sd-sb-type {
+    display: none;
+}

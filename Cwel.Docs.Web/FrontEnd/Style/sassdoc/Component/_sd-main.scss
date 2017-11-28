@@ -1,0 +1,21 @@
+
+.sd {
+    margin-top: -2rem; // Make docs sit flush with header
+    margin-bottom: -2rem; // Make docs sit flush with footer
+    line-height: 1.35;
+
+    @include breakpoint('l') {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+}
+
+.sd-main {
+    padding: 2rem;
+
+    @include breakpoint('l') {
+        flex-grow: 1;
+    }
+
+}
