@@ -62,12 +62,11 @@ pre[class*='language-'] {
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
     background-color: #2e333e;
-    border-left: 0.5rem solid #3b424f;
+    border-left: 1.5rem solid #3b424f;
 }
 
 :not(pre) > code[class*='language-'] {
     padding: 0.17rem;
-    border-radius: 0.5rem;
 }
 
 .token.comment,

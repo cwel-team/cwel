@@ -4,12 +4,12 @@
     td,
     th {
         padding: 1rem 1rem 1rem 0;
-        vertical-align: top;
+        vertical-align: baseline;
         text-align: left;
     }
     ol,
     ul {
-        margin-top: 0.25rem; // aligns better with `.sd-meta__heading`
+        margin-top: 0;
         margin-bottom: 0;
     }
     ul {

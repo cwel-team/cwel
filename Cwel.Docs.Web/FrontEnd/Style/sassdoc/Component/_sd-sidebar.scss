@@ -2,12 +2,12 @@
 .sd-sidebar {
     padding: 2rem;
     background-color: $color-core-2;
-    border-right: 1px solid $color-secondary-2; // stylelint-disable-line declaration-property-unit-blacklist
 
     @include breakpoint('l') {
         width: 20%;
-        max-width: 20rem;
+        max-width: 24rem;
         padding: 0;
+        border-right: 1px solid $color-secondary-2; // stylelint-disable-line declaration-property-unit-blacklist
     }
 
 }
@@ -47,7 +47,7 @@
     padding-bottom: 0.5rem;
     color: $color-secondary-1;
     font-family: $code-font-stack;
-    font-size: 0.75rem;
+    font-size: 1rem;
 
     &:active,
     &:focus,
