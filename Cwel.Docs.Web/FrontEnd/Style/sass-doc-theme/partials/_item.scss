@@ -11,16 +11,16 @@
 }
 
 .item__heading {
-    margin-top: 2rem;
-    margin-bottom: 0.5rem;
+    margin-top: 3.35rem;
+    margin-bottom: 0.84rem;
     color: $sd-black;
     font-family: $code-font-stack;
-    font-size: 1.5rem;
+    font-size: 2.51rem;
     font-weight: 700;
 }
 
 .item__since {
-    margin-bottom: 1rem;
+    margin-bottom: 1.68rem;
     color: darken($sd-medium-grey, 15%);
 }
 
@@ -30,7 +30,7 @@
 }
 
 .item__example {
-    margin-bottom: 1rem;
+    margin-bottom: 1.68rem;
 }
 
 .item__code__tab {
@@ -42,7 +42,7 @@
     position: relative;
     top: 0;
     display: inline-block;
-    padding: 0.5rem 1rem 0.5rem 3.5rem;
+    padding: 0.84rem 1.68rem 0.84rem 5.86rem;
     color: #929292;
     font-family: 'Inconsolata', Consolas, Monaco, 'Andale Mono', monospace;
     background-color: $sd-slate-grey;
@@ -62,8 +62,8 @@
 
 .item__code-wrapper {
     position: relative;
-    margin-bottom: 2rem;
-    padding-left: 1rem;
+    margin-bottom: 3.35rem;
+    padding-left: 1.68rem;
     background-color: $sd-slate-grey;
 }
 
@@ -88,19 +88,19 @@
 .item__sub-heading {
     display: inline-block;
     width: 20%;
-    max-width: 15rem;
+    max-width: 25.13rem;
     margin-top: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 3.35rem;
     color: $sd-black;
 }
 .item__sub-heading + .list-unstyled { // Required as generated markup isn't wrapped in `.item__row-item` as it should be
-    margin-bottom: 2rem;
+    margin-bottom: 3.35rem;
 }
 
 .item__code--togglable { // Display a hint to expand/collapse code
 
     &::after {
-        @include absolute($bottom: -2rem, $right: 0);
+        @include absolute($bottom: -3.35rem, $right: 0);
         color: darken($sd-medium-grey, 10%);
         font-family: 'Poppins', sans-serif; // Need to respecify here as technically within a code block
         @include opacity(0);
@@ -124,11 +124,11 @@
 }
 
 .example__description { // Appears at top of code example
-    padding: 0.5rem;
+    padding: 0.84rem;
     color: slategray;
     font-family: $code-font-stack;
     background-color: #21252b;
-    border-bottom: 0.3rem solid #3b424f;
+    border-bottom: 0.5rem solid #3b424f;
 
     p {
         margin: 0;
@@ -144,15 +144,15 @@
 .item__todos {
 
     width: 100%;
-    padding: 1rem;
+    padding: 1.68rem;
     overflow: hidden;
     border-width: 2px; // stylelint-disable-line declaration-property-unit-blacklist
     border-style: solid;
-    border-left-width: 1rem;
+    border-left-width: 1.68rem;
 
     strong {
         display: block;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.42rem;
         text-transform: uppercase;
     }
 
@@ -163,8 +163,8 @@
 }
 
 .item__deprecated {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1.68rem;
+    margin-bottom: 1.68rem;
     color: #e06c6e;
     background-color: rgba(224, 108, 108, 0.3);
     border-color: #e06c6e;
@@ -176,7 +176,7 @@
 }
 
 .item__todos {
-    margin-bottom: 2rem;
+    margin-bottom: 3.35rem;
     color: #f0ad4e;
     background-color: rgba(240, 173, 78, 0.3);
     border-color: #f0ad4e;
@@ -191,7 +191,7 @@
 
 .item__parameters {
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 3.35rem;
     border-collapse: collapse;
 
     thead th {
@@ -208,7 +208,7 @@
 
     td,
     th {
-        padding: 0.5rem 0.5rem 0.5rem 0;
+        padding: 0.84rem 0.84rem 0.84rem 0;
         vertical-align: top;
     }
 
@@ -235,7 +235,7 @@
 }
 
 .item__table tr th:nth-child(1) {
-    padding-left: 0.5rem;
+    padding-left: 0.84rem;
 }
 
 .item__table tbody tr:nth-child(2n) {
@@ -244,7 +244,7 @@
 
 .item__description p,
 [class*='item__'] li p {
-    margin-top: 0.15rem;
+    margin-top: 0.25rem;
 }
 
 li.item__description {

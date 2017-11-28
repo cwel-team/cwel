@@ -12,7 +12,7 @@
 .sidebar__body {
     @include respond-to('medium') {
         position: sticky;
-        top: 1rem;
+        top: 1.68rem;
     }
 }
 
@@ -26,12 +26,12 @@
     top: 50%;
     right: 16px;
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
+    width: 1.68rem;
+    height: 1.68rem;
     background-color: #fff;
     border-width: 1px; // stylelint-disable-line declaration-property-unit-blacklist
     border-style: solid;
-    border-radius: 2rem;
+    border-radius: 3.35rem;
     transform: translate(-50%, -50%);
 }
 
@@ -41,13 +41,13 @@
 
 .sidebar__item {
     position: relative;
-    font-size: 0.5rem;
+    font-size: 0.84rem;
 
     a {
         display: block;
-        padding: 0 2rem;
+        padding: 0 3.35rem;
         color: $sd-black;
-        font-size: 0.81rem;
+        font-size: 1.36rem;
         text-decoration: none;
     }
 
@@ -68,8 +68,8 @@ li.sidebar__item a {
 .sidebar__item--heading,
 .sidebar__item--sub-heading {
     margin: 0;
-    padding: 0.75rem 2rem;
-    font-size: 0.68rem;
+    padding: 1.26rem 3.35rem;
+    font-size: 1.14rem;
 
     a {
         display: inline;
@@ -80,12 +80,12 @@ li.sidebar__item a {
 .sidebar__item--heading {
     color: rgba(83, 83, 99, 0.75);
     font-weight: 700;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.08rem;
     text-transform: uppercase;
     border-bottom: 1px dashed $sd-light-grey; // stylelint-disable-line declaration-property-unit-blacklist
 
     & a {
-        font-size: 0.68rem;
+        font-size: 1.14rem;
     }
 
 }
@@ -99,10 +99,10 @@ li.sidebar__item a {
     &::before {
         content: '\f078';
         @include absolute($left: 0.7em, $top: 50%);
-        margin-top: -0.25rem;
+        margin-top: -0.42rem;
         color: #888;
         font-family: 'FontAwesome';
-        font-size: 0.6rem;
+        font-size: 1rem;
         transform: translateY(-12%);
     }
 
@@ -119,28 +119,28 @@ li.sidebar__item a {
 }
 
 .sidebar .list-unstyled a {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding-top: 0.84rem;
+    padding-bottom: 0.84rem;
 }
 
 .sidebar__item--sub-heading,
 .list-unstyled a  {
     font-weight: 100;
-    letter-spacing: 0.02rem;
+    letter-spacing: 0.03rem;
 }
 
 // List item headings and sub-headings
 
 .sidebar__description {
-    padding-right: 1rem;
+    padding-right: 1.68rem;
     color: $sd-light-grey;
 }
 
 .sidebar__title {
     display: block;
     margin-top: 0;
-    margin-bottom: 2rem;
-    margin-left: 1rem;
+    margin-bottom: 3.35rem;
+    margin-left: 1.68rem;
     padding: 0;
     font-weight: 100;
 }
