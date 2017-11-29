@@ -46,17 +46,19 @@ gulp.task('cwel-test-run-unit', (done) => {
     const reporters = ['spec'];
 
     if (argv.dump) {
-        reporters.push('testng');
+        reporters.push('junit');
     }
 
     const server = new KarmaServer({
         singleRun: !argv['dont-stop'],
         browsers: ['ChromeHeadless'],
-        plugins: ['karma-spec-reporter', 'karma-jasmine', 'karma-chrome-launcher', 'karma-testng-reporter'],
+        plugins: ['karma-spec-reporter', 'karma-jasmine', 'karma-chrome-launcher', 'karma-junit-reporter'],
         reporters,
         frameworks: ['jasmine'],
-        testngReporter: {
-            outputFile: 'Cwel/.tmp/test/Test/unit/report/testng.xml',
+        junitReporter: {
+            outputDir: 'Cwel/.tmp/test/Test/unit/report',
+            outputFile: 'junit.xml',
+            useBrowserName: false,
         },
         files: [
             'Cwel/Dist/cwel-full.js',
