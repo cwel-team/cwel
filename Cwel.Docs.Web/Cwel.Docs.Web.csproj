@@ -220,6 +220,12 @@
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd-return.scss" />
     <Content Include="FrontEnd\Script\vendor\prism.es" />
     <Content Include="FrontEnd\Template\sassdoc\views\index.nunjucks" />
+    <Content Include="FrontEnd\Template\docs\default.nunjucks" />
+    <Content Include="FrontEnd\Template\docs\gulp.nunjucks" />
+    <Content Include="FrontEnd\Template\docs\helper.nunjucks" />
+    <Content Include="FrontEnd\Template\docs\layout.nunjucks" />
+    <Content Include="FrontEnd\Template\docs\macro\_property-table.nunjucks" />
+    <Content Include="FrontEnd\Template\docs\scss.nunjucks" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />

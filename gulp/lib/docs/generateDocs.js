@@ -99,7 +99,7 @@ env.addFilter('kebab', (str) => {
 
 module.exports = function generateDocs(format) {
     return through.obj((file, encoding, cb) => {
-        const macroDir = path.join('gulp', 'lib', 'docs', 'template', 'macro');
+        const macroDir = path.join('Cwel.Docs.Web', 'FrontEnd', 'Template', 'docs', 'macro');
         const data = format === 'component' ? gatherComponentData(file) : gatherPageData(file);
 
         // macro paths resolved here for ease of use in the template
@@ -111,10 +111,10 @@ module.exports = function generateDocs(format) {
             return obj;
         }, {});
 
-        let templatePath = path.resolve(`gulp/lib/docs/template/${data.type}.tpl.html`);
+        let templatePath = path.resolve(`Cwel.Docs.Web/FrontEnd/Template/docs/${data.type}.nunjucks`);
 
         if (!fs.existsSync(templatePath)) {
-            templatePath = path.resolve('gulp/lib/docs/template/default.tpl.html');
+            templatePath = path.resolve('Cwel.Docs.Web/FrontEnd/Template/docs/default.nunjucks');
         }
 
         nunjucks.render(templatePath, data, (e, res) => {

@@ -8,7 +8,7 @@
 }
 
 @section scripts {
-    <script src="/Assets/JS/prism.js"></script>
+    <script src="/Assets/JS/vendor/prism.js"></script>
 }
 
 <div class="docs">
