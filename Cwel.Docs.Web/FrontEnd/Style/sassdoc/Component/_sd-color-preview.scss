@@ -1,8 +1,15 @@
 
 .sd-color-preview {
     display: inline-block;
-    width: 2rem;
-    height: 2rem;
+    width: 0;
+    height: 0;
     margin-left: 1rem;
-    border-radius: 100%;
+    border-width: 0.5rem;
+    border-style: solid;
+    border-radius: 50%;
+
+    .sd-sidebar__link & {
+        float: right;
+    }
+
 }

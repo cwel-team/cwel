@@ -11,7 +11,7 @@
 <code>{{ item.type }}</code>
         {% endif %}
         {% if (item.type|lower).indexOf('color') > -1 %}
-            <span class="sd-color-preview" style="background-color: {{ item.context.value }};"></span>
+            <span class="sd-color-preview" style="border-color: {{ item.context.value }};"></span>
         {% endif %}
         </p>
     </td>

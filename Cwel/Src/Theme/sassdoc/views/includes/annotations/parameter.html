@@ -33,8 +33,8 @@
                             {% if not parameter.default %}
                                 &mdash;<span class="sd-visually-hidden"> none</span>
                             {% else %}
-                                {% if (parameter.type|lower).indexOf('color') > -1 and parameter.resolvedValue|is_color == true %}
-                                    <code class="color-preview--inline" style="background:{{ parameter.resolvedValue }}; color: {{ parameter.resolvedValue | yiq }}">{{ parameter.default }}</code>
+                                {% if item.type == 'color' %}
+                                    <span class="sd-color-preview" style="border-color: {{ item.context.value }};"></span>
                                 {% else %}
                                     <code>{{ parameter.default }}</code>
                                 {% endif %}

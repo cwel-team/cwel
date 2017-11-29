@@ -40,6 +40,9 @@
                                         {% if item.alias == true %}
                                             <span class="sd-sidebar__annotation sd-sidebar__annotation--alias">alias</span>
                                         {% endif %}
+                                        {% if item.type == 'color' %}
+                                            <span class="sd-color-preview" style="border-color: {{ item.context.value }};"></span>
+                                        {% endif %}
                                     </a>
                                 </li>
                             {% if loop.last %}
