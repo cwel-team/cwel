@@ -208,6 +208,7 @@
     <Content Include="FrontEnd\Template\docs\layout.nunjucks" />
     <Content Include="FrontEnd\Template\docs\macro\_property-table.nunjucks" />
     <Content Include="FrontEnd\Template\docs\scss.nunjucks" />
+    <Content Include="FrontEnd\Template\sassdoc\assets\ReadMe.md" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -236,7 +237,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Assets\CSS\" />
     <Folder Include="Assets\JS\" />
-    <Folder Include="FrontEnd\Template\sassdoc\assets\" />
     <Folder Include="Views\Documentation\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
