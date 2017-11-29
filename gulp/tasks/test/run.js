@@ -21,13 +21,18 @@ gulp.task('cwel-test-run-e2e', (done) => {
         default: 'http://docs.cwel.local',
     });
     const hostname = yargs.argv.host.replace(/\/$/, '');
+    const args = [
+        '--params.host', hostname,
+    ];
+
+    if (argv.dump) {
+        args.push('--params.dump');
+    }
 
     gulp.src(['Cwel/.tmp/test/**/*.{e2e,pageobject}.js'])
     .pipe(protractor({
         configFile: 'protractor.conf.js',
-        args: [
-            '--params.host', hostname,
-        ],
+        args,
         keepAlive: true,
     })).on('error', () => {
         done();
