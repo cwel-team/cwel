@@ -78,7 +78,12 @@ module.exports = class TestngReporter {
         const dumpDirPath = path.parse(this.dumpPath).dir;
 
         mkdirp(dumpDirPath, () => {
-            fs.writeFile(this.dumpPath, xmlDump, { encoding: 'utf-8' });
+            fs.writeFile(this.dumpPath, xmlDump, { encoding: 'utf-8' }, (err) => {
+                if (err) {
+                    throw err;
+                }
+                console.log(`jasmine-testng-reporter: report dumped to ${path.resolve(this.dumpPath)}`);
+            });
         });
     }
 };
