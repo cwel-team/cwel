@@ -40,16 +40,19 @@ gulp.task('cwel-test-run-e2e', (done) => {
 gulp.task('cwel-test-run-unit', (done) => {
     const reporters = ['spec'];
 
-    if (argv.junitDump) {
-        reporters.push('junit');
+    if (argv.dump) {
+        reporters.push('testng');
     }
 
     const server = new KarmaServer({
         singleRun: !argv['dont-stop'],
         browsers: ['ChromeHeadless'],
-        plugins: ['karma-spec-reporter', 'karma-jasmine', 'karma-chrome-launcher', 'karma-junit-reporter'],
+        plugins: ['karma-spec-reporter', 'karma-jasmine', 'karma-chrome-launcher', 'karma-testng-reporter'],
         reporters,
         frameworks: ['jasmine'],
+        testngReporter: {
+            outputFile: 'Cwel/.tmp/test/Test/unit/report/testng.xml',
+        },
         files: [
             'Cwel/Dist/cwel-full.js',
             'Cwel/.tmp/test/Test/e2e/vendor/angular-mocks.js',
@@ -67,13 +70,19 @@ gulp.task('cwel-test-run-unit', (done) => {
 
 // @internal
 gulp.task('cwel-test-run-visual', (done) => {
-    const htmlDest = 'Cwel/.tmp/test/Test/visual/reports/html';
-    const galenProc = childProcess.exec(['npm run galen',
+    const htmlDest = 'Cwel/.tmp/test/Test/visual/report/html';
+    const galenCommand = ['npm run galen',
         '--',
         'test', 'Cwel/Src/Test/visual/test-suite.test',
         '--htmlreport', htmlDest,
-        '--testngreport', 'Cwel/.tmp/test/Test/visual/reports/ngTest.xml',
-    ].join(' '), {
+    ];
+
+    if (argv.dump) {
+        galenCommand.push('--testingreport');
+        galenCommand.push('Cwel/.tmp/test/Test/visual/report/testng.xml');
+    }
+
+    const galenProc = childProcess.exec(galenCommand.join(' '), {
         cwd: process.cwd(),
         env: process.env,
     });
