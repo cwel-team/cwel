@@ -194,12 +194,12 @@
     <Content Include="FrontEnd\Style\sassdoc\Utility\_sd-utilities.scss" />
     <Content Include="FrontEnd\Style\sassdoc\Variable\_sd-variables.scss" />
     <Content Include="FrontEnd\Style\_prism-theme.scss" />
-    <Content Include="FrontEnd\Script\prism.es" />
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd.scss" />
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd-color-preview.scss" />
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd-example.scss" />
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd-parameter.scss" />
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd-return.scss" />
+    <Content Include="FrontEnd\Script\vendor\prism.es" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
