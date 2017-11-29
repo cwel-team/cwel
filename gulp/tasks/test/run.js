@@ -85,7 +85,7 @@ gulp.task('cwel-test-run-visual', (done) => {
     ];
 
     if (argv.dump) {
-        galenCommand.push('--testingreport');
+        galenCommand.push('--testngreport');
         galenCommand.push('Cwel/.tmp/test/Test/visual/report/testng.xml');
     }
 
