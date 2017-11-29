@@ -1,7 +1,7 @@
 /* global jasmine */
 const yargs = require('yargs');
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
-const TestngReporter = require('./gulp/lib/test/jasmine-testng-reporter');
+const JunitXmlReporter = require('jasmine-reporters').JUnitXmlReporter;
 
 const { argv } = yargs;
 
@@ -11,20 +11,17 @@ module.exports.config = {
         browserName: 'chrome',
     },
     onPrepare() {
-        return browser.getCapabilities().then((capabilities) => {
-            jasmine.getEnv().addReporter(new SpecReporter({
-                spec: {
-                    displayStacktrace: true,
-                },
-            }));
+        jasmine.getEnv().addReporter(new SpecReporter({
+            spec: {
+                displayStacktrace: true,
+            },
+        }));
 
-            if (argv.params.dump) {
-                jasmine.getEnv().addReporter(new TestngReporter({
-                    browserName: capabilities.get('browserName'),
-                    dumpPath: 'Cwel/.tmp/test/Test/e2e/report/testng.xml',
-                }));
-            }
-        });
+        if (argv.params.dump) {
+            jasmine.getEnv().addReporter(new JunitXmlReporter({
+                savePath: 'Cwel/.tmp/test/Test/e2e/report',
+            }));
+        }
     },
     jasmineNodeOpts: {
         print() { },
