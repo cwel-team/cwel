@@ -70,7 +70,7 @@ gulp.task('cwel-docs-generate-dynamic-scss-docs', (done) => {
         display: {
             watermark: false,
         },
-        theme: 'Cwel/Src/Theme/sassdoc',
+        theme: 'Cwel.Docs.Web/FrontEnd/Template/sassdoc',
         dest: 'Cwel/.tmp/docs/sassdoc',
     }).then(() => {
         let file = fs.readFileSync('Cwel/.tmp/docs/sassdoc/index.html', 'utf-8'); // Once the file has rendered read it back in

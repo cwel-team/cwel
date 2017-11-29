@@ -50,7 +50,7 @@
     </div>
 </header>
 <aside class="sd-sidebar" role="nav">
-    {% include "Cwel/Src/Theme/sassdoc/views/includes/partials/sidebar.html" %}
+    {% include "Cwel.Docs.Web/FrontEnd/Template/sassdoc/views/includes/partials/sidebar.html" %}
 </aside>
 <main class="sd-main">
     {# 1. Loop over the groups in `data.byGroupAndType` #}
@@ -70,7 +70,7 @@
             {# 3. Loop over the items in the current type #}
             {% for item in items %}
                 {# At this point it is up to you to display whatever you want from your items. #}
-                {% include "Cwel/Src/Theme/sassdoc/views/includes/partials/item.html" %}
+                {% include "Cwel.Docs.Web/FrontEnd/Template/sassdoc/views/includes/partials/item.html" %}
             {% endfor %}
         </div>
         {% endif %}

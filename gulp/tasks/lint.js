@@ -24,11 +24,11 @@ gulp.task('lint-script', () => {
         '!Cwel/Src/Test/e2e/vendor/**/*.js',
         '!Cwel/Dist/**/*.js',
         '!Cwel/Docs/SCSS/**/*.js',
-        '!Cwel/Src/Theme/sassdoc/**/*.js',
         '!Cwel/.tmp/**/*.js',
         '!gulp/lib/create/template/**',
         '!Cwel.Docs.Web/Cwel/**/*.js',
         '!Cwel.Docs.Web/Assets/**/*.js',
+        '!Cwel.Docs.Web/FrontEnd/Template/sassdoc/**/*.js',
     ])
     .pipe(gulpif(argv.chill, plumber(options.plumber)))
     .pipe(eslint({
