@@ -194,6 +194,7 @@
     <Content Include="Src\Theme\sassdoc\assets\img\IMG" />
     <Content Include="Src\Theme\sassdoc\assets\svg\SVG" />
     <Content Include="Src\Theme\sassdoc\views\index.nunjucks" />
+    <Content Include="Src\Style\Variable\_vbl-colors.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
