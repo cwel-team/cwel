@@ -18,15 +18,21 @@ a {
 }
 
 /// Better ordered list number alignment (left-aligned numbers look better with Poppins)
+/// 1. Required for absolute positioning of `li::before`
 
 ol {
     list-style: none;
     counter-reset: item;
 
+    li {
+        position: relative; // 1
+        padding-left: 2rem;
+    }
     li::before {
         content: counter(item) '. ';
+        position: absolute;
+        left: 0;
         display: inline-block;
-        width: 1.5rem;
         counter-increment: item;
     }
 

@@ -1,34 +1,47 @@
+
 body {
-    color: $colour-secondary1;
+    color: $color-secondary-1;
     letter-spacing: 0.07rem;
-    background: $colour-core2;
+    background: $color-core-2;
 }
+
 h1,
 .h1 {
     margin-top: 0;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 3.35rem;
 }
+
 h2,
 .h2 {
     margin-top: 0;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 2.68rem;
 }
+
 h3,
 .h3 {
     margin-top: 0;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 2.18rem;
 }
+
 h4,
 .h4 {
     margin-top: 0;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 1.68rem;
 }
+
 p,
 .p {
     margin-top: 0;
     font-size: 1.68rem;
+}
+
+code {
+    padding: 0.125rem 0.5rem;
+    background-color: #fcfcfc;
+    border: 1px solid $color-secondary-2; // stylelint-disable-line declaration-property-unit-blacklist
+    border-radius: 3px; // stylelint-disable-line declaration-property-unit-blacklist
 }

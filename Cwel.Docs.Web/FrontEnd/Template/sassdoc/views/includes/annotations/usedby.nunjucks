@@ -1,0 +1,25 @@
+{% set title_displayed = false %}
+{% for usedBy in item.usedBy %}
+{% if (display.access.indexOf(usedBy.access) != -1) and not (not display.alias and usedBy.alias) %}
+{% if not title_displayed %}
+{% set title_displayed = true %}
+<tr>
+    <th>
+        <h4 class="sd-meta__heading">Used by</h4>
+    </th>
+    <td>
+        <ul class="sd-meta__list">
+{% endif %}
+            <li class="sd-meta__list-item">
+                <span class="sd-meta__cross-type">[{{ usedBy.context.type }}]</span>
+                <a class="sd-meta__cross-link" href="#{{ usedBy.group }}-{{ usedBy.context.type }}-{{ usedBy.context.name }}">
+                    <code>{{ usedBy.context.name }}</code>
+                </a>
+            </li>
+{% endif %}
+{% endfor %}
+{% if title_displayed %}
+        </ul>
+    </td>
+</tr>
+{% endif %}

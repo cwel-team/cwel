@@ -3,12 +3,14 @@
     position: relative;
     padding-top: 4.19rem;
     padding-bottom: 4.19rem;
-    background: $colour-white;
+    background: $color-white;
 }
+
 .docs-playground__overlay {
     transition: all 0.5s;
     opacity: 0;
 }
+
 .docs-playground__overlay--active {
     position: absolute;
     top: 0;
@@ -16,6 +18,6 @@
     bottom: 0;
     left: 0;
     z-index: 1;
-    background: $colour-secondary1;
+    background: $color-secondary-1;
     opacity: 0.6;
 }

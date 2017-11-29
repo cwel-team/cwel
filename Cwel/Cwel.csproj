@@ -169,6 +169,7 @@
     <Content Include="Src\Style\Function\_fn-rebase.scss" />
     <Content Include="Src\Style\Function\_fn-rootem.scss" />
     <Content Include="Src\Style\Function\_fn-strip-unit.scss" />
+    <Content Include="Src\Style\Variable\_vbl-colors.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

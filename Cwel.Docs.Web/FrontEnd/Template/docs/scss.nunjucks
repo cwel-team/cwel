@@ -1,0 +1,78 @@
+@using Cwel.Web
+@model Cwel.Docs.Web.Models.ComponentDocumentationViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+
+}
+
+@section scripts {
+    <script src="/Assets/JS/vendor/prism.js"></script>
+    <script>
+        var toggleBlocks = document.querySelectorAll('.sd-item__code--togglable');
+        for (var i in toggleBlocks) {
+            if (toggleBlocks.hasOwnProperty(i)) {
+                (function(){ // IIFE required due to `var block` scoping (as opposed to window scoping)
+                    var block = toggleBlocks[i];
+                    block.addEventListener('click', function(event) {
+                        block.setAttribute('data-current-state', block.getAttribute('data-current-state') === 'collapsed' ? 'expanded' : 'collapsed');
+                        var code = block.getElementsByTagName('code')[0];
+                        if (block.getAttribute('data-current-state') === 'collapsed') {
+                            code.innerHTML = block.getAttribute('data-collapsed');
+                            Prism.highlightElement(code);
+                        } else {
+                            code.innerHTML = block.getAttribute('data-expanded');
+                            Prism.highlightElement(code);
+                        }
+                    });
+                })();
+            }
+        }
+    </script>
+    <script>
+        var toggleGroups = document.querySelectorAll('.sd-sb-group');
+        for (var i in toggleGroups) {
+            if (toggleGroups.hasOwnProperty(i)) {
+                (function(){ // IIFE required due to `var block` scoping (as opposed to window scoping)
+                    var block = toggleGroups[i];
+                    var heading = block.getElementsByTagName('h4')[0];
+                    heading.addEventListener('click', function(event) {
+                        heading.setAttribute('data-current-state', heading.getAttribute('data-current-state') === 'collapsed' ? 'expanded' : 'collapsed');
+                    });
+                })();
+            }
+        };
+        var toggleButton = document.querySelectorAll('.sd-sidebar__utility #js-toggle-data-current-state')[0];
+        var groupHeadings = document.querySelectorAll('.sd-sb-group__heading');
+        toggleButton.addEventListener('click', function(event) {
+            toggleButton.setAttribute('data-current-state', toggleButton.getAttribute('data-current-state') === 'collapsed-all' ? 'expanded-all' : 'collapsed-all');
+            if (toggleButton.getAttribute('data-current-state') === 'collapsed-all') {
+                toggleButton.innerHTML = 'Open all';
+                groupHeadings.forEach(function(groupHeading) {
+                    groupHeading.setAttribute('data-current-state', 'collapsed');
+                });
+            } else {
+                toggleButton.innerHTML = 'Close all'
+                groupHeadings.forEach(function(groupHeading) {
+                    groupHeading.setAttribute('data-current-state', 'expanded');
+                });
+            }
+        });
+
+    </script>
+}
+
+<div class="docs">
+    <div class="docs__header">
+        <div class="container">
+            <h1 class="docs__header-title h1">SCSS Reference</h1>
+        </div>
+    </div>
+
+    <div class="sd">
+        {% include "Cwel/.tmp/docs/sassdoc/index.html" %}
+    </div>
+</div>

@@ -1,0 +1,27 @@
+////
+/// @group Colors
+/// @since 0.0.1
+/// @type color
+////
+
+///
+
+$black: #000;
+
+///
+
+$white: #fff;
+
+///
+
+$gray: (
+    10: lighten($black, 10%),
+    20: lighten($black, 20%),
+    30: lighten($black, 30%),
+    40: lighten($black, 40%),
+    50: lighten($black, 50%),
+    60: lighten($black, 60%),
+    70: lighten($black, 70%),
+    80: lighten($black, 80%),
+    90: lighten($black, 90%)
+);

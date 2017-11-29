@@ -1,0 +1,19 @@
+{% if item.type %}
+<tr>
+    <th>
+        <h4 class="sd-meta__heading">Type</h4>
+    </th>
+    <td>
+        <p>
+        {% if item.type == "*" %}
+            Any
+        {% else %}
+<code>{{ item.type }}</code>
+        {% endif %}
+        {% if (item.type|lower).indexOf('color') > -1 %}
+            <span class="sd-color-preview" style="border-color: {{ item.context.value }};"></span>
+        {% endif %}
+        </p>
+    </td>
+</tr>
+{% endif %}

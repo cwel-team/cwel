@@ -1,0 +1,23 @@
+
+.sd {
+    margin-top: -3.35rem; // Make docs sit flush with header
+    margin-bottom: -4.19rem; // Make docs sit flush with footer
+    line-height: 1.35;
+
+    @include breakpoint('l') {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+}
+
+// Highlight container when navigated to via internal link with flash of color
+
+:target {
+    animation: target-fade 1.5s ease;
+}
+
+@keyframes target-fade {
+    0% { background-color: rgba(#fff9c4, 0.5) }
+    100% { background-color: transparent; }
+}

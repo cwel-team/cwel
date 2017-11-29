@@ -7,9 +7,10 @@
     padding-left: 1.06rem;
     border-width: $border-width-standard;
     border-style: solid;
-    border-color: $colour-secondary2;
+    border-color: $color-secondary-2;
     border-radius: 0.42rem;
 }
+
 @mixin form-icon() {
     content: '';
     width: 2.09rem;
@@ -19,30 +20,36 @@
 .form-field__input {
     @include form-control();
 }
+
 .form-field__select {
     @include form-control();
     cursor: pointer;
     appearance: none;
 }
+
 .form-field__select-container {
     position: relative;
     overflow: hidden;
 }
+
 .form-field__textarea {
     @include form-control();
     min-height: 20.94rem;
     overflow: auto;
     resize: none;
 }
+
 .form-field {
     margin-bottom: 1.68rem;
 }
+
 .form-field__label {
     display: block;
     margin-bottom: 1.06rem;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 1.68rem;
 }
+
 .form-field__select-container--icon-arrow:after {
     @include form-icon();
     @include spritesheet(0, 2.96);
@@ -51,6 +58,7 @@
     right: 1.06rem;
     pointer-events: none;
 }
+
 .form-field--icon-search:before {
     @include form-icon();
     @include spritesheet(0, 7);
@@ -58,6 +66,7 @@
     top: 1.26rem;
     left: 0;
 }
+
 select::-ms-expand {
     display: none;
 }

@@ -1,0 +1,57 @@
+// `sd-sb` = SassDocs Sidebar
+
+.sd-sb-group__heading {
+    position: relative;
+    display: block;
+    margin-bottom: 0;
+    padding: 1rem 0 1rem 2rem;
+    color: $color-secondary-1;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border-bottom: 1px dashed $color-secondary-2; // stylelint-disable-line declaration-property-unit-blacklist
+    cursor: pointer;
+
+    @include breakpoint('l') {
+        padding-left: 2.5rem; // Make more room for arrow
+    }
+
+    &::before { // Arrow
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 0.5rem;
+        height: 0.5rem;
+        border-width: 1px; // stylelint-disable-line declaration-property-unit-blacklist
+        border-style: solid;
+        transform: translateY(-50%) rotate(45deg);
+
+        @include breakpoint('l') {
+            left: 1rem;
+        }
+    }
+
+}
+
+.sd-sb-group__heading[data-current-state='expanded'] {
+
+    &::before {
+        border-color: transparent $color-secondary-1 $color-secondary-1 transparent; // Down-pointing arrow
+    }
+
+}
+
+.sd-sb-group__heading[data-current-state='expanded'] + .sd-sb-type {
+    display: block;
+}
+
+.sd-sb-group__heading[data-current-state='collapsed'] {
+
+    &::before {
+        border-color: $color-secondary-1 $color-secondary-1 transparent transparent; // Right-pointing arrow
+    }
+
+}
+.sd-sb-group__heading[data-current-state='collapsed'] + .sd-sb-type {
+    display: none;
+}

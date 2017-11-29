@@ -192,7 +192,7 @@ module.exports = {
         'comment-no-empty': true,
         'font-family-no-duplicate-names': true,
         'font-weight-notation': 'numeric',
-        'number-max-precision': 2,
+        'number-max-precision': 8,
         'number-no-trailing-zeros': true,
         'function-comma-space-after': 'always',
         'function-url-quotes': 'always',

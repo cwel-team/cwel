@@ -1,5 +1,5 @@
 const del                   = require('del');                           // Delete files and folders
-const fs                    = require('fs');                            // Core NodeJS lib
+const fs                    = require('fs');                            // Core NodeJS module
 const gulp                  = require('gulp');                          // Task automator
 const gulpSequence          = require('gulp-sequence');                 // Specify order of tasks
 const sassdoc               = require('sassdoc');                       // Build dynamic CSS documentation based on comments
@@ -63,25 +63,27 @@ gulp.task('clean:cwel-docs-generate-csharp', () => del(['Cwel/.tmp/docs/csdoc'])
 
 
 // @internal
-gulp.task('cwel-docs-generate-dynamic-scss-docs', () =>
+gulp.task('cwel-docs-generate-dynamic-scss-docs', (done) => {
     sassdoc('Cwel/Src/Style/**/*.scss', { // http://sassdoc.com/configuration/
-        verbose: false,
-        theme: 'pheek', // We only use Pheek's dom structure - not its styling
-        dest: 'Cwel/.tmp/docs/scss/',
+        verbose: true,
+        cache: false, // Disable cache to enable live-reloading
         display: {
             watermark: false,
         },
+        theme: 'Cwel.Docs.Web/FrontEnd/Template/sassdoc',
+        dest: 'Cwel/.tmp/docs/sassdoc',
     }).then(() => {
-        let file = fs.readFileSync('Cwel/.tmp/docs/scss/index.html', 'utf-8'); // Once the file has rendered read it back in...
-        file = file.replace(/@/g, '@@'); // Swap all (SCSS) `@` symbols for `@@` so that C# doesn't get confused when it renders the page...
-        file = file.replace(/="assets/g, '="/Assets/ScssDocsAssets'); // Swap out all `src` references to new location...
-        file = file.replace(/ScssDocsAssets\/css\/main\.css/g, 'CSS/sass-doc-theme.css'); // Swap out default 'Fleek' theme for one we have more control over...
-        file = file.replace(/csss/g, 'css'); // Remove bug where SassDoc pluralizes 'css'...
-        fs.writeFileSync('Cwel/.tmp/docs/scss/index.html', file, 'utf-8'); // Then rewrite the file
-        gulp.src('Cwel/.tmp/docs/scss/assets/**/*')
-        .pipe(gulp.dest('Cwel.Docs.Web/Assets/ScssDocsAssets')); // Copy SassDoc src files to correct location
-    }, (err) => {
-        console.error(`SCSS docs generation error: ${err}`);
-    }));
+        let file = fs.readFileSync('Cwel/.tmp/docs/sassdoc/index.html', 'utf-8'); // Once the file has rendered read it back in
+        file = file.replace(/@/g, '@@'); // Swap all (SCSS) `@` symbols for `@@` so that C# doesn't get confused when it builds the page
+        file = file.replace(/csss/g, 'CSS'); // Fix SassDoc bug where 'css' gets pluralized
+        fs.writeFileSync('Cwel/.tmp/docs/sassdoc/index.html', file, 'utf-8'); // Then rewrite the file
+        done();
+    });
+    // The following task is not required for SassDocs to generate but is useful for debugging
+    sassdoc.parse('Cwel/Src/Style/**/*.scss', { verbose: true })
+    .then((data) => {
+        fs.writeFileSync('Cwel/.tmp/docs/sassdoc-raw.json', JSON.stringify(data, null, '\t'), 'utf-8');
+    });
+});
 // @internal
-gulp.task('clean:cwel-docs-generate-dynamic-scss-docs', () => del(['Cwel/.tmp/docs/scss']));
+gulp.task('clean:cwel-docs-generate-dynamic-scss-docs', () => del(['Cwel/.tmp/docs/sassdoc']));

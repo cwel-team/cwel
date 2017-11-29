@@ -1,0 +1,38 @@
+@using Cwel.Web
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+
+}
+
+@section scripts {
+    <script src="/Assets/JS/vendor/prism.js"></script>
+}
+
+<div class="docs">
+    <div class="container">
+    {% markdown %}
+    # {{ name }}
+    {% filter indent(4, true) %}
+    {% include mdFile %}
+    {% endfilter %}
+    {% endmarkdown %}
+    </div>
+</div>
+
+<div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
+    <div class="grid-overlay__container">
+        <div class="grid-overlay__grid">
+            @for (var i = 0; i < 12; i++)
+            {
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
+</div>

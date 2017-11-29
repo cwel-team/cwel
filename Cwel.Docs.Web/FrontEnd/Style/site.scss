@@ -20,3 +20,7 @@
 @import '_docs-table';
 @import '_grid-overlay';
 @import '_block';
+
+@import 'sassdoc/_sassdoc';
+
+@import '_prism-theme'; // Syntax highlighting theme - more at http://prismjs.com/download.html

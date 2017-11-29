@@ -2,12 +2,14 @@
 .docs-example {
     padding-bottom: 3.35rem;
 }
+
 .docs-example__nav {
     height: 100%;
     @include breakpoint('m') {
         display: flex;
     }
 }
+
 .docs-example__nav-ul {
     display: flex;
     justify-content: flex-start;
@@ -15,12 +17,13 @@
     margin: 0;
     padding: 0;
 }
+
 .docs-example__nav-li {
     overflow: hidden;
-    color: $colour-core1;
+    color: $color-core-1;
     line-height: 0;
     border-style: solid;
-    border-color: $colour-secondary2;
+    border-color: $color-secondary-2;
     border-top-width: $border-width-standard;
     border-right-width: 0;
     border-bottom-width: 0;
@@ -32,13 +35,15 @@
     }
 
     &--active {
-        background: $colour-core2;
-        box-shadow: 0 $border-width-standard 0 0 $colour-core2;
+        background: $color-core-2;
+        box-shadow: 0 $border-width-standard 0 0 $color-core-2;
     }
 }
+
 .docs-example__nav-li:last-child {
     border-right-width: $border-width-standard;
 }
+
 .docs-example__nav-link {
     display: flex;
     padding-top: 1.04rem;
@@ -48,18 +53,21 @@
     line-height: 1.2;
     cursor: pointer;
 }
+
 .docs-example__nav-link:hover {
-    background: $colour-core2;
+    background: $color-core-2;
 }
+
 .docs-example__nav-title {
     padding-top: 1.04rem;
     padding-bottom: 1.04rem;
-    color: $colour-core1;
+    color: $color-core-1;
     font-size: 1.68rem;
     font-weight: 600;
     border-top-right-radius: $border-radius-standard;
     border-top-left-radius: $border-radius-standard;
 }
+
 .docs-example__content {
     height: auto;
     min-height: 20.94rem;
@@ -67,10 +75,10 @@
     padding-right: 0.84rem;
     padding-bottom: 0.67rem;
     padding-left: 0.84rem;
-    background: $colour-core2;
+    background-color: $color-core-2;
     border-width: $border-width-standard;
     border-style: solid;
-    border-color: $colour-secondary2;
+    border-color: $color-secondary-2;
     border-bottom-right-radius: $border-radius-standard;
     border-bottom-left-radius: $border-radius-standard;
 

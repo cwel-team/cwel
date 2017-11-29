@@ -13,18 +13,18 @@
     height: 4.41rem;
     min-width: 14.66rem;
     margin-bottom: 1.68rem;
-    color: $colour-core1;
+    color: $color-core-1;
     line-height: 4.19rem;
     text-align: center;
     border-width: $border-width-standard;
     border-style: solid;
-    border-color: $colour-core1;
+    border-color: $color-core-1;
     border-radius: $border-radius-standard;
     cursor: pointer;
 
     &:hover,
     &:focus {
-        background: $colour-core2;
+        background: $color-core-2;
         transition: all 0.5s ease;
     }
 

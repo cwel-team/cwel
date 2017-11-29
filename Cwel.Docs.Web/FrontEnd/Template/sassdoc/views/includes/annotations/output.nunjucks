@@ -1,0 +1,10 @@
+{% if item.output %}
+<tr>
+    <th>
+        <h4 class="sd-meta__heading">Output</h4>
+    </th>
+    <td>
+        {{ item.output|safe }}
+    </td>
+</tr>
+{% endif %}
