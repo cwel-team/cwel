@@ -112,24 +112,6 @@
     <Content Include="Assets\img\cwel_logo.svg" />
     <Content Include="Assets\img\spritesheet.svg" />
     <Content Include="FrontEnd\Template\sassdoc\index.js" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\author.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\deprecated.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\description.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\example.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\link.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\name.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\output.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\parameter.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\preview.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\requires.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\return.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\see.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\throw.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\todo.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\type.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\annotations\usedby.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\partials\item.html" />
-    <Content Include="FrontEnd\Template\sassdoc\views\includes\partials\sidebar.html" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
