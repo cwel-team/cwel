@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<testng-results passed="{{ passed }}" failed="{{ failed }}" skipped="{{ skipped }}" total="{{ total }}">
+    <reporter-output/>
+    <suite name="{{ browserName }}">
+        <groups/>
+        {% for suite in suites %}
+        <test name="{{ browserName }}.{{ suite.fullName }}">
+            <class name="{{ suite.fullName }}">
+                {% for spec in suite.specs %}
+                <test-method status="{{ spec.status }}" signature="{{ spec.signature }}" name="{{ spec.description }}" duration-ms="{{ spec.duration.valueOf() }}" started-at="{{ spec.started.toISOString() }}" description="{{ spec.description }}" finished-at="{{ spec.finished.toISOString() }}">
+                    {% for error in spec.failedExpectations %}
+                    <exception class="expectation">
+                        <short-stacktrace>
+                            <![CDATA[
+                            {{ error.stack }}
+                            ]]>
+                        </short-stacktrace>
+                    </exception>
+                    {% endfor %}
+                </test-method>
+                {% endfor %}
+            </class>
+        </test>
+        {% endfor %}
+    </suite>
+</testng-results>
