@@ -79,7 +79,8 @@ gulp.task('cwel-docs-generate-dynamic-scss-docs', (done) => {
         fs.writeFileSync('Cwel/.tmp/docs/sassdoc/index.html', file, 'utf-8'); // Then rewrite the file
         done();
     });
-    // The following task is not required for SassDocs to generate but is useful for debugging as it spits out the JSON data used by the task proper
+    // The following task is not required for SassDocs to generate
+    // but is useful for debugging as it spits out the JSON data used by the task proper
     sassdoc.parse('Cwel/Src/Style/**/*.scss', { verbose: true })
     .then((data) => {
         fs.writeFileSync('Cwel/.tmp/docs/sassdoc-raw.json', JSON.stringify(data, null, '\t'), 'utf-8');
