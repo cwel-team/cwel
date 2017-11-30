@@ -7,6 +7,10 @@
     border-collapse: collapse;
 }
 
+.docs-table th {
+    text-align: left;
+}
+
 .docs-table th,
 .docs-table td,
 .docs-table__column {
