@@ -1,0 +1,30 @@
+<div class="container">
+
+    {% if error %}
+        <h1 class="red">
+            {{ error.status }}
+            {{ error }}
+        </h1>
+    {% endif %}
+
+    <header class="sm-flex flex-center py2 mb3 border-bottom">
+        <div class="flex-grow break-word" style="max-width:80%">
+            <h1 class="m0" style="max-width:80%">
+                {% if name %}
+                    {{ name }}
+                {% elseif source.pageTitle %}
+                    {{ source.pageTitle }}
+                {% elseif link %}
+                    {{ link }}
+                {% elseif url %}
+                    {{ url }}
+                {% else %}
+                    This is the title yes
+                {% endif %}
+            </h1>
+        </div>
+        <div class="sm-right-align flex-grow">
+            <h1 class="h2 m0">{{ humanizedSize }}</h1>
+        </div>
+    </header>
+

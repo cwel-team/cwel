@@ -1,0 +1,26 @@
+@using Cwel.Web
+@model Cwel.Docs.Web.Models.ComponentDocumentationViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+
+}
+
+@section scripts {
+    <script src="/Assets/JS/vendor/prism.js"></script>
+}
+
+<div class="docs">
+    <div class="docs__header">
+        <div class="container">
+            <h1 class="docs__header-title h1">CSS Stats</h1>
+        </div>
+    </div>
+
+    <div class="sd">
+        {% include "Cwel/.tmp/docs/cssstats/index.nunjucks" %}
+    </div>
+</div>

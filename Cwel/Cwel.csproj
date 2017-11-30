@@ -121,6 +121,7 @@
     <Content Include="Docs\Layout\Grid.doc.md" />
     <Content Include="Cwel.nuspec" />
     <Content Include="Docs\Structure\SCSS Fundamentals.doc.md" />
+    <Content Include="Docs\CSSstats\CSS Stats.doc.md" />
     <None Include="packages.config" />
     <Content Include="Src\Component\Badge\Badge.cshtml" />
     <Content Include="Src\Component\Badge\Badge.doc.md" />
