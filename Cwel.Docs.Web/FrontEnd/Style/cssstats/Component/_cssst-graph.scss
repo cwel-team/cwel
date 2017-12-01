@@ -1,0 +1,10 @@
+
+.cssst-graph {
+    @include grid();
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.cssst-graph__element {
+    @include grid-cell-width(2);
+}

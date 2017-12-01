@@ -1,0 +1,19 @@
+
+.cssst-nuget__key,
+.cssst-nuget__value {
+    display: block;
+}
+
+.cssst-nuget__key {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.cssst-nuget__value {
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+.cssst-nuget__color {
+    border: 1px solid $color-core-2; // stylelint-disable
+}

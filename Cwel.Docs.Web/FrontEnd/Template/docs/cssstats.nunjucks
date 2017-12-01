@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="sd">
+    <div class="cssst">
         {% include "Cwel/.tmp/docs/cssstats/index.nunjucks" %}
     </div>
 </div>

@@ -1,0 +1,30 @@
+
+@import 'Component/cssst-section';
+@import 'Component/cssst-nuget';
+@import 'Component/cssst-graph';
+
+.cssst-section__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cssst-section--overview .cssst-section__list,
+.cssst-section--declarations .cssst-section__list,
+.cssst-section--unique-colors .cssst-section__list,
+.cssst-section--unique-background-colors .cssst-section__list {
+    @include grid();
+}
+.cssst-section--overview .cssst-section__list-item,
+.cssst-section--declarations .cssst-section__list-item,
+.cssst-section--unique-colors .cssst-section__list-item,
+.cssst-section--unique-background-colors .cssst-section__list-item {
+    @include grid-cell-box-model;
+    @include grid-cell-gutter('xs');
+    @include grid-cell-width(2);
+}
+
+.cssst-section--unique-font-sizes .cssst-section__list-item,
+.cssst-section--unique-font-families .cssst-section__list-item {
+    margin-bottom: 1rem;
+}
