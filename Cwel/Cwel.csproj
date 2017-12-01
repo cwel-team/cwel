@@ -165,7 +165,6 @@
     <Content Include="Src\Vendor\.eslintignore" />
     <Content Include="Src\Test\visual\specs\cwel-grid.gspec" />
     <Content Include="Src\Test\visual\specs\cwel-remunits.gspec" />
-    <Content Include="Src\Test\visual\test-suite.test" />
     <Content Include="Src\Style\Function\_fn-rebase.scss" />
     <Content Include="Src\Style\Function\_fn-rootem.scss" />
     <Content Include="Src\Style\Function\_fn-strip-unit.scss" />

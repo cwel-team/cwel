@@ -8,7 +8,7 @@ root = true
 [*]
 indent_style = space
 
-[*.{es,js,scss,css,cs,cshtml,html,json,md}]
+[*.{es,js,scss,css,cs,cshtml,html,json,md,test}]
 charset = utf-8
 indent_style = space
 indent_size = 4

@@ -18,8 +18,9 @@ module.exports.config = {
         }));
 
         if (argv.params.dump) {
+            console.log('TAKING DUMP');
             jasmine.getEnv().addReporter(new JunitXmlReporter({
-                savePath: 'Cwel/.tmp/test/Test/e2e/report',
+                savePath: argv.params.dump,
                 filePrefix: 'junit',
             }));
         }

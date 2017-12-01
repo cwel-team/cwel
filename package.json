@@ -22,6 +22,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-minify": "^0.2.0",
     "browser-sync": "^2.18.13",
+    "browserstack-local": "^1.3.0",
     "chromedriver": "^2.33.2",
     "comments-parser": "^1.0.0",
     "csproj-enforcer": "github:countrywide/Csproj-Enforcer",

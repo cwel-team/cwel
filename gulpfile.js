@@ -1,7 +1,6 @@
 const browserSync      = require('browser-sync');
 const doc              = require('gulp-task-doc').patchGulp();
 const gulp             = require('gulp');
-const gulpMultiProcess = require('gulp-multi-process');
 const gulpSequence     = require('gulp-sequence');
 const msbuild          = require('gulp-msbuild');
 const yargs            = require('yargs');
@@ -45,19 +44,7 @@ gulp.task('clean:build', done => gulpSequence('clean:cwel-dist', 'clean:cwel-doc
 /**
  * Run the front-end tests.
  */
-gulp.task('test', ['cwel-dist', 'cwel-test-build', 'cwel-test-copy'], (done) => {
-    /*
-        Using `gulp-multi-process` module to run karma in a child process of its own.
-        It turns out Karma seems to exit the main process it runs on -- i.e. the gulp process --
-        making it impossible to execute alongside other gulp tasks.
-    */
-    gulpMultiProcess(['cwel-test-run-e2e', 'cwel-test-run-unit', 'cwel-test-run-visual'], (exitCode) => {
-        if (exitCode !== 0) {
-            throw Error('Tests processes returned non zero exit code');
-        }
-        done();
-    });
-});
+gulp.task('test', ['cwel-dist', 'cwel-test-build', 'cwel-test-copy'], done => gulpSequence('cwel-test-run')(done));
 
 
 /**
