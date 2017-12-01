@@ -22,6 +22,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-minify": "^0.2.0",
     "browser-sync": "^2.18.13",
+    "camel-case": "^3.0.0",
+    "chartable": "0.0.1",
     "chromedriver": "^2.33.2",
     "comments-parser": "^1.0.0",
     "csproj-enforcer": "github:countrywide/Csproj-Enforcer",
@@ -86,5 +88,7 @@
     "xmldoc": "^1.1.0",
     "yargs": "^8.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }

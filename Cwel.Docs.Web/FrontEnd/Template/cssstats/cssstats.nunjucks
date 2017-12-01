@@ -1,30 +1,228 @@
 <div class="container">
-
-    {% if error %}
-        <h1 class="red">
-            {{ error.status }}
-            {{ error }}
-        </h1>
-    {% endif %}
-
-    <header class="sm-flex flex-center py2 mb3 border-bottom">
-        <div class="flex-grow break-word" style="max-width:80%">
-            <h1 class="m0" style="max-width:80%">
-                {% if name %}
-                    {{ name }}
-                {% elseif source.pageTitle %}
-                    {{ source.pageTitle }}
-                {% elseif link %}
-                    {{ link }}
-                {% elseif url %}
-                    {{ url }}
-                {% else %}
-                    This is the title yes
-                {% endif %}
-            </h1>
-        </div>
-        <div class="sm-right-align flex-grow">
-            <h1 class="h2 m0">{{ humanizedSize }}</h1>
-        </div>
-    </header>
-
+    <div class="cssst">
+        <section class="cssst-section cssst-section--overview" id="overview">
+            <ul>
+                <li>
+                    <h2>{{ humanizedSize }}</h2>
+                    <span>Total size</span>
+                </li>
+                <li>
+                    <h2>{{ humanizedGzipSize }}</h2>
+                    <span>Total Gzipped size</span>
+                </li>
+                <li>
+                    <h2>{{ stats.rules.total }}</h2>
+                    <span>Rules</span>
+                </li>
+                <li>
+                    <h2>{{ stats.selectors.total }}</h2>
+                    <span>Selectors</span>
+                </li>
+                <li>
+                    <h2>{{ stats.declarations.total }}</h2>
+                    <span>Declarations</span>
+                </li>
+                <li>
+                    <h2>{{ stats.declarations.properties.total }}</h2>
+                    <span>Properties</span>
+                </li>
+            </ul>
+        </section>
+        <section class="cssst-section cssst-section--declarations" id="declarations">
+            <h2>Total Declarations</h2>
+            <ul>
+                <li>
+                    <span>Font Size</span>
+                    <h3>{{ totals.fontSize }}</h3>
+                </li>
+                <li>
+                    <span>Float</span>
+                    <h3>{{ totals.float }}</h3>
+                </li>
+                <li>
+                    <span>Width</span>
+                    <h3>{{ totals.width }}</h3>
+                </li>
+                <li>
+                    <span>Height</span>
+                    <h3>{{ totals.height }}</h3>
+                </li>
+                <li>
+                    <span>Color</span>
+                    <h3>{{ totals.color }}</h3>
+                </li>
+                <li>
+                    <span>Background Color</span>
+                    <h3>{{ totals.backgroundColor }}</h3>
+                </li>
+            </ul>
+        </section>
+        <section class="cssst-section cssst-section--unique-colors" id="unique-colors">
+            <h2>
+                {{ uniques.color.length }}
+                {{ uniques.color.length | pluralize('unique color', 'unique colors')}}
+            </h2>
+            <ul>
+                {% for color in uniques.color %}
+                <li>
+                    <span style="color:{{ color }}">Aa</span>
+                    <span>{{ color }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="cssst-section cssst-section--unique-background-colors" id="unique-background-colors">
+            <h2>
+                {{ uniques.backgroundColor.length }}
+                {{ uniques.backgroundColor.length | pluralize('background color', 'background colors') }}
+            </h2>
+            <ul>
+                {% for backgroundColor in uniques.backgroundColor %}
+                <li>
+                    <svg viewBox="0 0 64 64" width="64" height="64" style="display: block; width: 100%; height: auto;">
+                        <rect width="64" height="64" fill="{{ backgroundColor }}"/>
+                    </svg>
+                    <span>{{ backgroundColor }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="cssst-section cssst-section--unique-font-sizes" id="unique-font-sizes">
+            <h2>
+                {{ uniques.fontSize.length }}
+                {{ uniques.fontSize.length | pluralize('Unique Font Size', 'Unique Font Sizes') }}
+            </h2>
+            <ul>
+                {% for fontSizeSorted in uniques.fontSizeSorted %}
+                <li style="font-size:{{ fontSizeSorted }};">
+                    Font Size {{ fontSizeSorted }}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="cssst-section cssst-section--unique-font-families" id="unique-font-families">
+            <h2>
+                {{ uniques.fontFamily.length }}
+                {{ uniques.fontFamily.length | pluralize('Unique Font Family', 'Unique Font Families') }}
+            </h2>
+            <ul>
+                {% for fontFamily in uniques.fontFamily %}
+                <li style="font-family:{{ fontFamily }};">
+                    {{ fontFamily }}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="cssst-section cssst-section--unique-z-indices" id="unique-z-indices">
+            <h2>
+                {{ uniques.zIndex.length }}
+                {{ uniques.zIndex.length | pluralize('Unique Z Index', 'Unique Z Indices') }}
+            </h2>
+            <ul>
+                {% for zIndexSorted in uniques.zIndexSorted %}
+                <li>
+                    {{ zIndexSorted }}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="cssst-section cssst-section--unique-totals" id="unique-totals">
+            <h2>Total vs Unique Declarations</h2>
+            <span>{{stats.declarations.total}} total, {{stats.declarations.unique}} unique declarations</span>
+            <div>
+                {{ uniquesGraph.width | uniques_graph(uniquesGraph.width, uniquesGraph.max) | safe }}
+                <div>Width</div>
+            </div>
+            <div>
+                {{ uniquesGraph.height | uniques_graph(uniquesGraph.height, uniquesGraph.max) | safe }}
+                <div>Height</div>
+            </div>
+            <div>
+                {{ uniquesGraph.margin | uniques_graph(uniquesGraph.margin, uniquesGraph.max) | safe }}
+                <div>Margin</div>
+            </div>
+            <div>
+                {{ uniquesGraph.padding | uniques_graph(uniquesGraph.padding, uniquesGraph.max) | safe }}
+                <div>Padding</div>
+            </div>
+            <div>
+                {{ uniquesGraph.color | uniques_graph(uniquesGraph.color, uniquesGraph.max) | safe }}
+                <div>Color</div>
+            </div>
+            <div>
+                {{ uniquesGraph.backgroundColor | uniques_graph(uniquesGraph.backgroundColor, uniquesGraph.max) | safe }}
+                <div>Background Color</div>
+            </div>
+        </section>
+        <section class="cssst-section cssst-section--specificity-graph" id="specificity-graph">
+            <h2>Specificity Graph</h2>
+            {{ specificityGraph | specificityGraph(line_graph, 1152, 320) | safe }}
+            <p>Base 10 specificity score for each selector by source order. Generally, lower scores and flatter curves are better for maintainability. <a href="http://csswizardry.com/2014/10/the-specificity-graph/">Learn More</a></p>
+        </section>
+        <section class="cssst-section cssst-section--rulesize-graph" id="rulesize-graph">
+            <h2>Ruleset Size</h2>
+            {{ rulesizeGraph | specificityGraph(line_graph, 1152, 320) | safe }}
+            <span>Number of declarations per ruleset</span>
+        </section>
+        <section class="cssst-section cssst-section--media-queries" id="media-queries">
+            <h2>
+                {{ mediaQueries.length }}
+                {{ mediaQueries.length | pluralize('Media Query', 'Media Queries') }}
+            </h2>
+            <ul>
+                {% for mediaQuery in mediaQueries %}
+                <li>
+                    {{ mediaQuery }}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="cssst-section cssst-section--spacing-resets" id="spacing-resets">
+            <h2>Spacing Resets</h2>
+            <ul>
+                <li>
+                    <h3>{{ spacingResets.margin }}</h3>
+                    <span>Margin</span>
+                </li>
+                <li>
+                    <h3>{{ spacingResets.marginTop }}</h3>
+                    <span>Margin Top</span>
+                </li>
+                <li>
+                    <h3>{{ spacingResets.marginRight }}</h3>
+                    <span>Margin Right</span>
+                </li>
+                <li>
+                    <h3>{{ spacingResets.marginBottom }}</h3>
+                    <span>Margin Bottom</span>
+                </li>
+                <li>
+                    <h3>{{ spacingResets.marginLeft }}</h3>
+                    <span>Margin Left</span>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h3>{{ spacingResets.padding }}</h3>
+                    <span>Padding</span>
+                </li>
+                <li>
+                    <h3>{{ spacingResets.paddingTop }}</h3>
+                    <span>Padding Top</span>
+                </li>
+                <li>
+                    <h3>{{ spacingResets.paddingRight }}</h3>
+                    <span>Padding Right</span>
+                </li>
+                <li>
+                    <h3>{{ spacingResets.paddingBottom }}</h3>
+                    <span>Padding Bottom</span>
+                </li>
+                <li>
+                    <h3>{{ spacingResets.paddingLeft }}</h3>
+                    <span>Padding Left</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>

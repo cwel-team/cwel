@@ -2,6 +2,7 @@ const data                  = require('gulp-data');                     // Data 
 const del                   = require('del');                           // Delete files and folders
 const fs                    = require('fs');                            // Core NodeJS module
 const gulp                  = require('gulp');                          // Task automator
+const nj                    = require('nunjucks');                      // Compile/precompile Nunjucks templates (required for custom filters)
 const nunjucks              = require('gulp-nunjucks');                 // Compile/precompile Nunjucks templates
 const gulpSequence          = require('gulp-sequence');                 // Specify order of tasks
 const sassdoc               = require('sassdoc');                       // Build dynamic CSS documentation based on comments
@@ -11,7 +12,39 @@ const rename                = require('gulp-rename');                   // Renam
 
 const csdoc                 = require('../../lib/docs/csharp/csdoc');
 const generateDocs          = require('../../lib/docs/generateDocs');
+const generateCssStats      = require('../../lib/docs/cssstats/generateCssStats');
 
+const nunjucksEnv = new nj.Environment();
+
+nunjucksEnv.addFilter('pluralize', (number, singular, plural) => {
+    if (number === 1) {
+        return singular;
+    }
+    return plural;
+});
+
+const chartable = require('chartable');
+
+nunjucksEnv.addFilter('uniques_graph', (obj, max) => {
+    if (!obj) console.error('no uniques object!');
+    const chartData = [obj.total, obj.unique];
+    const options = {
+        width: 384,
+        height: 240,
+        yMax: max,
+        yPadding: 20,
+        ruleLabels: false,
+        labels: ['Total', 'Unique'],
+    };
+    const html = chartable.barChart(chartData, options);
+    return html;
+});
+
+nunjucksEnv.addFilter('specificityGraph', (array, width, height) => {
+    if (!Array.isArray(array)) return 'Not an Array';
+    const html = chartable.lineGraph(array, { width, height });
+    return html;
+});
 
 // @internal
 gulp.task('cwel-docs-generate', done => gulpSequence(
@@ -103,11 +136,13 @@ gulp.task('cwel-docs-generate-css-stats', () => {
     .pipe(rename('cssstats.json'))
     .pipe(gulp.dest('Cwel/.tmp/docs/cssstats/'))
     .on('end', () => {
-        let cssstatsJsonPath = fs.readFileSync(path.join(process.cwd(), 'Cwel', '.tmp', 'docs', 'cssstats', 'cssstats.json'), 'utf-8');
-        cssstatsJsonPath = JSON.parse(cssstatsJsonPath);
+        const cssstatsJson = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'Cwel', '.tmp', 'docs', 'cssstats', 'cssstats.json'), 'utf-8'));
+
         gulp.src('Cwel.Docs.Web/FrontEnd/Template/cssstats/cssstats.nunjucks')
-        .pipe(data(cssstatsJsonPath))
-        .pipe(nunjucks.compile(cssstatsJsonPath))
+        .pipe(data(generateCssStats(cssstatsJson)))
+        .pipe(nunjucks.compile(cssstatsJson, {
+            env: nunjucksEnv,
+        }))
         .pipe(rename('index.nunjucks'))
         .pipe(gulp.dest('Cwel/.tmp/docs/cssstats'));
     });
