@@ -100,7 +100,7 @@
     <section class="cssst-section cssst-section--unique-background-colors" id="unique-background-colors">
         <h2>
             {{ uniques.backgroundColor.length }}
-            {{ uniques.backgroundColor.length | pluralize('Background Color', 'Background Colors') }}
+            {{ uniques.backgroundColor.length | pluralize('Unique Background Color', 'Unique Background Colors') }}
         </h2>
         <ul class="cssst-section__list">
             {% for backgroundColor in uniques.backgroundColor %}
