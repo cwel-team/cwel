@@ -4,7 +4,7 @@ const gulpSequence     = require('gulp-sequence');
 
 require('./build');
 require('./copy');
-require('./run');
+require('./run/run');
 
 
 /**

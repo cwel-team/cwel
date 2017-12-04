@@ -2,23 +2,22 @@
 
 @@ table breakpoints
     | breakpointName  | tags      | size     |
-    | XS              | xs        | 350x800  |
+    | XS              | xs        | 320x800  |
     | S               | s         | 450x800  |
     | M               | m         | 650x800  |
     | L               | l         | 1150x800 |
     | XL              | xl        | 1450x800 |
 
 @@ set
-    domain          docs.cwel.local
-    base_url        http://${domain}/visualtest/
-    spec_url        Cwel/Src/Test/visual/specs/
+    base_url         http://docs.cwel.local/visualtest/
+    spec_path        Cwel/Src/Test/visual/specs/
 
 @@ parameterized using breakpoints
 Grid at breakpoint: ${breakpointName}
     ${base_url}grid ${size}
-        check ${spec_url}cwel-grid.gspec --include '${tags}'
+        check ${spec_path}cwel-grid.gspec --include '${tags}'
 
 @@ parameterized using breakpoints
 REM Units at breakpoint: ${breakpointName}
     ${base_url}remunits ${size}
-        check ${spec_url}cwel-remunits.gspec --include '${tags}'
+        check ${spec_path}cwel-remunits.gspec --include '${tags}'
