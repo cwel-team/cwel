@@ -1,3 +1,4 @@
+const chartable             = require('chartable');                     // Simple Node charting
 const data                  = require('gulp-data');                     // Data injection
 const del                   = require('del');                           // Delete files and folders
 const fs                    = require('fs');                            // Core NodeJS module
@@ -16,6 +17,8 @@ const generateCssStats      = require('../../lib/docs/cssstats/generateCssStats'
 
 const nunjucksEnv = new nj.Environment();
 
+// Nunjucks filters and functions
+
 nunjucksEnv.addFilter('pluralize', (number, singular, plural) => {
     if (number === 1) {
         return singular;
@@ -23,10 +26,8 @@ nunjucksEnv.addFilter('pluralize', (number, singular, plural) => {
     return plural;
 });
 
-const chartable = require('chartable');
-
-nunjucksEnv.addFilter('uniques_graph', (obj, max) => {
-    if (!obj) console.error('no uniques object!');
+nunjucksEnv.addGlobal('draw_chart', (obj, max) => {
+    if (!obj) console.error('draw_chart - No unique objects!');
     const chartData = [obj.total, obj.unique];
     const options = {
         width: 384,
@@ -40,8 +41,8 @@ nunjucksEnv.addFilter('uniques_graph', (obj, max) => {
     return html;
 });
 
-nunjucksEnv.addFilter('specificityGraph', (array, width, height) => {
-    if (!Array.isArray(array)) return 'Not an Array';
+nunjucksEnv.addGlobal('draw_graph', (array, width, height) => {
+    if (!Array.isArray(array)) return 'draw_graph - Not an Array!';
     const html = chartable.lineGraph(array, { width, height });
     return html;
 });

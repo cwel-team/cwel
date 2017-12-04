@@ -1,0 +1,40 @@
+
+.cssst-section__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.cssst-section--overview .cssst-section__list,
+.cssst-section--declarations .cssst-section__list,
+.cssst-section--unique-colors .cssst-section__list,
+.cssst-section--unique-background-colors .cssst-section__list,
+.cssst-section--spacing-resets .cssst-section__list {
+    @include grid();
+    margin-bottom: -$SPACE-M;
+}
+.cssst-section--overview .cssst-section__list-item,
+.cssst-section--declarations .cssst-section__list-item,
+.cssst-section--unique-colors .cssst-section__list-item,
+.cssst-section--unique-background-colors .cssst-section__list-item,
+.cssst-section--spacing-resets .cssst-section__list-item {
+    display: flex; // Make all items same height
+    margin-bottom: $SPACE-M;
+    @include grid-cell((
+        'xs': 12,
+        's': 6,
+        'm': 4,
+        'l': 3,
+        'xl': 2
+    ));
+}
+
+.cssst-section--unique-font-sizes .cssst-section__list-item,
+.cssst-section--unique-font-families .cssst-section__list-item,
+.cssst-section--media-queries .cssst-section__list-item {
+
+    &:not(:last-child) {
+        margin-bottom: $SPACE-S;
+    }
+
+}

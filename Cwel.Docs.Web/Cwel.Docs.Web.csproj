@@ -212,9 +212,10 @@
     <Content Include="FrontEnd\Template\docs\cssstats.nunjucks" />
     <Content Include="FrontEnd\Template\cssstats\cssstats.nunjucks" />
     <Content Include="FrontEnd\Style\cssstats\Component\_cssst-graph.scss" />
-    <Content Include="FrontEnd\Style\cssstats\Component\_cssst-nuget.scss" />
     <Content Include="FrontEnd\Style\cssstats\Component\_cssst-section.scss" />
     <Content Include="FrontEnd\Style\cssstats\_cssstats.scss" />
+    <Content Include="FrontEnd\Style\cssstats\Component\_cssst-base.scss" />
+    <Content Include="FrontEnd\Style\cssstats\Component\_cssst-nugget.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />

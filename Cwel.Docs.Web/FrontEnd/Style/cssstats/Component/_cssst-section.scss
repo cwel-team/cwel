@@ -1,4 +1,10 @@
 
 .cssst-section {
-    margin-bottom: 5rem;
+    margin-bottom: $SPACE-L;
+    padding-bottom: $SPACE-L;
+    border-bottom: 1px solid $color-core-2; // stylelint-disable-line
+
+    &:not(:last-of-type) {
+
+    }
 }

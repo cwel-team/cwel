@@ -3,39 +3,39 @@
         <h2>Overview</h2>
         <ul class="cssst-section__list">
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Total size</span>
-                    <span class="cssst-nuget__value">{{ humanizedSize }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Total Size</span>
+                    <span class="cssst-nugget__value">{{ humanizedSize }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Total Gzipped size</span>
-                    <span class="cssst-nuget__value">{{ humanizedGzipSize }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Total Size (Gzip)</span>
+                    <span class="cssst-nugget__value">{{ humanizedGzipSize }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Rules</span>
-                    <span class="cssst-nuget__value">{{ stats.rules.total }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Rules</span>
+                    <span class="cssst-nugget__value">{{ stats.rules.total }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                     <span class="cssst-nuget__key">Selectors</span>
-                    <span class="cssst-nuget__value">{{ stats.selectors.total }}</span>
+                <div class="cssst-nugget">
+                     <span class="cssst-nugget__key">Selectors</span>
+                    <span class="cssst-nugget__value">{{ stats.selectors.total }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Declarations</span>
-                    <span class="cssst-nuget__value">{{ stats.declarations.total }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Declarations</span>
+                    <span class="cssst-nugget__value">{{ stats.declarations.total }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Properties</span>
-                    <span class="cssst-nuget__value">{{ stats.declarations.properties.total }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Properties</span>
+                    <span class="cssst-nugget__value">{{ stats.declarations.properties.total }}</span>
                 </div>
             </li>
         </ul>
@@ -44,39 +44,39 @@
         <h2>Total Declarations</h2>
         <ul class="cssst-section__list">
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Font Size</span>
-                    <span class="cssst-nuget__value">{{ totals.fontSize }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Font Size</span>
+                    <span class="cssst-nugget__value">{{ totals.fontSize }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Float</span>
-                    <span class="cssst-nuget__value">{{ totals.float }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Float</span>
+                    <span class="cssst-nugget__value">{{ totals.float }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Width</span>
-                    <span class="cssst-nuget__value">{{ totals.width }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Width</span>
+                    <span class="cssst-nugget__value">{{ totals.width }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Height</span>
-                    <span class="cssst-nuget__value">{{ totals.height }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Height</span>
+                    <span class="cssst-nugget__value">{{ totals.height }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Color</span>
-                    <span class="cssst-nuget__value">{{ totals.color }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Color</span>
+                    <span class="cssst-nugget__value">{{ totals.color }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">Background Color</span>
-                    <span class="cssst-nuget__value">{{ totals.backgroundColor }}</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Background Color</span>
+                    <span class="cssst-nugget__value">{{ totals.backgroundColor }}</span>
                 </div>
             </li>
         </ul>
@@ -89,9 +89,9 @@
         <ul class="cssst-section__list">
             {% for color in uniques.color %}
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">{{ color }}</span>
-                    <span class="cssst-nuget__value" style="color: {{ color }};">Aa</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">{{ color }}</span>
+                    <span class="cssst-nugget__value" style="color: {{ color }};">Aa</span>
                 </div>
             </li>
             {% endfor %}
@@ -105,9 +105,9 @@
         <ul class="cssst-section__list">
             {% for backgroundColor in uniques.backgroundColor %}
             <li class="cssst-section__list-item">
-                <div class="cssst-nuget">
-                    <span class="cssst-nuget__key">{{ backgroundColor }}</span>
-                    <svg class="cssst-nuget__color" viewBox="0 0 64 64" width="64" height="64" style="display: block; width: 100%; height: auto;">
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">{{ backgroundColor }}</span>
+                    <svg class="cssst-nugget__color" viewBox="0 0 64 64" width="64" height="64" style="display: block; width: 100%; height: auto;">
                         <rect width="64" height="64" fill="{{ backgroundColor }}"/>
                     </svg>
                 </div>
@@ -159,39 +159,40 @@
         <span>{{stats.declarations.total}} total, {{stats.declarations.unique}} unique declarations</span>
         <div class="cssst-graph">
             <div class="cssst-graph__element">
-                {{ uniquesGraph.width | uniques_graph(uniquesGraph.width, uniquesGraph.max) | safe }}
+                {{ draw_chart(uniquesGraph.width, uniquesGraph.max) | safe }}
                 <span class="cssst-graph__legend">Width</span>
             </div>
             <div class="cssst-graph__element">
-                {{ uniquesGraph.height | uniques_graph(uniquesGraph.height, uniquesGraph.max) | safe }}
+                {{ draw_chart(uniquesGraph.height, uniquesGraph.max) | safe }}
                 <span class="cssst-graph__legend">Height</span>
             </div>
             <div class="cssst-graph__element">
-                {{ uniquesGraph.margin | uniques_graph(uniquesGraph.margin, uniquesGraph.max) | safe }}
+                {{ draw_chart(uniquesGraph.margin, uniquesGraph.max) | safe }}
                 <span class="cssst-graph__legend">Margin</span>
             </div>
             <div class="cssst-graph__element">
-                {{ uniquesGraph.padding | uniques_graph(uniquesGraph.padding, uniquesGraph.max) | safe }}
+                {{ draw_chart(uniquesGraph.padding, uniquesGraph.max) | safe }}
                 <span class="cssst-graph__legend">Padding</span>
             </div>
             <div class="cssst-graph__element">
-                {{ uniquesGraph.color | uniques_graph(uniquesGraph.color, uniquesGraph.max) | safe }}
+                {{ draw_chart(uniquesGraph.color, uniquesGraph.max) | safe }}
                 <span class="cssst-graph__legend">Color</span>
             </div>
             <div class="cssst-graph__element">
-                {{ uniquesGraph.backgroundColor | uniques_graph(uniquesGraph.backgroundColor, uniquesGraph.max) | safe }}
+                {{ draw_chart(uniquesGraph.backgroundColor, uniquesGraph.max) | safe }}
                 <span class="cssst-graph__legend">Background Color</span>
             </div>
         </div>
     </section>
     <section class="cssst-section cssst-section--specificity-graph" id="specificity-graph">
         <h2>Specificity Graph</h2>
-        {{ specificityGraph | specificityGraph(line_graph) | safe }}
-        <p>Base 10 specificity score for each selector by source order. Generally, lower scores and flatter curves are better for maintainability. <a href="http://csswizardry.com/2014/10/the-specificity-graph/">Learn More</a></p>
+        {{ draw_graph(specificityGraph) | safe }}
+        <p>Base 10 specificity score for each selector by source order. Generally, lower scores and flatter curves are better for maintainability.</p>
+        <p><a href="http://csswizardry.com/2014/10/the-specificity-graph/" target="_blank">Learn More</a></p>
     </section>
     <section class="cssst-section cssst-section--rulesize-graph" id="rulesize-graph">
         <h2>Ruleset Size</h2>
-        {{ rulesizeGraph | specificityGraph(line_graph) | safe }}
+        {{ draw_graph(rulesizeGraph) | safe }}
         <span>Number of declarations per ruleset</span>
     </section>
     <section class="cssst-section cssst-section--media-queries" id="media-queries">
@@ -211,46 +212,64 @@
         <h2>Spacing Resets</h2>
         <ul class="cssst-section__list">
             <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.margin }}</h3>
-                <span>Margin</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Margin</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.margin }}</span>
+                </div>
             </li>
             <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.marginTop }}</h3>
-                <span>Margin Top</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Margin Top</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.marginTop }}</span>
+                </div>
             </li>
             <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.marginRight }}</h3>
-                <span>Margin Right</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Margin Right</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.marginRight }}</span>
+                </div>
             </li>
             <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.marginBottom }}</h3>
-                <span>Margin Bottom</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Margin Bottom</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.marginBottom }}</span>
+                </div>
             </li>
             <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.marginLeft }}</h3>
-                <span>Margin Left</span>
-            </li>
-        </ul>
-        <ul class="cssst-section__list">
-            <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.padding }}</h3>
-                <span>Padding</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Margin Left</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.marginLeft }}</span>
+                </div>
             </li>
             <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.paddingTop }}</h3>
-                <span>Padding Top</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Padding</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.padding }}</span>
+                </div>
             </li>
             <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.paddingRight }}</h3>
-                <span>Padding Right</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Padding Top</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.paddingTop }}</span>
+                </div>
             </li>
             <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.paddingBottom }}</h3>
-                <span>Padding Bottom</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Padding Right</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.paddingRight }}</span>
+                </div>
             </li>
             <li class="cssst-section__list-item">
-                <h3>{{ spacingResets.paddingLeft }}</h3>
-                <span>Padding Left</span>
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Padding Bottom</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.paddingBottom }}</span>
+                </div>
+            </li>
+            <li class="cssst-section__list-item">
+                <div class="cssst-nugget">
+                    <span class="cssst-nugget__key">Padding Left</span>
+                    <span class="cssst-nugget__value">{{ spacingResets.paddingLeft }}</span>
+                </div>
             </li>
         </ul>
     </section>

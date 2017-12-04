@@ -29,7 +29,6 @@ gulp.task('lint-script', () => {
         '!Cwel.Docs.Web/Cwel/**/*.js',
         '!Cwel.Docs.Web/Assets/**/*.js',
         '!Cwel.Docs.Web/FrontEnd/Template/sassdoc/**/*.js',
-        '!gulp/lib/docs/cssstats/**/*.js',
     ])
     .pipe(gulpif(argv.chill, plumber(options.plumber)))
     .pipe(eslint({
