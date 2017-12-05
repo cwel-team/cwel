@@ -5,37 +5,65 @@
             <li class="cssst-section__list-item">
                 <div class="cssst-nugget">
                     <span class="cssst-nugget__key">Total Size</span>
-                    <span class="cssst-nugget__value">{{ humanizedSize }}</span>
+                    <span class="cssst-nugget__value">{{ stats.data.humanizedSize }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
                 <div class="cssst-nugget">
                     <span class="cssst-nugget__key">Total Size (Gzip)</span>
-                    <span class="cssst-nugget__value">{{ humanizedGzipSize }}</span>
+                    <span class="cssst-nugget__value">{{ stats.data.humanizedGzipSize }}</span>
                 </div>
             </li>
+        </ul>
+        <ul class="cssst-section__list">
             <li class="cssst-section__list-item">
                 <div class="cssst-nugget">
                     <span class="cssst-nugget__key">Rules</span>
-                    <span class="cssst-nugget__value">{{ stats.rules.total }}</span>
+                    <span class="cssst-nugget__value">{{ stats.data.rules.total }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
                 <div class="cssst-nugget">
                      <span class="cssst-nugget__key">Selectors</span>
-                    <span class="cssst-nugget__value">{{ stats.selectors.total }}</span>
+                    <span class="cssst-nugget__value">{{ stats.data.selectors.total }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
                 <div class="cssst-nugget">
+                     <span class="cssst-nugget__key">Classes</span>
+                    <span class="cssst-nugget__value">{{ stats.data.selectors.class }}</span>
+                </div>
+            </li>
+            <li class="cssst-section__list-item">
+                <div class="cssst-nugget">
+                     <span class="cssst-nugget__key">IDs</span>
+                    <span class="cssst-nugget__value">{{ stats.data.selectors.id }}</span>
+                </div>
+            </li>
+            <li class="cssst-section__list-item">
+                <div class="cssst-nugget">
+                     <span class="cssst-nugget__key">Pseudo Classes</span>
+                    <span class="cssst-nugget__value">{{ stats.data.selectors.pseudoClass }}</span>
+                </div>
+            </li>
+            <li class="cssst-section__list-item">
+                <div class="cssst-nugget">
+                     <span class="cssst-nugget__key">Pseudo Elements</span>
+                    <span class="cssst-nugget__value">{{ stats.data.selectors.pseudoElement }}</span>
+                </div>
+            </li>
+        </ul>
+        <ul class="cssst-section__list">
+            <li class="cssst-section__list-item">
+                <div class="cssst-nugget">
                     <span class="cssst-nugget__key">Declarations</span>
-                    <span class="cssst-nugget__value">{{ stats.declarations.total }}</span>
+                    <span class="cssst-nugget__value">{{ stats.data.declarations.total }}</span>
                 </div>
             </li>
             <li class="cssst-section__list-item">
                 <div class="cssst-nugget">
                     <span class="cssst-nugget__key">Properties</span>
-                    <span class="cssst-nugget__value">{{ stats.declarations.properties.total }}</span>
+                    <span class="cssst-nugget__value">{{ totals.properties }}</span>
                 </div>
             </li>
         </ul>
@@ -82,10 +110,7 @@
         </ul>
     </section>
     <section class="cssst-section cssst-section--unique-colors" id="unique-colors">
-        <h2>
-            {{ uniques.color.length }}
-            {{ uniques.color.length | pluralize('Unique Color', 'Unique Colors')}}
-        </h2>
+        <h2>{{ uniques.color.length }} {{ uniques.color.length | pluralize('Unique Color', 'Unique Colors')}}</h2>
         <ul class="cssst-section__list">
             {% for color in uniques.color %}
             <li class="cssst-section__list-item">
@@ -98,10 +123,7 @@
         </ul>
     </section>
     <section class="cssst-section cssst-section--unique-background-colors" id="unique-background-colors">
-        <h2>
-            {{ uniques.backgroundColor.length }}
-            {{ uniques.backgroundColor.length | pluralize('Unique Background Color', 'Unique Background Colors') }}
-        </h2>
+        <h2>{{ uniques.backgroundColor.length }} {{ uniques.backgroundColor.length | pluralize('Unique Background Color', 'Unique Background Colors') }}</h2>
         <ul class="cssst-section__list">
             {% for backgroundColor in uniques.backgroundColor %}
             <li class="cssst-section__list-item">
@@ -116,10 +138,7 @@
         </ul>
     </section>
     <section class="cssst-section cssst-section--unique-font-sizes" id="unique-font-sizes">
-        <h2>
-            {{ uniques.fontSize.length }}
-            {{ uniques.fontSize.length | pluralize('Unique Font Size', 'Unique Font Sizes') }}
-        </h2>
+        <h2>{{ uniques.fontSize.length }} {{ uniques.fontSize.length | pluralize('Unique Font Size', 'Unique Font Sizes') }}</h2>
         <ul class="cssst-section__list">
             {% for fontSizeSorted in uniques.fontSizeSorted %}
             <li class="cssst-section__list-item" style="font-size: {{ fontSizeSorted }};">
@@ -129,10 +148,7 @@
         </ul>
     </section>
     <section class="cssst-section cssst-section--unique-font-families" id="unique-font-families">
-        <h2>
-            {{ uniques.fontFamily.length }}
-            {{ uniques.fontFamily.length | pluralize('Unique Font Family', 'Unique Font Families') }}
-        </h2>
+        <h2>{{ uniques.fontFamily.length }} {{ uniques.fontFamily.length | pluralize('Unique Font Family', 'Unique Font Families') }}</h2>
         <ul class="cssst-section__list">
             {% for fontFamily in uniques.fontFamily %}
             <li class="cssst-section__list-item" style="font-family: {{ fontFamily }};">
@@ -156,7 +172,7 @@
     </section>
     <section class="cssst-section cssst-section--unique-totals" id="unique-totals">
         <h2>Total vs Unique Declarations</h2>
-        <span>{{stats.declarations.total}} total, {{stats.declarations.unique}} unique declarations</span>
+        <span>{{stats.data.declarations.total}} total, {{stats.data.declarations.unique}} unique declarations</span>
         <div class="cssst-graph">
             <div class="cssst-graph__element">
                 {{ draw_chart(uniquesGraph.width, uniquesGraph.max) | safe }}
@@ -196,10 +212,7 @@
         <span>Number of declarations per ruleset</span>
     </section>
     <section class="cssst-section cssst-section--media-queries" id="media-queries">
-        <h2>
-            {{ mediaQueries.length }}
-            {{ mediaQueries.length | pluralize('Media Query', 'Media Queries') }}
-        </h2>
+        <h2>{{ mediaQueries.length }} {{ mediaQueries.length | pluralize('Media Query', 'Media Queries') }}</h2>
         <ul class="cssst-section__list">
             {% for mediaQuery in mediaQueries %}
             <li class="cssst-section__list-item">

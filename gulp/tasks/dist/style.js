@@ -69,7 +69,7 @@ gulp.task('clean:cwel-dist-style-vendor', () => del(['Cwel/Dist/Vendor/**/*.{css
 
 
 // @internal
-gulp.task('cwel-dist-style-compile', () => gulp.src('Cwel/Src/Style/scss/main.scss')
+gulp.task('cwel-dist-style-compile', () => gulp.src('Cwel/Src/Style/main.scss')
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
 .pipe(sass(sassConfig))

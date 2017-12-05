@@ -158,17 +158,15 @@ function getPropertyValueCount(property, value) {
 
 function parseTotals(stats) {
     if (!stats) return false;
-
-    stats.declarations.properties.total = _.size(stats.declarations.properties);
-
     const totals = {};
+    totals.properties = _.size(stats.data.declarations.properties);
     const totalProperties = ['float', 'width', 'height', 'color', 'background-color'];
     for (const property of totalProperties) { // eslint-disable-line no-restricted-syntax
-        const prop = stats.declarations.properties[property];
+        const prop = stats.data.declarations.properties[property];
         totals[camelCase(property)] = prop ? prop.length : 0;
     }
 
-    totals.fontSize = getAllFontSizes(stats.declarations.properties).length;
+    totals.fontSize = getAllFontSizes(stats.data.declarations.properties).length;
 
     return totals;
 }
@@ -181,11 +179,11 @@ function parseUniques(stats) {
         'margin', 'padding', 'border-radius', 'z-index',
     ];
     for (const property of uniqueProperties) { // eslint-disable-line no-restricted-syntax
-        uniques[camelCase(property)] = _.uniq(stats.declarations.properties[property]);
+        uniques[camelCase(property)] = _.uniq(stats.data.declarations.properties[property]);
     }
 
-    uniques.fontSize = _.uniq(getAllFontSizes(stats.declarations.properties));
-    uniques.fontFamily = _.uniq(getAllFontFamilies(stats.declarations.properties));
+    uniques.fontSize = _.uniq(getAllFontSizes(stats.data.declarations.properties));
+    uniques.fontFamily = _.uniq(getAllFontFamilies(stats.data.declarations.properties));
     uniques.fontSizeSorted = sortFontSizes(uniques.fontSize);
     uniques.zIndexSorted = sortZIndices(uniques.zIndex);
 
@@ -200,12 +198,12 @@ function uniquesGraph(stats) {
     keys.forEach((key) => {
         camelKey = camelCase(key);
         obj[camelKey] = {};
-        if (!stats.declarations.properties[key]) {
+        if (!stats.data.declarations.properties[key]) {
             obj[camelKey].total = 0;
             obj[camelKey].unique = 0;
         } else {
-            obj[camelKey].total = stats.declarations.properties[key].length;
-            obj[camelKey].unique = getUniquePropertyCount(stats.declarations.properties[key]);
+            obj[camelKey].total = stats.data.declarations.properties[key].length;
+            obj[camelKey].unique = getUniquePropertyCount(stats.data.declarations.properties[key]);
             if (obj[camelKey].total > obj.max) {
                 obj.max = obj[camelKey].total;
             }
@@ -226,7 +224,7 @@ function spacingResets(stats) {
         'padding-bottom', 'padding-right',
     ];
     for (const property of spacingProperties) { // eslint-disable-line no-restricted-syntax
-        spacing[camelCase(property)] = getPropertyValueCount(stats.declarations.property, '0');
+        spacing[camelCase(property)] = getPropertyValueCount(stats.data.declarations.property, '0');
     }
     return spacing;
 }
@@ -238,9 +236,9 @@ module.exports = (obj) => {
     model.uniques = parseUniques(model.stats);
     model.uniquesGraph = uniquesGraph(model.stats);
     model.specificityGraph = getSpecificityGraph(model.stats.selectors);
-    model.rulesizeGraph = model.stats.rules.size.graph;
-    model.mediaQueries = _.uniq(model.stats.mediaQueries.values);
+    model.rulesizeGraph = model.stats.data.rules.size.graph;
+    model.mediaQueries = _.uniq(model.stats.data.mediaQueries.values);
     model.spacingResets = spacingResets(model.stats);
 
-    return model;
+    return JSON.stringify(model);
 };

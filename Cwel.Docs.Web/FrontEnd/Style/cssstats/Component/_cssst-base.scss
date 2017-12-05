@@ -11,7 +11,11 @@
 .cssst-section--unique-background-colors .cssst-section__list,
 .cssst-section--spacing-resets .cssst-section__list {
     @include grid();
-    margin-bottom: -$SPACE-M;
+
+    &:last-of-type { // There can be multiple lists in a section so ensure only final one sits flush
+        margin-bottom: -$SPACE-M;
+    }
+
 }
 .cssst-section--overview .cssst-section__list-item,
 .cssst-section--declarations .cssst-section__list-item,
