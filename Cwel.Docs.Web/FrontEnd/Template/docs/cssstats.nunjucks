@@ -6,11 +6,74 @@
 }
 
 @section styles {
-
+    <style>
+        .d3-area {
+            fill: rgba(72, 3, 68, 0.75);
+        }
+    </style>
 }
 
 @section scripts {
     <script src="/Assets/JS/vendor/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+    <script>
+        const rulesetDataEl = document.getElementById('graph-rulesize');
+        const rulesetDataRaw = rulesetDataEl.dataset.rulesizes.split(',');
+        const rulesetData = [];
+        rulesetDataRaw.forEach((item, index) => {
+            rulesetData.push({x: index + 1, y: item});
+        });
+
+        const rulesetChart = d3.select(rulesetDataEl);
+        const margin = 50;
+        const width = rulesetChart.attr('width') - margin;
+        const height = rulesetChart.attr('height') - margin;
+
+        var data = rulesetData;
+
+        var x = d3.scale.linear()
+            .domain([0, d3.max(data, function(d) { return d.x; })])
+            .range([0, width]);
+
+        var y = d3.scale.linear()
+            .domain([0, d3.max(data, function(d) { return d.y; })])
+            .range([height, 0]);
+
+        var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom")
+            .innerTickSize(-width)
+            .outerTickSize(0)
+            .tickPadding(10);
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
+
+        var area = d3.svg.area()
+            .x(function(d) { return x(d.x); })
+            .y0(height)
+            .y1(function(d) { return y(d.y); });
+
+        rulesetChart.attr("width", width + (margin * 2))
+            .attr("height", height + (margin * 2))
+          .append("g")
+            .attr("transform", "translate(" + margin + "," + margin + ")");
+
+        rulesetChart.append("path")
+            .datum(data)
+            .attr("class", "d3-area")
+            .attr("d", area);
+
+        rulesetChart.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        rulesetChart.append("g")
+            .attr("class", "y axis")
+            .call(yAxis);
+    </script>
 }
 
 <div class="docs">

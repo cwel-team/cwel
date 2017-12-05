@@ -208,7 +208,7 @@
     </section>
     <section class="cssst-section cssst-section--rulesize-graph" id="rulesize-graph">
         <h2>Ruleset Size</h2>
-        {{ draw_graph(rulesizeGraph) | safe }}
+        <svg id="graph-rulesize" width="1256" height="500" data-rulesizes="{{ rulesizeGraph }}"></svg>
         <span>Number of declarations per ruleset</span>
     </section>
     <section class="cssst-section cssst-section--media-queries" id="media-queries">
