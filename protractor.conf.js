@@ -1,5 +1,6 @@
 /* global jasmine */
 const yargs = require('yargs');
+const { URL } = require('url');
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 const JunitXmlReporter = require('jasmine-reporters').JUnitXmlReporter;
 const browserstack = require('browserstack-local');
@@ -8,12 +9,13 @@ const { argv } = yargs;
 const grid = argv.params.grid || '';
 const isBrowserstack = grid.includes('browserstack');
 const localTunnel = isBrowserstack ? new browserstack.Local() : null;
+const buildDate = new Date();
 
 
 const protractorOptions = {
     capabilities: {
         browserName: 'chrome',
-        build: 'cwel-e2e',
+        build: `cwel-e2e--(${buildDate.getFullYear()}-${buildDate.getMonth()}-${buildDate.getDate()}-${buildDate.getMinutes()})`,
     },
     onPrepare() {
         jasmine.getEnv().addReporter(new SpecReporter({
@@ -36,13 +38,14 @@ const protractorOptions = {
     beforeLaunch() {
         return new Promise((resolve, reject) => {
             if (localTunnel) {
-                const { password: key } = grid;
+                const { password: key } = new URL(grid);
 
                 localTunnel.start({ key }, (error) => {
                     if (error) {
+                        console.error('BrowserStack local tunnel failed: ', error);
                         reject(error);
                     } else {
-                        console.log('Connected browserstack\'s tunnel. Now testing...');
+                        console.log('Connected BrowserStack\'s tunnel. Now testing...');
                         resolve();
                     }
                 });
