@@ -8,9 +8,10 @@ const yargs            = require('yargs');
 const argv = yargs.argv; // Parse process.argv with yargs
 
 
+require('./gulp/tasks/analysis/analysis');
 require('./gulp/tasks/dist/dist');
-require('./gulp/tasks/test/test');
 require('./gulp/tasks/docs/docs');
+require('./gulp/tasks/test/test');
 require('./gulp/tasks/create');
 require('./gulp/tasks/lint');
 
@@ -23,6 +24,12 @@ gulp.task('help', doc.help());
 
 // @internal
 gulp.task('default', ['help']);
+
+
+/**
+ * Perform analysis
+ */
+gulp.task('analysis', done => gulpSequence('cwel-analysis-generate-css-stats-data', 'cwel-analysis-css-stats')(done));
 
 
 /**

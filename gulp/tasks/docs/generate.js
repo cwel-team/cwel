@@ -1,5 +1,4 @@
 const chartable             = require('chartable');                     // Simple Node charting
-// const data                  = require('gulp-data');                     // Data injection
 const del                   = require('del');                           // Delete files and folders
 const fs                    = require('fs');                            // Core NodeJS module
 const gulp                  = require('gulp');                          // Task automator
@@ -7,13 +6,12 @@ const nj                    = require('nunjucks');                      // Compi
 const nunjucks              = require('gulp-nunjucks');                 // Compile/precompile Nunjucks templates
 const gulpSequence          = require('gulp-sequence');                 // Specify order of tasks
 const sassdoc               = require('sassdoc');                       // Build dynamic CSS documentation based on comments
-const cssstats              = require('cssstats');                 // Get stats for your rendered CSS
 const path                  = require('path');                          // core NodeJS module
 const rename                = require('gulp-rename');                   // Rename files
 
 const csdoc                 = require('../../lib/docs/csharp/csdoc');
 const generateDocs          = require('../../lib/docs/generateDocs');
-const generateCssStats      = require('../../lib/docs/cssstats/generateCssStats');
+
 
 const nunjucksEnv = new nj.Environment();
 
@@ -58,7 +56,6 @@ gulp.task('cwel-docs-generate', done => gulpSequence(
 gulp.task('clean:cwel-docs-generate', done => gulpSequence(
     'clean:cwel-docs-generate-csharp',
     'clean:cwel-docs-generate-dynamic-scss-docs',
-    'clean:cwel-docs-generate-css-stats',
     'clean:cwel-docs-generate-md-component',
     'clean:cwel-docs-generate-md-page')(done));
 
@@ -132,33 +129,8 @@ gulp.task('clean:cwel-docs-generate-dynamic-scss-docs', () => del(['Cwel/.tmp/do
 
 
 // @internal
-gulp.task('cwel-docs-generate-css-stats-data', () => {
-    const css = fs.readFileSync('Cwel.Docs.Web/Cwel/cwel.css', 'utf8');
-    const datum = cssstats(css);
-    let dataExploded = {};
-    const cssstatsDir = path.join('Cwel', '.tmp', 'docs', 'cssstats');
-    dataExploded.data = datum;
-
-    // CSS Stats methods: https://github.com/cssstats/core#returned-object
-    dataExploded.specificityGraph = datum.selectors.getSpecificityGraph();
-    dataExploded.specificityValues = datum.selectors.getSpecificityValues();
-    dataExploded.repeatedValues = datum.selectors.getRepeatedValues();
-    dataExploded.sortedSpecificity = datum.selectors.getSortedSpecificity();
-    dataExploded.uniquePropertyCount = datum.declarations.getUniquePropertyCount('color');
-    dataExploded.getPropertyValueCountDisplayNone = datum.declarations.getPropertyValueCount('display', 'none');
-    dataExploded = generateCssStats(dataExploded);
-
-    if (!fs.existsSync(cssstatsDir)) {
-        fs.mkdirSync(cssstatsDir); // `fs.writeFileSync` will fail if directory doesn't exist
-    }
-    fs.writeFileSync(path.join('Cwel', '.tmp', 'docs', 'cssstats', 'cssstats.json'), dataExploded, 'utf-8');
-});
-
-
-// @internal
-gulp.task('cwel-docs-generate-css-stats', ['cwel-docs-generate-css-stats-data'], () => {
+gulp.task('cwel-docs-generate-css-stats', () => {
     const cssstatsJson = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'Cwel', '.tmp', 'docs', 'cssstats', 'cssstats.json'), 'utf-8'));
-
     gulp.src('Cwel.Docs.Web/FrontEnd/Template/cssstats/cssstats.nunjucks')
     .pipe(nunjucks.compile(cssstatsJson, {
         env: nunjucksEnv,
@@ -166,5 +138,3 @@ gulp.task('cwel-docs-generate-css-stats', ['cwel-docs-generate-css-stats-data'],
     .pipe(rename('index.nunjucks'))
     .pipe(gulp.dest('Cwel/.tmp/docs/cssstats'));
 });
-// @internal
-gulp.task('clean:cwel-docs-generate-css-stats', () => del(['Cwel/.tmp/docs/cssstats/']));
