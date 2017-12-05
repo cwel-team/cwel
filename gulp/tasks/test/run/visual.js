@@ -13,7 +13,7 @@ const { argv } = yargs
 
 function runGalen({ suiteFile, htmlDest, dumpDest, openReport, args = [] }, done) {
     const dumpArgs = dumpDest
-        ? ['--testngreport', `${dumpDest}/testng.xml`]
+        ? ['--testngreport', `${dumpDest}/testng-visual.xml`]
         : [];
     const galenCommand = ['npm run galen',
         '--',
