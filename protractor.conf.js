@@ -27,7 +27,7 @@ const protractorOptions = {
         if (argv.params.dump) {
             jasmine.getEnv().addReporter(new JunitXmlReporter({
                 savePath: argv.params.dump,
-                filePrefix: 'junit',
+                filePrefix: 'junit-e2e',
             }));
         }
     },
