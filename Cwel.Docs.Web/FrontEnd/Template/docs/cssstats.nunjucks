@@ -7,8 +7,32 @@
 
 @section styles {
     <style>
-        .d3-area {
+        .d3__tick {
+            stroke: #ccc;
+            stroke-opacity: 0.5;
+            shape-rendering: crispEdges;
+        }
+        .d3__line {
+            fill: none;
+            stroke: rgb(72, 3, 68);
+            stroke-width: 1.5;
+        }
+        .d3__area {
             fill: rgba(72, 3, 68, 0.75);
+        }
+        .d3__axis .domain {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+            stroke-width: 1px;
+        }
+        .d3__ring {
+          fill: #fff;
+          stroke: steelblue;
+        }
+        .d3__overlay {
+          fill: none;
+          pointer-events: all;
         }
     </style>
 }
@@ -17,62 +41,131 @@
     <script src="/Assets/JS/vendor/prism.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
     <script>
-        const rulesetDataEl = document.getElementById('graph-rulesize');
-        const rulesetDataRaw = rulesetDataEl.dataset.rulesizes.split(',');
-        const rulesetData = [];
-        rulesetDataRaw.forEach((item, index) => {
-            rulesetData.push({x: index + 1, y: item});
+        function make_y_axis_grid_lines() {
+            return d3.svg.axis()
+            .scale(y)
+            .orient('left')
+            .ticks(5); // Frequency of Y axis grid lines
+        }
+
+        var rulesizeDataEl = document.getElementById('graph-rulesize');
+        var rulesizeDataRaw = rulesizeDataEl.dataset.rulesizes.split(','); // Data arrives on page in `data-rulesizes` data attribute on the SVG element
+        var rulesizeData = [];
+        rulesizeDataRaw.forEach((item, index) => {
+            rulesizeData.push({x: index, y: parseInt(item)}); // Create a usable data model for d3 to work with
         });
 
-        const rulesetChart = d3.select(rulesetDataEl);
-        const margin = 50;
-        const width = rulesetChart.attr('width') - margin;
-        const height = rulesetChart.attr('height') - margin;
+        var rulesizeChart = d3.select(rulesizeDataEl); // Init d3 on the element
+        var margin = {top: 30, right: 20, bottom: 20, left: 50}; // Measurements for positioning the graph from the edge of the SVG element
+        var width = rulesizeChart.attr('width') - margin.left - margin.right; // Allow for labels
+        var height = rulesizeChart.attr('height') - margin.top - margin.bottom; // Allow for labels
 
-        var data = rulesetData;
-
+        // Set the X axis scale (work out the range of data the graph needs to plot on the X axis)
         var x = d3.scale.linear()
-            .domain([0, d3.max(data, function(d) { return d.x; })])
+            .domain([0, d3.max(rulesizeData, function(d) { return d.x; })])
             .range([0, width]);
 
+        // Set the Y axis scale (work out the range of data the graph needs to plot on the Y axis)
         var y = d3.scale.linear()
-            .domain([0, d3.max(data, function(d) { return d.y; })])
+            .domain([0, d3.max(rulesizeData, function(d) { return d.y; })])
             .range([height, 0]);
 
+        // Set the X axis range and position
         var xAxis = d3.svg.axis()
             .scale(x)
-            .orient("bottom")
-            .innerTickSize(-width)
-            .outerTickSize(0)
-            .tickPadding(10);
+            .orient('bottom');
 
+        // Set the Y axis range and position
         var yAxis = d3.svg.axis()
             .scale(y)
-            .orient("left");
+            .orient('left');
 
+        // Define the line plots
+        var line = d3.svg.line()
+            .x(function(d) { return x(d.x); })
+            .y(function(d) { return y(d.y); });
+
+        // Define the area plots
         var area = d3.svg.area()
             .x(function(d) { return x(d.x); })
             .y0(height)
             .y1(function(d) { return y(d.y); });
 
-        rulesetChart.attr("width", width + (margin * 2))
-            .attr("height", height + (margin * 2))
-          .append("g")
-            .attr("transform", "translate(" + margin + "," + margin + ")");
+        // Define the main graph area
+        var g = rulesizeChart.append('g')
+            .attr('width', width)
+            .attr('height', height)
+            .attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')'); // Better positioning
 
-        rulesetChart.append("path")
-            .datum(data)
-            .attr("class", "d3-area")
-            .attr("d", area);
+        // Add the Y axis grid lines
+        g.append('g')
+            .attr('class', 'd3__tick')
+            .call(make_y_axis_grid_lines()
+                .tickSize(-width, 0, 0)
+                .tickFormat(''));
 
-        rulesetChart.append("g")
-            .attr("class", "x axis")
-            .attr("transform", "translate(0," + height + ")")
+        // Add the graph line
+        g.append('path')
+            .datum(rulesizeData)
+            .attr('class', 'd3__line')
+            .attr('d', line);
+
+        // Add the graph area
+        g.append('path')
+            .datum(rulesizeData)
+            .attr('class', 'd3__area')
+            .attr('d', area);
+
+        // Add the X axis
+        var axisElements = g.append('g')
+            .attr('class', 'd3__axis')
+            .attr('transform', 'translate(0, ' + height + ')')
             .call(xAxis);
 
-        rulesetChart.append("g")
-            .attr("class", "y axis")
+        axisElements.selectAll('text').remove(); // We can only remove the text labels after they have been created #annoying
+
+        // Add the Y axis
+        g.append('g')
+            .attr('class', 'd3__axis')
             .call(yAxis);
+
+        // Set up the tooltip
+        var focus = rulesizeChart.append('g')
+            .attr('class', 'd3__focus')
+            .style('display', 'none');
+
+        // Add the tooltip ring
+        focus.append('circle')
+            .attr('class', 'd3__ring')
+            .attr('r', 4.5);
+
+        // Add the tooltip text and position it relative to ring
+        focus.append('text')
+            .attr('x', 9)
+            .attr('dy', '.35em');
+
+        // Add the graph overlay and track mouse movement
+        rulesizeChart.append('rect')
+            .attr('class', 'd3__overlay')
+            .attr('width', width)
+            .attr('height', height)
+            .attr('transform', 'translate(' + margin.left + ', ' + margin.top + ')') // Better positioning
+            .on('mouseover', function() { focus.style('display', null); })
+            .on('mouseout', function() { focus.style('display', 'none'); })
+            .on('mousemove', mousemove);
+
+        var bisectGraphLine = d3.bisector(function(d) { return d.x; }).left;
+
+        // Draw the tooltip
+        function mousemove() {
+            var x0 = x.invert(d3.mouse(this)[0]);
+            var i = bisectGraphLine(rulesizeData, x0, 1);
+            var d0 = rulesizeData[i - 1];
+            var d1 = rulesizeData[i];
+            var d = x0 - d0.x > d1.x - x0 ? d1 : d0;
+            focus.attr('transform', 'translate(' + (x(d.x) + 50) + ', ' + (y(d.y) + 30) + ')'); // Move focus ring position for each graph value (`50` and `30` are modifiers to help move into correct position)
+            focus.select('text').text(d.y);
+        }
     </script>
 }
 

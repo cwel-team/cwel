@@ -209,7 +209,7 @@
     <section class="cssst-section cssst-section--rulesize-graph" id="rulesize-graph">
         <h2>Ruleset Size</h2>
         <svg id="graph-rulesize" width="1256" height="500" data-rulesizes="{{ rulesizeGraph }}"></svg>
-        <span>Number of declarations per ruleset</span>
+        <span>Number of declarations per ruleset. Please note that vendor prefixes are included in the count, artificially inflating some figures.</span>
     </section>
     <section class="cssst-section cssst-section--media-queries" id="media-queries">
         <h2>{{ mediaQueries.length }} {{ mediaQueries.length | pluralize('Media Query', 'Media Queries') }}</h2>
