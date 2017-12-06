@@ -7,18 +7,16 @@
     | OSX-Firefox 39 | xl         | --size 1280x800 --browser firefox --dc.browser_version 39 --dc.os OSX --dc.os_version MountainLion |
 
 @@ set
-    domain              docs.cwel.local
-    base_url            http://${domain}/visualtest/
+    host_base_url       ${host_url}/visualtest/
     spec_path           Cwel/Src/Test/visual/specs/
-    browserstack_url    https://${browserstack.username}:${browserstack.key}@hub.browserstack.com/wd/hub
-    gridArgsForAll     --dc.browserstack.local true --dc.browserstack.debug true
+    gridArgsForAll     --dc.build '${buildName}' --dc.browserstack.local true --dc.browserstack.debug true
 
 @@ parameterized using devices
 Grid on: ${deviceName}
-    selenium grid ${browserstack_url} --page ${base_url}grid ${gridArgs} ${gridArgsForAll}
+    selenium grid ${grid_url} --page ${host_base_url}grid ${gridArgs} ${gridArgsForAll}
         check ${spec_path}cwel-grid.gspec --include '${tags}'
 
 @@ parameterized using devices
 Rem units on: ${deviceName}
-    selenium grid ${browserstack_url} --page ${base_url}remunits ${gridArgs} ${gridArgsForAll}
+    selenium grid ${grid_url} --page ${host_base_url}remunits ${gridArgs} ${gridArgsForAll}
         check ${spec_path}cwel-remunits.gspec --include '${tags}'
