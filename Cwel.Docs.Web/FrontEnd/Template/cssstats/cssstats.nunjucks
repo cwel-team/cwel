@@ -202,7 +202,7 @@
     </section>
     <section class="cssst-section cssst-section--specificity-graph" id="specificity-graph">
         <h2>Specificity Graph</h2>
-        {{ draw_graph(specificityGraph) | safe }}
+        <svg id="graph-specificity" width="1256" height="500" data-specificity='{{ stats.specificityValues | dump }}'></svg> {# Single quotes required below as dump includes double quotes #}
         <p>Base 10 specificity score for each selector by source order. Generally, lower scores and flatter curves are better for maintainability.</p>
         <p><a href="http://csswizardry.com/2014/10/the-specificity-graph/" target="_blank">Learn More</a></p>
     </section>
