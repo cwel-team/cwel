@@ -172,6 +172,14 @@
             </li>
         </ul>
     </section>
+    <section class="cssst-section cssst-section--specificity-graph">
+        <h2 class="cssst-heading cssst-heading--anchored" id="specificity-graph">
+            Specificity Graph <a class="cssst-heading__icon" href="#specificity-graph">&sect;</a>
+        </h2>
+        <p>This graph shows a base 10 specificity score for each selector by source order. Generally, lower scores and flatter curves are better for maintainability. See <a href="http://csswizardry.com/2014/10/the-specificity-graph/" target="_blank">here</a> for more information.</p>
+        <p><strong>Tip:</strong> Click a point on the graph below to copy the CSS selector to your clipboard.</p>
+        <svg id="graph-specificity" width="1256" height="500" data-specificity='{{ stats.specificityValues | dump }}'></svg> {# Single quotes required below as dump includes double quotes #}
+    </section>
     <section class="cssst-section cssst-section--unique-media-queries">
         <h2 class="cssst-heading cssst-heading--anchored" id="unique-media-queries">
             {{ mediaQueries.length }} {{ mediaQueries.length | pluralize('Unique Media Query', 'Unique Media Queries') }} <a class="cssst-heading__icon" href="#unique-media-queries">&sect;</a>
@@ -300,6 +308,14 @@
             {% endfor %}
         </ul>
     </section>
+    <section class="cssst-section cssst-section--rulesize-graph">
+        <h2 class="cssst-heading cssst-heading--anchored" id="rulesize-graph">
+            Ruleset Size <a class="cssst-heading__icon" href="#rulesize-graph">&sect;</a>
+        </h2>
+        <p>This graph shows the number of declarations per ruleset. Please note that vendor prefixes are included in the count, artificially inflating some figures.</p>
+        <p><strong>Tip:</strong> Click a point on the graph below to copy the ruleset size to your clipboard.</p>
+        <svg id="graph-rulesize" width="1256" height="500" data-rulesizes="{{ rulesizeGraph }}"></svg>
+    </section>
     <section class="cssst-section cssst-section--unique-totals">
         <h2 class="cssst-heading cssst-heading--anchored" id="total-vs-unique-declarations">
             Total vs Unique Declarations <a class="cssst-heading__icon" href="#total-vs-unique-declarations">&sect;</a>
@@ -331,21 +347,5 @@
                 <span class="cssst-graph__legend">Background Color</span>
             </div>
         </div>
-    </section>
-    <section class="cssst-section cssst-section--specificity-graph">
-        <h2 class="cssst-heading cssst-heading--anchored" id="specificity-graph">
-            Specificity Graph <a class="cssst-heading__icon" href="#specificity-graph">&sect;</a>
-        </h2>
-        <p>This graph shows a base 10 specificity score for each selector by source order. Generally, lower scores and flatter curves are better for maintainability. See <a href="http://csswizardry.com/2014/10/the-specificity-graph/" target="_blank">here</a> for more information.</p>
-        <p><strong>Tip:</strong> Click a point on the graph below to copy the CSS selector to your clipboard.</p>
-        <svg id="graph-specificity" width="1256" height="500" data-specificity='{{ stats.specificityValues | dump }}'></svg> {# Single quotes required below as dump includes double quotes #}
-    </section>
-    <section class="cssst-section cssst-section--rulesize-graph">
-        <h2 class="cssst-heading cssst-heading--anchored" id="rulesize-graph">
-            Ruleset Size <a class="cssst-heading__icon" href="#rulesize-graph">&sect;</a>
-        </h2>
-        <p>This graph shows the number of declarations per ruleset. Please note that vendor prefixes are included in the count, artificially inflating some figures.</p>
-        <p><strong>Tip:</strong> Click a point on the graph below to copy the ruleset size to your clipboard.</p>
-        <svg id="graph-rulesize" width="1256" height="500" data-rulesizes="{{ rulesizeGraph }}"></svg>
     </section>
 </div>
