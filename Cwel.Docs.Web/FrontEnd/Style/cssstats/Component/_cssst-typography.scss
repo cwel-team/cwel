@@ -1,0 +1,31 @@
+
+.cssst-heading__icon {
+    display: none; // Initial hidden state
+}
+
+.cssst-heading--anchored {
+    position: relative; // Required for absolute positioning of `.cssst-heading__icon`
+
+    &:focus,
+    &:hover {
+        .cssst-heading__icon {
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            display: block;
+            padding: $SPACE-S;
+            padding-right: $SPACE-XS;
+            color: #444;
+            text-decoration: none;
+            transform: translateY(-50%);
+            opacity: 0.25;
+
+            &:focus,
+            &:hover {
+                opacity: 0.75;
+            }
+
+        }
+    }
+
+}

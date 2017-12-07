@@ -33,6 +33,7 @@ const sassConfig = {
 // @internal
 gulp.task('cwel-docs-build', done => gulpSequence(
     'cwel-docs-build-script',
+    'cwel-docs-build-script-vendor',
     'cwel-docs-build-style')(done));
 // @internal
 gulp.task('clean:cwel-docs-build', done => gulpSequence(
@@ -49,6 +50,11 @@ gulp.task('cwel-docs-build-script', () => gulp.src('Cwel.Docs.Web/FrontEnd/Scrip
 .pipe(gulp.dest('Cwel.Docs.Web/Assets/JS')));
 // @internal
 gulp.task('clean:cwel-docs-build-script', () => del(['Cwel.Docs.Web/Assets/JS/**/*.{js,js.map}']));
+
+
+// @internal
+gulp.task('cwel-docs-build-script-vendor', () => gulp.src('Cwel.Docs.Web/FrontEnd/Script/vendor**/*.js')
+.pipe(gulp.dest('Cwel.Docs.Web/Assets/JS')));
 
 
 // @internal

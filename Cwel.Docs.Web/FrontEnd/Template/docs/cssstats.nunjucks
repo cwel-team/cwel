@@ -48,8 +48,26 @@
 
 @section scripts {
     <script src="/Assets/JS/vendor/prism.js"></script>
+    <script src="/Assets/JS/vendor/humane.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
     <script>
+        // Copy inner HTML of `.d3-focus__text` to clipboard and display success message
+        var d3FocusTextContent = '';
+        var clipboard = new Clipboard('.d3__overlay', {
+            text: function(trigger) {
+                var d3Focus = trigger.previousSibling;
+                var d3FocusText = d3Focus.getElementsByClassName('d3-focus__text')[0];
+                d3FocusTextContent = d3FocusText.innerHTML;
+                return d3FocusTextContent;
+            }
+        });
+        clipboard.on('success', function() {
+            humane.log('\'' + d3FocusTextContent + '\' copied to clipboard');
+        });
+    </script>
+    <script>
+        // Display specificity graph
         (function() {
             function make_y_axis_grid_lines() {
                 return d3.svg.axis()
@@ -180,6 +198,13 @@
                 var bbox = text.node().getBBox();
                 var padding = 3;
 
+                // If the tooltip's text won't fit on the RHS of the SVG, move the tooltip to the left of `.d3-focus__ring`
+                if (bbox.width > (width - d3.mouse(this)[0])) {
+                    text.attr('x', -(bbox.width + 15));
+                } else {
+                    text.attr('x', 15);
+                }
+
                 focus.selectAll('rect.d3-focus__bg').remove(); // Destroy all instances of text bg before creating a new one
 
                 var textBg = focus.insert('rect', 'text')
@@ -192,6 +217,7 @@
         })();
     </script>
     <script>
+        // Display ruleset size graph
         (function() {
             function make_y_axis_grid_lines() {
                 return d3.svg.axis()
@@ -321,6 +347,13 @@
                 var text = focus.select('text');
                 var bbox = text.node().getBBox();
                 var padding = 3;
+
+                // If the tooltip's text won't fit on the RHS of the SVG, move the tooltip to the left of `.d3-focus__ring`
+                if (bbox.width > (width - d3.mouse(this)[0])) {
+                    text.attr('x', -(bbox.width + 15));
+                } else {
+                    text.attr('x', 15);
+                }
 
                 focus.selectAll('rect.d3-focus__bg').remove(); // Destroy all instances of text bg before creating a new one
 

@@ -6,6 +6,10 @@
 @import '_base';
 @import '_spritesheet';
 
+@import 'Animation/anm-keyframes';
+
+@import 'Component/humane';
+
 @import '_container';
 @import '_button';
 @import '_form-field';
