@@ -18,7 +18,6 @@ module.exports.config = {
         }));
 
         if (argv.params.dump) {
-            console.log('TAKING DUMP');
             jasmine.getEnv().addReporter(new JunitXmlReporter({
                 savePath: argv.params.dump,
                 filePrefix: 'junit',
