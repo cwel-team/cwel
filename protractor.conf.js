@@ -5,18 +5,77 @@ const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 const JunitXmlReporter = require('jasmine-reporters').JUnitXmlReporter;
 const browserstack = require('browserstack-local');
 
-const { argv } = yargs;
-const grid = argv.params.grid || '';
+const { grid = '', suite, dump } = yargs.argv.params;
 const isBrowserstack = grid.includes('browserstack');
 const localTunnel = isBrowserstack ? new browserstack.Local() : null;
 const buildDate = new Date();
+const buildName = `cwel-e2e--(${buildDate.getFullYear()}-${buildDate.getMonth()}-${buildDate.getDate()}-${buildDate.getMinutes()})`;
+
+const multiCapabilities = [];
+
+
+if (suite === 'dirty') {
+    multiCapabilities.push({
+        browserName: 'chrome',
+        build: buildName,
+    });
+}
+
+
+if (suite === 'local') {
+    multiCapabilities.push({
+        browserName: 'chrome',
+        build: buildName,
+    });
+    multiCapabilities.push({
+        browserName: 'chrome',
+        build: buildName,
+    });
+    multiCapabilities.push({
+        browserName: 'internet explorer',
+        build: buildName,
+    });
+}
+
+
+if (suite === 'develop') {
+    multiCapabilities.push({
+        browserName: 'chrome',
+        build: buildName,
+    });
+    multiCapabilities.push({
+        browserName: 'firefox',
+        build: buildName,
+    });
+    multiCapabilities.push({
+        browserName: 'internet explorer',
+        build: buildName,
+    });
+    multiCapabilities.push({
+        browserName: 'safari',
+        build: buildName,
+    });
+}
+
+
+if (suite === 'release') {
+    multiCapabilities.push({
+        browserName: 'chrome',
+        build: buildName,
+    });
+    multiCapabilities.push({
+        browserName: 'firefox',
+        build: buildName,
+    });
+    multiCapabilities.push({
+        browserName: 'internet explorer',
+        build: buildName,
+    });
+}
 
 
 const protractorOptions = {
-    capabilities: {
-        browserName: 'chrome',
-        build: `cwel-e2e--(${buildDate.getFullYear()}-${buildDate.getMonth()}-${buildDate.getDate()}-${buildDate.getMinutes()})`,
-    },
+    multiCapabilities,
     onPrepare() {
         jasmine.getEnv().addReporter(new SpecReporter({
             spec: {
@@ -24,9 +83,9 @@ const protractorOptions = {
             },
         }));
 
-        if (argv.params.dump) {
+        if (dump) {
             jasmine.getEnv().addReporter(new JunitXmlReporter({
-                savePath: argv.params.dump,
+                savePath: dump,
                 filePrefix: 'junit-e2e',
             }));
         }

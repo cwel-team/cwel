@@ -32,18 +32,26 @@ function runProtractor(args, done) {
 
 // @internal
 gulp.task('cwel-test-run-e2e', (done) => {
-    const host = (new URL(argv.host)).href;
-    const dumpDest = argv.dump || 'Cwel/.tmp/test/Test/e2e/report';
-    const dumpArgs = dumpDest
-        ? ['--params.dump', dumpDest]
-        : [];
-    const gridArgs = argv.grid
-        ? ['--params.grid', argv.grid]
-        : [];
+    const {
+        host,
+        dump,
+        grid = '',
+        suite = 'dirty',
+    } = argv;
+    const hostUrl = (new URL(host)).href;
+    let dumpDest = dump || 'Cwel/.tmp/test/Test/visual/report';
+
+    // make sure the default does not get applied if undefined
+    // as type of undefined means the argument hasn't been set.
+    if (typeof dump === 'undefined') {
+        dumpDest = '';
+    }
+
     const args = [
-        '--params.host', host,
-        ...gridArgs,
-        ...dumpArgs,
+        '--params.host', hostUrl,
+        '--params.dump', dumpDest,
+        '--params.suite', suite,
+        '--params.grid', grid,
     ];
 
     runProtractor(args, done);

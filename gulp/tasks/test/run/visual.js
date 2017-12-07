@@ -9,10 +9,11 @@ const yargs             = require('yargs');                         // Args
 const { argv } = yargs
 .option('grid', {
     type: 'string',
-    default: 'http://docs.cwel.local',
+    default: '',
 })
 .option('host', {
     type: 'string',
+    default: 'http://docs.cwel.local',
 })
 .option('dump', {
     type: 'string',
@@ -57,9 +58,15 @@ function runGalen({ suiteFile, htmlDest, dumpDest, openReport, args = [] }, done
 // @internal
 gulp.task('cwel-test-run-visual', (done) => {
     const { openReport, dump, grid, host } = argv;
-    const dumpDest = dump || 'Cwel/.tmp/test/Test/visual/report';
     const htmlDest = 'Cwel/.tmp/test/Test/visual/report/html';
     const isBrowserstack = grid.includes('browserstack');
+    let dumpDest = dump || 'Cwel/.tmp/test/Test/visual/report';
+
+    // make sure the default does not get applied if undefined
+    // as type of undefined means the argument hasn't been set.
+    if (typeof dump === 'undefined') {
+        dumpDest = '';
+    }
 
     if (isBrowserstack) {
         const { password: key } = new URL(grid);
