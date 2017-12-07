@@ -41,3 +41,8 @@
 .Chartable-bar:nth-of-type(even) {
     fill: rgba($color-core-1, 0.75);
 }
+
+.Chartable-rule:not(:first-of-type) { // `:first-of-type` is the base line so needs to remian black
+    color: #ccc; // For some reason the line color is set with `color` not `stroke`
+    opacity: 0.5;
+}
