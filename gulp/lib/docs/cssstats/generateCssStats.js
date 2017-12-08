@@ -1,8 +1,8 @@
-// TODO: The contents of this file includes bits from https://github.com/cssstats/cssstats and could do with a cleanup at some point to make the code more succinct. We probably don't need the modules 'camel-case', 'is-blank', and 'is-present' for one.
+// TODO: The contents of this file includes bits from https://github.com/cssstats/cssstats and could do with a cleanup at some point.
 
 const camelCase            = require('camel-case');                 // Convert a dash/dot/underscore/space separated string to camelCase
-const isBlank              = require('is-blank');                   // Check whether a value is empty or blank
-const isPresent            = require('is-present');                 // Check whether a value is nonblank
+const isBlank              = require('../../util/is-blank');        // Check whether a value is empty or blank
+const isPresent            = require('../../util/is-present');      // Check whether a value is nonblank
 const shorthandExpand      = require('css-shorthand-expand');       // Expand CSS shorthand properties to their longhand equivalent
 const size                 = require('lodash.size');                // The lodash method _.size
 const specificity          = require('specificity');                // A JavaScript module for calculating and comparing the specificity of CSS selectors

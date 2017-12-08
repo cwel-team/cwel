@@ -12,12 +12,12 @@ require('./lint');
 gulp.task('cwel-analysis', ['clean:cwel-analysis'], done => gulpSequence(
     'lint-script',
     'lint-style',
-    'cwel-analysis-generate-css-stats-data',
-    'cwel-analysis-css-stats',
+    'cwel-analysis-cssstats-generate-data',
+    'cwel-analysis-cssstats-analyse-data',
 )(done));
 /**
  * Clean the CWEL distribution folder
  */
 gulp.task('clean:cwel-analysis', done => gulpSequence(
-    'clean:cwel-analysis-generate-css-stats-data',
+    'clean:cwel-analysis-cssstats-generate-data',
 )(done));

@@ -33,15 +33,15 @@ gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
 
 
 /**
- * Perform analysis
+ * Perform analysis and generate reports.
  */
-gulp.task('analysis', done => gulpSequence('lint-script', 'lint-style', 'cwel-analysis-generate-css-stats-data', 'cwel-analysis-css-stats')(done));
+gulp.task('analysis', done => gulpSequence('lint-script', 'lint-style', 'cwel-analysis-cssstats-generate-data', 'cwel-analysis-cssstats-analyse-data')(done));
 
 
 /**
  * Build the whole project: packaging CWEL and generating docs.
  */
-gulp.task('build', done => gulpSequence('lint', 'cwel-test-build', 'cwel-test-copy', 'cwel-dist', 'cwel-docs')(done));
+gulp.task('build', done => gulpSequence('analysis', 'cwel-test-build', 'cwel-test-copy', 'cwel-dist', 'cwel-docs')(done));
 /**
  * Delete files created by build task
  */
