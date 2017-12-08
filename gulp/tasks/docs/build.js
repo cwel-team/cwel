@@ -54,7 +54,7 @@ gulp.task('clean:cwel-docs-build-script', () => del(['Cwel.Docs.Web/Assets/JS/**
 
 // @internal
 gulp.task('cwel-docs-build-script-vendor', () => gulp.src('Cwel.Docs.Web/FrontEnd/Script/vendor/**/*.js')
-.pipe(gulp.dest('Cwel.Docs.Web/Assets/JS')));
+.pipe(gulp.dest('Cwel.Docs.Web/Assets/JS/vendor')));
 
 
 // @internal
