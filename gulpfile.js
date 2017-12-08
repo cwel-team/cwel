@@ -35,7 +35,7 @@ gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
 /**
  * Perform analysis and generate reports.
  */
-gulp.task('analysis', done => gulpSequence('lint-script', 'lint-style', 'cwel-analysis-cssstats-generate-data', 'cwel-analysis-cssstats-analyse-data')(done));
+gulp.task('analysis', done => gulpSequence('lint', 'cwel-analysis-cssstats-generate-data', 'cwel-analysis-cssstats-analyse-data')(done));
 
 
 /**
