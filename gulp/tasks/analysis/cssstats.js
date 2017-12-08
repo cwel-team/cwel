@@ -52,7 +52,7 @@ gulp.task('cwel-analysis-cssstats-analyse-data', () => {
         const errMsg = `CSS Stats - size budget exceeded. Size budget: ${sizeBudget}kB. Actual size: ${actualSize}kB.`;
         if (ERROR_LEVEL === 'error') {
             console.error(`Error: ${errMsg}`);
-            process.exit(0);
+            process.exit(1);
         } else {
             console.warn(`Warning: ${errMsg}`);
         }
@@ -73,7 +73,7 @@ gulp.task('cwel-analysis-cssstats-analyse-data', () => {
         const errMsg = `CSS Stats - specificity threshold budget exceeded. Specificity threshold: ${specificityThreshold}. Items over threshold: ${itemsOverThreshold} (greater than ${specificityThresholdPercentage}% of total number of selectors.`;
         if (ERROR_LEVEL === 'error') {
             console.error(`Error: ${errMsg}`);
-            process.exit(0);
+            process.exit(1);
         } else {
             console.warn(`Warning: ${errMsg}`);
         }
