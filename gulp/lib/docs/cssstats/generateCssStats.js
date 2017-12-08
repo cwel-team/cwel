@@ -1,11 +1,13 @@
-// TODO: The contents of this file includes bits from https://github.com/cssstats/cssstats and could do with a cleanup at some point to make the code more succinct. We probably don't need the modules 'lodash', 'camel-case', 'is-blank', and 'is-present' for one.
+// TODO: The contents of this file includes bits from https://github.com/cssstats/cssstats and could do with a cleanup at some point to make the code more succinct. We probably don't need the modules 'camel-case', 'is-blank', and 'is-present' for one.
 
-const _                    = require('lodash');                     // JavaScript utility library
 const camelCase            = require('camel-case');                 // Convert a dash/dot/underscore/space separated string to camelCase
 const isBlank              = require('is-blank');                   // Check whether a value is empty or blank
 const isPresent            = require('is-present');                 // Check whether a value is nonblank
 const shorthandExpand      = require('css-shorthand-expand');       // Expand CSS shorthand properties to their longhand equivalent
+const size                 = require('lodash.size');                // The lodash method _.size
 const specificity          = require('specificity');                // A JavaScript module for calculating and comparing the specificity of CSS selectors
+const uniq                 = require('lodash.uniq');                // The lodash method _.uniq
+
 
 function fontSizeToPx(value) {
     let raw = '';
@@ -121,7 +123,7 @@ function sortZIndices(zIndices) {
 
 function getUniquePropertyCount(property) {
     if (!property) return 0;
-    return _.uniq(property).length;
+    return uniq(property).length;
 }
 
 function getSpecificityGraph(selectors) {
@@ -161,7 +163,7 @@ function getPropertyValueCount(property, value) {
 function parseTotals(stats) {
     if (!stats) return false;
     const totals = {};
-    totals.properties = _.size(stats.data.declarations.properties);
+    totals.properties = size(stats.data.declarations.properties);
     const totalProperties = ['float', 'width', 'height', 'color', 'background-color'];
     for (const property of totalProperties) { // eslint-disable-line no-restricted-syntax
         const prop = stats.data.declarations.properties[property];
@@ -181,11 +183,11 @@ function parseUniques(stats) {
         'margin', 'padding', 'border-radius', 'z-index',
     ];
     for (const property of uniqueProperties) { // eslint-disable-line no-restricted-syntax
-        uniques[camelCase(property)] = _.uniq(stats.data.declarations.properties[property]);
+        uniques[camelCase(property)] = uniq(stats.data.declarations.properties[property]);
     }
 
-    uniques.fontSize = _.uniq(getAllFontSizes(stats.data.declarations.properties));
-    uniques.fontFamily = _.uniq(getAllFontFamilies(stats.data.declarations.properties));
+    uniques.fontSize = uniq(getAllFontSizes(stats.data.declarations.properties));
+    uniques.fontFamily = uniq(getAllFontFamilies(stats.data.declarations.properties));
     uniques.fontSizeSorted = sortFontSizes(uniques.fontSize);
     uniques.zIndexSorted = sortZIndices(uniques.zIndex);
 
@@ -239,7 +241,7 @@ module.exports = (obj) => {
     model.uniquesGraph = uniquesGraph(model.stats);
     model.specificityGraph = getSpecificityGraph(model.stats.selectors);
     model.rulesizeGraph = model.stats.data.rules.size.graph;
-    model.mediaQueries = _.uniq(model.stats.data.mediaQueries.values);
+    model.mediaQueries = uniq(model.stats.data.mediaQueries.values);
     model.spacingResets = spacingResets(model.stats);
 
     return JSON.stringify(model);
