@@ -218,9 +218,9 @@
     <Content Include="FrontEnd\Style\cssstats\_cssstats.scss" />
     <Content Include="FrontEnd\Style\cssstats\Component\_cssst-base.scss" />
     <Content Include="FrontEnd\Style\cssstats\Component\_cssst-nugget.scss" />
-    <Content Include="FrontEnd\Style\Animation\anm-keyframes.scss" />
     <Content Include="FrontEnd\Style\Component\_humane.scss" />
     <Content Include="FrontEnd\Style\cssstats\Component\_cssst-typography.scss" />
+    <Content Include="FrontEnd\Style\Animation\_anm-keyframes.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />

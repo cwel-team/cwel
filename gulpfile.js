@@ -27,6 +27,12 @@ gulp.task('default', ['help']);
 
 
 /**
+ * Check the solution's code style.
+ */
+gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
+
+
+/**
  * Perform analysis
  */
 gulp.task('analysis', done => gulpSequence('lint-script', 'lint-style', 'cwel-analysis-generate-css-stats-data', 'cwel-analysis-css-stats')(done));
