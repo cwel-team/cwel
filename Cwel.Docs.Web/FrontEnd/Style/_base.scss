@@ -1,8 +1,7 @@
 
 body {
     color: $color-secondary-1;
-    letter-spacing: 0.07rem;
-    background: $color-core-2;
+    background-color: $color-core-2;
 }
 
 h1,
@@ -36,7 +35,6 @@ h4,
 p,
 .p {
     margin-top: 0;
-    font-size: 1.68rem;
 }
 
 code {

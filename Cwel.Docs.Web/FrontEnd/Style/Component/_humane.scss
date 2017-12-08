@@ -1,0 +1,32 @@
+
+// [3rd party] A simple, modern, browser notification system
+// See https://github.com/wavded/humane-js
+
+.humane {
+    position: fixed;
+    top: 0;
+    left: 30%;
+    z-index: 1000; // Really really on top of everything
+    width: 40%;
+    padding: $SPACE-XS;
+    color: #1b5e20;
+    font-size: 1.38rem;
+    text-align: center;
+    background-color: #a5d6a7;
+    transition: transform 0.4s ease-in-out;
+    transform: translateY(-100%);
+}
+
+.humane p,
+.humane ul {
+    margin: 0;
+    padding: 0;
+}
+
+.humane ul {
+    list-style: none;
+}
+
+.humane-animate {
+    transform: translateY(0);
+}

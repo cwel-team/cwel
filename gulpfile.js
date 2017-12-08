@@ -8,11 +8,12 @@ const yargs            = require('yargs');
 const argv = yargs.argv; // Parse process.argv with yargs
 
 
+require('./gulp/tasks/analysis/analysis');
+require('./gulp/tasks/analysis/lint');
 require('./gulp/tasks/dist/dist');
-require('./gulp/tasks/test/test');
 require('./gulp/tasks/docs/docs');
+require('./gulp/tasks/test/test');
 require('./gulp/tasks/create');
-require('./gulp/tasks/lint');
 
 
 /**
@@ -32,9 +33,15 @@ gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
 
 
 /**
+ * Perform analysis and generate reports.
+ */
+gulp.task('analysis', done => gulpSequence('lint', 'cwel-analysis-cssstats-generate-data', 'cwel-analysis-cssstats-analyse-data')(done));
+
+
+/**
  * Build the whole project: packaging CWEL and generating docs.
  */
-gulp.task('build', done => gulpSequence('lint', 'cwel-test-build', 'cwel-test-copy', 'cwel-dist', 'cwel-docs')(done));
+gulp.task('build', done => gulpSequence('analysis', 'cwel-test-build', 'cwel-test-copy', 'cwel-dist', 'cwel-docs')(done));
 /**
  * Delete files created by build task
  */
@@ -92,7 +99,13 @@ gulp.task('watch', done => gulpSequence('clean:build', 'build')(() => {
                 'background-color: #2a2a2a',
             ],
         },
+        // Time, in milliseconds, to wait before instructing the browser to
+        // reload/inject following a file change event.
         reloadDelay: 1000,
+        // Wait for a specified window of event-silence before sending any reload events.
+        reloadDebounce: 3000,
+        // Emit only the first event during sequential time windows of a specified duration.
+        // reloadThrottle: 3000,
     });
 
     // Cwel source

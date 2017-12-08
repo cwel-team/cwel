@@ -111,6 +111,9 @@
   <ItemGroup>
     <Content Include="Assets\img\cwel_logo.svg" />
     <Content Include="Assets\img\spritesheet.svg" />
+    <Content Include="FrontEnd\Script\vendor\humane.js" />
+    <Content Include="FrontEnd\Script\vendor\prism.js" />
+    <Content Include="FrontEnd\Script\vendor\VendorReadMe.txt" />
     <Content Include="FrontEnd\Template\sassdoc\index.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
@@ -200,7 +203,6 @@
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd-example.scss" />
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd-parameter.scss" />
     <Content Include="FrontEnd\Style\sassdoc\Component\_sd-return.scss" />
-    <Content Include="FrontEnd\Script\vendor\prism.es" />
     <Content Include="FrontEnd\Template\sassdoc\views\index.nunjucks" />
     <Content Include="FrontEnd\Template\docs\default.nunjucks" />
     <Content Include="FrontEnd\Template\docs\gulp.nunjucks" />
@@ -209,6 +211,16 @@
     <Content Include="FrontEnd\Template\docs\macro\_property-table.nunjucks" />
     <Content Include="FrontEnd\Template\docs\scss.nunjucks" />
     <Content Include="FrontEnd\Template\sassdoc\assets\ReadMe.md" />
+    <Content Include="FrontEnd\Template\docs\cssstats.nunjucks" />
+    <Content Include="FrontEnd\Template\cssstats\cssstats.nunjucks" />
+    <Content Include="FrontEnd\Style\cssstats\Component\_cssst-graph.scss" />
+    <Content Include="FrontEnd\Style\cssstats\Component\_cssst-section.scss" />
+    <Content Include="FrontEnd\Style\cssstats\_cssstats.scss" />
+    <Content Include="FrontEnd\Style\cssstats\Component\_cssst-base.scss" />
+    <Content Include="FrontEnd\Style\cssstats\Component\_cssst-nugget.scss" />
+    <Content Include="FrontEnd\Style\Component\_humane.scss" />
+    <Content Include="FrontEnd\Style\cssstats\Component\_cssst-typography.scss" />
+    <Content Include="FrontEnd\Style\Animation\_anm-keyframes.scss" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />

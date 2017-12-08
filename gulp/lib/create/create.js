@@ -1,41 +1,15 @@
-const gulp             = require('gulp');                          // Task automator
-const through          = require('through2');                      // Functions in streams
+const gulp                 = require('gulp');                          // Task automator
+const through              = require('through2');                      // Functions in streams
 
 
-const config           = require('../../../create.conf.json');
-const invokeOnCount    = require('../../lib/util/invokeOnCount');
+const config               = require('../../../create.conf.json');
+const invokeOnCount        = require('../../lib/util/invokeOnCount');
+const stringManipulation   = require('../util/stringManipulation');
 
-
-function safeEval(str, scope, methods) {
-    const variableName = (str.split('|')[0] || '').trim();
-    const value = scope[variableName];
-    const methodName = (str.split('|')[1] || '').trim();
-    const method = methods[methodName];
-
-    if (typeof method === 'function') {
-        return method(value);
-    }
-
-    return value;
-}
-
-function kebabize(str) {
-    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
-        return index === 0 ? letter.toLowerCase() : `-${letter.toLowerCase()}`;
-    }).replace(/\s+/g, '');
-}
-
-function camelize(str) {
-    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter, index) => {
-        return index === 0 ? letter.toLowerCase() : letter.toUpperCase();
-    }).replace(/\s+/g, '');
-}
-
-function pascalize(str) {
-    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (letter) => {
-        return letter.toUpperCase();
-    }).replace(/\s+/g, '');
-}
+const safeEval = stringManipulation.safeEval;
+const kebabize = stringManipulation.kebabize;
+const camelize = stringManipulation.camelize;
+const pascalize = stringManipulation.pascalize;
 
 function evaluateTemplate(name, scope, methods) {
     return through.obj((file, encoding, cb) => {

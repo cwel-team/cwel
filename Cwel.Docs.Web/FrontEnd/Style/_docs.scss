@@ -1,10 +1,10 @@
 
 .docs {
-    color: $color-core-1;
 
     @include breakpoint('s') {
         min-height: 94.22rem;
     }
+
 }
 
 .docs__header {
@@ -33,4 +33,5 @@
     &:not(:last-child) {
         border-bottom: 0.13rem solid #bfbfbf;
     }
+
 }
