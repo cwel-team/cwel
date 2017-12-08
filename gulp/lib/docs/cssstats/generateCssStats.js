@@ -1,12 +1,15 @@
 // TODO: The contents of this file includes bits from https://github.com/cssstats/cssstats and could do with a cleanup at some point.
 
-const camelCase            = require('camel-case');                 // Convert a dash/dot/underscore/space separated string to camelCase
 const isBlank              = require('../../util/is-blank');        // Check whether a value is empty or blank
 const isPresent            = require('../../util/is-present');      // Check whether a value is nonblank
 const shorthandExpand      = require('css-shorthand-expand');       // Expand CSS shorthand properties to their longhand equivalent
 const size                 = require('lodash.size');                // The lodash method _.size
 const specificity          = require('specificity');                // A JavaScript module for calculating and comparing the specificity of CSS selectors
 const uniq                 = require('lodash.uniq');                // The lodash method _.uniq
+
+const stringManipulation   = require('../../util/stringManipulation');
+
+const camelize = stringManipulation.camelize;
 
 
 function fontSizeToPx(value) {
@@ -167,7 +170,8 @@ function parseTotals(stats) {
     const totalProperties = ['float', 'width', 'height', 'color', 'background-color'];
     for (const property of totalProperties) { // eslint-disable-line no-restricted-syntax
         const prop = stats.data.declarations.properties[property];
-        totals[camelCase(property)] = prop ? prop.length : 0;
+        totals[camelize(property)] = prop ? prop.length : 0;
+        console.log(camelize(property));
     }
 
     totals.fontSize = getAllFontSizes(stats.data.declarations.properties).length;
@@ -183,7 +187,7 @@ function parseUniques(stats) {
         'margin', 'padding', 'border-radius', 'z-index',
     ];
     for (const property of uniqueProperties) { // eslint-disable-line no-restricted-syntax
-        uniques[camelCase(property)] = uniq(stats.data.declarations.properties[property]);
+        uniques[camelize(property)] = uniq(stats.data.declarations.properties[property]);
     }
 
     uniques.fontSize = uniq(getAllFontSizes(stats.data.declarations.properties));
@@ -200,7 +204,7 @@ function uniquesGraph(stats) {
     const keys = ['width', 'height', 'margin', 'padding', 'color', 'background-color'];
     let camelKey = '';
     keys.forEach((key) => {
-        camelKey = camelCase(key);
+        camelKey = camelize(key);
         obj[camelKey] = {};
         if (!stats.data.declarations.properties[key]) {
             obj[camelKey].total = 0;
@@ -228,7 +232,7 @@ function spacingResets(stats) {
         'padding-bottom', 'padding-right',
     ];
     for (const property of spacingProperties) { // eslint-disable-line no-restricted-syntax
-        spacing[camelCase(property)] = getPropertyValueCount(stats.data.declarations.property, '0');
+        spacing[camelize(property)] = getPropertyValueCount(stats.data.declarations.property, '0');
     }
     return spacing;
 }

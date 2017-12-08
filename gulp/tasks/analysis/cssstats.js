@@ -2,6 +2,7 @@ const cssstats              = require('cssstats');                      // Get s
 const del                   = require('del');                           // Delete files and folders
 const fs                    = require('fs');                            // Core NodeJS module
 const gulp                  = require('gulp');                          // Task automator
+const mkdirp                = require('mkdirp');                        // Create a new directory and any necessary subdirectories
 const path                  = require('path');                          // Core NodeJS module
 const yargs                 = require('yargs');                         // Args
 
@@ -16,7 +17,7 @@ if (argv.chill) {
 
 // @internal
 gulp.task('cwel-analysis-cssstats-generate-data', () => {
-    const css = fs.readFileSync('Cwel.Docs.Web/Cwel/cwel.css', 'utf8');
+    const css = fs.readFileSync(path.join('Cwel.Docs.Web', 'Cwel', 'cwel.css'), 'utf8');
     const datum = cssstats(css);
     let dataExploded = {};
     const cssstatsDir = path.join('Cwel', '.tmp', 'docs', 'cssstats');
@@ -31,10 +32,12 @@ gulp.task('cwel-analysis-cssstats-generate-data', () => {
     dataExploded.getPropertyValueCountDisplayNone = datum.declarations.getPropertyValueCount('display', 'none');
     dataExploded = generateCssStats(dataExploded);
 
-    if (!fs.existsSync(cssstatsDir)) {
-        fs.mkdirSync(cssstatsDir); // `fs.writeFileSync` will fail if directory doesn't exist
-    }
-    fs.writeFileSync(path.join('Cwel', '.tmp', 'docs', 'cssstats', 'cssstats.json'), dataExploded, 'utf-8'); // This file get used by `cwel-analysis-css-stats` and `cwel-docs-generate-css-stats`
+    mkdirp(cssstatsDir, (err) => {
+        if (err) console.error(err);
+        else {
+            fs.writeFileSync(path.join('Cwel', '.tmp', 'docs', 'cssstats', 'cssstats.json'), dataExploded, 'utf-8'); // This file get used by `cwel-analysis-css-stats` and `cwel-docs-generate-css-stats`
+        }
+    });
 });
 // @internal
 gulp.task('clean:cwel-analysis-cssstats-generate-data', () => del(['Cwel/.tmp/docs/cssstats/']));

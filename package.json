@@ -79,6 +79,7 @@
     "lodash.size": "^4.2.0",
     "lodash.uniq": "^4.5.0",
     "marked": "^0.3.6",
+    "mkdirp": "^0.5.1",
     "nunjucks": "^3.0.1",
     "nunjucks-markdown": "^2.0.1",
     "opn": "^5.1.0",
