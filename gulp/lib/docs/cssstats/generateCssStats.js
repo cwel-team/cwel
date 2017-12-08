@@ -1,3 +1,5 @@
+// TODO: The contents of this file includes bits from https://github.com/cssstats/cssstats and could do with a cleanup at some point to make the code more succinct. We probably don't need the modules 'lodash', 'camel-case', 'is-blank', and 'is-present' for one.
+
 const _                    = require('lodash');                     // JavaScript utility library
 const camelCase            = require('camel-case');                 // Convert a dash/dot/underscore/space separated string to camelCase
 const isBlank              = require('is-blank');                   // Check whether a value is empty or blank
