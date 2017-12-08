@@ -33,8 +33,10 @@ gulp.task('cwel-analysis-cssstats-generate-data', (done) => {
     dataExploded = generateCssStats(dataExploded);
 
     mkdirp(cssstatsDir, (err) => {
-        if (err) console.error(err);
-        else {
+        if (err) {
+            console.error(err);
+            process.exit(1);
+        } else {
             fs.writeFileSync(path.join('Cwel', '.tmp', 'docs', 'cssstats', 'cssstats.json'), dataExploded, 'utf-8'); // This file get used by `cwel-analysis-css-stats` and `cwel-docs-generate-css-stats`
             done();
         }
