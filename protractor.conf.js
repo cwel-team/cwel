@@ -1,81 +1,34 @@
 /* global jasmine */
 const yargs = require('yargs');
+const { execSync } = require('child_process');
 const { URL } = require('url');
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 const JunitXmlReporter = require('jasmine-reporters').JUnitXmlReporter;
 const browserstack = require('browserstack-local');
+const { version: buildVersion } = require('./package.json');
 
 const { grid = '', suite, dump } = yargs.argv.params;
 const isBrowserstack = grid.includes('browserstack');
 const localTunnel = isBrowserstack ? new browserstack.Local() : null;
-const buildDate = new Date();
-const buildName = `cwel-e2e--(${buildDate.getFullYear()}-${buildDate.getMonth()}-${buildDate.getDate()}-${buildDate.getMinutes()})`;
+const buildBranch = process.env.bamboo_planRepository_branchName || execSync('git symbolic-ref --short -q HEAD').toString();
+const buildCommit = process.env.bamboo_repository_revision_number || execSync('git rev-parse --short HEAD').toString();
+const buildName = `cwel-e2e--[${buildVersion}]#${buildBranch}@${buildCommit}`;
 
-const multiCapabilities = [];
-
-
-if (suite === 'dirty') {
-    multiCapabilities.push({
-        browserName: 'chrome',
-        build: buildName,
-    });
-}
-
-
-if (suite === 'local') {
-    multiCapabilities.push({
-        browserName: 'chrome',
-        build: buildName,
-    });
-    multiCapabilities.push({
-        browserName: 'chrome',
-        build: buildName,
-    });
-    multiCapabilities.push({
-        browserName: 'internet explorer',
-        build: buildName,
-    });
-}
-
-
-if (suite === 'develop') {
-    multiCapabilities.push({
-        browserName: 'chrome',
-        build: buildName,
-    });
-    multiCapabilities.push({
-        browserName: 'firefox',
-        build: buildName,
-    });
-    multiCapabilities.push({
-        browserName: 'internet explorer',
-        build: buildName,
-    });
-    multiCapabilities.push({
-        browserName: 'safari',
-        build: buildName,
-    });
-}
-
-
-if (suite === 'release') {
-    multiCapabilities.push({
-        browserName: 'chrome',
-        build: buildName,
-    });
-    multiCapabilities.push({
-        browserName: 'firefox',
-        build: buildName,
-    });
-    multiCapabilities.push({
-        browserName: 'internet explorer',
-        build: buildName,
-    });
-}
+const capabilities = [
+    { browserName: 'chrome',                           suites: ['sense', 'local', 'develop', 'release'] },
+    { browserName: 'chrome', version: '60',            suites: ['release'] },
+    { browserName: 'firefox',                          suites: ['local', 'develop', 'release'] },
+    { browserName: 'internet explorer', version: '11', suites: ['local', 'develop', 'release'] },
+    { browserName: 'edge',                             suites: ['local', 'develop', 'release'] },
+    { browserName: 'safari',                           suites: ['release'] },
+];
 
 
 const protractorOptions = {
-    multiCapabilities,
+    multiCapabilities: capabilities.filter(c => c.suites.includes(suite)).map((c) => {
+        c.build = buildName;
+        return c;
+    }),
     onPrepare() {
         jasmine.getEnv().addReporter(new SpecReporter({
             spec: {
@@ -97,9 +50,9 @@ const protractorOptions = {
     beforeLaunch() {
         return new Promise((resolve, reject) => {
             if (localTunnel) {
-                const { password: key } = new URL(grid);
+                const { password } = new URL(grid);
 
-                localTunnel.start({ key }, (error) => {
+                localTunnel.start({ key: password }, (error) => {
                     if (error) {
                         console.error('BrowserStack local tunnel failed: ', error);
                         reject(error);
@@ -133,8 +86,14 @@ if (grid) {
 }
 
 if (isBrowserstack) {
-    protractorOptions.capabilities['browserstack.local'] = true;
-    protractorOptions.capabilities['browserstack.debug'] = true;
+    protractorOptions.multiCapabilities.map((c) => {
+        c['browserstack.local'] = true;
+        return c;
+    });
+    protractorOptions.multiCapabilities.map((c) => {
+        c['browserstack.debug'] = true;
+        return c;
+    });
 }
 
 module.exports.config = protractorOptions;

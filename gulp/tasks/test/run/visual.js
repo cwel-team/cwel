@@ -1,10 +1,13 @@
-const gulp              = require('gulp');                          // Task automator
-const { URL }           = require('url');
-const opn               = require('opn');                           // A better node-open. Opens stuff like websites, files, execs, etc.
-const path              = require('path');                          // Native node path module
-const childProcess      = require('child_process');                 // Node native child process module
-const browserstack      = require('browserstack-local');            // Nodejs bindings for BrowserStack Local.
-const yargs             = require('yargs');                         // Args
+const gulp                      = require('gulp');                          // Task automator
+const { execSync }              = require('child_process');
+const { URL }                   = require('url');
+const opn                       = require('opn');                           // A better node-open. Opens stuff like websites, files, execs, etc.
+const path                      = require('path');                          // Native node path module
+const childProcess              = require('child_process');                 // Node native child process module
+const browserstack              = require('browserstack-local');            // Nodejs bindings for BrowserStack Local.
+const yargs                     = require('yargs');                         // Args
+
+const { version: buildVersion } = require('../../../../package.json');
 
 const { argv } = yargs
 .option('grid', {
@@ -18,10 +21,12 @@ const { argv } = yargs
 .option('dump', {
     type: 'string',
 });
+const buildBranch = process.env.bamboo_planRepository_branchName || execSync('git symbolic-ref --short -q HEAD').toString();
+const buildCommit = process.env.bamboo_repository_revision_number || execSync('git rev-parse --short HEAD').toString();
+const buildName = `cwel-visual--[${buildVersion}]#${buildBranch}@${buildCommit}`;
 
 
 function runGalen({ suiteFile, htmlDest, dumpDest, openReport, args = [] }, done) {
-    const testDate = new Date();
     const dumpArgs = dumpDest
         ? ['--testngreport', `${dumpDest}/testng-visual.xml`]
         : [];
@@ -35,7 +40,7 @@ function runGalen({ suiteFile, htmlDest, dumpDest, openReport, args = [] }, done
         ...jsonArgs,
         ...dumpArgs,
         ...args,
-        `-DbuildName=cwel-visual--(${testDate.getFullYear()}-${testDate.getMonth()}-${testDate.getDate()}-${Math.floor(Date.now() + (Math.random() * 100))})`,
+        `-DbuildName=${buildName}`,
     ];
     const galenProc = childProcess.exec(galenCommand.join(' '), {
         cwd: process.cwd(),
