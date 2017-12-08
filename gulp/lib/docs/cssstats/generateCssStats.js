@@ -171,7 +171,6 @@ function parseTotals(stats) {
     for (const property of totalProperties) { // eslint-disable-line no-restricted-syntax
         const prop = stats.data.declarations.properties[property];
         totals[camelize(property)] = prop ? prop.length : 0;
-        console.log(camelize(property));
     }
 
     totals.fontSize = getAllFontSizes(stats.data.declarations.properties).length;
