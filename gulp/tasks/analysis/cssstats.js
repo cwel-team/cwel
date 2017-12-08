@@ -16,7 +16,7 @@ if (argv.chill) {
 
 
 // @internal
-gulp.task('cwel-analysis-cssstats-generate-data', () => {
+gulp.task('cwel-analysis-cssstats-generate-data', (done) => {
     const css = fs.readFileSync(path.join('Cwel.Docs.Web', 'Cwel', 'cwel.css'), 'utf8');
     const datum = cssstats(css);
     let dataExploded = {};
@@ -36,6 +36,7 @@ gulp.task('cwel-analysis-cssstats-generate-data', () => {
         if (err) console.error(err);
         else {
             fs.writeFileSync(path.join('Cwel', '.tmp', 'docs', 'cssstats', 'cssstats.json'), dataExploded, 'utf-8'); // This file get used by `cwel-analysis-css-stats` and `cwel-docs-generate-css-stats`
+            done();
         }
     });
 });
