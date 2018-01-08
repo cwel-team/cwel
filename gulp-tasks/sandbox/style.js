@@ -1,9 +1,10 @@
-const babel             = require('gulp-babel');                    // ES6 -> ES5
+const autoprefixer      = require('gulp-autoprefixer');             // Automatically add vendor prefixes using caniuse.com data
 const gulp              = require('gulp');                          // Task automator
 const gulpif            = require('gulp-if');                       // Conditionally run a task
 const path              = require('path');                          // Core NodeJS lib
 const plumber           = require('gulp-plumber');                  // Prevent errors from killing processes
 const process           = require('process');                       // Core NodeJS lib
+const sass              = require('gulp-sass');                     // Compile SCSS into CSS
 const sourcemaps        = require('gulp-sourcemaps');               // Generate sourcemaps
 const yargs             = require('yargs');                         // Args
 
@@ -13,20 +14,15 @@ const argv = yargs.argv; // Parse process.argv with yargs
 const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
 /* eslint-enable */
 
-const babelConfig = {
-    presets: ['env', 'minify'],
-    plugins: ['angularjs-annotate'],
-};
-
-gulp.task('sandbox-script', () => {
-    return gulp.src([
-        'sandbox/page/**/*.es',
-        'cwel/component/**/*.es',
-        'cwel/pattern/**/*.es'
-    ])
-    .pipe(gulpif(argv.chill, plumber(options.plumber)))
-    .pipe(sourcemaps.init())
-    .pipe(babel(babelConfig))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('tmp/sandbox/page'))
-});
+module.exports = () => gulp.src([
+    'sandbox/page/**/*.scss',
+    'cwel/pattern/main.scss',
+])
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
+.pipe(sourcemaps.init())
+.pipe(sass())
+.pipe(autoprefixer({
+    browsers: ['last 30 versions'],
+}))
+.pipe(sourcemaps.write('.'))
+.pipe(gulp.dest('tmp/sandbox/page'));

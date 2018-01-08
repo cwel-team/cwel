@@ -1,75 +1,67 @@
+/* eslint-disable */
 const browserSync      = require('browser-sync');
-const doc              = require('gulp-task-doc').patchGulp();
+// const doc              = require('gulp-task-doc').patchGulp();
 const gulp             = require('gulp');
 const gulpSequence     = require('gulp-sequence');
-const msbuild          = require('gulp-msbuild');
+// const msbuild          = require('gulp-msbuild');
 const yargs            = require('yargs');
 
 const argv = yargs.argv; // Parse process.argv with yargs
 
-
-require('./gulp/tasks/analysis/analysis');
-require('./gulp/tasks/analysis/lint');
-require('./gulp/tasks/dist/dist');
-require('./gulp/tasks/docs/docs');
-require('./gulp/tasks/test/test');
-require('./gulp/tasks/create');
-require('./gulp/tasks/_sandbox/build');
-
-gulp.task('sandbox', done => gulpSequence('cwel-sandbox')(done));
+require('gulp-task-loader')('gulp-tasks');
 
 /**
  * Display this help
  */
-gulp.task('help', doc.help());
+// gulp.task('help', doc.help());
 
 
 // @internal
-gulp.task('default', ['help']);
+// gulp.task('default', ['help']);
 
 
 /**
  * Check the solution's code style.
  */
-gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
+// gulp.task('lint', done => gulpSequence('lint-script', 'lint-style')(done));
 
 
 /**
  * Perform analysis and generate reports.
  */
-gulp.task('analysis', done => gulpSequence('lint', 'cwel-analysis-cssstats-generate-data', 'cwel-analysis-cssstats-analyse-data')(done));
+// gulp.task('analysis', done => gulpSequence('lint', 'cwel-analysis-cssstats-generate-data', 'cwel-analysis-cssstats-analyse-data')(done));
 
 
 /**
  * Build the whole project: packaging CWEL and generating docs.
  */
-gulp.task('build', done => gulpSequence('analysis', 'cwel-test-build', 'cwel-test-copy', 'cwel-dist', 'cwel-docs')(done));
+// gulp.task('build', done => gulpSequence('analysis', 'cwel-test-build', 'cwel-test-copy', 'cwel-dist', 'cwel-docs')(done));
 /**
  * Delete files created by build task
  */
-gulp.task('clean:build', done => gulpSequence('clean:cwel-dist', 'clean:cwel-docs')(done));
+// gulp.task('clean:build', done => gulpSequence('clean:cwel-dist', 'clean:cwel-docs')(done));
 
 
 /**
  * Run the front-end tests.
  */
-gulp.task('test', ['cwel-dist', 'cwel-test-build', 'cwel-test-copy'], done => gulpSequence('cwel-test-run')(done));
+// gulp.task('test', ['cwel-dist', 'cwel-test-build', 'cwel-test-copy'], done => gulpSequence('cwel-test-run')(done));
 
 
 /**
  * Create CWEL blueprint files for a component, pattern or service:
  * e.g. Script, Razor, C# ViewModels, Test, Style, and Docs files
  */
-gulp.task('create', done => gulpSequence('cwel-create-duplo')(done));
+// gulp.task('create', done => gulpSequence('cwel-create-duplo')(done));
 
 
 /**
  * Run MSBuild on this solution
  */
-gulp.task('msbuild', () => gulp.src('./Cwel.sln')
-.pipe(msbuild({
-    toolsVersion: 'auto',
-})));
+// gulp.task('msbuild', () => gulp.src('./Cwel.sln')
+// .pipe(msbuild({
+//     toolsVersion: 'auto',
+// })));
 
 
 /**
