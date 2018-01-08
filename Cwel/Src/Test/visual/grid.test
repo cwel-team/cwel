@@ -2,9 +2,9 @@
 
 @@ table devices
     | deviceName     | tags       | gridArgs |
-    | iPhone 5S      | xs         | --dc.browserName iPhone --dc.platform "MAC" --dc.device "iPhone 5S" --dc.emulator "true" |
-    | Win-Chrome 62  | xl         | --size 1280x800 --browser chrome --dc.browser_version 62 --dc.os Windows --dc.os_version 8.1 |
-    | OSX-Firefox 39 | xl         | --size 1280x800 --browser firefox --dc.browser_version 39 --dc.os OSX --dc.os_version MountainLion |
+    | Chrome 62      | xl         | --size 1280x800 --browser chrome --dc.browser_version 62 |
+    | Firefox 39     | xl         | --size 1280x800 --browser firefox --dc.browser_version 39 --dc.accept_insecure_certs true |
+    | IE 11          | xl         | --size 1280x800 --browser 'internet explorer' --dc.browser_version 11 |
 
 @@ set
     host_base_url       ${host_url}/visualtest/

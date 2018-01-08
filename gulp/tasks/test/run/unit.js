@@ -26,7 +26,7 @@ gulp.task('cwel-test-run-unit', (done) => {
         frameworks: ['jasmine'],
         junitReporter: {
             outputDir: dumpDest,
-            outputFile: 'junit.xml',
+            outputFile: 'junit-unit.xml',
             useBrowserName: false,
         },
         files: [
