@@ -270,11 +270,6 @@ __pycache__/
 tmp
 tmp/**
 
-# Ignore swap files created by vim
-
+# swap files created by vim
 *.swp
 *.swo
-
-# Ignore galen reports
-galen/reports/
-galen-unit-test-output.xml
