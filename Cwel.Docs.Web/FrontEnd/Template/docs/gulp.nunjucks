@@ -9,6 +9,10 @@
 
 }
 
+@section scripts {
+    <script src="/Assets/JS/vendor/prism.js"></script>
+}
+
 <div class="docs">
     <div class="docs__header">
         <div class="container">

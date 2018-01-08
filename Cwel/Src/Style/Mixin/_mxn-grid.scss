@@ -108,10 +108,10 @@
     flex-direction: row-reverse;
 }
 
-///
+/// `!important` used to trump all media queries
 
 @mixin grid-flush {
-    margin-left: 0;
+    margin-left: 0 !important; // stylelint-disable-line declaration-no-important
 }
 
 ///
@@ -144,10 +144,10 @@
     }
 }
 
-///
+/// `!important` used to trump all media queries
 
 @mixin grid-cell-flush {
-    padding-left: 0;
+    padding-left: 0 !important; // stylelint-disable-line declaration-no-important
 }
 
 ///
