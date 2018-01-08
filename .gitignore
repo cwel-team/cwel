@@ -267,20 +267,8 @@ __pycache__/
 
 # Countrywide
 
-## Cwomponents
-
-Cwel.Docs.Web/Cwel
-Cwel.Docs.Web/Cwel/**
-!Cwel.Docs.Web/Cwel/.gitkeep
-Cwel.docs.Web/Assets/css
-Cwel.Docs.Web/Assets/css/**
-Cwel.docs.Web/Assets/js
-Cwel.Docs.Web/Assets/js/**
-
-Cwel/tmp
-Cwel/tmp/**
-Cwel/Dist
-Cwel/Dist/**
+tmp
+tmp/**
 
 # Ignore swap files created by vim
 
