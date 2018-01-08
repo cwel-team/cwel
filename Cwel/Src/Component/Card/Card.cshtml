@@ -1,9 +1,0 @@
-@model Cwel.Web.CardViewModel
-
-<div class="cwel-card">
-    @if (!string.IsNullOrEmpty(Model.Header))
-    {
-        <h5><a href="#">@Model.Header</a></h5>
-    }
-     <p>@Html.Raw(Model.Details)</p>
-</div>
