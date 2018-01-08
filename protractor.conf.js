@@ -54,7 +54,6 @@ const protractorOptions = {
                 const { password } = new URL(grid);
 
                 console.log('Starting BrowserStack local tunnel');
-                console.log(password);
 
                 localTunnel.start({ key: password, verbose: 3, force: 'true' }, (error) => {
                     if (error) {
