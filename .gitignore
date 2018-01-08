@@ -154,18 +154,6 @@ publish/
 # in these scripts will be unencrypted
 PublishScripts/
 
-# NuGet Packages
-*.nupkg
-# The packages folder can be ignored because of Package Restore
-**/packages/*
-# except build/, which is used as an MSBuild target.
-!**/packages/build/
-# Uncomment if necessary however generally it will be regenerated when needed
-#!**/packages/repositories.config
-# NuGet v3's project.json files produces more ignoreable files
-*.nuget.props
-*.nuget.targets
-
 # Microsoft Azure Build Output
 csx/
 *.build.csdef
@@ -267,26 +255,9 @@ __pycache__/
 
 # Countrywide
 
-## Cwomponents
+tmp
+tmp/**
 
-Cwel.Docs.Web/Cwel
-Cwel.Docs.Web/Cwel/**
-!Cwel.Docs.Web/Cwel/.gitkeep
-Cwel.docs.Web/Assets/css
-Cwel.Docs.Web/Assets/css/**
-Cwel.docs.Web/Assets/js
-Cwel.Docs.Web/Assets/js/**
-
-Cwel/tmp
-Cwel/tmp/**
-Cwel/Dist
-Cwel/Dist/**
-
-# Ignore swap files created by vim
-
+# swap files created by vim
 *.swp
 *.swo
-
-# Ignore galen reports
-galen/reports/
-galen-unit-test-output.xml
