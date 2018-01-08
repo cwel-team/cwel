@@ -1,9 +1,11 @@
 @import 'Cwel/Style/main';
-@import './button';
-@import '../../grid-overlay';
-@import '../../block';
-@import '../divider';
-@import '../viewport';
+
+// @import '../../grid-overlay';
+// @import '../../block';
+
+@import 'sandbox/shared/asset/style/button';
+@import 'sandbox/shared/asset/style/divider';
+@import 'sandbox/shared/asset/style/viewport';
 
 .viewport__group {
     @include viewport-group;

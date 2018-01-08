@@ -1,5 +1,5 @@
 
-@{
+<!-- @{
     Layout = "~/Views/Shared/_SandboxLayout.cshtml";
     ViewBag.Controller = "grid";
 }
@@ -12,7 +12,7 @@
 @section scripts
 {
     <script src="~/Assets/js/sandbox/grid/script.js"></script>
-}
+} -->
 
 <h1 class="main__title">Grid</h1>
 
@@ -57,10 +57,10 @@
         <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">2/12</div></div>
     </div>
     <div class="grid">
-        @for (var i = 0; i < 12; i++)
+        <!-- @for (var i = 0; i < 12; i++)
         {
             <div class="grid__cell grid__cell--size-1"><div class="block">1/12</div></div>
-        }
+        } -->
     </div>
 </section>
 
@@ -218,12 +218,12 @@
 <div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
     <div class="grid-overlay__container">
         <div class="grid-overlay__grid">
-            @for (var i = 0; i < 12; i++)
+           <!--  @for (var i = 0; i < 12; i++)
             {
                 <div class="grid-overlay__grid-cell">
                     <div class="grid-overlay__block"></div>
                 </div>
-            }
+            } -->
         </div>
     </div>
 

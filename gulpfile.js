@@ -14,7 +14,9 @@ require('./gulp/tasks/dist/dist');
 require('./gulp/tasks/docs/docs');
 require('./gulp/tasks/test/test');
 require('./gulp/tasks/create');
+require('./gulp/tasks/_sandbox/build');
 
+gulp.task('sandbox', done => gulpSequence('cwel-sandbox')(done));
 
 /**
  * Display this help
