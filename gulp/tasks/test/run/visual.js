@@ -23,7 +23,8 @@ const { argv } = yargs
 });
 const buildBranch = process.env.bamboo_planRepository_branchName || execSync('git symbolic-ref --short -q HEAD').toString();
 const buildCommit = process.env.bamboo_repository_revision_number || execSync('git rev-parse --short HEAD').toString();
-const buildName = `cwel-visual--[${buildVersion}]#${buildBranch}@${buildCommit}`;
+const buildNumber = process.env.bamboo_buildNumber || 0;
+const buildName = `cwel-visual--${buildNumber}--[${buildVersion}]#${buildBranch}@${buildCommit}`;
 
 
 function runGalen({ suiteFile, htmlDest, dumpDest, openReport, args = [] }, done) {

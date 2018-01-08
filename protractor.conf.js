@@ -12,7 +12,8 @@ const isBrowserstack = grid.includes('browserstack');
 const localTunnel = isBrowserstack ? new browserstack.Local() : null;
 const buildBranch = process.env.bamboo_planRepository_branchName || execSync('git symbolic-ref --short -q HEAD').toString();
 const buildCommit = process.env.bamboo_repository_revision_number || execSync('git rev-parse --short HEAD').toString();
-const buildName = `cwel-e2e--[${buildVersion}]#${buildBranch}@${buildCommit}`;
+const buildNumber = process.env.bamboo_buildNumber || 0;
+const buildName = `cwel-e2e--${buildNumber}--[${buildVersion}]#${buildBranch}@${buildCommit}`;
 
 const capabilities = [
     { browserName: 'chrome',                           suites: ['sense', 'local', 'develop', 'release'] },
@@ -52,7 +53,10 @@ const protractorOptions = {
             if (localTunnel) {
                 const { password } = new URL(grid);
 
-                localTunnel.start({ key: password }, (error) => {
+                console.log('Starting BrowserStack local tunnel');
+                console.log(password);
+
+                localTunnel.start({ key: password, verbose: 3, force: 'true' }, (error) => {
                     if (error) {
                         console.error('BrowserStack local tunnel failed: ', error);
                         reject(error);
