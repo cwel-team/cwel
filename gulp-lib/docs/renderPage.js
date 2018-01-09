@@ -2,6 +2,7 @@ const through           = require('through2');
 const marked            = require('marked');
 const nunjucks          = require('nunjucks');
 const markdown          = require('nunjucks-markdown');
+const path              = require('path');
 
 module.exports = (paths) => {
     const env = nunjucks.configure(paths || []);
@@ -90,8 +91,10 @@ module.exports = (paths) => {
             if (e) {
                 throw Error(e);
             }
+            const ext = path.parse(file.path).base.replace(/^[^.]+/, '');
 
             file.contents = Buffer.from(res, 'utf-8');
+            file.path = file.path.replace(RegExp(`${ext}$`), '.html');
 
             cb(null, file);
         });
