@@ -1,23 +1,20 @@
-@using Cwel.Web
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section styles {
-
-}
-
-@section scripts {
-    <script src="/Assets/JS/vendor/prism.js"></script>
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CWEL -- Internal Docs</title>
+  
+  {% block styles %}{% endblock %}
+</head>
+<body>
 
 <div class="docs">
     <div class="container">
     {% markdown %}
-    # {{ name }}
-    {% filter indent(4, true) %}
-    {% include mdFile %}
-    {% endfilter %}
+        {% block body %}
+        {% endblock %}
     {% endmarkdown %}
     </div>
 </div>
@@ -36,3 +33,9 @@
 
     <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
 </div>
+
+{% block scripts %}
+<script src="/Assets/JS/vendor/prism.js"></script>
+{% endblock %}
+</body>
+</html>

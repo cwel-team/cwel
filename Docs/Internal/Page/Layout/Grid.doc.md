@@ -1,3 +1,8 @@
+{% extends "Shared/Layout/master.nunjucks" %}
+
+{% block body %}
+
+# Grid
 
 Grids are common place in the world of web design and front-end development. A few examples are: [Twitter's Bootstrap](http://getbootstrap.com/css/#grid); [BBC's GEL](http://www.bbc.co.uk/gel/guidelines/grid); [Lonely Planet's Rizzo](http://rizzo.lonelyplanet.com/styleguide/css-utilities/proportional-grid). Each of these come with terms defining the space between columns and rows of the grid, spaces along the sides of the grid, etc. To talk about these concepts, some terms are outlined below.
 
@@ -529,3 +534,5 @@ Grid gutters can be nullified with a modifier on a grid element.
     <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
     <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
 </div>
+
+{% endblock %}
