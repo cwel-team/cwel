@@ -10,21 +10,11 @@ const argv = yargs.argv; // Parse process.argv with yargs
 
 require('gulp-task-loader')('gulp-tasks');
 
-gulp.task('build', done => gulpSequence('docs:internal:build')(done));
+gulp.task('build', done => gulpSequence('sandbox:build', 'docs:internal:build')(done));
 
 gulp.task('watch', ['build'], done => {
-    browserSync.init({
+    const docsBs = browserSync.create().init({
         server: 'tmp/docs/internal',
-        serveStatic: [
-            {
-                route: '/internal-docs',
-                dir: 'tmp/docs/internal',
-            },
-            {
-                route: '/sandbox',
-                dir: 'tmp/sandbox',
-            }
-        ],
         port: 3000,
         ui: {
             port: 3001,
@@ -46,25 +36,42 @@ gulp.task('watch', ['build'], done => {
                 'background-color: #2a2a2a',
             ],
         },
-        // Time, in milliseconds, to wait before instructing the browser to
-        // reload/inject following a file change event.
-        // reloadDelay: 1000,
-        // Wait for a specified window of event-silence before sending any reload events.
-        // reloadDebounce: 3000,
-        // Emit only the first event during sequential time windows of a specified duration.
-        // reloadThrottle: 3000,
+    });
+    const sandboxBs = browserSync.create().init({
+        server: 'tmp/sandbox',
+        port: 5000,
+        ui: {
+            port: 5001,
+        },
+        notify: {
+            styles: [
+                'display: none',
+                'z-index: 9999',
+                'position: fixed',
+                'top: 0',
+                'left: 0',
+                'width: 100%',
+                'margin: 0',
+                'padding: 10px',
+                'font-family: sans-serif',
+                'font-size: 12px',
+                'text-align: center',
+                'color: #fff',
+                'background-color: #2a2a2a',
+            ],
+        },
     });
 
     gulp.watch([
         'Docs/Internal/**/*.doc.md',
         'Docs/Internal/**/*.nunjucks',
-    ], ['docs:internal:markup'], () => browserSync.reload());
+    ], ['docs:internal:markup'], () => docsBs.reload());
     gulp.watch([
         'Docs/Internal/**/*.scss',
-    ], ['docs:internal:style'], () => browserSync.reload());
+    ], ['docs:internal:style'], () => docsBs.reload());
     gulp.watch([
         'Docs/Internal/**/*.es',
-    ], ['docs:internal:script'], () => browserSync.reload());
+    ], ['docs:internal:script'], () => docsBs.reload());
 
     done();
 });
