@@ -1,14 +1,15 @@
 const del               = require('del');                           // Delete files and folders
 const gulp              = require('gulp');                          // Task automator
-const nunjucks          = require('gulp-nunjucks');
+const nunjucksRender    = require('gulp-nunjucks-render');
 
 module.exports = () => del('tmp/sandbox/page/*.html');
 
 module.exports = () => gulp.src([
-    'sandbox/page/**/*.html',
-    'sandbox/shared/**/*.html',
-    'cwel/component/**/*.html',
-    'cwel/pattern/**/*.html',
+    'sandbox/page/**/*.njk',
+    'cwel/component/**/*.njk',
+    'cwel/pattern/**/*.njk',
 ])
-//.pipe(nunjucks())
+.pipe(nunjucksRender({
+      path: ['sandbox/shared/layout/']
+}))
 .pipe(gulp.dest('tmp/sandbox'));

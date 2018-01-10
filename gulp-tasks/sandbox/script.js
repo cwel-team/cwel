@@ -1,5 +1,6 @@
 const babel             = require('gulp-babel');                    // ES6 -> ES5
 const del               = require('del');                           // Delete files and folders
+const concat            = require('gulp-concat');
 const gulp              = require('gulp');                          // Task automator
 const gulpif            = require('gulp-if');                       // Conditionally run a task
 const path              = require('path');                          // Core NodeJS lib
@@ -20,7 +21,7 @@ const babelConfig = {
     plugins: ['angularjs-annotate'],
 };
 
-module.exports = () => del('tmp/sandbox/page/*.es');
+module.exports = () => del('tmp/sandbox/**/*.js');
 
 module.exports = () => gulp.src([
     'sandbox/page/**/*.es',
@@ -32,3 +33,10 @@ module.exports = () => gulp.src([
 .pipe(babel(babelConfig))
 .pipe(sourcemaps.write('.'))
 .pipe(gulp.dest('tmp/sandbox/'));
+
+gulp.src('cwel/vendor/**/*.js')
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
+.pipe(babel(babelConfig))
+.pipe(concat('cwel-full.js'))
+.pipe(gulp.dest('tmp/sandbox/'));
+

@@ -1,0 +1,14 @@
+{% extends '_layout.njk' %}
+{% set title = 'badge' %}
+{% set css = '../main.css' %}
+{% set js = 'badge.js' %}
+
+{% block content %}
+<div ng-app="cwel">
+
+    <button class="badge" badge start="0" ng-click="increment()">
+        <span class="badge__counter" ng-bind="counter">0</span>
+    </button>
+
+</div>
+{% endblock %}
