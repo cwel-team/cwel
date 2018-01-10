@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-loader": "^7.1.2",
     "babel-plugin-angularjs-annotate": "^0.7.0",
     "babel-preset-airbnb": "^2.4.0",
     "babel-preset-env": "^1.6.1",
@@ -90,6 +91,7 @@
     "stylelint-order": "^0.7.0",
     "themeleon": "^3.0.2",
     "through2": "^2.0.3",
+    "webpack-stream": "^4.0.0",
     "xmldoc": "^1.1.0",
     "yargs": "^8.0.2"
   },

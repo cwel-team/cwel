@@ -11,4 +11,4 @@ module.exports = () => gulp.src([
     path.join(process.cwd(), 'Docs', 'Internal'),
     path.join(process.cwd(), 'Cwel'),
 ]))
-.pipe(gulp.dest('tmp/docs/internal/page'));
+.pipe(gulp.dest('tmp/docs/internal'));
