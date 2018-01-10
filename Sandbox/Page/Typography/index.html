@@ -1,8 +1,5 @@
+{% extends 'shared/layout/_layout.njk' %}
 <!-- 
-@{
-    Layout = "~/Views/Shared/_SandboxLayout.cshtml";
-    ViewBag.Controller = "grid";
-}
 
 @section styles
 {
@@ -14,6 +11,7 @@
     <script src="~/Assets/js/sandbox/grid/script.js"></script>
 } -->
 
+{% block content %}
 <h1 class="main__title">Typography</h1>
 
 <p>[Begin Latin class]</p>
@@ -111,3 +109,4 @@
 </section>
 
 </div>
+{% endblock %}

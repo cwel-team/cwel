@@ -1,3 +1,4 @@
+{% extends 'shared/layout/_layout.njk' %}
 <!-- @{
     Layout = "~/Views/Shared/_SandboxLayout.cshtml";
     ViewBag.Controller = "spacers";
@@ -15,6 +16,7 @@
     <script src="~/Assets/js/sandbox/remunits/script.js"></script>
 } -->
 
+{% block content %}
 <div class="container">
     <h1 class="main__title">Rem Units</h1>
 
@@ -50,3 +52,4 @@
         </div>
     </section>
 </div>
+{% endblock %}
