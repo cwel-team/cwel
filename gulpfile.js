@@ -12,7 +12,9 @@ require('gulp-task-loader')('gulp-tasks');
 
 gulp.task('build', done => gulpSequence('cwel:build', 'sandbox:build', 'docs:internal:build')(done));
 
-gulp.task('watch', ['build'], done => {
+gulp.task('dev', done => gulpSequence('sandbox:build', 'docs:internal:build')(done));
+
+gulp.task('watch', ['dev'], done => {
     const notifyStyles = [
         'display: none',
         'z-index: 9999',
