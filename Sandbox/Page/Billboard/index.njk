@@ -1,0 +1,37 @@
+{% extends '_layout.njk' %}
+{% set title = 'Billboard' %}
+{% set fullWidth = 'true' %}
+
+{% block css %}
+    <link href="style.css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <h1 class="main__title">Billboard</h1>
+
+    <div class="main__overview">
+        <p>This is a CWEL spike to trial using only three breakpoints but adhere to all five sizes. This spike is also using the Billboard component to test out its spec.</p>
+    </div>
+
+    <section class="section">
+        <div class="billboard">
+            <div class="billboard__content">
+                
+                <div class="billboard__content-grid">
+                    <div class="billboard__content-group">
+                        <div class="breadcrumbs">
+                            <a class="breadcrumbs__crumb">Home</a>
+                            <a class="breadcrumbs__crumb">Who are we</a>
+                        </div>
+                        <div class="billboard__heading">Welcome to Countrywide</div>
+                    </div>
+
+                    <div class="billboard__image-container">
+                        <div class="billboard__image" style="background-image: url('billboard-test.png')"></div>
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
