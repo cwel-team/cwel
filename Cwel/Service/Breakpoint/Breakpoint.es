@@ -1,6 +1,4 @@
-import app from '../../Script/app';
-
-app.service('Breakpoint', ($window, $rootScope) => {
+angular.module('cwel').service('Breakpoint', ($window, $rootScope) => {
     return new (class Breakpoint {
         constructor() {
             this.events = [];

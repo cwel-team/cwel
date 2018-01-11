@@ -1,5 +1,3 @@
-import app from '../../Script/app';
-
 /**
  * @name Badge
  * @type component
@@ -7,7 +5,7 @@ import app from '../../Script/app';
  * @module cwoApp
  * @dependencies addOne, CwomponentFactory
 */
-app.directive('badge', (addOne, CwomponentFactory) => {
+angular.module('cwel').directive('badge', (addOne, CwomponentFactory) => {
     return CwomponentFactory({
         restrict: 'A',
         scope: {
