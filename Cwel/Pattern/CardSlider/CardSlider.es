@@ -1,3 +1,5 @@
+import app from '../../Script/app';
+
 /**
 * @name CardSlider
 * @type pattern
@@ -6,8 +8,7 @@
 * @dependencies CwoMI, CwomponentFactory
 */
 /* global Hammer */
-angular.module('cwel')
-.directive('cwelCardSlider', (CwoMI, CwomponentFactory, Breakpoint) => {
+app.directive('cwelCardSlider', (CwoMI, CwomponentFactory, Breakpoint) => {
     function deviceTranslateIndex(perSlide, index) {
         return (((index - (index % perSlide))
                 + perSlide) / perSlide) - 1;
