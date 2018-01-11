@@ -1,4 +1,6 @@
-angular.module('cwel')
+import app from '../../Script/app';
+
+app
 .factory('CwomponentFactory', ($compile) => {
     const cwomponentPrio = 50;
 
