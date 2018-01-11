@@ -2,48 +2,15 @@ const CardSliderPageObject = require('./CardSlider.pageobject').default;
 
 describe('CardSlider', () => {
     let cardSliderPo;
-    const model = {
-        StartIndex: 0,
-        Cards: [
-            {
-                Header: 'Header 1',
-                Details:
-                    'Loreum ipsum Loreum ipsumLoreum ipsumLoreum ipsumLoreum ipsumLoreum ipsumLoreum ipsumLoreum ipsumLoreum ipsum',
-                Class: 'pt-interactive',
-            },
-            {
-                Header: 'Header 2',
-                Details: 'Loreum ipsum',
-                Class: 'pt-interactive',
-            },
-            {
-                Header: 'Header 3',
-                Details: 'Loreum ipsum',
-                Class: 'pt-interactive',
-            },
-            {
-                Header: 'Header 4',
-                Details: 'Loreum ipsum',
-                Class: 'pt-interactive',
-            },
-            {
-                Header: 'Header 5',
-                Details: 'Loreum ipsum',
-                Class: 'pt-interactive',
-            },
-        ],
-    };
+    const path = '/pattern/cardslider/cardslider.html';
 
     beforeEach(() => {
         cardSliderPo = new CardSliderPageObject();
-        model.StartIndex = 0;
     });
 
 
     it('should decrease offset by one when clicking the previous button', (done) => {
-        model.StartIndex = 1;
-
-        cardSliderPo.navigate(model);
+        cardSliderPo.navigate(path);
 
         cardSliderPo.getIndex()
         .then((i) => {
@@ -59,7 +26,7 @@ describe('CardSlider', () => {
     });
 
     it('should increase offset by one when clicking the next button', (done) => {
-        cardSliderPo.navigate(model);
+        cardSliderPo.navigate(path);
 
         cardSliderPo.getIndex()
         .then((i) => {
@@ -75,8 +42,7 @@ describe('CardSlider', () => {
     });
 
     it('wont allow the offset to go beyond the last slide', () => {
-        model.StartIndex = 1;
-        cardSliderPo.navigate(model);
+        cardSliderPo.navigate(path);
 
         cardSliderPo.clickNext();
 
@@ -87,7 +53,7 @@ describe('CardSlider', () => {
     });
 
     it('Wont allow the offset to go below the first slide', () => {
-        cardSliderPo.navigate(model);
+        cardSliderPo.navigate(path);
 
         cardSliderPo.clickPrev();
 

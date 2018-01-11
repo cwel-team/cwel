@@ -8,11 +8,8 @@ describe('Badge Component', () => {
     });
 
     it('should increment counter by 1', () => {
-        const model = {
-            start: 1,
-        };
+        badgePo.navigate('/component/badge/badge.html');
 
-        badgePo.navigate(model);
         expect(badgePo.text).toBe('1');
         badgePo.click();
         expect(badgePo.text).toBe('2');

@@ -1,6 +1,6 @@
 export default class CwomponentPageObject {
     constructor(type, name) {
-        this.playgroundUrl = `${browser.params.host}/playground/render?layout=true`;
+        this.playgroundUrl = `${browser.params.protocol}//${browser.params.hostname}:${browser.params.port}`;
         this.type = type;
         this.name = name;
         this.windowSizes = [
@@ -12,12 +12,12 @@ export default class CwomponentPageObject {
         ];
     }
 
-    getPlaygroundUrl(model) {
-        return `${this.playgroundUrl}&model=${JSON.stringify(model)}&type=${this.type}&name=${this.name}`;
+    getPlaygroundUrl() {
+        return `${this.playgroundUrl}`;
     }
 
-    navigate(model) {
-        browser.get(this.getPlaygroundUrl(model));
+    navigate(path) {
+        browser.get(`${this.getPlaygroundUrl()}${path}`);
     }
 
     breakpointMatch(deviceSize, cb = () => {}) {

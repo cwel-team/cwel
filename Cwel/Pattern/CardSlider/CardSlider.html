@@ -1,4 +1,6 @@
+{% extends '../../../Test/E2e/Template/master.nunjucks' %}
 
+{% block body %}
 <div class="cwel-card-slider" data-cwel-card-slider data-start-index="0" data-count="5">
     <ul class="cwel-card-slider__items" style="transform: translateX(-{{ currentIndex * 100 }}%);">
           <li class="cwel-card-slider__item">
@@ -16,3 +18,4 @@
         </button>
     </div>
 </div>
+{% endblock %}

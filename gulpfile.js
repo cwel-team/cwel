@@ -10,7 +10,7 @@ const argv = yargs.argv; // Parse process.argv with yargs
 
 require('gulp-task-loader')('gulp-tasks');
 
-gulp.task('build', done => gulpSequence('cwel:build', 'sandbox:build', 'docs:internal:build')(done));
+gulp.task('build', done => gulpSequence('cwel:build', 'test:build', 'sandbox:build', 'docs:internal:build')(done));
 
 gulp.task('dev', done => gulpSequence('sandbox:build', 'docs:internal:build')(done));
 
