@@ -1,11 +1,16 @@
 {% extends '_layout.njk' %}
 {% set title = 'Card Slider' %}
-{% set css = '../main.css' %}
-{% set js = 'cardslider.js' %}
+{% set app = 'cwel' %}
+
+{% block css %}
+    <link href="../main.css" rel="stylesheet" />
+{% endblock %}
+
+{% block js %}
+    <script src="cardslider.js"></script>
+{% endblock %}
 
 {% block content %}
-<div ng-app="cwel">
-
     <div class="cwel-card-slider" data-cwel-card-slider data-start-index="0" data-count="5">
         <ul class="cwel-card-slider__items" style="transform: translateX(-{{ currentIndex * 100 }}%);">
               <li class="cwel-card-slider__item">
@@ -23,6 +28,4 @@
             </button>
         </div>
     </div>
-
-</div>
 {% endblock %}

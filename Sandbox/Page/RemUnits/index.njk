@@ -1,11 +1,16 @@
 {% extends '_layout.njk' %}
 {% set title = 'Rem units' %}
-{% set css = 'style.css' %}
-{% set js = 'script.js' %}
+
+{% block css %}
+    <link href="style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+    <script src="script.js"></script>
+{% endblock %}
 
 {% block content %}
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
-<div class="container">
     <h1 class="main__title">Rem Units</h1>
 
     <div class="main__overview">
@@ -39,5 +44,4 @@
             <h2 class="hero__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
         </div>
     </section>
-</div>
 {% endblock %}

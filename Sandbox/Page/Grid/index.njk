@@ -1,12 +1,16 @@
 {% extends '_layout.njk' %}
 {% set title = 'Grid' %}
-{% set css = 'style.css' %}
-{% set js = 'script.js' %}
+{% set app = 'sandbox' %}
 
-{% block content %}
+{% block css %}
+    <link href="style.css" rel="stylesheet" />
+{% endblock %}
 
-<div ng-app="sandbox">
-    
+{% block js %}
+    <script src="script.js"></script>
+{% endblock %}
+
+{% block content %}    
     <h1 class="main__title">Grid</h1>
 
     <div class="main__overview">
@@ -50,10 +54,9 @@
             <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">2/12</div></div>
         </div>
         <div class="grid">
-            <!-- @for (var i = 0; i < 12; i++)
-            {
+            {% for i in range(0, 12) -%}
                 <div class="grid__cell grid__cell--size-1"><div class="block">1/12</div></div>
-            } -->
+            {%- endfor %}
         </div>
     </section>
 
@@ -211,17 +214,14 @@
     <div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
         <div class="grid-overlay__container">
             <div class="grid-overlay__grid">
-               <!--  @for (var i = 0; i < 12; i++)
-                {
+                {% for i in range(0, 12) -%}
                     <div class="grid-overlay__grid-cell">
                         <div class="grid-overlay__block"></div>
                     </div>
-                } -->
+                {%- endfor %}
             </div>
         </div>
 
         <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
     </div>
-
-</div>
 {% endblock %}

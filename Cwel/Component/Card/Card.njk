@@ -1,10 +1,13 @@
 {% extends '_layout.njk' %}
 {% set title = 'Card' %}
-{% set css = '../main.css' %}
+
+{% block css %}
+    <link href="../main.css" rel="stylesheet" />
+{% endblock %}
 
 {% block content %}
-<div class="cwel-card">
-      <h5><a href="#">A Card Heading</a></h5>
-     <p>Random details here. This is a card <em>jaw drops</em></p>
-</div>
+    <div class="cwel-card">
+          <h5><a href="#">A Card Heading</a></h5>
+         <p>Random details here. This is a card <em>jaw drops</em></p>
+    </div>
 {% endblock %}
