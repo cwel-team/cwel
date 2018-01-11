@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>CWEL -- Internal Docs</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CWEL -- Internal Docs</title>
 
-  {% block styles %}
-        <link rel="stylesheet" href="/Shared/Asset/Script/style.css">
-  {% endblock %}
+    {% block styles %}
+    <link rel="stylesheet" href="/Shared/Asset/Script/style.css">
+    {% endblock %}
 </head>
-<body>
+<body ng-app="docs">
 
-<div class="docs">
-    <div class="container">
-    {% markdown %}
-        {% block body %}
-        {% endblock %}
-    {% endmarkdown %}
-    </div>
-</div>
-
-<div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
-    <div class="grid-overlay__container">
-        <div class="grid-overlay__grid">
-            {% for i in range(12) %}
-              <div class="grid-overlay__grid-cell">
-                  <div class="grid-overlay__block"></div>
-              </div>
-            {% endfor %}
+    <div class="docs">
+        <div class="container">
+            {% markdown %}
+            {% block body %}
+            {% endblock %}
+            {% endmarkdown %}
         </div>
     </div>
 
-    <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
-</div>
+    <div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
+        <div class="grid-overlay__container">
+            <div class="grid-overlay__grid">
+                {% for i in range(12) %}
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
 
-{% block scripts %}
-<script src="/Shared/Asset/Script/main.js"></script>
-{% endblock %}
+        <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
+    </div>
+
+    {% block scripts %}
+    <script src="script.js"></script>
+    {% endblock %}
 </body>
 </html>

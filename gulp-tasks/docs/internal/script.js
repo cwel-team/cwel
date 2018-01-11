@@ -1,6 +1,7 @@
 const gulp              = require('gulp');                          // Task automator
 const webpack           = require('webpack-stream');
 const gulpif            = require('gulp-if');                       // Conditionally run a task
+const gulpeach          = require('gulp-foreach');
 const path              = require('path');                          // Core NodeJS lib
 const plumber           = require('gulp-plumber');                  // Prevent errors from killing processes
 const process           = require('process');                       // Core NodeJS lib
@@ -17,27 +18,41 @@ const babelConfig = {
     plugins: ['angularjs-annotate'],
 };
 
-module.exports = () => gulpif(argv.chill, plumber(options.plumber))
-.pipe(webpack({
-    entry: path.resolve('Docs/Internal/Shared/Asset/Script/main.es'),
-    output: {
-        filename: '[name].js',
-    },
-    devtool: 'source-map',
-    resolve: {
-        extensions: ['.js', '.es'],
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: babelConfig,
+module.exports = () => gulp.src([
+    'Docs/Internal/Page/**/*.es',
+    '!Docs/Internal/Shared/**/*.es',
+])
+.pipe(gulpif(argv.chill, plumber(options.plumber)))
+.pipe(gulpeach((stream, file) => {
+    const p = path.parse(file.path);
+    const tailPath = file.path
+    .replace(file.base, '') // gulp base path
+    .replace(p.base, ''); // filename
+    const outputPath = path.resolve('tmp', 'docs', 'internal', tailPath);
+    const outputName = p.base.replace(p.ext, '.js');
+
+    return stream
+    .pipe(webpack({
+        entry: file.path,
+        output: {
+            filename: outputName,
+        },
+        devtool: 'source-map',
+        resolve: {
+            extensions: ['.js', '.es'],
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.es$/,
+                    exclude: /(node_modules|Vendor)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: babelConfig,
+                    },
                 },
-            },
-        ],
-    },
-}))
-.pipe(gulp.dest('tmp/docs/internal/Shared/Asset/Script'));
+            ],
+        },
+    }))
+    .pipe(gulp.dest(outputPath));
+}));
