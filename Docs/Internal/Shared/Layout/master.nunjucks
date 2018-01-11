@@ -7,7 +7,7 @@
     <title>CWEL -- Internal Docs</title>
 
     {% block styles %}
-    <link rel="stylesheet" href="/Shared/Asset/Script/style.css">
+    <link rel="stylesheet" href="style.css">
     {% endblock %}
 </head>
 <body ng-app="docs">

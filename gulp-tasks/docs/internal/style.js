@@ -16,6 +16,7 @@ const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options
 
 module.exports = () => gulp.src([
     'Docs/Internal/Page/**/*.scss',
+    'Docs/Internal/Shared/Asset/Style/**/*.scss',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
