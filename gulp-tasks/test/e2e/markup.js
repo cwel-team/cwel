@@ -2,7 +2,6 @@ const gulp              = require('gulp');                          // Task auto
 const path              = require('path');
 const through           = require('through2');
 const nunjucks          = require('nunjucks');
-// const renderPage        = require('../../../gulp-lib/docs/renderPage');
 
 module.exports = () => gulp.src([
     'Cwel/**/*.html',
