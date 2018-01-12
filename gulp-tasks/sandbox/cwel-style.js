@@ -18,9 +18,7 @@ const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options
 module.exports = () => del('tmp/sandbox/page/*.scss');
 
 module.exports = () => gulp.src([
-    'sandbox/page/**/*.scss',
-    'sandbox/shared/asset/main.scss',
-    'cwel/style/main.scss',
+    'Cwel/Style/**/*.scss',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
@@ -29,4 +27,4 @@ module.exports = () => gulp.src([
     browsers: ['last 30 versions'],
 }))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('tmp/sandbox'));
+.pipe(gulp.dest('tmp/sandbox/shared/asset/cwel/style'));

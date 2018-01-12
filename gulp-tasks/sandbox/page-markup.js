@@ -6,8 +6,6 @@ module.exports = () => del('tmp/sandbox/page/*.html');
 
 module.exports = () => gulp.src([
     'sandbox/page/**/*.njk',
-    'cwel/component/**/*.njk',
-    'cwel/pattern/**/*.njk',
 ])
 .pipe(nunjucksRender({
     path: ['sandbox/shared/layout/'],

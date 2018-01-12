@@ -1,15 +1,24 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ title }}</title>
-    <script src="../cwel-full.js"></script>
-    {% block js %} {% endblock %}
-    {% block css %} {% endblock %}
+
+    {% block css %}
+    <link rel="stylesheet" href="../shared/asset/cwel/style/main.css">
+    <link rel="stylesheet" href="./style.css">
+    {% endblock %}
 </head>
-<body ng-app="{{ app }}">
-    <main class="main container {{ "container--fluid" if fullWidth }}">
-        {% block content %} {% endblock %}
-    </main>
+<body ng-app="sandbox">
+
+    {% block content %} {% endblock %}
+
+    {% block js %}
+    <script src="../shared/asset/cwel/script/main.js"></script>
+    <script>
+        angular.module('sandbox', ['cwel']);
+    </script>
+    <script src="./script.js"></script>
+    {% endblock %}
 </body>
 </html>

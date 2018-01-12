@@ -1,6 +1,9 @@
 const gulpSequence     = require('gulp-sequence');
 
 module.exports = done => gulpSequence(
-    'sandbox:markup',
-    'sandbox:script',
-    'sandbox:style')(done);
+    'sandbox:page-markup',
+    'sandbox:page-script',
+    'sandbox:page-style',
+    'sandbox:cwel-markup',
+    'sandbox:cwel-script',
+    'sandbox:cwel-style')(done);
