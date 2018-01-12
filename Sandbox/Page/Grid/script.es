@@ -1,4 +1,4 @@
-angular.module('sandbox')
+angular.module('sandbox', [])
 .controller('grid', ($scope) => {
     $scope.showOverlay = false;
 });

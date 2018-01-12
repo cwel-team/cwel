@@ -1,0 +1,15 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ title }}</title>
+    <script src="../cwel-full.js"></script>
+    {% block js %} {% endblock %}
+    {% block css %} {% endblock %}
+</head>
+<body ng-app="{{ app }}">
+    <main class="main container {{ "container--fluid" if fullWidth }}">
+        {% block content %} {% endblock %}
+    </main>
+</body>
+</html>
