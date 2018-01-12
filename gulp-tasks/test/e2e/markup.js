@@ -8,11 +8,15 @@ module.exports = () => gulp.src([
 ])
 .pipe(through.obj((file, enc, cb) => {
     const p = path.parse(file.path);
+    const pathDirs = p.dir.split(path.sep);
     const data = {
+        type: pathDirs[pathDirs.length - 2],
+        componentDir: p.dir,
+        componentFile: file.path,
         name: p.base.replace(p.ext, ''), // filename with no extention
     };
 
-    nunjucks.render(file.path, data, (e, res) => {
+    nunjucks.render('Test/E2e/Template/master.nunjucks', data, (e, res) => {
         if (e) {
             throw Error(e);
         }

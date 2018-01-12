@@ -11,7 +11,8 @@
     {% endblock %}
 </head>
 <body ng-app="cwel">
-    {% block body %}{% endblock %}
+
+    {% include componentFile %}
 
     {% block scripts %}
     <script src="/Script/main.js"></script>
