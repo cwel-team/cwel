@@ -5,6 +5,7 @@ const gulp             = require('gulp');
 const gulpSequence     = require('gulp-sequence');
 // const msbuild          = require('gulp-msbuild');
 const yargs            = require('yargs');
+const multiSync        = require('./gulp-lib/browserSyncMulti');
 
 const argv = yargs.argv; // Parse process.argv with yargs
 
@@ -17,52 +18,43 @@ gulp.task('dev', done => gulpSequence('sandbox:build', 'docs:internal:build')(do
 gulp.task('sandbox', done => gulpSequence('sandbox:build')(done));
 
 gulp.task('watch', ['dev'], done => {
-    const notifyStyles = [
-        'display: none',
-        'z-index: 9999',
-        'position: fixed',
-        'top: 0',
-        'left: 0',
-        'width: 100%',
-        'margin: 0',
-        'padding: 10px',
-        'font-family: sans-serif',
-        'font-size: 12px',
-        'text-align: center',
-        'color: #fff',
-        'background-color: #2a2a2a',
-    ];
-    const docsBs = browserSync.create().init({
-        server: 'tmp/docs/internal',
-        port: 3000,
-        ui: {
-            port: 3001,
-        },
-        notify: {
-            styles: notifyStyles,
-        },
-    });
-    const sandboxBs = browserSync.create().init({
-        server: 'tmp/sandbox',
-        port: 5000,
-        ui: {
-            port: 5001,
-        },
-        notify: {
-            styles: notifyStyles,
-        },
-    });
 
+    multiSync.init();
+
+    // Watch Docs
     gulp.watch([
         'Docs/Internal/**/*.doc.md',
         'Docs/Internal/**/*.nunjucks',
-    ], ['docs:internal:markup'], () => docsBs.reload());
+    ], () => gulpSequence(
+        'docs:internal:markup')(() => multiSync.reload()));
     gulp.watch([
         'Docs/Internal/**/*.scss',
-    ], ['docs:internal:style'], () => docsBs.reload());
+    ], () => gulpSequence(
+        'docs:internal:style')(() => multiSync.reload()));
     gulp.watch([
         'Docs/Internal/**/*.es',
-    ], ['docs:internal:script'], () => docsBs.reload());
+    ], () => gulpSequence(
+        'docs:internal:script')(() => multiSync.reload()));
+
+    // Watch Sandbox
+    gulp.watch([
+        'Cwel/Page/**/*.html',
+        'Sandbox/Page/**/*.njk',
+    ], () => gulpSequence(
+        'sandbox:page-markup',
+        'sandbox:cwel-markup')(() => multiSync.reload()));
+    gulp.watch([
+        'Cwel/Page/**/*.scss',
+        'Sandbox/Page/**/*.scss',
+    ], () => gulpSequence(
+        'sandbox:page-style',
+        'sandbox:cwel-style')(() => multiSync.reload()));
+    gulp.watch([
+        'Cwel/Page/**/*.es',
+        'Sandbox/Page/**/*.es',
+    ], () => gulpSequence(
+        'sandbox:page-script',
+        'sandbox:cwel-script')(() => multiSync.reload()));
 
     done();
 });
@@ -116,138 +108,3 @@ gulp.task('watch', ['dev'], done => {
 * e.g. Script, Razor, C# ViewModels, Test, Style, and Docs files
 */
 // gulp.task('create', done => gulpSequence('cwel-create-duplo')(done));
-
-
-/**
-* Run MSBuild on this solution
-*/
-// gulp.task('msbuild', () => gulp.src('./Cwel.sln')
-// .pipe(msbuild({
-//     toolsVersion: 'auto',
-// })));
-
-
-/**
- * Auto-build FED code as you are working on it.
- */
-
-// gulp.task('watch', done => gulpSequence('clean:build', 'build')(() => {
-//     argv.chill = true;
-
-//     browserSync.init({
-//         proxy: 'docs.cwel.local',
-//         port: 3000,
-//         ui: {
-//             port: 3001,
-//         },
-//         notify: {
-//             styles: [
-//                 'display: none',
-//                 'z-index: 9999',
-//                 'position: fixed',
-//                 'top: 0',
-//                 'left: 0',
-//                 'width: 100%',
-//                 'margin: 0',
-//                 'padding: 10px',
-//                 'font-family: sans-serif',
-//                 'font-size: 12px',
-//                 'text-align: center',
-//                 'color: #fff',
-//                 'background-color: #2a2a2a',
-//             ],
-//         },
-//         // Time, in milliseconds, to wait before instructing the browser to
-//         // reload/inject following a file change event.
-//         reloadDelay: 1000,
-//         // Wait for a specified window of event-silence before sending any reload events.
-//         reloadDebounce: 3000,
-//         // Emit only the first event during sequential time windows of a specified duration.
-//         // reloadThrottle: 3000,
-//     });
-
-//     // Cwel source
-//     gulp.watch([
-//         'Cwel/**/*.doc.md',
-//         'gulp/lib/docs/template/*.tpl.html',
-//     ], () => gulpSequence(
-//         'clean:cwel-docs-generate',
-//         'cwel-docs-generate')(() => browserSync.reload()));
-//     gulp.watch([
-//         'Cwel/Src/**/*.es',
-//         '!Cwel/Src/**/*.pageobject.es',
-//         '!Cwel/Src/**/*.e2e.es',
-//         '!Cwel/Src/**/*.spec.es',
-//     ], () => gulpSequence(
-//         'lint-script',
-//         'clean:cwel-dist-script',
-//         'clean:cwel-docs-copy-script',
-//         'clean:cwel-docs-build-script',
-//         'clean:cwel-docs-generate',
-//         'cwel-dist-script',
-//         'cwel-docs-copy-script',
-//         'cwel-docs-build-script',
-//         'cwel-docs-generate')(() => browserSync.reload()));
-//     gulp.watch('Cwel/Src/**/*.{pageobject,spec,e2e}.es', () => gulpSequence(
-//         'lint-script',
-//         'clean:cwel-test-build',
-//         'cwel-test-build')(() => browserSync.reload()));
-//     gulp.watch('Cwel/Src/**/*.cshtml', () => gulpSequence(
-//         'clean:cwel-dist-razor',
-//         'clean:cwel-docs-copy-razor',
-//         'clean:cwel-docs-generate',
-//         'cwel-dist-razor',
-//         'cwel-docs-copy-razor',
-//         'cwel-docs-generate')(() => browserSync.reload()));
-//     gulp.watch('Cwel/Src/**/*.json', () => gulpSequence(
-//         'clean:cwel-docs-copy-json',
-//         'clean:cwel-docs-generate',
-//         'cwel-docs-copy-json',
-//         'cwel-docs-generate')(() => browserSync.reload()));
-//     gulp.watch('Cwel/Src/**/*.svg', () => gulpSequence(
-//         'clean:cwel-dist-img',
-//         'clean:cwel-docs-copy-img',
-//         'cwel-dist-img',
-//         'cwel-docs-copy-img')(() => browserSync.reload()));
-//     gulp.watch('Cwel/Src/**/*.scss', () => gulpSequence(
-//         'lint-style',
-//         'clean:cwel-dist-style',
-//         'clean:cwel-docs-copy-style',
-//         'clean:cwel-docs-build-style',
-//         'clean:cwel-docs-generate',
-//         'cwel-dist-style',
-//         'cwel-docs-copy-style',
-//         'cwel-docs-build-style',
-//         'cwel-docs-generate')(() => (browserSync.reload())));
-
-//     // Cwel tests
-//     gulp.watch([
-//         'Cwel/Src/**/*.pageobject.es',
-//         'Cwel/Src/**/*.e2e.es',
-//         'Cwel/Src/**/*.spec.es',
-//     ], () => gulpSequence(
-//         'lint-script',
-//         'clean:cwel-test-build',
-//         'cwel-test-build'));
-
-//     // Docs site
-//     gulp.watch('Cwel.Docs.Web/FrontEnd/Style/**/*.scss', () => gulpSequence(
-//         'lint-style',
-//         'clean:cwel-docs-build-style',
-//         'clean:cwel-docs-generate',
-//         'cwel-docs-build-style',
-//         'cwel-docs-generate')(() => (browserSync.reload())));
-//     gulp.watch('Cwel.Docs.Web/FrontEnd/Script/**/*.es', () => gulpSequence(
-//         'lint-script',
-//         'clean:cwel-docs-build-script',
-//         'clean:cwel-docs-generate',
-//         'cwel-docs-build-script',
-//         'cwel-docs-generate')(() => browserSync.reload()));
-//     gulp.watch('Cwel/Src/Theme/**/*.{html,nunjucks}', () => gulpSequence(
-//         'clean:cwel-docs-generate',
-//         'cwel-docs-generate')(() => (browserSync.reload())));
-//     gulp.watch('Cwel.Docs.Web/**/*.cshtml', () => browserSync.reload());
-//     gulp.watch('Cwel.Docs.Web/Assets/img/**/*.{svg,png,jpg,jpeg}', () => browserSync.reload());
-
-//     done();
-// }));
