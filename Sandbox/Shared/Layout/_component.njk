@@ -5,9 +5,9 @@
 {% endblock %}
 
 {% block js %}
-<script src="../../shared/asset/cwel/script/main.js"></script>
-{% endblock %}
-
-{% block content %}
-    {% include componentFile %}
+    <script src="../../shared/asset/cwel/script/main.js"></script>
+    <script>
+        angular.module('sandbox', ['cwel']);
+    </script>
+    <script src="./script.js"></script>
 {% endblock %}

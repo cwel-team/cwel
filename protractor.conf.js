@@ -19,7 +19,7 @@ module.exports.config = {
             return new Promise((success, reject) => {
                 try {
                     browserSync.create().init({
-                        server: 'tmp/test/e2e',
+                        server: 'tmp/sandbox',
                         port,
                         open: false,
                         notify: {
