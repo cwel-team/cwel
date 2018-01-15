@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ title }}</title>
+    <title>{[ title ]}</title>
 
     {% block css %}
     <link rel="stylesheet" href="../shared/asset/cwel/style/main.css">
@@ -11,7 +11,9 @@
 </head>
 <body ng-app="sandbox">
 
-    {% block content %} {% endblock %}
+    <main class="container {[ "container--fluid" if fullWidth ]}">
+        {% block content %} {% endblock %}
+    </main>
 
     {% block js %}
     <script src="../shared/asset/cwel/script/main.js"></script>

@@ -3,8 +3,10 @@ const path              = require('path');
 const through           = require('through2');
 const nunjucks          = require('nunjucks');
 
+const options = require(path.join(process.cwd(), '/gulp-lib/options')); // eslint-disable-line
+
 module.exports = () => {
-    nunjucks.configure(['.']);
+    nunjucks.configure(['.'], options.nunjucks);
 
     return gulp.src([
         'Cwel/**/*.html',
