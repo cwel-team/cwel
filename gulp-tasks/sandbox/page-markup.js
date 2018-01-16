@@ -8,10 +8,20 @@ const options = require(path.join(process.cwd(), '/gulp-lib/options')); // eslin
 module.exports = () => del('tmp/sandbox/page/*.html');
 
 module.exports = () => gulp.src([
-    'sandbox/page/**/*.njk',
+    'sandbox/page/index.njk',
 ])
 .pipe(nunjucksRender({
     path: ['sandbox/shared/layout/'],
     envOptions: options.nunjucks,
 }))
-.pipe(gulp.dest('tmp/sandbox'));
+.pipe(gulp.dest('tmp/sandbox'))
+
+gulp.src([
+    'sandbox/page/**/*.njk',
+    '!sandbox/page/index.njk',
+])
+.pipe(nunjucksRender({
+    path: ['sandbox/shared/layout/'],
+    envOptions: options.nunjucks,
+}))
+.pipe(gulp.dest('tmp/sandbox/prototype'));

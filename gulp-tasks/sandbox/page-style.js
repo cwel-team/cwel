@@ -27,4 +27,4 @@ module.exports = () => gulp.src([
     browsers: ['last 30 versions'],
 }))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('tmp/sandbox'));
+.pipe(gulp.dest('tmp/sandbox/prototype'));
