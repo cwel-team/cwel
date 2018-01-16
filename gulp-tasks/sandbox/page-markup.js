@@ -21,7 +21,7 @@ gulp.src([
     '!sandbox/page/index.njk',
 ])
 .pipe(nunjucksRender({
-    path: ['sandbox/shared/layout/'],
+    path: ['sandbox/shared/layout/', '.'],
     envOptions: options.nunjucks,
 }))
 .pipe(gulp.dest('tmp/sandbox/prototype'));

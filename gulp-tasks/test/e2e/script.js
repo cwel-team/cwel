@@ -19,7 +19,7 @@ const babelConfig = {
 };
 
 module.exports = () => gulp.src([
-    'Cwel/Script/**/*.es',
+    'Cwel/**/*.{e2e,pageobject}.es',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(gulpeach((stream, file) => {
@@ -27,7 +27,7 @@ module.exports = () => gulp.src([
     const tailPath = file.path
     .replace(file.base, '') // gulp base path
     .replace(p.base, ''); // filename
-    const outputPath = path.resolve('tmp', 'test', 'e2e', 'script', tailPath);
+    const outputPath = path.resolve('tmp', 'test', 'e2e', tailPath);
     const outputName = p.base.replace(p.ext, '.js');
 
     return stream
