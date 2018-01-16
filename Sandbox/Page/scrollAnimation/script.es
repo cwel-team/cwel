@@ -1,6 +1,6 @@
 const Choreographer = require('choreographer-js');
 
-window.app = angular.module('app', []);
+window.app = angular.module('sandbox');
 
 window.app.factory('animationFactory', () => {
     const animations = {

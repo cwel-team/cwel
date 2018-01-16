@@ -28,7 +28,7 @@ module.exports = () => gulp.src([
     const tailPath = file.path
     .replace(file.base, '') // gulp base path
     .replace(p.base, ''); // filename
-    const outputPath = path.resolve('tmp', 'sandbox', tailPath);
+    const outputPath = path.resolve('tmp', 'sandbox', 'prototype', tailPath);
     const outputName = p.base.replace(p.ext, '.js');
 
     return stream
