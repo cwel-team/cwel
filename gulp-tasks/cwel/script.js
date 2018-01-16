@@ -43,7 +43,7 @@ module.exports = () => gulp.src([
         module: {
             rules: [
                 {
-                    test: /\.js$/,
+                    test: /\.es$/,
                     exclude: /(node_modules)/,
                     use: {
                         loader: 'babel-loader',

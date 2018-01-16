@@ -24,6 +24,4 @@ module.exports = () => gulp.src([
     browsers: ['last 30 versions'],
 }))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('tmp/Cwel/Style'))
-.pipe(gulp.src('Cwel/**/*.scss'))
-.pipe(gulp.dest('tmp/Cwel'));
+.pipe(gulp.dest('tmp/Cwel/Style'));
