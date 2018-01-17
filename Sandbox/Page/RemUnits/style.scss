@@ -1,7 +1,5 @@
 @import 'Cwel/Style/main';
-@import 'sandbox/shared/asset/style/button';
-@import 'sandbox/shared/asset/style/divider';
-@import 'sandbox/shared/asset/style/viewport';
+@import '../../Shared/Asset/Style/block';
 
 /*
 Things to test:
@@ -28,33 +26,6 @@ Things to consider:
 
 body {
     transition: font-size 1s;
-}
-
-@mixin button {
-    padding: 0.3rem 1rem;
-    font-size: 1.3rem;
-    background-color: #fff;
-    outline: none;
-    border: 0.1rem solid;
-    border-radius: 0.2rem;
-    cursor: pointer;
-}
-
-.main {
-    padding: 0;
-}
-
-.viewport__group {
-    @include viewport-group;
-    display: inline-block;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.viewport__breakpoint {
-    @include viewport-breakpoint;
-    display: inline-block;
-    font-weight: 600;
 }
 
 .section {

@@ -1,21 +1,8 @@
 {% extends '_layout.njk' %}
 {% set title = 'Grid' %}
-{% set app = 'sandbox' %}
 
-{% block content %}    
-    <h1 class="main__title">Grid</h1>
-
-    <div class="main__overview">
-        <p>This is a working demo of the CWEL Grid Guidelines. The demo shows how our flexible, precentage-based grid works and how you can use it to create a Countrywide website.</p>
-
-        <div class="viewport">
-            <p>Current viewport group: <span class="viewport__group"></span></p>
-            <p>Current viewport breakpoint: <span class="viewport__breakpoint"></span></p>
-        </div>
-
-        <button class="overlay-open" ng-click="showOverlay = true" type="button">Show Overlay</button>
-    </div>
-
+{% block content %}
+<div class="container">
     <section class="section section--sizes">
         <h2 class="section__title">Sizes</h2>
 
@@ -46,9 +33,9 @@
             <div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic">2/12</div></div>
         </div>
         <div class="grid">
-            {% for i in range(0, 12) -%}
+            {% for i in range(12) %}
                 <div class="grid__cell grid__cell--size-1"><div class="block">1/12</div></div>
-            {%- endfor %}
+            {% endfor %}
         </div>
     </section>
 
@@ -202,18 +189,5 @@
             <div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
         </div>
     </section>
-
-    <div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
-        <div class="grid-overlay__container">
-            <div class="grid-overlay__grid">
-                {% for i in range(0, 12) -%}
-                    <div class="grid-overlay__grid-cell">
-                        <div class="grid-overlay__block"></div>
-                    </div>
-                {%- endfor %}
-            </div>
-        </div>
-
-        <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
-    </div>
+</div>
 {% endblock %}
