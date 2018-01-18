@@ -8,7 +8,7 @@ describe('Badge Component', () => {
     });
 
     it('should increment counter by 1', () => {
-        badgePo.navigate('/component/badge');
+        badgePo.navigate('/prototype/component/badge');
 
         expect(badgePo.text).toBe('1');
         badgePo.click();
