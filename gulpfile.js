@@ -1,13 +1,6 @@
-/* eslint-disable */
-const browserSync      = require('browser-sync');
-// const doc              = require('gulp-task-doc').patchGulp();
 const gulp             = require('gulp');
 const gulpSequence     = require('gulp-sequence');
-// const msbuild          = require('gulp-msbuild');
-const yargs            = require('yargs');
 const multiSync        = require('./gulp-lib/browserSyncMulti');
-
-const argv = yargs.argv; // Parse process.argv with yargs
 
 require('gulp-task-loader')('gulp-tasks');
 
@@ -23,8 +16,7 @@ gulp.task('test-e2e', done => gulpSequence(['sandbox:build', 'test:e2e:build'], 
 
 gulp.task('test-visual', done => gulpSequence(['sandbox:build', 'test:visual:run'])(done));
 
-gulp.task('watch', ['dev'], done => {
-
+gulp.task('watch', ['dev'], (done) => {
     multiSync.init();
 
     // Watch Docs
