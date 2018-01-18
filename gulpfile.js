@@ -37,19 +37,18 @@ gulp.task('watch', ['dev'], (done) => {
     // Watch Sandbox
     gulp.watch([
         'Cwel/**/**/*.html',
-        'Sandbox/Page/**/*.njk',
-        'Sandbox/Page/index.njk',
+        'Sandbox/**/*.njk',
     ], () => gulpSequence(
         'sandbox:page-markup')(() => multiSync.reload()));
     gulp.watch([
-        'Cwel/Page/**/*.scss',
-        'Sandbox/Page/**/*.scss',
+        'Cwel/**/*.scss',
+        'Sandbox/**/*.scss',
     ], () => gulpSequence(
         'sandbox:page-style',
         'sandbox:cwel-style')(() => multiSync.reload()));
     gulp.watch([
-        'Cwel/Page/**/*.es',
-        'Sandbox/Page/**/*.es',
+        'Cwel/**/*.es',
+        'Sandbox/**/*.es',
     ], () => gulpSequence(
         'sandbox:page-script',
         'sandbox:cwel-script')(() => multiSync.reload()));

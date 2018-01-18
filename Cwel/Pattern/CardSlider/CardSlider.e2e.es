@@ -2,7 +2,7 @@ const CardSliderPageObject = require('./CardSlider.pageobject').default;
 
 describe('CardSlider', () => {
     let cardSliderPo;
-    const path = '/prototype/pattern/cardslider';
+    const path = '/pattern/cardslider';
 
     beforeEach(() => {
         cardSliderPo = new CardSliderPageObject();
