@@ -13,6 +13,9 @@
 <body ng-app="docs">
 
     <div class="docs">
+       <!--  <div>{{ title }}</div>
+        <div>{{ description }}</div>
+        <div ng-repeat="items in nav">{{ items }}</div> -->
         <div class="container">
             {% markdown %}
             {% block body %}

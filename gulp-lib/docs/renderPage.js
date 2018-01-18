@@ -4,8 +4,10 @@ const nunjucks          = require('nunjucks');
 const markdown          = require('nunjucks-markdown');
 const path              = require('path');
 
+const options = require(path.join(process.cwd(), 'gulp-lib', 'options')); // eslint-disable-line
+
 module.exports = (paths) => {
-    const env = nunjucks.configure(paths || []);
+    const env = nunjucks.configure(paths || [], options.nunjucks);
     const renderer = new marked.Renderer();
 
     /**
