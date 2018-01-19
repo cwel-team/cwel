@@ -28,13 +28,13 @@ client.getEntries({
 })
 .catch(console.error)
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $qProvider) {
     $urlRouterProvider.otherwise('/landing')
     $stateProvider
 
         .state('landing', {
             url: '/landing',
-            template: '<div>Landing</div>'
+            templateUrl: './Layout/content'
         })
 
         .state('getting-started', {
@@ -42,6 +42,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             template: '<div>getting-started</div>'
         }) 
 
+    $qProvider.errorOnUnhandledRejections(false);
 })
 
 

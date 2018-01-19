@@ -41,6 +41,5 @@
     {% block scripts %}
     <script src="script.js"></script>
     {% endblock %}
-    <script src="//unpkg.com/@uirouter/angularjs@1.0.5/release/angular-ui-router.js"></script>
 </body>
 </html>
