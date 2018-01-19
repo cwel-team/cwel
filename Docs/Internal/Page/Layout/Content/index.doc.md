@@ -1,5 +1,6 @@
 {% block body %}
 
-<div>Here is some stuff</div>
+<h1>{{ title }}</h1>
+<h1>{{ content }}</h1>
 
 {% endblock %}

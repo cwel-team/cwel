@@ -13,8 +13,12 @@
 <body ng-app="docs">
 
     <div class="docs">
-        <a ui-sref="landing" ui-sref-active="active">landing</a>
-        <a ui-sref="getting-started" ui-sref-active="active">getting-started</a>
+        <div ng-controller="navRender">
+            <div ng-repeat="page in pages">
+                <a ui-sref="page({ name: page.id })" ui-sref-active="active">{{ page.title }}</a>
+            </div>
+        </div>
+        
         <div class="container">
             {% markdown %}
             {% block body %}

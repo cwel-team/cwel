@@ -12,80 +12,68 @@ app.directive('test', () => {
 
 console.log("I'm homepage!");
 
+let site;
 const client = contentful.createClient({
   space: '3rpovp1abf8h',
   accessToken: '9aaf6788a131e94000e20646d94d7dbb2f0722044b22f1852244fdbd8e46742b',
   resolveLinks: true
 })
-
 client.getEntries({
     'fields.name': 'CWEL Docs',
     content_type: 'site'
 })
 .then((res) => {
-    const site = res.items[0];
+    site = res.items[0];
     console.log(site.fields.pages);
 })
 .catch(console.error)
+
+app.service('contentful', ($rootScope) => {
+    return {
+        getPageData(name, callback) {
+            client.getEntries({
+                'fields.id': name,
+                content_type: 'page'
+            })
+            .then((res) => {
+                $rootScope.$applyAsync(() => callback(res.items[0].fields));
+            })
+            .catch(console.error)
+        },
+        getPageTitles(callback) {
+            client.getEntries({
+                content_type: 'page',
+            })
+            .then((res) => {
+                 $rootScope.$applyAsync(() => callback(res.items.map( item => item.fields)));
+            })
+            .catch(console.error)
+        }
+    }
+});
+
+app.controller('content', ($scope, $stateParams, contentful) => {
+    contentful.getPageData($stateParams.name, (res) => {
+        $scope.title = res.title;
+        $scope.content = res.content;
+    });
+});
+
+app.controller('navRender', ($scope, contentful) => {
+    contentful.getPageTitles((res) => {
+        $scope.pages = res;
+    });
+})
 
 app.config(function($stateProvider, $urlRouterProvider, $qProvider) {
     $urlRouterProvider.otherwise('/landing')
     $stateProvider
 
-        .state('landing', {
-            url: '/landing',
-            templateUrl: './Layout/content'
-        })
-
-        .state('getting-started', {
-            url: '/getting-started',
-            template: '<div>getting-started</div>'
-        }) 
+        .state('page', {
+            url: '/:name',
+            templateUrl: './Layout/content',
+            controller: 'content'
+        });
 
     $qProvider.errorOnUnhandledRejections(false);
 })
-
-
-
-
-
-
-
-// const entryID = '24DPGBDeGEaYy8ms4Y8QMQ';
-
-// app.controller('outputTest', ($scope) => {
-
-//     client.getEntries({
-//         'sys.id': entryID,
-//     })
-//     .then((res) => {
-//         $scope.$apply( () => {
-//             $scope.title = res.items[0].fields.title;
-//             $scope.description = res.items[0].fields.categoryDescription;
-//         }) 
-//         // console.log(res)
-//     })
-//     .catch((err) => {
-//         console.log('Error getting the posts ', err);
-//     });
-
-//     // Gets all content types from space, this will allow us to create the nav
-//     client.getContentTypes()
-//     .then((res) => {
-//         $scope.$apply( () => {
-//             var nav = []
-//             for (var i=0; i < res.length; i++) {
-//                 nav.push(res.items[i].name)
-//             }
-//             $scope.nav = nav;
-//         });
-//         $scope.nav = res.items[0].name
-//         console.log(res.items)
-//     })
-//     .catch(console.error)
-
-//     // Gets all entries from space
-//     // client.getEntries()
-//     // .then((response) => console.log(response.items))
-//     // .catch(console.error)
-// });
