@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CWEL -- Internal Docs</title>
+
+    
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body ng-app="docs">
+
+    <div class="docs">
+        <div class="container">
+            
+            <h1 class="docs__anchored" id="grid">
+            <a href="#grid">Grid</a>
+            </h1><p>Grids are common place in the world of web design and front-end development. A few examples are: <a href="http://getbootstrap.com/css/#grid">Twitter&#39;s Bootstrap</a>; <a href="http://www.bbc.co.uk/gel/guidelines/grid">BBC&#39;s GEL</a>; <a href="http://rizzo.lonelyplanet.com/styleguide/css-utilities/proportional-grid">Lonely Planet&#39;s Rizzo</a>. Each of these come with terms defining the space between columns and rows of the grid, spaces along the sides of the grid, etc. To talk about these concepts, some terms are outlined below.</p>
+<p>Due to the advent of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout">CSS grid</a>, the naming convention for CWEL&#39;s grid differs from <a href="http://getbootstrap.com/css/#grid">Bootstrap</a> and <a href="http://rizzo.lonelyplanet.com/styleguide/css-utilities/proportional-grid">Lonely Planet&#39;s Rizzo</a>. Please read the <a href="#terminology">Terminology</a> for a list of terms and their definition.</p>
+
+            <h3 class="docs__anchored" id="grid.demo">
+            <a href="#grid.demo">Demo</a>
+            </h3><p>For a full-page demo of the grid, without code, checkout the <a href="/playground/sandbox/grid">sandbox grid page</a>.</p>
+
+            <h3 class="docs__anchored" id="grid.demo.overlay">
+            <a href="#grid.demo.overlay">Overlay</a>
+            </h3><p>To help with visualizing the grid on this page, see the grid overlay.</p>
+<button class="button" ng-click="showOverlay = true">Grid Overlay</button>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.contents">
+            <a href="#grid.contents">Contents</a>
+            </h2><ul>
+<li><a href="#grid.getting-started">Getting Started</a></li>
+<li><a href="#grid.terminology">Terminology</a></li>
+<li><a href="#grid.terminology.cells">Cells</a></li>
+<li><a href="#grid.terminology.margins">Margins</a></li>
+<li><a href="#grid.terminology.gutters">Gutters</a></li>
+<li><a href="#grid.terminology.rows">Rows</a></li>
+<li><a href="#grid.terminology.columns">Columns</a></li>
+<li><a href="#grid.container">Container</a></li>
+<li><a href="#grid.container.widths">Widths</a></li>
+<li><a href="#grid.cells">Cells</a></li>
+<li><a href="#grid.cells.widths">Widths</a></li>
+<li><a href="#grid.margins-and-gutters">Margins and Gutters</a></li>
+<li><a href="#grid.margins-and-gutters.measurements">Measurements</a></li>
+<li><a href="#grid.nesting">Nesting</a></li>
+<li><a href="#grid.equal-height">Equal Height</a></li>
+<li><a href="#grid.horizontal-alignment">Horizontal alignment</a></li>
+<li><a href="#grid.top-alignment">Top alignment</a></li>
+<li><a href="#grid.middle-alignment">Middle alignment</a></li>
+<li><a href="#grid.bottom-alignment">Bottom alignment</a></li>
+<li><a href="#grid.reversed">Reversed</a></li>
+<li><a href="#grid.flush">Flush</a></li>
+</ul>
+<hr>
+
+            <h2 class="docs__anchored" id="grid.getting-started">
+            <a href="#grid.getting-started">Getting Started</a>
+            </h2><p>Copy the code in this example to get started with a grid</p>
+<pre ng-non-bindable><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;grid&quot;&gt;
+&lt;!-- default width of 12 --&gt;
+&lt;div class=&quot;grid__cell&quot;&gt;
+&lt;!-- content goes here --&gt;
+&lt;/div&gt;
+&lt;!-- half width --&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;
+&lt;!-- content goes here --&gt;
+&lt;/div&gt;
+&lt;!-- half width --&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;
+&lt;!-- content goes here --&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre><hr>
+
+            <h2 class="docs__anchored" id="grid.terminology">
+            <a href="#grid.terminology">Terminology</a>
+            </h2><p>Terminology used in this documentation page.</p>
+
+            <h3 class="docs__anchored" id="grid.terminology.cells">
+            <a href="#grid.terminology.cells">Cells</a>
+            </h3><p>Each grid is divided into smaller rectangular shapes, each containing some content for the user to behold, interact with, or simply ogle at -- there is no specified notion of what the content should be.</p>
+
+            <h3 class="docs__anchored" id="grid.terminology.margins">
+            <a href="#grid.terminology.margins">Margins</a>
+            </h3><p>On either side of the grid (outside), left and right, it might be nice to have some spacing applied. This is referred to as a grid&#39;s channel.</p>
+
+            <h3 class="docs__anchored" id="grid.terminology.gutters">
+            <a href="#grid.terminology.gutters">Gutters</a>
+            </h3><p>Between each cell, it might be preferable to have some spacing. This is called the grid&#39;s gutter. Bare in mind it is different to the channel, as gutters appear on the inside of the grid, not the outside.</p>
+
+            <h3 class="docs__anchored" id="grid.terminology.rows">
+            <a href="#grid.terminology.rows">Rows</a>
+            </h3><p>A horizontal line of cells. These are not part of implementation, but conceptually useful for reference.</p>
+
+            <h3 class="docs__anchored" id="grid.terminology.columns">
+            <a href="#grid.terminology.columns">Columns</a>
+            </h3><p>A vertical line of cells. Like rows, these are not part of implementation, but conceptually useful for reference.</p>
+<hr>
+
+            <h2 class="docs__anchored" id="grid.container">
+            <a href="#grid.container">Container</a>
+            </h2><p>Grids don&#39;t explicitly require a container to display correctly, but for the sake of consistency and structure, a matter of best practice, the CWEL grid comes with one. There are two types of container: one with a width <a href="#container-widths">based on the current viewport width</a>, another that always remains full-width, always matching the viewport width.</p>
+
+            <h3 class="docs__anchored" id="grid.container.widths">
+            <a href="#grid.container.widths">Widths</a>
+            </h3><p>Containers are of fluid width from XS to M devices, changing to fixed width from L to XL.</p>
+
+        <table class="docs-table">
+        <thead><tr>
+<th>Device</th>
+<th>Width</th>
+</tr>
+</thead>
+        <tbody><tr>
+<td>XS - M</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>L</td>
+<td>1004px</td>
+</tr>
+<tr>
+<td>XL</td>
+<td>1280px</td>
+</tr>
+</tbody>
+        </table>
+            <h3 class="docs__anchored" id="grid.container.code">
+            <a href="#grid.container.code">Code</a>
+            </h3><p>To use the container, give an element a class of <code>container</code>.</p>
+<pre ng-non-bindable><code class="language-html">&lt;div class=&quot;container&quot;&gt;
+&lt;!-- grid elements go here --&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.container.result">
+            <a href="#grid.container.result">Result</a>
+            </h3><p>Checkout the grid overlay to see a representation of containerized content. Blue columns are the container&#39;s content, green strips are margins. Container widths include both the blue and green elements of the overlay.</p>
+<button class="button" ng-click="showOverlay = true">Grid Overlay</button>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.cells">
+            <a href="#grid.cells">Cells</a>
+            </h2><p>The grid is divided into 12 cells. Each with a width of the following fractions of their containing element: <code>1/12</code>; <code>2/12</code>; <code>3/12</code>; <code>4/12</code>; <code>5/12</code>; <code>6/12</code>; <code>7/12</code>; <code>8/12</code>; <code>9/12</code>; <code>10/12</code>; <code>11/12</code>; <code>12/12</code>.</p>
+<p>For convenience, any of these can be referred to as their numerator; e.g. width <code>7/12</code> as width <code>7</code>, width <code>5/12</code> as width <code>5</code>, width <code>10/12</code> as width <code>10</code>, etc.</p>
+
+            <h3 class="docs__anchored" id="grid.cells.widths">
+            <a href="#grid.cells.widths">Widths</a>
+            </h3><p>Cells can be set to take up different column widths, using size modifiers. See the <a href="/playground/sandbox/grid">demo</a> for a visual example of sizes. The modifier syntax consists of a number out of 12, and an optional device size.</p>
+<pre ng-non-bindable><code class="language-plain">grid__cell--size-{width}-{device}</code></pre><p>Where the <code>{device}</code> is lowercase t-shirt notation for a <a href="/page/layout/devicesize">device size</a>, and <code>{width}</code> is a number out of 12 for the column width. <code>-{device}</code> is optional at the end.</p>
+
+            <h4 class="docs__anchored" id="grid.cells.widths.example-1">
+            <a href="#grid.cells.widths.example-1">Example 1</a>
+            </h4><pre ng-non-bindable><code class="language-plain">grid__cell--size-4-m</code></pre><p>Sets a cell to be a third of its parent grid&#39;s width on medium devices or larger.</p>
+
+            <h4 class="docs__anchored" id="grid.cells.widths.example-2">
+            <a href="#grid.cells.widths.example-2">Example 2</a>
+            </h4><pre ng-non-bindable><code class="language-plain">grid__cell--size-4</code></pre><p>Sets a cell to be a third of its parent grid&#39;s width on extra small devices or larger.</p>
+
+            <h3 class="docs__anchored" id="grid.cells.code">
+            <a href="#grid.cells.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid&quot;&gt;
+&lt;!-- half width --&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;
+&lt;!-- content goes here --&gt;
+&lt;/div&gt;
+&lt;!-- half width --&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;
+&lt;!-- content goes here --&gt;
+&lt;/div&gt;
+&lt;!-- full width on xs, half width on large --&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-12-xs grid__cell--size-6-l&quot;&gt;
+&lt;!-- content goes here --&gt;
+&lt;/div&gt;
+&lt;!-- full width on xs, half width on large --&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-12-xs grid__cell--size-6-l&quot;&gt;
+&lt;!-- content goes here --&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.cells.result">
+            <a href="#grid.cells.result">Result</a>
+            </h3><div class="grid">
+<!-- half width -->
+<div class="grid__cell grid__cell--size-6">
+<div class="block block--claustrophobic">always half</div>
+</div>
+<!-- half width -->
+<div class="grid__cell grid__cell--size-6">
+<div class="block block--claustrophobic">always half</div>
+</div>
+<!-- full width on xs, half width on large -->
+<div class="grid__cell grid__cell--size-12-xs grid__cell--size-6-l">
+<div class="block block--claustrophobic">extra small full, large half</div>
+</div>
+<!-- full width on xs, half width on large -->
+<div class="grid__cell grid__cell--size-12-xs grid__cell--size-6-l">
+<div class="block block--claustrophobic">extra small full, large half</div>
+</div>
+</div>
+
+
+            <h3 class="docs__anchored" id="grid.cells.all-sizes">
+            <a href="#grid.cells.all-sizes">All sizes</a>
+            </h3><div class="grid">
+<div class="grid__cell"><div class="block block--claustrophobic"><code>grid__cell--size-12</code></div></div>
+</div>
+<div class="grid">
+<div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic"><code>grid__cell--size-6</code></div></div>
+<div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic"><code>grid__cell--size-6</code></div></div>
+</div>
+<div class="grid">
+<div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic"><code>grid__cell--size-4</code></div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic"><code>grid__cell--size-4</code></div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic"><code>grid__cell--size-4</code></div></div>
+</div>
+<div class="grid">
+<div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic"><code>3</code></div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic"><code>3</code></div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic"><code>3</code></div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block block--claustrophobic"><code>3</code></div></div>
+</div>
+<div class="grid">
+<div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic"><code>6</code></div></div>
+<div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic"><code>6</code></div></div>
+<div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic"><code>6</code></div></div>
+<div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic"><code>6</code></div></div>
+<div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic"><code>6</code></div></div>
+<div class="grid__cell grid__cell--size-2"><div class="block block--claustrophobic"><code>6</code></div></div>
+</div>
+<div class="grid">
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+<div class="grid__cell grid__cell--size-1"><div class="block"><code>1</code></div></div>
+</div>
+
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.margins-and-gutters">
+            <a href="#grid.margins-and-gutters">Margins and Gutters</a>
+            </h2><p>CWEL&#39;s grid system comes with two types of spacing, margins and gutters. Margins are the vertical spacing on the outer edges of the container. Gutters are the vertical spacing in-between grid cells. Their size varies across different device sizes. These can be visualized with the grid overlay.</p>
+<button class="button" ng-click="showOverlay = true">Grid Overlay</button>
+
+
+            <h3 class="docs__anchored" id="grid.margins-and-gutters.measurements">
+            <a href="#grid.margins-and-gutters.measurements">Measurements</a>
+            </h3>
+        <table class="docs-table">
+        <thead><tr>
+<th>Device Size</th>
+<th>Grid Margins</th>
+<th>Grid Gutters</th>
+</tr>
+</thead>
+        <tbody><tr>
+<td>XS - S</td>
+<td>8px</td>
+<td>8px</td>
+</tr>
+<tr>
+<td>M - L</td>
+<td>12px</td>
+<td>16px</td>
+</tr>
+</tbody>
+        </table><hr>
+
+            <h2 class="docs__anchored" id="grid.nesting">
+            <a href="#grid.nesting">Nesting</a>
+            </h2><p>Grids can be nested within another. Simply place markup for a grid within a cell of another. There is no technical limit to the degree of nesting.</p>
+
+            <h3 class="docs__anchored" id="grid.nesting.code">
+            <a href="#grid.nesting.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;
+&lt;!-- nested grid --&gt;
+&lt;div class=&quot;grid&quot;&gt;
+&lt;div class=&quot;grid__cell&quot;&gt;
+&lt;!-- nested grid --&gt;
+&lt;div class=&quot;grid&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-8&quot;&gt;
+&lt;!-- nested grid --&gt;
+&lt;div class=&quot;grid&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- .grid --&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- .grid --&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- .grid --&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.nesting.result">
+            <a href="#grid.nesting.result">Result</a>
+            </h3><div class="grid">
+<div class="grid__cell grid__cell--size-6"><div class="block">half</div></div>
+<div class="grid__cell grid__cell--size-6">
+<div class="grid">
+<div class="grid__cell">
+<div class="block block--translucent block block--lean">
+<div class="grid">
+<div class="grid__cell grid__cell--size-4"><div class="block block--claustrophobic">third</div></div>
+<div class="grid__cell grid__cell--size-8">
+<div class="block block--translucent block block--lean">
+<div class="grid">
+<div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">half</div></div>
+<div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">half</div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block">third</div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block">third</div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block">third</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.equal-height">
+            <a href="#grid.equal-height">Equal Height</a>
+            </h2><p>Grid cells all maintain equal height across the row they&#39;re in. There is no special code needed, just simple <code>.grid__cell</code> elements within a <code>.grid</code>.</p>
+
+            <h3 class="docs__anchored" id="grid.equal-height.code">
+            <a href="#grid.equal-height.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.equal-height.result">
+            <a href="#grid.equal-height.result">Result</a>
+            </h3><div class="grid">
+<div class="grid__cell grid__cell--size-6"><div class="block block--tall block">tall</div></div>
+<div class="grid__cell grid__cell--size-6"><div class="block block--fill block">fill</div></div>
+</div>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.horizontal-alignment">
+            <a href="#grid.horizontal-alignment">Horizontal alignment</a>
+            </h2><p>Grid cells can be horizontally aligned using a modifier. All grid cells will be aligned within a grid with an alignment modifier.</p>
+
+            <h3 class="docs__anchored" id="grid.horizontal-alignment.code">
+            <a href="#grid.horizontal-alignment.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid grid--align-left&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;grid grid--align-center&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;grid grid--align-right&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-6&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.horizontal-alignment.result">
+            <a href="#grid.horizontal-alignment.result">Result</a>
+            </h3><div class="grid grid--align-left">
+<div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">left</div></div>
+</div>
+
+<div class="grid grid--align-center">
+<div class="grid__cell grid__cell--size-6"><div class="block block--claustrophobic">center</div></div>
+</div>
+
+<div class="grid grid--align-right">
+<div class="grid__cell grid__cell--size-6"><div class="block block">right</div></div>
+</div>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.top-alignment">
+            <a href="#grid.top-alignment">Top alignment</a>
+            </h2><p>Grid cells can be vertically aligned to the top using a modifier. Applying this modifier on a grid element will align all its grid cells.</p>
+
+            <h3 class="docs__anchored" id="grid.top-alignment.code">
+            <a href="#grid.top-alignment.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid grid--align-top&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.top-alignment.result">
+            <a href="#grid.top-alignment.result">Result</a>
+            </h3><div class="grid grid--align-top">
+<div class="grid__cell grid__cell--size-4"><div class="block">top</div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block block--tall"></div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block">top</div></div>
+</div>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.middle-alignment">
+            <a href="#grid.middle-alignment">Middle alignment</a>
+            </h2><p>Grid cells can be vertically aligned to the middle using a modifier. Applying this modifier on a grid element will align all its grid cells.</p>
+
+            <h3 class="docs__anchored" id="grid.middle-alignment.code">
+            <a href="#grid.middle-alignment.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid grid--align-middle&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.middle-alignment.result">
+            <a href="#grid.middle-alignment.result">Result</a>
+            </h3><div class="grid grid--align-middle">
+<div class="grid__cell grid__cell--size-4"><div class="block">middle</div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block block--tall"></div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block">middle</div></div>
+</div>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.bottom-alignment">
+            <a href="#grid.bottom-alignment">Bottom alignment</a>
+            </h2><p>Grid cells can be vertically aligned to the bottom using a modifier. Applying this modifier on a grid element will align all its grid cells.</p>
+
+            <h3 class="docs__anchored" id="grid.bottom-alignment.code">
+            <a href="#grid.bottom-alignment.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid grid--align-bottom&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-4&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.bottom-alignment.result">
+            <a href="#grid.bottom-alignment.result">Result</a>
+            </h3><div class="grid grid--align-bottom">
+<div class="grid__cell grid__cell--size-4"><div class="block">bottom</div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block block--tall"></div></div>
+<div class="grid__cell grid__cell--size-4"><div class="block">bottom</div></div>
+</div>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.independent-alignment">
+            <a href="#grid.independent-alignment">Independent alignment</a>
+            </h2><p>Grid cells can be vertically aligned to the top, middle, or bottom independently, using a modifier. Applying this modifier on a grid cell element will align it relative to its parent grid.</p>
+
+            <h3 class="docs__anchored" id="grid.independent-alignment.code">
+            <a href="#grid.independent-alignment.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3 grid__cell--align-top&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3 grid__cell--align-middle&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3 grid__cell--align-bottom&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.independent-alignment.result">
+            <a href="#grid.independent-alignment.result">Result</a>
+            </h3><div class="grid">
+<div class="grid__cell grid__cell--size-3 grid__cell--align-top"><div class="block">top</div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block block--tall"></div></div>
+<div class="grid__cell grid__cell--size-3 grid__cell--align-middle"><div class="block">middle</div></div>
+<div class="grid__cell grid__cell--size-3 grid__cell--align-bottom"><div class="block">bottom</div></div>
+</div>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.reversed">
+            <a href="#grid.reversed">Reversed</a>
+            </h2><p>Grid cells can be ordered in reverse by using a modifier on their parent grid element.</p>
+
+            <h3 class="docs__anchored" id="grid.reversed.code">
+            <a href="#grid.reversed.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid grid--reverse&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3&quot;&gt;&lt;!-- 1. --&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3&quot;&gt;&lt;!-- 2. --&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3&quot;&gt;&lt;!-- 3. --&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3&quot;&gt;&lt;!-- 4. --&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.reversed.result">
+            <a href="#grid.reversed.result">Result</a>
+            </h3><div class="grid grid--reverse">
+<div class="grid__cell grid__cell--size-3"><div class="block">1</div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block">2</div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block">3</div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block">4</div></div>
+</div>
+
+<hr>
+
+            <h2 class="docs__anchored" id="grid.flush">
+            <a href="#grid.flush">Flush</a>
+            </h2><p>Grid gutters can be nullified with a modifier on a grid element.</p>
+
+            <h3 class="docs__anchored" id="grid.flush.code">
+            <a href="#grid.flush.code">Code</a>
+            </h3><pre ng-non-bindable><code class="language-html">&lt;div class=&quot;grid grid--flush&quot;&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;grid__cell grid__cell--size-3&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <h3 class="docs__anchored" id="grid.flush.result">
+            <a href="#grid.flush.result">Result</a>
+            </h3><div class="grid grid--flush">
+<div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+<div class="grid__cell grid__cell--size-3"><div class="block">quarter</div></div>
+</div>
+
+
+
+        </div>
+    </div>
+
+    <div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
+        <div class="grid-overlay__container">
+            <div class="grid-overlay__grid">
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+                <div class="grid-overlay__grid-cell">
+                    <div class="grid-overlay__block"></div>
+                </div>
+                
+            </div>
+        </div>
+
+        <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
+    </div>
+
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
