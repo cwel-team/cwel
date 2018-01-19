@@ -28,21 +28,19 @@ client.getEntries({
 })
 .catch(console.error)
 
-var routerApp = angular.module('routerApp', ['ui.router']);
-
-routerApp.config(function($stateprovider, $urlRouterProvider) {
-    $urlRouterProvider.otherwide('/landing')
-    $stateprovider
+app.config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/landing')
+    $stateProvider
 
         .state('landing', {
             url: '/landing',
-            templateUrl: './template.njk'
+            template: '<div>Landing</div>'
         })
 
         .state('getting-started', {
             url: '/getting-started',
-            templateUrl: './template.njk'
-        })
+            template: '<div>getting-started</div>'
+        }) 
 
 })
 

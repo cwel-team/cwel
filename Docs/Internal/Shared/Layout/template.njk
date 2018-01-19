@@ -1,4 +1,32 @@
-<div class="">
-    <h1>The is a trest</h1>
-    <p>This page demonstrates views.</p>    
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CWEL -- Internal Docs</title>
+
+    {% block styles %}
+    <link rel="stylesheet" href="style.css">
+    {% endblock %}
+</head>
+<body ng-app="docs">
+
+    <div class="docs">
+        <a ui-sref="landing" ui-sref-active="active">landing</a>
+        <a ui-sref="getting-started" ui-sref-active="active">getting-started</a>
+        <div class="container">
+            {% markdown %}
+            {% block body %}
+            {% endblock %}
+            {% endmarkdown %}
+            <div ui-view></div>
+        </div>
+    </div>
+
+    {% block scripts %}
+    <script src="script.js"></script>
+    {% endblock %}
+    <script src="//unpkg.com/@uirouter/angularjs@1.0.5/release/angular-ui-router.js"></script>
+</body>
+</html>
