@@ -1,0 +1,73 @@
+// Side-nav
+.side-nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 20rem;
+    background: #ffffff;
+    overflow: scroll;
+    transition: all 0.5s;
+    transform: translateX(-20rem);
+}
+.side-nav__top-container,
+.side-nav__bottom-container {
+    width: 100%;
+}
+.side-nav--active {
+    transform: translateX(0);
+}
+
+// Side-nav logo
+.side-nav__logo {
+    display: block;
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    white-space: no-wrap;
+}
+
+// Side-nav search
+.side-nav__search-container {
+    width: 100%;
+    margin-bottom: 3rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    .search-input {
+        width: 100%;
+        height: 100%;
+        padding-top: 0.5rem;
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+// Side-nav main navigation
+.side-nav__main-nav, 
+.main-nav__sub-nav {
+    width: 100%;
+    font-size: 1.25rem;
+    list-style: none;
+}
+.side-nav__main-nav {
+   padding-left: 0;
+}
+.main-nav-item {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+.main-nav-item__heading {
+    padding-left: 2rem;
+    font-weight: 600;
+}
+.main-nav__sub-nav {
+    padding-left: 3rem;
+}
+.sub-nav__item {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}

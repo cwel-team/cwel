@@ -4,8 +4,8 @@
 @import 'sandbox/shared/asset/style/divider';
 @import 'sandbox/shared/asset/style/viewport';
 
-@import 'docs/internal/shared/asset/style/grid-overlay';
-@import 'docs/internal/shared/asset/style/block';
+// @import 'docs/internal/shared/asset/style/grid-overlay';
+// @import 'docs/internal/shared/asset/style/block';
 
 .viewport__group {
     @include viewport-group;

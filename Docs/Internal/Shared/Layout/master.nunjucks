@@ -5,12 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CWEL -- Internal Docs</title>
+     <link rel="stylesheet" href="main.css">
 
     {% block styles %}
     <link rel="stylesheet" href="style.css">
     {% endblock %}
 </head>
 <body ng-app="docs">
+
+    <button class="side-nav__toggle-btn" ng-click="sideNav=!sideNav">
+        <div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </button>
+    <div class="side-nav" role="navigation" ng-class="{ 'side-nav--active' : sideNav }">
+        <div class="side-nav__top-container">
+            <a href="/" class="side-nav__logo">Countrywide Experience language</a>
+            <!-- grab search from carbon -->
+            <div class="side-nav__search-container" role="search">
+                <input class="search-input" placeholder="Search" type="text">
+            </div>
+        </div>
+        <div class="side-nav__bottom-container">
+            <ul class="side-nav__main-nav">
+                <li class="main-nav-item">
+                    <p class="main-nav-item__heading">Getting Started</p>
+                    <ul class="main-nav__sub-nav">
+                        <li class="sub-nav__item">Designers</li>
+                        <li class="sub-nav__item">Designers</li>
+                        <li class="sub-nav__item">Designers</li>
+                    </ul>
+                </li>
+                 <li class="main-nav-item">
+                    <p class="main-nav-item__heading">Guidelines</p>
+                    <ul class="main-nav__sub-nav">
+                        <li class="sub-nav__item">Content</li>
+                        <li class="sub-nav__item">Content</li>
+                        <li class="sub-nav__item">Content</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <div class="docs">
         <div ng-controller="navRender">
