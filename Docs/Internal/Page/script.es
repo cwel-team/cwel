@@ -21,16 +21,16 @@ const client = contentful.createClient({
 })
 
 // gets all entries of a space
-client.getEntries()
-.then((res) => {
-    site = res.items[0];
-    console.log(site);
-})
-.catch(console.error)
+// client.getEntries()
+// .then((res) => {
+//     site = res.items[0];
+//     console.log(site);
+// })
+// .catch(console.error)
 
 // gets all content types
 client.getContentTypes()
-.then((response) => console.log(response.items))
+.then((res) => console.log(res.items))
 .catch(console.error)
 
 app.service('contentful', ($rootScope) => {
@@ -51,13 +51,6 @@ app.service('contentful', ($rootScope) => {
             })
             .catch(console.error)
         },
-        // getContentTypes(callback) {
-        //     client.getContentTypes()
-        //     .then((res) => {
-        //         $rootScope.$applyAsync(() => callback(res.items.map( item => item.sys.id)));
-        //     })
-        //     .catch(console.error)
-        // }
     }
 });
 
@@ -65,18 +58,14 @@ app.controller('content', ($scope, $stateParams, contentful) => {
     contentful.getPageData($stateParams.name, (res) => {
         $scope.title = res.title;
         $scope.body = res.body;
-        console.log(res);
     });
 });
 
 app.controller('navRender', ($scope, contentful) => {
     contentful.getPageTitles((res) => {
+        console.log(res)
         $scope.pages = res;
     });
-    // contentful.getContentTypes((res) => {
-    //     $scope.groups = res;
-    //     console.log(res);
-    // });
 })
 
 app.config(function($stateProvider, $urlRouterProvider, $qProvider) {
