@@ -7,11 +7,11 @@
  * FONTS
  *************************/
 
-$FONT-SIZE-XS: 55%;
-$FONT-SIZE-S: 60%;
 $FONT-SIZE-M: 62.5%;
-$FONT-SIZE-L: 65%;
-$FONT-SIZE-XL: 67.5%;
+$FONT-SIZE-XS: $FONT-SIZE-M * 0.875; // stylelint-disable-line
+$FONT-SIZE-S: $FONT-SIZE-M;
+$FONT-SIZE-L: $FONT-SIZE-M;
+$FONT-SIZE-XL: $FONT-SIZE-M * 1.125; // stylelint-disable-line
 
 $FONT-SIZES: (
     xs: $FONT-SIZE-XS,
@@ -25,23 +25,23 @@ $FONT-SIZES: (
  * SPACES
  *************************/
 
-/// - Canonical `XXS` space measurement
+/// - Canonical `S` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-XXS: 0.4rem;
+$SPACE-S: 1.6rem;
 
 /// - Canonical `XS` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-XS: $SPACE-XXS * 2;
+$SPACE-XS: $SPACE-S / 2;
 
-/// - Canonical `S` space measurement
+/// - Canonical `XXS` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-S: $SPACE-XS * 2;
+$SPACE-XXS: $SPACE-XS / 2;
 
 /// - Canonical `M` space measurement
 /// - Used verbatim for `M` viewport width breakpoint

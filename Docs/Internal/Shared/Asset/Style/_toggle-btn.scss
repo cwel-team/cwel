@@ -1,15 +1,19 @@
 .side-nav__toggle-btn {
     position: fixed;
     top: 0;
-    height: 3rem;
-    background: #ffffff;
-    border: none;
     z-index: 1;
+    height: 3rem;
+    background: $color-white;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        background: $color-grey;
+    }
 }
 .line {
     width: 1.8rem;
     height: 0.2rem;
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
-    background: blue;
+    background: $brand-color-1;
 }

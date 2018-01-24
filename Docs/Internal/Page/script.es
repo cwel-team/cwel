@@ -12,6 +12,14 @@ app.directive('test', () => {
 
 console.log("I'm homepage!");
 
+app.directive('navitem', () => {
+    return {
+        scope: {},
+        templateUrl: 'shared/layout/nav-item.html',
+        link(scope, element) {}
+    }
+});
+
 
 let site;
 const client = contentful.createClient({
@@ -19,14 +27,6 @@ const client = contentful.createClient({
   accessToken: 'becc6f5bad7201fc61c75cca9ef657609a3599aae89b5cd5ed215f9f7656cdca',
   resolveLinks: true
 })
-
-// gets all entries of a space
-// client.getEntries()
-// .then((res) => {
-//     site = res.items[0];
-//     console.log(site);
-// })
-// .catch(console.error)
 
 // gets all content types
 client.getContentTypes()

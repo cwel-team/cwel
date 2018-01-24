@@ -1,0 +1,11 @@
+<p class="main-nav-item__heading" ng-click="open=!open">
+    Getting Started
+    <span class="main-nav-item__heading__icon"  ng-class="{'heading__icon--open': open }">
+         {% include '../asset/img/icon/arrow-open.svg' %}
+    </span>
+</p>
+<ul class="main-nav__sub-nav" ng-class="{'main-nav__sub-nav--open': open }">
+    <li class="sub-nav__item">Designers</li>
+    <li class="sub-nav__item">Designers</li>
+    <li class="sub-nav__item">Designers</li>
+</ul>

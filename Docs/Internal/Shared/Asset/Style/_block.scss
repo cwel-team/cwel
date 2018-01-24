@@ -1,0 +1,19 @@
+.block {
+    @include grid()
+}
+.block__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30rem;
+    border: 0.2rem solid $color-grey;
+    @include grid-cell((
+        's': 12,
+        'm': 6,
+        'l': 6
+    ));
+}
+.block__item-title {
+    display: block;
+    text-transform: uppercase;
+}

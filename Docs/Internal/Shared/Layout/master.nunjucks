@@ -13,71 +13,56 @@
 </head>
 <body ng-app="docs">
 
-    <button class="side-nav__toggle-btn" ng-click="sideNav=!sideNav">
-        <div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
-    </button>
-    <div class="side-nav" role="navigation" ng-class="{ 'side-nav--active' : sideNav }">
-        <div class="side-nav__top-container">
-            <a href="/" class="side-nav__logo">Countrywide Experience language</a>
-            <!-- grab search from carbon -->
-            <div class="side-nav__search-container" role="search">
-                <input class="search-input" placeholder="Search" type="text">
-            </div>
-        </div>
-        <div class="side-nav__bottom-container">
-            <ul class="side-nav__main-nav">
-                <li class="main-nav-item">
-                    <p class="main-nav-item__heading">Getting Started</p>
-                    <ul class="main-nav__sub-nav">
-                        <li class="sub-nav__item">Designers</li>
-                        <li class="sub-nav__item">Designers</li>
-                        <li class="sub-nav__item">Designers</li>
-                    </ul>
-                </li>
-                 <li class="main-nav-item">
-                    <p class="main-nav-item__heading">Guidelines</p>
-                    <ul class="main-nav__sub-nav">
-                        <li class="sub-nav__item">Content</li>
-                        <li class="sub-nav__item">Content</li>
-                        <li class="sub-nav__item">Content</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+     {% include 'shared/layout/side-bar.njk' %}
 
-    <div class="docs">
-        <div ng-controller="navRender">
-            <div ng-repeat="page in pages">
-                <a ui-sref="page({ name: page.id })" ui-sref-active="active">{{ page.title }}</a>
+    <div class="docs" ng-class="{ 'docs--side-nav' : sideBar }">
+        <button class="side-nav__toggle-btn" ng-click="sideBar=!sideBar">
+            <div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </button>
+        <div class="hero">
+            <span class="hero__background"></span>
+            <span class="hero__title">CWEL</span>
+            <h1 class="hero__heading">
+                <span>Countrywide</span> Experience Language
+            </h1>
+            <div class="hero__button">
+                <a class="button">Get Started</a>
             </div>
         </div>
-        
+        <div class="block">
+            <div class="block__item">
+                <h2 class="block__item-title">Guides</h2>
+                <p class="block__item-content">Onboarding for designers and developers who are using Carbon for the first time.</p>
+            </div>
+            <div class="block__item">
+                <h2 class="block__item-title">Guides</h2>
+                <p class="block__item-content">Onboarding for designers and developers who are using Carbon for the first time.</p>
+            </div>
+            <div class="block__item">
+                <h2 class="block__item-title">Guides</h2>
+                <p class="block__item-content">Onboarding for designers and developers who are using Carbon for the first time.</p>
+            </div>
+            <div class="block__item">
+                <h2 class="block__item-title">Guides</h2>
+                <p class="block__item-content">Onboarding for designers and developers who are using Carbon for the first time.</p>
+            </div>
+        </div>     
         <div class="container">
+            <div ng-controller="navRender">
+                <div ng-repeat="page in pages">
+                    <a ui-sref="page({ name: page.id })" ui-sref-active="active">{{ page.title }}</a>
+                </div>
+            </div>
             {% markdown %}
             {% block body %}
             {% endblock %}
             {% endmarkdown %}
             <div ui-view></div>
         </div>
-    </div>
-
-    <div class="grid-overlay" id="grid-overlay" ng-class="{ 'grid-overlay--open': showOverlay }"  ng-click="showOverlay = false">
-        <div class="grid-overlay__container">
-            <div class="grid-overlay__grid">
-                {% for i in range(12) %}
-                <div class="grid-overlay__grid-cell">
-                    <div class="grid-overlay__block"></div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <button class="grid-overlay__close" ng-click="showOverlay = false" type="button">Close Overlay</button>
     </div>
 
     {% block scripts %}
