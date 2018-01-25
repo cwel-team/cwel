@@ -255,12 +255,11 @@ __pycache__/
 
 # Countrywide
 
+# gulp tasks publish
+!gulp-tasks/**/publish
 tmp
 tmp/**
 
 # swap files created by vim
 *.swp
 *.swo
-
-# gulp tasks publish
-!gulp-tasks/**/publish
