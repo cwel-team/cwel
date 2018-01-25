@@ -21,10 +21,18 @@ allows us to control exactly what code goes into which sandbox page, without
 having to manage an insurmountable amount of configs for task runners. Instead,
 we use Webpack!
 
+**Note:** The exception to our rule about bundling is that the `cwel.js`
+script file is bundled independently and shared across all sandbox pages. This
+is to prematurely avoid unexpected side-effects between components.
+
 ## Styles
 Like with our scripts, every sandbox page has its own dedicated `style.scss`
 file. Any styles for a page should go into `~/Sandbox/{name}/style.scss`,
 where `{name}` is the name of the new sandbox page.
+
+**Note:** The exception to our rule about bundling is that the `cwel.css`
+style file is bundled independently and shared across all sandbox pages. This
+is to prematurely avoid unexpected side-effects between components.
 
 ## Shared Assets
 Any shared assets for scripts, styles, or template layouts should go into
