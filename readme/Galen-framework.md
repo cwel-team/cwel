@@ -20,7 +20,7 @@
 Open command prompt in Cwel project root, then run one of the following commands.
 
 ``` cmd
-gulp cwel-test-run-visual
+gulp test-visual
 ```
 
 #### Optional Parameters
@@ -32,7 +32,7 @@ gulp cwel-test-run-visual
 Open command prompt in Cwel root
 
 ``` cmd
-npm run galen -- check Cwel/Src/Test/visual/specs/cwel-grid.gspec --url http://docs.cwel.local/playground/sandbox/grid --size 1280x800 --htmlreport Cwel/.tmp/Test/visual/reports/html
+npm run galen -- check Test/Visual/Specs/grid.gspec --url http://localhost:3000/grid --size 1280x800 --htmlreport tmp/test/visual/reports/html
 ```
 
 #### Parameters
@@ -40,7 +40,3 @@ npm run galen -- check Cwel/Src/Test/visual/specs/cwel-grid.gspec --url http://d
 - `--url`: URL against which to run tests.
 - `--size`: Viewport size in which to run tests.
 - `--htmlreport`: Location in which to dump the html report.
-
-#### Optional Parameters
-
-- `--testngreport`: Location in which to dump the ngtest report.
