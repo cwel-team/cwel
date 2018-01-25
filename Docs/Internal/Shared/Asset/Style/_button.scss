@@ -5,10 +5,13 @@
     height: 3.5rem;
     min-width: 14.66rem;
     margin-bottom: 1.68rem;
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
     color: $brand-color-1;
     font-size: 1.25rem;
+    font-weight: 600;
     text-align: center;
-    border-width: 0.2em; // stylelint-disable-line
+    border-width: 2px; // stylelint-disable-line
     border-style: solid;
     border-color: $brand-color-1;
     border-radius: 5rem;
@@ -33,6 +36,9 @@
 .button {
     @include button;
 }
+.button--icon {
+    justify-content: space-between;
+}
 .button__icon {
     height: 1.2rem;
     padding-left: 0.75rem;
@@ -42,5 +48,6 @@
     svg path,
     svg line {
         stroke: $brand-color-1;
+        fill: none;
     }
 }

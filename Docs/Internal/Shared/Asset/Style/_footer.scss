@@ -1,0 +1,36 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    height: 16rem;
+    color: $text-color;
+    font-size: 1.25rem;
+    background: $color-grey;
+}
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: baseline;
+    height: 100%;
+    padding-bottom: 4rem;
+    padding-left: 4rem;
+}
+.footer__content-text {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+
+    &:last-of-type {
+        margin-top: 2rem;
+    }
+}
+.footer__brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-right: 4rem;
+    padding-bottom: 4rem;
+}
+.footer__brand-logo {
+    width: 10rem;
+}
