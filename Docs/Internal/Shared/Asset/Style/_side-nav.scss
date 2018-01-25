@@ -1,23 +1,24 @@
-.side-bar__main-nav,
-.main-nav__sub-nav {
+.main-nav,
+.main-nav__list {
     width: 100%;
     font-size: 1.25rem;
     list-style: none;
 }
-.side-bar__main-nav {
+.main-nav {
     padding-left: 0;
 }
-.main-nav-item {
+
+.main-nav__item {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
 }
-.main-nav-item__heading {
+.main-nav__item-heading {
     position: relative;
     padding-left: 2rem;
     color: $brand-color-1;
     cursor: pointer;
 }
-.main-nav-item__heading__icon {
+.main-nav__item-icon {
     position: absolute;
     right: 2rem;
     transition: all 0.3s linear;
@@ -33,17 +34,17 @@
     transition: all 0.3s linear;
     transform: rotateX(-180deg);
 }
-.main-nav__sub-nav {
+.main-nav__list {
     max-height: 0;
     padding-left: 3rem;
     overflow: hidden;
     transition: max-height 0.5s ease-out;
 }
-.main-nav__sub-nav--open {
+.main-nav__list--open {
     max-height: 150rem;
     transition: max-height 0.5s ease-in;
 }
-.sub-nav__item {
+.main-nav__list-item {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
 }

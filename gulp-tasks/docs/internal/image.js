@@ -2,14 +2,14 @@ const del               = require('del');                           // Delete fi
 const gulp              = require('gulp');                          // Task automator
 
 module.exports = () => del([
-    'docs/internal/shared/asset/**/*.png',
-    'docs/internal/shared/asset/**/*.jpg',
-    'ocs/internal/shared/asset/**/*.svg',
+    'Docs/Internal/Shared/Asset/**/*.png',
+    'Docs/Internal/Shared/Asset/**/*.jpg',
+    'Docs/Internal/Shared/Asset/**/*.svg',
 ]);
 
 module.exports = () => gulp.src([
-    'docs/internal/shared/asset/**/*.png',
-    'docs/internal/shared/asset/**/*.jpg',
-    'docs/internal/shared/asset/**/*.svg',
+    'Docs/Internal/Shared/Asset/**/*.png',
+    'Docs/Internal/Shared/asset/**/*.jpg',
+    'Docs/Internal/Shared/Asset/**/*.svg',
 ])
 .pipe(gulp.dest('tmp/docs/internal/shared/asset'))
