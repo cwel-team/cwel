@@ -15,7 +15,7 @@ Setup involves a set of gulp commands:
 
 ## SCSS File Organization
 
-To read up on how the SCSS is files are organized for CWEL, read the
+To read up on how the SCSS files are organized for CWEL, read the
 [readme on scss file organization]('./readme/SCSS-organization.md').
 
 ## Sandbox Pages
