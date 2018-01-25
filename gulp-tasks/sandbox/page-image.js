@@ -12,4 +12,4 @@ module.exports = () => gulp.src([
     'sandbox/page/**/*.jpg',
     'sandbox/page/**/*.svg',
 ])
-.pipe(gulp.dest('tmp/sandbox/prototype'))
+.pipe(gulp.dest('tmp/sandbox/prototype'));

@@ -9,15 +9,14 @@
     | XL              | xl        | 1450x800 |
 
 @@ set
-    base_url         http://docs.cwel.local/visualtest/
-    spec_path        Cwel/Src/Test/visual/specs/
+    specPath        Test/Visual/Specs
 
 @@ parameterized using breakpoints
 Grid at breakpoint: ${breakpointName}
-    ${base_url}grid ${size}
-        check ${spec_path}cwel-grid.gspec --include '${tags}'
+    ${host_url}/prototype/grid ${size}
+        check ${specPath}/Grid.gspec --include '${tags}'
 
 @@ parameterized using breakpoints
 REM Units at breakpoint: ${breakpointName}
-    ${base_url}remunits ${size}
-        check ${spec_path}cwel-remunits.gspec --include '${tags}'
+    ${host_url}/prototype/remunits ${size}
+        check ${specPath}/Remunits.gspec --include '${tags}'

@@ -1,13 +1,17 @@
-# Next Gen Code Revolution
+# Cwel
 
-Welcome to Countrywide's next generation code-base. Here is where technology
-bleeds from the swift katana that is its development team.
+Welcome to CWEL, a front-end framework and experience language for the web.
 
 ## Setup Instructions
 
-Follow these instructions if depending on your role in the team.
+Setup involves a set of gulp commands:
 
-- [Front-End Zen warrior](./readme/FED.md)
+- Active development: `gulp watch` to get the sandbox and documentation page up.
+- Build: `gulp build` to build the entire project.
+- Test
+	- unit (karma): `gulp test-unit`
+	- end to end (protractor): `gulp test-e2e`
+	- visual (galen): `gulp test-visual`
 
 ## SCSS File Organization
 
@@ -16,16 +20,14 @@ To read up on how the SCSS is files are organized for CWEL, read the
 
 ## Sandbox Pages
 
-To experiment with new ideas in the CWEL code-base, outside the
-constraints of our wonderful playground editor, sandbox pages can be made. To
-do so, follow the steps outlined in the [sandbox readme]('./readme/Sandbox.md').
+To work on the CWEL library or experiment with new ideas, sandbox pages
+can be made. To do so, follow the steps outlined in the [sandbox readme]('./readme/Sandbox.md').
 
 ## Documenation Pages
 
 To document new components, patterns, or any piece of CWEL, documentation pages
 can be generated. Gulp tasks are used to generate them, of which the inner
-workings are explained in the
-[readme for documentation pages]('./readme/Docs-pages.md').
+workings are explained in the [readme for documentation pages]('./readme/Docs-pages.md').
 
 ## To Do
 

@@ -1,0 +1,20 @@
+# Here go the files that should be excluded from npm on top of what has already 
+# been ignored in .gitignore
+# see the npm docs for info on how this file works: https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package
+
+dist/docs
+Docs
+gulp
+gulp-lib
+gulp-tasks
+Sandbox
+Test
+tmp
+.editorconfig
+.eslintrc.js
+.eslintignore
+.stylelintrc.js
+create.conf.json
+galen.config
+protractor.conf.js
+gulpfile.js

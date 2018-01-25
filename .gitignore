@@ -255,6 +255,8 @@ __pycache__/
 
 # Countrywide
 
+# gulp tasks publish
+!gulp-tasks/**/publish
 tmp
 tmp/**
 

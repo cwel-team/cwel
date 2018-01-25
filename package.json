@@ -1,8 +1,9 @@
 {
   "name": "cwel",
-  "version": "0.0.0",
+  "version": "0.0.3",
   "description": "Countrywide Experience Language",
-  "main": "gulpfile.js",
+  "main": "dist/cwel/script/main.js",
+  "repository": "github:cwel-team/cwel",
   "engines": {
     "node": "^8.9.0"
   },
@@ -11,12 +12,13 @@
     "galen": "galen",
     "gulp-debug": "node debug node_modules\\gulp\\bin\\gulp.js",
     "gulp-inspect": "node --inspect --inspect-brk node_modules\\gulp\\bin\\gulp.js",
-    "install": "node node_modules\\protractor\\node_modules\\webdriver-manager\\bin\\webdriver-manager update --versions.standalone=3.5.3",
+    "install": "node -e \"process.env.NODE_ENV !== 'production' && process.exit(1)\" || node node_modules\\protractor\\node_modules\\webdriver-manager\\bin\\webdriver-manager update --versions.standalone=3.5.3",
     "precommit.broken": "gulp analysis --color && node node_modules\\csproj-enforcer\\index.js",
-    "data": "node data.js"
+    "docs-copy": "cp -r tmp/docs/internal dist/docs",
+    "docs-deploy": "git subtree push --prefix dist/docs origin gh-pages"
   },
   "author": "",
-  "license": "ISC",
+  "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
