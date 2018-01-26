@@ -1,7 +1,7 @@
 .main-nav,
 .main-nav__list {
     width: 100%;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     list-style: none;
 }
 .main-nav {
@@ -16,7 +16,6 @@
     position: relative;
     padding-left: 2rem;
     color: $brand-color-1;
-    font-weight: 600;
     cursor: pointer;
 }
 .main-nav__item-icon {
@@ -46,13 +45,12 @@
     max-height: 150rem;
     transition: max-height 0.5s ease-in;
 }
-.main-nav__list-item {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-}
 .main-nav__list-item-link {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    display: inline-block;
+    width: 100%;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
     padding-left: 3rem;
     color: $text-color;
     text-decoration: none;

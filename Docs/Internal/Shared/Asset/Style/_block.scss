@@ -4,7 +4,7 @@
 .block__item {
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    justify-content: flex-start;
     align-items: center;
     min-height: 25rem;
     text-decoration: none;
@@ -20,7 +20,7 @@
     }
 
     &:nth-child(odd) {
-        justify-content: right;
+        justify-content: flex-end;
     }
 }
 .block__item-title {
