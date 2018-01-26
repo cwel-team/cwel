@@ -4,7 +4,7 @@
     flex-direction: column;
     width: 20rem;
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     background: $color-white;
     transition: all 0.5s;
     transform: translateX(-20rem);
@@ -30,6 +30,7 @@
     padding-left: 1.5rem;
     color: $brand-color-1;
     font-size: 1.8rem;
+    line-height: 1.1;
     text-align: left;
     text-decoration: none;
     text-transform: uppercase;

@@ -1,0 +1,41 @@
+.heading {
+    display: flex;
+    height: 30rem;
+    background: $color-grey;
+    border-bottom-width: 0.2rem;
+    border-bottom-style: solid;
+    border-bottom-color: $brand-color-1;
+}
+.heading__title {
+    margin-top: 0;
+    font-size: 5rem;
+    font-weight: 500;
+    line-height: 1;
+    @include breakpoint('l') {
+        font-size: 7rem;
+    }
+}
+.heading__parent {
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.heading__tabs {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+.tabs-item {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+.tabs-item__link {
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        border-bottom-width: 0.2rem;
+        border-bottom-style: solid;
+        border-bottom-color: $brand-color-1;
+    }
+}

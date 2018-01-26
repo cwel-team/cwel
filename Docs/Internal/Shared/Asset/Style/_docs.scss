@@ -1,14 +1,13 @@
 html,
 body {
     height: 100%;
+    color: $text-color;
     background: $color-grey;
 }
-
 body {
     font-weight: 300;
     line-height: 1.4;
 }
-
 .docs {
     position: relative;
     margin-left: 0;
@@ -17,4 +16,8 @@ body {
 }
 .docs--side-nav {
     margin-left: 20rem;
+}
+.container--docs {
+    padding-right: 4rem;
+    padding-left: 4rem;
 }
