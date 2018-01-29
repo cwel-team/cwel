@@ -3,7 +3,7 @@
     height: 24rem;
     margin-bottom: 5rem;
     background: $color-grey;
-    border-bottom-width: 0.2rem;
+    border-bottom-width: 2px; // stylelint-disable-line
     border-bottom-style: solid;
     border-bottom-color: $brand-color-1;
 }
@@ -29,12 +29,9 @@
     font-weight: 500;
 }
 
-.heading-nav {
-    
-}
 .heading__tabs {
     position: absolute;
-    bottom: 0.3rem;
+    bottom: 0.2rem;
     display: flex;
     margin-bottom: 0;
     padding-left: 0;
@@ -60,7 +57,7 @@
     &:hover,
     &:focus {
         color: $brand-color-1;
-        border-bottom-width: 0.4rem;
+        border-bottom-width: 3px; // stylelint-disable-line
         border-bottom-style: solid;
         border-bottom-color: $brand-color-1;
     }

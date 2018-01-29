@@ -1,0 +1,31 @@
+.table {
+    width: 100%;
+    margin-bottom: 3.35rem;
+    font-size: 1.4rem;
+    background-color: $color-white;
+    border-collapse: collapse;
+
+    @include breakpoint('l') {
+        width: 80%;
+    }
+}
+.table__head {
+    border-bottom-width: 0.2rem;
+    border-bottom-style: solid;
+    border-bottom-color: $brand-color-1;
+}
+.table__body .table__row {
+    border-bottom-width: 0.2rem;
+    border-bottom-style: solid;
+    border-bottom-color: $color-grey;
+}
+.table__row-heading {
+    text-align: left;
+}
+.table__row-heading,
+.table__row-data,
+.table__column {
+    padding-top: 1.68rem;
+    padding-right: 1.68rem;
+    padding-bottom: 1.68rem;
+}

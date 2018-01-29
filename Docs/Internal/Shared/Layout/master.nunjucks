@@ -97,6 +97,28 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
+
+            <table class="table">
+                <thead class="table__head">
+                    <tr class="table__row">
+                        <th class="table__row-heading">Test</th>
+                        <th class="table__row-heading">Another test</th>
+                        <th class="table__row-heading">Another</th>
+                    </tr>
+                </thead>
+                <tbody class="table__body">
+                    <tr class="table__row">
+                        <td class="table__row-data">Some data</td>
+                        <td class="table__row-data">Some data</td>
+                        <td class="table__row-data">Some data</td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__row-data">Some data</td>
+                        <td class="table__row-data">Some data</td>
+                        <td class="table__row-data">Some data</td>
+                    </tr>
+                </tbody>
+            </table>
             <!-- <div ng-controller="navRender">
                 <div ng-repeat="page in pages">
                     <a ui-sref="page({ name: page.id })" ui-sref-active="active">{{ page.title }}</a>
