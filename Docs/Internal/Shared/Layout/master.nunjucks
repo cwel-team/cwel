@@ -16,13 +16,6 @@
      {% include 'shared/layout/side-bar.njk' %}
 
     <div class="docs" ng-class="{ 'docs--side-nav' : sideBar }">
-        <button class="side-nav__toggle-btn" ng-click="sideBar=!sideBar">
-            <div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-        </button>
 
         <!-- Home page content --> 
         <!-- <div class="hero">
@@ -77,8 +70,10 @@
 
         <div class="heading">
             <div class="container container--docs">
-                <h2 class="heading__parent">Guides</h2>
-                <h1 class="heading__title">Designers</h1>
+                <div class="heading__content">
+                    <h2 class="heading__content-parent">Guides</h2>
+                    <h1 class="heading__content-title">Designers</h1>
+                </div>
                 <ul class="heading__tabs">
                     <li class="tabs-item">
                         <a href="" class="tabs-item__link">UI Guideline</a>

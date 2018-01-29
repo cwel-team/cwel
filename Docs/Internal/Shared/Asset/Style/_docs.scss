@@ -15,9 +15,12 @@ body {
     transition: all 0.5s;
 }
 .docs--side-nav {
-    margin-left: 20rem;
+    @include breakpoint('m') {
+        margin-left: 20rem;
+    }
 }
 .container--docs {
+    height: 100%;
     padding-right: 4rem;
     padding-left: 4rem;
 }

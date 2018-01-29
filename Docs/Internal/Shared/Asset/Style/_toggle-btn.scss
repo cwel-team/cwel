@@ -5,10 +5,16 @@
     height: 3rem;
     background: $color-white;
     border: none;
+    transition: all 0.5s;
+    transform: translateX(0);
     cursor: pointer;
+
     &:hover {
         background: $color-grey;
     }
+}
+.side-nav__toggle-btn--active {
+    transform: translateX(20rem);
 }
 .line {
     width: 1.8rem;
