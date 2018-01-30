@@ -1,17 +1,11 @@
 <p class="main-nav__item-heading" ng-click="open=!open">
-    Getting Started
+    {{ text }}
     <span class="main-nav__item-icon"  ng-class="{'heading__icon--open': open }">
          {% include '../asset/img/icon/keyboard-arrow-up.svg' %}
     </span>
 </p>
 <ul class="main-nav__list" ng-class="{'main-nav__list--open': open }">
-    <li class="main-nav__list-item">
-        <a class="main-nav__list-item-link" href="">Designers</a>
-    </li>
-    <li class="main-nav__list-item">
-        <a class="main-nav__list-item-link" href="">Designers</a>
-    </li>
-    <li class="main-nav__list-item">
-        <a class="main-nav__list-item-link" href="">Designers</a>
+    <li class="main-nav__list-item" ng-repeat="item in items">
+       <a class="main-nav__list-item-link" ui-sref="page({name: item.name })" ui-sref-active="active">{{ item.text }}</a>
     </li>
 </ul>

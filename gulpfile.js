@@ -23,6 +23,7 @@ gulp.task('watch', ['dev'], (done) => {
     gulp.watch([
         'Docs/Internal/**/*.doc.md',
         'Docs/Internal/**/*.nunjucks',
+        'Docs/Internal/**/*.njk',
     ], () => gulpSequence(
         'docs:internal:markup')(() => multiSync.reload()));
     gulp.watch([

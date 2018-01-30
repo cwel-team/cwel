@@ -5,7 +5,7 @@
         <div class="line"></div>
     </div>
 </button>
-<div class="side-bar" role="navigation" ng-class="{ 'side-bar--active' : sideBar }">
+<div class="side-bar" role="navigation" ng-class="{ 'side-bar--active' : sideBar }" ng-controller="navRender">
     <div class="side-bar__top-container">
         <a href="/" class="side-bar__logo">
             <span>Countrywide</span> Experience Language
@@ -16,8 +16,7 @@
     </div>
     <div class="side-bar__bottom-container">
         <ul class="main-nav">
-            <li class="main-nav__item" navitem></li>
-            <li class="main-nav__item" navItem></li>
+            <li class="main-nav__item" navitem ng-repeat="page in pages" text="page.text" items="page.items" name="page.name"></li>
         </ul>
         <div class="side-bar__links">
             <a class="button button--icon">

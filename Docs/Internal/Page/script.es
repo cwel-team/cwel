@@ -2,28 +2,25 @@ import '../../../Cwel/Script/main';
 import app from '../Shared/Asset/Script/site';
 const contentful = require('contentful');
 
-app.directive('test', () => {
-    return {
-        link(scope) {
-            scope.greet = 'hello';
-        },
-    };
-});
-
-console.log("I'm homepage!");
-
+// Date
 app.controller('docs', ($scope) => {
     $scope.date = new Date();
 })
 
-app.directive('navitem', () => {
+// Nav
+app.directive('navitem', ($rootScope) => {
     return {
-        scope: {},
+        scope: {
+            text: '=',
+            items: '=',
+            name: '=',
+        },
         templateUrl: 'shared/layout/nav-item.html',
-        link(scope, element) {}
+        link(scope, element) { }
     }
 });
 
+// Contentful
 let site;
 const client = contentful.createClient({
   space: 'yxnc72m9rwc9',
@@ -31,13 +28,15 @@ const client = contentful.createClient({
   resolveLinks: true
 })
 
-// gets all content types
-client.getContentTypes()
-.then((res) => console.log(res.items))
-.catch(console.error)
-
 app.service('contentful', ($rootScope) => {
-    return {
+    class Contentful {
+        getContentTypes(callback) {
+            client.getContentTypes()
+            .then((res) => {
+                $rootScope.$applyAsync(() => callback(res.items));
+            })
+            .catch(console.error)
+        }
         getPageData(name, callback) {
             client.getEntries({
                 'fields.title': name, // pages are missing an id to use, currently using page title
@@ -46,15 +45,40 @@ app.service('contentful', ($rootScope) => {
                 $rootScope.$applyAsync(() => callback(res.items[0].fields));
             })
             .catch(console.error)
-        },
-        getPageTitles(callback) {
-            client.getEntries()
-            .then((res) => {
-                 $rootScope.$applyAsync(() => callback(res.items.map( item => item.fields)));
+        }
+        getPageLinks(callback) {
+            client.getEntry('2xvviTT5768UOcCMYwskCA') // Nav ID
+            .then((configRes) => {
+
+               // $rootScope.$applyAsync(() => callback(res.fields));
+
+                client.getEntries({
+                    content_type: 'component',
+                    select: 'fields.name,fields.title',
+                })
+                .then((componentRes) => {
+                    $rootScope.$applyAsync(() => {
+                        let config = configRes.fields.config;
+
+                        for (let item of config) {
+                            if (item.name === 'component') {
+                                item.items = componentRes.items.map(item => {
+                                    item.fields.text = item.fields.title;
+                                    return item.fields;
+                                });
+                            }
+                        }
+                        callback(config);
+                    })
+                })
+                .catch(console.error)
+
             })
             .catch(console.error)
-        },
+            
+        }
     }
+    return new Contentful;
 });
 
 app.controller('content', ($scope, $stateParams, contentful) => {
@@ -65,15 +89,27 @@ app.controller('content', ($scope, $stateParams, contentful) => {
 });
 
 app.controller('navRender', ($scope, contentful) => {
-    contentful.getPageTitles((res) => {
-        console.log(res)
-        $scope.pages = res;
+    $scope.pages = [];
+    contentful.getPageLinks((res) => {
+        $scope.pages = $scope.pages.concat(res);
     });
 })
 
 app.config(function($stateProvider, $urlRouterProvider, $qProvider) {
     $urlRouterProvider.otherwise('/landing')
     $stateProvider
+
+        .state('component', {
+            url: '/component/:name',
+            templateUrl: './Layout/content',
+            controller: 'content'
+        })
+
+        .state('nested', {
+            url: '/:type/:name',
+            templateUrl: './Layout/content',
+            controller: 'content'
+        })
 
         .state('page', {
             url: '/:name',

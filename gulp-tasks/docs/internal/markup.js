@@ -4,7 +4,7 @@ const renderPage        = require('../../../gulp-lib/docs/renderPage');
 
 module.exports = () => gulp.src([
     'Docs/Internal/Page/**/*.doc.md',
-    'Docs/Internal/**/**/*.njk',
+    'Docs/Internal/**/*.njk',
     'Cwel/Component/**/*.html',
     'Cwel/Pattern/**/*.html',
 ])

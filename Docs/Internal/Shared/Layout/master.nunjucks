@@ -119,16 +119,12 @@
                     </tr>
                 </tbody>
             </table>
-            <!-- <div ng-controller="navRender">
+             <div ng-controller="navRender">
                 <div ng-repeat="page in pages">
                     <a ui-sref="page({ name: page.id })" ui-sref-active="active">{{ page.title }}</a>
                 </div>
             </div>
-            {% markdown %}
-            {% block body %}
-            {% endblock %}
-            {% endmarkdown %}
-            <div ui-view></div> -->
+            <div ui-view></div>
         </div>
         
         {% include 'shared/layout/footer.njk' %}
