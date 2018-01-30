@@ -12,6 +12,10 @@ app.directive('test', () => {
 
 console.log("I'm homepage!");
 
+app.controller('docs', ($scope) => {
+    $scope.date = new Date();
+})
+
 app.directive('navitem', () => {
     return {
         scope: {},
@@ -19,7 +23,6 @@ app.directive('navitem', () => {
         link(scope, element) {}
     }
 });
-
 
 let site;
 const client = contentful.createClient({

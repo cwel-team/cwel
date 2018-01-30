@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     {% endblock %}
 </head>
-<body ng-app="docs">
+<body ng-app="docs" ng-controller="docs">
 
      {% include 'shared/layout/side-bar.njk' %}
 
