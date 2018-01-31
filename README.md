@@ -27,7 +27,7 @@ can be made. To do so, follow the steps outlined in the [sandbox readme](./readm
 
 To document new components, patterns, or any piece of CWEL, documentation pages
 can be generated. Gulp tasks are used to generate them, of which the inner
-workings are explained in the [readme for documentation pages](./readme/Docs-pages.md).
+workings are explained in the [readme for documentation pages](./readme/Docs-site.md).
 
 ## To Do
 
