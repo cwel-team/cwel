@@ -16,19 +16,19 @@ Setup involves a set of gulp commands:
 ## SCSS File Organization
 
 To read up on how the SCSS files are organized for CWEL, read the
-[readme on scss file organization]('./readme/SCSS-organization.md').
+[readme on scss file organization](./readme/SCSS-organization.md).
 
 ## Sandbox Pages
 
 To work on the CWEL library or experiment with new ideas, sandbox pages
-can be made. To do so, follow the steps outlined in the [sandbox readme]('./readme/Sandbox.md').
+can be made. To do so, follow the steps outlined in the [sandbox readme](./readme/Sandbox.md).
 
 ## Documenation Site
 
 To document new components, patterns, or any piece of CWEL, documentation pages
 can be generated. Gulp tasks are used to generate them, of which the inner
-workings are explained in the [readme for documentation pages]('./readme/Docs-pages.md').
+workings are explained in the [readme for documentation pages](./readme/Docs-pages.md).
 
 ## To Do
 
-For a list of miscellaneous ToDo tasks, see the [todo readme]('./readme/Todo.md').
+For a list of miscellaneous ToDo tasks, see the [todo readme](./readme/Todo.md).
