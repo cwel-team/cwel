@@ -36,7 +36,7 @@ gulp.task('watch', ['dev'], (done) => {
 
     // Watch Sandbox
     gulp.watch([
-        'Cwel/**/**/*.html',
+        'Cwel/**/*.html',
         'Sandbox/**/*.njk',
     ], () => gulpSequence(
         'sandbox:page-markup')(() => multiSync.reload()));
