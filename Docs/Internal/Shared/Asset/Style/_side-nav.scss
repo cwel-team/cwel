@@ -5,17 +5,21 @@
     list-style: none;
 }
 .main-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     padding-left: 0;
 }
 
-.main-nav__item {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-}
 .main-nav__item-heading {
     position: relative;
+    display: block;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
     padding-left: 2rem;
     color: $brand-color-1;
+    text-decoration: none;
     cursor: pointer;
 }
 .main-nav__item-icon {

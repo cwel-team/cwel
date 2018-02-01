@@ -42,7 +42,6 @@ app.service('contentful', ($rootScope) => {
                 'fields.name': name,
             })
             .then((res) => {
-                console.log(res)
                 $rootScope.$applyAsync(() => callback(res.items[0].fields));
             })
             .catch(console.error)
@@ -87,6 +86,30 @@ app.controller('content', ($scope, $stateParams, contentful) => {
     });
 });
 
+app.controller('component', ($scope, $stateParams, contentful) => {
+    contentful.getPageData($stateParams.name, 'component', (res) => {
+        $scope.name = res.name;
+        $scope.title = res.title;
+        $scope.body = res[$stateParams.tab];
+        $scope.items = ['code', 'usage', 'design', 'service'];
+
+        $scope.tabVisible = (item) => {
+            $scope.hideTab = !res[item];
+        }
+
+        if (!$stateParams.tab) {
+            for (let i=0; i < $scope.items.length; i++) {
+                if (res[$scope.items[i]] != null) {
+                    $scope.activeTab = $scope.items[i];
+                    $scope.body = res[$scope.items[i]];
+                    return;
+                }
+            }
+        }
+
+    });
+});
+
 app.controller('navRender', ($scope, contentful) => {
     $scope.pages = [];
     contentful.getPageLinks((res) => {
@@ -100,8 +123,14 @@ app.config(function($stateProvider, $urlRouterProvider, $qProvider) {
 
         .state('component', {
             url: '/component/:name',
-            templateUrl: './Layout/content',
-            controller: 'content'
+            templateUrl: './Layout/component',
+            controller: 'component'
+        })
+        
+        .state('tab', {
+            url: '/component/:name/:tab',
+            templateUrl: './Layout/component',
+            controller: 'component'
         })
 
         .state('nested', {
