@@ -1,5 +1,8 @@
-angular.module('sandbox')
-.directive('DocsExample', () => {
+import '../../../Cwel/Script/main';
+
+const app = angular.module('sandbox', []);
+
+app.directive('docsExample', () => {
     return {
         restricted: 'A',
         scope: {
@@ -8,9 +11,9 @@ angular.module('sandbox')
         link(scope) {
             scope.show = 'html';
             scope.data = {
-                html: '',
-                css: '',
-                js: '',
+                markup: '',
+                style: '',
+                script: '',
             };
         },
     };
