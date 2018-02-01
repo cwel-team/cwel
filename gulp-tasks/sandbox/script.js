@@ -20,7 +20,8 @@ const babelConfig = {
 
 
 module.exports = () => gulp.src([
-    'Sandbox/Page/**/*.es',
+    'Sandbox/**/*.es',
+    '!Sandbox/Shared/**/*.es',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(gulpeach((stream, file) => {
@@ -28,7 +29,7 @@ module.exports = () => gulp.src([
     const tailPath = file.path
     .replace(file.base, '') // gulp base path
     .replace(p.base, ''); // filename
-    const outputPath = path.resolve('tmp', 'sandbox', 'prototype', tailPath);
+    const outputPath = path.resolve('tmp', 'sandbox', tailPath);
     const outputName = p.base.replace(p.ext, '.js');
 
     return stream

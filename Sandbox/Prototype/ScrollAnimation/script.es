@@ -1,6 +1,8 @@
+import '../../../Cwel/Script/main';
+
 const Choreographer = require('choreographer-js');
 
-window.app = angular.module('sandbox');
+window.app = angular.module('sandbox', ['cwel']);
 
 window.app.factory('animationFactory', () => {
     const animations = {

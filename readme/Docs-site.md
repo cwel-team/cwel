@@ -1,16 +1,18 @@
-# Documentation Pages
+# Documentation Site
 
-Documentation pages are driven in two ways. Either by components and patterns
-in the source, or miscellaneous pages written-up explicitly, irrespective of
-the source code available. Despite being driven by different file sources, all
-documentation pages are generated with the same templating method.
+In a nutshell, the documentation site is a single-page Angularjs app. It's
+static assets are generated using [nunjucks](https://mozilla.github.io/nunjucks/),
+of which all templates can be found in the `~/Docs` directory. Templates for
+sample markup of components and patterns are kept in the
+CWEL source files (`~/CWEL/*`). These are then used by Angularjs whenever
+necessary. Content is hosted on Contentful, where the maintainers can make
+changes without a code release.
 
 ## Gulp Tasks
 
-Two gulp tasks are used to generate documentation pages.
+All docs releated gulp tasks are found under `~/gulp-tasks/docs`.
 
-- Components and Patterns: `cwel-docs-generate-md-component`
-- Miscellaneous Pages: `cwel-docs-generate-md-page`
+To build the static assets, run `gulp docs:build`.
 
 ## Templating
 

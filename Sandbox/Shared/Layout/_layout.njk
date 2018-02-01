@@ -5,21 +5,14 @@
     <title>{[ title ]}</title>
 
     {% block css %}
-    <link rel="stylesheet" href="/shared/asset/cwel/style/main.css">
     <link rel="stylesheet" href="./style.css">
     {% endblock %}
 </head>
 <body ng-app="sandbox">
 
-    <main class="container {[ "container--fluid" if fullWidth ]}">
-        {% block content %} {% endblock %}
-    </main>
+    {% block content %} {% endblock %}
 
     {% block js %}
-    <script src="/shared/asset/cwel/script/main.js"></script>
-    <script>
-        angular.module('sandbox', ['cwel']);
-    </script>
     <script src="./script.js"></script>
     {% endblock %}
 </body>
