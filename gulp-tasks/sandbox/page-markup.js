@@ -2,8 +2,7 @@ const path              = require('path');
 const gulp              = require('gulp');                          // Task automator
 const nunjucksRender    = require('gulp-nunjucks-render');
 
-const options = require(path.join(process.cwd(), '/gulp-lib/options')); // eslint-disable-line
-
+const options = require(path.join(process.cwd(), 'gulp-lib', 'options')); // eslint-disable-line
 
 module.exports = () => gulp.src([
     'Sandbox/**/*.njk',

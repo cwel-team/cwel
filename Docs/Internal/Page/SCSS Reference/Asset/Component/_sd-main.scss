@@ -1,9 +1,0 @@
-
-.sd-main {
-    padding: 2rem;
-
-    @include breakpoint('l') {
-        flex: 1 0 80%; // `.sd-sidebar` is ~ 20%
-    }
-
-}

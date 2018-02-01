@@ -23,7 +23,7 @@ class MultiSync {
     }
     init() {
         this.docsSync.init({
-            server: 'tmp/docs/internal',
+            server: 'tmp/docs',
             port: 3000,
             ui: {
                 port: 3001,

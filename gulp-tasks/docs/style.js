@@ -1,5 +1,4 @@
 const autoprefixer      = require('gulp-autoprefixer');             // Automatically add vendor prefixes using caniuse.com data
-const del               = require('del');                           // Delete files and folders
 const gulp              = require('gulp');                          // Task automator
 const gulpif            = require('gulp-if');                       // Conditionally run a task
 const path              = require('path');                          // Core NodeJS lib
@@ -15,10 +14,9 @@ const argv = yargs.argv; // Parse process.argv with yargs
 const options = require(path.join(process.cwd(), 'gulp-lib', 'options'));
 /* eslint-enable */
 
-module.exports = () => del('tmp/sandbox/page/*.scss');
-
 module.exports = () => gulp.src([
-    'Cwel/Style/**/*.scss',
+    'Docs/Page/**/*.scss',
+    'Docs/Shared/Asset/Style/**/*.scss',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
@@ -27,4 +25,4 @@ module.exports = () => gulp.src([
     browsers: ['last 30 versions'],
 }))
 .pipe(sourcemaps.write('.'))
-.pipe(gulp.dest('tmp/sandbox/shared/asset/cwel/style'));
+.pipe(gulp.dest('tmp/docs'));

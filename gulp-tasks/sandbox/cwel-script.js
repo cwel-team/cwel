@@ -9,7 +9,7 @@ const yargs             = require('yargs');                         // Args
 const argv = yargs.argv; // Parse process.argv with yargs
 
 /* eslint-disable */
-const options = require(path.join(process.cwd(), 'gulp', 'lib', 'util', 'options'));
+const options = require(path.join(process.cwd(), 'gulp-lib', 'options'));
 /* eslint-enable */
 
 const babelConfig = {
