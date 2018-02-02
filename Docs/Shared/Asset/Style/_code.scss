@@ -7,7 +7,7 @@ pre {
     overflow-x: auto;
     overflow-y: hidden;
     font-family: 'Poppins', sans-serif;
-    border-width: 0.2rem;
+    border-width: 2px; // stylelint-disable-line
     border-style: solid;
     border-color: $color-grey;
     border-left-width: 3rem;
@@ -36,7 +36,9 @@ pre[class*='language-'] {
     padding: 1rem;
     overflow: auto;
     background: $color-white;
-    border: 0.1rem solid #dddddd;
+    border-width: 2px; // stylelint-disable-line
+    border-style: solid;
+    border-color: #dddddd;
 }
 
 :not(pre) > code[class*='language-'] {
@@ -44,7 +46,9 @@ pre[class*='language-'] {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     background: #f8f8f8;
-    border: 0.1rem solid #dddddd;
+    border-width: 2px; // stylelint-disable-line
+    border-style: solid;
+    border-color: #dddddd;
 }
 
 .language-plain {

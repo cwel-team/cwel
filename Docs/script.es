@@ -1,10 +1,11 @@
 import '../Cwel/Script/main';
 import app from './Shared/Asset/Script/site';
+
 const contentful = require('contentful');
 const marked = require('marked');
 const prism = require('prismjs');
 
-// Markdown Helpers
+// Markdown render helpers
 const htmlEscapeToText = function (text) {
     return text.replace(/\&\#[0-9]*;|&amp;/g, function (escapeCode) {
         if (escapeCode.match(/amp/)) {

@@ -39,7 +39,7 @@
 }
 .tabs-item {
     padding-right: 4rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.1rem;
     padding-left: 0;
 }
 .tabs-item--inactive {
@@ -55,7 +55,7 @@
 .tabs-item__link:hover,
 .tabs-item__link:focus {
     color: $brand-color-1;
-    border-bottom-width: 3px; // stylelint-disable-line
+    border-bottom-width: 5px; // stylelint-disable-line
     border-bottom-style: solid;
     border-bottom-color: $brand-color-1;
 }
