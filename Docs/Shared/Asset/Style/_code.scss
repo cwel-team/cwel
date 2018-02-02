@@ -1,0 +1,123 @@
+
+pre {
+    padding-top: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-family: 'Poppins', sans-serif;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-color: $color-grey;
+    border-left-width: 3rem;
+}
+code[class*='language-'],
+pre[class*='language-'] {
+    color: #393a34;
+    line-height: 1.2rem;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 4;
+    hyphens: none;
+}
+
+pre[class*='language-']::selection,
+code[class*='language-']::selection {
+    background: #c1def1;
+}
+
+pre[class*='language-'] {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    overflow: auto;
+    background: $color-white;
+    border: 0.1rem solid #dddddd;
+}
+
+:not(pre) > code[class*='language-'] {
+    padding: 0.2rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    background: #f8f8f8;
+    border: 0.1rem solid #dddddd;
+}
+
+.language-plain {
+    color: $text-color;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #008000;
+    font-style: italic;
+}
+.token.namespace {
+    opacity: 0.7;
+}
+.token.string {
+    color: #a31515;
+}
+.token.punctuation,
+.token.operator {
+    color: #393a34;
+}
+.token.url,
+.token.symbol,
+.token.number,
+.token.boolean,
+.token.variable,
+.token.constant,
+.token.inserted {
+    color: #36acaa;
+}
+.token.atrule,
+.token.keyword,
+.token.attr-value,
+.language-autohotkey .token.selector,
+.language-json .token.boolean,
+.language-json .token.number,
+code[class*='language-css'] {
+    color: lighten($brand-color-1, 10%);
+}
+.token.function {
+    color: #393a34;
+}
+.token.deleted,
+.language-autohotkey .token.tag {
+    color: #9a050f;
+}
+.token.selector,
+.language-autohotkey .token.keyword {
+    color: #00009f;
+}
+.token.important,
+.token.bold {
+    font-weight: 600;
+}
+.token.italic {
+    font-style: italic;
+}
+.token.class-name,
+.language-json .token.property {
+    color: #2b91af;
+}
+.token.tag,
+.token.selector {
+    color: #800000;
+}
+.token.attr-name,
+.token.property,
+.token.regex,
+.token.entity {
+    color: #ff0000;
+}
+.token.directive.tag  .tag {
+    color: #393a34;
+    background: #ffff00;
+}

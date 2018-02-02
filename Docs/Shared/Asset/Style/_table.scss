@@ -1,6 +1,7 @@
 .table {
     width: 100%;
-    margin-bottom: 3.35rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     font-size: 1.4rem;
     background-color: $color-white;
     border-collapse: collapse;
@@ -9,22 +10,21 @@
         width: 80%;
     }
 }
-.table__head {
+.table thead {
     border-bottom-width: 0.2rem;
     border-bottom-style: solid;
     border-bottom-color: $brand-color-1;
 }
-.table__body .table__row {
+.table tbody tr {
     border-bottom-width: 0.2rem;
     border-bottom-style: solid;
     border-bottom-color: $color-grey;
 }
-.table__row-heading {
+.table th {
     text-align: left;
 }
-.table__row-heading,
-.table__row-data,
-.table__column {
+.table th,
+.table td {
     padding-top: 1.68rem;
     padding-right: 1.68rem;
     padding-bottom: 1.68rem;

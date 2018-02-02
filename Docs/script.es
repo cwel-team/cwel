@@ -1,6 +1,69 @@
 import '../Cwel/Script/main';
 import app from './Shared/Asset/Script/site';
 const contentful = require('contentful');
+const marked = require('marked');
+const prism = require('prismjs');
+
+// Markdown Helpers
+const htmlEscapeToText = function (text) {
+    return text.replace(/\&\#[0-9]*;|&amp;/g, function (escapeCode) {
+        if (escapeCode.match(/amp/)) {
+            return '&';
+        }
+        return String.fromCharCode(escapeCode.match(/[0-9]+/));
+    });
+}
+
+const render_plain = function () {
+    var render = new marked.Renderer();
+
+    render.code = (text, language) => {
+        const html = Prism.highlight(text, Prism.languages[language] || '');
+        return `<pre ng-non-bindable><code class="language-${language}">${html}</code></pre>`;
+    };
+
+    render.table = (header, body) => {
+        return `
+        <table class="table">
+            <thead>${header}</thead>
+            <tbody>${body}</tbody>
+        </table>`;
+    };
+    render.link = function (href, title, text) {
+        return '<a href="' + href + '">' + text + '</a>';
+    };
+
+    render.paragraph = function (text) {
+        return htmlEscapeToText(text)+'\r\n';
+    };
+
+    render.heading = function (text, level) {
+        if (level == 1) {
+            return '<h1 class="h1"><span class="h1__text">' + text + '<span></h1>'
+        }
+        if (level == 2) {
+            return '<h2 class="h2"><span class="h2__text">' + text + '</span></h2>'
+        }
+        if (level == 3) {
+            return '<h3>' + text + '</h3>'
+        }
+        if (level == 4) {
+            return '<h4>' + text + '</h4>'
+        }
+    };
+
+    render.image = function (href, title, text) {
+        return '';
+    };
+    
+    return render;
+}
+
+function markedRender(body) {
+    return marked(body, {
+        renderer: render_plain()
+    });
+}
 
 // Date
 app.controller('docs', ($scope) => {
@@ -81,16 +144,17 @@ app.service('contentful', ($rootScope) => {
 
 app.controller('content', ($scope, $stateParams, contentful) => {
     contentful.getPageData($stateParams.name, 'guide', (res) => {
+        $scope.markedRender = markedRender;
         $scope.title = res.title;
-        $scope.body = res.body;
+        $scope.body =  res.body;
     });
 });
 
 app.controller('component', ($scope, $stateParams, contentful) => {
     contentful.getPageData($stateParams.name, 'component', (res) => {
+        $scope.markedRender = markedRender;
         $scope.name = res.name;
         $scope.title = res.title;
-        $scope.body = res[$stateParams.tab];
         $scope.items = ['code', 'usage', 'design', 'service'];
 
         $scope.tabVisible = (item) => {
@@ -106,7 +170,7 @@ app.controller('component', ($scope, $stateParams, contentful) => {
                 }
             }
         }
-
+        $scope.body = res[$stateParams.tab];
     });
 });
 
@@ -117,6 +181,7 @@ app.controller('navRender', ($scope, contentful) => {
     });
 })
 
+// Routing
 app.config(function($stateProvider, $urlRouterProvider, $qProvider) {
     $urlRouterProvider.otherwise('/')
     $stateProvider

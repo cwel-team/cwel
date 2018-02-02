@@ -6,38 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CWEL Docs</title>
     <link rel="stylesheet" href="main.css">
-
-    {% block styles %}
-    <link rel="stylesheet" href="style.css">
-    {% endblock %}
 </head>
 <body ng-app="docs" ng-controller="docs">
 
      {% include 'shared/layout/side-bar.njk' %}
 
     <div class="docs" ng-class="{ 'docs--side-nav' : sideBar }">
-
-          <!--  <table class="table">
-                <thead class="table__head">
-                    <tr class="table__row">
-                        <th class="table__row-heading">Test</th>
-                        <th class="table__row-heading">Another test</th>
-                        <th class="table__row-heading">Another</th>
-                    </tr>
-                </thead>
-                <tbody class="table__body">
-                    <tr class="table__row">
-                        <td class="table__row-data">Some data</td>
-                        <td class="table__row-data">Some data</td>
-                        <td class="table__row-data">Some data</td>
-                    </tr>
-                    <tr class="table__row">
-                        <td class="table__row-data">Some data</td>
-                        <td class="table__row-data">Some data</td>
-                        <td class="table__row-data">Some data</td>
-                    </tr>
-                </tbody>
-            </table> -->
 
          <div ui-view></div>
         

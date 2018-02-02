@@ -1,74 +1,56 @@
 .block {
-    @include grid()
-}
-.block__item {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 25rem;
-    text-decoration: none;
-    border-bottom: 0.3rem solid $color-grey;
-    border-left: 0.3rem solid $color-grey;
-    @include grid-cell((
-        'm': 12,
-        'l': 6
-    ));
+    min-height: 50px;
+    padding: $SPACE-XS;
+    padding-right: $SPACE-XS;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.8);
+    text-overflow: ellipsis;
+    background-color: $brand-color-1;
 
-    @include breakpoint('l') {
-        flex-direction: row;
+    @include breakpoint('s') {
+        padding: $SPACE-XS;
+        padding-right: $SPACE-XS;
     }
-
-    &:nth-child(odd) {
-        justify-content: flex-end;
-    }
-}
-.block__item-title {
-    display: block;
-    color: $brand-color-1;
-    text-transform: uppercase;
-}
-.block__item-icon {
-    width: 20rem;
-    margin-top: 5rem;
-    margin-right: 2.5rem;
-    margin-left: 2.5rem;
-    text-align: center;
-
-    @include breakpoint('l') {    
-        margin-top: 0;
-        margin-left: 2.5rem;
-    }
-
-    svg {
-        width: 12rem;
-        height: 6rem;
-    }
-    svg path,
-    svg line,
-    svg rect,
-    svg circle {
-        stroke: $brand-color-1;
-        fill: none;
-    }
-}
-.block__item-content {
-    margin-right: 2.5rem;
-    margin-bottom: 2.5rem;
-    margin-left: 2.5rem;
-    color: $text-color;
-    text-align: center;
 
     @include breakpoint('m') {
-        width: 30rem;
+        padding: $SPACE-S;
+        padding-right: $SPACE-S;
     }
-    @include breakpoint('l') {  
-        align-self: flex-start;
-        width: 40rem;
-        margin-top: 5rem;
-        margin-right: 5rem;
-        margin-bottom: 4rem;
-        margin-left: 0;
-        text-align: left;
+}
+
+.block--fill {
+    position: relative;
+    height: 100%;
+}
+
+.block--tall {
+    position: relative;
+    min-height: 150px;
+}
+
+.block--translucent {
+    background-color: transparentize($brand-color-1, 0.5);
+}
+
+.block--lean {
+    padding: 0;
+
+    @each $key in map-keys($BREAKPOINTS) {
+        @include breakpoint($key) {
+            padding: 0;
+        }
+    }
+}
+
+.block--claustrophobic {
+    margin-bottom: $GRID-GUTTER-XS;
+
+    @each $key in map-keys($BREAKPOINTS) {
+        $breakpoint: map-get($BREAKPOINTS, $key);
+        $gutter: map-get($GRID, 'gutter-#{$key}');
+
+        @include breakpoint($key) {
+            margin-bottom: $gutter;
+        }
     }
 }
