@@ -149,6 +149,7 @@ app.controller('content', ($scope, $stateParams, contentful) => {
         $scope.markedRender = markedRender;
         $scope.title = res.title;
         $scope.body =  res.body;
+        $scope.type = $stateParams.type;
     });
 });
 
@@ -157,6 +158,7 @@ app.controller('component', ($scope, $stateParams, contentful) => {
         $scope.markedRender = markedRender;
         $scope.name = res.name;
         $scope.title = res.title;
+        $scope.type = 'component';
         $scope.items = ['code', 'usage', 'design', 'service'];
 
         $scope.tabVisible = (item) => {
