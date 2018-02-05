@@ -11,11 +11,11 @@
             <li class="docs-example__tab" ng-class="{ 'docs-example__tab--active': show == 'style' }"><a class="docs-example__tab-link" ng-click="show = 'style'">CSS</a></li>
             <li class="docs-example__tab" ng-class="{ 'docs-example__tab--active': show == 'script' }"><a class="docs-example__tab-link" ng-click="show = 'script'">JavaScript</a></li>
         </ul>
-        <textarea class="docs-example__panel html" rows="12" cols="80" ng-model="data.markup" ng-show="show === 'markup'"></textarea>
-        <textarea class="docs-example__panel scss" rows="12" cols="80" ng-model="data.style" ng-show="show === 'style'"></textarea>
-        <textarea class="docs-example__panel js" rows="12" cols="80" ng-model="data.script" ng-show="show === 'script'"></textarea>
+        <textarea class="docs-example__panel html" rows="12" cols="80" ng-model="data.html" ng-show="show === 'markup'"></textarea>
+        <textarea class="docs-example__panel scss" rows="12" cols="80" ng-model="data.css" ng-show="show === 'style'"></textarea>
+        <textarea class="docs-example__panel js" rows="12" cols="80" ng-model="data.js" ng-show="show === 'script'"></textarea>
         <form class="docs-example__form" action="https://codepen.io/pen/define" method="POST" target="_blank">
-            <input type="hidden" name="data" ng-model="data">
+            <input type="hidden" name="data" value="{{ data }}">
             <input class="docs-example__submit" type="submit" value="Edit in Code Pen">
         </form>
     </div>
