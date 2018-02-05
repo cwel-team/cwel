@@ -4,9 +4,9 @@ const multiSync        = require('./gulp-lib/browserSyncMulti');
 
 require('gulp-task-loader')('gulp-tasks');
 
-gulp.task('build', done => gulpSequence('cwel:build', 'test:build', 'sandbox:build', 'docs:internal:build')(done));
+gulp.task('build', done => gulpSequence('cwel:build', 'test:build', 'sandbox:build', 'docs:build')(done));
 
-gulp.task('dev', done => gulpSequence('sandbox:build', 'docs:internal:build')(done));
+gulp.task('dev', done => gulpSequence('sandbox:build', 'docs:build')(done));
 
 gulp.task('sandbox', done => gulpSequence('sandbox:build')(done));
 
@@ -21,18 +21,19 @@ gulp.task('watch', ['dev'], (done) => {
 
     // Watch Docs
     gulp.watch([
-        'Docs/Internal/**/*.doc.md',
-        'Docs/Internal/**/*.nunjucks',
+        'Docs/**/*.doc.md',
+        'Docs/**/*.nunjucks',
+        'Docs/**/*.njk',
     ], () => gulpSequence(
-        'docs:internal:markup')(() => multiSync.reload()));
+        'docs:markup')(() => multiSync.reload()));
     gulp.watch([
-        'Docs/Internal/**/*.scss',
+        'Docs/**/*.scss',
     ], () => gulpSequence(
-        'docs:internal:style')(() => multiSync.reload()));
+        'docs:style')(() => multiSync.reload()));
     gulp.watch([
-        'Docs/Internal/**/*.es',
+        'Docs/**/*.es',
     ], () => gulpSequence(
-        'docs:internal:script')(() => multiSync.reload()));
+        'docs:script')(() => multiSync.reload()));
 
     // Watch Sandbox
     gulp.watch([

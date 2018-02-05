@@ -1,0 +1,29 @@
+a {
+    color: $brand-color-1;
+
+    &:hover,
+    &:focus {
+        color: $brand-color-1;
+    }
+}
+
+.h2 {
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+}
+.h1 .h1__text {
+    display: inline-block;
+    padding-top: 1rem;
+    font-weight: 500;
+    border-top-width: 0.4rem;
+    border-top-style: solid;
+    border-top-color: $brand-color-1;
+}
+.h2 .h2__text {
+    display: inline-block;
+    padding-top: 1rem;
+    font-weight: 300;
+    border-top-width: 0.4rem;
+    border-top-style: solid;
+    border-top-color: $brand-color-1;
+}

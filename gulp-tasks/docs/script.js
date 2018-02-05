@@ -1,10 +1,10 @@
 const gulp              = require('gulp');                          // Task automator
-const gulpeach          = require('gulp-foreach');
+const webpack           = require('webpack-stream');
 const gulpif            = require('gulp-if');                       // Conditionally run a task
+const gulpeach          = require('gulp-foreach');
 const path              = require('path');                          // Core NodeJS lib
 const plumber           = require('gulp-plumber');                  // Prevent errors from killing processes
 const process           = require('process');                       // Core NodeJS lib
-const webpack           = require('webpack-stream');
 const yargs             = require('yargs');                         // Args
 
 const argv = yargs.argv; // Parse process.argv with yargs
@@ -18,10 +18,8 @@ const babelConfig = {
     plugins: ['angularjs-annotate'],
 };
 
-
 module.exports = () => gulp.src([
-    'Sandbox/**/*.es',
-    '!Sandbox/Shared/**/*.es',
+    'Docs/**/*.es',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(gulpeach((stream, file) => {
@@ -29,7 +27,7 @@ module.exports = () => gulp.src([
     const tailPath = file.path
     .replace(file.base, '') // gulp base path
     .replace(p.base, ''); // filename
-    const outputPath = path.resolve('tmp', 'sandbox', tailPath);
+    const outputPath = path.resolve('tmp', 'docs', tailPath);
     const outputName = p.base.replace(p.ext, '.js');
 
     return stream

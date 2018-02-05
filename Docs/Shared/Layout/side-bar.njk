@@ -1,0 +1,36 @@
+<button class="side-nav__toggle-btn" ng-click="sideBar=!sideBar" ng-class="{ 'side-nav__toggle-btn--active' : sideBar }">
+    <div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</button>
+<div class="side-bar" role="navigation" ng-class="{ 'side-bar--active' : sideBar }" ng-controller="navRender">
+    <div class="side-bar__top-container">
+        <a href="/" class="side-bar__logo">
+            <span>Countrywide</span> Experience Language
+        </a>
+        <div class="side-bar__search-container" role="search">
+            <input class="side-bar__search-input" placeholder="Search" type="text" ng-model="searchText" >
+        </div>
+    </div>
+    <div class="side-bar__bottom-container">
+        <ul class="main-nav">
+            <li class="main-nav__item" navitem ng-repeat="page in pages | filter:searchText" filter="searchText" text="page.text" items="page.items" name="page.name"></li>
+        </ul>
+        <div class="side-bar__links">
+            <a href="" target"_blank" class="button button--icon">
+                UI Kit
+                <span class="button__icon">
+                    {% include '../asset/img/icon/arrow-right.svg' %}
+                </span>
+            </a>
+            <a href="https://github.com/cwel-team/cwel" target"_blank" class="button button--icon">
+                Github Repo
+                <span class="button__icon">
+                    {% include '../asset/img/icon/arrow-right.svg' %}
+                </span>
+            </a>
+        </div>
+    </div>
+</div>

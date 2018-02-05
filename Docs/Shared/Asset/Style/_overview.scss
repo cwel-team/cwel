@@ -1,0 +1,74 @@
+.overview {
+    @include grid()
+}
+.overview__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 25rem;
+    text-decoration: none;
+    border-bottom: 0.3rem solid $color-grey;
+    border-left: 0.3rem solid $color-grey;
+    @include grid-cell((
+        'm': 12,
+        'l': 6
+    ));
+
+    @include breakpoint('l') {
+        flex-direction: row;
+    }
+
+    &:nth-child(odd) {
+        justify-content: flex-end;
+    }
+}
+.overview__item-title {
+    display: block;
+    color: $brand-color-1;
+    text-transform: uppercase;
+}
+.overview__item-icon {
+    width: 20rem;
+    margin-top: 5rem;
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
+    text-align: center;
+
+    @include breakpoint('l') {    
+        margin-top: 0;
+        margin-left: 2.5rem;
+    }
+
+    svg {
+        width: 12rem;
+        height: 6rem;
+    }
+    svg path,
+    svg line,
+    svg rect,
+    svg circle {
+        stroke: $brand-color-1;
+        fill: none;
+    }
+}
+.overview__item-content {
+    margin-right: 2.5rem;
+    margin-bottom: 2.5rem;
+    margin-left: 2.5rem;
+    color: $text-color;
+    text-align: center;
+
+    @include breakpoint('m') {
+        width: 30rem;
+    }
+    @include breakpoint('l') {  
+        align-self: flex-start;
+        width: 40rem;
+        margin-top: 5rem;
+        margin-right: 5rem;
+        margin-bottom: 4rem;
+        margin-left: 0;
+        text-align: left;
+    }
+}
