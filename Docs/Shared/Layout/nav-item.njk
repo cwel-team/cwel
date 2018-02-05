@@ -6,11 +6,11 @@
 <span ng-if="items">
     <p class="main-nav__item-heading" ng-click="open=!open">
         {{ text }}
-        <span class="main-nav__item-icon" ng-class="{'heading__icon--open': open }">
+        <span class="main-nav__item-icon" ng-class="{'heading__icon--open': open || filter }">
              {% include '../asset/img/icon/keyboard-arrow-up.svg' %}
         </span>
     </p>
-    <ul class="main-nav__list" ng-class="{'main-nav__list--open': open}">
+    <ul class="main-nav__list" ng-class="{'main-nav__list--open': open || filter}">
         <span ng-if="name != 'component'">
             <li class="main-nav__list-item" ng-repeat="item in items">
                <a class="main-nav__list-item-link" ui-sref="nested({ type: name, name: item.name })" ui-sref-active="active">{{ item.text }}</a>

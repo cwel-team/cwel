@@ -16,7 +16,7 @@
     </div>
     <div class="side-bar__bottom-container">
         <ul class="main-nav">
-            <li class="main-nav__item" navitem ng-repeat="page in pages | filter:searchText" text="page.text" items="page.items" name="page.name"></li>
+            <li class="main-nav__item" navitem ng-repeat="page in pages | filter:searchText" filter="searchText" text="page.text" items="page.items" name="page.name"></li>
         </ul>
         <div class="side-bar__links">
             <a href="" target"_blank" class="button button--icon">

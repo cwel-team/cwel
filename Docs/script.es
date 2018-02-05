@@ -78,6 +78,7 @@ app.directive('navitem', ($rootScope) => {
             text: '=',
             items: '=',
             name: '=',
+            filter: '=',
         },
         templateUrl: 'shared/layout/nav-item.html',
         link(scope, element) { }
