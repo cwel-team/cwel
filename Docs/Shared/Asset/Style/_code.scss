@@ -1,4 +1,8 @@
-
+code {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    background: $color-grey;
+}
 pre {
     padding-top: 2rem;
     padding-right: 2rem;
@@ -11,6 +15,11 @@ pre {
     border-style: solid;
     border-color: $color-grey;
     border-left-width: 3rem;
+
+    code {
+        padding: 0;
+        background: none;
+    }
 }
 code[class*='language-'],
 pre[class*='language-'] {

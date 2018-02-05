@@ -16,6 +16,11 @@
         padding: $SPACE-S;
         padding-right: $SPACE-S;
     }
+
+    code {
+        padding: 0;
+        background: none;
+    }
 }
 
 .block--fill {
