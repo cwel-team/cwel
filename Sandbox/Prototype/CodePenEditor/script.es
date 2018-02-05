@@ -15,9 +15,10 @@ app.directive('docsExample', (CwomponentFactory) => {
                 css: '',
                 css_pre_processor: 'scss',
                 css_starter: 'neither',
+                css_external: 'https://codepen.io/dstuessy/pen/d01874457659b3ab442c82aed7348443',
                 js: '',
                 js_pre_processor: 'babel',
-                css_external: 'https://codepen.io/dstuessy/pen/d01874457659b3ab442c82aed7348443',
+                js_external: 'https://codepen.io/dstuessy/pen/d01874457659b3ab442c82aed7348443',
             };
         },
     });
