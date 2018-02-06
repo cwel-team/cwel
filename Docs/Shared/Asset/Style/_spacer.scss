@@ -1,0 +1,39 @@
+@mixin space($size) {
+    width: $size;
+    height: $size;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-width: 2px; // stylelint-disable-line
+    border-style: solid;
+}
+
+.spacer-xxs {
+    @include space($SPACE-XXS);
+    background: rgba(255, 0, 187, 0.2);
+    border-color: rgba(255, 0, 187, 1);
+}
+.spacer-xs {
+    @include space($SPACE-XS);
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 1);
+}
+.spacer-s {
+    @include space($SPACE-S);
+    background: rgba(170, 141, 72, 0.2);
+    border-color: rgba(170, 141, 72, 1);
+}
+.spacer-m {
+    @include space($SPACE-M);
+    background: rgba(0, 211, 255, 0.2);
+    border-color: rgba(0, 211, 255, 1);
+}
+.spacer-l {
+    @include space($SPACE-L);
+    background: rgba(0, 255, 136, 0.2);
+    border-color: rgba(0, 255, 136, 1);
+}
+.spacer-xl {
+    @include space($SPACE-XL);
+    background: rgba(255, 0, 187, 0.2);
+    border-color: rgba(255, 0, 187, 1);
+}
