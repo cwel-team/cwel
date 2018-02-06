@@ -145,7 +145,7 @@ app.service('contentful', ($rootScope) => {
 });
 
 app.controller('content', ($scope, $stateParams, contentful) => {
-    contentful.getPageData($stateParams.name, 'guide', (res) => {
+    contentful.getPageData($stateParams.name, $stateParams.type, (res) => {
         $scope.markedRender = markedRender;
         $scope.title = res.title;
         $scope.body =  res.body;
