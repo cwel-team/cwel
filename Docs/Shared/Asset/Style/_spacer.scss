@@ -1,0 +1,32 @@
+.spacer-xxs {
+    width: $SPACE-XXS;
+    height: $SPACE-XXS;
+    background: lighten(#ff00bb, 10%);
+    border-width: 2px; // stylelint-disable-line
+    border-style: solid;
+    border-color: #ff00bb;
+}
+.spacer-xs {
+    width: $SPACE-XS;
+    height: $SPACE-XS;
+}
+.spacer-s {
+    width: $SPACE-S;
+    height: $SPACE-S;
+}
+.spacer-m {
+    width: $SPACE-M;
+    height: $SPACE-M;
+}
+.spacer-L {
+    width: $SPACE-L;
+    height: $SPACE-L;
+}
+.spacer-xl {
+    width: $SPACE-XL;
+    height: $SPACE-XL;
+    background: lighten(#55aa82, 10%);
+    border-width: 2px; // stylelint-disable-line
+    border-style: solid;
+    border-color: #55aa82;
+}
