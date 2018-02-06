@@ -1,32 +1,39 @@
-.spacer-xxs {
-    width: $SPACE-XXS;
-    height: $SPACE-XXS;
-    background: lighten(#ff00bb, 10%);
+@mixin space($size) {
+    width: $size;
+    height: $size;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     border-width: 2px; // stylelint-disable-line
     border-style: solid;
-    border-color: #ff00bb;
+}
+
+.spacer-xxs {
+    @include space($SPACE-XXS);
+    background: rgba(255, 0, 187, 0.2);
+    border-color: rgba(255, 0, 187, 1);
 }
 .spacer-xs {
-    width: $SPACE-XS;
-    height: $SPACE-XS;
+    @include space($SPACE-XS);
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 1);
 }
 .spacer-s {
-    width: $SPACE-S;
-    height: $SPACE-S;
+    @include space($SPACE-S);
+    background: rgba(170, 141, 72, 0.2);
+    border-color: rgba(170, 141, 72, 1);
 }
 .spacer-m {
-    width: $SPACE-M;
-    height: $SPACE-M;
+    @include space($SPACE-M);
+    background: rgba(0, 211, 255, 0.2);
+    border-color: rgba(0, 211, 255, 1);
 }
-.spacer-L {
-    width: $SPACE-L;
-    height: $SPACE-L;
+.spacer-l {
+    @include space($SPACE-L);
+    background: rgba(0, 255, 136, 0.2);
+    border-color: rgba(0, 255, 136, 1);
 }
 .spacer-xl {
-    width: $SPACE-XL;
-    height: $SPACE-XL;
-    background: lighten(#55aa82, 10%);
-    border-width: 2px; // stylelint-disable-line
-    border-style: solid;
-    border-color: #55aa82;
+    @include space($SPACE-XL);
+    background: rgba(255, 0, 187, 0.2);
+    border-color: rgba(255, 0, 187, 1);
 }
