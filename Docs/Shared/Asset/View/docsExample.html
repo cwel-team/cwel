@@ -1,0 +1,36 @@
+<ul class="docs-example__tabs">
+    <li class="docs-example__tab">
+        <a class="docs-example__tab-link" ng-click="show = 'html'" ng-class="{ 'docs-example__tab-link--active': show == 'html' }">HTML</a>
+    </li>
+    <li class="docs-example__tab">
+        <a class="docs-example__tab-link" ng-click="show = 'css'" ng-class="{ 'docs-example__tab-link--active': show == 'css' }">SCSS</a>
+    </li>
+    <li class="docs-example__tab">
+        <a class="docs-example__tab-link" ng-click="show = 'js'" ng-class="{ 'docs-example__tab-link--active': show == 'js' }">JavaScript</a>
+    </li>
+</ul>
+
+<div class="docs-example__panels" ng-class="{
+    'docs-example__panels--expanded': expanded && expandable,
+}">
+    <form class="docs-example__code-pen" action="https://codepen.io/pen/define" method="POST" target="_blank">
+        <input type="hidden" name="data" value="{{ data }}">
+        <button class="docs-example__code-pen-submit" type="submit" title="Explore in Code Pen">
+            <svg width="256" height="256" class="docs-example__code-pen-icon" viewBox="0 0 14 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M7 10h4v1H7v-1zm-3 1l3-3-3-3-.75.75L5.5 8l-2.25 2.25L4 11zm10-8v10c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h12c.55 0 1 .45 1 1zm-1 0H1v10h12V3z"></path></svg>
+        </button>
+    </form>
+
+    <pre class="docs-example__panel" rows="12" cols="80" ng-show="show === 'html'">
+<code class="language-html" ng-bind-html="highlight(data.html, 'html')"></code>
+    </pre>
+
+    <pre class="docs-example__panel" rows="12" cols="80" ng-show="show === 'css'">
+<code class="language-css" ng-bind-html="highlight(data.css, 'css')"></code>
+    </pre>
+
+    <pre class="docs-example__panel" rows="12" cols="80" ng-show="show === 'js'">
+<code class="language-js" ng-bind-html="highlight(data.js, 'js')"></code>
+    </pre>
+</div>
+
+<button class="docs-example__expand" ng-click="expanded = !expanded" ng-disabled="!expandable" ng-class="{ 'docs-example__expand--disabled': !expandable }">{{ !expanded ? 'More' : 'Less' }}</button>

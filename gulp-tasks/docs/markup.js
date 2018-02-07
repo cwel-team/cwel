@@ -3,9 +3,7 @@ const path              = require('path');
 const renderPage        = require('../../gulp-lib/docs/renderPage');
 
 module.exports = () => gulp.src([
-    'Docs/**/*.njk',
-    'Cwel/Component/**/*.html',
-    'Cwel/Pattern/**/*.html',
+    'Docs/**/*.{njk,html}',
 ])
 .pipe(renderPage([
     path.join(process.cwd(), 'Docs'),

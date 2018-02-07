@@ -22,8 +22,8 @@ gulp.task('watch', ['dev'], (done) => {
     // Watch Docs
     gulp.watch([
         'Docs/**/*.doc.md',
-        'Docs/**/*.nunjucks',
-        'Docs/**/*.njk',
+        'Docs/**/*.{njk,nunjucks}',
+        'Docs/**/*.html',
     ], () => gulpSequence(
         'docs:markup')(() => multiSync.reload()));
     gulp.watch([

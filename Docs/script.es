@@ -1,5 +1,6 @@
 import '../Cwel/Script/main';
 import app from './Shared/Asset/Script/site';
+import './Shared/Asset/Script/docsExample';
 
 const contentful = require('contentful');
 const marked = require('marked');
@@ -56,7 +57,7 @@ const render_plain = function () {
     render.image = function (href, title, text) {
         return '';
     };
-    
+
     return render;
 }
 
@@ -138,7 +139,7 @@ app.service('contentful', ($rootScope) => {
 
             })
             .catch(console.error)
-            
+
         }
     }
     return new Contentful;
@@ -195,7 +196,7 @@ app.config(function($stateProvider, $urlRouterProvider, $qProvider) {
             templateUrl: './templates/component',
             controller: 'component'
         })
-        
+
         .state('tab', {
             url: '/component/:name/:tab',
             templateUrl: './templates/component',
@@ -222,4 +223,3 @@ app.config(function($stateProvider, $urlRouterProvider, $qProvider) {
 
     $qProvider.errorOnUnhandledRejections(false);
 })
-

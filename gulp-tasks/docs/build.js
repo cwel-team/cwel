@@ -4,4 +4,5 @@ module.exports = done => gulpSequence(
     'docs:markup',
     'docs:script',
     'docs:style',
-    'docs:image')(done);
+    'docs:image',
+    'docs:component:copy')(done);
