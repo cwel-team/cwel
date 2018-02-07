@@ -16,7 +16,9 @@ gulp.task('test-e2e', done => gulpSequence(['sandbox:build', 'test:e2e:build'], 
 
 gulp.task('test-visual', done => gulpSequence(['sandbox:build', 'test:visual:run'])(done));
 
-gulp.task('watch', ['dev'], (done) => {
+gulp.task('lint', done => gulpSequence('lint:style', 'lint:script')(done));
+
+gulp.task('watch', ['lint', 'dev'], (done) => {
     multiSync.init();
 
     // Watch Docs
@@ -29,11 +31,13 @@ gulp.task('watch', ['dev'], (done) => {
     gulp.watch([
         'Docs/**/*.scss',
     ], () => gulpSequence(
-        'docs:style')(() => multiSync.reload()));
+        'docs:style',
+        'lint:style')(() => multiSync.reload()));
     gulp.watch([
         'Docs/**/*.es',
     ], () => gulpSequence(
-        'docs:script')(() => multiSync.reload()));
+        'docs:script',
+        'lint:script')(() => multiSync.reload()));
 
     // Watch Sandbox
     gulp.watch([
@@ -45,12 +49,14 @@ gulp.task('watch', ['dev'], (done) => {
         'Cwel/**/*.scss',
         'Sandbox/**/*.scss',
     ], () => gulpSequence(
-        'sandbox:style')(() => multiSync.reload()));
+        'sandbox:style',
+        'lint:style')(() => multiSync.reload()));
     gulp.watch([
         'Cwel/**/*.es',
         'Sandbox/**/*.es',
     ], () => gulpSequence(
-        'sandbox:script')(() => multiSync.reload()));
+        'sandbox:script',
+        'lint:script')(() => multiSync.reload()));
 
     done();
 });

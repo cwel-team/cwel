@@ -14,14 +14,14 @@ const { argv } = yargs
 // const hostname = argv.host.replace(/\/$/, '');
 const dumpDest = argv.dump || 'tmp/test/e2e/report';
 const dumpArgs = dumpDest
-? ['--params.dump', dumpDest]
-: [];
+    ? ['--params.dump', dumpDest]
+    : [];
 const gridArgs = argv.grid
-? ['--params.grid', argv.grid]
-: [];
+    ? ['--params.grid', argv.grid]
+    : [];
 const suiteArgs = argv.suite
-? ['--params.suite', argv.suite]
-: [];
+    ? ['--params.suite', argv.suite]
+    : [];
 const args = [
     '--params.host', argv.host,
     ...suiteArgs,

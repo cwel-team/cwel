@@ -5,7 +5,7 @@ const path              = require('path');
 const options = require(path.join(process.cwd(), 'gulp-lib', 'options')); // eslint-disable-line
 
 module.exports = (paths) => {
-    const env = nunjucks.configure(paths || [], options.nunjucks);
+    nunjucks.configure(paths || [], options.nunjucks);
 
     // render the nunjucks template
     return through.obj((file, encoding, cb) => {

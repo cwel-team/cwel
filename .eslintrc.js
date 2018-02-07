@@ -3,7 +3,7 @@ module.exports = {
     'settings': {
         'import/extensions': ['.js', '.es'],
         'import/resolver': {
-            './gulp/lib/lint/es-resolver.js': [],
+            './gulp-lib/es-resolver.js': [],
         }
     },
     'rules': {
