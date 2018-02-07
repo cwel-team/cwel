@@ -14,7 +14,7 @@
     "gulp-inspect": "node --inspect --inspect-brk node_modules\\gulp\\bin\\gulp.js",
     "install": "node -e \"process.env.NODE_ENV !== 'production' && process.exit(1)\" || node node_modules\\protractor\\node_modules\\webdriver-manager\\bin\\webdriver-manager update --versions.standalone=3.5.3",
     "precommit": "gulp lint --color",
-    "docs-copy": "cp -r tmp/docs/internal dist/docs",
+    "docs-copy": "cp -r tmp/docs dist/docs",
     "docs-deploy": "git subtree push --prefix dist/docs origin gh-pages"
   },
   "author": "",

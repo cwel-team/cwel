@@ -1,0 +1,21 @@
+/* stylelint-disable */
+
+$cwel-card---bg-color: white !default;
+$cwel-card---box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.1) !default;
+$cwel-card-slider__cwel-card---border-color: rgba(0, 0, 0, 0.1) !default;
+
+
+.cwel-card {
+    padding: $SPACE-M;
+    background-color: $cwel-card---bg-color;
+    box-shadow: $cwel-card---box-shadow;
+
+    .cwel-card-slider & {
+        width: 100%;
+        height: 100%;
+        border-style: solid;
+        border-width: 1px;
+        border-color: $cwel-card-slider__cwel-card---border-color;
+        box-shadow: none;
+    }
+}
