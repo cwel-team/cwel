@@ -31,11 +31,13 @@ gulp.task('watch', ['lint', 'dev'], (done) => {
     gulp.watch([
         'Docs/**/*.scss',
     ], () => gulpSequence(
-        'docs:style')(() => multiSync.reload()));
+        'docs:style',
+        'lint:style')(() => multiSync.reload()));
     gulp.watch([
         'Docs/**/*.es',
     ], () => gulpSequence(
-        'docs:script')(() => multiSync.reload()));
+        'docs:script',
+        'lint:script')(() => multiSync.reload()));
 
     // Watch Sandbox
     gulp.watch([
@@ -47,12 +49,14 @@ gulp.task('watch', ['lint', 'dev'], (done) => {
         'Cwel/**/*.scss',
         'Sandbox/**/*.scss',
     ], () => gulpSequence(
-        'sandbox:style')(() => multiSync.reload()));
+        'sandbox:style',
+        'lint:style')(() => multiSync.reload()));
     gulp.watch([
         'Cwel/**/*.es',
         'Sandbox/**/*.es',
     ], () => gulpSequence(
-        'sandbox:script')(() => multiSync.reload()));
+        'sandbox:script',
+        'lint:script')(() => multiSync.reload()));
 
     done();
 });
