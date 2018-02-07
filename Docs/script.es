@@ -6,20 +6,20 @@ const marked = require('marked');
 const prism = require('prismjs');
 
 // Markdown render helpers
-const htmlEscapeToText = function (text) {
-    return text.replace(/\&\#[0-9]*;|&amp;/g, function (escapeCode) {
+const htmlEscapeToText = (text) => {
+    return text.replace(/\[0-9]*;|&amp;/g, (escapeCode) => {
         if (escapeCode.match(/amp/)) {
             return '&';
         }
         return String.fromCharCode(escapeCode.match(/[0-9]+/));
     });
-}
+};
 
-const render_plain = function () {
-    var render = new marked.Renderer();
+const renderMarkdown = () => {
+    const render = new marked.Renderer();
 
     render.code = (text, language) => {
-        const html = Prism.highlight(text, Prism.languages[language] || '');
+        const html = prism.highlight(text, prism.languages[language] || '');
         return `<pre ng-non-bindable><code class="language-${language}">${html}</code></pre>`;
     };
 
@@ -30,49 +30,44 @@ const render_plain = function () {
             <tbody>${body}</tbody>
         </table>`;
     };
-    render.link = function (href, title, text) {
-        return '<a href="' + href + '">' + text + '</a>';
+    render.link = (href, title, text) => {
+        return `<a href="${  href  }">${  text  }</a>`;
     };
 
-    render.paragraph = function (text) {
-        return htmlEscapeToText(text)+'\r\n';
+    render.paragraph = (text) => {
+        return `${htmlEscapeToText(text)}\r\n`;
     };
 
-    render.heading = function (text, level) {
-        if (level == 1) {
-            return '<h1 class="h1"><span class="h1__text">' + text + '<span></h1>'
+    render.heading = (text, level) => {
+        if (level === 1) {
+            return `<h1 class="h1"><span class="h1__text">${  text  }<span></h1>`;
         }
-        if (level == 2) {
-            return '<h2 class="h2"><span class="h2__text">' + text + '</span></h2>'
+        if (level === 2) {
+            return `<h2 class="h2"><span class="h2__text">${  text  }</span></h2>`;
         }
-        if (level == 3) {
-            return '<h3>' + text + '</h3>'
-        }
-        if (level == 4) {
-            return '<h4>' + text + '</h4>'
-        }
+        return `<h${ level }>${  text  }</h${ level }>`;
     };
 
-    render.image = function (href, title, text) {
+    render.image = () => {
         return '';
     };
-    
+
     return render;
-}
+};
 
 function markedRender(body) {
     return marked(body, {
-        renderer: render_plain()
+        renderer: renderMarkdown(),
     });
 }
 
 // Date
 app.controller('docs', ($scope) => {
     $scope.date = new Date();
-})
+});
 
 // Nav
-app.directive('navitem', ($rootScope) => {
+app.directive('navitem', () => {
     return {
         scope: {
             text: '=',
@@ -81,26 +76,26 @@ app.directive('navitem', ($rootScope) => {
             filter: '=',
         },
         templateUrl: 'shared/layout/nav-item.html',
-        link(scope, element) { }
-    }
+        link() { },
+    };
 });
 
 // Contentful
 const client = contentful.createClient({
-  space: 'yxnc72m9rwc9',
-  accessToken: 'becc6f5bad7201fc61c75cca9ef657609a3599aae89b5cd5ed215f9f7656cdca',
-  resolveLinks: true
-})
+    space: 'yxnc72m9rwc9',
+    accessToken: 'becc6f5bad7201fc61c75cca9ef657609a3599aae89b5cd5ed215f9f7656cdca',
+    resolveLinks: true,
+});
 
-app.service('contentful', ($rootScope) => {
-    class Contentful {
+app.factory('contentfulData', ($rootScope) => {
+    return {
         getContentTypes(callback) {
             client.getContentTypes()
             .then((res) => {
                 $rootScope.$applyAsync(() => callback(res.items));
             })
-            .catch(console.error)
-        }
+            .catch(console.error);
+        },
         getPageData(name, type, callback) {
             client.getEntries({
                 content_type: type,
@@ -109,43 +104,38 @@ app.service('contentful', ($rootScope) => {
             .then((res) => {
                 $rootScope.$applyAsync(() => callback(res.items[0].fields));
             })
-            .catch(console.error)
-        }
+            .catch(console.error);
+        },
         getPageLinks(callback) {
             client.getEntry('2xvviTT5768UOcCMYwskCA') // Nav ID
             .then((configRes) => {
-
                 client.getEntries({
                     content_type: 'component',
                     select: 'fields.name,fields.title',
                 })
                 .then((componentRes) => {
                     $rootScope.$applyAsync(() => {
-                        let config = configRes.fields.config;
-
-                        for (let item of config) {
+                        const config = configRes.fields.config;
+                        config.forEach((item) => {
                             if (item.name === 'component') {
-                                item.items = componentRes.items.map(item => {
-                                    item.fields.text = item.fields.title;
-                                    return item.fields;
+                                item.items = componentRes.items.map((itemRes) => {
+                                    itemRes.fields.text = itemRes.fields.title;
+                                    return itemRes.fields;
                                 });
                             }
-                        }
+                        });
                         callback(config);
-                    })
+                    });
                 })
-                .catch(console.error)
-
+                .catch(console.error);
             })
-            .catch(console.error)
-            
-        }
-    }
-    return new Contentful;
+            .catch(console.error);
+        },
+    };
 });
 
-app.controller('content', ($scope, $stateParams, contentful) => {
-    contentful.getPageData($stateParams.name, $stateParams.type || 'guide', (res) => {
+app.controller('content', ($scope, $stateParams, contentfulData) => {
+    contentfulData.getPageData($stateParams.name, $stateParams.type || 'guide', (res) => {
         $scope.markedRender = markedRender;
         $scope.title = res.title;
         $scope.body =  res.body;
@@ -153,8 +143,8 @@ app.controller('content', ($scope, $stateParams, contentful) => {
     });
 });
 
-app.controller('component', ($scope, $stateParams, contentful) => {
-    contentful.getPageData($stateParams.name, 'component', (res) => {
+app.controller('component', ($scope, $stateParams, contentfulData) => {
+    contentfulData.getPageData($stateParams.name, 'component', (res) => {
         $scope.markedRender = markedRender;
         $scope.name = res.name;
         $scope.title = res.title;
@@ -163,10 +153,10 @@ app.controller('component', ($scope, $stateParams, contentful) => {
 
         $scope.tabVisible = (item) => {
             $scope.hideTab = !res[item];
-        }
+        };
 
         if (!$stateParams.tab) {
-            for (let i=0; i < $scope.items.length; i++) {
+            for (let i = 0; i < $scope.items.length; i += 1) {
                 if (res[$scope.items[i]] != null) {
                     $scope.activeTab = $scope.items[i];
                     $scope.body = res[$scope.items[i]];
@@ -178,48 +168,48 @@ app.controller('component', ($scope, $stateParams, contentful) => {
     });
 });
 
-app.controller('navRender', ($scope, contentful) => {
+app.controller('navRender', ($scope, contentfulData) => {
     $scope.pages = [];
-    contentful.getPageLinks((res) => {
+    contentfulData.getPageLinks((res) => {
         $scope.pages = $scope.pages.concat(res);
     });
-})
+});
 
 // Routing
-app.config(function($stateProvider, $urlRouterProvider, $qProvider) {
-    $urlRouterProvider.otherwise('/')
+app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
+    $urlRouterProvider.otherwise('/');
     $stateProvider
 
-        .state('component', {
-            url: '/component/:name',
-            templateUrl: './templates/component',
-            controller: 'component'
-        })
-        
-        .state('tab', {
-            url: '/component/:name/:tab',
-            templateUrl: './templates/component',
-            controller: 'component'
-        })
+    .state('component', {
+        url: '/component/:name',
+        templateUrl: './templates/component',
+        controller: 'component',
+    })
 
-        .state('nested', {
-            url: '/:type/:name',
-            templateUrl: './templates/content',
-            controller: 'content'
-        })
+    .state('tab', {
+        url: '/component/:name/:tab',
+        templateUrl: './templates/component',
+        controller: 'component',
+    })
 
-        .state('page', {
-            url: '/{name:[^/]+}',
-            templateUrl: './templates/content',
-            controller: 'content'
-        })
+    .state('nested', {
+        url: '/:type/:name',
+        templateUrl: './templates/content',
+        controller: 'content',
+    })
 
-        .state('landing', {
-            url: '/',
-            templateUrl: './templates/landing',
-            controller: function() {}
-        })
+    .state('page', {
+        url: '/{name:[^/]+}',
+        templateUrl: './templates/content',
+        controller: 'content',
+    })
+
+    .state('landing', {
+        url: '/',
+        templateUrl: './templates/landing',
+        controller() {},
+    });
 
     $qProvider.errorOnUnhandledRejections(false);
-})
+});
 

@@ -16,7 +16,9 @@ gulp.task('test-e2e', done => gulpSequence(['sandbox:build', 'test:e2e:build'], 
 
 gulp.task('test-visual', done => gulpSequence(['sandbox:build', 'test:visual:run'])(done));
 
-gulp.task('watch', ['dev'], (done) => {
+gulp.task('lint', done => gulpSequence('lint:style', 'lint:script')(done));
+
+gulp.task('watch', ['lint', 'dev'], (done) => {
     multiSync.init();
 
     // Watch Docs
