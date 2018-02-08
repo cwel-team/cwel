@@ -16,7 +16,7 @@ const { argv } = yargs
 })
 .option('host', {
     type: 'string',
-    default: 'http://localhost:3000/',
+    default: 'http://localhost:3030/',
 })
 .option('dump', {
     type: 'string',
