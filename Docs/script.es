@@ -76,7 +76,7 @@ app.directive('navitem', () => {
             name: '=',
             filter: '=',
         },
-        templateUrl: 'shared/layout/nav-item.html',
+        templateUrl: 'Shared/Layout/nav-item.html',
         link() { },
     };
 });
@@ -183,31 +183,31 @@ app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
 
     .state('component', {
         url: '/component/:name',
-        templateUrl: './templates/component',
+        templateUrl: './Templates/Component',
         controller: 'component',
     })
 
     .state('tab', {
         url: '/component/:name/:tab',
-        templateUrl: './templates/component',
+        templateUrl: './Templates/Component',
         controller: 'component',
     })
 
     .state('nested', {
         url: '/:type/:name',
-        templateUrl: './templates/content',
+        templateUrl: './Templates/Content',
         controller: 'content',
     })
 
     .state('page', {
         url: '/{name:[^/]+}',
-        templateUrl: './templates/content',
+        templateUrl: './Templates/Content',
         controller: 'content',
     })
 
     .state('landing', {
         url: '/',
-        templateUrl: './templates/landing',
+        templateUrl: './Templates/Landing',
         controller() {},
     });
 
