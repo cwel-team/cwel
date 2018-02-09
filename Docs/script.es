@@ -87,7 +87,7 @@ const client = contentful.createClient({
     resolveLinks: true,
 });
 
-app.factory('contentfulData', ($rootScope) => {
+app.factory('contentfulService', ($rootScope) => {
     return {
         getContentTypes(callback) {
             client.getContentTypes()
@@ -96,15 +96,11 @@ app.factory('contentfulData', ($rootScope) => {
             })
             .catch(console.error);
         },
-        getPageData(name, type, callback) {
-            client.getEntries({
+        getPageData(name, type) {
+            return client.getEntries({
                 content_type: type,
                 'fields.name': name,
-            })
-            .then((res) => {
-                $rootScope.$applyAsync(() => callback(res.items[0].fields));
-            })
-            .catch(console.error);
+            });
         },
         getPageLinks(callback) {
             client.getEntry('2xvviTT5768UOcCMYwskCA') // Nav ID
@@ -134,8 +130,8 @@ app.factory('contentfulData', ($rootScope) => {
     };
 });
 
-app.controller('content', ($scope, $stateParams, contentfulData) => {
-    contentfulData.getPageData($stateParams.name, $stateParams.type || 'guide', (res) => {
+app.controller('content', ($scope, $stateParams, contentfulService) => {
+    contentfulService.getPageData($stateParams.name, $stateParams.type || 'guide', (res) => {
         $scope.markedRender = markedRender;
         $scope.title = res.title;
         $scope.body =  res.body;
@@ -143,34 +139,31 @@ app.controller('content', ($scope, $stateParams, contentfulData) => {
     });
 });
 
-app.controller('component', ($scope, $stateParams, contentfulData) => {
-    contentfulData.getPageData($stateParams.name, 'component', (res) => {
-        $scope.markedRender = markedRender;
-        $scope.name = res.name;
-        $scope.title = res.title;
-        $scope.type = 'component';
-        $scope.items = ['code', 'usage', 'design', 'service'];
+app.controller('component', ($scope, $state, $stateParams, contentfulData) => {
+    $scope.markedRender = markedRender;
+    $scope.name = contentfulData.name;
+    $scope.title = contentfulData.title;
+    $scope.type = 'component';
+    $scope.items = ['code', 'usage', 'design', 'service'];
 
-        $scope.tabVisible = (item) => {
-            $scope.hideTab = !res[item];
-        };
+    $scope.tabVisible = (item) => {
+        $scope.hideTab = !contentfulData[item];
+    };
 
-        if (!$stateParams.tab) {
-            for (let i = 0; i < $scope.items.length; i += 1) {
-                if (res[$scope.items[i]] != null) {
-                    $scope.activeTab = $scope.items[i];
-                    $scope.body = res[$scope.items[i]];
-                    return;
-                }
+    if (!$stateParams.tab) {
+        for (let i = 0; i < $scope.items.length; i += 1) {
+            if (contentfulData[$scope.items[i]] != null) {
+                $state.go('component.tab', { tab: $scope.items[i] });
+                return;
             }
         }
-        $scope.body = res[$stateParams.tab];
-    });
+    }
+    $scope.body = contentfulData[$stateParams.tab];
 });
 
-app.controller('navRender', ($scope, contentfulData) => {
+app.controller('navRender', ($scope, contentfulService) => {
     $scope.pages = [];
-    contentfulData.getPageLinks((res) => {
+    contentfulService.getPageLinks((res) => {
         $scope.pages = $scope.pages.concat(res);
     });
 });
@@ -178,38 +171,44 @@ app.controller('navRender', ($scope, contentfulData) => {
 // Routing
 app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
     $urlRouterProvider.otherwise('/');
-    $stateProvider
 
+    $stateProvider
     .state('component', {
         url: '/component/:name',
-        templateUrl: './templates/component',
+        templateUrl: '/templates/component',
+        resolve: {
+            contentfulData: (contentfulService, $stateParams) => {
+                return contentfulService.getPageData($stateParams.name, 'component').then(res => res.items[0].fields);
+            },
+        },
         controller: 'component',
     })
 
-    .state('tab', {
-        url: '/component/:name/:tab',
-        templateUrl: './templates/component',
+    .state('component.tab', {
+        url: '/:tab',
+        template: '<div class="container container--docs" ng-bind-html="markedRender(body)"></div>',
         controller: 'component',
     })
 
     .state('nested', {
         url: '/:type/:name',
-        templateUrl: './templates/content',
+        templateUrl: '/templates/content',
         controller: 'content',
     })
 
     .state('page', {
         url: '/{name:[^/]+}',
-        templateUrl: './templates/content',
+        templateUrl: '/templates/content',
         controller: 'content',
     })
 
     .state('landing', {
         url: '/',
-        templateUrl: './templates/landing',
-        controller() {},
+        templateUrl: '/templates/landing',
     });
 
     $qProvider.errorOnUnhandledRejections(false);
+})
+.run(($rootScope) => {
+    $rootScope.loaded = true;
 });
-
