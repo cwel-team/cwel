@@ -5,40 +5,40 @@ const contentful = require('contentful');
 const marked = require('marked');
 const prism = require('prismjs');
 
-// Markdown render helpers
-const htmlEscapeToText = (text) => {
-    return text.replace(/\[0-9]*;|&amp;/g, (escapeCode) => {
-        if (escapeCode.match(/amp/)) {
-            return '&';
-        }
-        return String.fromCharCode(escapeCode.match(/[0-9]+/));
-    });
-};
+app.factory('markdownService', () => {
+    const renderer = new marked.Renderer();
 
-const renderMarkdown = () => {
-    const render = new marked.Renderer();
+    // Markdown render helpers
+    function htmlEscapeToText(text) {
+        return text.replace(/\[0-9]*;|&amp;/g, (escapeCode) => {
+            if (escapeCode.match(/amp/)) {
+                return '&';
+            }
+            return String.fromCharCode(escapeCode.match(/[0-9]+/));
+        });
+    }
 
-    render.code = (text, language) => {
+    renderer.code = (text, language) => {
         const html = prism.highlight(text, prism.languages[language] || '');
         return `<pre ng-non-bindable><code class="language-${language}">${html}</code></pre>`;
     };
 
-    render.table = (header, body) => {
+    renderer.table = (header, body) => {
         return `
         <table class="table">
             <thead>${header}</thead>
             <tbody>${body}</tbody>
         </table>`;
     };
-    render.link = (href, title, text) => {
+    renderer.link = (href, title, text) => {
         return `<a href="${  href  }">${  text  }</a>`;
     };
 
-    render.paragraph = (text) => {
+    renderer.paragraph = (text) => {
         return `${htmlEscapeToText(text)}\r\n`;
     };
 
-    render.heading = (text, level) => {
+    renderer.heading = (text, level) => {
         if (level === 1) {
             return `<h1 class="h1"><span class="h1__text">${  text  }<span></h1>`;
         }
@@ -48,18 +48,19 @@ const renderMarkdown = () => {
         return `<h${ level }>${  text  }</h${ level }>`;
     };
 
-    render.image = () => {
+    renderer.image = () => {
         return '';
     };
 
-    return render;
-};
-
-function markedRender(body) {
-    return marked(body, {
-        renderer: renderMarkdown(),
-    });
-}
+    return {
+        render(body) {
+            if (!body) return '';
+            return marked(body, {
+                renderer,
+            });
+        },
+    };
+});
 
 // Date
 app.controller('docs', ($scope) => {
@@ -76,31 +77,39 @@ app.directive('navitem', () => {
             filter: '=',
         },
         templateUrl: 'shared/layout/nav-item.html',
-        link() { },
     };
 });
 
-// Contentful
-const client = contentful.createClient({
-    space: 'yxnc72m9rwc9',
-    accessToken: 'becc6f5bad7201fc61c75cca9ef657609a3599aae89b5cd5ed215f9f7656cdca',
-    resolveLinks: true,
+app.service('promiseApply', ($rootScope, $q) => {
+    return (promise) => {
+        const deferred = $q.defer();
+        promise.then(val => $rootScope.$apply(() => deferred.resolve(val)));
+        return deferred.promise;
+    };
 });
 
-app.factory('contentfulService', ($rootScope) => {
+app.factory('contentfulService', ($rootScope, promiseApply) => {
+    // Contentful
+    const client = contentful.createClient({
+        space: 'yxnc72m9rwc9',
+        accessToken: 'becc6f5bad7201fc61c75cca9ef657609a3599aae89b5cd5ed215f9f7656cdca',
+        resolveLinks: true,
+    });
+
     return {
-        getContentTypes(callback) {
-            client.getContentTypes()
-            .then((res) => {
-                $rootScope.$applyAsync(() => callback(res.items));
-            })
-            .catch(console.error);
+        getContentTypes() {
+            return promiseApply(
+                client.getContentTypes()
+                .catch(console.error));
         },
         getPageData(name, type) {
-            return client.getEntries({
-                content_type: type,
-                'fields.name': name,
-            });
+            return promiseApply(
+                client.getEntries({
+                    content_type: type,
+                    'fields.name': name,
+                })
+                .then(res => res.items[0].fields)
+                .catch(console.error));
         },
         getPageLinks(callback) {
             client.getEntry('2xvviTT5768UOcCMYwskCA') // Nav ID
@@ -131,34 +140,36 @@ app.factory('contentfulService', ($rootScope) => {
 });
 
 app.controller('content', ($scope, $stateParams, contentfulService) => {
-    contentfulService.getPageData($stateParams.name, $stateParams.type || 'guide', (res) => {
-        $scope.markedRender = markedRender;
-        $scope.title = res.title;
-        $scope.body =  res.body;
+    contentfulService.getPageData($stateParams.name, $stateParams.type || 'guide')
+    .then((content) => {
+        $scope.title = content.title;
+        $scope.body =  content.body;
         $scope.type = $stateParams.type;
     });
 });
 
-app.controller('component', ($scope, $state, $stateParams, contentfulData) => {
-    $scope.markedRender = markedRender;
-    $scope.name = contentfulData.name;
-    $scope.title = contentfulData.title;
-    $scope.type = 'component';
-    $scope.items = ['code', 'usage', 'design', 'service'];
+app.controller('component', ($scope, $state, $stateParams, contentfulService) => {
+    contentfulService.getPageData($stateParams.name, 'component')
+    .then((content) => {
+        $scope.name = content.name;
+        $scope.title = content.title;
+        $scope.type = 'component';
+        $scope.items = ['code', 'usage', 'design', 'service'];
 
-    $scope.tabVisible = (item) => {
-        $scope.hideTab = !contentfulData[item];
-    };
+        $scope.tabVisible = (item) => {
+            $scope.hideTab = !content[item];
+        };
 
-    if (!$stateParams.tab) {
-        for (let i = 0; i < $scope.items.length; i += 1) {
-            if (contentfulData[$scope.items[i]] != null) {
-                $state.go('component.tab', { tab: $scope.items[i] });
-                return;
+        if (!$stateParams.tab) {
+            for (let i = 0; i < $scope.items.length; i += 1) {
+                if (content[$scope.items[i]] != null) {
+                    $state.go('component.tab', { tab: $scope.items[i] });
+                    return;
+                }
             }
         }
-    }
-    $scope.body = contentfulData[$stateParams.tab];
+        $scope.body = content[$stateParams.tab];
+    });
 });
 
 app.controller('navRender', ($scope, contentfulService) => {
@@ -166,6 +177,10 @@ app.controller('navRender', ($scope, contentfulService) => {
     contentfulService.getPageLinks((res) => {
         $scope.pages = $scope.pages.concat(res);
     });
+});
+
+app.filter('markdown', ($sce, markdownService) => {
+    return value => $sce.trustAsHtml(markdownService.render(value));
 });
 
 // Routing
@@ -176,17 +191,12 @@ app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
     .state('component', {
         url: '/component/:name',
         templateUrl: '/templates/component',
-        resolve: {
-            contentfulData: (contentfulService, $stateParams) => {
-                return contentfulService.getPageData($stateParams.name, 'component').then(res => res.items[0].fields);
-            },
-        },
         controller: 'component',
     })
 
     .state('component.tab', {
         url: '/:tab',
-        template: '<div class="container container--docs" ng-bind-html="markedRender(body)"></div>',
+        template: '<div class="container container--docs" ng-bind-html="body | markdown"></div>',
         controller: 'component',
     })
 
