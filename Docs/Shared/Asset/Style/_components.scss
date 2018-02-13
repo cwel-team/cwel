@@ -1,0 +1,29 @@
+.components {
+    @include grid();
+    margin-bottom: 5rem;
+}
+
+.components__item {
+    @include grid-cell((
+        'm': 4,
+        'l': 3
+    ));
+}
+
+.components__item-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 15rem;
+    background: $color-grey;
+}
+
+.components__item-link {
+    text-align: center;
+    text-decoration: none;
+
+    @include breakpoint('m') {
+        text-align: left;
+    }
+}

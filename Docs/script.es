@@ -111,30 +111,35 @@ app.factory('contentfulService', ($rootScope, promiseApply) => {
                 .then(res => res.items[0].fields)
                 .catch(console.error));
         },
-        getPageLinks(callback) {
-            client.getEntry('2xvviTT5768UOcCMYwskCA') // Nav ID
+        getPageLinks() {
+            return promiseApply(client.getEntry('2xvviTT5768UOcCMYwskCA') // Nav ID
             .then((configRes) => {
-                client.getEntries({
+                return client.getEntries({
                     content_type: 'component',
                     select: 'fields.name,fields.title',
                 })
                 .then((componentRes) => {
-                    $rootScope.$applyAsync(() => {
-                        const config = configRes.fields.config;
-                        config.forEach((item) => {
-                            if (item.name === 'component') {
-                                item.items = componentRes.items.map((itemRes) => {
-                                    itemRes.fields.text = itemRes.fields.title;
-                                    return itemRes.fields;
-                                });
-                            }
-                        });
-                        callback(config);
+                    const config = configRes.fields.config;
+                    config.forEach((item) => {
+                        if (item.name === 'component') {
+                            item.items = componentRes.items.map((itemRes) => {
+                                itemRes.fields.text = itemRes.fields.title;
+                                return itemRes.fields;
+                            });
+                        }
                     });
-                })
-                .catch(console.error);
+                    return config;
+                });
             })
-            .catch(console.error);
+            .catch(console.error));
+        },
+        getComponents() {
+            return promiseApply(client.getEntries({
+                content_type: 'component',
+                select: 'fields.name,fields.title',
+            }).then((res) => {
+                return res.items.map(item => item.fields);
+            }));
         },
     };
 });
@@ -172,10 +177,16 @@ app.controller('component', ($scope, $state, $stateParams, contentfulService) =>
     });
 });
 
+app.controller('overview', ($scope, contentfulService) => {
+    contentfulService.getComponents().then((components) => {
+        $scope.components = components;
+    });
+});
+
 app.controller('navRender', ($scope, contentfulService) => {
     $scope.pages = [];
-    contentfulService.getPageLinks((res) => {
-        $scope.pages = $scope.pages.concat(res);
+    contentfulService.getPageLinks().then((content) => {
+        $scope.pages = $scope.pages.concat(content);
     });
 });
 
@@ -183,17 +194,27 @@ app.filter('markdown', ($sce, markdownService) => {
     return value => $sce.trustAsHtml(markdownService.render(value));
 });
 
+app.filter('capitalize', () => {
+    return (input) => {
+        return input ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    };
+});
+
 // Routing
 app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
+    .state('overview', {
+        url: '/component/overview',
+        templateUrl: '/templates/overview',
+        controller: 'overview',
+    })
     .state('component', {
         url: '/component/:name',
         templateUrl: '/templates/component',
         controller: 'component',
     })
-
     .state('component.tab', {
         url: '/:tab',
         template: '<div class="container container--docs" ng-bind-html="body | markdown"></div>',
