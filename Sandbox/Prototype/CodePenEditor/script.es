@@ -1,20 +1,25 @@
 import '../../../Cwel/Script/main';
 
-const app = angular.module('sandbox', []);
+const app = angular.module('sandbox', ['cwel']);
 
-app.directive('docsExample', () => {
-    return {
-        restricted: 'A',
-        scope: {
-            show: '@',
-        },
+app.controller('AppController', () => {});
+
+app.directive('docsExample', (CwomponentFactory) => {
+    return CwomponentFactory({
+        restrict: 'C',
+        scope: {},
         link(scope) {
-            scope.show = 'html';
+            scope.show = 'markup';
             scope.data = {
-                markup: '',
-                style: '',
-                script: '',
+                html: '',
+                css: '',
+                css_pre_processor: 'scss',
+                css_starter: 'neither',
+                css_external: 'https://codepen.io/dstuessy/pen/d01874457659b3ab442c82aed7348443',
+                js: '',
+                js_pre_processor: 'babel',
+                js_external: 'https://codepen.io/dstuessy/pen/d01874457659b3ab442c82aed7348443',
             };
         },
-    };
+    });
 });

@@ -5,13 +5,18 @@
 <div class="container">
     <h1>Code Pen Editor</h1>
 
-    <div docs-example class="docs-example">
-        <textarea class="html" rows="12" cols="80" ng-model="data.markup"></textarea>
-        <textarea class="scss" rows="12" cols="80" ng-model="data.style"></textarea>
-        <textarea class="js" rows="12" cols="80" ng-model="data.script"></textarea>
-        <form action="https://codepen.io/pen/define" method="POST" target="_blank">
-            <input type="hidden" name="data" ng-value="data">
-            <input type="submit" value="Edit in Code Pen">
+    <div class="docs-example">
+        <ul class="docs-example__tabs">
+            <li class="docs-example__tab" ng-class="{ 'docs-example__tab--active': show == 'markup' }"><a class="docs-example__tab-link" ng-click="show = 'markup'">HTML</a></li>
+            <li class="docs-example__tab" ng-class="{ 'docs-example__tab--active': show == 'style' }"><a class="docs-example__tab-link" ng-click="show = 'style'">CSS</a></li>
+            <li class="docs-example__tab" ng-class="{ 'docs-example__tab--active': show == 'script' }"><a class="docs-example__tab-link" ng-click="show = 'script'">JavaScript</a></li>
+        </ul>
+        <textarea class="docs-example__panel html" rows="12" cols="80" ng-model="data.html" ng-show="show === 'markup'"></textarea>
+        <textarea class="docs-example__panel scss" rows="12" cols="80" ng-model="data.css" ng-show="show === 'style'"></textarea>
+        <textarea class="docs-example__panel js" rows="12" cols="80" ng-model="data.js" ng-show="show === 'script'"></textarea>
+        <form class="docs-example__form" action="https://codepen.io/pen/define" method="POST" target="_blank">
+            <input type="hidden" name="data" value="{{ data }}">
+            <input class="docs-example__submit" type="submit" value="Edit in Code Pen">
         </form>
     </div>
 </div>

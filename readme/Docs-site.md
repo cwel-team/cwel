@@ -30,20 +30,6 @@ To illustrate this in a series of steps:
 as well.
 3. On page view, the resulting razor view is rendered.
 
-### Macros
-
-Macros are stored in `/gulp/lib/docs/template/macro`. These are loaded into an
-object called `macro`, accessible in any of the docs templates. Using an
-object to store macro template paths is used to avoid the need of long
-file paths relative to the repo's root folder. Reason these file paths are
-based off of the root folder is to ensure inclusion of all Component and Pattern
-`doc.md` files e.g. `Cwel/Src/Component/Badge/Badge.doc.md`.
-Example on how to use macros in a template is shown below.
-
-``` html
-{% from macros['property-table'] import propertytable %}
-```
-
 ### HTML
 
 The markdown renderer used for the docs support HTML syntax within the Markdown
