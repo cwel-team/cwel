@@ -136,7 +136,7 @@ app.factory('contentfulService', ($rootScope, promiseApply) => {
         getComponents() {
             return promiseApply(client.getEntries({
                 content_type: 'component',
-                select: 'fields.name,fields.title',
+                select: 'fields.name,fields.title,fields.logo',
             }).then((res) => {
                 return res.items.map(item => item.fields);
             }));

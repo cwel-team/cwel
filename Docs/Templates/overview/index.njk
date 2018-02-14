@@ -12,7 +12,7 @@
             <div class="components__item" ng-repeat="component in components">
                 <a ui-sref="component({ name: component.name })" class="components__item-link">
                     <div class="components__item-icon">
-                        <img ng-src=""></img>
+                        <img ng-src="{{ component.logo }}"></img>
                     </div>
                     <p class="components__item-name">{{ component.name | capitalize }}</p>
                 </a>
