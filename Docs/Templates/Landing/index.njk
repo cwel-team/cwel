@@ -8,11 +8,11 @@
             <span>Countrywide</span> Experience Language
         </h1>
         <div class="hero__button">
-            <a class="button">Get Started</a>
+            <a ui-sref="page({ name: 'getting-started' })" class="button">Get Started</a>
         </div>
     </div>
     <div class="overview">
-        <a href="" class="overview__item">
+        <a ui-sref="page({ name: '')" class="overview__item">
             <div class="overview__item-icon">
                 {% include '../../shared/asset/img/icon/guides-icon.svg' %}
             </div>
@@ -21,7 +21,7 @@
                 <p class="overview__item-text">Onboarding for designers and developers who are using Carbon for the first time.</p>
             </div>
         </a>
-        <a href="" class="overview__item">
+        <a ui-sref="" class="overview__item">
             <div class="overview__item-icon">
                 {% include '../../shared/asset/img/icon/style-icon.svg' %}
             </div>

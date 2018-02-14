@@ -68,7 +68,7 @@ app.controller('docs', ($scope) => {
 });
 
 // Nav
-app.directive('navitem', () => {
+app.directive('navitem', ($state) => {
     return {
         scope: {
             text: '=',
@@ -77,6 +77,9 @@ app.directive('navitem', () => {
             filter: '=',
         },
         templateUrl: 'shared/layout/nav-item.html',
+        link: (scope) => {
+            scope.open = $state.includes(scope.name);
+        },
     };
 });
 

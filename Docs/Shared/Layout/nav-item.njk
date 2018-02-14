@@ -21,7 +21,9 @@
                <a class="main-nav__list-item-link" ui-sref="overview()" ui-sref-active="active">Overview</a>
             </li>
             <li class="main-nav__list-item" ng-repeat="item in items">
-               <a class="main-nav__list-item-link" ui-sref="component({ name: item.name })" ui-sref-active="active">{{ item.text }}</a>
+                <a class="main-nav__list-item-link" ui-sref="component({ name: item.name })" ui-sref-active="active"">
+                    {{ item.text }}
+                </a>
             </li>
         </span>
     </ul>
