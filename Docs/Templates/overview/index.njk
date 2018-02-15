@@ -10,7 +10,7 @@
     <div class="container">
         <div class="components">
             <div class="components__item" ng-repeat="component in components">
-                <a ui-sref="component({ name: component.name })" class="components__item-link">
+                <a ng-href="{{ getUrl(component) }}" class="components__item-link">
                     <div class="components__item-icon">
                         <img ng-src="{{ component.logo }}"></img>
                     </div>

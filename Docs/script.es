@@ -69,7 +69,7 @@ app.controller('docs', ($scope) => {
 });
 
 // Nav
-app.directive('navitem', ($state) => {
+app.directive('navitem', ($state, $stateParams) => {
     return {
         scope: {
             text: '=',
@@ -80,6 +80,10 @@ app.directive('navitem', ($state) => {
         templateUrl: 'shared/layout/nav-item.html',
         link: (scope) => {
             scope.open = $state.includes(scope.name);
+
+            if ($state.includes('overview')) {
+                scope.open = $stateParams.type === scope.name;
+            }
         },
     };
 });
@@ -137,9 +141,9 @@ app.factory('contentfulService', ($rootScope, promiseApply) => {
             })
             .catch(console.error));
         },
-        getComponents() {
+        getEntries(type) {
             return promiseApply(client.getEntries({
-                content_type: 'component',
+                content_type: type,
                 select: 'fields.name,fields.title,fields.logo',
             }).then((res) => {
                 return res.items.map(item => item.fields);
@@ -181,10 +185,20 @@ app.controller('component', ($scope, $state, $stateParams, contentfulService) =>
     });
 });
 
-app.controller('overview', ($scope, contentfulService) => {
-    contentfulService.getComponents().then((components) => {
+app.controller('overview', ($scope, $state, $stateParams, contentfulService) => {
+    contentfulService.getEntries($stateParams.type).then((components) => {
         $scope.components = components;
     });
+
+    $scope.getUrl = (component) => {
+        let type = $stateParams.type;
+
+        if (type === 'guide') {
+            type = 'page';
+        }
+
+        return $state.href(type, { name: component.name });
+    };
 });
 
 app.controller('navRender', ($scope, contentfulService) => {
@@ -210,7 +224,7 @@ app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
 
     $stateProvider
     .state('overview', {
-        url: '/component/overview',
+        url: '/:type/overview',
         templateUrl: '/templates/overview',
         controller: 'overview',
     })
