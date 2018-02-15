@@ -76,69 +76,74 @@
         <h2 class="section__title">Responsive cells</h2>
 
         <h3 class="section__sub-title">XS (Default)</h3>
-        {% for i in range(1, 13) %}
-        {% if ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
         <div class="grid">
-            {% for ii in range(12 - (12 - i)) %}
-            <div class="grid__cell grid__cell--size-{[12 / i]}">
-                <div class="block block--claustrophobic">{[12 / i]}</div>
-            </div>
+            {% for i in range(1, 13) %}
+            {% if i == 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1"><div class="block block--claustrophobic"></div></div>
             {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
 
         <h3 class="section__sub-title">S</h3>
-        {% for i in range(1, 13) %}
-        {% if ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
         <div class="grid">
-            {% for ii in range(12 - (12 - i)) %}
-            <div class="grid__cell grid__cell--size-{[12 / i]}-s">
-                <div class="block block--claustrophobic">{[12 / i]}</div>
-            </div>
+            {% for i in range(1, 13) %}
+            {% if i === 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}-s"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1-s"><div class="block block--claustrophobic"></div></div>
             {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
 
         <h3 class="section__sub-title">M</h3>
-        {% for i in range(1, 13) %}
-        {% if ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
         <div class="grid">
-            {% for ii in range(12 - (12 - i)) %}
-            <div class="grid__cell grid__cell--size-{[12 / i]}-m">
-                <div class="block block--claustrophobic">{[12 / i]}</div>
-            </div>
+            {% for i in range(1, 13) %}
+            {% if i === 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}-m"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1-m"><div class="block block--claustrophobic"></div></div>
             {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
 
         <h3 class="section__sub-title">L</h3>
-        {% for i in range(1, 13) %}
-        {% if ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
         <div class="grid">
-            {% for ii in range(12 - (12 - i)) %}
-            <div class="grid__cell grid__cell--size-{[12 / i]}-l">
-                <div class="block block--claustrophobic">{[12 / i]}</div>
-            </div>
+            {% for i in range(1, 13) %}
+            {% if i === 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}-l"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1-l"><div class="block block--claustrophobic"></div></div>
             {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
 
         <h3 class="section__sub-title">XL</h3>
-        {% for i in range(1, 13) %}
-        {% if ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
         <div class="grid">
-            {% for ii in range(12 - (12 - i)) %}
-            <div class="grid__cell grid__cell--size-{[12 / i]}-xl">
-                <div class="block block--claustrophobic">{[12 / i]}</div>
-            </div>
+            {% for i in range(1, 13) %}
+            {% if i === 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}-xl"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1-xl"><div class="block block--claustrophobic"></div></div>
             {% endfor %}
         </div>
-        {% endif %}
-        {% endfor %}
     </section>
 
     <section class="section section--nested-grids">

@@ -32,6 +32,42 @@
             grid_cell_half                      .grid__cell:nth-of-type(1)
             grid_cell_sixth-*                   .grid__cell:nth-of-type(n+2)
 
+    responsive_cells                            .section--responsive-cells
+        grid-xs                                 .grid:nth-of-type(1)
+            grid_cell_12_xs                         .grid__cell--size-12
+            grid_cell_6_xs                          .grid__cell--size-6
+            grid_cell_4_xs                          .grid__cell--size-4
+            grid_cell_3_xs                          .grid__cell--size-3
+            grid_cell_2_xs                          .grid__cell--size-2
+            grid_cell_1_xs                          .grid__cell--size-1
+        grid-s                                  .grid:nth-of-type(2)
+            grid_cell_12_s                          .grid__cell--size-12-s
+            grid_cell_6_s                           .grid__cell--size-6-s
+            grid_cell_4_s                           .grid__cell--size-4-s
+            grid_cell_3_s                           .grid__cell--size-3-s
+            grid_cell_2_s                           .grid__cell--size-2-s
+            grid_cell_1_s                           .grid__cell--size-1-s
+        grid-m                                  .grid:nth-of-type(3)
+            grid_cell_12_m                          .grid__cell--size-12-m
+            grid_cell_6_m                           .grid__cell--size-6-m
+            grid_cell_4_m                           .grid__cell--size-4-m
+            grid_cell_3_m                           .grid__cell--size-3-m
+            grid_cell_2_m                           .grid__cell--size-2-m
+            grid_cell_1_m                           .grid__cell--size-1-m
+        grid-l                                  .grid:nth-of-type(4)
+            grid_cell_12_l                          .grid__cell--size-12-l
+            grid_cell_6_l                           .grid__cell--size-6-l
+            grid_cell_4_l                           .grid__cell--size-4-l
+            grid_cell_3_l                           .grid__cell--size-3-l
+            grid_cell_2_l                           .grid__cell--size-2-l
+            grid_cell_1_l                           .grid__cell--size-1-l
+        grid-xl                                 .grid:nth-of-type(5)
+            grid_cell_12_xl                         .grid__cell--size-12-xl
+            grid_cell_6_xl                          .grid__cell--size-6-xl
+            grid_cell_4_xl                          .grid__cell--size-4-xl
+            grid_cell_3_xl                          .grid__cell--size-3-xl
+            grid_cell_2_xl                          .grid__cell--size-2-xl
+            grid_cell_1_xl                          .grid__cell--size-1-xl
 
     nested_grids                                .section--nested-grids
         grid-1                                  .grid:nth-of-type(1)
@@ -187,6 +223,33 @@
         size_combinations.grid-4.grid_cell_sixth-*:
             aligned horizontally top size_combinations.grid-4
             width ~ 16.6 % of size_combinations.grid-4/width
+
+= Responsive Cells =
+    @on *
+        @for [1 - 12] as index
+            @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                responsive_cells.grid-xs.grid_cell_${index}_xs:
+                    width ~ ${(index / 12) * 100}% of responsive_cells.grid-xs/width
+    @on s, m, l, xl
+        @for [1 - 12] as index
+            @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                responsive_cells.grid-s.grid_cell_${index}_s:
+                    width ~ ${(index / 12) * 100}% of responsive_cells.grid-s/width
+    @on m, l, xl
+        @for [1 - 12] as index
+            @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                responsive_cells.grid-m.grid_cell_${index}_m:
+                    width ~ ${(index / 12) * 100}% of responsive_cells.grid-m/width
+    @on l, xl
+        @for [1 - 12] as index
+            @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                responsive_cells.grid-l.grid_cell_${index}_l:
+                    width ~ ${(index / 12) * 100}% of responsive_cells.grid-l/width
+    @on xl
+        @for [1 - 12] as index
+            @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                responsive_cells.grid-xl.grid_cell_${index}_xl:
+                    width ~ ${(index / 12) * 100}% of responsive_cells.grid-xl/width
 
 = Nested Grids =
 
