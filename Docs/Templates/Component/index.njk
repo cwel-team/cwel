@@ -8,7 +8,7 @@
         </div>
         <ul class="heading__tabs">
             <li class="tabs-item" ng-repeat="item in items" ng-class="{ 'tabs-item--inactive' : hideTab }" ng-hide="tabVisible(item)">
-                <a ui-sref="tab({ name: name, tab: item })" ui-sref-active="active" ng-class="{ 'active' : activeTab == item }" class="tabs-item__link">
+                <a ui-sref="component.tab({ name: name, tab: item })" ui-sref-active="active" ng-class="{ 'active' : activeTab == item }" class="tabs-item__link">
                     {{ item }}
                 </a>
             </li>
@@ -16,8 +16,6 @@
     </div>
 </div>
 
-<div class="container container--docs" bind-html-compile="markedRender(body)">
-
-</div>
+<ui-view class="tab-content"></ui-view>
 
 {% endblock %}

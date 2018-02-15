@@ -1,4 +1,4 @@
-<button class="side-nav__toggle-btn" ng-click="sideBar=!sideBar" ng-class="{ 'side-nav__toggle-btn--active' : sideBar }">
+<button class="side-nav__toggle-btn" ng-click="sideBar=!sideBar" ng-init="sideBar=true" ng-class="{ 'side-nav__toggle-btn--active' : sideBar }">
     <div>
         <div class="line"></div>
         <div class="line"></div>
@@ -19,7 +19,7 @@
             <li class="main-nav__item" navitem ng-repeat="page in pages | filter:searchText" filter="searchText" text="page.text" items="page.items" name="page.name"></li>
         </ul>
         <div class="side-bar__links">
-            <a href="" target"_blank" class="button button--icon">
+            <a href="" target="_blank" class="button button--icon">
                 UI Kit
                 <span class="button__icon">
                     {% include '../asset/img/icon/arrow-right.svg' %}
