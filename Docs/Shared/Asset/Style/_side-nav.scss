@@ -60,11 +60,11 @@
     color: $text-color;
     text-decoration: none;
     &:hover,
-    &:focus {
+    &:focus,
+    &.active {
         color: $brand-color-1;
         border-left-width: 6px; // stylelint-disable-line
         border-left-style: solid;
         border-left-color: $brand-color-1;
     }
 }
-
