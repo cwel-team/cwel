@@ -1,0 +1,1 @@
+import '../component/badge/badge';
