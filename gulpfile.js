@@ -25,7 +25,8 @@ function renameFile(pth, format = () => {}, cb) {
     const ext = getExtension(pth);
     const oldName = getName(pth);
     const newName = format(oldName);
-    const newPth = pth.replace(RegExp(`${oldName}${ext}$`), `${newName}${ext}`);
+    const scssprefix = oldName.indexOf('_') === 0 ? '_' : '';
+    const newPth = pth.replace(RegExp(`${oldName}${ext}$`), `${scssprefix}${newName}${ext}`);
 
     console.log('rename file:', pth, 'ext:', ext, 'oldName:', oldName, 'newName:', newName);
 
