@@ -40,13 +40,11 @@ function rename(pth, cb) {
         renameFile(pth, camel, cb);
     } else if (isDir) {
         fs.readdir(pth, (err, paths) => {
-            const ignoreRegEx = /(?:\.git|node_modules|tmp|dist|vendor|Vendor|gulp-lib|gulp-tasks)/;
-            let count = 0;
-
             if (err) {
                 throw err;
             }
-
+            const ignoreRegEx = /(?:\.git|node_modules|tmp|dist|vendor|Vendor|gulp-lib|gulp-tasks|LICENSE|README\.md)/;
+            let count = 0;
             const filtered = paths.filter(p => !ignoreRegEx.test(p));
 
             filtered.forEach((p) => {
