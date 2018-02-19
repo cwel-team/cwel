@@ -1,6 +1,6 @@
 const gulp              = require('gulp');                          // Task automator
 const path              = require('path');
-const renderPage        = require('../../gulp-lib/Docs/renderPage');
+const renderPage        = require('../../gulp-lib/docs/render-page');
 
 module.exports = () => gulp.src([
     'Docs/**/*.{njk,html}',

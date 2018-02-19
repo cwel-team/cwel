@@ -1,4 +1,4 @@
-const CardSliderPageObject = require('./cardSlider.pageobject').default;
+const CardSliderPageObject = require('./card-slider.pageobject').default;
 
 describe('CardSlider', () => {
     let cardSliderPo;

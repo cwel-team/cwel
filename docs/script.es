@@ -1,6 +1,6 @@
 import '../cwel/script/main';
 import app from './shared/asset/script/site';
-import './shared/asset/script/docsExample';
+import './shared/asset/script/docs-example';
 
 const contentful = require('contentful');
 const marked = require('marked');

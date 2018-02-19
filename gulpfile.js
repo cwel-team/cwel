@@ -1,10 +1,9 @@
 const gulp             = require('gulp');
 const gulpSequence     = require('gulp-sequence');
-const multiSync        = require('./gulp-lib/browserSyncMulti');
+const multiSync        = require('./gulp-lib/browser-sync-multi');
 const fs               = require('fs');
 const path             = require('path');
-// const camel            = require('lodash.camelcase');
-const camel = () => {}; // replace this with the above to reduce problems.
+const kebab            = require('lodash.kebabcase');
 
 require('gulp-task-loader')('gulp-tasks');
 
@@ -39,7 +38,7 @@ function rename(pth, cb) {
     const isDir = fs.lstatSync(pth).isDirectory();
 
     if (isFile) {
-        renameFile(pth, camel, cb);
+        renameFile(pth, kebab, cb);
     } else if (isDir) {
         fs.readdir(pth, (err, paths) => {
             if (err) {
@@ -56,7 +55,7 @@ function rename(pth, cb) {
                     count += 1;
 
                     if (count >= filtered.length) {
-                        renameFile(pth, camel, cb);
+                        renameFile(pth, kebab, cb);
                     }
                 });
             });

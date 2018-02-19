@@ -1,1 +1,1 @@
-import '../pattern/cardSlider/cardSlider';
+import '../pattern/card-slider/card-slider';
