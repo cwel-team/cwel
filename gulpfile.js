@@ -27,7 +27,7 @@ function renameFile(pth, format = () => {}, cb) {
     const newName = format(oldName);
     const newPth = pth.replace(RegExp(`${oldName}${ext}$`), `${newName}${ext}`);
 
-    console.log('rename file: ', pth, 'ext: ', ext, 'oldName: ', oldName, 'newName: ', newName);
+    console.log('rename file:', pth, 'ext:', ext, 'oldName:', oldName, 'newName:', newName);
 
     fs.rename(pth, newPth, () => cb(newPth));
 }
@@ -40,22 +40,23 @@ function rename(pth, cb) {
         renameFile(pth, camel, cb);
     } else if (isDir) {
         fs.readdir(pth, (err, paths) => {
-            const ignoreRegEx = /(?:\.git|node_modules|tmp|dist|vendor)/;
+            const ignoreRegEx = /(?:\.git|node_modules|tmp|dist|vendor|Vendor|gulp-lib|gulp-tasks)/;
+            let count = 0;
 
             if (err) {
                 throw err;
             }
 
-            paths.filter(p => !ignoreRegEx.test(p))
-            .forEach((p) => {
+            const filtered = paths.filter(p => !ignoreRegEx.test(p));
+
+            filtered.forEach((p) => {
                 const fullP = path.join(pth, p);
 
-                rename(fullP, (newFullP) => {
-                    console.log('new: ', newFullP);
+                rename(fullP, () => {
+                    count += 1;
 
-                    if (fs.lstatSync(newFullP).isDirectory()) {
-                        console.log('dir: ', newFullP);
-                        renameFile(newFullP, camel, cb);
+                    if (count >= filtered.length) {
+                        renameFile(pth, camel, cb);
                     }
                 });
             });
