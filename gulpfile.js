@@ -35,26 +35,24 @@ function renameFile(pth, format = () => {}, cb) {
 function rename(pth, cb) {
     const isFile = fs.lstatSync(pth).isFile();
     const isDir = fs.lstatSync(pth).isDirectory();
-    const isEmpty = isDir ? fs.readdirSync(pth).length === 0 : true;
 
-    if (isDir) {
-        console.log('IS DIRECTORY: ', isEmpty, pth);
-    }
-
-    if (isFile || (isDir && isEmpty)) {
+    if (isFile) {
         renameFile(pth, camel, cb);
-    } else if (fs.lstatSync(pth).isDirectory()) {
+    } else if (isDir) {
         fs.readdir(pth, (err, paths) => {
+            const ignoreRegEx = /(?:\.git|node_modules|tmp|dist|vendor)/;
+
             if (err) {
                 throw err;
             }
 
-            paths.filter(p => !/(?:\.git|node_modules|tmp|dist|vendor)/.test(p))
+            paths.filter(p => !ignoreRegEx.test(p))
             .forEach((p) => {
                 const fullP = path.join(pth, p);
 
                 rename(fullP, (newFullP) => {
                     console.log('new: ', newFullP);
+
                     if (fs.lstatSync(newFullP).isDirectory()) {
                         console.log('dir: ', newFullP);
                         renameFile(newFullP, camel, cb);
