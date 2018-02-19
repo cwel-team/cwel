@@ -101,7 +101,8 @@
     "through2": "^2.0.3",
     "webpack-stream": "^4.0.0",
     "xmldoc": "^1.1.0",
-    "yargs": "^8.0.2"
+    "yargs": "^8.0.2",
+    "lodash.camelcase": "^4.3.0"
   },
   "dependencies": {}
 }

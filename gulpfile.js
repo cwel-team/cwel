@@ -1,8 +1,71 @@
 const gulp             = require('gulp');
 const gulpSequence     = require('gulp-sequence');
 const multiSync        = require('./gulp-lib/browserSyncMulti');
+const fs               = require('fs');
+const path             = require('path');
+const camel            = require('lodash.camelcase');
 
 require('gulp-task-loader')('gulp-tasks');
+
+function getExtension(filePath) {
+    const ext = path.parse(filePath).base
+    .split('.')
+    .slice(1)
+    .join('.');
+
+    return ext.length > 0 ? `.${ext}` : ext;
+}
+
+function getName(filePath) {
+    const fileName = path.parse(filePath).base;
+    return fileName.replace(getExtension(fileName), '');
+}
+
+function renameFile(pth, format = () => {}, cb) {
+    const ext = getExtension(pth);
+    const oldName = getName(pth);
+    const newName = format(oldName);
+    const newPth = pth.replace(RegExp(`${oldName}${ext}$`), `${newName}${ext}`);
+
+    console.log('rename file: ', pth, 'ext: ', ext, 'oldName: ', oldName, 'newName: ', newName);
+
+    fs.rename(pth, newPth, () => cb(newPth));
+}
+
+function rename(pth, cb) {
+    const isFile = fs.lstatSync(pth).isFile();
+    const isDir = fs.lstatSync(pth).isDirectory();
+    const isEmpty = isDir ? fs.readdirSync(pth).length === 0 : true;
+
+    if (isDir) {
+        console.log('IS DIRECTORY: ', isEmpty, pth);
+    }
+
+    if (isFile || (isDir && isEmpty)) {
+        renameFile(pth, camel, cb);
+    } else if (fs.lstatSync(pth).isDirectory()) {
+        fs.readdir(pth, (err, paths) => {
+            if (err) {
+                throw err;
+            }
+
+            paths.filter(p => !/(?:\.git|node_modules|tmp|dist|vendor)/.test(p))
+            .forEach((p) => {
+                const fullP = path.join(pth, p);
+
+                rename(fullP, (newFullP) => {
+                    console.log('new: ', newFullP);
+                    if (fs.lstatSync(newFullP).isDirectory()) {
+                        console.log('dir: ', newFullP);
+                        renameFile(newFullP, camel, cb);
+                    }
+                });
+            });
+        });
+    }
+}
+
+gulp.task('rename', done => rename('.', done));
 
 gulp.task('build', done => gulpSequence('cwel:build', 'test:build', 'sandbox:build', 'docs:build')(done));
 
