@@ -3,7 +3,8 @@ const gulpSequence     = require('gulp-sequence');
 const multiSync        = require('./gulp-lib/browserSyncMulti');
 const fs               = require('fs');
 const path             = require('path');
-const camel            = require('lodash.camelcase');
+// const camel            = require('lodash.camelcase');
+const camel = () => {}; // replace this with the above to reduce problems.
 
 require('gulp-task-loader')('gulp-tasks');
 
