@@ -77,7 +77,7 @@ app.directive('navitem', ($state, $stateParams) => {
             name: '=',
             filter: '=',
         },
-        templateUrl: 'shared/layout/nav-item.html',
+        templateUrl: 'Shared/Layout/nav-item.html',
         link: (scope) => {
             scope.open = $state.includes(scope.name);
 
@@ -241,19 +241,19 @@ app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
 
     .state('nested', {
         url: '/:type/:name',
-        templateUrl: '/templates/content',
+        templateUrl: '/Templates/Content',
         controller: 'content',
     })
 
     .state('page', {
         url: '/{name:[^/]+}',
-        templateUrl: '/templates/content',
+        templateUrl: '/Templates/Content',
         controller: 'content',
     })
 
     .state('landing', {
         url: '/',
-        templateUrl: '/templates/landing',
+        templateUrl: '/Templates/Landing',
     });
 
     $qProvider.errorOnUnhandledRejections(false);
