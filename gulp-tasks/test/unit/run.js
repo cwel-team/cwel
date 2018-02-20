@@ -29,7 +29,7 @@ module.exports = (done) => {
         },
         files: [
             'tmp/test/unit/main.js',
-            'Cwel/**/*.spec.es', // no need for transpilation on headless chrome
+            'cwel/**/*.spec.es', // no need for transpilation on headless chrome
         ],
     }, (exitcode) => {
         done(results.error ? 'Tests failed' : null);

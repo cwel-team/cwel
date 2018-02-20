@@ -13,8 +13,8 @@ module.exports = () => gulp.src([
     '!gulp-tasks/**',
     '!gulp-lib/**',
     '!gulp/**',
-    '!Docs/**',
-    '!Sandbox/**',
+    '!docs/**',
+    '!sandbox/**',
 ], { dot: true })
 .pipe(through.obj((file, enc, cb) => {
     if (file.path.indexOf('package.json') > -1) {

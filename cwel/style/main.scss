@@ -1,0 +1,11 @@
+////
+/// All CWEL styles
+/// @group Public
+////
+
+@import 'core';
+
+// Every Cwel component needs to be included below as this file generates the bundle with everything in.
+
+@import '../component/card/card';
+@import '../pattern/card-slider/card-slider';

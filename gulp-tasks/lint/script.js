@@ -17,11 +17,11 @@ module.exports = () => gulp.src([
     '**/*.js',
     '!node_modules/**',
     '!tmp/**/*',
-    '!Sandbox/**/*',
+    '!sandbox/**/*',
     '!dist/**/*',
-    '!Cwel/Vendor/**/*',
-    '!Docs/Shared/Asset/Script/Vendor/**',
-    '!Test/E2e/Vendor/**/*',
+    '!cwel/vendor/**/*',
+    '!docs/shared/asset/script/vendor/**',
+    '!test/e2e/vendor/**/*',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(eslint({

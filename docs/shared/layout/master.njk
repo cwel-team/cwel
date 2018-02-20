@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CWEL Docs</title>
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
+          display: none !important;
+      }
+    </style>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body ng-app="docs" ng-controller="docs">
+    {% include 'shared/layout/side-bar.njk' %}
+    <div class="docs" ng-class="{ 'docs--side-nav' : sideBar }">
+        <div ui-view></div>
+
+        {% include 'shared/layout/footer.njk' %}
+    </div>
+
+    {% block scripts %}
+    <script src="script.js"></script>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% block body %}
+
+<div class="heading">
+    <div class="container container--docs">
+        <div class="heading__content">
+            <h2 class="heading__content-parent">{{ type }}</h2>
+            <h1 class="heading__content-title">{{ title }}</h1>
+        </div>
+        <ul class="heading__tabs">
+            <li class="tabs-item" ng-repeat="item in items" ng-class="{ 'tabs-item--inactive' : hideTab }" ng-hide="tabVisible(item)">
+                <a ui-sref="component.tab({ name: name, tab: item })" ui-sref-active="active" ng-class="{ 'active' : activeTab == item }" class="tabs-item__link">
+                    {{ item }}
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ui-view class="tab-content"></ui-view>
+
+{% endblock %}
