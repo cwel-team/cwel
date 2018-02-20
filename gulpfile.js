@@ -1,8 +1,11 @@
 const gulp             = require('gulp');
 const gulpSequence     = require('gulp-sequence');
-const multiSync        = require('./gulp-lib/browserSyncMulti');
+const multiSync        = require('./gulp-lib/browser-sync-multi');
+const rename           = require('./gulp-lib/rename');
 
 require('gulp-task-loader')('gulp-tasks');
+
+gulp.task('rename', done => rename('.', done));
 
 gulp.task('build', done => gulpSequence('cwel:build', 'test:build', 'sandbox:build', 'docs:build')(done));
 
@@ -23,37 +26,37 @@ gulp.task('watch', ['lint', 'dev'], (done) => {
 
     // Watch Docs
     gulp.watch([
-        'Docs/**/*.doc.md',
-        'Docs/**/*.{njk,nunjucks}',
-        'Docs/**/*.html',
+        'docs/**/*.doc.md',
+        'docs/**/*.{njk,nunjucks}',
+        'docs/**/*.html',
     ], () => gulpSequence(
         'docs:markup')(() => multiSync.reload()));
     gulp.watch([
-        'Docs/**/*.scss',
+        'docs/**/*.scss',
     ], () => gulpSequence(
         'docs:style',
         'lint:style')(() => multiSync.reload()));
     gulp.watch([
-        'Docs/**/*.es',
+        'docs/**/*.es',
     ], () => gulpSequence(
         'docs:script',
         'lint:script')(() => multiSync.reload()));
 
     // Watch Sandbox
     gulp.watch([
-        'Cwel/**/*.html',
-        'Sandbox/**/*.njk',
+        'cwel/**/*.html',
+        'sandbox/**/*.njk',
     ], () => gulpSequence(
         'sandbox:markup')(() => multiSync.reload()));
     gulp.watch([
-        'Cwel/**/*.scss',
-        'Sandbox/**/*.scss',
+        'cwel/**/*.scss',
+        'sandbox/**/*.scss',
     ], () => gulpSequence(
         'sandbox:style',
         'lint:style')(() => multiSync.reload()));
     gulp.watch([
-        'Cwel/**/*.es',
-        'Sandbox/**/*.es',
+        'cwel/**/*.es',
+        'sandbox/**/*.es',
     ], () => gulpSequence(
         'sandbox:script',
         'lint:script')(() => multiSync.reload()));

@@ -20,8 +20,8 @@ const babelConfig = {
 
 
 module.exports = () => gulp.src([
-    'Sandbox/**/*.es',
-    '!Sandbox/Shared/**/*.es',
+    'sandbox/**/*.es',
+    '!sandbox/Shared/**/*.es',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(gulpeach((stream, file) => {

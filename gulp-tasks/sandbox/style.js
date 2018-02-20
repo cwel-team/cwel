@@ -16,8 +16,8 @@ const options = require(path.join(process.cwd(), 'gulp-lib', 'options'));
 
 
 module.exports = () => gulp.src([
-    'Sandbox/**/*.scss',
-    '!Sandbox/Shared/**/*.scss',
+    'sandbox/**/*.scss',
+    '!sandbox/shared/**/*.scss',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())

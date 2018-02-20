@@ -1,1 +1,0 @@
-import '../Pattern/CardSlider/CardSlider';

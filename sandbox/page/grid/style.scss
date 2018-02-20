@@ -1,0 +1,31 @@
+@import 'cwel/style/main';
+
+@import 'sandbox/shared/asset/style/button';
+@import 'sandbox/shared/asset/style/divider';
+@import 'sandbox/shared/asset/style/viewport';
+
+// @import 'docs/internal/shared/asset/style/grid-overlay';
+// @import 'docs/internal/shared/asset/style/block';
+
+.viewport__group {
+    @include viewport-group;
+    display: inline-block;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.viewport__breakpoint {
+    @include viewport-breakpoint;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.overlay-open {
+    @include button;
+}
+
+.section {
+    @include divider;
+    padding-top: $SPACE-M;
+    padding-bottom: $SPACE-M;
+}

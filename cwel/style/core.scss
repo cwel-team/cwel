@@ -1,0 +1,20 @@
+@import './function/fn-strip-unit';
+@import './function/fn-rootem';
+@import './function/fn-rebase';
+
+@import './variable/vbl-settings';
+@import './variable/vbl-colors';
+
+@import './mixin/mxn-aspect-ratio';
+@import './mixin/mxn-device';
+@import './mixin/mxn-typography';
+@import './mixin/mxn-container';
+@import './mixin/mxn-grid';
+
+@import './component/reset';
+@import './component/typography';
+
+@include generate-container-classes;
+@include generate-grid-classes;
+
+// Individual Cwel components (other than the ones in `~/Cwel/Src/Core/scss`) shouldn't be included in this file but be added to `main.scss` instead.
