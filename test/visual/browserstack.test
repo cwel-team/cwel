@@ -19,15 +19,15 @@
     | Galaxy Tab 4 10.1 - m | m          | --dc.browserName android --dc.device "Samsung Galaxy Tab 4 10.1" --dc.platform ANDROID |
 
 @@ set
-    specPath           Test/Visual/Specs
+    specPath           test/visual/specs
     gridArgsForAll     --dc.browserstack.local true --dc.browserstack.debug true --dc.build "${build_name}"
 
 @@ parameterized using devices
 Grid on: ${deviceName}
     selenium grid ${grid_url} --page ${host_url}/prototype/grid ${gridArgs} ${gridArgsForAll}
-        check ${specPath}/Grid.gspec --include '${tags}'
+        check ${specPath}/grid.gspec --include '${tags}'
 
 @@ parameterized using devices
 Rem units on: ${deviceName}
     selenium grid ${grid_url} --page ${host_url}/prototype/remunits ${gridArgs} ${gridArgsForAll}
-        check ${specPath}/Remunits.gspec --include '${tags}'
+        check ${specPath}/remunits.gspec --include '${tags}'

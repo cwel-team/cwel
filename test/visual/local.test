@@ -9,7 +9,7 @@
     | XL              | xl        | 1450x800 |
 
 @@ set
-    specPath        Test/Visual/Specs
+    specPath        test/visual/specs
 
 @@ parameterized using breakpoints
 Grid at breakpoint: ${breakpointName}
