@@ -19,7 +19,7 @@ const babelConfig = {
 };
 
 module.exports = () => gulp.src([
-    'Cwel/**/*.{e2e,pageobject}.es',
+    'cwel/**/*.{e2e,pageobject}.es',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(gulpeach((stream, file) => {

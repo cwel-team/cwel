@@ -1,18 +1,18 @@
-@import './Function/fn-strip-unit';
-@import './Function/fn-rootem';
-@import './Function/fn-rebase';
+@import './function/fn-strip-unit';
+@import './function/fn-rootem';
+@import './function/fn-rebase';
 
-@import './Variable/vbl-settings';
-@import './Variable/vbl-colors';
+@import './variable/vbl-settings';
+@import './variable/vbl-colors';
 
-@import './Mixin/mxn-aspect-ratio';
-@import './Mixin/mxn-device';
-@import './Mixin/mxn-typography';
-@import './Mixin/mxn-container';
-@import './Mixin/mxn-grid';
+@import './mixin/mxn-aspect-ratio';
+@import './mixin/mxn-device';
+@import './mixin/mxn-typography';
+@import './mixin/mxn-container';
+@import './mixin/mxn-grid';
 
-@import './Component/reset';
-@import './Component/typography';
+@import './component/reset';
+@import './component/typography';
 
 @include generate-container-classes;
 @include generate-grid-classes;

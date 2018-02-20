@@ -1,4 +1,4 @@
-import '../../../Cwel/Script/main';
+import '../../../cwel/script/main';
 
 const app = angular.module('sandbox', ['cwel']);
 

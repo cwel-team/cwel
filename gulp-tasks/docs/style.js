@@ -15,8 +15,8 @@ const options = require(path.join(process.cwd(), 'gulp-lib', 'options'));
 /* eslint-enable */
 
 module.exports = () => gulp.src([
-    'Docs/Page/**/*.scss',
-    'Docs/Shared/Asset/Style/**/*.scss',
+    'docs/page/**/*.scss',
+    'docs/shared/asset/style/**/*.scss',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())

@@ -1,4 +1,4 @@
-@import 'Cwel/Style/main';
+@import 'cwel/style/main';
 
 // Who we are colours
 $blue-primary: #e7f5fc;
@@ -9,7 +9,7 @@ $green-default: #b1e4d9;
 // News colours
 $orange-primary: #fdf3eb;
 $orange-default: #f2ac77;
-// Homepage and contact colours 
+// Homepage and contact colours
 $grey-primary: #eaeeef;
 $grey-default: #cacdce;
 
@@ -119,7 +119,7 @@ $billboard-default-color: $blue-default;
 .breadcrumbs__crumb {
     display: none; // hides all items
     cursor: pointer;
-  
+
     &:after {
         content: '>';
         display: inline-block;
@@ -137,7 +137,7 @@ $billboard-default-color: $blue-default;
     &:last-child,
     &:nth-last-child(2) {
         display: inline-block;
-    } 
+    }
 }
 
 .section {

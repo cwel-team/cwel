@@ -19,7 +19,7 @@ const babelConfig = {
 };
 
 module.exports = () => gulp.src([
-    'Cwel/Script/core.es',
+    'cwel/script/core.es',
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(gulpeach((stream, file) => {

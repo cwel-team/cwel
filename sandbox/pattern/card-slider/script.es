@@ -1,3 +1,3 @@
-import '../../../Cwel/Script/main';
+import '../../../cwel/script/main';
 
 angular.module('sandbox', ['cwel']);

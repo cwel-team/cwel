@@ -1,8 +1,8 @@
 const gulp              = require('gulp');                          // Task automator
 
 module.exports = () => gulp.src([
-    'Docs/Shared/Asset/**/*.png',
-    'Docs/Shared/asset/**/*.jpg',
-    'Docs/Shared/Asset/**/*.svg',
+    'docs/shared/asset/**/*.png',
+    'docs/shared/asset/**/*.jpg',
+    'docs/shared/asset/**/*.svg',
 ])
 .pipe(gulp.dest('tmp/docs/shared/asset'));

@@ -1,4 +1,4 @@
-import '../../../Cwel/Script/main';
+import '../../../cwel/script/main';
 
 const Choreographer = require('choreographer-js');
 
