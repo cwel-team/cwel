@@ -21,7 +21,7 @@ module.exports = () => gulp.src([
 ])
 .pipe(gulpif(argv.chill, plumber(options.plumber)))
 .pipe(sourcemaps.init())
-.pipe(sass())
+.pipe(sass(options.sass))
 .pipe(autoprefixer({
     browsers: ['last 30 versions'],
 }))
