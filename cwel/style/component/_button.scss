@@ -1,0 +1,127 @@
+////
+/// @group _button.scss
+/// @since 0.0.1
+////
+
+$dark: rgb(55, 32, 98);
+$light: rgb(196, 196, 196);
+$white: rgb(255, 255, 255);
+$focus: rgb(92, 187, 235);
+
+/// 1. Show no outline as the focus style is defined on the border
+/// 2. Inline-flex on medium and above so the button doesn't go full-width but keeps the properties of flex
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 56px; // stylelint-disable-line
+    min-width: 300px; // stylelint-disable-line
+    max-width: 100%;
+    padding-right: $SPACE-L;
+    padding-left: $SPACE-L;
+    text-decoration: none;
+    outline: none; // 1
+    border-width: 0.2rem;
+    border-style: solid;
+    border-radius: 5rem;
+    cursor: pointer;
+
+    @include breakpoint('m') {
+        display: inline-flex; // 2
+        min-width: auto;
+        padding-right: $SPACE-M;
+        padding-left: $SPACE-M;
+    }
+}
+
+/// 1. Max-width is calculated as max-width of the whole button minus the spacers, 320px - 64px = 256px or 25.6rem
+
+.button__text {
+    order: 2;
+    max-width: 100%;
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @include breakpoint('m') {
+        max-width: $SPACE-L * 5 - $SPACE-M * 2; // 1
+    }
+}
+.button__icon--right {
+    order: 3;
+    height: 2rem;
+    margin-left: $SPACE-S;
+}
+.button__icon--left {
+    order: 1;
+    height: 2rem;
+    margin-right: $SPACE-S;
+}
+
+.primary-button {
+    color: $white;
+    background-color: $dark;
+    border-color: $dark;
+
+    &--on-dark {
+        color: $dark;
+        background-color: $white;
+        border-color: $white;
+    }
+    &--on-dark:hover {
+        background-color: rgba($white, 0.8);
+        border-color: rgba($white, 0.8);
+    }
+    &--on-light {
+        color: $white;
+        background-color: $dark;
+        border-color: $dark;
+    }
+    &--on-light:hover {
+        background-color: rgba($dark, 0.8);
+        border-color: rgba($dark, 0.8);
+    }
+ 
+    &:focus {
+        box-shadow: 0 0 0.4rem 0.1rem $focus;
+        border-color: $focus;
+    }
+    &:hover {
+        background-color: rgba($dark, 0.8);
+        border-color: rgba($dark, 0.8);
+    }
+}
+
+.secondary-button {
+    color: $dark;
+    background-color: $light;
+    border-color: $light;
+
+    &--on-dark {
+        color: $white;
+        background-color: transparent;
+        border-color: $white;
+    }
+    &--on-dark:hover {
+        color: rgba($white, 0.8);
+        border-color: rgba($white, 0.8);
+    }
+    &--on-light {
+        background-color: $white;
+        border-color: $white;
+    }
+    &--on-light:hover {
+        background-color: rgba($white, 0.8);
+        border-color: rgba($white, 0.8);
+    }
+
+    &:focus {
+        box-shadow: 0 0 0.4rem 0.1rem $focus;
+        border-color: $focus;
+    }
+    &:hover {
+        background-color: rgba($light, 0.8);
+        border-color: rgba($light, 0.8);
+    }
+}

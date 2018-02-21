@@ -1,0 +1,254 @@
+{% extends '_layout.njk' %}
+{% set title = 'Button' %}
+{% set fullWidth = 'true' %}
+
+{% block content %}
+<div class="container">
+    <div class="button-grid">
+        <!-- Primary button default -->
+        <div class="button-grid__cell">
+            <h3>Primary button</h3>
+            <a href="" class="button primary-button">
+                <span class="button__text">Primary button</span>
+            </a>
+
+            <h4>- with long text</h4>
+            <a href="" class="button primary-button">
+                <span class="button__text">Primary button long text example test</span>
+            </a>
+
+            <h4>- loader</h4>
+            <a href="" class="button primary-button">
+                <svg class="loader" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 100 100">
+                    <g>
+                        <path class="loader__background" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                            c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                        <path class="loader__spinner" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                            c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                    </g>
+                </svg>
+            </a>
+
+            <h4>- icon left</h4>
+            <a href="" class="button primary-button">
+                <span class="button__text">Primary button</span>
+                <span class="button__icon--left">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16"> <style type="text/css"> .st0{fill:none;stroke:#3B3E4B;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} .st1{fill:none;} </style> <line id="Line_1415_1_" class="st0" x1="-5" y1="1" x2="-19" y2="15"/> <line id="Line_1416_1_" class="st0" x1="-5" y1="15" x2="-19" y2="1"/> <rect x="-19" y="1" class="st1" width="14" height="14"/> <g> <rect x="1" y="2" class="st1" width="14" height="14"/> <polyline class="st0" points="15,2 5.3,11.7 1,7.3 "/> </g> </svg>
+                </span>
+            </a>
+
+            <h4>- icon right</h4>
+            <a href="" class="button primary-button">
+                <span class="button__text">Primary button</span>
+                <span class="button__icon--right">Icon</span>
+            </a>
+        </div>
+
+        <!-- Secondary button default -->
+        <div class="button-grid__cell">
+            <h3>Secondary button</h3>
+            <a href="" class="button secondary-button">
+                <span class="button__text">Secondary button</span>
+            </a>
+
+            <h4>- with long text</h4>
+            <a href="" class="button secondary-button">
+                <span class="button__text">Secondary button long text example test</span>
+            </a>
+
+            <h4>- loader</h4>
+            <a href="" class="button secondary-button">
+                <svg class="loader" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 100 100">
+                    <g>
+                        <path class="loader__background" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                            c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                        <path class="loader__spinner" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                            c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                    </g>
+                </svg>
+            </a>
+
+            <h4>- icon left</h4>
+            <a href="" class="button secondary-button">
+                <span class="button__text">Secondary button</span>
+                <span class="button__icon--left">Icon</span>
+            </a>
+
+            <h4>- icon right</h4>
+            <a href="" class="button secondary-button">
+                <span class="button__text">Secondary button</span>
+                <span class="button__icon--right">Icon</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<section class="section background--dark">
+    <div class="container">
+        <div class="button-grid">
+            <!-- Primary button on the dark background -->
+            <div class="button-grid__cell">
+                <h3>Primary Button</h3>
+                <a href="" class="button primary-button--on-dark">
+                    <span class="button__text">Primary button</span>
+                </a>
+
+                <h4>- with long text</h4>
+                <a href="" class="button primary-button--on-dark">
+                    <span class="button__text">Primary button long text</span>
+                </a>
+
+                <h4>- loader</h4>
+                <a href="" class="button primary-button--on-dark">
+                    <svg class="loader" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 100 100">
+                        <g>
+                            <path class="loader__background" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                                c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                            <path class="loader__spinner" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                                c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                        </g>
+                    </svg>
+                </a>
+
+                <h4>- icon left</h4>
+                <a href="" class="button primary-button--on-dark">
+                    <span class="button__text">Primary button</span>
+                    <span class="button__icon--left">Icon</span>
+                </a>
+
+                <h4>- icon right</h4>
+                <a href="" class="button primary-button--on-dark">
+                    <span class="button__text">Primary button</span>
+                    <span class="button__icon--right">Icon</span>
+                </a>
+            </div>
+
+            <!-- Secondary button on the dark background -->
+            <div class="button-grid__cell">
+                <h3>Secondary button</h3>
+                <a href="" class="button secondary-button--on-dark">
+                    <span class="button__text">Secondary button</span>
+                </a>
+
+                <h4>- with long text</h4>
+                <a href="" class="button secondary-button--on-dark">
+                    <span class="button__text">Secondary button long text</span>
+                </a>
+
+                <h4>- loader</h4>
+                <a href="" class="button secondary-button--on-dark">
+                    <svg class="loader" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 100 100">
+                        <g>
+                            <path class="loader__background" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                                c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                            <path class="loader__spinner" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                                c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                        </g>
+                    </svg>
+                </a>
+
+                <h4>- icon left</h4>
+                <a href="" class="button secondary-button--on-dark">
+                    <span class="button__text">Secondary button</span>
+                    <span class="button__icon--left">Icon</span>
+                </a>
+
+                <h4>- icon right</h4>
+                <a href="" class="button secondary-button--on-dark">
+                    <span class="button__text">Secondary button</span>
+                    <span class="button__icon--right">Icon</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section background--light">
+    <div class="container">
+        <div class="button-grid">
+            <!-- Primary button on the light background -->
+            <div class="button-grid__cell">
+                <h3>Primary Button</h3>
+                <a href="" class="button primary-button--on-light">
+                    <span class="button__text">Primary button</span>
+                </a>
+
+                <h4>- with long text</h4>
+                <a href="" class="button primary-button--on-light">
+                    <span class="button__text">Primary button long text</span>
+                </a>
+
+                <h4>- loader</h4>
+                <a href="" class="button primary-button--on-light">
+                    <svg class="loader" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 100 100">
+                        <g>
+                            <path class="loader__background" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                                c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                            <path class="loader__spinner" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                                c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                        </g>
+                    </svg>
+                </a>
+
+                <h4>- icon left</h4>
+                <a href="" class="button primary-button--on-light">
+                    <span class="button__text">Primary button</span>
+                    <span class="button__icon--left">Icon</span>
+                </a>
+
+                <h4>- icon right</h4>
+                <a href="" class="button primary-button--on-light">
+                    <span class="button__text">Primary button</span>
+                    <span class="button__icon--right">Icon</span>
+                </a>
+            </div>
+
+            <!-- Secondary button on the light background -->
+            <div class="button-grid__cell">
+                <h3>Secondary button</h3>
+                <a href="" class="button secondary-button--on-light">
+                    <span class="button__text">Secondary button</span>
+                </a>
+
+                <h4>- with long text</h4>
+                <a href="" class="button secondary-button--on-light">
+                    <span class="button__text">Secondary button long text</span>
+                </a>
+
+                <h4>- loader</h4>
+                <a href="" class="button secondary-button--on-light">
+                    <svg class="loader" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 100 100">
+                        <g>
+                            <path class="loader__background" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                                c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                            <path class="loader__spinner" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                                c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                        </g>
+                    </svg>
+                </a>
+
+                <h4>- icon left</h4>
+                <a href="" class="button secondary-button--on-light">
+                    <span class="button__text">Secondary button</span>
+                    <span class="button__icon--left">Icon</span>
+                </a>
+
+                <h4>- icon right</h4>
+                <a href="" class="button secondary-button--on-light">
+                    <span class="button__text">Secondary button</span>
+                    <span class="button__icon--right">Icon</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

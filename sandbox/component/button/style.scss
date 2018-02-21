@@ -1,0 +1,24 @@
+@import 'cwel/style/main';
+
+.button-grid {
+    @include grid();
+    padding-bottom: $SPACE-S;
+}
+.button-grid__cell {
+    @include grid-cell((
+        's': 12,
+        'm': 6,
+        'l': 6
+    ));
+}
+.background--dark {
+    background-color: $dark;
+
+    h3,
+    h4 {
+        color: #ffffff;
+    }
+}
+.background--light {
+    background-color: $light;
+}
