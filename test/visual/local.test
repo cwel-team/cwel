@@ -14,9 +14,9 @@
 @@ parameterized using breakpoints
 Grid at breakpoint: ${breakpointName}
     ${host_url}/prototype/grid ${size}
-        check ${specPath}/Grid.gspec --include '${tags}'
+        check ${specPath}/grid.gspec --include '${tags}'
 
-@@ parameterized using breakpoints
+#@@ parameterized using breakpoints
 # REM Units at breakpoint: ${breakpointName}
     #${host_url}/prototype/remunits ${size}
-        #check ${specPath}/Remunits.gspec --include '${tags}'
+        #check ${specPath}/remunits.gspec --include '${tags}'

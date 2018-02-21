@@ -3,19 +3,20 @@
 @@ table devices
     | deviceName            | tags       | gridArgs |
     | Chrome 63 Win - xl    | xl         | --size 1366x720          --dc.resolution 1366x768                --browser chrome        --dc.browser_version 63 --dc.os Windows --dc.os_version 10 |
-    | Chrome 56 Win - l     | l          | --size 1054x800          --dc.resolution 1366x768                --browser chrome        --dc.browser_version 56 --dc.os Windows --dc.os_version 7 |
+    | Chrome 63 Win - xs    | xs         | --size 320x600           --dc.resolution 1366x768                --browser chrome        --dc.browser_version 63 --dc.os Windows --dc.os_version 10 |
     | Chrome 62 Win - m     | m          | --size 650x800           --dc.resolution 1366x768                --browser chrome        --dc.browser_version 62 --dc.os Windows --dc.os_version 10 |
+    | Chrome 56 Win - l     | l          | --size 1054x800          --dc.resolution 1366x768                --browser chrome        --dc.browser_version 56 --dc.os Windows --dc.os_version 7 |
     | Firefox 57 Win - l    | l          | --size 1054x800          --dc.resolution 1366x768                --browser firefox       --dc.browser_version 57 --dc.os Windows --dc.os_version 10 |
     | Safari 11 Mac - xl    | xl         | --size 1330x800          --dc.resolution 1366x768                --browser safari        --dc.browser_version 11 --dc.os OSX     --dc.os_version HighSierra |
     | Edge Win - xl         | xl         | --size 1330x800          --dc.resolution 1366x768                --browser edge          --dc.browser_version 16 --dc.os Windows --dc.os_version 10 |
     | IE 11 Win - l         | l          | --size 1054x800          --dc.resolution 1366x768                --browser ie            --dc.browser_version 11 --dc.os Windows --dc.os_version 10 |
     | IE 11 Win - s         | s          | --size 450x800           --dc.resolution 1366x768                --browser ie            --dc.browser_version 11 --dc.os Windows --dc.os_version 10 |
-    | iPhone X - xs         | xs         | --dc.browserName iPhone  --dc.device "iPhone X"                  --dc.platform MAC       --dc.emulator true |
-    | iPhone 8 Plus - s     | s          | --dc.browserName iPhone  --dc.device "iPhone 8 Plus"             --dc.platform MAC       --dc.emulator true |
-    | iPhone 5 - xs         | xs         | --dc.browserName iPhone  --dc.device "iPhone 5"                  --dc.platform MAC       --dc.emulator true |
-    | iPad Pro - l          | l          | --dc.browserName iPad    --dc.device "iPad Pro"                  --dc.platform MAC       --dc.emulator true |
-    | iPad 5 - m            | m          | --dc.browserName iPad    --dc.device "iPad 5th"                  --dc.platform MAC       --dc.emulator true |
-    | Samsung S8 - xs       | xs         | --dc.browserName android --dc.device "Samsung Galaxy S8"         --dc.real_mobile true |
+#   | iPhone X - xs         | xs         | --dc.browserName iPhone  --dc.device "iPhone X"                  --dc.real_mobile true |
+#   | iPhone 8 Plus - s     | s          | --dc.browserName iPhone  --dc.device "iPhone 8 Plus"             --dc.real_mobile true |
+#   | iPhone 5 - xs         | xs         | --dc.browserName iPhone  --dc.device "iPhone 5"                  --dc.real_mobile true |
+#   | iPad Pro - l          | l          | --dc.browserName iPad    --dc.device "iPad Pro"                  --dc.real_mobile true |
+#   | iPad 5 - m            | m          | --dc.browserName iPad    --dc.device "iPad 5th"                  --dc.real_mobile true |
+#   | Samsung S8 - xs       | xs         | --dc.browserName android --dc.device "Samsung Galaxy S8"         --dc.real_mobile true |
     | Galaxy Tab 4 10.1 - m | m          | --dc.browserName android --dc.device "Samsung Galaxy Tab 4 10.1" --dc.platform ANDROID |
 
 @@ set
@@ -27,7 +28,7 @@ Grid on: ${deviceName}
     selenium grid ${grid_url} --page ${host_url}/prototype/grid ${gridArgs} ${gridArgsForAll}
         check ${specPath}/grid.gspec --include '${tags}'
 
-@@ parameterized using devices
-Rem units on: ${deviceName}
-    selenium grid ${grid_url} --page ${host_url}/prototype/remunits ${gridArgs} ${gridArgsForAll}
-        check ${specPath}/remunits.gspec --include '${tags}'
+#@@ parameterized using devices
+#Rem units on: ${deviceName}
+#    selenium grid ${grid_url} --page ${host_url}/prototype/remunits ${gridArgs} ${gridArgsForAll}
+#        check ${specPath}/remunits.gspec --include '${tags}'

@@ -68,6 +68,8 @@
             grid_cell_3_xl-*                        .grid__cell--size-3-xl
             grid_cell_2_xl-*                        .grid__cell--size-2-xl
             grid_cell_1_xl-*                        .grid__cell--size-1-xl
+        grid-combinations                       .grid:nth-of-type(6)
+            grid_cell                               .grid__cell
 
     nested_grids                                .section--nested-grids
         grid-1                                  .grid:nth-of-type(1)
@@ -276,6 +278,22 @@
                 @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
                     responsive_cells.grid-xl.grid_cell_${index}_xl-*:
                         width ~ ${(index / 12) * 100}% of responsive_cells.grid-xl/width
+    = Combinations =
+        @on xs
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(1 / 12) * 100}% of responsive_cells.grid-combinations/width
+        @on s
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(3 / 12) * 100}% of responsive_cells.grid-combinations/width
+        @on m
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(4 / 12) * 100}% of responsive_cells.grid-combinations/width
+        @on l
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(6 / 12) * 100}% of responsive_cells.grid-combinations/width
+        @on xl
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(8 / 12) * 100}% of responsive_cells.grid-combinations/width
 
 = Nested Grids =
 
