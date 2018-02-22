@@ -20,3 +20,9 @@ Grid at breakpoint: ${breakpointName}
 REM Units at breakpoint: ${breakpointName}
     ${host_url}/prototype/remunits ${size}
         check ${specPath}/Remunits.gspec --include '${tags}'
+
+@@ parameterized using breakpoints
+Button at breakpoint: ${breakpointName}
+    ${host_url}/component/button ${size}
+        check ${specPath}/button.gspec --include '${tags}'
+

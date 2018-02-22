@@ -1,0 +1,22 @@
+////
+/// @group _icon.scss
+/// @since 0.0.1
+////
+
+svg:not(.loader) {
+    height: 20px; // stylelint-disable-line
+    vertical-align: middle;
+    
+    .secondary-button & path,
+    .primary-button--on-dark & path,
+    .secondary-button--on-light & path {
+        fill: $dark;
+        stroke: $dark;
+    }
+
+    path {
+        stroke-width: 0.3;
+        fill: $white;
+        stroke: $white; // stylelint-disable-line     
+    }
+}
