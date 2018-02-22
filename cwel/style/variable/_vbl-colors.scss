@@ -25,3 +25,26 @@ $gray: (
     80: lighten($black, 80%),
     90: lighten($black, 90%)
 );
+
+//brochure theme
+//colors are picked via this site http://chir.ag/projects/name-that-color
+$t_cwel-oxford: #393f57;
+$t_cwel-grape: #372062;
+$t_cwel-plum: #892e85;
+$t_cwel-blueberry: #285c91;
+$t_cwel-silver: #c4c4c4;
+$t_cwel-steel: #eaeeef;
+$t_cwel-cornflower-blue: #5cbbeb;
+
+//main
+$c_primary: $t_cwel-grape;
+$c_secondary: $t_cwel-blueberry;
+
+//text
+$c_base-text: $t_cwel-oxford;
+$c_headings-color: $c_primary;
+$c_focus: $t_cwel-cornflower-blue;
+$c_hightlight: rgba($c_focus, 0.5);
+
+//other
+$c_bg-light: $t_cwel-steel;
