@@ -29,8 +29,8 @@ body {
 }
 
 .section {
-    padding-top: $SPACE-M;
-    padding-bottom: $SPACE-M;
+    padding-top: $s_md;
+    padding-bottom: $s_md;
 }
 
 .spacer {
@@ -39,81 +39,81 @@ body {
     background-color: #04a9a1;
 
     &--xxs {
-        width: $SPACE-XXS;
-        height: $SPACE-XXS;
+        width: $s_xxs;
+        height: $s_xxs;
 
         &::after {
             content: 'xxs 0.4rem';
             position: relative;
-            margin-left: $SPACE-XXS + 1rem;
+            margin-left: $s_xxs + 1rem;
             white-space: nowrap;
         }
     }
 
     &--xs {
-        width: $SPACE-XS;
-        height: $SPACE-XS;
+        width: $s_xs;
+        height: $s_xs;
 
         &::after {
             content: 'xs 0.8rem';
             position: relative;
-            margin-left: $SPACE-XS + 1rem;
+            margin-left: $s_xs + 1rem;
             white-space: nowrap;
         }
     }
 
     &--s {
-        width: $SPACE-S;
-        height: $SPACE-S;
+        width: $s_sm;
+        height: $s_sm;
 
         &::after {
             content: 's 1.6rem';
             position: relative;
-            margin-left: $SPACE-S + 1rem;
+            margin-left: $s_sm + 1rem;
             white-space: nowrap;
         }
     }
 
     &--m {
-        width: $SPACE-M;
-        height: $SPACE-M;
+        width: $s_md;
+        height: $s_md;
 
         &::after {
             content: 'm 3.2rem';
             position: relative;
-            margin-left: $SPACE-M + 1rem;
+            margin-left: $s_md + 1rem;
             white-space: nowrap;
         }
     }
 
     &--l {
-        width: $SPACE-L;
-        height: $SPACE-L;
+        width: $s_lg;
+        height: $s_lg;
 
         &::after {
             content: 'l 6.4rem';
             position: relative;
-            margin-left: $SPACE-L + 1rem;
+            margin-left: $s_lg + 1rem;
             white-space: nowrap;
         }
     }
 
     &--xl {
-        width: $SPACE-XL;
-        height: $SPACE-XL;
+        width: $s_xl;
+        height: $s_xl;
 
         &::after {
             content: 'xl 12.8rem';
             position: relative;
-            margin-left: $SPACE-XL + 1rem;
+            margin-left: $s_xl + 1rem;
             white-space: nowrap;
         }
     }
 }
 
 .text-sample {
-    margin-bottom: $SPACE-M;
-    padding: $SPACE-M;
+    margin-bottom: $s_md;
+    padding: $s_md;
     border: 0.1rem solid #efefef;
 }
 
@@ -124,8 +124,8 @@ body {
 
 .hero {
     max-width: 100%;
-    margin-bottom: $SPACE-M;
-    padding: $SPACE-L;
+    margin-bottom: $s_md;
+    padding: $s_lg;
     border: 0.1rem solid #efefef;
 
     &--fixed {
@@ -140,7 +140,7 @@ body {
 
 .container-test {
     position: relative;
-    margin-bottom: $SPACE-M;
+    margin-bottom: $s_md;
 }
 
 .container-test .block::after {
@@ -149,12 +149,12 @@ body {
     top: 0;
     left: 0;
 
-    @include breakpoint('l') {
-        content: 'container #{$CONTAINER-WIDTH-L}';
+    @include breakpoint('lg') {
+        content: 'container #{$cntr_w_lg}';
     }
 
     @include breakpoint('xl') {
-        content: 'container #{$CONTAINER-WIDTH-XL}';
+        content: 'container #{$cntr_w_xl}';
     }
 }
 

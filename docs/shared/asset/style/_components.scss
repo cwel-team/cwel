@@ -38,7 +38,7 @@
     text-align: center;
     text-decoration: none;
 
-    @include breakpoint('m') {
+    @include breakpoint('md') {
         text-align: left;
     }
 }

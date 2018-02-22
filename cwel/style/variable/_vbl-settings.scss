@@ -7,18 +7,18 @@
  * FONTS
  *************************/
 
-$FONT-SIZE-M: 62.5%;
-$FONT-SIZE-XS: $FONT-SIZE-M * 0.875; // stylelint-disable-line
-$FONT-SIZE-S: $FONT-SIZE-M;
-$FONT-SIZE-L: $FONT-SIZE-M;
-$FONT-SIZE-XL: $FONT-SIZE-M * 1.125; // stylelint-disable-line
+$f_s_md: 62.5%;
+$f_s_xs: $f_s_md * 0.875; // stylelint-disable-line
+$f_s_sm: $f_s_md;
+$f_s_lg: $f_s_md;
+$f_s_xl: $f_s_md * 1.125; // stylelint-disable-line
 
-$FONT-SIZES: (
-    xs: $FONT-SIZE-XS,
-    s: $FONT-SIZE-S,
-    m: $FONT-SIZE-M,
-    l: $FONT-SIZE-L,
-    xl: $FONT-SIZE-XL
+$font-sizes: (
+    xs: $f_s_xs,
+    ss: $f_s_sm,
+    md: $f_s_md,
+    lg: $f_s_lg,
+    xl: $f_s_xl
 );
 
 /**************************
@@ -29,47 +29,47 @@ $FONT-SIZES: (
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-S: 1.6rem;
+$s_sm: 1.6rem;
 
 /// - Canonical `XS` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-XS: $SPACE-S / 2;
+$s_xs: $s_sm / 2;
 
 /// - Canonical `XXS` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-XXS: $SPACE-XS / 2;
+$s_xxs: $s_xs / 2;
 
 /// - Canonical `M` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-M: $SPACE-S * 2;
+$s_md: $s_sm * 2;
 
 /// - Canonical `L` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-L: $SPACE-M * 2;
+$s_lg: $s_md * 2;
 
 /// - Canonical `XL` space measurement
 /// - Used verbatim for `M` viewport width breakpoint
 /// - Figure is smaller for smaller viewport widths and larger for larger viewport widths
 /// @type String
-$SPACE-XL: $SPACE-L * 2;
+$s_xl: $s_lg * 2;
 
 /// Map used to provide space sizes for the various viewport breakpoints
 /// @type Map
-$SPACES: (
-    xxs: $SPACE-XXS,
-    xs: $SPACE-XS,
-    s: $SPACE-S,
-    m: $SPACE-M,
-    l: $SPACE-L,
-    xl: $SPACE-XL
+$spacers: (
+    xxs: $s_xxs,
+    xs: $s_xs,
+    sm: $s_sm,
+    md: $s_md,
+    lg: $s_lg,
+    xl: $s_xl
 );
 
 /**************************
@@ -78,66 +78,66 @@ $SPACES: (
 
 /// `S` Breakpoint size measurement
 /// @type String
-$BREAKPOINT-S: 25em; // 400px
+$b_sm: 25em; // 400px
 
 /// `M` Breakpoint size measurement
 /// @type String
-$BREAKPOINT-M: 37.5em; // 600px
+$b_md: 37.5em; // 600px
 
 /// `L` Breakpoint size measurement
 /// @type String
-$BREAKPOINT-L: 62.75em; // 1004px - 28px = 972px
+$b_lg: 62.75em; // 1004px - 28px = 972px
 
 /// `XL` Breakpoint size measurement
 /// @type String
-$BREAKPOINT-XL: 80em; // 1280px - 28px = 1248px
+$b_xl: 80em; // 1280px - 28px = 1248px
 
 /// Map used to provide breakpoints
 /// @type Map
-$BREAKPOINTS: (
-    s: $BREAKPOINT-S,
-    m: $BREAKPOINT-M,
-    l: $BREAKPOINT-L,
-    xl: $BREAKPOINT-XL
+$breakpoints: (
+    sm: $b_sm,
+    md: $b_md,
+    lg: $b_lg,
+    xl: $b_xl
 );
 
 /**************************
  * CONTAINER
  *************************/
 
-$CONTAINER-WIDTH-L: rootem($BREAKPOINT-L, 'l');
-$CONTAINER-WIDTH-XL: rootem($BREAKPOINT-XL, 'xl');
+$cntr_w_lg: rootem($b_lg, 'l');
+$cntr_w_xl: rootem($b_xl, 'xl');
 
 /// `XS` container margin width
 /// @type String
-$CONTAINER-MARGIN-XS: rebase($SPACE-XS, 'xs');
+$cntr_m_xs: rebase($s_xs, 'xs');
 
 /// `S` container margin width
 /// @type String
-$CONTAINER-MARGIN-S: rebase($SPACE-XS, 's');
+$cntr_m_sm: rebase($s_xs, 's');
 
 /// `M` container margin width
 /// @type String
-$CONTAINER-MARGIN-M: rebase($SPACE-XS + $SPACE-XXS, 'm');
+$cntr_m_md: rebase($s_xs + $s_xxs, 'm');
 
 /// `L` container margin width
 /// @type String
-$CONTAINER-MARGIN-L: rebase($SPACE-XS + $SPACE-XXS, 'l');
+$cntr_m_lg: rebase($s_xs + $s_xxs, 'l');
 
 /// `XL` container margin width
 /// @type String
-$CONTAINER-MARGIN-XL: rebase($SPACE-XS + $SPACE-XXS, 'xl');
+$cntr_m_xl: rebase($s_xs + $s_xxs, 'xl');
 
 /// Map used to provide container widths and margins
 /// @type Map
-$CONTAINER: (
-    width-l: $CONTAINER-WIDTH-L,
-    width-xl: $CONTAINER-WIDTH-XL,
-    margin-xs: $CONTAINER-MARGIN-XS,
-    margin-s: $CONTAINER-MARGIN-S,
-    margin-m: $CONTAINER-MARGIN-M,
-    margin-l: $CONTAINER-MARGIN-L,
-    margin-xl: $CONTAINER-MARGIN-XL
+$container: (
+    width-lg: $cntr_w_lg,
+    width-xl: $cntr_w_xl,
+    margin-xs: $cntr_m_xs,
+    margin-sm: $cntr_m_sm,
+    margin-md: $cntr_m_md,
+    margin-lg: $cntr_m_lg,
+    margin-xl: $cntr_m_xl
 );
 
 /**************************
@@ -146,30 +146,30 @@ $CONTAINER: (
 
 /// `XS` grid gutter width
 /// @type String
-$GRID-GUTTER-XS: rebase($SPACE-XS, 'xs');
+$grid_g_xs: rebase($s_xs, 'xs');
 
 /// `S` grid gutter width
 /// @type String
-$GRID-GUTTER-S: rebase($SPACE-XS, 's');
+$grid_g_sm: rebase($s_xs, 's');
 
 /// `M` grid gutter width
 /// @type String
-$GRID-GUTTER-M: rebase($SPACE-S, 'm');
+$grid_g_md: rebase($s_xxs, 'm');
 
 /// `L` grid gutter width
 /// @type String
-$GRID-GUTTER-L: rebase($SPACE-S, 'l');
+$grid_g_lg: rebase($s_xxs, 'l');
 
 /// `XL` grid gutter width
 /// @type String
-$GRID-GUTTER-XL: rebase($SPACE-S, 'xl');
+$grid_g_xl: rebase($s_xxs, 'xl');
 
 /// Map used to provide grid sizes
 /// @type Map
-$GRID: (
-    gutter-xs: $GRID-GUTTER-XS,
-    gutter-s: $GRID-GUTTER-S,
-    gutter-m: $GRID-GUTTER-M,
-    gutter-l: $GRID-GUTTER-L,
-    gutter-xl: $GRID-GUTTER-XL
+$grid: (
+    gutter-xs: $grid_g_xs,
+    gutter-sm: $grid_g_sm,
+    gutter-md: $grid_g_md,
+    gutter-lg: $grid_g_lg,
+    gutter-xl: $grid_g_xl
 );
