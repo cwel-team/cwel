@@ -6,7 +6,7 @@
 ///
 
 @mixin breakpoint($device-size) {
-    $breakpoint: map-get($BREAKPOINTS, $device-size);
+    $breakpoint: map-get($breakpoints, $device-size);
 
     @media(min-width: $breakpoint) {
         @content;

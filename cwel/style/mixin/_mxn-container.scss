@@ -9,12 +9,12 @@
     display: block;
     width: 100%;
     margin: auto;
-    padding-right: $CONTAINER-MARGIN-XS;
-    padding-left: $CONTAINER-MARGIN-XS;
+    padding-right: $cntr_m_xs;
+    padding-left: $cntr_m_xs;
 
-    @each $device-size in map-keys($BREAKPOINTS) {
-        $width: map-get($CONTAINER, 'width-#{$device-size}');
-        $margin: map-get($CONTAINER, 'margin-#{$device-size}');
+    @each $device-size in map-keys($breakpoints) {
+        $width: map-get($container, 'width-#{$device-size}');
+        $margin: map-get($container, 'margin-#{$device-size}');
 
         @include breakpoint($device-size) {
             @if ($width != null) {
@@ -34,11 +34,11 @@
     display: block;
     max-width: none;
     margin: auto;
-    padding-right: $CONTAINER-MARGIN-XS;
-    padding-left: $CONTAINER-MARGIN-XS;
+    padding-right: $cntr_m_xs;
+    padding-left: $cntr_m_xs;
 
-    @each $device-size in map-keys($BREAKPOINTS) {
-        $margin: map-get($CONTAINER, 'margin-#{$device-size}');
+    @each $device-size in map-keys($breakpoints) {
+        $margin: map-get($container, 'margin-#{$device-size}');
 
         @include breakpoint($device-size) {
             @if ($margin != null) {

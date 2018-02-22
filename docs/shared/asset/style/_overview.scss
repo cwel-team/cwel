@@ -11,11 +11,11 @@
     border-bottom: 0.3rem solid $color-grey;
     border-left: 0.3rem solid $color-grey;
     @include grid-cell((
-        'm': 12,
-        'l': 6
+        'md': 12,
+        'lg': 6
     ));
 
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         flex-direction: row;
     }
 
@@ -35,7 +35,7 @@
     margin-left: 2.5rem;
     text-align: center;
 
-    @include breakpoint('l') {    
+    @include breakpoint('lg') {
         margin-top: 0;
         margin-left: 2.5rem;
     }
@@ -59,10 +59,10 @@
     color: $text-color;
     text-align: center;
 
-    @include breakpoint('m') {
+    @include breakpoint('md') {
         width: 30rem;
     }
-    @include breakpoint('l') {  
+    @include breakpoint('lg') {
         align-self: flex-start;
         width: 40rem;
         margin-top: 5rem;

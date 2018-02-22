@@ -3,8 +3,8 @@
     &::after {
         content: '0px';
     }
-    @each $device-size in map-keys($BREAKPOINTS) {
-        $breakpoint: map-get($BREAKPOINTS, $device-size);
+    @each $device-size in map-keys($breakpoints) {
+        $breakpoint: map-get($breakpoints, $device-size);
         @media (min-width: $breakpoint) {
             &::after {
                 content: '#{$breakpoint}';
@@ -17,8 +17,8 @@
     &::after {
         content: 'xs';
     }
-    @each $device-size in map-keys($BREAKPOINTS) {
-        $breakpoint: map-get($BREAKPOINTS, $device-size);
+    @each $device-size in map-keys($breakpoints) {
+        $breakpoint: map-get($breakpoints, $device-size);
         @media (min-width: $breakpoint) {
             &::after {
                 content: '#{$device-size}';

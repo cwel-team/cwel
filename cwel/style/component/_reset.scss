@@ -39,24 +39,24 @@
 html {
     overflow-x: hidden; // 1
     overflow-y: scroll; // 2
-    font-size: $FONT-SIZE-XS;
+    font-size: $f_s_xs;
     line-height: 1.15;  // 3
     -webkit-text-size-adjust: 100%; // 4
     -ms-text-size-adjust: 100%; // 5
-    @include breakpoint('s') {
-        font-size: $FONT-SIZE-S;
+    @include breakpoint('sm') {
+        font-size: $f_s_sm;
     }
 
-    @include breakpoint('m') {
-        font-size: $FONT-SIZE-M;
+    @include breakpoint('md') {
+        font-size: $f_s_md;
     }
 
-    @include breakpoint('l') {
-        font-size: $FONT-SIZE-L;
+    @include breakpoint('lg') {
+        font-size: $f_s_lg;
     }
 
     @include breakpoint('xl') {
-        font-size: $FONT-SIZE-XL;
+        font-size: $f_s_xl;
     }
 }
 
@@ -71,7 +71,6 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
 }
 
 /// 1. Add the correct display type in LTE IE 9
