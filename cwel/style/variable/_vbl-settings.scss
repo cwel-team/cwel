@@ -15,7 +15,7 @@ $f_s_xl: $f_s_md * 1.125; // stylelint-disable-line
 
 $font-sizes: (
     xs: $f_s_xs,
-    ss: $f_s_sm,
+    sm: $f_s_sm,
     md: $f_s_md,
     lg: $f_s_lg,
     xl: $f_s_xl
@@ -105,7 +105,7 @@ $breakpoints: (
  * CONTAINER
  *************************/
 
-$cntr_w_lg: rootem($b_lg, 'l');
+$cntr_w_lg: rootem($b_lg, 'lg');
 $cntr_w_xl: rootem($b_xl, 'xl');
 
 /// `XS` container margin width
@@ -114,15 +114,15 @@ $cntr_m_xs: rebase($s_xs, 'xs');
 
 /// `S` container margin width
 /// @type String
-$cntr_m_sm: rebase($s_xs, 's');
+$cntr_m_sm: rebase($s_xs, 'sm');
 
 /// `M` container margin width
 /// @type String
-$cntr_m_md: rebase($s_xs + $s_xxs, 'm');
+$cntr_m_md: rebase($s_xs + $s_xxs, 'md');
 
 /// `L` container margin width
 /// @type String
-$cntr_m_lg: rebase($s_xs + $s_xxs, 'l');
+$cntr_m_lg: rebase($s_xs + $s_xxs, 'lg');
 
 /// `XL` container margin width
 /// @type String
@@ -150,19 +150,19 @@ $grid_g_xs: rebase($s_xs, 'xs');
 
 /// `S` grid gutter width
 /// @type String
-$grid_g_sm: rebase($s_xs, 's');
+$grid_g_sm: rebase($s_xs, 'sm');
 
 /// `M` grid gutter width
 /// @type String
-$grid_g_md: rebase($s_xxs, 'm');
+$grid_g_md: rebase($s_sm, 'md');
 
 /// `L` grid gutter width
 /// @type String
-$grid_g_lg: rebase($s_xxs, 'l');
+$grid_g_lg: rebase($s_sm, 'lg');
 
 /// `XL` grid gutter width
 /// @type String
-$grid_g_xl: rebase($s_xxs, 'xl');
+$grid_g_xl: rebase($s_sm, 'xl');
 
 /// Map used to provide grid sizes
 /// @type Map

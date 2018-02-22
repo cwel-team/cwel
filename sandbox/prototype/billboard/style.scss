@@ -90,8 +90,8 @@ $billboard-default-color: $blue-default;
     display: none;
 
     @include grid-cell((
-        'm': 9,
-        'l': 7
+        'md': 9,
+        'lg': 7
     ));
 
     @include breakpoint('md') {

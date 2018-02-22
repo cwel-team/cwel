@@ -5,8 +5,8 @@
 
 .components__item {
     @include grid-cell((
-        'm': 4,
-        'l': 3
+        'md': 4,
+        'lg': 3
     ));
 }
 
