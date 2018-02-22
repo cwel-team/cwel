@@ -12,32 +12,32 @@
 }
 
 .spacer-xxs {
-    @include space($SPACE-XXS);
+    @include space($s_xxs);
     background: rgba(255, 0, 187, 0.2);
     border-color: rgba(255, 0, 187, 1);
 }
 .spacer-xs {
-    @include space($SPACE-XS);
+    @include space($s_xs);
     background: rgba(0, 0, 0, 0.2);
     border-color: rgba(0, 0, 0, 1);
 }
 .spacer-s {
-    @include space($SPACE-S);
+    @include space($s_sm);
     background: rgba(170, 141, 72, 0.2);
     border-color: rgba(170, 141, 72, 1);
 }
 .spacer-m {
-    @include space($SPACE-M);
+    @include space($s_md);
     background: rgba(0, 211, 255, 0.2);
     border-color: rgba(0, 211, 255, 1);
 }
 .spacer-l {
-    @include space($SPACE-L);
+    @include space($s_lg);
     background: rgba(0, 255, 136, 0.2);
     border-color: rgba(0, 255, 136, 1);
 }
 .spacer-xl {
-    @include space($SPACE-XL);
+    @include space($s_xl);
     background: rgba(255, 0, 187, 0.2);
     border-color: rgba(255, 0, 187, 1);
 }

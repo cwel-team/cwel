@@ -19,27 +19,27 @@ $billboard-default-color: $blue-default;
 .billboard {
     display: block;
     height: 24rem;
-    margin-bottom: $SPACE-M * 2;
+    margin-bottom: $s_md * 2;
     background-color: $billboard-primary-background;
 
-    @include breakpoint('m') {
+    @include breakpoint('md') {
         height: 36rem;
     }
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         height: 48rem;
     }
 }
 .billboard__content {
     @include container;
 
-    @include breakpoint('m') {
+    @include breakpoint('md') {
         position: relative;
-        padding-top: $SPACE-L;
+        padding-top: $s_lg;
     }
 }
 .billboard__content-grid {
 
-    @include breakpoint('m') {
+    @include breakpoint('md') {
         @include grid();
         @include grid-align('right');
     }
@@ -50,21 +50,21 @@ $billboard-default-color: $blue-default;
 }
 .billboard__content-group {
     left: 0;
-    padding-top: $SPACE-M;
-    padding-right: $SPACE-L;
-    padding-bottom: $SPACE-M;
-    padding-left: $SPACE-M;
+    padding-top: $s_md;
+    padding-right: $s_lg;
+    padding-bottom: $s_md;
+    padding-left: $s_md;
 
-    @include breakpoint('m') {
+    @include breakpoint('md') {
         position: absolute;
         max-width: 40rem; // Missing from spec
         background-color: $billboard-primary-background;
     }
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         position: initial;
         width: grid-cell-size(5);
         max-width: initial;
-        padding-top: $SPACE-M * 2;
+        padding-top: $s_md * 2;
         background-color: transparent;
     }
 
@@ -77,11 +77,11 @@ $billboard-default-color: $blue-default;
     font-size: 3.8rem; // Missing from spec
     line-height: 4.4rem; // Missing from spec
 
-    @include breakpoint('m') {
+    @include breakpoint('md') {
         font-size: 4.2rem;
         line-height: 4.5rem; // Need to use normalize line height mixin
     }
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         font-size: 4.8rem;
         line-height: 5.8rem; // Need to use normalize line height mixin
     }
@@ -90,15 +90,15 @@ $billboard-default-color: $blue-default;
     display: none;
 
     @include grid-cell((
-        'm': 9,
-        'l': 7
+        'md': 9,
+        'lg': 7
     ));
 
-    @include breakpoint('m') {
+    @include breakpoint('md') {
         display: block;
         min-height: 36rem;
     }
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         min-height: 48rem;
     }
 }
@@ -113,7 +113,7 @@ $billboard-default-color: $blue-default;
     font-size: 1.6rem;
 
     .billboard__content-group & {
-        padding-bottom: $SPACE-M;
+        padding-bottom: $s_md;
     }
 }
 .breadcrumbs__crumb {
@@ -123,8 +123,8 @@ $billboard-default-color: $blue-default;
     &:after {
         content: '>';
         display: inline-block;
-        padding-right: $SPACE-XS;
-        padding-left: $SPACE-XS;
+        padding-right: $s_xs;
+        padding-left: $s_xs;
         vertical-align: middle;
         cursor: default;
     }
@@ -141,6 +141,6 @@ $billboard-default-color: $blue-default;
 }
 
 .section {
-    padding-top: $SPACE-M;
-    padding-bottom: $SPACE-M;
+    padding-top: $s_md;
+    padding-bottom: $s_md;
 }

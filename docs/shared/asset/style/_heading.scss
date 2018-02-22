@@ -19,7 +19,7 @@
     font-size: 5rem;
     font-weight: 500;
     line-height: 1;
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         font-size: 7rem;
     }
 }

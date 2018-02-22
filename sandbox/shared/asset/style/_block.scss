@@ -2,21 +2,21 @@ $block-background: #671d5a;
 
 .block {
     min-height: 50px;
-    padding: $SPACE-XS;
-    padding-right: $SPACE-XS;
+    padding: $s_xs;
+    padding-right: $s_xs;
     overflow: hidden;
     color: rgba(255, 255, 255, 0.8);
     text-overflow: ellipsis;
     background-color: $block-background;
 
-    @include breakpoint('s') {
-        padding: $SPACE-XS;
-        padding-right: $SPACE-XS;
+    @include breakpoint('sm') {
+        padding: $s_xs;
+        padding-right: $s_xs;
     }
 
-    @include breakpoint('m') {
-        padding: $SPACE-S;
-        padding-right: $SPACE-S;
+    @include breakpoint('md') {
+        padding: $s_sm;
+        padding-right: $s_sm;
     }
 }
 
@@ -37,7 +37,7 @@ $block-background: #671d5a;
 .block--lean {
     padding: 0;
 
-    @each $key in map-keys($BREAKPOINTS) {
+    @each $key in map-keys($breakpoints) {
         @include breakpoint($key) {
             padding: 0;
         }
@@ -45,11 +45,11 @@ $block-background: #671d5a;
 }
 
 .block--claustrophobic {
-    margin-bottom: $GRID-GUTTER-XS;
+    margin-bottom: $grid_g_xs;
 
-    @each $key in map-keys($BREAKPOINTS) {
-        $breakpoint: map-get($BREAKPOINTS, $key);
-        $gutter: map-get($GRID, 'gutter-#{$key}');
+    @each $key in map-keys($breakpoints) {
+        $breakpoint: map-get($breakpoints, $key);
+        $gutter: map-get($grid, 'gutter-#{$key}');
 
         @include breakpoint($key) {
             margin-bottom: $gutter;

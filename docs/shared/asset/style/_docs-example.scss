@@ -30,9 +30,9 @@ $panel-height: 25rem;
 
 .docs-example__tab-link {
     display: block;
-    padding: $SPACE-XS;
-    padding-right: $SPACE-S;
-    padding-left: $SPACE-S;
+    padding: $s_xs;
+    padding-right: $s_sm;
+    padding-left: $s_sm;
 
     &:hover,
     &--active {
@@ -60,8 +60,8 @@ $panel-height: 25rem;
 
 .docs-example__code-pen {
     position: absolute;
-    top: $SPACE-XS;
-    right: $SPACE-XS;
+    top: $s_xs;
+    right: $s_xs;
     width: 4rem;
 }
 
@@ -81,7 +81,7 @@ $panel-height: 25rem;
 
 .docs-example__expand {
     width: 100%;
-    padding: $SPACE-XS;
+    padding: $s_xs;
     font-size: 1.3rem;
     background: none;
     border: 0.16rem solid #f5f7fa;

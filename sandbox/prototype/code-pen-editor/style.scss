@@ -11,7 +11,7 @@ $secondary-color: transparent;
 
 .docs-example__tab {
     display: inline-block;
-    margin-right: $SPACE-XS;
+    margin-right: $s_xs;
     color: $primary-color;
     border-bottom: 0.16rem solid $secondary-color;
     cursor: pointer;
@@ -25,14 +25,14 @@ $secondary-color: transparent;
 .docs-example__panel {
     display: block;
     width: 100%;
-    margin-bottom: $SPACE-S;
+    margin-bottom: $s_sm;
     resize: none;
 }
 
 .docs-example__submit {
-    padding: $SPACE-XS;
-    padding-right: $SPACE-S;
-    padding-left: $SPACE-S;
+    padding: $s_xs;
+    padding-right: $s_sm;
+    padding-left: $s_sm;
     font-size: 1.3rem;
     background: none;
     border: 0.14rem solid $primary-color;
