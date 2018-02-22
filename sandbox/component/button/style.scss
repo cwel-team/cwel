@@ -2,23 +2,23 @@
 
 .button-grid {
     @include grid();
-    padding-bottom: $SPACE-S;
+    padding-bottom: $s_sm;
 }
 .button-grid__cell {
     @include grid-cell((
-        's': 12,
-        'm': 6,
-        'l': 6
+        'sm': 12,
+        'md': 6,
+        'lg': 6
     ));
 }
 .background--dark {
-    background-color: $dark;
+    background-color: $c_primary;
 
     h3,
     h4 {
-        color: #ffffff;
+        color: $white;
     }
 }
 .background--light {
-    background-color: $light;
+    background-color: $t_cwel-steel;
 }

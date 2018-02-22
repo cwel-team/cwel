@@ -5,18 +5,18 @@
 
 svg:not(.loader) {
     height: 20px; // stylelint-disable-line
-    vertical-align: middle;
+    vertical-align: baseline;
     
     .secondary-button & path,
     .primary-button--on-dark & path,
     .secondary-button--on-light & path {
-        fill: $dark;
-        stroke: $dark;
+        fill: $c_primary;
+        stroke: $c_primary;
     }
 
     path {
         stroke-width: 0.3;
         fill: $white;
-        stroke: $white; // stylelint-disable-line     
+        stroke: $white;     
     }
 }

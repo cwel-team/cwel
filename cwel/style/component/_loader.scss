@@ -3,9 +3,10 @@
 /// @since 0.0.1
 ////
 
-$dark: #372062;
-$light: #c4c4c4;
-$white: #ffffff;
+// loaders
+$l_color: $white;
+$l_alt-color: $c_primary;
+$l_background: $t_cwel-silver;
 
 /// 1. Rotates 270 degrees so that the aniamtion will start at from the top
 /// 2. Rotates from center point of the loader
@@ -26,7 +27,7 @@ $white: #ffffff;
 /// 3. Animate speed is 1 seconds, the animation will be infinite
 
 .loader__spinner {
-    stroke: $white;
+    stroke: $l_color;
     stroke-width: 11;
     stroke-dasharray: 200; // 1
     stroke-dashoffset: 200; // 2
@@ -35,11 +36,11 @@ $white: #ffffff;
     .secondary-button &,
     .primary-button--on-dark &,
     .secondary-button--on-light & {
-        stroke: $dark;
+        stroke: $l_alt-color;
     }
 }
 .loader__background {
-    stroke: darken($light, 15%);
+    stroke: darken($l_background, 15%);
     stroke-width: 9;
 }
 
