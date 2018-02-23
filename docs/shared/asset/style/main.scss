@@ -14,6 +14,9 @@
 @import 'cwel/style/component/reset';
 @import 'cwel/style/component/typography';
 
+@include generate-container-classes;
+@include generate-grid-classes;
+
 @import 'variables';
 @import 'docs';
 @import 'side-bar';
