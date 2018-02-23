@@ -11,7 +11,9 @@
     margin-bottom: 2rem;
     padding-left: 0;
 }
-
+.main-nav__item {
+    margin-left: 0;
+}
 .main-nav__item-heading {
     position: relative;
     display: block;
@@ -42,6 +44,7 @@
 }
 .main-nav__list {
     max-height: 0;
+    margin-bottom: 0;
     padding-left: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out;
@@ -49,6 +52,9 @@
 .main-nav__list--open {
     max-height: 150rem;
     transition: max-height 0.5s ease-in;
+}
+.main-nav__list-item {
+    margin-left: 0;
 }
 .main-nav__list-item-link {
     display: inline-block;
