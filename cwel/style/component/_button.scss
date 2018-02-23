@@ -33,10 +33,17 @@ $focus: rgb(92, 187, 235);
 
 button {
     width: 100%;
+    color: $c_secondary;
     font-family: inherit;
     font-size: inherit;
+    background-color: transparent;
+    
     @include breakpoint('md') {
         width: auto;
+    }
+
+    &:hover {
+        opacity: 0.8;
     }
 }
 
