@@ -1,4 +1,4 @@
-const BadgePageObject = require('./Badge.pageobject').default;
+const BadgePageObject = require('./badge.pageobject').default;
 
 describe('Badge Component', () => {
     let badgePo;

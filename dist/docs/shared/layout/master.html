@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CWEL Docs</title>
+    <style>
+      [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {
+          display: none !important;
+      }
+    </style>
     <link rel="stylesheet" href="main.css">
 </head>
 <body ng-app="docs" ng-controller="docs">
-
-     <button class="side-nav__toggle-btn" ng-click="sideBar=!sideBar" ng-class="{ 'side-nav__toggle-btn--active' : sideBar }">
+    <button class="side-nav__toggle-btn" ng-click="sideBar=!sideBar" ng-init="sideBar=true" ng-class="{ 'side-nav__toggle-btn--active' : sideBar }">
     <div>
         <div class="line"></div>
         <div class="line"></div>
@@ -30,7 +34,7 @@
             <li class="main-nav__item" navitem ng-repeat="page in pages | filter:searchText" filter="searchText" text="page.text" items="page.items" name="page.name"></li>
         </ul>
         <div class="side-bar__links">
-            <a href="" target"_blank" class="button button--icon">
+            <a href="" target="_blank" class="button button--icon">
                 UI Kit
                 <span class="button__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="2039 5859.651 16.57 14.301">
@@ -77,9 +81,8 @@
 </div>
 
     <div class="docs" ng-class="{ 'docs--side-nav' : sideBar }">
+        <div ui-view></div>
 
-         <div ui-view></div>
-        
         <div class="footer">
     <div class="footer__content">
         <p class="footer__content-text">Component version <a href="">0.01</a></p>
