@@ -1,0 +1,109 @@
+.mini-contact {
+    display: block;
+    padding-top: $s_lg;
+    padding-bottom: $s_lg;
+    text-align: center; // Centering all contents within Mini Contact Component.
+
+    @include breakpoint('md') {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+    @include breakpoint('lg') {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+}
+
+.mini-contact-grid {
+    @include breakpoint('md') {
+        width: grid-cell-size(12);
+    }
+    @include breakpoint('lg') {
+        width: grid-cell-size(4);
+        padding-right: $s_md;
+    }
+}
+
+.mini-contact-grid--centered {
+    @include breakpoint('md') {
+        width: grid-cell-size(12);
+    }
+    @include breakpoint('lg') {
+        width: grid-cell-size(4);
+        padding-right: $s_md;
+    }
+}
+
+.mini-contact__title {
+    margin-top: 0;
+    margin-bottom: $s_md;
+    color: $white;
+    font-size: 2.8rem;
+
+    @include breakpoint('lg') {
+        text-align: left;
+    }
+}
+
+.mini-contact__title--nodisplay { // By default not displaying in mobile view using --nodisplay modifier.
+    display: none;
+    margin-top: 0;
+    margin-bottom: $s_md;
+    color: $white;
+    font-size: 2.8rem;
+
+    @include breakpoint('md') {
+        display: inherit;
+    }
+    @include breakpoint('lg') {
+        display: inherit;
+        text-align: left;
+    }
+}
+
+.mini-contact__text {
+    margin-bottom: $s_md;
+    color: $white;
+
+    @include breakpoint('lg') {
+        text-align: left;
+    }
+}
+
+.mini-contact__text--nodisplay { // By default not displaying in mobile view using --nodisplay modifier.
+    display: none;
+    margin-bottom: $s_md;
+    color: $white;
+
+    @include breakpoint('md') {
+        display: inherit;
+    }
+    @include breakpoint('lg') {
+        display: inherit;
+        text-align: left;
+    }
+}
+
+.mini-contact__button {
+    width: 100%;
+    min-height: 5.5rem;
+    margin-bottom: $s_md;
+    color: $white;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 4rem;
+
+    @include breakpoint('md') {
+        width: 25.63rem;
+    }
+    @include breakpoint('lg') {
+        width: 25.63rem;
+    }
+}
+
+// classes not to be use - just for sandbox use
+.remove {
+    display: none;
+}

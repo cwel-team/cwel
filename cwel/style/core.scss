@@ -13,6 +13,7 @@
 
 @import './component/reset';
 @import './component/typography';
+@import './component/mini-contact';
 
 @include generate-container-classes;
 @include generate-grid-classes;
