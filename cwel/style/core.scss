@@ -13,6 +13,8 @@
 
 @import './component/reset';
 @import './component/typography';
+@import './component/display';
+@import './component/image';
 
 @include generate-container-classes;
 @include generate-grid-classes;

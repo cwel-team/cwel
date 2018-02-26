@@ -4,11 +4,24 @@
 ////
 
 /// @example
-/// aspect-ratio(50);
-/// @param {int} $ratio - Percentage of element's width that should be applied to element's height (0 - 100)
+/// aspect-ratio(1280px, 891.87px, '.display__image');
+/// @param {int} $width, $height
+/// @param {string} $selector
 
-@mixin aspect-ratio($ratio) {
-    width: 100%;
-    height: 0;
-    padding-bottom: 100% / $ratio;
+@mixin aspect-ratio($width, $height, $selector) {
+    $selector: unquote($selector);
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: block;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    #{$selector} {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
 }

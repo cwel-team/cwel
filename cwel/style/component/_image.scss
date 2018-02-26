@@ -1,0 +1,7 @@
+.image {
+    @include aspect-ratio(
+        $ratio-width,
+        $ratio-height,
+        '.image__src'
+    );
+}
