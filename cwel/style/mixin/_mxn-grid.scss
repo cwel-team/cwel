@@ -5,7 +5,7 @@
 
 ///
 
-@mixin grid($grid-settings: $GRID) {
+@mixin grid($grid-settings: $grid) {
     $gutter-xs: map-get($grid-settings, 'gutter-xs');
 
     display: flex;
@@ -15,8 +15,8 @@
     flex-wrap: wrap;
     margin-left: $gutter-xs * -1;
 
-    @each $key in map-keys($BREAKPOINTS) {
-        $breakpoint: map-get($BREAKPOINTS, $key);
+    @each $key in map-keys($breakpoints) {
+        $breakpoint: map-get($breakpoints, $key);
         $gutter: map-get($grid-settings, 'gutter-#{$key}');
 
         @media(min-width: $breakpoint) {
@@ -34,7 +34,7 @@
 ///
 
 @mixin grid-cell-gutter($device) {
-    $gutter: map-get($GRID, 'gutter-#{$device}');
+    $gutter: map-get($grid, 'gutter-#{$device}');
     padding-left: $gutter;
 }
 
@@ -54,7 +54,7 @@
 
 ///
 
-@mixin grid-cell($sizing, $grid-settings: $GRID) {
+@mixin grid-cell($sizing, $grid-settings: $grid) {
     $gutter-xs: map-get($grid-settings, 'gutter-xs');
     $width-xs: map-get($sizing, 'xs') or 12;
 
@@ -62,8 +62,8 @@
     @include grid-cell-width($width-xs);
     @include grid-cell-gutter('xs');
 
-    @each $key in map-keys($BREAKPOINTS) {
-        $breakpoint: map-get($BREAKPOINTS, $key);
+    @each $key in map-keys($breakpoints) {
+        $breakpoint: map-get($breakpoints, $key);
         $width: map-get($sizing, $key);
 
         @media(min-width: $breakpoint) {
@@ -208,8 +208,8 @@
         @include grid-cell-gutter('xs');
         @include grid-cell-width(12);
 
-        @each $key in map-keys($BREAKPOINTS) {
-            $breakpoint: map-get($BREAKPOINTS, $key);
+        @each $key in map-keys($breakpoints) {
+            $breakpoint: map-get($breakpoints, $key);
 
             @media(min-width: $breakpoint) {
                 @include grid-cell-gutter($key);
@@ -236,8 +236,8 @@
     }
 
     @for $i from 1 through 12 {
-        @each $key in map-keys($BREAKPOINTS) {
-            $breakpoint: map-get($BREAKPOINTS, $key);
+        @each $key in map-keys($breakpoints) {
+            $breakpoint: map-get($breakpoints, $key);
 
             .grid__cell--size-#{$i}-#{$key} {
                 @media(min-width: $breakpoint) {

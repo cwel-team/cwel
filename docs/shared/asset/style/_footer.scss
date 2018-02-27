@@ -6,7 +6,7 @@
     font-size: 1.4rem;
     background: $color-grey;
 
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         flex-direction: unset;
     }
 }
@@ -36,7 +36,7 @@
     padding-bottom: 3rem;
     padding-left: 4rem;
 
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         padding-left: 0;
     }
 }
@@ -44,7 +44,7 @@
     width: 16rem;
     margin-bottom: 2rem;
 
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         align-self: flex-end;
     }
 
@@ -62,7 +62,7 @@
     color: $text-color;
     text-decoration: none;
 
-    @include breakpoint('l') {
+    @include breakpoint('lg') {
         margin-right: 0;
         margin-left: 2.5rem;
     }

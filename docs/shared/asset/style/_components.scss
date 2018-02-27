@@ -5,8 +5,8 @@
 
 .components__item {
     @include grid-cell((
-        'm': 4,
-        'l': 3
+        'md': 4,
+        'lg': 3
     ));
 }
 
@@ -38,7 +38,7 @@
     text-align: center;
     text-decoration: none;
 
-    @include breakpoint('m') {
+    @include breakpoint('md') {
         text-align: left;
     }
 }
