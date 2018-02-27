@@ -27,7 +27,7 @@ module.exports = () => gulp.src([
     const tailPath = file.path
     .replace(file.base, '') // gulp base path
     .replace(p.base, ''); // filename
-    const outputPath = path.resolve('dist', 'Cwel', tailPath);
+    const outputPath = path.resolve('dist', 'cwel', tailPath);
     const outputName = p.base.replace(p.ext, '.js');
 
     return stream
