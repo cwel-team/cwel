@@ -5,3 +5,15 @@
         '.image__src'
     );
 }
+.image__src {
+    .display--bottom & {
+        @include breakpoint('lg') {
+            top: $s_lg;
+        }
+    }
+    .display--top & {
+        @include breakpoint('lg') {
+            top: -$s_lg;
+        }
+    }
+}
