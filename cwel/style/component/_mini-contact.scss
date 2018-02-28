@@ -1,3 +1,4 @@
+// Container related markup
 .mini-contact {
     display: block;
     padding-top: $s_lg;
@@ -16,6 +17,38 @@
     }
 }
 
+.mini-contact--dual {
+    display: block;
+    padding-top: $s_lg;
+    padding-bottom: $s_lg;
+    text-align: center; // Centering all contents within Mini Contact Component.
+
+    @include breakpoint('md') {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+    @include breakpoint('lg') {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+    }
+}
+
+.mini-contact--single {
+    display: block;
+    padding-top: $s_lg;
+    padding-bottom: $s_lg;
+    text-align: center; // Centering all contents within Mini Contact Component.
+
+    @include breakpoint('lg') {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+}
+
+// Grid related markup
 .mini-contact-grid {
     @include breakpoint('md') {
         width: grid-cell-size(12);
@@ -26,16 +59,48 @@
     }
 }
 
-.mini-contact-grid--centered {
+.mini-contact-grid--full {
     @include breakpoint('md') {
         width: grid-cell-size(12);
     }
     @include breakpoint('lg') {
-        width: grid-cell-size(4);
+        width: grid-cell-size(12);
+    }
+}
+
+.mini-contact-grid--half {
+    @include breakpoint('md') {
+        width: grid-cell-size(12);
+    }
+    @include breakpoint('lg') {
+        width: grid-cell-size(6);
+    }
+}
+
+.mini-contact-grid--alignleft { // Aligning buttons left within in grid element.
+    text-align: left;
+}
+
+// Spacing related markup
+.padding-right-med {
+    @include breakpoint('md') {
+        padding: 0;
+    }
+    @include breakpoint('lg') {
         padding-right: $s_md;
     }
 }
 
+.padding-left-med {
+    @include breakpoint('md') {
+        padding: 0;
+    }
+    @include breakpoint('lg') {
+        padding-right: $s_md;
+    }
+}
+
+// Styling related markup
 .mini-contact__title {
     margin-top: 0;
     margin-bottom: $s_md;
@@ -47,19 +112,14 @@
     }
 }
 
-.mini-contact__title--nodisplay { // By default not displaying in mobile view using --nodisplay modifier.
-    display: none;
+.mini-contact__title--centered {
     margin-top: 0;
     margin-bottom: $s_md;
     color: $white;
     font-size: 2.8rem;
 
-    @include breakpoint('md') {
-        display: inherit;
-    }
     @include breakpoint('lg') {
-        display: inherit;
-        text-align: left;
+        text-align: center;
     }
 }
 
@@ -72,17 +132,12 @@
     }
 }
 
-.mini-contact__text--nodisplay { // By default not displaying in mobile view using --nodisplay modifier.
-    display: none;
+.mini-contact__text--centered {
     margin-bottom: $s_md;
     color: $white;
 
-    @include breakpoint('md') {
-        display: inherit;
-    }
     @include breakpoint('lg') {
-        display: inherit;
-        text-align: left;
+        text-align: center;
     }
 }
 
@@ -94,16 +149,32 @@
     text-transform: uppercase;
     border: 0;
     border-radius: 4rem;
+}
 
-    @include breakpoint('md') {
-        width: 25.63rem;
-    }
+.mini-contact__button--small { // Modifiers for testing - actual sizes to be created
+    width: 100%;
+    min-height: 5.5rem;
+    margin-bottom: $s_md;
+    color: $white;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 4rem;
+
     @include breakpoint('lg') {
-        width: 25.63rem;
+        width: 15.63rem;
     }
 }
 
-// classes not to be use - just for sandbox use
-.remove {
-    display: none;
+.mini-contact__button--medium { // Modifiers for testing - actual sizes to be created
+    width: 100%;
+    min-height: 5.5rem;
+    margin-bottom: $s_md;
+    color: $white;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 4rem;
+
+    @include breakpoint('lg') {
+        width: 36.63rem;
+    }
 }
