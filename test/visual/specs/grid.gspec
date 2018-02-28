@@ -41,26 +41,26 @@
             grid_cell_2_xs-*                        .grid__cell--size-2
             grid_cell_1_xs-*                        .grid__cell--size-1
         grid-s                                  .grid:nth-of-type(2)
-            grid_cell_12_s-*                        .grid__cell--size-12-s
-            grid_cell_6_s-*                         .grid__cell--size-6-s
-            grid_cell_4_s-*                         .grid__cell--size-4-s
-            grid_cell_3_s-*                         .grid__cell--size-3-s
-            grid_cell_2_s-*                         .grid__cell--size-2-s
-            grid_cell_1_s-*                         .grid__cell--size-1-s
+            grid_cell_12_s-*                        .grid__cell--size-12-sm
+            grid_cell_6_s-*                         .grid__cell--size-6-sm
+            grid_cell_4_s-*                         .grid__cell--size-4-sm
+            grid_cell_3_s-*                         .grid__cell--size-3-sm
+            grid_cell_2_s-*                         .grid__cell--size-2-sm
+            grid_cell_1_s-*                         .grid__cell--size-1-sm
         grid-m                                  .grid:nth-of-type(3)
-            grid_cell_12_m-*                        .grid__cell--size-12-m
-            grid_cell_6_m-*                         .grid__cell--size-6-m
-            grid_cell_4_m-*                         .grid__cell--size-4-m
-            grid_cell_3_m-*                         .grid__cell--size-3-m
-            grid_cell_2_m-*                         .grid__cell--size-2-m
-            grid_cell_1_m-*                         .grid__cell--size-1-m
+            grid_cell_12_m-*                        .grid__cell--size-12-md
+            grid_cell_6_m-*                         .grid__cell--size-6-md
+            grid_cell_4_m-*                         .grid__cell--size-4-md
+            grid_cell_3_m-*                         .grid__cell--size-3-md
+            grid_cell_2_m-*                         .grid__cell--size-2-md
+            grid_cell_1_m-*                         .grid__cell--size-1-md
         grid-l                                  .grid:nth-of-type(4)
-            grid_cell_12_l-*                        .grid__cell--size-12-l
-            grid_cell_6_l-*                         .grid__cell--size-6-l
-            grid_cell_4_l-*                         .grid__cell--size-4-l
-            grid_cell_3_l-*                         .grid__cell--size-3-l
-            grid_cell_2_l-*                         .grid__cell--size-2-l
-            grid_cell_1_l-*                         .grid__cell--size-1-l
+            grid_cell_12_l-*                        .grid__cell--size-12-lg
+            grid_cell_6_l-*                         .grid__cell--size-6-lg
+            grid_cell_4_l-*                         .grid__cell--size-4-lg
+            grid_cell_3_l-*                         .grid__cell--size-3-lg
+            grid_cell_2_l-*                         .grid__cell--size-2-lg
+            grid_cell_1_l-*                         .grid__cell--size-1-lg
         grid-xl                                 .grid:nth-of-type(5)
             grid_cell_12_xl-*                       .grid__cell--size-12-xl
             grid_cell_6_xl-*                        .grid__cell--size-6-xl
