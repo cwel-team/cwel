@@ -1,4 +1,4 @@
-import PageObject from '../../../Test/E2e/PageObject';
+import PageObject from '../../../test/e2e/page-object';
 
 export default class BadgePageObject extends PageObject {
     constructor() {

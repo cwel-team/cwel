@@ -944,4 +944,4 @@ module.exports = g;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=docsExample.js.map
+//# sourceMappingURL=docs-example.js.map
