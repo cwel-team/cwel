@@ -1,0 +1,20 @@
+{% macro display(modifier, animation) %}
+<div class="display {[ modifier ]}">
+    <div class="display__container">
+
+        <div class="display__section">
+            <div class="display__image">
+                <div class="image">
+                    <img class="image__src" src="display-image.png" animate="{[ animation ]}" />
+                </div>
+            </div>
+            <div class="display__content">
+                <h2 class="display__title">Why choose us?</h2>
+                <p class="display__text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endmacro %}
+

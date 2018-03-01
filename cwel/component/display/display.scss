@@ -3,10 +3,6 @@
 /// @since 0.0.1
 ////
 
-$ratio-width: 1280px; // 155 ratio width
-$ratio-height: 891.87px; // 108 ratio height 
-$display_background-color: $t_cwel-steel;
-
 .display {
     margin-bottom: $s_lg;
 
@@ -20,7 +16,7 @@ $display_background-color: $t_cwel-steel;
     }
     &--light {
         @include breakpoint('lg') {
-            background-color: $display_background-color;
+            background-color: $c_bg-light;
         }
     }
 }
@@ -76,9 +72,11 @@ $display_background-color: $t_cwel-steel;
     @include breakpoint('md') {
         margin-bottom: 0;
     }
+    display: none;
     margin-bottom: $s_sm;
 
     .display--image & {
+        display: block;
         @include grid-cell((
             'md': 6
         ));

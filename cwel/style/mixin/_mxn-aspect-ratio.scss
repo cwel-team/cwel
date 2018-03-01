@@ -4,12 +4,10 @@
 ////
 
 /// @example
-/// aspect-ratio(1280px, 891.87px, '.display__image');
+/// aspect-ratio-container(1280px, 891.87px);
 /// @param {int} $width, $height
-/// @param {string} $selector
 
-@mixin aspect-ratio($width, $height, $selector) {
-    $selector: unquote($selector);
+@mixin aspect-ratio-container($width, $height) {
     position: relative;
 
     &:before {
@@ -18,10 +16,10 @@
         padding-top: ($height / $width) * 100%;
         overflow: hidden;
     }
+}
 
-    #{$selector} {
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
+@mixin aspect-ratio() {
+    position: absolute;
+    top: 0;
+    width: 100%;
 }

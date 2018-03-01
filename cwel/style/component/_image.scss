@@ -1,11 +1,9 @@
 .image {
-    @include aspect-ratio(
-        $ratio-width,
-        $ratio-height,
-        '.image__src'
-    );
+    @include aspect-ratio-container($ratio_width, $ratio_height);
+    background-color: $c_bg-light;
 }
 .image__src {
+    @include aspect-ratio();
     .display--bottom & {
         @include breakpoint('lg') {
             top: $s_lg;
@@ -16,4 +14,14 @@
             top: -$s_lg;
         }
     }
+}
+
+// animations
+.image--right {
+    margin-top: 2rem;
+    margin-right: 2rem;
+}
+.image--left {
+    margin-top: 2rem;
+    margin-left: 2rem;
 }

@@ -1,141 +1,56 @@
 {% extends '_layout.njk' %}
 {% set title = 'Display' %}
 
+{% from 'cwel/component/display/display.html' import display %}
+
 {% block content %}
 
-    <div class="display">
-        <div class="display__container">
+    {% set mods = [
+            { 
+                "modifier_name" : "",
+                "animation_name": "no-animation" 
+            }, 
+            { 
+                "modifier_name" : "display--center",
+                "animation_name": "no-animation" 
+            },
+            { 
+                "modifier_name" : "display--image",
+                "animation_name": "no-animation"  
+            },
+            { 
+                "modifier_name" : "display--image display--reverse",
+                "animation_name": "no-animation"  
+            },
+            { 
+                "modifier_name" : "display--image",
+                "animation_name": "image--right"  
+            },
+            { 
+                "modifier_name" : "display--image display--reverse",
+                "animation_name": "image--left" 
+            },
+            { 
+                "modifier_name" : "display--image display--light display--top",
+                "animation_name": "no-animation"  
+            },
+            { 
+                "modifier_name" : "display--image display--light display--top display--reverse",
+                "animation_name": "no-animation" 
+            },
+            { 
+                "modifier_name" : "display--image display--light display--bottom",
+                "animation_name": "no-animation" 
+            },
+            { 
+                "modifier_name" : "display--image display--light display--bottom display--revese",
+                "animation_name": "no-animation" 
+            }
+        ]
+    %}
 
-            <div class="display__section">
-                <div class="display__content">
-                    <h2 class="display__title">Why choose us?</h2>
-                    <p class="display__text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="display display--center">
-        <div class="display__container">
-
-            <div class="display__section">
-                <div class="display__content">
-                    <h2 class="display__title">Why choose us?</h2>
-                    <p class="display__text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-     <div class="display display--image">
-        <div class="display__container">
-
-            <div class="display__section">
-                <div class="display__image">
-                    <div class="image">
-                        <img class="image__src" src="display-image.png" />
-                    </div>
-                </div>
-                <div class="display__content">
-                    <h2 class="display__title">Why choose us?</h2>
-                    <p class="display__text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="display display--image display--reverse">
-        <div class="display__container">
-
-            <div class="display__section">
-                <div class="display__image">
-                    <div class="image">
-                        <img class="image__src" src="display-image.png" />
-                    </div>
-                </div>
-                <div class="display__content">
-                    <h2 class="display__title">Why choose us?</h2>
-                    <p class="display__text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="display display--light display--image display--top">
-        <div class="display__container">
-
-            <div class="display__section">
-                <div class="display__image">
-                    <div class="image">
-                        <img class="image__src" src="display-image.png" />
-                    </div>
-                </div>
-                <div class="display__content">
-                    <h2 class="display__title">Why choose us?</h2>
-                    <p class="display__text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="display display--light display--reverse display--image display--top">
-        <div class="display__container">
-
-            <div class="display__section">
-                <div class="display__image">
-                    <div class="image">
-                        <img class="image__src" src="display-image.png" />
-                    </div>
-                </div>
-                <div class="display__content">
-                    <h2 class="display__title">Why choose us?</h2>
-                    <p class="display__text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="display display--light display--image display--bottom">
-        <div class="display__container">
-
-            <div class="display__section">
-                <div class="display__image">
-                    <div class="image">
-                        <img class="image__src" src="display-image.png" />
-                    </div>
-                </div>
-                <div class="display__content">
-                    <h2 class="display__title">Why choose us?</h2>
-                    <p class="display__text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-     <div class="display display--light display--reverse display--image display--bottom">
-        <div class="display__container">
-
-            <div class="display__section">
-                <div class="display__image">
-                    <div class="image">
-                        <img class="image__src" src="display-image.png" />
-                    </div>
-                </div>
-                <div class="display__content">
-                    <h2 class="display__title">Why choose us?</h2>
-                    <p class="display__text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
+    {% for mod in mods %}
+        {[ display(mod.modifier_name, mod.animation_name) ]}
+    {% endfor %}
 
 {% endblock %}
