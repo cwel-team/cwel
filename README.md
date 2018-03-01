@@ -8,6 +8,9 @@ Setup involves a set of gulp commands:
 
 - Active development: `gulp watch` to get the sandbox and documentation page up.
 - Build: `gulp build` to build the entire project.
+- Lint: `gulp lint` to lint the SCSS and JS in this project.
+	- `gulp lint:script` to only lint the JS
+	- `gulp lint:style` to only lint the SCSS
 - Test
 	- unit (karma): `gulp test-unit`
 	- end to end (protractor): `gulp test-e2e`
