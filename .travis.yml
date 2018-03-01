@@ -1,15 +1,21 @@
 language: node_js
 node_js:
-    - "lts/*"
+- lts/*
 sudo: required
-
 addons:
   chrome: stable
-
 before_script:
-    - "sudo chown root /opt/google/chrome/chrome-sandbox"
-    - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
-    - npm install -g gulp-cli
+- sudo chown root /opt/google/chrome/chrome-sandbox
+- sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+- npm install -g gulp-cli
 script:
-    - gulp build
-    - gulp test-unit
+- gulp build
+- gulp test-unit
+deploy:
+  provider: npm
+  email: npm@cwideonline.com
+  api_key:
+    secure: QPt84rlTImvqCx51q45PT1P5vpCD4XlZruYHDROT+QC2LsZlVHj6KQJ6vUd4nDobUq6an3VWzMwD9aLfWJi8n/keocjFxcC77GouQcEMsflhaATrPT9YydCC30DjbBZHfEfW0f5QiDjReoVaz/GHHr/cXKz3W13bFTSn3E4M7Oe6+RyMRAD32DVBY0pQJFqraBp7uOKQ57ryV/JPgbpQ7RJXql39aoTGb/mZFiBy0Z/+x7O5jdSS1NN+oX1hxr4Kw4dZqCTWdic3lspuDu8ZXg3rQ+MPMLDTBscrDpbBSQWqDPeS1JaA8jcUDRP6diNBOjb3bfuvvRvKh78oWRjUtJBAm6HPJZm/5an4DYa2Hd30u5/yrH+iE5NB1mJnySUFeJpynBjuPTunK57M9+K1po9eG16Cn3g09bdxe8Ee0veS7AXL9rK+wjj18GdcgJnhxe4ZpFJrjdUTzVcj0XFbKgErIvRixFbieY+36qX9bf+2ijE0rE56FDqS5NoGGABud4TAudvt2Mv9GertwghaHGSNvangFg9DwDw797NasWGx7hqvu3eqFWTX/0kX9zYccvwMZzJAaU5UcZPMB+yOquh5xcJ5lSJ5/OodnnQlz36S6flzVlfpS/K0XgMXLTTi8I6Y1/9HWqjlJq5owxnk8WE30YLIwiyGY+y6xjnwkBA=
+  on:
+    tags: true
+    repo: cwel-team/cwel
