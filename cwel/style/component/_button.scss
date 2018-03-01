@@ -3,33 +3,7 @@
 /// @since 0.0.1
 ////
 
-// buttons 
-$b_primary-color: $white;
-$b_primary-background: $c_primary;
-$b_primary-border-color: $c_primary;
-
-$b_primary-color_on-dark: $c_primary;
-$b_primary-background_on-dark: $white;
-$b_primary-border-color_on-dark: $white;
-
-$b_primary-color_on-light: $white;
-$b_primary-background_on-light: $c_primary;
-$b_primary-border-color_on-light: $c_primary;
-
-$b_secondary-color: $c_primary;
-$b_secondary-background: $t_cwel-steel;
-$b_secondary-border-color: $t_cwel-steel;
-
-$b_secondary-color_on-dark: $white;
-$b_secondary-background_on-dark: transparent;
-$b_secondary-border-color_on-dark: $white;
-
-$b_secondary-color_on-light: $c_primary;
-$b_secondary-background_on-light: $white;
-$b_secondary-border-color_on-light: $white;
-
-// other
-$focus: rgb(92, 187, 235);
+/// 1. removes focus around text in the button tag firefox
 
 button {
     width: 100%;
@@ -37,13 +11,18 @@ button {
     font-family: inherit;
     font-size: inherit;
     background-color: transparent;
-    
-    @include breakpoint('md') {
-        width: auto;
+    outline: none;
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
+    &::-moz-focus-inner {
+        border: 0; // 1
     }
 
-    &:hover {
-        opacity: 0.8;
+    @include breakpoint('md') {
+        width: auto;
     }
 }
 
@@ -51,6 +30,7 @@ button {
 /// 2. Inline-flex on medium and above so the button doesn't go full-width but keeps the properties of flex
 
 .button {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,11 +39,12 @@ button {
     max-width: 100%;
     padding-right: $s_lg;
     padding-left: $s_lg;
+    overflow: hidden;
     text-decoration: none;
     outline: none; // 1
-    border-width: 0.2rem;
-    border-style: solid;
+    border: none;
     border-radius: 5rem;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 
     @include breakpoint('md') {
@@ -72,96 +53,94 @@ button {
         padding-right: $s_md;
         padding-left: $s_md;
     }
+
+    &:focus {
+        box-shadow: 0 0 0.4rem 0.1rem $c_focus;
+        border-width: 0.2rem;
+        border-style: solid;
+        border-color: $c_focus;
+    }
+}
+
+.button--icon-only {
+    width: 56px; // stylelint-disable-line
+    min-width: 56px; // stylelint-disable-line
+    padding: 0;
 }
 
 /// 1. Max-width is calculated as max-width of the whole button minus the spacers, 320px - 64px = 256px or 25.6rem
 
 .button__text {
+    position: relative;
     order: 2;
     max-width: 100%;
     overflow: hidden;
     font-weight: 600;
     text-overflow: ellipsis;
     white-space: nowrap;
+    outline: none;
+    pointer-events: none;
+
     @include breakpoint('md') {
         max-width: $s_lg * 5 - $s_md * 2; // 1
     }
 }
 .button__icon--right {
+    position: relative;
     order: 3;
     height: 2rem;
     margin-left: $s_sm;
+    pointer-events: none;
 }
 .button__icon--left {
+    position: relative;
     order: 1;
     height: 2rem;
     margin-right: $s_sm;
+    pointer-events: none;
+}
+
+.button__icon {
+    position: relative;
+    height: 2rem;
+    pointer-events: none;
 }
 
 .primary-button {
     color: $b_primary-color;
     background-color: $b_primary-background;
-    border-color: $b_primary-background;
 
     &--on-dark {
         color: $b_primary-color_on-dark;
         background-color: $b_primary-background_on-dark;
-        border-color: $b_primary-border-color_on-dark;
-    }
-    &--on-dark:hover {
-        background-color: rgba($b_primary-background_on-dark, 0.8);
-        border-color: rgba($b_primary-border-color_on-dark, 0.8);
+        @include hover-effect($b_primary-hover_on-dark);
     }
     &--on-light {
         color: $b_primary-color_on-light;
         background-color: $b_primary-background_on-light;
-        border-color: $b_primary-border-color_on-light;
+        @include hover-effect($b_primary-hover_on-light);
     }
-    &--on-light:hover {
-        background-color: rgba($b_primary-background_on-light, 0.8);
-        border-color: rgba($b_primary-border-color_on-light, 0.8);
-    }
- 
-    &:focus {
-        box-shadow: 0 0 0.4rem 0.1rem $focus;
-        border-color: $focus;
-    }
-    &:hover {
-        background-color: rgba($b_primary-background, 0.8);
-        border-color: rgba($b_primary-background, 0.8);
-    }
+
+    @include hover-effect($b_primary-hover_on-light);
 }
 
 .secondary-button {
     color: $b_secondary-color;
     background-color: $b_secondary-background;
-    border-color: $b_secondary-border-color;
 
     &--on-dark {
         color: $b_secondary-color_on-dark;
         background-color: $b_secondary-background_on-dark;
-        border-color: $b_secondary-border-color_on-dark;
-    }
-    &--on-dark:hover {
-        color: rgba($b_secondary-color_on-dark, 0.8);
-        border-color: rgba($b_secondary-border-color_on-dark, 0.8);
+        border-width: 0.2rem;
+        border-style: solid;
+        border-color: $b_secondary-color_on-dark;
+        @include hover-effect($b_secondary-hover_on-dark);
     }
     &--on-light {
         color: $b_secondary-color_on-light;
         background-color: $b_secondary-background_on-light;
-        border-color: $b_secondary-border-color_on-light;
-    }
-    &--on-light:hover {
-        background-color: rgba($b_secondary-background_on-light, 0.8);
-        border-color: rgba( $b_secondary-border-color_on-light, 0.8);
+        @include hover-effect($b_secondary-hover_on-light);
     }
 
-    &:focus {
-        box-shadow: 0 0 0.4rem 0.1rem $focus;
-        border-color: $focus;
-    }
-    &:hover {
-        background-color: rgba($b_secondary-background, 0.8);
-        border-color: rgba($b_secondary-border-color, 0.8);
-    }
+    @include hover-effect($b_secondary-hover_on-light);
 }

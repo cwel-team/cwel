@@ -48,3 +48,29 @@ $c_hightlight: rgba($c_focus, 0.5);
 
 //other
 $c_bg-light: $t_cwel-steel;
+
+//buttons 
+$b_primary-color: $white;
+$b_primary-background: $c_primary;
+
+$b_primary-color_on-dark: $c_primary;
+$b_primary-background_on-dark: $white;
+
+$b_primary-color_on-light: $white;
+$b_primary-background_on-light: $c_primary;
+
+$b_secondary-color: $c_primary;
+$b_secondary-background: $t_cwel-steel;
+
+$b_secondary-color_on-dark: $white;
+$b_secondary-background_on-dark: $c_primary;
+
+$b_secondary-color_on-light: $c_primary;
+$b_secondary-background_on-light: $white;
+
+//hover effect
+$b_primary-hover_on-light: lighten($b_primary-background_on-light, 10%);
+$b_primary-hover_on-dark: $white;
+
+$b_secondary-hover_on-light: $white;
+$b_secondary-hover_on-dark: lighten($b_secondary-background_on-dark, 5%);
