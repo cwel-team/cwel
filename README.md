@@ -17,6 +17,13 @@ Setup involves a set of gulp commands:
 	- end to end (protractor): `gulp test-e2e`
 	- visual (galen): `gulp test-visual`
 
+### Steps
+
+1. run `npm install` in your command line
+1. run `gulp build` to build the whole project
+	- it might be necessary to install gulp globally: `npm install -g gulp` if
+an error occurs.
+
 
 ## Contributing
 
