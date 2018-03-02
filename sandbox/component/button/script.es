@@ -1,13 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll('.button').forEach((b) => {
-        b.addEventListener('mousemove', (e) => {
+import '../../../cwel/script/main';
 
-            const x = e.pageX - e.target.offsetLeft
-            const y = e.pageY - e.target.offsetTop
+window.app = angular.module('sandbox', ['cwel']);
 
-            e.target.style.setProperty('--x', `${ x }px`)
-            e.target.style.setProperty('--y', `${ y }px`)
-        })
-    })
+window.app.directive('hoverEffect', () => {
+    return {
+        restrict: 'A',
+        scope: {},
+        link(scope, el) {
+            el.bind('mousemove', (e) => {
+                const x = e.pageX - e.target.offsetLeft;
+                const y = e.pageY - e.target.offsetTop;
+                e.target.style.setProperty('--x', `${ x }px`);
+                e.target.style.setProperty('--y', `${ y }px`);
+            })
+        },
+    };
 });
 
