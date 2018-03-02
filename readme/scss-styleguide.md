@@ -61,25 +61,12 @@ Mixins follow the same syntax as variable names, except they go by `-` instead o
 @mixin display-callToAction { ... } // uses camel case for words between hyphens
 ```
 
+**Bad syntax:**
+
 ``` scss
-@mixin Grid() { ... } // don't use capital letters
+@mixin Grid() { ... } // don't start with capital letters
 @mixin grid_cell { ... } // don't use underscores
 ```
-
-
-
-## Shorthand notation
-
-Strive to limit use of shorthand declarations to instances where you must
-explicitly set all the available values. Common overused shorthand
-properties include:
-
-- padding
-- margin
-- font
-- background
-- border
-- border-radius
 
 
 ## Single declarations
@@ -174,6 +161,23 @@ difference between the values of a shorthand property, it will be flagged
 Avoid unnecessary nesting. Just because you can nest, doesn't mean you always
 should. Consider nesting only if you can't scope styles to a parent using BEM.
 
+**Good nesting:**
+
+``` scss
+.article {
+
+    // DOM state is also great to have nested as long as they maintain code readability
+    &:hover { ... }
+
+    // modifiers are good to nest as long as they maintain code readability
+    &--left-align { ... }
+}
+
+// unnest the BEM elements for better code readability
+// and consistency
+.article__title { ... }
+```
+
 **Bad nesting:**
 
 ``` scss
@@ -191,23 +195,6 @@ should. Consider nesting only if you can't scope styles to a parent using BEM.
     // nesting BEM elements like this can affect code readability if too much content.
     &__title { ... }
 }
-```
-
-**Good nesting:**
-
-``` scss
-.article {
-
-    // DOM state is also great to have nested as long as they maintain code readability
-    &:hover { ... }
-
-    // modifiers are good to nest as long as they maintain code readability
-    &--left-align { ... }
-}
-
-// unnest the BEM elements for better code readability
-// and consistency
-.article__title { ... }
 ```
 
 
