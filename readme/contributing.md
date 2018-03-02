@@ -11,13 +11,9 @@ to help following these guides.
 
 All source code for the library can be found in the `~/cwel` directory.
 
-### Components
-
 Each component has all its required files located under
 `~/cwel/component/{componentName}`. This includes `.es`, `.scss`, and `.html`
 files.
-
-### SCSS
 
 Other, non-component related styles for CWEL are located in the `~/cwel/style`
 directory: e.g. the [CWEL grid](grid-docs)
@@ -168,19 +164,41 @@ during code review.
 
 Avoid unnecessary nesting. Just because you can nest, doesn't mean you always
 should. Consider nesting only if you must scope styles to a parent and if
-there are multiple elements to be nested. Read this article on
-[nesting in Sass](http://markdotto.com/2015/07/20/css-nesting/) for
-a more detailed explanation.
-
-**Note:** in case you are too lazy to read the article above and are using BEM,
-don't nest classes if they already define the scope of a ruleset.
+there are multiple elements to be nested.
 
 **Bad nesting:**
 
 ``` scss
 .article {
 
+    // selecting by nested tag name makes it impossible to deploy stylistic changes
+    // without having to also change markup.
+    h1 {
+        // nesting tags deeply creates overly specific selectors
+        span { ... }
+        // nesting with full classes is even more specific.
+        .bold { ... }
+    }
+
+    // nesting BEM elements like this can affect code readability if too much content.
+    &__title { ... }
 }
+```
+
+**Good nesting:**
+
+``` scss
+.article {
+
+    // DOM state is also great to have nested as long as they maintain code readability
+    &:hover { ... }
+
+    // modifiers are good to nest as long as they maintain code readability
+    &--left-align { ... }
+}
+
+// unnest the BEM elements for better code overview
+.article__title { ... }
 ```
 
 
