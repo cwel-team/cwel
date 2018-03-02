@@ -1,41 +1,20 @@
-# Contribution guidelines
-
-For any pull requests to be accepted, the following guidelines must be followed.
-These cover code style, methodologies. Suggested tooling is listed at the end
-to help following these guides.
-
-**Note:** `~` in paths like `~/package.json` denotes this project's root folder.
+## SCSS styleguide
 
 
-## File locations
+## Variable name syntax
 
-All source code for the library can be found in the `~/cwel` directory.
-
-Each component has all its required files located under
-`~/cwel/component/{componentName}`. This includes `.es`, `.scss`, and `.html`
-files.
-
-Other, non-component related styles for CWEL are located in the `~/cwel/style`
-directory: e.g. the [CWEL grid](grid-docs)
-
-
-## Code style
-
-Use [eslint](eslint) and [stylelint](stylelint) to ensure your code style
-generally conforms with the project's standards; see [readme](readme) for lint
-commands.
-
-Some things are not caught by stylelint:
-
-### Variable name syntax
-
-Please avoid variable name collisions by adhering to the following syntax:
+Avoid variable name collisions by adhering to the following syntax that
+uses underscores (`_`) for namespacing, and [camel case](camelcase) for words in
+between. Any numbers in a variable name should not be given more digits than
+necessary: i.e. single digit number should not be represented in double digits.
+Numbers should be used to denote the terms 'primary' or 'secondary' for the
+sake of brevity.
 
 **Good syntax:**
 
 ``` scss
 $c_button_color_1: purple !default; // this is a color type of the button
-$s_button_borderWidth_1: 1px !default; // this is a space type of the button
+$s_button_borderWidth_1: 1px !default; // this is a space type like `px` or `rem` of the button component's primary border width
 $c_button_borderCol_1: white !default; // this is a color type of the button
 ```
 
@@ -45,24 +24,32 @@ $c_button_borderCol_1: white !default; // this is a color type of the button
 // These are all unthemeable
 $button_color: black; // what if projects using these
 $button_color_black: #000; // values in names defeat the purpose of variables
-$c-button-borderColor-1: #fff; // inconsistent with the rest
+$c-button-borderColor-1: #fff; // inconsistent with the rest by using `-` instead of `_`
 $c_btn_borderColor_1: #000; // only valid if the component is actually called `btn`
+$c_button_borderCol_01: white; // single digit number written in double digits
 ```
 
-Where each `_` denotes a namespace: the first is global, representing a SCSS
-type, the second should be component or of the like, the third a property name,
-and finally, the fourth should represent the order of that property. Order
-should be represented in number format instead of verbose `primary` or
-`secondary` -- please avoid double digits for single digit numbers i.e. primary
-is `1`, not `01`. Property names are not required to be verbose, but camel cased
-instead of CSS's kebab case syntax (for purposes of legibility).
+### Namespacing
 
-**Note:** feel free to add extra levels of name spacing for nested components.
-This is most useful if there is a component used within another component.
-For example, button being used within header: `$c_header_button_bg_1`, denotes
-the primary background color of a header button.
+Namespaces in variable names should follow this structure:
 
-### Shorthand notation
+1. global, representing SCSS type of the variable
+1. component, representing a component or similar
+1. property name, representing a CSS property name
+1. order, representing the order of a variable: i.e. `1` for primary, `2` for secondary, etc.
+
+Take `$c_button_borderCol_1` as an example:
+
+1. SCSS type of color
+1. component 'button'
+1. property name of border-color
+1. order of primary
+
+This variable name could be read as "the button component's primary border color".
+The global namespace simply makes it easy to denote the type.
+
+
+## Shorthand notation
 
 Strive to limit use of shorthand declarations to instances where you must
 explicitly set all the available values. Common overused shorthand
@@ -75,7 +62,8 @@ properties include:
 - border
 - border-radius
 
-### Single declarations
+
+## Single declarations
 
 In instances where a rule set includes only one declaration, consider removing
 line breaks for readability and faster editing. Any rule set with multiple
@@ -103,14 +91,15 @@ it. With multiple declarations, separate lines is a must for your sanity.
 .icon-account   { background-position: 0 -40px; }
 ```
 
-### Media query placement
 
-Place media queries within their relevant rule sets whenever possible. Also
-use the breakpoint mixin to avoid using arbitrary pixel values. Everything
-should work with the CWEL breakpoints. Don't bundle them all in a separate
-stylesheet or at the end of the document. Doing so only makes it easier for
-folks to miss them in the future. Also try to avoid large blocks of rulesets
-within media queries as it's easy to lose overview. Here's a typical setup.
+## Media query placement
+
+Always use the provided breakpoint mixin for media queries and place them within
+their relevant rule sets. Everything should work with the CWEL breakpoints.
+Don't bundle them all in a separate stylesheet or at the end of the document.
+Doing so only makes it easier to create spaghetti code. Also try to avoid large
+blocks of rulesets within media queries as it's easy to lose overview. Here's a
+typical setup.
 
 **Good media query usage:**
 
@@ -142,7 +131,8 @@ within media queries as it's easy to lose overview. Here's a typical setup.
 }
 ```
 
-### Shorthand notation
+
+## Shorthand notation
 
 Strive to limit use of shorthand declarations to instances where you must
 explicitly set all the available values. Common overused shorthand
@@ -158,13 +148,12 @@ properties include:
 Strict rules for this don't exist as they are sometimes as easy to read as
 longhand properties. General rule of thumb is: if it's difficult to discern the
 difference between the values of a shorthand property, it will be flagged
-during code review.
 
-### Nesting in Sass
+
+## Nesting in Sass
 
 Avoid unnecessary nesting. Just because you can nest, doesn't mean you always
-should. Consider nesting only if you must scope styles to a parent and if
-there are multiple elements to be nested.
+should. Consider nesting only if you can't scope styles to a parent using BEM.
 
 **Bad nesting:**
 
@@ -197,7 +186,8 @@ there are multiple elements to be nested.
     &--left-align { ... }
 }
 
-// unnest the BEM elements for better code overview
+// unnest the BEM elements for better code readability
+// and consistency
 .article__title { ... }
 ```
 
@@ -207,3 +197,4 @@ there are multiple elements to be nested.
 [stylelint]: https://stylelint.io/
 [readme]: ../README.md
 [grid-docs]: https://cwel-team.github.io/cwel/#!/layout/grid
+[camelcase]: https://en.wikipedia.org/wiki/Camel_case
