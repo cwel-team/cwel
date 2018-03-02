@@ -49,6 +49,25 @@ This variable name could be read as "the button component's primary border color
 The global namespace simply makes it easy to denote the type.
 
 
+## Mixins
+
+Mixins follow the same syntax as variable names, except they go by `-` instead of `_`, and no global prefix for type is necessary.
+
+**Good syntax:**
+
+``` scss
+@mixin grid() { ... }
+@mixin grid-cell() { ... }
+@mixin display-callToAction { ... } // uses camel case for words between hyphens
+```
+
+``` scss
+@mixin Grid() { ... } // don't use capital letters
+@mixin grid_cell { ... } // don't use underscores
+```
+
+
+
 ## Shorthand notation
 
 Strive to limit use of shorthand declarations to instances where you must
