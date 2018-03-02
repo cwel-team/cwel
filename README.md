@@ -34,7 +34,7 @@ Exceptions to this are `~/LICENSE` and `~/README.md` to make them stand-out.
 
 ### Create something
 
-To create something for CWEL, read how to [create a component](create-a-component).
+To create something for CWEL, read how to [create something](create-something).
 This covers the steps necessary to contribute source code.
 
 ### Code styleguides
@@ -74,5 +74,5 @@ For a list of miscellaneous tasks, see the [todo readme](todo-readme).
 [sandbox-readme]: ./readme/sandbox.md
 [docs-readme]: ./readme/docs-site.md
 [todo-readme]: ./readme/todo.md
-[create-a-component]: ./readme/create-a-component.md
+[create-something]: ./readme/create-something.md
 [kebabcase]: http://wiki.c2.com/?KebabCase
