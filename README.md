@@ -75,7 +75,6 @@ For a list of miscellaneous tasks, see the [todo readme](todo-readme).
 
 [eslint]: https://eslint.org/
 [stylelint]: https://stylelint.io/
-[grid-docs]: https://cwel-team.github.io/cwel/#!/layout/grid
 [scss-organization]: ./readme/scss-organization.md
 [scss-styleguide]: ./readme/scss-styleguide.md
 [sandbox-readme]: ./readme/sandbox.md
