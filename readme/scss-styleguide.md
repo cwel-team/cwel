@@ -79,7 +79,7 @@ The key factor here is error detection -- e.g., a CSS validator stating you
 have a syntax error on Line 183. With a single declaration, there's no missing
 it. With multiple declarations, separate lines is a must for your sanity.
 
-``` css
+``` scss
 /* Single declarations on one line */
 .span1 { width: 60px; }
 .span2 { width: 140px; }
@@ -95,6 +95,12 @@ it. With multiple declarations, separate lines is a must for your sanity.
 .icon           { background-position: 0 0; }
 .icon-home      { background-position: 0 -20px; }
 .icon-account   { background-position: 0 -40px; }
+
+.card {
+	// mixins should also be treated this way
+	@include breakpoint('md') { width: 100% / 3; }
+	@include breakpoint('lg') { width: 100% / 4; }
+}
 ```
 
 
