@@ -33,9 +33,9 @@ $l_background: $t_cwel-silver;
     stroke-dashoffset: 200; // 2
     animation: spin 1s ease-in-out infinite; // 3
 
-    .secondary-button &,
-    .primary-button--on-dark &,
-    .secondary-button--on-light & {
+    .button--secondary &,
+    .button--primary-on-dark &,
+    .button--secondary-on-light & {
         stroke: $l_alt-color;
     }
 }

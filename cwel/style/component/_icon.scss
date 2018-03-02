@@ -7,9 +7,9 @@ svg:not(.loader) {
     height: 20px; // stylelint-disable-line
     vertical-align: baseline;
     
-    .secondary-button & path,
-    .primary-button--on-dark & path,
-    .secondary-button--on-light & path {
+    .button--secondary & path,
+    .button--primary-on-dark & path,
+    .button--secondary-on-light & path {
         fill: $c_primary;
         stroke: $c_primary;
     }

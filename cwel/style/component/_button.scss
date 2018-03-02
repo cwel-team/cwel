@@ -84,38 +84,38 @@ button {
     @include breakpoint('md') {
         max-width: $s_lg * 5 - $s_md * 2; // 1
     }
-}
-.button__icon--right {
-    position: relative;
-    order: 3;
-    height: 2rem;
-    margin-left: $s_sm;
-    pointer-events: none;
-}
-.button__icon--left {
-    position: relative;
-    order: 1;
-    height: 2rem;
-    margin-right: $s_sm;
-    pointer-events: none;
+
+    .button--icon-only & {
+        display: none;
+    }
 }
 
 .button__icon {
     position: relative;
     height: 2rem;
     pointer-events: none;
+
+    .button--icon-right & {
+        order: 3;
+        margin-left: $s_sm;
+    }
+
+    .button--icon-left & {
+        order: 1;
+        margin-right: $s_sm;
+    }
 }
 
-.primary-button {
+.button--primary {
     color: $b_primary-color;
     background-color: $b_primary-background;
 
-    &--on-dark {
+    &-on-dark {
         color: $b_primary-color_on-dark;
         background-color: $b_primary-background_on-dark;
         @include hover-effect($b_primary-hover_on-dark);
     }
-    &--on-light {
+    &-on-light {
         color: $b_primary-color_on-light;
         background-color: $b_primary-background_on-light;
         @include hover-effect($b_primary-hover_on-light);
@@ -124,11 +124,11 @@ button {
     @include hover-effect($b_primary-hover_on-light);
 }
 
-.secondary-button {
+.button--secondary {
     color: $b_secondary-color;
     background-color: $b_secondary-background;
 
-    &--on-dark {
+    &-on-dark {
         color: $b_secondary-color_on-dark;
         background-color: $b_secondary-background_on-dark;
         border-width: 0.2rem;
@@ -136,7 +136,7 @@ button {
         border-color: $b_secondary-color_on-dark;
         @include hover-effect($b_secondary-hover_on-dark);
     }
-    &--on-light {
+    &-on-light {
         color: $b_secondary-color_on-light;
         background-color: $b_secondary-background_on-light;
         @include hover-effect($b_secondary-hover_on-light);
