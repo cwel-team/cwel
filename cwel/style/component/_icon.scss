@@ -3,20 +3,27 @@
 /// @since 0.0.1
 ////
 
+/// Icon fullback color is the primary
+
 svg:not(.loader) {
     height: 20px; // stylelint-disable-line
     vertical-align: baseline;
-    
-    .button--secondary & path,
-    .button--primary-on-dark & path,
-    .button--secondary-on-light & path {
+
+    path {
+        stroke-width: 0.3;
         fill: $c_primary;
         stroke: $c_primary;
     }
 
-    path {
-        stroke-width: 0.3;
-        fill: $white;
-        stroke: $white;     
+    .button & path,
+    .button--secondary.button--on-dark & path {
+        fill: $i_color;
+        stroke: $i_color;     
+    }
+    .button--secondary & path,
+    .button--on-dark & path,
+    .button--secondary.button--on-light & path {
+        fill: $i_alt-color;
+        stroke: $i_alt-color;
     }
 }

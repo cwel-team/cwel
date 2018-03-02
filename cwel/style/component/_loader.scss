@@ -3,11 +3,6 @@
 /// @since 0.0.1
 ////
 
-// loaders
-$l_color: $white;
-$l_alt-color: $c_primary;
-$l_background: $t_cwel-silver;
-
 /// 1. Rotates 270 degrees so that the aniamtion will start at from the top
 /// 2. Rotates from center point of the loader
 
@@ -34,9 +29,12 @@ $l_background: $t_cwel-silver;
     animation: spin 1s ease-in-out infinite; // 3
 
     .button--secondary &,
-    .button--primary-on-dark &,
-    .button--secondary-on-light & {
+    .button--on-dark &,
+    .button--secondary.button--on-light & {
         stroke: $l_alt-color;
+    }
+    .button--secondary.button--on-dark & {
+        stroke: $l_color;
     }
 }
 .loader__background {
