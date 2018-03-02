@@ -22,7 +22,7 @@
 /// 3. Animate speed is 1 seconds, the animation will be infinite
 
 .loader__spinner {
-    stroke: $l_color;
+    stroke: $c_loader_color_1;
     stroke-width: 11;
     stroke-dasharray: 200; // 1
     stroke-dashoffset: 200; // 2
@@ -31,22 +31,18 @@
     .button--secondary &,
     .button--on-dark &,
     .button--secondary.button--on-light & {
-        stroke: $l_alt-color;
+        stroke: $c_loader_color_2;
     }
     .button--secondary.button--on-dark & {
-        stroke: $l_color;
+        stroke: $c_loader_color_1;
     }
 }
 .loader__background {
-    stroke: darken($l_background, 15%);
+    stroke: darken($c_loader_color_3, 15%);
     stroke-width: 9;
 }
 
 @keyframes spin {
-    from {
-        stroke-dashoffset: 600;
-    }
-    to {
-        stroke-dashoffset: 1000; 
-    }
+    from { stroke-dashoffset: 600; }
+    to { stroke-dashoffset: 1000; }
 }

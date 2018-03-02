@@ -50,37 +50,40 @@ $c_hightlight: rgba($c_focus, 0.5);
 $c_bg-light: $t_cwel-steel;
 
 // Buttons 
-$b_primary-color: $white;
-$b_primary-background: $c_primary;
+$c_button_color_1: $white;
+$c_button_background_1: $c_primary;
 
-$b_primary-color_on-dark: $c_primary;
-$b_primary-background_on-dark: $white;
+$c_button_color_2: $c_primary;
+$c_button_background_2: $t_cwel-steel;
 
-$b_primary-color_on-light: $white;
-$b_primary-background_on-light: $c_primary;
+$c_button_onDark_color_1: $c_primary;
+$c_button_onDark_background_1: $white;
 
-$b_secondary-color: $c_primary;
-$b_secondary-background: $t_cwel-steel;
+$c_button_onDark_color_2: $white;
+$c_button_onDark_background_2: $c_primary;
 
-$b_secondary-color_on-dark: $white;
-$b_secondary-background_on-dark: $c_primary;
+$c_button_onLight_color_1: $white;
+$c_button_onLight_background_1: $c_primary;
 
-$b_secondary-color_on-light: $c_primary;
-$b_secondary-background_on-light: $white;
+$c_button_onLight_color_2: $c_primary;
+$c_button_onLight_background_2: $white;
 
-// Hover effect
-$b_primary-hover_on-light: lighten($b_primary-background_on-light, 10%);
-$b_primary-hover_on-dark: $white;
+// Button hover
+$c_button_onLight_hover_backgound_1: lighten($c_button_onLight_background_1, 10%);
+$c_button_onDark_hover_backgound_1: $white;
 
-$b_secondary-hover_on-light: $white;
-$b_secondary-hover_on-dark: lighten($b_secondary-background_on-dark, 5%);
+$c_button_onLight_hover_backgound_2: $white;
+$c_button_onDark_hover_backgound_2: lighten($c_button_onDark_background_2, 5%);
 
 // loaders
-$l_color: $white;
-$l_alt-color: $c_primary;
-$l_background: $t_cwel-silver;
+$c_loader_color_1: $white;
+$c_loader_color_2: $c_primary;
+$c_loader_color_3: $t_cwel-silver;
 
-// Button icons 
-$i_color: $white;
-$i_alt-color: $c_primary;
+// Icons
+$c_icon_color_1: $c_primary;
+
+// Icons buttons
+$c_icon_button_color_1: $white;
+$c_icon_button_color_2: $c_primary;
 

@@ -11,19 +11,19 @@ svg:not(.loader) {
 
     path {
         stroke-width: 0.3;
-        fill: $c_primary;
-        stroke: $c_primary;
+        fill: $c_icon_color_1;
+        stroke: $c_icon_color_1;
     }
 
     .button & path,
     .button--secondary.button--on-dark & path {
-        fill: $i_color;
-        stroke: $i_color;     
+        fill: $c_icon_button_color_1;
+        stroke: $c_icon_button_color_1;     
     }
     .button--secondary & path,
     .button--on-dark & path,
     .button--secondary.button--on-light & path {
-        fill: $i_alt-color;
-        stroke: $i_alt-color;
+        fill: $c_icon_button_color_2;
+        stroke: $c_icon_button_color_2;
     }
 }

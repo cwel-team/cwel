@@ -14,16 +14,10 @@ button {
     outline: none;
     border: none;
 
-    &:focus {
-        outline: none;
-    }
-    &::-moz-focus-inner {
-        border: 0; // 1
-    }
+    &:focus { outline: none; }
+    &::-moz-focus-inner { border: 0; } //1
 
-    @include breakpoint('md') {
-        width: auto;
-    }
+    @include breakpoint('md') { width: auto; }
 }
 
 /// 1. Show no outline as the focus style is defined on the border
@@ -40,9 +34,9 @@ button {
     padding-right: $s_lg;
     padding-left: $s_lg;
     overflow: hidden;
-    color: $b_primary-color;
+    color: $c_button_color_1;
     text-decoration: none;
-    background-color: $b_primary-background;
+    background-color: $c_button_background_1;
     outline: none; // 1
     border: none;
     border-radius: 5rem;
@@ -62,7 +56,7 @@ button {
         border-style: solid;
         border-color: $c_focus;
     }
-    @include hover-effect($b_primary-hover_on-light);
+    @include hover-effect($c_button_onLight_hover_backgound_1);
 }
 
 .button--icon-only {
@@ -110,33 +104,33 @@ button {
 }
 
 .button--secondary {
-    color: $b_secondary-color;
-    background-color: $b_secondary-background;
-    @include hover-effect($b_secondary-hover_on-light);
+    color: $c_button_color_2;
+    background-color: $c_button_background_2;
+    @include hover-effect($c_button_onLight_hover_backgound_2);
 }
 .button--on-dark {
-    color: $b_primary-color_on-dark;
-    background-color: $b_primary-background_on-dark;
-    @include hover-effect($b_primary-hover_on-dark);
+    color: $c_button_onDark_color_1;
+    background-color: $c_button_onDark_background_1;
+    @include hover-effect($c_button_onDark_hover_backgound_1);
 
     &.button--secondary {
-        color: $b_secondary-color_on-dark;
-        background-color: $b_secondary-background_on-dark;
+        color: $c_button_onDark_color_2;
+        background-color: $c_button_onDark_background_2;
         border-width: 0.2rem;
         border-style: solid;
-        border-color: $b_secondary-color_on-dark;
-        @include hover-effect($b_secondary-hover_on-dark);
+        border-color: $c_button_onDark_color_2;
+        @include hover-effect($c_button_onDark_hover_backgound_2);
     }
 }
 .button--on-light {
-    color: $b_primary-color_on-light;
-    background-color: $b_primary-background_on-light;
-    @include hover-effect($b_primary-hover_on-light);
+    color: $c_button_onLight_color_1;
+    background-color: $c_button_onLight_background_1;
+    @include hover-effect($c_button_onLight_hover_backgound_1);
 
     &.button--secondary {
-        color: $b_secondary-color_on-light;
-        background-color: $b_secondary-background_on-light;
-        @include hover-effect($b_secondary-hover_on-light);
+        color: $c_button_onLight_color_2;
+        background-color: $c_button_onLight_background_2;
+        @include hover-effect($c_button_onLight_hover_backgound_2);
     }
 }
 
