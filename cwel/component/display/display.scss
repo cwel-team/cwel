@@ -16,7 +16,7 @@
     }
     &--light {
         @include breakpoint('lg') {
-            background-color: $c_bg-light;
+            background-color: $c_display_light_bg;
         }
     }
 }

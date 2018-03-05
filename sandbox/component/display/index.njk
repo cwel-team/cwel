@@ -5,52 +5,52 @@
 
 {% block content %}
 
-    {% set mods = [
+    {% set config = [
             { 
-                "modifier_name" : "",
+                "modifier" : "",
                 "animation_name": "no-animation" 
             }, 
             { 
-                "modifier_name" : "display--center",
+                "modifier" : "display--center",
                 "animation_name": "no-animation" 
             },
             { 
-                "modifier_name" : "display--image",
+                "modifier" : "display--image",
                 "animation_name": "no-animation"  
             },
             { 
-                "modifier_name" : "display--image display--reverse",
+                "modifier" : "display--image display--reverse",
                 "animation_name": "no-animation"  
             },
             { 
-                "modifier_name" : "display--image",
+                "modifier" : "display--image",
                 "animation_name": "image--right"  
             },
             { 
-                "modifier_name" : "display--image display--reverse",
+                "modifier" : "display--image display--reverse",
                 "animation_name": "image--left" 
             },
             { 
-                "modifier_name" : "display--image display--light display--top",
+                "modifier" : "display--image display--light display--top",
                 "animation_name": "no-animation"  
             },
             { 
-                "modifier_name" : "display--image display--light display--top display--reverse",
+                "modifier" : "display--image display--light display--top display--reverse",
                 "animation_name": "no-animation" 
             },
             { 
-                "modifier_name" : "display--image display--light display--bottom",
+                "modifier" : "display--image display--light display--bottom",
                 "animation_name": "no-animation" 
             },
             { 
-                "modifier_name" : "display--image display--light display--bottom display--reverse",
+                "modifier" : "display--image display--light display--bottom display--reverse",
                 "animation_name": "no-animation" 
             }
         ]
     %}
 
-    {% for mod in mods %}
-        {[ display(mod.modifier_name, mod.animation_name) ]}
+    {% for item in config %}
+        {[ display(item.modifier, item.animation_name) ]}
     {% endfor %}
 
 {% endblock %}

@@ -19,3 +19,8 @@ Grid on: ${deviceName}
 Rem units on: ${deviceName}
     selenium grid ${grid_url} --page ${host_url}/prototype/remunits ${gridArgs} ${gridArgsForAll}
         check ${specPath}/Remunits.gspec --include '${tags}'
+
+@@ parameterized using devices
+Display on: ${deviceName}
+    selenium grid ${grid_url} --page ${host_url}/component/display ${gridArgs} ${gridArgsForAll}
+        check ${specPath}/display.gspec --include '${tags}'

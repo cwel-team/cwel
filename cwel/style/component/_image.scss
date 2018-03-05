@@ -1,6 +1,6 @@
 .image {
-    @include aspect-ratio-container($ratio_width, $ratio_height);
-    background-color: $c_bg-light;
+    @include aspect-ratio-container($s_image_width, $s_image_height);
+    background-color: $c_image_bg;
 }
 .image__src {
     @include aspect-ratio();
