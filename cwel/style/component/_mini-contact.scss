@@ -52,17 +52,8 @@
         width: grid-cell-size(4);
         padding-right: $s_md;
 
-        &:last-of-type {
+        &:last-child {
             padding-right: 0;
-        }
-    }
-
-    &--full {
-        @include breakpoint('md') {
-            width: grid-cell-size(12);
-        }
-        @include breakpoint('lg') {
-            width: grid-cell-size(12);
         }
     }
 
@@ -78,6 +69,15 @@
                 padding-right: 0;
                 padding-left: $s_md;
             }
+        }
+    }
+
+    &--full {
+        @include breakpoint('md') {
+            width: grid-cell-size(12);
+        }
+        @include breakpoint('lg') {
+            width: grid-cell-size(12);
         }
     }
 
