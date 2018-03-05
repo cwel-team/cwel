@@ -16,7 +16,7 @@
         justify-content: space-between;
     }
 
-    &--dual {
+    &--dual-col {
         display: block;
         padding-top: $s_lg;
         padding-bottom: $s_lg;
@@ -27,14 +27,9 @@
             flex-flow: row wrap;
             justify-content: space-between;
         }
-        @include breakpoint('lg') {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-around;
-        }
     }
 
-    &--single {
+    &--single-col {
         display: block;
         padding-top: $s_lg;
         padding-bottom: $s_lg;
@@ -56,6 +51,10 @@
     @include breakpoint('lg') {
         width: grid-cell-size(4);
         padding-right: $s_md;
+
+        &:last-of-type {
+            padding-right: 0;
+        }
     }
 
     &--full {
@@ -73,30 +72,17 @@
         }
         @include breakpoint('lg') {
             width: grid-cell-size(6);
+            padding-right: $s_md;
+
+            &:last-child {
+                padding-right: 0;
+                padding-left: $s_md;
+            }
         }
     }
 
     &--alignleft { // Aligning buttons left within in grid element.
         text-align: left;
-    }
-}
-
-// Spacing related markup
-.padding-right-med {
-    @include breakpoint('md') {
-        padding: 0;
-    }
-    @include breakpoint('lg') {
-        padding-right: $s_md;
-    }
-}
-
-.padding-left-med {
-    @include breakpoint('md') {
-        padding: 0;
-    }
-    @include breakpoint('lg') {
-        padding-right: $s_md;
     }
 }
 
@@ -137,44 +123,6 @@
 
         @include breakpoint('lg') {
             text-align: center;
-        }
-    }
-}
-
-.mini-contact__button {
-    width: 100%;
-    min-height: 5.5rem;
-    margin-bottom: $s_md;
-    color: $white;
-    text-transform: uppercase;
-    border: 0;
-    border-radius: 4rem;
-
-    &--small { // Modifiers for testing - actual sizes to be created
-        width: 100%;
-        min-height: 5.5rem;
-        margin-bottom: $s_md;
-        color: $white;
-        text-transform: uppercase;
-        border: 0;
-        border-radius: 4rem;
-
-        @include breakpoint('lg') {
-            width: 15.63rem;
-        }
-    }
-
-    &--medium { // Modifiers for testing - actual sizes to be created
-        width: 100%;
-        min-height: 5.5rem;
-        margin-bottom: $s_md;
-        color: $white;
-        text-transform: uppercase;
-        border: 0;
-        border-radius: 4rem;
-
-        @include breakpoint('lg') {
-            width: 36.63rem;
         }
     }
 }
