@@ -51,29 +51,29 @@ $c_bg-light: $t_cwel-steel;
 
 // Buttons 
 $c_button_color_1: $white;
-$c_button_background_1: $c_primary;
+$c_button_bg_1: $c_primary;
 
 $c_button_color_2: $c_primary;
-$c_button_background_2: $t_cwel-steel;
+$c_button_bg_2: $t_cwel-steel;
 
 $c_button_onDark_color_1: $c_primary;
-$c_button_onDark_background_1: $white;
+$c_button_onDark_bg_1: $white;
 
 $c_button_onDark_color_2: $white;
-$c_button_onDark_background_2: $c_primary;
+$c_button_onDark_bg_2: $c_primary;
 
 $c_button_onLight_color_1: $white;
-$c_button_onLight_background_1: $c_primary;
+$c_button_onLight_bg_1: $c_primary;
 
 $c_button_onLight_color_2: $c_primary;
-$c_button_onLight_background_2: $white;
+$c_button_onLight_bg_2: $white;
 
 // Button hover
-$c_button_onLight_hover_backgound_1: lighten($c_button_onLight_background_1, 10%);
-$c_button_onDark_hover_backgound_1: $white;
+$c_button_onLight_hover_bg_1: lighten($c_button_onLight_bg_1, 10%);
+$c_button_onDark_hover_bg_1: $white;
 
-$c_button_onLight_hover_backgound_2: $white;
-$c_button_onDark_hover_backgound_2: lighten($c_button_onDark_background_2, 5%);
+$c_button_onLight_hover_bg_2: $white;
+$c_button_onDark_hover_bg_2: lighten($c_button_onDark_bg_2, 5%);
 
 // loaders
 $c_loader_color_1: $white;

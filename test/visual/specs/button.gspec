@@ -3,23 +3,29 @@
 @objects
     
     button_cell_1                               .button-grid__cell:nth-of-type(1) 
-        primary_button_*                        .button
+        button_primary_*                        .button:not(.button--icon-only)
+        button_icon                             .button--icon-only
     button_cell_2                               .button-grid__cell:nth-of-type(2)
-        secondary_button_*                      .button
+        button_secondary_*                      .button:not(.button--icon-only)
+        button_icon                             .button--icon-only
 
 
     dark                                            .background--dark
         button_cell_1                               .button-grid__cell:nth-of-type(1) 
-            primary_button_*                        .button
+            button_primary_*                        .button:not(.button--icon-only)
+            button_icon                             .button--icon-only
         button_cell_2                               .button-grid__cell:nth-of-type(2)
-            secondary_button_*                      .button
+            button_secondary_*                      .button:not(.button--icon-only)
+            button_icon                             .button--icon-only
 
 
     light                                           .background--light
         button_cell_1                               .button-grid__cell:nth-of-type(1) 
-           primary_button_*                         .button
+            button_primary_*                        .button:not(.button--icon-only)
+            button_icon                             .button--icon-only
         button_cell_2                               .button-grid__cell:nth-of-type(2)
-            secondary_button_*                      .button
+            button_secondary_*                      .button:not(.button--icon-only)
+            button_icon                             .button--icon-only
 
 
 # http://galenframework.com/docs/reference-galen-spec-language-guide/#SpecsReference
@@ -27,148 +33,166 @@
 = Height =
 
     @on *
-        button_cell_1.primary_button_*:
+        button_cell_1.button_primary_*:
             css height is "56px"
 
-        button_cell_2.secondary_button_*:
+        button_cell_1.button_icon:
             css height is "56px"
 
-        dark.button_cell_1.primary_button_*:
+        button_cell_2.button_secondary_*:
             css height is "56px"
 
-        dark.button_cell_1.secondary_button_*:
+        button_cell_2.button_icon:
             css height is "56px"
 
-        light.button_cell_1.secondary_button_*:
+        dark.button_cell_1.button_primary_*:
             css height is "56px"
 
-        light.button_cell_1.secondary_button_*:
+        dark.button_cell_1.button_icon:
+            css height is "56px"
+
+        dark.button_cell_2.button_secondary_*:
+            css height is "56px"
+
+        dark.button_cell_2.button_icon:
+            css height is "56px"
+
+        light.button_cell_1.button_primary_*:
+            css height is "56px"
+
+        light.button_cell_1.button_icon:
+            css height is "56px"
+
+        light.button_cell_2.button_secondary_*:
+            css height is "56px"
+
+        light.button_cell_2.button_icon:
             css height is "56px"
 
 = Spacers =
 
     @on xs
-        button_cell_1.primary_button_*:
+        button_cell_1.button_primary_*:
             css padding-left is "56px"
             css padding-right is "56px"
 
-        button_cell_2.secondary_button_*:
+        button_cell_2.button_secondary_*:
             css padding-left is "56px"
             css padding-right is "56px"
 
-        dark.button_cell_1.primary_button_*:
+        dark.button_cell_1.button_primary_*:
            css padding-left is "56px"
            css padding-right is "56px"
 
-        dark.button_cell_1.secondary_button_*:
+        dark.button_cell_2.button_secondary_*:
             css padding-left is "56px"
             css padding-right is "56px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_1.button_primary_*:
             css padding-left is "56px"
             css padding-right is "56px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_2.button_secondary_*:
             css padding-left is "56px"
             css padding-right is "56px"
 
     @on s
-        button_cell_1.primary_button_*:
+        button_cell_1.button_primary_*:
             css padding-left is "64px"
             css padding-right is "64px"
 
-        button_cell_2.secondary_button_*:
+        button_cell_2.button_secondary_*:
             css padding-left is "64px"
             css padding-right is "64px"
 
-        dark.button_cell_1.primary_button_*:
+        dark.button_cell_1.button_primary_*:
            css padding-left is "64px"
            css padding-right is "64px"
 
-        dark.button_cell_1.secondary_button_*:
+        dark.button_cell_2.button_secondary_*:
             css padding-left is "64px"
             css padding-right is "64px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_1.button_primary_*:
             css padding-left is "64px"
             css padding-right is "64px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_2.button_secondary_*:
             css padding-left is "64px"
             css padding-right is "64px"
 
     @on m
-        button_cell_1.primary_button_*:
+        button_cell_1.button_primary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
-        button_cell_2.secondary_button_*:
+        button_cell_2.button_secondary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
-        dark.button_cell_1.primary_button_*:
+        dark.button_cell_1.button_primary_*:
            css padding-left is "32px"
            css padding-right is "32px"
 
-        dark.button_cell_1.secondary_button_*:
+        dark.button_cell_2.button_secondary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_1.button_primary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_2.button_secondary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
     @on l
-        button_cell_1.primary_button_*:
+        button_cell_1.button_primary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
-        button_cell_2.secondary_button_*:
+        button_cell_2.button_secondary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
-        dark.button_cell_1.primary_button_*:
+        dark.button_cell_1.button_primary_*:
            css padding-left is "32px"
            css padding-right is "32px"
 
-        dark.button_cell_1.secondary_button_*:
+        dark.button_cell_2.button_secondary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_1.button_primary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_2.button_secondary_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
     @on xl
-        button_cell_1.primary_button_*:
+        button_cell_1.button_primary_*:
             css padding-left is "36px"
             css padding-right is "36px"
 
-        button_cell_2.secondary_button_*:
+        button_cell_2.button_secondary_*:
             css padding-left is "36px"
             css padding-right is "36px"
 
-        dark.button_cell_1.primary_button_*:
+        dark.button_cell_1.button_primary_*:
            css padding-left is "36px"
            css padding-right is "36px"
 
-        dark.button_cell_1.secondary_button_*:
+        dark.button_cell_2.button_secondary_*:
             css padding-left is "36px"
             css padding-right is "36px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_1.button_primary_*:
             css padding-left is "36px"
             css padding-right is "36px"
 
-        light.button_cell_1.secondary_button_*:
+        light.button_cell_2.button_secondary_*:
             css padding-left is "36px"
             css padding-right is "36px"
 

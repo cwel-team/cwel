@@ -1,5 +1,9 @@
 @import 'cwel/style/main';
 
+h3,
+h4 {
+    width: 100%;
+}
 .button-grid {
     @include grid();
     padding-bottom: $s_sm;
