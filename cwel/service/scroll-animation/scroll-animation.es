@@ -5,11 +5,11 @@ angular.module('cwel')
     const animations = {
         'no-animation': [
         ],
-        'image--right': [
+        'top-right': [
             { type: 'scale', style: 'top', from: 0, to: -2, unit: 'rem' },
             { type: 'scale', style: 'left', from: 0, to: 2, unit: 'rem' },
         ],
-        'image--left': [
+        'top-left': [
             { type: 'scale', style: 'top', from: 0, to: -2, unit: 'rem' },
             { type: 'scale', style: 'left', from: 0, to: -2, unit: 'rem' },
         ],
@@ -59,7 +59,6 @@ angular.module('cwel')
 
                 const animateName = scope.animate;
                 result = animationFactory.getAnimation(animateName, el[0], range);
-                el.parent().addClass(animateName);
             }
 
             calcAnimation();

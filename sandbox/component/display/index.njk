@@ -8,49 +8,59 @@
     {% set config = [
             { 
                 "modifier" : "",
-                "animation_name": "no-animation" 
+                "animation_name": "no-animation",
+                "image_modifier": ""
             }, 
             { 
                 "modifier" : "display--center",
-                "animation_name": "no-animation" 
+                "animation_name": "no-animation",
+                "image_modifier": "" 
             },
             { 
                 "modifier" : "display--image",
-                "animation_name": "no-animation"  
+                "animation_name": "no-animation",
+                "image_modifier": ""  
             },
             { 
                 "modifier" : "display--image display--reverse",
-                "animation_name": "no-animation"  
+                "animation_name": "no-animation",
+                "image_modifier": "" 
             },
             { 
                 "modifier" : "display--image",
-                "animation_name": "image--right"  
+                "animation_name": "top-right",
+                "image_modifier": "image--animate-top-right"  
             },
             { 
                 "modifier" : "display--image display--reverse",
-                "animation_name": "image--left" 
+                "animation_name": "top-left", 
+                "image_modifier": "image--animate-top-left"
             },
             { 
                 "modifier" : "display--image display--light display--top",
-                "animation_name": "no-animation"  
+                "animation_name": "no-animation",
+                "image_modifier": ""  
             },
             { 
                 "modifier" : "display--image display--light display--top display--reverse",
-                "animation_name": "no-animation" 
+                "animation_name": "no-animation", 
+                "image_modifier": ""
             },
             { 
                 "modifier" : "display--image display--light display--bottom",
-                "animation_name": "no-animation" 
+                "animation_name": "no-animation",
+                "image_modifier": "" 
             },
             { 
                 "modifier" : "display--image display--light display--bottom display--reverse",
-                "animation_name": "no-animation" 
+                "animation_name": "no-animation",
+                "image_modifier": "" 
             }
         ]
     %}
 
     {% for item in config %}
-        {[ display(item.modifier, item.animation_name) ]}
+        {[ display(item.modifier, item.animation_name, item.image_modifier) ]}
     {% endfor %}
 
 {% endblock %}

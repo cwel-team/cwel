@@ -1,10 +1,10 @@
-{% macro display(modifier, animation) %}
+{% macro display(modifier, animation, image_modifier) %}
 <div class="display {[ modifier ]}">
     <div class="display__container">
 
         <div class="display__section">
             <div class="display__image">
-                <div class="image">
+                <div class="image {[ image_modifier ]}">
                     <img class="image__src" src="display-image.png" animate="{[ animation ]}" />
                 </div>
             </div>
