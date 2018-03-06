@@ -1,0 +1,98 @@
+{% macro default(title, title2, text) %}
+    <section class="container--dark">
+        <div class="container">
+            <div class="mini-contact">
+                <div class="mini-contact-grid">
+                    <h4 class="mini-contact__title">{[ title ]}</h4>
+                    <p class="mini-contact__text">
+                        {[ text ]}
+                    </p>
+                </div>
+                <div class="mini-contact-grid">
+                    <h4 class="mini-contact__title">{[ title2 ]}</h4>
+                    <ul class="mini-contact__text">
+                        <li>Monday to Friday 8am - 8pm</li>
+                        <li>Saturday 9am - 5pm</li>
+                        <li>Sunday 10am - 4pm</li>
+                    </ul>
+                </div>
+                <div class="mini-contact-grid mini-contact-grid--alignleft">
+                    <button class="mini-contact__button mini-contact__button--bright"></button>
+                    <button class="mini-contact__button--small mini-contact__button--bright"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro dualcolumn(title, title2, text) %}
+    <section class="container--dark">
+        <div class="container">
+            <div class="mini-contact--dual-col">
+                <div class="mini-contact-grid--half">
+                    <h4 class="mini-contact__title--centered">{[ title ]}</h4>
+                    <p class="mini-contact__text--centered">
+                        {[ text ]}
+                    </p>
+                </div>
+                <div class="mini-contact-grid--half">
+                    <h4 class="mini-contact__title--centered">{[ title2 ]}</h4>
+                    <ul class="mini-contact__text--centered">
+                        <li>Monday to Friday 8am - 8pm</li>
+                        <li>Saturday 9am - 5pm</li>
+                        <li>Sunday 10am - 4pm</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro dualcolumnmix(title, text) %}
+    <section class="container--dark">
+        <div class="container">
+            <div class="mini-contact--dual-col">
+                <div class="mini-contact-grid--half">
+                    <h4 class="mini-contact__title--centered">{[ title ]}</h4>
+                    <p class="mini-contact__text--centered">
+                        {[ text ]}
+                    </p>
+                </div>
+                <div class="mini-contact-grid--half">
+                    <button class="mini-contact__button--medium mini-contact__button--bright"></button>
+                    <button class="mini-contact__button--small mini-contact__button--bright"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro singlecolumn(title, text) %}
+    <section class="container--dark">
+        <div class="container">
+            <div class="mini-contact--single-col">
+                <div class="mini-contact-grid--full">
+                    <h4 class="mini-contact__title--centered">{[ title ]}</h4>
+                    <p class="mini-contact__text--centered">
+                        {[ text ]}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+{% macro singlecolumnmix(title) %}
+    <section class="container--dark">
+        <div class="container">
+            <div class="mini-contact--single-col">
+                <div class="mini-contact-grid--full">
+                    <h4 class="mini-contact__title--centered">{[ title ]}</h4>
+                </div>
+                <div class="mini-contact-grid--full">
+                    <button class="mini-contact__button--medium mini-contact__button--bright"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endmacro %}

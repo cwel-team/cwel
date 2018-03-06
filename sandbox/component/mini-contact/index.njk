@@ -1,120 +1,41 @@
 {% extends '_layout.njk' %}
 {% set title = 'Mini Contact' %}
 {% set fullWidth = 'true' %}
+{% import "cwel/component/mini-contact/mini-contact.html" as miniContact %}
 
 {% block content %}
-<div class="main">
-	<div class="container">
-		<h1 class="main__title">Mini Contact</h1>
-		<p class="main__overview-text">Mini contact examples - Mobile, Table and Desktop.</p>
-	</div>
-</div>
-<!-- Version 1 -->
-<section class="container--dark">
-    <div class="container">
-        <div class="mini-contact">
-            <div class="mini-contact-grid">
-                <h4 class="mini-contact__title">Get in touch</h4>
-                <p class="mini-contact__text">
-                    Our expert team of advisors are available to help you choose the mortgage that is right for you.
-                </p>
-            </div>
-            <div class="mini-contact-grid">
-                <h4 class="mini-contact__title">Opening Times</h4>
-                <p class="mini-contact__text">
-                    Monday to Friday 8am - 8pm<br />
-                    Saturday 9am - 5pm<br />
-                    Sunday 10am - 4pm
-                </p>
-            </div>
-            <div class="mini-contact-grid mini-contact-grid--alignleft">
-                <button class="mini-contact__button mini-contact__button--bright"></button>
-                <button class="mini-contact__button--small mini-contact__button--bright"></button>
-            </div>
+    <div class="main">
+        <div class="container">
+            <h1 class="main__title">Mini Contact</h1>
+            <p class="main__overview-text">Mini contact examples - Mobile, Table and Desktop.</p>
         </div>
     </div>
-</section>
-<br />
-<!-- Verison 2 -->
-<section class="container--dark">
-    <div class="container">
-        <div class="mini-contact--dual-col">
-            <div class="mini-contact-grid--half">
-                <h4 class="mini-contact__title--centered">Get in touch</h4>
-                <p class="mini-contact__text--centered">
-                    Our expert team of advisors are available to help you choose the mortgage that is right for you.
-                </p>
-            </div>
-            <div class="mini-contact-grid--half">
-                <h4 class="mini-contact__title--centered">Opening Times</h4>
-                <p class="mini-contact__text--centered">
-                    Monday to Friday 8am - 8pm<br />
-                    Saturday 9am - 5pm<br />
-                    Sunday 10am - 4pm
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-<br />
-<!-- Verison 3 -->
-<section class="container--dark">
-    <div class="container">
-        <div class="mini-contact--dual-col">
-            <div class="mini-contact-grid--half">
-                <h4 class="mini-contact__title--centered">Get in touch you bunch of wonderful people.</h4>
-                <p class="mini-contact__text--centered">
-                    Our expert team of advisors are available to help you choose the mortgage that is right for you.
-                    Our expert team of advisers are available to help you choose the mortgage that is right for you.
-                </p>
-            </div>
-            <div class="mini-contact-grid--half">
-                <button class="mini-contact__button--medium mini-contact__button--bright"></button>
-                <button class="mini-contact__button--small mini-contact__button--bright"></button>
-            </div>
-        </div>
-    </div>
-</section>
-<br />
-<!-- Verison 4 -->
-<section class="container--dark">
-    <div class="container">
-        <div class="mini-contact--single-col">
-            <div class="mini-contact-grid--full">
-                <h4 class="mini-contact__title--centered">Get in touch with us cool bunch</h4>
-                <p class="mini-contact__text--centered">
-                   Our expert team of advisers are available to help you choose the mortgage that is right for you. Lorem ipsum dolor sit amet, consectetur elit.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-<br />
-<!-- Verison 4.1 -->
-<section class="container--dark">
-    <div class="container">
-        <div class="mini-contact--single-col">
-            <div class="mini-contact-grid--full">
-                <h4 class="mini-contact__title--centered">Get in touch with us, go on.</h4>
-                <p class="mini-contact__text--centered">
-                    Our expert team of advisors are available.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-<br />
-<!-- Verison 5 -->
-<section class="container--dark">
-    <div class="container">
-        <div class="mini-contact--single-col">
-            <div class="mini-contact-grid--full">
-                <h4 class="mini-contact__title--centered">Get in touch</h4>
-            </div>
-            <div class="mini-contact-grid--full">
-                <button class="mini-contact__button--medium mini-contact__button--bright"></button>
-            </div>
-        </div>
-    </div>
-</section>
+
+    {[miniContact.default
+        ("Get in touch",
+        "Opening Times",
+        "Our expert team of advisors are available to help you choose the mortgage that is right for you.")
+    ]}
+    <br />
+    {[miniContact.dualcolumn
+        ("Get in touch",
+        "Opening Times",
+        "Our expert team of advisors are available to help you choose the mortgage that is right for you.")
+    ]}
+    <br />
+    {[miniContact.dualcolumnmix
+        ("Get in touch you bunch of wonderful people.",
+        "Our expert team of advisors are available to help you choose the mortgage that is right for you.
+         Our expert team of advisers are available to help you choose the mortgage that is right for you.")
+    ]}
+    <br />
+    {[miniContact.singlecolumn
+        ("Get in touch with us cool bunch",
+        "Our expert team of advisers are available to help you choose the mortgage that is right for you. Lorem ipsum dolor sit amet, consectetur elit.")
+    ]}
+    <br />
+    {[miniContact.singlecolumnmix
+        ("Get in touch with us cool bunch")
+    ]}
+
 {% endblock %}
