@@ -280,6 +280,67 @@ hr {
   border-top: 1px solid #999;
   border-top: 2px solid #eaeeef; }
 
+.loader {
+  width: 3rem;
+  height: 3rem;
+  -webkit-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+          transform: rotate(270deg);
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center; }
+
+.loader__spinner,
+.loader__background {
+  fill: none; }
+
+.loader__spinner {
+  stroke: #fff;
+  stroke-width: 11;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  -webkit-animation: spin 1s ease-in-out infinite;
+          animation: spin 1s ease-in-out infinite; }
+  .button--secondary .loader__spinner,
+  .button--on-dark .loader__spinner,
+  .button--secondary.button--on-light .loader__spinner {
+    stroke: #372062; }
+  .button--secondary.button--on-dark .loader__spinner {
+    stroke: #fff; }
+
+.loader__background {
+  stroke: #9e9e9e;
+  stroke-width: 9; }
+
+@-webkit-keyframes spin {
+  from {
+    stroke-dashoffset: 600; }
+  to {
+    stroke-dashoffset: 1000; } }
+
+@keyframes spin {
+  from {
+    stroke-dashoffset: 600; }
+  to {
+    stroke-dashoffset: 1000; } }
+
+svg:not(.loader) {
+  height: 2rem;
+  vertical-align: baseline; }
+  svg:not(.loader) path {
+    stroke-width: 0.3;
+    fill: #372062;
+    stroke: #372062; }
+  .button svg:not(.loader) path,
+  .button--secondary.button--on-dark svg:not(.loader) path {
+    fill: #fff;
+    stroke: #fff; }
+  .button--secondary svg:not(.loader) path,
+  .button--on-dark svg:not(.loader) path,
+  .button--secondary.button--on-light svg:not(.loader) path {
+    fill: #372062;
+    stroke: #372062; }
+
 .container {
   display: block;
   width: 100%;

@@ -68,22 +68,8 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__(1),__webpack_require__(2);
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-angular.module('cwel').directive('badge',['addOne','CwomponentFactory',function(a,b){return b({restrict:'A',scope:{start:'@'},link:function link(b){b.counter=parseInt(b.start,10),b.increment=function(){b.counter=a.increment(b.counter)}}})}]);
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 angular.module('cwel').directive('button',function(){return{restrict:'C',scope:{},link:function link(a,b){console.log(b),b.bind('mousemove',function(a){var b=a.pageX-a.target.offsetLeft,c=a.pageY-a.target.offsetTop;a.target.style.setProperty('--x',b+'px'),a.target.style.setProperty('--y',c+'px')})}}});
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=components.js.map
+//# sourceMappingURL=button.js.map
