@@ -7,8 +7,9 @@
     | OSX-Firefox 39 | xl         | --size 1280x800 --browser firefox --dc.browser_version 39 --dc.os OSX --dc.os_version MountainLion |
 
 @@ set
-    specPath           Test/Visual/Specs
-    gridArgsForAll     --dc.browserstack.local true --dc.browserstack.debug true --dc.build ${build_name}
+    specPath                test/visual/specs
+    componentSpecPath       cwel/component
+    gridArgsForAll          --dc.browserstack.local true --dc.browserstack.debug true --dc.build ${build_name}
 
 @@ parameterized using devices
 Grid on: ${deviceName}
@@ -23,4 +24,4 @@ Rem units on: ${deviceName}
 @@ parameterized using devices
 Buttons on: ${deviceName}
     selenium grid ${grid_url} --page ${host_url}/components/button ${gridArgs} ${gridArgsForAll}
-        check ${specPath}/button.gspec --include '${tags}'
+        check ${componentSpecPath}/button/button.gspec --include '${tags}'

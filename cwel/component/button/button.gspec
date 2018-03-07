@@ -16,21 +16,7 @@
         button_icon_only:
             css height is "49px"
 
-    @on s
-        button_default_*:
-            css height is "56px"
-
-        button_icon_only:
-            css height is "56px"
-
-    @on m
-        button_default_*:
-            css height is "56px"
-
-        button_icon_only:
-            css height is "56px"
-
-    @on l
+    @on s, m, l
         button_default_*:
             css height is "56px"
 
@@ -61,12 +47,7 @@
             css padding-left is "64px"
             css padding-right is "64px"
 
-    @on m
-        button_default_*:
-            css padding-left is "32px"
-            css padding-right is "32px"
-
-    @on l
+    @on m, l
         button_default_*:
             css padding-left is "32px"
             css padding-right is "32px"
