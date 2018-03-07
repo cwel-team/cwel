@@ -2,9 +2,9 @@
 
 In a nutshell, the documentation site is a single-page Angularjs app. It's
 static assets are generated using [nunjucks](https://mozilla.github.io/nunjucks/),
-of which all templates can be found in the `~/Docs` directory. Templates for
+of which all templates can be found in the `~/docs` directory. Templates for
 sample markup of components and patterns are kept in the
-CWEL source files (`~/CWEL/*`). These are then used by Angularjs whenever
+CWEL source files (`~/cwel/*`). These are then used by Angularjs whenever
 necessary. Content is hosted on Contentful, where the maintainers can make
 changes without a code release.
 

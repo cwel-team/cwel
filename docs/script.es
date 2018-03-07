@@ -225,12 +225,12 @@ app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
     $stateProvider
     .state('overview', {
         url: '/:type/overview',
-        templateUrl: '/templates/overview',
+        templateUrl: 'templates/overview/index.html',
         controller: 'overview',
     })
     .state('component', {
         url: '/component/:name',
-        templateUrl: '/templates/component',
+        templateUrl: 'templates/component/index.html',
         controller: 'component',
     })
     .state('component.tab', {
@@ -241,19 +241,19 @@ app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
 
     .state('nested', {
         url: '/:type/:name',
-        templateUrl: '/templates/content',
+        templateUrl: 'templates/content/index.html',
         controller: 'content',
     })
 
     .state('page', {
         url: '/{name:[^/]+}',
-        templateUrl: '/templates/content',
+        templateUrl: 'templates/content/index.html',
         controller: 'content',
     })
 
     .state('landing', {
         url: '/',
-        templateUrl: '/templates/landing',
+        templateUrl: 'templates/landing/index.html',
     });
 
     $qProvider.errorOnUnhandledRejections(false);

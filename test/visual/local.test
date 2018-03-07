@@ -11,7 +11,15 @@
 @@ set
     specPath        Test/Visual/Specs
 
+@@ parameterized using breakpoints
+Grid at breakpoint: ${breakpointName}
+    ${host_url}/prototype/grid ${size}
+        check ${specPath}/Grid.gspec --include '${tags}'
 
+@@ parameterized using breakpoints
+REM Units at breakpoint: ${breakpointName}
+    ${host_url}/prototype/remunits ${size}
+        check ${specPath}/Remunits.gspec --include '${tags}'
 
 @@ parameterized using breakpoints
 Button at breakpoint: ${breakpointName}
