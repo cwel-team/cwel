@@ -72,4 +72,4 @@ angular.module('cwel').directive('badge',['addOne','CwomponentFactory',function(
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=Badge.js.map
+//# sourceMappingURL=badge.js.map

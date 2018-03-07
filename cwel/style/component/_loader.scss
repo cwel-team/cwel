@@ -7,8 +7,8 @@
 /// 2. Rotates from center point of the loader
 
 .loader {
-    width: 30px; // stylelint-disable-line
-    height: 30px; // stylelint-disable-line
+    width: 3rem;
+    height: 3rem;
     transform: rotate(270deg); // 1
     transform-origin: center; // 2
 }
