@@ -1,0 +1,48 @@
+////
+/// @group _loader.scss
+/// @since 0.0.1
+////
+
+/// 1. Rotates 270 degrees so that the aniamtion will start at from the top
+/// 2. Rotates from center point of the loader
+
+.loader {
+    width: 3rem;
+    height: 3rem;
+    transform: rotate(270deg); // 1
+    transform-origin: center; // 2
+}
+.loader__spinner,
+.loader__background {
+    fill: none;
+}
+
+/// 1. Controls the pattern of dashes and gaps in the svg
+/// 2. Controls the distance of the dash pattern to start the dash
+/// 3. Animate speed is 1 seconds, the animation will be infinite
+
+.loader__spinner {
+    stroke: $c_loader_color_1;
+    stroke-width: 11;
+    stroke-dasharray: 200; // 1
+    stroke-dashoffset: 200; // 2
+    animation: spin 1s ease-in-out infinite; // 3
+
+    .button--secondary &,
+    .button--on-dark &,
+    .button--secondary.button--on-light & {
+        stroke: $c_loader_color_2;
+    }
+    .button--secondary.button--on-dark & {
+        stroke: $c_loader_color_1;
+    }
+}
+.loader__background {
+    stroke: darken($c_loader_color_3, 15%);
+    stroke-width: 9;
+}
+
+@keyframes spin {
+    from { stroke-dashoffset: 600; }
+    to { stroke-dashoffset: 1000; }
+}

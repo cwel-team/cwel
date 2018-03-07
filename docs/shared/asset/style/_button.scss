@@ -8,9 +8,11 @@
     padding-right: 1.75rem;
     padding-left: 1.75rem;
     color: $brand-color-1;
+    font-family: inherit;
     font-size: 1.4rem;
     text-align: center;
     text-decoration: none;
+    background: transparent;
     border-width: 2px; // stylelint-disable-line
     border-style: solid;
     border-color: $brand-color-1;
