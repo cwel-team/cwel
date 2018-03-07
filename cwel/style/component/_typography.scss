@@ -224,7 +224,7 @@ table,
 th,
 td {
     // pixels often work better with borders. To be changed in future if needed
-    border: 2px solid $c_bg-light; // stylelint-disable-line
+    border: 2px solid $c_bg_light; // stylelint-disable-line
     border-collapse: collapse;
 }
 
@@ -254,5 +254,5 @@ hr {
     border-top: 1px solid #999; // stylelint-disable-line declaration-property-unit-blacklist
     // border-top pixel is excused as pixel widths are preferred over
     // rems for borders
-    border-top: 2px solid $c_bg-light; // stylelint-disable-line
+    border-top: 2px solid $c_bg_light; // stylelint-disable-line
 }
