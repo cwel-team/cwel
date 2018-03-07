@@ -2,6 +2,33 @@
 
 @objects
 
+    container                                   .container
+        normal                                  .section--sizes
+            grid                                .grid:nth-of-type(2)
+                cell-1                          .grid__cell:nth-of-type(1)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(2)
+                    block                       .block
+        responsive                              .section--responsive-cells
+            grid                                .grid:nth-of-type(1)
+                cell-1                          .grid__cell:nth-of-type(4)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(5)
+                    block                       .block
+        independent-align                       .section--independent-alignment
+            grid                                .grid:nth-of-type(1)
+                cell-1                          .grid__cell:nth-of-type(3)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(4)
+                    block                       .block
+        reversed                                .section--reversed
+            grid                                .grid:nth-of-type(1)
+                cell-1                          .grid__cell:nth-of-type(4)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(3)
+                    block                       .block
+
+
     sizes                                       .section--sizes
         grid_1                                  .grid:nth-of-type(1)
             grid_cell                           .grid__cell
@@ -141,6 +168,29 @@
 
 
 # http://galenframework.com/docs/reference-galen-spec-language-guide/#SpecsReference
+
+= Container =
+
+    = Gutters =
+        @on xs, s
+            container.normal.grid.cell-1.block:
+                left-of container.normal.grid.cell-2.block ~ 8px
+            container.responsive.grid.cell-1.block:
+                left-of container.responsive.grid.cell-2.block ~ 8px
+            container.independent-align.grid.cell-1.block:
+                left-of container.independent-align.grid.cell-2.block ~ 8px
+            container.reversed.grid.cell-2.block:
+                right-of container.reversed.grid.cell-1.block ~ 8px
+        @on m, l, xl
+            container.normal.grid.cell-1.block:
+                left-of container.normal.grid.cell-2.block ~ 16px
+            container.responsive.grid.cell-1.block:
+                left-of container.responsive.grid.cell-2.block ~ 16px
+            container.independent-align.grid.cell-1.block:
+                left-of container.independent-align.grid.cell-2.block ~ 16px
+            container.reversed.grid.cell-2.block:
+                right-of container.reversed.grid.cell-1.block ~ 16px
+
 
 = Sizes =
 
