@@ -3,7 +3,6 @@ angular.module('cwel').directive('button', () => {
         restrict: 'C',
         scope: {},
         link(scope, el) {
-            console.log(el);
             el.bind('mousemove', (e) => {
                 const x = e.pageX - e.target.offsetLeft;
                 const y = e.pageY - e.target.offsetTop;
