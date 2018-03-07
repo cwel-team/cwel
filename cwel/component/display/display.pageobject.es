@@ -6,7 +6,6 @@ export default class DisplayPageObject extends PageObject {
         this.displayImageSelector = '.display--image';
         this.animateTopRightSelector = '.image--animate-top-right';
         this.animateTopLeftSelector = '.image--animate-top-left';
-        this.displayLightSelector = '.display--light';
     }
 
     getAnimationElmTopRight() {
@@ -15,9 +14,5 @@ export default class DisplayPageObject extends PageObject {
 
     getAnimationElmTopLeft() {
         return element(by.css(this.animateTopLeftSelector));
-    }
-
-    getDisplayElmLight() {
-        return element(by.css(this.displayLightSelector));
     }
 }
