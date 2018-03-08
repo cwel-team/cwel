@@ -1,4 +1,4 @@
-@mixin button {
+.docs-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,7 @@
         background: $brand-color-1;
         transition: all 0.5s ease;
 
-        .button__icon {
+        .docs-button__icon {
             svg path,
             svg line {
                 stroke: $color-white;
@@ -34,14 +34,10 @@
         }
     }
 }
-
-.button {
-    @include button;
-}
-.button--icon {
+.docs-button--icon {
     justify-content: space-between;
 }
-.button__icon {
+.docs-button__icon {
     height: 1.4rem;
     padding-left: 0.75rem;
     svg {
@@ -49,6 +45,7 @@
     }
     svg path,
     svg line {
+        stroke-width: 2;
         stroke: $brand-color-1;
         fill: none;
     }

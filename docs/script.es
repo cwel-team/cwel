@@ -235,7 +235,7 @@ app.config(($stateProvider, $urlRouterProvider, $qProvider) => {
     })
     .state('component.tab', {
         url: '/:tab',
-        template: '<div class="container container--docs" ng-bind-html="body | markdown"></div>',
+        template: '<div class="container container--docs" bind-html-compile="body | markdown"></div>',
         controller: 'component',
     })
 

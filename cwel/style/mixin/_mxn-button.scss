@@ -1,5 +1,6 @@
-@mixin hover-effect($color) {
+@mixin hover-effect($color, $bg_color) {
     &:hover {
+        color: $color;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05); // stylelint-disable-line
         transition: all 0.2s ease-in-in;
         opacity: 1;
@@ -17,7 +18,7 @@
         left: var(--x);
         width: var(--size);
         height: var(--size);
-        background: radial-gradient(circle closest-side, $color, transparent);
+        background: radial-gradient(circle closest-side, $bg_color, transparent);
         transition: width 0.2s ease, height 0.2s ease;
         transform: translate(-50%, -50%);
     }
