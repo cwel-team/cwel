@@ -1,4 +1,49 @@
-@mixin hover-effect($color, $bg_color) {
+////
+/// @group Mixins
+/// @since 0.0.1
+////
+
+/// The button-state mixin is a collaboration of the hover, focus and active mixins.
+/// They are can be used individually for a more modular approach.
+
+@mixin button-state($color, $bg_color) {
+    &:hover {
+        color: $color;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05); // stylelint-disable-line
+        transition: all 0.2s ease-in-in;
+        opacity: 1;
+
+        &:before {
+            --size: 400px; 
+        }
+    }
+    &:focus {
+        color: $color;
+        box-shadow: 0 0 0.4rem 0.1rem $c_focus;
+        outline: none;
+        border-width: 0.2rem;
+        border-style: solid;
+        border-color: $c_focus;
+    }
+    &:active {
+        color: $color;
+    }    
+
+    &:before {
+        --size: 0;
+        content: '';
+        position: absolute;
+        top: var(--y);
+        left: var(--x);
+        width: var(--size);
+        height: var(--size);
+        background: radial-gradient(circle closest-side, $bg_color, transparent);
+        transition: width 0.2s ease, height 0.2s ease;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin button-hover($color, $bg_color) {
     &:hover {
         color: $color;
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05); // stylelint-disable-line
@@ -21,5 +66,22 @@
         background: radial-gradient(circle closest-side, $bg_color, transparent);
         transition: width 0.2s ease, height 0.2s ease;
         transform: translate(-50%, -50%);
+    }
+}
+
+@mixin button-focus($color) {
+    &:focus {
+        color: $color;
+        box-shadow: 0 0 0.4rem 0.1rem $c_focus;
+        outline: none;
+        border-width: 0.2rem;
+        border-style: solid;
+        border-color: $c_focus;
+    }
+}
+
+@mixin button-active($color) {
+    &:active {
+        color: $color;
     }
 }
