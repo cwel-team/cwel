@@ -30,6 +30,7 @@
     transition: all 0.3s linear;
     transform: rotateX(-180deg);
     svg {
+        top: 0;
         height: 0.8rem;
     }
     svg path,

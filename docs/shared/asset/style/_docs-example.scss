@@ -17,6 +17,7 @@ $panel-height: 25rem;
 
 .docs-example__tab {
     $border-width: 0.16rem;
+    margin-left: 0;
     color: $primary-color;
     border: $border-width solid $tertiary-color;
     border-right-width: 0;
