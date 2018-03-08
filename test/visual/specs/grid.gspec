@@ -27,6 +27,12 @@
                     block                       .block
                 cell-2                          .grid__cell:nth-of-type(3)
                     block                       .block
+        flush                                   .section--flush
+            grid                                .grid:nth-of-type(1)
+                cell-1                          .grid__cell:nth-of-type(1)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(2)
+                    block                       .block
 
 
     sizes                                       .section--sizes
@@ -190,6 +196,9 @@
                 left-of container.independent-align.grid.cell-2.block ~ 16px
             container.reversed.grid.cell-2.block:
                 right-of container.reversed.grid.cell-1.block ~ 16px
+        @on *
+            container.flush.grid.cell-1.block:
+                left-of container.flush.grid.cell-2.block ~ 0px
 
 
 = Sizes =
