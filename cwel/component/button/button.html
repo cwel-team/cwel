@@ -1,0 +1,31 @@
+{% macro default(title, tag, text, modifier) %}
+    <h4>{[ title ]}</h4>
+    <{[ tag ]} href="" class="button {[ modifier ]}">
+        <span class="button__text">{[ text ]}</span>
+    </{[ tag ]}>
+{% endmacro %}
+
+{% macro icon(title, tag, text, modifier) %}
+    <h4>{[ title ]}</h4>
+    <{[ tag ]} href="" class="button {[ modifier ]}">
+        <span class="button__text">{[ text ]}</span>
+        <span class="button__icon">
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15"><defs><style>.cls-1{fill:#3b3e4b;}.cls-2{fill:none;}</style></defs><path class="cls-1" d="M19,.5H1A.45.45,0,0,0,.5,1V14A.45.45,0,0,0,1,14.5H19A.45.45,0,0,0,19.5,14V1A.45.45,0,0,0,19,.5ZM1.35,2,7,7.5,1.35,12.91ZM11.9,7.31l-1.9,2L1.92,1.43h16l-5.79,5.7S11.88,7.29,11.9,7.31Zm-4.27.84,1.8,1.78a.86.86,0,0,0,.57.28.69.69,0,0,0,.57-.28l1.81-1.78L18,13.57H2Zm5.31-.65L18.55,2V12.91Z"/><rect class="cls-2" x="-0.13" y="-2.6" width="20" height="20"/></svg>
+        </span>
+    </{[ tag ]}>
+{% endmacro %}
+
+{% macro loader(title, tag, modifier) %}
+    <h4>{[ title ]}</h4>
+    <{[ tag ]} href="" class="button {[ modifier ]}">
+        <svg class="loader" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         viewBox="0 0 100 100">
+            <g>
+                <path class="loader__background" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                    c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+                <path class="loader__spinner" d="M85.3,49.7c0-18.6-14.5-33.8-32.8-34.9c-0.4,0-1.4,0-2.2,0c-0.6,0-1.3,0-1.5,0c-18.6,0.8-33.5,16.1-33.5,35
+                    c0,19.3,15.7,35,35,35S85.3,69,85.3,49.7z"/>
+            </g>
+        </svg>
+    </{[ tag ]}>
+{% endmacro %}
