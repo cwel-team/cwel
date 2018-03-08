@@ -2,6 +2,39 @@
 
 @objects
 
+    container                                   .container
+        normal                                  .section--sizes
+            grid                                .grid:nth-of-type(2)
+                cell-1                          .grid__cell:nth-of-type(1)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(2)
+                    block                       .block
+        responsive                              .section--responsive-cells
+            grid                                .grid:nth-of-type(1)
+                cell-1                          .grid__cell:nth-of-type(4)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(5)
+                    block                       .block
+        independent-align                       .section--independent-alignment
+            grid                                .grid:nth-of-type(1)
+                cell-1                          .grid__cell:nth-of-type(3)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(4)
+                    block                       .block
+        reversed                                .section--reversed
+            grid                                .grid:nth-of-type(1)
+                cell-1                          .grid__cell:nth-of-type(4)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(3)
+                    block                       .block
+        flush                                   .section--flush
+            grid                                .grid:nth-of-type(1)
+                cell-1                          .grid__cell:nth-of-type(1)
+                    block                       .block
+                cell-2                          .grid__cell:nth-of-type(2)
+                    block                       .block
+
+
     sizes                                       .section--sizes
         grid_1                                  .grid:nth-of-type(1)
             grid_cell                           .grid__cell
@@ -32,6 +65,44 @@
             grid_cell_half                      .grid__cell:nth-of-type(1)
             grid_cell_sixth-*                   .grid__cell:nth-of-type(n+2)
 
+    responsive_cells                            .section--responsive-cells
+        grid-xs                                 .grid:nth-of-type(1)
+            grid_cell_12_xs-*                       .grid__cell--size-12
+            grid_cell_6_xs-*                        .grid__cell--size-6
+            grid_cell_4_xs-*                        .grid__cell--size-4
+            grid_cell_3_xs-*                        .grid__cell--size-3
+            grid_cell_2_xs-*                        .grid__cell--size-2
+            grid_cell_1_xs-*                        .grid__cell--size-1
+        grid-s                                  .grid:nth-of-type(2)
+            grid_cell_12_s-*                        .grid__cell--size-12-sm
+            grid_cell_6_s-*                         .grid__cell--size-6-sm
+            grid_cell_4_s-*                         .grid__cell--size-4-sm
+            grid_cell_3_s-*                         .grid__cell--size-3-sm
+            grid_cell_2_s-*                         .grid__cell--size-2-sm
+            grid_cell_1_s-*                         .grid__cell--size-1-sm
+        grid-m                                  .grid:nth-of-type(3)
+            grid_cell_12_m-*                        .grid__cell--size-12-md
+            grid_cell_6_m-*                         .grid__cell--size-6-md
+            grid_cell_4_m-*                         .grid__cell--size-4-md
+            grid_cell_3_m-*                         .grid__cell--size-3-md
+            grid_cell_2_m-*                         .grid__cell--size-2-md
+            grid_cell_1_m-*                         .grid__cell--size-1-md
+        grid-l                                  .grid:nth-of-type(4)
+            grid_cell_12_l-*                        .grid__cell--size-12-lg
+            grid_cell_6_l-*                         .grid__cell--size-6-lg
+            grid_cell_4_l-*                         .grid__cell--size-4-lg
+            grid_cell_3_l-*                         .grid__cell--size-3-lg
+            grid_cell_2_l-*                         .grid__cell--size-2-lg
+            grid_cell_1_l-*                         .grid__cell--size-1-lg
+        grid-xl                                 .grid:nth-of-type(5)
+            grid_cell_12_xl-*                       .grid__cell--size-12-xl
+            grid_cell_6_xl-*                        .grid__cell--size-6-xl
+            grid_cell_4_xl-*                        .grid__cell--size-4-xl
+            grid_cell_3_xl-*                        .grid__cell--size-3-xl
+            grid_cell_2_xl-*                        .grid__cell--size-2-xl
+            grid_cell_1_xl-*                        .grid__cell--size-1-xl
+        grid-combinations                       .grid:nth-of-type(6)
+            grid_cell                               .grid__cell
 
     nested_grids                                .section--nested-grids
         grid-1                                  .grid:nth-of-type(1)
@@ -103,6 +174,32 @@
 
 
 # http://galenframework.com/docs/reference-galen-spec-language-guide/#SpecsReference
+
+= Container =
+
+    = Gutters =
+        @on xs, s
+            container.normal.grid.cell-1.block:
+                left-of container.normal.grid.cell-2.block ~ 8px
+            container.responsive.grid.cell-1.block:
+                left-of container.responsive.grid.cell-2.block ~ 8px
+            container.independent-align.grid.cell-1.block:
+                left-of container.independent-align.grid.cell-2.block ~ 8px
+            container.reversed.grid.cell-2.block:
+                right-of container.reversed.grid.cell-1.block ~ 8px
+        @on m, l, xl
+            container.normal.grid.cell-1.block:
+                left-of container.normal.grid.cell-2.block ~ 16px
+            container.responsive.grid.cell-1.block:
+                left-of container.responsive.grid.cell-2.block ~ 16px
+            container.independent-align.grid.cell-1.block:
+                left-of container.independent-align.grid.cell-2.block ~ 16px
+            container.reversed.grid.cell-2.block:
+                right-of container.reversed.grid.cell-1.block ~ 16px
+        @on *
+            container.flush.grid.cell-1.block:
+                left-of container.flush.grid.cell-2.block ~ 0px
+
 
 = Sizes =
 
@@ -187,6 +284,75 @@
         size_combinations.grid-4.grid_cell_sixth-*:
             aligned horizontally top size_combinations.grid-4
             width ~ 16.6 % of size_combinations.grid-4/width
+
+= Responsive Cells =
+
+    = XS (Default) =
+        @on *
+            @for [1 - 12] as index
+                @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                    responsive_cells.grid-xs.grid_cell_${index}_xs-*:
+                        width ~ ${(index / 12) * 100}% of responsive_cells.grid-xs/width
+    = S =
+        @on xs
+            @for [1 - 12] as index
+                @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                    responsive_cells.grid-s.grid_cell_${index}_s-*:
+                        width ~ 100% of responsive_cells.grid-s/width
+        @on s, m, l, xl
+            @for [1 - 12] as index
+                @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                    responsive_cells.grid-s.grid_cell_${index}_s-*:
+                        width ~ ${(index / 12) * 100}% of responsive_cells.grid-s/width
+    = M =
+        @on xs, s
+            @for [1 - 12] as index
+                @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                    responsive_cells.grid-m.grid_cell_${index}_m-*:
+                        width ~ 100% of responsive_cells.grid-m/width
+        @on m, l, xl
+            @for [1 - 12] as index
+                @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                    responsive_cells.grid-m.grid_cell_${index}_m-*:
+                        width ~ ${(index / 12) * 100}% of responsive_cells.grid-m/width
+    = L =
+        @on xs, s, m
+            @for [1 - 12] as index
+                @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                    responsive_cells.grid-l.grid_cell_${index}_l-*:
+                        width ~ 100% of responsive_cells.grid-l/width
+        @on l, xl
+            @for [1 - 12] as index
+                @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                    responsive_cells.grid-l.grid_cell_${index}_l-*:
+                        width ~ ${(index / 12) * 100}% of responsive_cells.grid-l/width
+    = XL =
+        @on xs, s, m, l
+            @for [1 - 12] as index
+                @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                    responsive_cells.grid-xl.grid_cell_${index}_xl-*:
+                        width ~ 100% of responsive_cells.grid-xl/width
+        @on xl
+            @for [1 - 12] as index
+                @if ${((12 / index) % 2 == 0) || ((12 / index) % 3 == 0)}
+                    responsive_cells.grid-xl.grid_cell_${index}_xl-*:
+                        width ~ ${(index / 12) * 100}% of responsive_cells.grid-xl/width
+    = Combinations =
+        @on xs
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(1 / 12) * 100}% of responsive_cells.grid-combinations/width
+        @on s
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(3 / 12) * 100}% of responsive_cells.grid-combinations/width
+        @on m
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(4 / 12) * 100}% of responsive_cells.grid-combinations/width
+        @on l
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(6 / 12) * 100}% of responsive_cells.grid-combinations/width
+        @on xl
+            responsive_cells.grid-combinations.grid_cell:
+                width ~ ${(8 / 12) * 100}% of responsive_cells.grid-combinations/width
 
 = Nested Grids =
 

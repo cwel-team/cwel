@@ -36,7 +36,7 @@ function runGalen({ suiteFile, htmlDest, dumpDest, openReport, args = [] }, done
         : [];
     const galenCommand = ['npm run galen',
         '--',
-        'test', `Test/Visual/${suiteFile}`,
+        'test', `test/visual/${suiteFile}`,
         '--htmlreport', htmlDest,
         ...jsonArgs,
         ...dumpArgs,

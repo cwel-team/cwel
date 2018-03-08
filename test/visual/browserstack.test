@@ -1,10 +1,23 @@
 # http://galenframework.com/docs/reference-galen-test-suite-syntax/
 
 @@ table devices
-    | deviceName     | tags       | gridArgs |
-    | iPhone 5S      | xs         | --dc.browserName iPhone --dc.platform "MAC" --dc.device "iPhone 5S" --dc.emulator "true" |
-    | Win-Chrome 62  | xl         | --size 1280x800 --browser chrome --dc.browser_version 62 --dc.os Windows --dc.os_version 8.1 |
-    | OSX-Firefox 39 | xl         | --size 1280x800 --browser firefox --dc.browser_version 39 --dc.os OSX --dc.os_version MountainLion |
+    | deviceName            | tags       | gridArgs |
+    | Chrome 63 Win - xl    | xl         | --size 1366x720          --dc.resolution 1366x768                --browser chrome        --dc.browser_version 63   --dc.os Windows --dc.os_version 10 |
+    | Chrome 63 Win - xs    | xs         | --size 320x600           --dc.resolution 1366x768                --browser chrome        --dc.browser_version 63   --dc.os Windows --dc.os_version 10 |
+    | Chrome 62 Win - m     | m          | --size 650x800           --dc.resolution 1366x768                --browser chrome        --dc.browser_version 62   --dc.os Windows --dc.os_version 10 |
+    | Chrome 56 Win - l     | l          | --size 1054x800          --dc.resolution 1366x768                --browser chrome        --dc.browser_version 56   --dc.os Windows --dc.os_version 7 |
+    | Firefox 57 Win - l    | l          | --size 1054x800          --dc.resolution 1366x768                --browser firefox       --dc.browser_version 57   --dc.os Windows --dc.os_version 10 |
+    | Safari 11 Mac - xl    | xl         | --size 1330x800          --dc.resolution 1600x1200               --browser safari        --dc.browser_version 11.0 --dc.os "OS X"  --dc.os_version "High Sierra" |
+    | Edge Win - xl         | xl         | --size 1330x800          --dc.resolution 1366x768                --browser edge          --dc.browser_version 16   --dc.os Windows --dc.os_version 10 |
+    | IE 11 Win - l         | l          | --size 1054x800          --dc.resolution 1366x768                --browser ie            --dc.browser_version 11   --dc.os Windows --dc.os_version 10 |
+    | IE 11 Win - s         | s          | --size 450x800           --dc.resolution 1366x768                --browser ie            --dc.browser_version 11   --dc.os Windows --dc.os_version 10 |
+#   | iPhone X - xs         | xs         | --dc.browserName iPhone  --dc.device "iPhone X"                  --dc.real_mobile true |
+#   | iPhone 8 Plus - s     | s          | --dc.browserName iPhone  --dc.device "iPhone 8 Plus"             --dc.real_mobile true |
+#   | iPhone 5 - xs         | xs         | --dc.browserName iPhone  --dc.device "iPhone 5"                  --dc.real_mobile true |
+#   | iPad Pro - l          | l          | --dc.browserName iPad    --dc.device "iPad Pro"                  --dc.real_mobile true |
+#   | iPad 5 - m            | m          | --dc.browserName iPad    --dc.device "iPad 5th"                  --dc.real_mobile true |
+#   | Samsung S8 - xs       | xs         | --dc.browserName android --dc.device "Samsung Galaxy S8"         --dc.real_mobile true |
+    | Galaxy Tab 4 10.1 - m | m          | --dc.browserName android --dc.device "Samsung Galaxy Tab 4 10.1" --dc.platform ANDROID |
 
 @@ set
     specPath                test/visual/specs
@@ -14,12 +27,7 @@
 @@ parameterized using devices
 Grid on: ${deviceName}
     selenium grid ${grid_url} --page ${host_url}/prototype/grid ${gridArgs} ${gridArgsForAll}
-        check ${specPath}/Grid.gspec --include '${tags}'
-
-@@ parameterized using devices
-Rem units on: ${deviceName}
-    selenium grid ${grid_url} --page ${host_url}/prototype/remunits ${gridArgs} ${gridArgsForAll}
-        check ${specPath}/Remunits.gspec --include '${tags}'
+        check ${specPath}/grid.gspec --include '${tags}'
 
 @@ parameterized using devices
 Buttons on: ${deviceName}
