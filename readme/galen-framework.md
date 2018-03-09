@@ -32,7 +32,7 @@ gulp test-visual
 Open command prompt in Cwel root
 
 ``` cmd
-npm run galen -- check Test/Visual/Specs/grid.gspec --url http://localhost:3000/grid --size 1280x800 --htmlreport tmp/test/visual/reports/html
+npm run galen -- check test/visual/specs/grid.gspec --url http://localhost:3000/prototype/grid --size 1280x800 --htmlreport tmp/test/visual/reports/html
 ```
 
 #### Parameters

@@ -1,0 +1,59 @@
+# http://galenframework.com/docs/reference-galen-spec-language-guide/#Objectdefinition
+
+@objects
+
+    button_default_*                                .button:not(.button--icon-only)
+    button_icon_only                                .button--icon-only 
+
+# http://galenframework.com/docs/reference-galen-spec-language-guide/#SpecsReference
+
+= Height =
+
+    @on xs
+        button_default_*:
+            css height is "49px"
+
+        button_icon_only:
+            css height is "49px"
+
+    @on s, m, l
+        button_default_*:
+            css height is "56px"
+
+        button_icon_only:
+            css height is "56px"
+
+    @on xl
+        button_default_*:
+            css height is "63px"
+
+        button_icon_only:
+            css height is "63px"
+
+= Spacers =
+
+    @on *
+        button_icon_only:
+            css padding-left is "0px"
+            css padding-right is "0px"
+
+    @on xs
+        button_default_*:
+            css padding-left is "56px"
+            css padding-right is "56px"
+
+    @on s
+        button_default_*:
+            css padding-left is "64px"
+            css padding-right is "64px"
+
+    @on m, l
+        button_default_*:
+            css padding-left is "32px"
+            css padding-right is "32px"
+
+    @on xl
+        button_default_*:
+            css padding-left is "36px"
+            css padding-right is "36px"
+

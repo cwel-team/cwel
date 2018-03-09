@@ -1,5 +1,6 @@
 {% extends '_layout.njk' %}
 {% set title = 'Grid' %}
+{% set devices = ['s', 'm', 'l', 'xl'] %}
 
 {% block content %}
 <div class="container">
@@ -69,6 +70,85 @@
             <div class="grid__cell grid__cell--size-2"><div class="block">sixth</div></div>
             <div class="grid__cell grid__cell--size-2"><div class="block">sixth</div></div>
             <div class="grid__cell grid__cell--size-2"><div class="block">sixth</div></div>
+        </div>
+    </section>
+
+    <section class="section section--responsive-cells">
+        <h2 class="section__title">Responsive cells</h2>
+
+        <h3 class="section__sub-title">XS (Default)</h3>
+        <div class="grid">
+            {% for i in range(1, 13) %}
+            {% if i == 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+        </div>
+
+        <h3 class="section__sub-title">S</h3>
+        <div class="grid">
+            {% for i in range(1, 13) %}
+            {% if i === 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}-sm"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1-sm"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+        </div>
+
+        <h3 class="section__sub-title">M</h3>
+        <div class="grid">
+            {% for i in range(1, 13) %}
+            {% if i === 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}-md"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1-md"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+        </div>
+
+        <h3 class="section__sub-title">L</h3>
+        <div class="grid">
+            {% for i in range(1, 13) %}
+            {% if i === 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}-lg"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1-lg"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+        </div>
+
+        <h3 class="section__sub-title">XL</h3>
+        <div class="grid">
+            {% for i in range(1, 13) %}
+            {% if i === 1 or ((12 / i) % 2 == 0) or ((12 / i) % 3 == 0) %}
+            {% for ii in range(i) %}
+            <div class="grid__cell grid__cell--size-{[12 / i]}-xl"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% for i in range(12) %}
+                <div class="grid__cell grid__cell--size-1-xl"><div class="block block--claustrophobic"></div></div>
+            {% endfor %}
+        </div>
+
+        <h3 class="section__sub-title">Combined responsive classes</h3>
+        <div class="grid">
+            <div class="grid__cell grid__cell--size-1 grid__cell--size-3-sm grid__cell--size-4-md grid__cell--size-6-lg grid__cell--size-8-xl"><div class="block block--claustrophobic"></div></div>
         </div>
     </section>
 

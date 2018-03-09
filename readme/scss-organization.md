@@ -1,10 +1,10 @@
-# SCSS File Organization
+# SCSS file organization
 
 There are currently two ways of generating compiled CSS from CWEL:
 1. From CWEL itself (using its own 'brand' colours; should really be the same as Corporate or at least very similar)
 2. From within a product (such as Corporate) when CWEL is installed as a NuGet package
 
-SCSS files can be found within `cwel\Cwel\src\Core\scss\`.
+SCSS files can be found within `~/cwel/style`.
 
 ## core.scss
 

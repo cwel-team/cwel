@@ -10,10 +10,13 @@
 @import './mixin/mxn-typography';
 @import './mixin/mxn-container';
 @import './mixin/mxn-grid';
+@import './mixin/mxn-button';
 
 @import './component/reset';
 @import './component/typography';
 @import './component/image';
+@import './component/loader';
+@import './component/icon';
 
 @include generate-container-classes;
 @include generate-grid-classes;

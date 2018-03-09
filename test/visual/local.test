@@ -9,12 +9,13 @@
     | XL              | xl        | 1450x800 |
 
 @@ set
-    specPath        Test/Visual/Specs
+    specPath                test/visual/specs
+    componentSpecPath       cwel/component
 
 @@ parameterized using breakpoints
 Grid at breakpoint: ${breakpointName}
     ${host_url}/prototype/grid ${size}
-        check ${specPath}/Grid.gspec --include '${tags}'
+        check ${specPath}/grid.gspec --include '${tags}'
 
 @@ parameterized using breakpoints
 REM Units at breakpoint: ${breakpointName}
@@ -24,4 +25,10 @@ REM Units at breakpoint: ${breakpointName}
 @@ parameterized using breakpoints
 Display at breakpoint: ${breakpointName}
     ${host_url}/component/display ${size}
-        check ${specPath}/display.gspec --include '${tags}'
+        check ${componentSpecPath}/display/display.gspec --include '${tags}'
+
+@@ parameterized using breakpoints
+Button at breakpoint: ${breakpointName}
+    ${host_url}/component/button ${size}
+        check ${componentSpecPath}/button/button.gspec --include '${tags}'
+

@@ -1,4 +1,21 @@
-@import 'cwel/style/main';
+@import 'cwel/style/function/fn-strip-unit';
+@import 'cwel/style/function/fn-rootem';
+@import 'cwel/style/function/fn-rebase';
+
+@import 'cwel/style/variable/vbl-settings';
+@import 'cwel/style/variable/vbl-colors';
+
+@import 'cwel/style/mixin/mxn-aspect-ratio';
+@import 'cwel/style/mixin/mxn-device';
+@import 'cwel/style/mixin/mxn-typography';
+@import 'cwel/style/mixin/mxn-container';
+@import 'cwel/style/mixin/mxn-grid';
+
+@import 'cwel/style/component/reset';
+@import 'cwel/style/component/typography';
+
+@include generate-container-classes;
+@include generate-grid-classes;
 
 @import 'variables';
 @import 'docs';
@@ -14,7 +31,7 @@
 @import 'code';
 @import 'type';
 @import 'components';
-
 @import 'docs-example';
+
 @import 'example/block';
 @import 'example/spacer';
