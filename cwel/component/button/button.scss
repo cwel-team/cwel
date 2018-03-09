@@ -38,16 +38,9 @@
         padding-left: $s_md;
     }
 
-    &:focus {
-        box-shadow: 0 0 0.4rem 0.1rem $c_focus;
-        outline: none;
-        border-width: 0.2rem;
-        border-style: solid;
-        border-color: $c_focus;
-    }
     &::-moz-focus-inner { border: 0; } // 3
 
-    @include hover-effect($c_button_onLight_hover_bg_1);
+    @include button-state($c_button_color_1, $c_button_onLight_hover_bg_1);
 }
 
 .button--icon-only {
@@ -97,12 +90,12 @@
 .button--secondary {
     color: $c_button_color_2;
     background-color: $c_button_bg_2;
-    @include hover-effect($c_button_onLight_hover_bg_2);
+    @include button-state($c_button_color_2, $c_button_onLight_hover_bg_2);
 }
 .button--on-dark {
     color: $c_button_onDark_color_1;
     background-color: $c_button_onDark_bg_1;
-    @include hover-effect($c_button_onDark_hover_bg_1);
+    @include button-state($c_button_onDark_color_1, $c_button_onDark_hover_bg_1);
 
     &.button--secondary {
         color: $c_button_onDark_color_2;
@@ -110,18 +103,18 @@
         border-width: 0.2rem;
         border-style: solid;
         border-color: $c_button_onDark_color_2;
-        @include hover-effect($c_button_onDark_hover_bg_2);
+        @include button-state($c_button_onDark_color_2, $c_button_onDark_hover_bg_2);
     }
 }
 .button--on-light {
     color: $c_button_onLight_color_1;
     background-color: $c_button_onLight_bg_1;
-    @include hover-effect($c_button_onLight_hover_bg_1);
+    @include button-state($c_button_onLight_color_1, $c_button_onLight_hover_bg_1);
 
     &.button--secondary {
         color: $c_button_onLight_color_2;
         background-color: $c_button_onLight_bg_2;
-        @include hover-effect($c_button_onLight_hover_bg_2);
+        @include button-state($c_button_onLight_color_2, $c_button_onLight_hover_bg_2);
     }
 }
 

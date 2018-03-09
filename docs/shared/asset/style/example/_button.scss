@@ -1,0 +1,28 @@
+.background--dark {
+    padding-top: $s_sm;
+    padding-right: $s_sm;
+    padding-bottom: $s_xs;
+    padding-left: $s_sm;
+    background-color: $c_primary;
+}
+.background--light {
+    padding-top: $s_sm;
+    padding-right: $s_sm;
+    padding-bottom: $s_xs;
+    padding-left: $s_sm;
+    background-color: $t_cwel-steel;
+}
+.button-container {
+    @include grid();
+}
+.button-cell {
+    @include grid-cell((
+        'md': 6,
+    ));
+}
+.button {
+    margin-bottom: $s_xs;
+    @include breakpoint('md') {
+        margin-bottom: 0;
+    }
+}
