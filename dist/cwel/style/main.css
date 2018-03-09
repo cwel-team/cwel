@@ -946,7 +946,8 @@ svg:not(.loader) {
     -webkit-box-shadow: none;
             box-shadow: none; }
 
-.button {
+.button,
+a.button {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -981,7 +982,8 @@ svg:not(.loader) {
   transition: all 0.2s ease-in-out;
   cursor: pointer; }
   @media (min-width: 37.5em) {
-    .button {
+    .button,
+    a.button {
       display: -webkit-inline-box;
       display: -webkit-inline-flex;
       display: -ms-inline-flexbox;
@@ -990,25 +992,33 @@ svg:not(.loader) {
       min-width: auto;
       padding-right: 3.2rem;
       padding-left: 3.2rem; } }
-  .button:focus {
+  .button:focus,
+  a.button:focus {
     -webkit-box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
             box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
     outline: none;
     border-width: 0.2rem;
     border-style: solid;
     border-color: #5cbbeb; }
-  .button::-moz-focus-inner {
+  .button:hover,
+  a.button:hover {
+    color: #fff; }
+  .button::-moz-focus-inner,
+  a.button::-moz-focus-inner {
     border: 0; }
-  .button:hover {
+  .button:hover,
+  a.button:hover {
     -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
     -webkit-transition: all 0.2s ease-in-in;
     -o-transition: all 0.2s ease-in-in;
     transition: all 0.2s ease-in-in;
     opacity: 1; }
-    .button:hover:before {
+    .button:hover:before,
+    a.button:hover:before {
       --size: 400px; }
-  .button:before {
+  .button:before,
+  a.button:before {
     --size: 0;
     content: '';
     position: absolute;

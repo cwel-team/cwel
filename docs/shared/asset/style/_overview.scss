@@ -48,6 +48,7 @@
     svg line,
     svg rect,
     svg circle {
+        stroke-width: 3;
         stroke: $brand-color-1;
         fill: none;
     }
