@@ -1,6 +1,8 @@
+$c_miniContact_bg: $c_primary !default;
+
 // Container related markup
 .mini-contact {
-    background: $c_primary;
+    background: $c_miniContact_bg;
 }
 
 .mini-contact__container {
@@ -96,10 +98,6 @@
         @include breakpoint('lg') {
             width: grid-cell-size(12);
         }
-    }
-
-    &--alignleft {
-        text-align: left;
     }
 
     &--centered {
