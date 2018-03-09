@@ -1,5 +1,13 @@
 // Container related markup
 .mini-contact {
+    background: $c_primary;
+}
+
+.mini-contact__container {
+    @include container;
+}
+
+.mini-contact__content {
     display: block;
     padding-top: $s_lg;
     padding-bottom: $s_lg;
@@ -55,6 +63,14 @@
 
         &:last-child {
             padding-right: 0;
+        }
+    }
+
+    .button {
+        margin-bottom: $s_md;
+
+        &:last-of-type {
+            margin: 0;
         }
     }
 
