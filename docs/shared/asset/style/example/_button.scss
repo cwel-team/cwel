@@ -1,15 +1,15 @@
 .background--dark {
-    padding-top: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
+    padding-top: $s_sm;
+    padding-right: $s_sm;
+    padding-bottom: $s_xs;
+    padding-left: $s_sm;
     background-color: $c_primary;
 }
 .background--light {
-    padding-top: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
+    padding-top: $s_sm;
+    padding-right: $s_sm;
+    padding-bottom: $s_xs;
+    padding-left: $s_sm;
     background-color: $t_cwel-steel;
 }
 .button-container {
