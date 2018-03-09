@@ -21,6 +21,10 @@
 .hero__background {
     width: 100%;
     height: 100%;
+
+    svg {
+        height: auto;
+    }
 }
 .hero__title {
     color: $color-white;
