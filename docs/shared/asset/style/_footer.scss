@@ -48,6 +48,9 @@
         align-self: flex-end;
     }
 
+    svg {
+        height: auto;
+    }
     svg path {
         fill: $text-color;
         stroke: none;
