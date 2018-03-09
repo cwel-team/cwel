@@ -17,14 +17,7 @@
         display_title_*:
             css margin-bottom is "14px"
 
-    @on s
-        display_wrap_*:
-            css margin-bottom is "64px"
-
-        display_title_*:
-            css margin-bottom is "16px"
-
-    @on m
+    @on s, m
         display_wrap_*:
             css margin-bottom is "64px"
 
@@ -32,75 +25,33 @@
             css margin-bottom is "16px"
 
     @on l
-        display_wrap_1:
-            css margin-bottom is "64px"
+        @for [1 - 2] as index
+            display_wrap_${index}:
+                css margin-bottom is "64px"
 
-        display_wrap_2:
-            css margin-bottom is "64px"
+        @for [3 - 8] as index
+            display_wrap_${index}:
+                css margin-bottom is "128px"
 
-        display_wrap_3:
-            css margin-bottom is "128px"
-
-        display_wrap_3:
-            css margin-bottom is "128px"
-
-        display_wrap_4:
-            css margin-bottom is "128px"
-
-        display_wrap_5:
-            css margin-bottom is "128px"
-
-        display_wrap_6:
-            css margin-bottom is "128px"
-
-        display_wrap_7:
-            css margin-bottom is "128px"
-
-        display_wrap_8:
-            css margin-bottom is "128px"
-
-        display_wrap_9:
-            css margin-bottom is "192px"
-
-        display_wrap_10:
-            css margin-bottom is "192px"
+        @for [9 - 10] as index
+            display_wrap_${index}:
+                css margin-bottom is "192px"
 
         display_title_*:
             css margin-bottom is "16px"
 
     @on xl
-        display_wrap_1:
-            css margin-bottom is "72px"
+        @for [1 - 2] as index
+            display_wrap_${index}:
+                css margin-bottom is "72px"
 
-        display_wrap_2:
-            css margin-bottom is "72px"
+        @for [3 - 8] as index
+            display_wrap_${index}:
+                css margin-bottom is "144px"
 
-        display_wrap_3:
-            css margin-bottom is "144px"
-
-        display_wrap_3:
-            css margin-bottom is "144px"
-
-        display_wrap_4:
-            css margin-bottom is "144px"
-
-        display_wrap_5:
-            css margin-bottom is "144px"
-
-        display_wrap_6:
-            css margin-bottom is "144px"
-
-        display_wrap_7:
-            css margin-bottom is "144px"
-
-        display_wrap_8:
-            css margin-bottom is "144px"
-
-        display_wrap_9:
-            css margin-bottom is "216px"
-
-        display_wrap_10:
-            css margin-bottom is "216px"
+        @for [9 - 10] as index
+            display_wrap_${index}:
+                css margin-bottom is "216px"
 
         display_title_*:
             css margin-bottom is "18px"

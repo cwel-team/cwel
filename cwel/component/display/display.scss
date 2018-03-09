@@ -19,6 +19,16 @@
             background-color: $c_display_light_bg;
         }
     }
+    &--top {
+        @include breakpoint('lg') {
+            margin-top: $s_lg * 3;
+        }
+    }
+    &--bottom {
+        @include breakpoint('lg') {
+            margin-bottom: $s_lg * 3;
+        }
+    }
 }
 .display__container {
     @include container;
@@ -54,7 +64,7 @@
     }
     .display--reverse & {
         @include breakpoint('md') {
-            @include grid-cell-gutter(md);
+            @include grid-cell-gutter('md');
         }
     }
     .display--light & {
@@ -95,14 +105,4 @@
 }
 .display__text {
     margin-bottom: $s_sm;
-}
-.display--top {
-    @include breakpoint('lg') {
-        margin-top: $s_lg * 3;
-    }
-}
-.display--bottom {
-    @include breakpoint('lg') {
-        margin-bottom: $s_lg * 3;
-    }
 }
