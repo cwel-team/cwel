@@ -5,9 +5,7 @@ angular.module('docs')
     return {
         restrict: 'A',
         link(scope, element, attrs) {
-            scope.$watch(() => {
-                return scope.$eval(attrs.bindHtmlCompile);
-            }, (newVal, oldVal) => {
+            scope.$watch(attrs.bindHtmlCompile, (newVal, oldVal) => {
                 if (newVal === oldVal) {
                     return;
                 }
@@ -32,9 +30,9 @@ angular.module('docs')
     scope: {
         component: '@',
     },
-    templateUrl: '/shared/asset/view/docsExample.html',
+    templateUrl: '/shared/asset/view/docs-example.html',
     link(scope) {
-        const basePath = '/Component';
+        const basePath = '/component';
 
         scope.expanded = false;
         scope.show = 'html';
