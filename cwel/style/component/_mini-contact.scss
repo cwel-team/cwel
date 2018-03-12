@@ -1,0 +1,125 @@
+$c_miniContact_bg: $c_primary !default;
+
+// Container related markup
+.mini-contact {
+    background: $c_miniContact_bg;
+}
+
+.mini-contact__container {
+    @include container;
+}
+
+.mini-contact__content {
+    display: block;
+    padding-top: $s_lg;
+    padding-bottom: $s_lg;
+    text-align: center;
+
+    @include breakpoint('md') {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+    @include breakpoint('lg') {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+
+    &--dual-col {
+        display: block;
+        padding-top: $s_lg;
+        padding-bottom: $s_lg;
+        text-align: center;
+
+        @include breakpoint('md') {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+    }
+
+    &--single-col {
+        display: block;
+        padding-top: $s_lg;
+        padding-bottom: $s_lg;
+        text-align: center;
+
+        @include breakpoint('lg') {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+}
+
+// Grid related markup
+.mini-contact__col {
+    @include breakpoint('md') {
+        width: grid-cell-size(12);
+    }
+    @include breakpoint('lg') {
+        width: grid-cell-size(4);
+        padding-right: $s_md;
+        text-align: left;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+
+    .button {
+        margin-bottom: $s_md;
+
+        &:last-of-type {
+            margin: 0;
+        }
+    }
+
+    &--half {
+        @include breakpoint('md') {
+            width: grid-cell-size(12);
+        }
+        @include breakpoint('lg') {
+            width: grid-cell-size(6);
+            padding-right: $s_md;
+
+            &:last-child {
+                padding-right: 0;
+                padding-left: $s_md;
+            }
+        }
+    }
+
+    &--full {
+        @include breakpoint('md') {
+            width: grid-cell-size(12);
+        }
+        @include breakpoint('lg') {
+            width: grid-cell-size(12);
+        }
+    }
+
+    &--centered {
+        @include breakpoint('lg') {
+            text-align: center;
+        }
+    }
+}
+
+// Styling related markup
+.mini-contact__title {
+    margin-top: 0;
+    margin-bottom: $s_md;
+    color: $white;
+    font-size: 2.8rem;
+}
+
+.mini-contact__text p {
+    margin-bottom: $s_sm;
+    color: $white;
+
+    @include breakpoint('lg') {
+        margin-bottom: $s_xxs;
+    }
+}
