@@ -173,3 +173,13 @@ $grid: (
     gutter-lg: $grid_g_lg,
     gutter-xl: $grid_g_xl
 );
+
+/**************************
+ * ASPECT RATIO
+ *************************/
+
+/// Aspect ratio is the same for all images across all screen sizes
+/// 1. width ratio 155
+/// 2. Height ratio 108
+$s_image_width: 1280px; // 1
+$s_image_height: 891.87px; // 2 

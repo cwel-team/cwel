@@ -1,18 +1,66 @@
 {% extends '_layout.njk' %}
 {% set title = 'Display' %}
 
-{% block content %}
-<div class="main">
-	<div class="container">
-		<h1 class="main__title">Display</h1>
-		<p class="main__overview-text">Display example for mobile, tablet and desktop.</p>
-	</div>
+{% from 'cwel/component/display/display.html' import display %}
 
-	<div class="container">
-        <div class="display">
-            <h1 class="display__title">Why choose us?</h1>
-            <p class="display__content-text">With over 40 years’ experience as an independent mortgage adviser, we are perfectly qualified to help and support you through the process of buying a house and arranging a mortgage.</p>
-        </div>
-    </div>
-</div>
+{% block content %}
+
+    {% set config = [
+            { 
+                "modifier" : "",
+                "animation_name": "no-animation",
+                "image_modifier": ""
+            }, 
+            { 
+                "modifier" : "display--center",
+                "animation_name": "no-animation",
+                "image_modifier": "" 
+            },
+            { 
+                "modifier" : "display--image",
+                "animation_name": "no-animation",
+                "image_modifier": ""  
+            },
+            { 
+                "modifier" : "display--image display--reverse",
+                "animation_name": "no-animation",
+                "image_modifier": "" 
+            },
+            { 
+                "modifier" : "display--image",
+                "animation_name": "top-right",
+                "image_modifier": "image--animate-top-right"  
+            },
+            { 
+                "modifier" : "display--image display--reverse",
+                "animation_name": "top-left", 
+                "image_modifier": "image--animate-top-left"
+            },
+            { 
+                "modifier" : "display--image display--light display--top",
+                "animation_name": "no-animation",
+                "image_modifier": ""  
+            },
+            { 
+                "modifier" : "display--image display--light display--top display--reverse",
+                "animation_name": "no-animation", 
+                "image_modifier": ""
+            },
+            { 
+                "modifier" : "display--image display--light display--bottom",
+                "animation_name": "no-animation",
+                "image_modifier": "" 
+            },
+            { 
+                "modifier" : "display--image display--light display--bottom display--reverse",
+                "animation_name": "no-animation",
+                "image_modifier": "" 
+            }
+        ]
+    %}
+
+    {% for item in config %}
+        {[ display(item.modifier, item.animation_name, item.image_modifier) ]}
+    {% endfor %}
+
 {% endblock %}

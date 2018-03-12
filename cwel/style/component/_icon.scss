@@ -3,6 +3,11 @@
 /// @since 0.0.1
 ////
 
+$c_icon_color_1: $c_primary !default;
+
+$c_icon_button_color_1: $white !default;
+$c_icon_button_color_2: $c_primary !default;
+
 /// Icon fullback color is the primary
 
 svg:not(.loader) {

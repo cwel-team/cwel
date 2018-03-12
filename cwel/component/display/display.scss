@@ -1,0 +1,110 @@
+////
+/// @group _display.scss
+/// @since 0.0.1
+////
+
+$c_display_light_bg: $c_bg-light !default;
+
+.display {
+    margin-bottom: $s_lg;
+
+    &--center {
+        text-align: center;
+    }
+    &--image {
+        @include breakpoint('lg') {
+            margin-bottom: $s_xl;
+        }
+    }
+    &--light {
+        @include breakpoint('lg') {
+            background-color: $c_display_light_bg;
+        }
+    }
+    &--top {
+        @include breakpoint('lg') {
+            margin-top: $s_lg * 3;
+        }
+    }
+    &--bottom {
+        @include breakpoint('lg') {
+            margin-bottom: $s_lg * 3;
+        }
+    }
+}
+.display__container {
+    @include container;
+}
+.display__section {
+    @include grid();
+
+    .display--reverse & {
+        @include grid-reverse;
+    }
+}
+
+.display__content {
+    @include grid-cell((
+        'sm': 12
+    ));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    .display--image & {
+        @include grid-cell((
+            'md': 6
+        ));
+        @include breakpoint('md') {
+            padding-left: $s_md;
+        }
+    }
+    .display--reverse & {
+        @include breakpoint('md') {
+            @include grid-cell-gutter('md');
+        }
+    }
+    .display--light & {
+        @include breakpoint('lg') { 
+            margin-top: $s_lg;
+            margin-bottom: $s_lg;
+        }
+    }
+}
+
+.display__image {
+    @include grid-cell((
+        'sm': 12
+    ));
+    @include breakpoint('md') {
+        margin-bottom: 0;
+    }
+    display: none;
+    margin-bottom: $s_sm;
+
+    .display--image & {
+        display: block;
+        @include grid-cell((
+            'md': 6
+        ));
+    }
+    .display--reverse & {
+        @include breakpoint('md') {
+            padding-left: $s_md;
+        }
+    }
+}
+
+.display__title {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: $s_sm;
+}
+.display__text {
+    margin-bottom: $s_sm;
+}
