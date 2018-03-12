@@ -21,9 +21,9 @@ const { argv } = yargs
 .option('dump', {
     type: 'string',
 });
-const buildBranch = process.env.bamboo_planRepository_branchName || execSync('git symbolic-ref --short -q HEAD').toString();
-const buildCommit = process.env.bamboo_repository_revision_number || execSync('git rev-parse --short HEAD').toString();
-const buildNumber = process.env.bamboo_buildNumber || 0;
+const buildBranch = process.env.TRAVIS_BRANCH || execSync('git symbolic-ref --short -q HEAD').toString();
+const buildCommit = process.env.TRAVIS_COMMIT || execSync('git rev-parse --short HEAD').toString();
+const buildNumber = process.env.TRAVIS_BUILD_NUMBER || 0;
 const buildName = `cwel-visual--${buildNumber}--[${buildVersion}]#${buildBranch}@${buildCommit}`;
 
 
