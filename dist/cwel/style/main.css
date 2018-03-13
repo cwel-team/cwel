@@ -946,8 +946,7 @@ svg:not(.loader) {
     -webkit-box-shadow: none;
             box-shadow: none; }
 
-.button,
-a.button {
+.button {
   position: relative;
   display: -webkit-box;
   display: -webkit-flex;
@@ -982,8 +981,7 @@ a.button {
   transition: all 0.2s ease-in-out;
   cursor: pointer; }
   @media (min-width: 37.5em) {
-    .button,
-    a.button {
+    .button {
       display: -webkit-inline-box;
       display: -webkit-inline-flex;
       display: -ms-inline-flexbox;
@@ -992,33 +990,29 @@ a.button {
       min-width: auto;
       padding-right: 3.2rem;
       padding-left: 3.2rem; } }
-  .button:focus,
-  a.button:focus {
-    -webkit-box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
-            box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
-    outline: none;
-    border-width: 0.2rem;
-    border-style: solid;
-    border-color: #5cbbeb; }
-  .button:hover,
-  a.button:hover {
-    color: #fff; }
-  .button::-moz-focus-inner,
-  a.button::-moz-focus-inner {
+  .button::-moz-focus-inner {
     border: 0; }
-  .button:hover,
-  a.button:hover {
+  .button:hover {
+    color: #fff;
     -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
     -webkit-transition: all 0.2s ease-in-in;
     -o-transition: all 0.2s ease-in-in;
     transition: all 0.2s ease-in-in;
     opacity: 1; }
-    .button:hover:before,
-    a.button:hover:before {
+    .button:hover:before {
       --size: 400px; }
-  .button:before,
-  a.button:before {
+  .button:focus {
+    color: #fff;
+    -webkit-box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+            box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+    outline: none;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-color: #5cbbeb; }
+  .button:active {
+    color: #fff; }
+  .button:before {
     --size: 0;
     content: '';
     position: absolute;
@@ -1082,6 +1076,7 @@ a.button {
   color: #372062;
   background-color: #eaeeef; }
   .button--secondary:hover {
+    color: #372062;
     -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
     -webkit-transition: all 0.2s ease-in-in;
@@ -1090,6 +1085,16 @@ a.button {
     opacity: 1; }
     .button--secondary:hover:before {
       --size: 400px; }
+  .button--secondary:focus {
+    color: #372062;
+    -webkit-box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+            box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+    outline: none;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-color: #5cbbeb; }
+  .button--secondary:active {
+    color: #372062; }
   .button--secondary:before {
     --size: 0;
     content: '';
@@ -1112,6 +1117,7 @@ a.button {
   color: #372062;
   background-color: #fff; }
   .button--on-dark:hover {
+    color: #372062;
     -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
     -webkit-transition: all 0.2s ease-in-in;
@@ -1120,6 +1126,16 @@ a.button {
     opacity: 1; }
     .button--on-dark:hover:before {
       --size: 400px; }
+  .button--on-dark:focus {
+    color: #372062;
+    -webkit-box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+            box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+    outline: none;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-color: #5cbbeb; }
+  .button--on-dark:active {
+    color: #372062; }
   .button--on-dark:before {
     --size: 0;
     content: '';
@@ -1144,6 +1160,7 @@ a.button {
     border-style: solid;
     border-color: #fff; }
     .button--on-dark.button--secondary:hover {
+      color: #fff;
       -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
               box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
       -webkit-transition: all 0.2s ease-in-in;
@@ -1152,6 +1169,16 @@ a.button {
       opacity: 1; }
       .button--on-dark.button--secondary:hover:before {
         --size: 400px; }
+    .button--on-dark.button--secondary:focus {
+      color: #fff;
+      -webkit-box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+              box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+      outline: none;
+      border-width: 0.2rem;
+      border-style: solid;
+      border-color: #5cbbeb; }
+    .button--on-dark.button--secondary:active {
+      color: #fff; }
     .button--on-dark.button--secondary:before {
       --size: 0;
       content: '';
@@ -1174,6 +1201,7 @@ a.button {
   color: #fff;
   background-color: #372062; }
   .button--on-light:hover {
+    color: #fff;
     -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
     -webkit-transition: all 0.2s ease-in-in;
@@ -1182,6 +1210,16 @@ a.button {
     opacity: 1; }
     .button--on-light:hover:before {
       --size: 400px; }
+  .button--on-light:focus {
+    color: #fff;
+    -webkit-box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+            box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+    outline: none;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-color: #5cbbeb; }
+  .button--on-light:active {
+    color: #fff; }
   .button--on-light:before {
     --size: 0;
     content: '';
@@ -1203,6 +1241,7 @@ a.button {
     color: #372062;
     background-color: #fff; }
     .button--on-light.button--secondary:hover {
+      color: #372062;
       -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
               box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 10px 10px rgba(0, 0, 0, 0.05);
       -webkit-transition: all 0.2s ease-in-in;
@@ -1211,6 +1250,16 @@ a.button {
       opacity: 1; }
       .button--on-light.button--secondary:hover:before {
         --size: 400px; }
+    .button--on-light.button--secondary:focus {
+      color: #372062;
+      -webkit-box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+              box-shadow: 0 0 0.4rem 0.1rem #5cbbeb;
+      outline: none;
+      border-width: 0.2rem;
+      border-style: solid;
+      border-color: #5cbbeb; }
+    .button--on-light.button--secondary:active {
+      color: #372062; }
     .button--on-light.button--secondary:before {
       --size: 0;
       content: '';
