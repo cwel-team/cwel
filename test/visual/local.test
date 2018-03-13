@@ -18,6 +18,16 @@ Grid at breakpoint: ${breakpointName}
         check ${specPath}/grid.gspec --include '${tags}'
 
 @@ parameterized using breakpoints
+Spacer at breakpoint: ${breakpointName}
+    ${host_url}/prototype/spacer ${size}
+        check ${specPath}/spacer.gspec --include '${tags}'
+
+@@ parameterized using breakpoints
+Display at breakpoint: ${breakpointName}
+    ${host_url}/component/display ${size}
+        check ${componentSpecPath}/display/display.gspec --include '${tags}'
+
+@@ parameterized using breakpoints
 Button at breakpoint: ${breakpointName}
     ${host_url}/component/button ${size}
         check ${componentSpecPath}/button/button.gspec --include '${tags}'

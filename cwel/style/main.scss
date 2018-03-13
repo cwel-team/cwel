@@ -8,6 +8,7 @@
 // Every Cwel component needs to be included below as this file generates the bundle with everything in.
 
 @import '../component/card/card';
+@import '../component/display/display';
 @import '../component/button/button';
 @import '../component/mini-contact/mini-contact';
 @import '../pattern/card-slider/card-slider';

@@ -41,10 +41,10 @@ app.factory('markdownService', () => {
 
     renderer.heading = (text, level) => {
         if (level === 1) {
-            return `<h1 class="h1"><span class="h1__text">${  text  }<span></h1>`;
+            return `<h1 class="docs-h1"><span class="docs-h1__text">${  text  }<span></h1>`;
         }
         if (level === 2) {
-            return `<h2 class="h2"><span class="h2__text">${  text  }</span></h2>`;
+            return `<h2 class="docs-h2"><span class="docs-h2__text">${  text  }</span></h2>`;
         }
         return `<h${ level }>${  text  }</h${ level }>`;
     };

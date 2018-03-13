@@ -40,7 +40,7 @@ ol {
     li::before {
         content: counter(item) '. ';
         position: absolute;
-        left: 0;
+        left: -1.4em;
         display: inline-block;
         counter-increment: item;
     }

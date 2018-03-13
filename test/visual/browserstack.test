@@ -30,6 +30,16 @@ Grid on: ${deviceName}
         check ${specPath}/grid.gspec --include '${tags}'
 
 @@ parameterized using devices
+Spacer on: ${deviceName}
+    selenium grid ${grid_url} --page ${host_url}/prototype/spacer ${gridArgs} ${gridArgsForAll}
+        check ${specPath}/spacer.gspec --include '${tags}'
+
+@@ parameterized using devices
+Display on: ${deviceName}
+    selenium grid ${grid_url} --page ${host_url}/component/display ${gridArgs} ${gridArgsForAll}
+        check ${componentSpecPath}/display/display.gspec --include '${tags}'
+
+@@ parameterized using devices
 Buttons on: ${deviceName}
-    selenium grid ${grid_url} --page ${host_url}/components/button ${gridArgs} ${gridArgsForAll}
+    selenium grid ${grid_url} --page ${host_url}/component/button ${gridArgs} ${gridArgsForAll}
         check ${componentSpecPath}/button/button.gspec --include '${tags}'
