@@ -1,0 +1,63 @@
+# http://galenframework.com/docs/reference-galen-spec-language-guide/#Objectdefinition
+
+@objects
+    
+    display_wrap_*                             .display
+    display_title_*                            .display__title
+    display--center                            .display--center
+
+# http://galenframework.com/docs/reference-galen-spec-language-guide/#SpecsReference
+
+= Spacers =
+
+    @on xs
+        display_wrap_*:
+            css margin-bottom is "56px"
+
+        display_title_*:
+            css margin-bottom is "14px"
+
+    @on s, m
+        display_wrap_*:
+            css margin-bottom is "64px"
+
+        display_title_*:
+            css margin-bottom is "16px"
+
+    @on l
+        @for [1 - 2] as index
+            display_wrap_${index}:
+                css margin-bottom is "64px"
+
+        @for [3 - 8] as index
+            display_wrap_${index}:
+                css margin-bottom is "128px"
+
+        @for [9 - 10] as index
+            display_wrap_${index}:
+                css margin-bottom is "192px"
+
+        display_title_*:
+            css margin-bottom is "16px"
+
+    @on xl
+        @for [1 - 2] as index
+            display_wrap_${index}:
+                css margin-bottom is "72px"
+
+        @for [3 - 8] as index
+            display_wrap_${index}:
+                css margin-bottom is "144px"
+
+        @for [9 - 10] as index
+            display_wrap_${index}:
+                css margin-bottom is "216px"
+
+        display_title_*:
+            css margin-bottom is "18px"
+
+= Layout =
+
+    @on *
+        display--center:
+            css text-align is "center"

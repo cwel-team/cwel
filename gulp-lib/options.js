@@ -16,5 +16,7 @@ module.exports = {
         })(err);
         this.emit('end');
     },
+    sass: {
+        precision: 8,
+    },
 };
-

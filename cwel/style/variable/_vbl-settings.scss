@@ -146,23 +146,23 @@ $container: (
 
 /// `XS` grid gutter width
 /// @type String
-$grid_g_xs: rebase($s_xs, 'xs');
+$grid_g_xs: rebase($s_xs, 'xs'); // 8px
 
 /// `S` grid gutter width
 /// @type String
-$grid_g_sm: rebase($s_xs, 'sm');
+$grid_g_sm: rebase($s_xs, 'sm'); // 8px
 
 /// `M` grid gutter width
 /// @type String
-$grid_g_md: rebase($s_sm, 'md');
+$grid_g_md: rebase($s_sm, 'md'); // 16px
 
 /// `L` grid gutter width
 /// @type String
-$grid_g_lg: rebase($s_sm, 'lg');
+$grid_g_lg: rebase($s_sm, 'lg'); // 16px
 
 /// `XL` grid gutter width
 /// @type String
-$grid_g_xl: rebase($s_sm, 'xl');
+$grid_g_xl: rebase($s_sm, 'xl'); // 16px
 
 /// Map used to provide grid sizes
 /// @type Map
@@ -173,3 +173,13 @@ $grid: (
     gutter-lg: $grid_g_lg,
     gutter-xl: $grid_g_xl
 );
+
+/**************************
+ * ASPECT RATIO
+ *************************/
+
+/// Aspect ratio is the same for all images across all screen sizes
+/// 1. width ratio 155
+/// 2. Height ratio 108
+$s_image_width: 1280px; // 1
+$s_image_height: 891.87px; // 2 

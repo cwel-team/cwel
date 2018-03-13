@@ -3,6 +3,30 @@
 /// @since 0.0.1
 ////
 
+$c_button_color_1: $white !default;
+$c_button_bg_1: $c_primary !default;
+
+$c_button_color_2: $c_primary !default;
+$c_button_bg_2: $t_cwel-steel !default;
+
+$c_button_onDark_color_1: $c_primary !default;
+$c_button_onDark_bg_1: $white !default;
+
+$c_button_onDark_color_2: $white !default;
+$c_button_onDark_bg_2: $c_primary !default;
+
+$c_button_onLight_color_1: $white !default;
+$c_button_onLight_bg_1: $c_primary !default;
+
+$c_button_onLight_color_2: $c_primary !default;
+$c_button_onLight_bg_2: $white !default;
+
+$c_button_onLight_hover_bg_1: lighten($c_button_onLight_bg_1, 10%) !default;
+$c_button_onDark_hover_bg_1: $white !default;
+
+$c_button_onLight_hover_bg_2: $white !default;
+$c_button_onDark_hover_bg_2: lighten($c_button_onDark_bg_2, 5%) !default;
+
 /// 1. Show no outline as the focus style is defined on the border
 /// 2. Inline-flex on medium and above so the button doesn't go full-width but keeps the properties of flex
 /// 3. removes focus around text in the button tag firefox

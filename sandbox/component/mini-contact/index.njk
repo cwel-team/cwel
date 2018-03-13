@@ -1,0 +1,40 @@
+{% extends '_layout.njk' %}
+{% set title = 'Mini Contact' %}
+{% set fullWidth = 'true' %}
+{% import "cwel/component/mini-contact/mini-contact.html" as miniContact %}
+
+{% block content %}
+    <div class="main">
+        <div class="container">
+            <h1 class="main__title">Mini Contact</h1>
+            <p class="main__overview-text">Mini contact examples - Mobile, Table and Desktop.</p>
+        </div>
+    </div>
+
+    {[miniContact.default
+        ("Get in touch",
+        "Opening Times",
+        "Our expert team of advisors are available to help you choose the mortgage that is right for you.")
+    ]}
+    <br />
+    {[miniContact.dualcolumn
+        ("Get in touch",
+        "Opening Times",
+        "Our expert team of advisors are available to help you choose the mortgage that is right for you.")
+    ]}
+    <br />
+    {[miniContact.dualcolumnmix
+        ("Get in touch you bunch of wonderful people.",
+        "Our expert team of advisors are available to help you choose the mortgage that is right for you.")
+    ]}
+    <br />
+    {[miniContact.singlecolumn
+        ("Get in touch with us cool bunch",
+        "Our expert team of advisers are available to help you choose the mortgage that is right for you. Lorem ipsum dolor sit amet, consectetur elit.")
+    ]}
+    <br />
+    {[miniContact.singlecolumnmix
+        ("Get in touch with us cool bunch")
+    ]}
+
+{% endblock %}
