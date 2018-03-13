@@ -8,11 +8,11 @@ a {
     }
 }
 
-.h2 {
+.docs-h2 {
     margin-top: 8rem;
     margin-bottom: 4rem;
 }
-.h1 .h1__text {
+.docs-h1 .docs-h1__text {
     display: inline-block;
     padding-top: 1rem;
     font-weight: 500;
@@ -20,7 +20,7 @@ a {
     border-top-style: solid;
     border-top-color: $brand-color-1;
 }
-.h2 .h2__text {
+.docs-h2 .docs-h2__text {
     display: inline-block;
     padding-top: 1rem;
     font-weight: 300;
