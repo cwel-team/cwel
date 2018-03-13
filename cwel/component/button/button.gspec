@@ -5,9 +5,17 @@
     button_default_*                                .button:not(.button--icon-only)
     button_icon_only                                .button--icon-only 
 
+    button_icon_right                               .button--icon-right
+        button_icon                                 .button__icon
+
+    button_icon_left                                .button--icon-left
+        button_icon                                 .button__icon
+
+    loader                                          .loader
+
 # http://galenframework.com/docs/reference-galen-spec-language-guide/#SpecsReference
 
-= Height =
+= Width and height =
 
     @on xs
         button_default_*:
@@ -16,6 +24,16 @@
         button_icon_only:
             css height is "49px"
 
+        button_icon_right.button_icon:
+            css height is "17.5px"
+
+        button_icon_left.button_icon:
+            css height is "17.5px"
+
+        loader:
+            css height is 26.25px"
+            css width is "26.25px"
+
     @on s, m, l
         button_default_*:
             css height is "56px"
@@ -23,12 +41,32 @@
         button_icon_only:
             css height is "56px"
 
+        button_icon_right.button_icon:
+            css height is "20px"
+
+        button_icon_left.button_icon:
+            css height is "20px"
+
+        loader:
+            css height is "30px"
+            css width is "30px"
+
     @on xl
         button_default_*:
             css height is "63px"
 
         button_icon_only:
             css height is "63px"
+
+        button_icon_right.button_icon:
+            css height is "22.5px"
+
+        button_icon_left.button_icon:
+            css height is "22.5px"
+
+        loader:
+            css height is "33.75px"
+            css width is "33.75px"
 
 = Spacers =
 
@@ -42,18 +80,42 @@
             css padding-left is "56px"
             css padding-right is "56px"
 
+        button_icon_right.button_icon:
+            css margin-left is "14px"
+
+        button_icon_left.button_icon:
+            css margin-right is "14px"
+
     @on s
         button_default_*:
             css padding-left is "64px"
             css padding-right is "64px"
+
+        button_icon_right.button_icon:
+            css margin-left is "16px"
+
+        button_icon_left.button_icon:
+            css margin-right is "16px"
 
     @on m, l
         button_default_*:
             css padding-left is "32px"
             css padding-right is "32px"
 
+        button_icon_right.button_icon:
+            css margin-left is "16px"
+
+        button_icon_left.button_icon:
+            css margin-right is "16px"
+
     @on xl
         button_default_*:
             css padding-left is "36px"
             css padding-right is "36px"
+
+        button_icon_right.button_icon:
+            css margin-left is "18px"
+
+        button_icon_left.button_icon:
+            css margin-right is "18px"
 
