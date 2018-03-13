@@ -18,9 +18,9 @@ Grid at breakpoint: ${breakpointName}
         check ${specPath}/grid.gspec --include '${tags}'
 
 @@ parameterized using breakpoints
-REM Units at breakpoint: ${breakpointName}
-    ${host_url}/prototype/remunits ${size}
-        check ${specPath}/Remunits.gspec --include '${tags}'
+Spacer at breakpoint: ${breakpointName}
+    ${host_url}/prototype/spacer ${size}
+        check ${specPath}/spacer.gspec --include '${tags}'
 
 @@ parameterized using breakpoints
 Display at breakpoint: ${breakpointName}
@@ -31,4 +31,3 @@ Display at breakpoint: ${breakpointName}
 Button at breakpoint: ${breakpointName}
     ${host_url}/component/button ${size}
         check ${componentSpecPath}/button/button.gspec --include '${tags}'
-

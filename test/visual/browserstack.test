@@ -30,9 +30,9 @@ Grid on: ${deviceName}
         check ${specPath}/grid.gspec --include '${tags}'
 
 @@ parameterized using devices
-Rem units on: ${deviceName}
-    selenium grid ${grid_url} --page ${host_url}/prototype/remunits ${gridArgs} ${gridArgsForAll}
-        check ${specPath}/Remunits.gspec --include '${tags}'
+Spacer on: ${deviceName}
+    selenium grid ${grid_url} --page ${host_url}/prototype/spacer ${gridArgs} ${gridArgsForAll}
+        check ${specPath}/spacer.gspec --include '${tags}'
 
 @@ parameterized using devices
 Display on: ${deviceName}
@@ -43,4 +43,3 @@ Display on: ${deviceName}
 Buttons on: ${deviceName}
     selenium grid ${grid_url} --page ${host_url}/component/button ${gridArgs} ${gridArgsForAll}
         check ${componentSpecPath}/button/button.gspec --include '${tags}'
-
