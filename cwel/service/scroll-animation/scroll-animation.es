@@ -1,7 +1,7 @@
 const Choreographer = require('choreographer-js');
 
 angular.module('cwel')
-.factory('animationFactory', () => {
+.factory('scrollAnimationFactory', () => {
     const animations = {
         'no-animation': [
         ],
@@ -31,18 +31,17 @@ angular.module('cwel')
 });
 
 angular.module('cwel')
-.directive('animate', (animationFactory, $window) => {
+.directive('scrollAnimate', (scrollAnimationFactory, $window) => {
     return {
         scope: {
-            animate: '@',
+            scrollAnimate: '@',
         },
         link(scope, el) {
-            let range;
-            let result;
             let resizeTimer;
             const doc = document.body;
 
             function calcAnimation() {
+                let range;
                 const elm = el[0].getBoundingClientRect().top;
                 const windowHeight = $window.innerHeight;
                 const scrollTop = $window.pageYOffset || doc.scrollTop;
@@ -57,24 +56,21 @@ angular.module('cwel')
                     range = [top - windowHeight, top];
                 }
 
-                const animateName = scope.animate;
-                result = animationFactory.getAnimation(animateName, el[0], range);
+                const animateName = scope.scrollAnimate;
+                return scrollAnimationFactory.getAnimation(animateName, el[0], range) || [];
             }
 
-            calcAnimation();
-
             const choreographer = new Choreographer({
-                animations: result,
+                animations: calcAnimation(),
             });
 
             function animate() {
-                const scrollPosition = (doc.getBoundingClientRect().top - doc.offsetTop) * -1;
+                const scrollPosition = Math.abs(doc.getBoundingClientRect().top - doc.offsetTop);
                 choreographer.runAnimationsAt(scrollPosition);
             }
 
             function update() {
-                calcAnimation();
-                choreographer.updateAnimations(result);
+                choreographer.updateAnimations(calcAnimation());
             }
             angular.element($window).on('scroll', animate);
             angular.element($window).on('resize', () => {
