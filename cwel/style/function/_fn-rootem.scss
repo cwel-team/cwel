@@ -1,8 +1,0 @@
-
-/// @group Functions
-
-@function rootem($val, $size) {
-    $font-size: map-get($font-sizes, $size);
-
-    @return (strip-unit($val) / strip-unit($font-size)) * 100rem;
-}

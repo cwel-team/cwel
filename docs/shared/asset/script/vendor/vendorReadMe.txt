@@ -1,1 +1,0 @@
-Please ensure that all files in this folder are of type `js` (as opposed to `es`), so that the gulp task can copy them into the `Assets` folder verbatim.
