@@ -1,6 +1,6 @@
 {
   "name": "cwel",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Countrywide Experience Language",
   "main": "dist/cwel/script/main.js",
   "repository": "github:cwel-team/cwel",

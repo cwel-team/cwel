@@ -260,6 +260,8 @@ __pycache__/
 tmp
 tmp/**
 
+dist/cwel/**
+
 # swap files created by vim
 *.swp
 *.swo
