@@ -26,12 +26,12 @@
 
 @@ parameterized using devices
 Grid on: ${deviceName}
-    selenium grid ${grid_url} --page ${host_url}/prototype/grid ${gridArgs} ${gridArgsForAll}
+    selenium grid ${grid_url} --page ${host_url}/layout/grid ${gridArgs} ${gridArgsForAll}
         check ${specPath}/grid.gspec --include '${tags}'
 
 @@ parameterized using devices
 Spacer on: ${deviceName}
-    selenium grid ${grid_url} --page ${host_url}/prototype/spacer ${gridArgs} ${gridArgsForAll}
+    selenium grid ${grid_url} --page ${host_url}/layout/spacer ${gridArgs} ${gridArgsForAll}
         check ${specPath}/spacer.gspec --include '${tags}'
 
 @@ parameterized using devices
