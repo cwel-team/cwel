@@ -14,12 +14,12 @@
 
 @@ parameterized using breakpoints
 Grid at breakpoint: ${breakpointName}
-    ${host_url}/prototype/grid ${size}
+    ${host_url}/layout/grid ${size}
         check ${specPath}/grid.gspec --include '${tags}'
 
 @@ parameterized using breakpoints
 Spacer at breakpoint: ${breakpointName}
-    ${host_url}/prototype/spacer ${size}
+    ${host_url}/layout/spacer ${size}
         check ${specPath}/spacer.gspec --include '${tags}'
 
 @@ parameterized using breakpoints

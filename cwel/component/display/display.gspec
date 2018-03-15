@@ -4,7 +4,19 @@
     
     display_wrap_*                             .display
     display_title_*                            .display__title
-    display--center                            .display--center
+    display-center                             .display--center
+
+    display-image_*                            .display--image
+        image                                  .image__src
+        text                                   .display__text
+
+    display-top_*                              .display--top
+        image                                  .image__src
+
+    display-bottom_*                           .display--bottom
+        image                                  .image__src
+
+
 
 # http://galenframework.com/docs/reference-galen-spec-language-guide/#SpecsReference
 
@@ -24,6 +36,15 @@
         display_title_*:
             css margin-bottom is "16px"
 
+    @on m, l
+        @for [1, 5, 7] as index
+            display-image_${index}.text:
+                right-of display-image_${index}.image ~ 32px
+
+        @for [2, 6, 8] as index
+            display-image_${index}.text:
+                left-of display-image_${index}.image ~ 32px
+
     @on l
         @for [1 - 2] as index
             display_wrap_${index}:
@@ -39,6 +60,12 @@
 
         display_title_*:
             css margin-bottom is "16px"
+
+        display-top_*.image:
+            css top is "-64px"
+
+        display-bottom_*.image:
+            css top is "64px"
 
     @on xl
         @for [1 - 2] as index
@@ -56,8 +83,22 @@
         display_title_*:
             css margin-bottom is "18px"
 
+        @for [1, 5, 7] as index
+            display-image_${index}.text:
+                right-of display-image_${index}.image 36px
+
+        @for [2, 6, 8] as index
+            display-image_${index}.text:
+                left-of display-image_${index}.image 36px
+
+        display-top_*.image:
+            css top is "-72px"
+
+        display-bottom_*.image:
+            css top is "72px"
+
 = Layout =
 
     @on *
-        display--center:
+        display-center:
             css text-align is "center"

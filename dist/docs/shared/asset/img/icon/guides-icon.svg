@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2209.5 5736.5 61.719 67.238">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-width: 3px;
+      }
+
+      .cls-1, .cls-3 {
+        stroke: #393f57;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke: #334471;
+      }
+    </style>
+  </defs>
+  <g id="Symbol_1_1" data-name="Symbol 1 – 1" transform="translate(1604.153 5231.15)">
+    <path id="Path_6367" data-name="Path 6367" class="cls-1" d="M44.67,57.2H.6V.6H44.67Z" transform="translate(611.795 506.25)"/>
+    <line id="Line_1272" data-name="Line 1272" class="cls-2" x2="27.493" transform="translate(620.886 524.025)"/>
+    <line id="Line_1273" data-name="Line 1273" class="cls-2" x2="2.564" transform="translate(608.549 524.025)"/>
+    <line id="Line_1276" data-name="Line 1276" class="cls-2" x2="2.564" transform="translate(608.549 534.282)"/>
+    <line id="Line_1277" data-name="Line 1277" class="cls-2" x2="27.493" transform="translate(620.886 534.282)"/>
+    <line id="Line_1278" data-name="Line 1278" class="cls-2" x2="2.564" transform="translate(608.549 544.539)"/>
+    <line id="Line_1279" data-name="Line 1279" class="cls-2" x2="27.493" transform="translate(620.886 544.539)"/>
+    <line id="Line_1274" data-name="Line 1274" class="cls-1" x2="27.493" transform="translate(620.886 524.025)"/>
+    <line id="Line_1275" data-name="Line 1275" class="cls-1" x2="4.267" transform="translate(606.847 524.025)"/>
+    <line id="Line_1280" data-name="Line 1280" class="cls-1" x2="4.267" transform="translate(606.847 534.282)"/>
+    <line id="Line_1281" data-name="Line 1281" class="cls-1" x2="27.493" transform="translate(620.886 534.282)"/>
+    <line id="Line_1282" data-name="Line 1282" class="cls-1" x2="4.267" transform="translate(606.847 544.539)"/>
+    <line id="Line_1283" data-name="Line 1283" class="cls-1" x2="27.493" transform="translate(620.886 544.539)"/>
+    <path id="Path_6374" data-name="Path 6374" class="cls-3" d="M2539.569,3515.146h9.1v59.109h-47.044v-7.541" transform="translate(-1883.103 -3003.167)"/>
+  </g>
+</svg>
