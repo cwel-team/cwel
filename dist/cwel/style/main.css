@@ -1389,6 +1389,7 @@ svg:not(.loader) {
 @media (min-width: 62.75em) {
   .mini-contact__col {
     width: 33.33333%;
+    margin-top: 0;
     padding-right: 3.2rem;
     text-align: left; }
     .mini-contact__col:last-child {
@@ -1407,6 +1408,7 @@ svg:not(.loader) {
 @media (min-width: 62.75em) {
   .mini-contact__col--half {
     width: 50%;
+    margin-top: 0;
     padding-right: 3.2rem; }
     .mini-contact__col--half:last-child {
       padding-right: 0;
@@ -1422,6 +1424,7 @@ svg:not(.loader) {
 
 @media (min-width: 62.75em) {
   .mini-contact__col--centered {
+    padding-right: 0;
     text-align: center; } }
 
 .mini-contact__title {

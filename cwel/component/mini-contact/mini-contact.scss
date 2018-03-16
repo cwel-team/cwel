@@ -128,7 +128,6 @@ $c_miniContact_bg: $c_primary !default;
     @include breakpoint('md') {
         margin-top: 0;
         margin-right: auto;
-        margin-bottom: $s_md;
         margin-left: auto;
     }
 }
