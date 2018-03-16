@@ -1,0 +1,56 @@
+@import 'cwel/style/main';
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 10rem;
+    background: #eeeeee;
+}
+.header__logo {
+    height: 100%;
+    background: red;
+
+    @include grid-cell((
+        'xs': 4,
+    ));
+}
+.header__nav {
+    height: 100%;
+
+    @include grid-cell((
+        'xs': 8,
+    ));
+}
+.header__nav-list {
+    height: 2.4rem;
+    overflow: hidden;
+    font-size: 0;
+    list-style: none;
+}
+.header__nav-item {
+    display: inline-flex;
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 1.4rem;
+    span {
+        margin-right: $s_sm;
+        margin-left: $s_sm;
+    }
+}
+.hidden {
+    visibility: hidden;
+}
+.dropdown__nav-item {
+    display: inline-flex;
+    visibility: hidden;
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 1.4rem;
+    span {
+        margin-right: $s_sm;
+        margin-left: $s_sm;
+    }
+}
+.active {
+    visibility: visible;
+}

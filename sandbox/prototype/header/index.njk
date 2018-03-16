@@ -1,0 +1,52 @@
+{% extends '_layout.njk' %}
+{% set title = 'Header' %}
+
+{% block content %}
+<main class="container">
+    <div class="header">
+        <div class="header__logo"></div>
+        <div class="header__nav">
+            <ul nav class="header__nav-list">
+                <li class="header__nav-item" ng-class="{hidden: count < 1}">
+                    <span>home</span>
+                </li>
+                <li class="header__nav-item" ng-class="{hidden: count < 2}">
+                    <span>About</span>
+                </li>
+                <li class="header__nav-item" ng-class="{hidden: count < 3}">
+                    <span>News</span>
+                </li>
+                <li class="header__nav-item" ng-class="{hidden: count < 4}">
+                    <span>Buying</span>
+                </li>
+                <li class="header__nav-item" ng-class="{hidden: count < 5}">
+                    <span>Selling</span>
+                </li>
+                <li class="header__nav-item" ng-class="{hidden: count < 6}">
+                     <span>Landlords</span>
+                </li>
+                
+                <li class="dropdown__nav-item" ng-class="{active: count < 1}">
+                    <span>home</span>
+                </li>
+                 <li class="dropdown__nav-item" ng-class="{active: count < 2}">
+                    <span>about</span>
+                </li>
+                <li class="dropdown__nav-item" ng-class="{active: count < 3}">
+                    <span>news</span>
+                </li>
+                <li class="dropdown__nav-item" ng-class="{active: count < 4}">
+                    <span>buying</span>
+                </li>
+                <li class="dropdown__nav-item" ng-class="{active: count < 5}">
+                    <span>selling</span>
+                </li>
+                <li class="dropdown__nav-item" ng-class="{active: count < 6}">
+                    <span>landlords</span>
+                </li>
+            </ul>
+            <div>more</div>
+        </div>
+    </div>
+</main>
+{% endblock %}
