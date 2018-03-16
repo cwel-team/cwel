@@ -1,0 +1,77 @@
+# http://galenframework.com/docs/reference-galen-spec-language-guide/#Objectdefinition
+
+@objects
+    mini_contact_title*               .mini-contact__title
+    mini_contact_button*              .button:not(:last-of-type)
+    mini_contact_but_last*            .button:last-of-type
+    mini_contact_text*                .mini-contact__text p
+    mini_contact_list*                .mini-contact__list
+    mini_contact_content*             .mini-contact__content
+    mini_contact_left_half_spacing*   .mini-contact__col--half:last-of-type
+
+    mini_contact_dual_col*            .mini-contact__content--dual-col
+        column_half*                  .mini-contact__col--half
+
+# http://galenframework.com/docs/reference-galen-spec-language-guide/#SpecsReference
+
+= Margin on bottom =
+
+    @on s, m, l
+        mini_contact_title*:
+            css margin-bottom is "32px"
+
+    @on xl
+        mini_contact_title*:
+            css margin-bottom is "36px"
+
+    @on s, m, l
+        mini_contact_button*:
+            css margin-bottom is "32px"
+
+    @on xl
+        mini_contact_button*:
+            css margin-bottom is "36px"
+
+    @on s, m, l, xl
+        mini_contact_but_last*:
+            css margin-bottom is "0px"
+
+    @on s, m, l
+        mini_contact_text*:
+            css margin-bottom is "32px"
+
+    @on xl
+        mini_contact_text*:
+            css margin-bottom is "36px"
+
+= Spacing =
+
+    @on l
+        mini_contact_content*:
+            css padding-top is "64px"
+            css padding-bottom is "64px"
+
+    @on xl
+        mini_contact_content*:
+            css padding-top is "72px"
+            css padding-bottom is "72px"
+
+    @on l
+        mini_contact_left_half_spacing*:
+            css padding-right is "0px"
+            css padding-left is "32px"
+
+    @on xl
+        mini_contact_left_half_spacing*:
+            css padding-right is "0px"
+            css padding-left is "36px"
+
+= Layout =
+
+    @on l
+        mini_contact_dual_col*.column_half*:
+            css width is "490px"
+
+    @on xl
+        mini_contact_dual_col*.column_half*:
+            css width is "628px"

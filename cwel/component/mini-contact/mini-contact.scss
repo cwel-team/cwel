@@ -56,10 +56,12 @@ $c_miniContact_bg: $c_primary !default;
 // Grid related markup
 .mini-contact__col {
     @include breakpoint('md') {
-        width: grid-cell-size(12);
+        width: grid-cell-size(8);
+        margin: auto;
     }
     @include breakpoint('lg') {
         width: grid-cell-size(4);
+        margin-top: 0;
         padding-right: $s_md;
         text-align: left;
 
@@ -78,10 +80,12 @@ $c_miniContact_bg: $c_primary !default;
 
     &--half {
         @include breakpoint('md') {
-            width: grid-cell-size(12);
+            width: grid-cell-size(8);
+            margin: auto;
         }
         @include breakpoint('lg') {
             width: grid-cell-size(6);
+            margin-top: 0;
             padding-right: $s_md;
 
             &:last-child {
@@ -93,7 +97,7 @@ $c_miniContact_bg: $c_primary !default;
 
     &--full {
         @include breakpoint('md') {
-            width: grid-cell-size(12);
+            width: grid-cell-size(8);
         }
         @include breakpoint('lg') {
             width: grid-cell-size(12);
@@ -102,6 +106,7 @@ $c_miniContact_bg: $c_primary !default;
 
     &--centered {
         @include breakpoint('lg') {
+            padding-right: 0;
             text-align: center;
         }
     }
@@ -113,13 +118,27 @@ $c_miniContact_bg: $c_primary !default;
     margin-bottom: $s_md;
     color: $white;
     font-size: 2.8rem;
+    font-weight: 400 // Needs to defined with mixin or class
 }
 
 .mini-contact__text p {
-    margin-bottom: $s_sm;
+    margin-bottom: $s_md;
     color: $white;
 
-    @include breakpoint('lg') {
-        margin-bottom: $s_xxs;
+    @include breakpoint('md') {
+        margin-top: 0;
+        margin-right: auto;
+        margin-left: auto;
     }
+}
+
+.mini-contact__list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.mini-contact__list-text {
+    margin-left: 0;
+    color: $white;
 }
