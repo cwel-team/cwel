@@ -22,14 +22,6 @@
                 - (billboard__text)
             - billboard__content__image
 */
-
-$c_billboard-bg: #e7f5fc;
-
-.billboard__container {
-    @include container;
-    background-color: $c_billboard-bg;
-}
-
 .billboard__content {
     display: block;
     padding-top: $s_md;
@@ -89,7 +81,7 @@ $c_billboard-bg: #e7f5fc;
 }
 
 .billboard__header {
-    background-color: $c_billboard-bg;
+    //background-color: $c_billboard-bg;
 
     @include breakpoint('md') {
         position: absolute;
@@ -166,4 +158,122 @@ $c_billboard-bg: #e7f5fc;
         }
     }
 
+}
+
+// Trying it all again but following 'display' Styling
+$c_billboard-bg: #e7f5fc;
+
+.billboard__container {
+    @include container;
+    background-color: $c_billboard-bg;
+}
+
+.billboard__section {
+    @include grid();
+    position: relative;
+
+    &--image {
+
+    }
+
+    &--reverse {
+        @include grid-reverse;
+    }
+}
+
+.billboard__header- {
+    @include grid-cell((
+        'md': 6,
+        'lg': 5
+    ));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $c_billboard-bg;
+    //background-color: red;
+
+    @include breakpoint('md') {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        margin-top: $s_lg;
+        //background-color: pink;
+
+        .billboard__section--reverse & {
+            right: 0;
+            left: initial;
+
+            .billboard__title- {
+                padding-right: $s_lg;
+                padding-left: $s_lg;
+                //background-color: green;
+            }
+        }
+    }
+
+    @include breakpoint('lg') {
+        .billboard__section--reverse & {
+            padding-right: $s_lg;
+            padding-left: grid-cell-size(1);
+            //background-color: green;
+        }
+
+        //background-color: violet;
+    }
+}
+
+.billboard__title- {
+
+    //margin-bottom: 0;
+
+    @include breakpoint('md') {
+        margin-top: $s_sm;
+        background-color: red;
+    }
+}
+
+.billboard__image- {
+    display: none;
+
+    @include grid-cell((
+        'md': 9,
+        'lg': 7
+    ));
+
+    @include breakpoint('md') {
+        display: block;
+        height: $s_sm * 22.5;
+        overflow: hidden;
+
+        .bungo {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: calc(#{grid-cell-size(9)} - 1.6rem);
+            height: $s_sm * 22.5;
+            margin-bottom: -#{$s_lg};
+            margin-left: 1.6rem;
+            overflow: hidden;
+            background-color: yellow;
+        }
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @include breakpoint('lg') {
+        height: $s_lg * 6.67;
+
+        .bungo {
+            width: calc(#{grid-cell-size(7)} - 1.6rem);
+            height: $s_lg * 6.67;
+        }
+    }
 }

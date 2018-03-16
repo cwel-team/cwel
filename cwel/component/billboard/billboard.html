@@ -38,24 +38,26 @@
 {% macro withimagereverse(title, breadcrumb1, breadcrumb2) %}
 	<section class="billboard">
 		<div class="billboard__container">
-			<div class="billboard__content billboard__content--image billboard__content--reverse">
-                <div class="billboard__header">
+			<div class="billboard__section billboard__section--image billboard__section--reverse">
+                <div class="billboard__header-">
     				<ul class="billboard__breadcrumb">
     					<li>{[ breadcrumb1 ]}</li>
     					<li>{[ breadcrumb2 ]}</li>
     				</ul>
-    				<h1 class="billboard__title">
+    				<h1 class="billboard__title-">
     					{[ title ]}
     				</h1>
                 </div>
-                <div class="billboard__content__image">
-                    <img class="" src="../display/display-image.png" alt="This is an example image" />
+                <div class="billboard__image-">
+                    <div class="bungo">
+                        <img class="" src="../display/display-image.png" alt="This is an example image" />
+                    </div>
                 </div>
 			</div>
 		</div>
 	</section>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p style="margin-bottom: 100px;">&nbsp;</p>
 {% endmacro %}
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
