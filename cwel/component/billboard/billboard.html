@@ -1,0 +1,61 @@
+{% macro default(title, breadcrumb1, breadcrumb2) %}
+	<section class="billboard">
+		<div class="billboard__container">
+			<div class="billboard__content">
+				<ul class="billboard__breadcrumb">
+					<li>{[ breadcrumb1 ]}</li>
+					<li>{[ breadcrumb2 ]}</li>
+				</ul>
+				<h1 class="billboard__title">
+					{[ title ]}
+				</h1>
+			</div>
+		</div>
+	</section>
+{% endmacro %}
+
+{% macro withimage(title, breadcrumb1, breadcrumb2) %}
+	<section class="billboard">
+		<div class="billboard__container">
+			<div class="billboard__content billboard__content--image">
+                <div class="billboard__header">
+    				<ul class="billboard__breadcrumb">
+    					<li>{[ breadcrumb1 ]}</li>
+    					<li>{[ breadcrumb2 ]}</li>
+    				</ul>
+    				<h1 class="billboard__title">
+    					{[ title ]}
+    				</h1>
+                </div>
+                <div class="billboard__content__image">
+                    <img class="" src="../display/display-image.png" alt="This is an example image" />
+                </div>
+			</div>
+		</div>
+	</section>
+{% endmacro %}
+
+{% macro withimagereverse(title, breadcrumb1, breadcrumb2) %}
+	<section class="billboard">
+		<div class="billboard__container">
+			<div class="billboard__content billboard__content--image billboard__content--reverse">
+                <div class="billboard__header">
+    				<ul class="billboard__breadcrumb">
+    					<li>{[ breadcrumb1 ]}</li>
+    					<li>{[ breadcrumb2 ]}</li>
+    				</ul>
+    				<h1 class="billboard__title">
+    					{[ title ]}
+    				</h1>
+                </div>
+                <div class="billboard__content__image">
+                    <img class="" src="../display/display-image.png" alt="This is an example image" />
+                </div>
+			</div>
+		</div>
+	</section>
+{% endmacro %}
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

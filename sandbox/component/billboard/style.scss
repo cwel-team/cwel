@@ -1,0 +1,169 @@
+@import 'cwel/style/main';
+
+/*
+- billboard
+	- billboard__container
+		- billboard__content
+			- billboard__breadcrumb
+			- billboard__title
+			- (billboard__text)
+
+		- billboard__content billboard__content--image
+            - billbaord__header
+                - billboard__breadcrumb
+                - billboard__title
+                - (billboard__text)
+            - billboard__content__image
+
+		- billboard__content billboard__content--image billboard__content__reverse
+            - billboard__header
+                - billboard__breadcrumb
+                - billboard__title
+                - (billboard__text)
+            - billboard__content__image
+*/
+
+$c_billboard-bg: #e7f5fc;
+
+.billboard__container {
+    @include container;
+    background-color: $c_billboard-bg;
+}
+
+.billboard__content {
+    display: block;
+    padding-top: $s_md;
+    padding-bottom: $s_md;
+    text-align: center;
+
+    @include breakpoint('md') {
+    }
+
+    @include breakpoint('lg') {
+
+    }
+}
+
+.billboard__breadcrumb {
+    margin-bottom: 0;
+    list-style-type: none;
+
+    li {
+        display: inline;
+        margin-right: $s_md;
+        margin-left: 0;
+
+        &:before {
+            content: '>';
+            margin-right: $s_md;
+        }
+
+        &:first-child {
+            &:before {
+                content: '';
+            }
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.billboard__title {
+    margin-top: $s_md;
+    margin-bottom: 0;
+}
+
+// modifier, content with an image in it, right aligned
+.billboard__content--image {
+    position: relative;
+    margin-bottom: $s_lg;
+    text-align: left;
+
+    .billboard {
+        &__title {
+            margin-right: $s_lg;
+        }
+    }
+}
+
+.billboard__header {
+    background-color: $c_billboard-bg;
+
+    @include breakpoint('md') {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: grid-cell-size(6);
+        margin-top: $s_md;
+        padding-left: $s_md;
+
+        .billboard {
+            &__title {
+                margin-bottom: $s_md;
+            }
+        }
+    }
+
+    @include breakpoint('lg') {
+        width: grid-cell-size(5);
+    }
+}
+
+.billboard__content__image {
+    display: none; // hide the image on devices < 'md'
+
+    @include breakpoint('md') {
+        position: relative;
+        display: block;
+        width: grid-cell-size(9);
+        height: $s_sm * 22.5;
+        margin-bottom: -#{$s_lg};
+        margin-left: grid-cell-size(3);
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @include breakpoint('lg') {
+        width: grid-cell-size(7);
+        height: $s_sm * 30;
+        margin-left: grid-cell-size(5);
+    }
+}
+
+// modifier: content with an image, but left aligned
+.billboard__content--reverse {
+    @include breakpoint('md') {
+        .billboard__content__image {
+            margin-right: grid-cell-size(3);
+            margin-left: inherit;
+        }
+
+        .billboard__header {
+            right: 0;
+            left: initial;
+            padding-right: $s_md;
+            padding-left: grid-cell-size(1);
+        }
+
+        .billboard__title {
+            margin-right: 0;
+        }
+    }
+
+    @include breakpoint('lg') {
+        .billboard__content__image {
+            margin-right: grid-cell-size(5);
+            margin-left: inherit;
+        }
+    }
+
+}

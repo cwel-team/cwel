@@ -1,0 +1,31 @@
+{% extends '_layout.njk' %}
+{% set title = 'Billboard' %}
+{% set fullWidth = 'true' %}
+{% import "cwel/component/billboard/billboard.html" as billboard %}
+
+{% block content %}
+    <div class="main">
+        <div class="container">
+            <h1 class="main__title">Billboard</h1>
+            <p class="main__overview-text">Billboard examples - Mobile, Table and Desktop.</p>
+        </div>
+    </div>
+
+    {[billboard.default
+        ("This is the title",
+        "Home",
+        "Who we are")
+    ]}
+    <br />
+    {[billboard.withimage
+        ("This is the title with an image",
+        "Home",
+        "Who we are")
+    ]}
+    <br />
+    {[billboard.withimagereverse
+        ("Image + Title + Reverse",
+        "Home",
+        "Who we are")
+    ]}
+{% endblock %}
