@@ -34,42 +34,36 @@ $c_billboard-bg: #e7f5fc;
     .billboard__section--image & {
         @include grid-cell((
             'md': 6,
-            'lg': 4
+            'lg': 5
         ));
-        margin-left: grid-cell-size(1);
-        padding-right: $s_lg;
-    }
-
-    .billboard__section--reverse & {
-        flex-shrink: unset;
-        margin-left: $s_md;
     }
 
     @include breakpoint('md') {
+        // in md the text block is overlaid on the image, therefore position: absolute;
         .billboard__section--image & {
             position: absolute;
             top: 0;
             left: 0;
             z-index: 2;
             margin-top: $s_lg;
+            padding-right: $s_lg;
+            padding-left: $s_lg;
         }
 
         .billboard__section--reverse & {
             right: 0;
             left: initial;
-            padding-left: $s_lg;
         }
     }
 
     @include breakpoint('lg') {
-        margin-top: $s_lg;
-
+        // reset the absolute positioning
         .billboard__section--image & {
             position: relative;
             top: initial;
-            left: initial;
+            right: initial;
             padding-top: $s_lg;
-            padding-left: 0;
+            padding-right: $s_md;
         }
     }
 }
@@ -77,6 +71,14 @@ $c_billboard-bg: #e7f5fc;
 .billboard__title {
     margin-top: $s_sm;
     margin-bottom: $s_md;
+
+    .billboard__section--image & {
+        padding-left: $s_md;
+
+        @include breakpoint('md') {
+            padding-left: initial;
+        }
+    }
 }
 
 .billboard__breadcrumb {
@@ -85,12 +87,12 @@ $c_billboard-bg: #e7f5fc;
 
     li {
         display: inline;
-        margin-right: $s_md;
+        margin-right: $s_sm;
         margin-left: 0;
 
         &:before {
             content: '>';
-            margin-right: $s_md;
+            margin-right: $s_sm;
         }
 
         &:first-child {
@@ -101,6 +103,14 @@ $c_billboard-bg: #e7f5fc;
 
         &:last-child {
             margin-right: 0;
+        }
+    }
+
+    .billboard__section--image & {
+        padding-left: $s_md;
+
+        @include breakpoint('md') {
+            padding-left: initial;
         }
     }
 }
