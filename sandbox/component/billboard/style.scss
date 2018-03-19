@@ -1,17 +1,13 @@
 @import 'cwel/style/main';
 
-// Trying it all again but following 'display' Styling
 $c_billboard-bg: #e7f5fc;
 
-.billboard__container {
-    @include container;
+.billboard {
     background-color: $c_billboard-bg;
 }
 
-.billboard__content {
-    display: block;
-    padding-top: $s_md;
-    padding-bottom: $s_md;
+.billboard__container {
+    @include container;
 }
 
 .billboard__section {
@@ -30,58 +26,61 @@ $c_billboard-bg: #e7f5fc;
 
 .billboard__header {
     @include grid-cell((
-        'md': 6,
-        'lg': 5
+        'sm': 12
     ));
-
     margin-top: $s_md;
-    padding-right: $s_md;
     background-color: $c_billboard-bg;
 
-    @include breakpoint('md') {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-        margin-top: $s_lg;
+    .billboard__section--image & {
+        @include grid-cell((
+            'md': 6,
+            'lg': 4
+        ));
+        margin-left: grid-cell-size(1);
         padding-right: $s_lg;
-        padding-left: $s_lg;
+    }
+
+    .billboard__section--reverse & {
+        flex-shrink: unset;
+        margin-left: $s_md;
+    }
+
+    @include breakpoint('md') {
+        .billboard__section--image & {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            margin-top: $s_lg;
+        }
 
         .billboard__section--reverse & {
             right: 0;
             left: initial;
+            padding-left: $s_lg;
         }
     }
 
     @include breakpoint('lg') {
-        position: relative;
-        top: initial;
-        left: initial;
-        margin-top: $s_lg * 2;
-        margin-left: $grid_g_lg;
+        margin-top: $s_lg;
 
-        .billboard__section--reverse & {
-            padding-right: $s_lg;
-            padding-left: grid-cell-size(1);
+        .billboard__section--image & {
+            position: relative;
+            top: initial;
+            left: initial;
+            padding-top: $s_lg;
+            padding-left: 0;
         }
     }
 }
 
 .billboard__title {
     margin-top: $s_sm;
-    margin-bottom: $s_sm * 1.5;
-    padding-left: $s_md;
-
-    @include breakpoint('md') {
-        margin-top: $s_sm;
-        margin-bottom: $s_sm;
-        padding-left: 0;
-    }
+    margin-bottom: $s_md;
 }
 
 .billboard__breadcrumb {
     margin-bottom: 0;
-    padding-left: $s_md;
     list-style-type: none;
 
     li {
@@ -104,10 +103,6 @@ $c_billboard-bg: #e7f5fc;
             margin-right: 0;
         }
     }
-
-    @include breakpoint('md') {
-        //padding-left: 0;
-    }
 }
 
 .billboard__image {
@@ -118,7 +113,7 @@ $c_billboard-bg: #e7f5fc;
         height: $s_sm * 22.5;
         overflow: hidden;
 
-        .bungo {
+        .image {
             position: absolute;
             right: 0;
             bottom: 0;
@@ -139,14 +134,14 @@ $c_billboard-bg: #e7f5fc;
     @include breakpoint('lg') {
         height: $s_lg * 6.67;
 
-        .bungo {
+        .image {
             width: calc(#{grid-cell-size(7)} - 1.6rem);
             height: $s_lg * 6.67;
         }
     }
 
     .billboard__section--reverse & {
-        .bungo {
+        .image {
             left: 0;
             margin-left: $grid_g_lg;
         }

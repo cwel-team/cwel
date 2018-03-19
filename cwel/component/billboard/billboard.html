@@ -31,7 +31,7 @@
                 </h1>
             </div>
             <div class="billboard__image">
-                <div class="bungo">
+                <div class="image">
                     <img class="" src="../display/display-image.png" alt="This is an example image" />
                 </div>
             </div>
@@ -55,7 +55,7 @@
     				</h1>
                 </div>
                 <div class="billboard__image">
-                    <div class="bungo">
+                    <div class="image">
                         <img class="" src="../display/display-image.png" alt="This is an example image" />
                     </div>
                 </div>
@@ -63,4 +63,29 @@
 		</div>
 	</section>
     <p style="margin-bottom: 100px;">&nbsp;</p>
+    <section class="container" >
+        <div class="grid" >
+            <!-- half width -->
+            <div class="grid__cell grid__cell--size-6">
+                <div class="block block--claustrophobic" style="background-color: red;">
+                    Hello
+                </div>
+            </div>
+            <!-- half width -->
+            <div class="grid__cell grid__cell--size-6">
+                <div class="block block--claustrophobic" style="background-color: red;">
+                    Hello
+                </div>
+            </div>
+            <!-- full width on xs, half width on large -->
+            <div class="grid__cell grid__cell--size-12-xs grid__cell--size-6-lg" style="background-color: red;">
+                Hello
+            </div>
+            <!-- full width on xs, half width on large -->
+            <div class="grid__cell grid__cell--size-12-xs grid__cell--size-6-lg" style="background-color: red;">
+                Hello
+            </div>
+        </div>
+        <p style="margin-bottom: 100px;">&nbsp;</p>
+    </section>
 {% endmacro %}
