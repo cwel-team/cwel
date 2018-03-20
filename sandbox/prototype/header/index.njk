@@ -5,47 +5,37 @@
 <main class="container">
     <div class="header">
         <div class="header__logo"></div>
-        <div class="header__nav">
-            <ul nav class="header__nav-list">
-                <li class="header__nav-item" ng-class="{hidden: count < 1}">
+        <div nav class="header__nav">
+            <ul class="header__nav-list">
+                <li class="header__nav-item">
                     <span>home</span>
                 </li>
-                <li class="header__nav-item" ng-class="{hidden: count < 2}">
+                <li class="header__nav-item">
                     <span>About</span>
                 </li>
-                <li class="header__nav-item" ng-class="{hidden: count < 3}">
+                <li class="header__nav-item">
                     <span>News</span>
                 </li>
-                <li class="header__nav-item" ng-class="{hidden: count < 4}">
+                <li class="header__nav-item">
                     <span>Buying</span>
                 </li>
-                <li class="header__nav-item" ng-class="{hidden: count < 5}">
+                <li class="header__nav-item">
                     <span>Selling</span>
                 </li>
-                <li class="header__nav-item" ng-class="{hidden: count < 6}">
+                <li class="header__nav-item">
                      <span>Landlords</span>
                 </li>
-                
-                <li class="dropdown__nav-item" ng-class="{active: count < 1}">
-                    <span>home</span>
-                </li>
-                 <li class="dropdown__nav-item" ng-class="{active: count < 2}">
-                    <span>about</span>
-                </li>
-                <li class="dropdown__nav-item" ng-class="{active: count < 3}">
-                    <span>news</span>
-                </li>
-                <li class="dropdown__nav-item" ng-class="{active: count < 4}">
-                    <span>buying</span>
-                </li>
-                <li class="dropdown__nav-item" ng-class="{active: count < 5}">
-                    <span>selling</span>
-                </li>
-                <li class="dropdown__nav-item" ng-class="{active: count < 6}">
-                    <span>landlords</span>
-                </li>
             </ul>
-            <div>more</div>
+
+            <div class="dropdown" ng-class="{active: count > 1, hidden: count < 1}">
+                <button class="dropdown__button">
+                    <span>more...</span>
+                </button>
+                <ul class="dropdown__list">
+                    
+                </ul>
+            </div>
+
         </div>
     </div>
 </main>
