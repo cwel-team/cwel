@@ -43,3 +43,8 @@ Display on: ${deviceName}
 Buttons on: ${deviceName}
     selenium grid ${grid_url} --page ${host_url}/component/button ${gridArgs} ${gridArgsForAll}
         check ${componentSpecPath}/button/button.gspec --include '${tags}'
+
+@@ parameterized using devices
+Mini-Contact on: ${deviceName}
+    selenium grid ${grid_url} --page ${host_url}/component/mini-contact ${gridArgs} ${gridArgsForAll}
+        check ${componentSpecPath}/mini-contact/mini-contact.gspec --include '${tags}'

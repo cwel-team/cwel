@@ -31,3 +31,8 @@ Display at breakpoint: ${breakpointName}
 Button at breakpoint: ${breakpointName}
     ${host_url}/component/button ${size}
         check ${componentSpecPath}/button/button.gspec --include '${tags}'
+
+@@ parameterized using breakpoints
+Mini-Contact at breakpoint: ${breakpointName}
+    ${host_url}/component/mini-contact ${size}
+        check ${componentSpecPath}/mini-contact/mini-contact.gspec --include '${tags}'
