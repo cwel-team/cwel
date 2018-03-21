@@ -28,7 +28,6 @@ app.directive('nav', ($window, CwomponentFactory) => {
                 innerWidth = listWidth + lastChild.clientWidth + 20;
                 outerWidth = nav - btn.clientWidth;
 
-                // should we have two navs ? 
                 if (listWidth > outerWidth) {
                     if (listChild) {
                         dropdown.prepend(listChild);

@@ -2,41 +2,40 @@
 {% set title = 'Header' %}
 
 {% block content %}
-<main class="container">
-    <div class="header">
-        <div class="header__logo"></div>
-        <div nav class="header__nav">
-            <ul class="header__nav-list">
-                <li class="header__nav-item">
-                    <span>home</span>
-                </li>
-                <li class="header__nav-item">
-                    <span>About</span>
-                </li>
-                <li class="header__nav-item">
-                    <span>News</span>
-                </li>
-                <li class="header__nav-item">
-                    <span>Buying</span>
-                </li>
-                <li class="header__nav-item">
-                    <span>Selling</span>
-                </li>
-                <li class="header__nav-item">
-                     <span>Landlords</span>
-                </li>
+<div class="header">
+    <div class="header__logo"></div>
+    <div class="header__title">Mortgages</div>
+    <div nav class="header__nav">
+        <ul class="header__nav-list">
+            <li class="header__nav-item">
+                <a href="#">home</a>
+            </li>
+            <li class="header__nav-item">
+                <a href="#">About</a>
+            </li>
+            <li class="header__nav-item">
+                <a href="#">News</a>
+            </li>
+            <li class="header__nav-item">
+                <a href="#">Buying</a>
+            </li>
+            <li class="header__nav-item">
+                <a href="#">Selling</a>
+            </li>
+            <li class="header__nav-item">
+                 <a href="#">Landlords</a>
+            </li>
+        </ul>
+
+        <div class="dropdown" ng-class="{active: count > 1, hidden: count < 1}">
+            <button class="dropdown__button">
+                <span>more...</span>
+            </button>
+            <ul class="dropdown__list">
+                
             </ul>
-
-            <div class="dropdown" ng-class="{active: count > 1, hidden: count < 1}">
-                <button class="dropdown__button">
-                    <span>more...</span>
-                </button>
-                <ul class="dropdown__list">
-                    
-                </ul>
-            </div>
-
         </div>
     </div>
-</main>
+    
+</div>
 {% endblock %}
