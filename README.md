@@ -67,10 +67,13 @@ can be made. To do so, follow the steps outlined in the [sandbox readme](sandbox
 To document new components, or any piece of CWEL, documentation pages
 can be written. For instuctions, read the readme for [documentation pages](docs-readme).
 
+### Deploy
+
+To deploy code to npm and to deploy docs site to Github pages [deploy readme](deploy).
+
 ## To do
 
 For a list of miscellaneous tasks, see the [todo readme](todo-readme).
-
 
 
 [eslint]: https://eslint.org/
